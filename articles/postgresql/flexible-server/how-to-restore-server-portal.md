@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 01/02/2024
+ms.date: 01/23/2024
 ---
 
 # Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server instance

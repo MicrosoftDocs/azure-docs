@@ -39,6 +39,8 @@ Here are common limitations that apply to migration scenarios:
 
 - The migration service doesn't support superuser privileges and objects.
 
+- Azure Database for PostgreSQL - Flexible Server does not support the creation of custom tablespaces due to superuser privilege restrictions. During migration, data from custom tablespaces in the source PostgreSQL instance is migrated into the default tablespaces of the target Azure Database for PostgreSQL - Flexible Server.
+
 - The following PostgreSQL objects can't be migrated into the PostgreSQL flexible server target:
     - Create casts
     - Creation of FTS parsers and FTS templates

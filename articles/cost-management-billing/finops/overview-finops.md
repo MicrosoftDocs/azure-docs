@@ -5,8 +5,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 06/21/2023
 ms.topic: overview
-ms.service: cost-management-billing
-ms.subservice: finops
+ms.service: finops
 ms.reviewer: micflan
 ---
 

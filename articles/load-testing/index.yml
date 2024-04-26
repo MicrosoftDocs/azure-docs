@@ -90,6 +90,8 @@ landingContent:
             url: quickstart-add-load-test-cicd.md
           - text: Manually add load tests to CI/CD
             url: how-to-configure-load-test-cicd.md
+          - text: Test App Service web apps
+            url: how-to-create-load-test-app-service.md
 
   # Card
   - title: Analyze test results

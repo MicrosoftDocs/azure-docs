@@ -341,3 +341,4 @@ In this article, you learned how to create and provide an identity to access you
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
+

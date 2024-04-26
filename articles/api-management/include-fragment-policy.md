@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Include fragment
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `include-fragment` policy inserts the contents of a previously created [policy fragment](policy-fragments.md) in the policy definition. A policy fragment is a centrally managed, reusable XML policy snippet that can be included in policy definitions in your API Management instance.
 
@@ -34,7 +36,7 @@ The policy inserts the policy fragment as-is at the location you select in the p
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -50,6 +52,6 @@ In the following example, the policy fragment named *myFragment* is added in the
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Policy control and flow](api-management-policies.md#policy-control-and-flow)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

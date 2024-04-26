@@ -401,7 +401,7 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 1. Select the **Virtual machine** and the **Instance count** that you want to assign to the deployment.
 1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resource configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
-1. Indicate if you want to enable **Inferencing data collection (preview)**.
+1. Indicate if you want to enable **Inferencing data collection**.
 1. Indicate if you want to enable **Package Model (preview)**.
 1. Select **Deploy**. After a few moments, the endpoint's **Details** page opens up.
 1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.

@@ -259,7 +259,6 @@ In the following code example, the `.` (dot) tells `containerapp up` to run in t
 ```azurecli
 az containerapp up \
   --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
   --source .
@@ -271,13 +270,14 @@ az containerapp up \
 ```azurecli
 az containerapp up \
   --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
   --ingress external \
   --target-port 8080 \
   --source .
 ```
+> [!IMPORTANT]
+> In order to deploy your container app to an existing resource group, include `--resource-group yourResourceGroup` to the `containerapp up` command.
 
 ::: zone-end
 

@@ -5,7 +5,7 @@ author: bwren
 ms.author: abbyweisberg
 ms.reviewer: yagil
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 04/01/2024
 ---
 
 # Prometheus alerts in Azure Monitor

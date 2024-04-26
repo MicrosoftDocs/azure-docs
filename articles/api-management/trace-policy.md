@@ -5,11 +5,13 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Trace
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `trace` policy adds a custom trace into the request tracing output in the test console, Application Insights telemetries, and/or resource logs.
 
@@ -19,6 +21,8 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 -   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
+
+[!INCLUDE [api-management-availability-tracing-v2-tiers](../../includes/api-management-availability-tracing-v2-tiers.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -56,7 +60,7 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -69,6 +73,6 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Logging](api-management-policies.md#logging)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

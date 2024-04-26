@@ -22,7 +22,7 @@ To set Microsoft Defender for Cloud to map IaC templates to cloud resources, you
   - Supported cloud platforms: Microsoft Azure, Amazon Web Services, Google Cloud Platform
   - Supported source code management systems: Azure DevOps
   - Supported template languages: Azure Resource Manager, Bicep, CloudFormation, Terraform
-  
+
 > [!NOTE]
 > Microsoft Defender for Cloud uses only the following tags from IaC templates for mapping:
 >

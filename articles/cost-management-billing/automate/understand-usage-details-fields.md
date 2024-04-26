@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/26/2024
+ms.date: 04/15/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -38,6 +38,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
+| AvailabilityZone | External account | Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed. |
 | BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BenefitName | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
@@ -75,8 +76,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
 | MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
-| OfferId¹ | All | Name of the offer purchased. |
-| pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. |
+| OfferId¹ | All | Name of the Azure offer, which is the type of Azure subscription that you have. For more information, see supported [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/). |
+| pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details). |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit was applied. |
 | PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
 | PartnerName | MPA | Name of the partner Microsoft Entra tenant. |
@@ -90,9 +91,9 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
-| Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
+| Provider | MCA | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
-| PublisherName | All | Publisher for Marketplace services. |
+| PublisherName | All | The name of the publisher. For first-party services, the value should be listed as `Microsoft` or `Microsoft Corporation`.  |
 | PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
 | Quantity³ | All | The number of units used by the given product or service for a given day. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
@@ -115,7 +116,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
-| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (pay-as-you-go price) for your contract. |
+| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details). |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 

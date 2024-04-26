@@ -1,8 +1,8 @@
 ---
 title: Stream data from Azure Stream Analytics into confluent cloud kafka
 description: Learn about how to set up an Azure Stream Analytics job as a producer to confluent cloud kafka
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.custom: devx-track-azurecli
 ms.topic: how-to

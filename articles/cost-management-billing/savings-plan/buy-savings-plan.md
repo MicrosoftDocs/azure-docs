@@ -23,18 +23,18 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 > Azure savings plan isn't supported for the China legacy Online Service Premium Agreement (OSPA) platform.
 
 ### Enterprise Agreement customers
+Saving plan purchasing for Enterprice Agreement (EA) customers is limited to the following:
+- EA admins with write permissions can purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
+- Users with Subscription owner or Savings plan purchaser roles in at least one subscription in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
 
-- EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
-- Subscription owners for one of the subscriptions in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
-
-Enterprise Agreement (EA) customers can limit purchases to only EA admins by disabling the Add Savings Plan option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
+EA customers can limit savings plan purchases to only EA admins by disabling the Add Savings Plan option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
 
 ### Microsoft Customer Agreement (MCA) customers
+Saving plan purchasing for Microsoft Customer Agreement (MCA) customers is limited to the following:
+- Users with billing profile contributor permissions or higher can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No subscription-specific permissions are needed.
+- Users with Subscription owner or Savings plan purchaser roles in at least one subscription in the billing profile can purchase savings plans from **Home** > **Savings plan**.
 
-- Customers with billing profile contributor permissions or higher can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No subscription-specific permissions are needed.
-- Subscription owners for one of the subscriptions in the billing profile can purchase savings plans from **Home** > **Savings plan**.
-
-To disallow savings plan purchases on a billing profile, billing profile contributors can navigate to the **Policies** menu under the billing profile and adjust the Azure Savings Plan option.
+MCA customers can limit savings plan purchases to users with billing profile contributor permissions or higher by disabling the Add Savings Plan option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
 
 ### Microsoft Partner Agreement partners
 
@@ -80,7 +80,7 @@ Buy savings plans by using Azure RBAC permissions or with permissions on your bi
 
 #### To purchase using Azure RBAC permissions
 
-- You must be an Owner of the subscription that you plan to use, specified as `billingScopeId`.
+- You must have the Savings plan purchaser role within, or be an Owner of, the subscription that you plan to use, specified as `billingScopeId`.
 - The `billingScopeId` property in the request body must use the `/subscriptions/10000000-0000-0000-0000-000000000000` format.
 
 #### To purchase using billing permissions

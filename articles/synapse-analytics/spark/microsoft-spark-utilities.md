@@ -399,7 +399,7 @@ mssparkutils.fs.fastcp('source file or directory', 'destination file or director
 ```
 
 > [!NOTE]
-> The method only supports in Spark 3.3 and Spark 3.4.
+> The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
 
 ### Preview file content
 
@@ -684,7 +684,7 @@ mssparkutils.notebook.runMultiple(DAG)
 
 > [!NOTE]
 >
-> - The method only supports in Spark 3.3 and Spark 3.4.
+> - The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
 > - The parallelism degree of the multiple notebook run is restricted to the total available compute resource of a Spark session.
 
 

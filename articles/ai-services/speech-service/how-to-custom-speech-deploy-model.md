@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/19/2024
+ms.date: 4/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -115,15 +115,15 @@ spx help csr endpoint
 
 ::: zone pivot="rest-api"
 
-To create an endpoint and deploy a model, use the [Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create an endpoint and deploy a model, use the [Endpoints_Create](/rest/api/speechtotext/endpoints/create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
 - Set the required `model` property to the URI of the model that you want deployed to the endpoint. 
 - Set the required `locale` property. The endpoint locale must match the locale of the model. The locale can't be changed later.
 - Set the required `displayName` property. This is the name that is displayed in the Speech Studio.
 - Optionally, you can set the `loggingEnabled` property within `properties`. Set this to `true` to enable audio and diagnostic [logging](#view-logging-data) of the endpoint's traffic. The default is `false`. 
 
-Make an HTTP POST request using the URI as shown in the following [Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP POST request using the URI as shown in the following [Endpoints_Create](/rest/api/speechtotext/endpoints/create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -174,7 +174,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the endpoint's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Get) details about the endpoint's project, model, and logs. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Delete) the endpoint.
+The top-level `self` property in the response body is the endpoint's URI. Use this URI to [get](/rest/api/speechtotext/endpoints/get) details about the endpoint's project, model, and logs. You also use this URI to [update](/rest/api/speechtotext/endpoints/update) or [delete](/rest/api/speechtotext/endpoints/delete) the endpoint.
 
 ::: zone-end
 
@@ -249,7 +249,7 @@ spx help csr endpoint
 
 ::: zone pivot="rest-api"
 
-To redeploy the custom endpoint with a new model, use the [Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To redeploy the custom endpoint with a new model, use the [Endpoints_Update](/rest/api/speechtotext/endpoints/update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `model` property to the URI of the model that you want deployed to the endpoint.
 
@@ -332,7 +332,7 @@ The locations of each log file with more details are returned in the response bo
 
 ::: zone pivot="rest-api"
 
-To get logs for an endpoint, start by using the [Endpoints_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
+To get logs for an endpoint, start by using the [Endpoints_Get](/rest/api/speechtotext/endpoints/get) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEndpointId` with your endpoint ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

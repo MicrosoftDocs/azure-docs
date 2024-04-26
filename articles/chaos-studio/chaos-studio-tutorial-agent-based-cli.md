@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Create a chaos experiment that uses an agent-based fault with the Azure CLI
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Run this experiment to help you defend against an application from becoming resource starved.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high % of CPU utilization event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Run this experiment to help you defend against an application from becoming resource starved.
 
 You can use these same steps to set up and run an experiment for any agent-based fault. An *agent-based* fault requires setup and installation of the chaos agent. A service-direct fault runs directly against an Azure resource without any need for instrumentation.
 

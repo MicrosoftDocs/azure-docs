@@ -356,7 +356,7 @@ If you're already a Contributor or Owner of your search service, you can present
 
 ## Grant access to a single index
 
-In some scenarios, you may want to limit application's access to a single resource, such as an index. 
+In some scenarios, you might want to limit an application's access to a single resource, such as an index.
 
 The portal doesn't currently support role assignments at this level of granularity, but it can be done with [PowerShell](../role-based-access-control/role-assignments-powershell.md) or the [Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
@@ -500,7 +500,10 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 ## Disable API key authentication
 
-API keys can't be deleted, but they can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+Key access, or local authentication, can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+
+> [!NOTE]
+> Admin API keys can only be disabled, not deleted. Query API keys can be deleted.
 
 Owner or Contributor permissions are required to disable features.
 
@@ -565,3 +568,10 @@ To enable a Conditional Access policy for Azure AI Search, follow the below step
 
 > [!IMPORTANT]
 > If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies can't be enforced on a specific search service. Instead make sure you select the general **Azure AI Search** cloud app.
+
+## Troubleshooting role-based access control issues
+
+When developing applications that use role-based access control for authentication, some common issues might occur:
+
+* If the authorization token came from a [managed identity](/entra/identity/managed-identities-azure-resources/overview) and the appropriate permissions were recently assigned, it [might take several hours](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) for these permissions assignments to take effect.
+* The default configuration for a search service is [key-based authentication only](#configure-role-based-access-for-data-plane). If you didn't change the default key setting to **Both** or **Role-based access control**, then all requests using role-based authentication are automatically denied regardless of the underlying permissions.

@@ -86,3 +86,4 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 [ephemeral-os]: concepts-storage.md#ephemeral-os-disk
 [state-billing-azure-vm]: ../virtual-machines/states-billing.md
 [spot-node-pool]: spot-node-pool.md
+

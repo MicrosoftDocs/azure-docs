@@ -88,6 +88,6 @@ landingContent:
         links:
           - text: Monitor the deployment status
             url:  quickstart-monitor-deployment-status.md
-          - text: Perform health and configuration checks post-deployment
+          - text: Configure the Azure Operator 5G Core extension for status monitoring
             url: quickstart-perform-checks-post-deployment.md
          

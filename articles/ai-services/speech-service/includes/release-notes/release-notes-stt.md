@@ -6,6 +6,14 @@ ms.date: 3/13/2024
 ms.author: eur
 ---
 
+### April 2024 release
+
+#### Real-time speech to text with diariazation (GA)
+
+Real-time speech to text with diariazation is now generally available.
+
+Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
+
 ### March 2024 release
 
 #### Whisper general availability (GA)

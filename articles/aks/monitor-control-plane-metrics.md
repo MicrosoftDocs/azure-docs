@@ -220,6 +220,14 @@ Run the following command to disable scraping of control plane metrics on the AK
 az feature unregister "Microsoft.ContainerService" --name "AzureMonitorMetricsControlPlanePreview"
 ```
 
+## FAQs
+* Can these metrics be scraped with self hosted prometheus?
+  * The control plane metrics currently cannot be scraped with self hosted prometheus. Self hosted prometheus will be able to scrape the single instance depending on the load balancer. These metrics are notaccurate as there are often multiple replicas of the control plane metrics which will only be visible through Managed Prometheus
+
+* Why is the user agent not available through the control plane metrics?
+  * [Control plane metrics in Kubernetes](https://kubernetes.io/docs/reference/instrumentation/metrics/) do not have the user agent. The user agent is only available through Control Plane logs available through [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md)
+
+
 ## Next steps
 
 After evaluating this preview feature, [share your feedback][share-feedback]. We're interested in hearing what you think.
@@ -247,3 +255,4 @@ After evaluating this preview feature, [share your feedback][share-feedback]. We
 [list-of-default-metrics-aks-control-plane]: control-plane-metrics-default-list.md
 [az-feature-unregister]: /cli/azure/feature#az-feature-unregister
 [release-tracker]: https://releases.aks.azure.com/#tabversion
+

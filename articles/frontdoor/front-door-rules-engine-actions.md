@@ -396,6 +396,8 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 In Azure Front Door (classic), a [Rules engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
 
 An action defines the behavior that gets applied to the request type that matches the condition or set of match conditions. In the Rules engine configuration, a rule can have up to 10 matching conditions and 5 actions. You can only have one *Override Routing Configuration* action in a single rule.

@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 02/22/2024
+ms.date: 04/11/2024
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -87,7 +87,7 @@ Enable replication as follows:
 7. In **Virtual Network**, select the Azure VNet/subnet, which the Azure VMs join after migration.
 8. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
-    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. Availability Set with Proximity Placement Groups is supported.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
 9. In **Disk encryption type**, select:
     - Encryption-at-rest with platform-managed key

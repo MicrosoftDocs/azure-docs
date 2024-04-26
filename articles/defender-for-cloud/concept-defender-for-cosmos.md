@@ -52,7 +52,7 @@ Threat intelligence security alerts are triggered for:
 - **Suspicious database activity**: <br>
     For example, suspicious key-listing patterns that resemble known malicious lateral movement techniques and suspicious data extraction patterns.
 
-## Next steps
+## Next step
 
 In this article, you learned about Microsoft Defender for Azure Cosmos DB.
 

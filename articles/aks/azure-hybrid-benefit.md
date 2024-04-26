@@ -82,3 +82,4 @@ To learn more about Windows containers on AKS, see the following resources:
 * [Learn how to deploy, manage, and monitor Windows containers on AKS](/training/paths/deploy-manage-monitor-wincontainers-aks).
 * Open an issue or provide feedback in the [Windows containers GitHub repository](https://github.com/microsoft/Windows-Containers/issues).
 * Review the [third-party partner solutions for Windows on AKS](windows-aks-partner-solutions.md).
+

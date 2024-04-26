@@ -1016,6 +1016,7 @@ If you use an [on-premises data gateway for Azure Logic Apps](../install-on-prem
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
+>
 > Extended logging might affect your workflow's performance when always enabled. As a best practice, 
 > turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
@@ -1083,7 +1084,7 @@ See the steps for [SAP logging for Consumption logic apps in multitenant workflo
 
 ## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. *Traces* include text information that's used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
 
 You can control this tracing capability at the application level by adding the following settings:
 
@@ -1096,6 +1097,7 @@ You can control this tracing capability at the application level by adding the f
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+
    * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
    For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](../edit-app-settings-host-settings.md#manage-app-settings).
@@ -1128,12 +1130,12 @@ You can control this tracing capability at the application level by adding the f
 
 #### CPIC Trace Levels
 
-|Value|Description|
-|---|---|
-|Off|No logging|
-|Basic|Basic logging|
-|Verbose|Verbose logging|
-|VerboseWithData|Verbose logging with all server response dump|
+| Value | Description |
+|-------|-------------|
+| Off | No logging |
+| Basic | Basic logging |
+| Verbose | Verbose logging |
+| VerboseWithData | Verbose logging with all server response dump |
 
 ### View the trace
 
@@ -1145,10 +1147,11 @@ You can control this tracing capability at the application level by adding the f
 
    A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
 
-   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find:
+1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following :
 
-   1. _NCo Trace Logs_: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
-   1. _CPIC Trace Logs_: One or multiple files named **nco_cpic_NNNN.trc** files where **NNNN** is thread identifier.
+   * NCo trace logs: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
+   
+   * CPIC trace logs: One or multiple files named **nco_cpic_NNNN.trc** files where **NNNN** is thread identifier.
 
 1. To view the content in a log or trace file, select the **Edit** button next to a file.
 
@@ -1183,8 +1186,6 @@ SAP NCo metrics and traces are based on SAP NCo metrics, specifically the follow
 * RfcRepositoryMonitor.
 
 For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
-
-*Traces* include text information that is used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
 
 ### Set up SAP telemetry for Application Insights
 

@@ -33,6 +33,8 @@
     href: ingestion-agent-overview.md
   - name: Managed identity
     href: managed-identity.md
+  - name: Data product factory
+    href: data-product-factory.md
 - name: How-to guides
   expanded: false
   items:

@@ -28,9 +28,9 @@ This guide explains how to change an application's state in Azure Spring Apps by
 
 ## Application state
 
-Your applications running in Azure Spring Apps may not need to run continuously. For example, an application may not always need to run if it's only used during business hours.
+Your applications running in Azure Spring Apps might not need to run continuously. For example, an application might not always need to run if it's used only during business hours.
 
-There may be times where you wish to stop or start an application. You can also restart an application as part of general troubleshooting steps or delete an application you no longer require.
+There might be times where you wish to stop or start an application. You can also restart an application as part of general troubleshooting steps or delete an application you no longer require.
 
 ## Manage application state
 
@@ -40,7 +40,7 @@ After you deploy an application, you can start, stop, and delete it by using the
 
 1. Go to your Azure Spring Apps service instance in the [Azure portal](https://portal.azure.com).
 
-1. Select **Application Dashboard**.
+1. Go to **Settings** and select **Apps**.
 
 1. Select the application whose state you want to change.
 

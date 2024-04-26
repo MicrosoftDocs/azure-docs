@@ -325,7 +325,7 @@ This example removes a label to a revision: (Replace the \<PLACEHOLDERS\> with y
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp revision label add \
+az containerapp revision label remove \
   --revision <REVISION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
   --label <LABEL_NAME>
@@ -334,7 +334,7 @@ az containerapp revision label add \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp revision label add `
+az containerapp revision label remove `
   --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME> `
   --label <LABEL_NAME>

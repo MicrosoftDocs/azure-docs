@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 03/12/2024
+  ms.date: 03/31/2024
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -23,7 +23,7 @@ sections:
       - question: |
           What tools does Network Watcher provide?
         answer: |
-          Network Watcher provides three major sets of capabilities
+          Network Watcher provides three major sets of capabilities:
           * Monitoring
             * [Topology view](./view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
             * [Connection monitor](./connection-monitor-overview.md) allows you to monitor connectivity and latency between endpoints inside and outside Azure.
@@ -116,25 +116,30 @@ sections:
   - name: Network Watcher Agent
     questions:
       - question: |
-          Why do I need to install the Network Watcher agent? 
+          Why do I need to install the Network Watcher Agent? 
         answer: |
-          The Network Watcher agent is required for any Network Watcher feature that generates or intercepts traffic from a virtual machine. 
+          The Network Watcher Agent is required for any Network Watcher feature that generates or intercepts traffic from a virtual machine. 
 
       - question: |
-          Which features require the Network Watcher agent?
+          Which features require the Network Watcher Agent?
         answer: |
           The Packet capture, Connection troubleshoot and Connection monitor features require the Network Watcher extension to be present.
 
       - question: |
-          What is the latest version of the Network Watcher agent?
+          What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
+          [!INCLUDE [Network Watcher Agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
 
       - question: |
-          What ports does the Network Watcher agent use?
+          What ports does the Network Watcher Agent use?
         answer: |
-          - **Linux**: the Network Watcher agent uses available ports starting from port 50000 and above until it reaches port 65535.
-          - **Windows**: the Network Watcher agent uses the ports that the operating system responds with when queried for available ports.
+          - **Linux**: the Network Watcher Agent uses available ports starting from `port 50000` until it reaches `port 65535`.
+          - **Windows**: the Network Watcher Agent uses the ports that the operating system responds with when queried for available ports.
+
+      - question: |
+          What IP addresses does the Network Watcher Agent communicate with?
+        answer: |
+          The Network Watcher Agent requires outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform.
 
   - name: Connection monitor
     questions:
@@ -193,7 +198,7 @@ sections:
       - question: |
           Can I log ICMP traffic using flow logs?
         answer: |
-          No. NSG flow logs and VNet flow logs don't support ICMP protocol.
+          No, NSG flow logs and VNet flow logs don't support ICMP protocol.
 
       - question: |
           Can I delete a network security group that has flow logging enabled?
@@ -203,7 +208,7 @@ sections:
       - question: |
           Can I move a network security group that has flow logging enabled to a different resource group or subscription?
         answer: |
-          Yes, but you you must delete the associated flow log resource. After you migrate the network security group, you can re-create the flow logs to enable flow logging on it.
+          Yes, but you must delete the associated flow log resource. After you migrate the network security group, you can re-create the flow logs to enable flow logging on it.
 
       - question: |
           Can I use a storage account in a different subscription than the network security group or virtual network that the flow log is enabled for?

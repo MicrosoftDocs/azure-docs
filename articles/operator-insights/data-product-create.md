@@ -228,7 +228,7 @@ You create the Azure Operator Insights Data Product resource.
     1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
    
 1. To add owner(s) for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
-1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your data product resource.
+1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your Data Product resource.
 1. Select **Review + create**.
 1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
 
@@ -268,7 +268,7 @@ Once your Data Product instance is created, you can deploy a sample insights das
 > [!NOTE] 
 > The reader role is required for you to have access to the insights consumption URL.
 
-3. Download the sample JSON template file for your data product's dashboard:
+3. Download the sample JSON template file for your Data Product's dashboard:
     * Quality of Experience - Affirmed MCC GIGW: [https://go.microsoft.com/fwlink/p/?linkid=2254536](https://go.microsoft.com/fwlink/p/?linkid=2254536)
     * Monitoring - Affirmed MCC: [https://go.microsoft.com/fwlink/p/?linkid=2254551](https://go.microsoft.com/fwlink/?linkid=2254551)
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
@@ -321,7 +321,7 @@ The consumption URL also allows you to write your own Kusto query to get insight
 
 ## Optionally, delete Azure resources
 
-If you're using this data product to explore Azure Operator Insights, you should delete the resources you've created to avoid unnecessary Azure costs.
+If you're using this Data Product to explore Azure Operator Insights, you should delete the resources you've created to avoid unnecessary Azure costs.
 
 # [Portal](#tab/azure-portal)
 
@@ -339,7 +339,7 @@ az group delete --name "ResourceGroup"
 
 ## Next step
 
-Upload data to your data product. If you're planning to do this with the Azure Operator Insights ingestion agent:
+Upload data to your Data Product. If you're planning to do this with the Azure Operator Insights ingestion agent:
 
-1. Read the documentation for your data product to determine the requirements.
+1. Read the documentation for your Data Product to determine the requirements.
 1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).

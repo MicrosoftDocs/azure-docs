@@ -53,7 +53,7 @@ landingContent:
         links:
           - text: OT sensor (VMware ESXi)
             url: virtual-sensor-vmware.md
-          - text: OT sensor (Microsoft Hyper-V)
+          - text: OT sensor (Microsoft Hyper-V) Gen 2
             url: virtual-sensor-hyper-v.md
           - text: On-premises management console (VMware ESXi)
             url: virtual-management-vmware.md

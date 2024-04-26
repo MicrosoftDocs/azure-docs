@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 04/09/2024
 ---
 
 # Target-based scaling for Standard workflows in single-tenant Azure Logic Apps
@@ -18,18 +18,17 @@ For example, suppose you have a new app that takes off, so demand grows from a s
 
 ## How does scaling out differ from scaling up?
 
-Scaling out versus scaling up focuses on the ways that scalability helps you adapt and handle the volume and array of data, 
-changing data volumes, and shifting workload patterns. *Horizontal scaling*, which is scaling out or in, refers to when you add more databases or divide large database into smaller nodes by using a data partitioning approach called *sharding*, which you can manage faster and more easily across servers. *Vertical scaling*, which is scaling up or down, refers to when you increase or decrease computing power or databases as needed - either by changing performance levels or by using elastic database pools to automatically adjust to your workload demands. For more overview information about scalability, see [Scaling up vs. scaling out](https://azure.microsoft.com/resources/cloud-computing-dictionary/scaling-out-vs-scaling-up).
+Scaling out versus scaling up focuses on the ways that scalability helps you adapt and handle the volume and array of data, changing data volumes, and shifting workload patterns. *Horizontal scaling*, which is scaling out or in, refers to when you add more databases or divide large database into smaller nodes by using a data partitioning approach called *sharding*, which you can manage faster and more easily across servers. *Vertical scaling*, which is scaling up or down, refers to when you increase or decrease computing power or databases as needed - either by changing performance levels or by using elastic database pools to automatically adjust to your workload demands. For more overview information about scalability, see [Scaling up vs. scaling out](https://azure.microsoft.com/resources/cloud-computing-dictionary/scaling-out-vs-scaling-up).
 
 ## Scaling out and in at runtime
 
-Single-tenant Azure Logic Apps currently uses a *target-based scaling* model to scale out or in, [similar to Azure Functions](../azure-functions/functions-target-based-scaling.md). This model is based on the target number of worker instances that you want to specify and provides a faster, simpler, and more intuitive scaling mechanism.
+Currently, single-tenant Azure Logic Apps uses an *incremental scaling model* that adds or removes a maximum of one worker instance for each [new instance rate](../azure-functions/event-driven-scaling.md#understanding-scaling-behaviors), and involves complex decisions that determine when to scale. The Azure Logic Apps scale monitor votes to scale up, scale down, or keep the current number of worker instances for your logic app, based on [*workflow job execution delays*](#workflow-job-execution-delay).
+
+Azure Logic Apps also has the option to use a *target-based scaling* model to scale out or in, [similar to Azure Functions](../azure-functions/functions-target-based-scaling.md). This model is based on the target number of worker instances that you want to specify and provides a faster, simpler, and more intuitive scaling mechanism.
 
 The following diagram shows the components in the runtime scaling architecture for single-tenant Azure Logic Apps:
 
 :::image type="content" source="media/target-based-scaling-overview/runtime-scaling-architecture.png" alt-text="Architecture diagram shows runtime scaling components in Standard logic apps." lightbox="media/target-based-scaling-overview/runtime-scaling-architecture.png":::
-
-Previously, Azure Logic Apps used an *incremental scaling model* that added or removed a maximum of one worker instance for each [new instance rate](../azure-functions/event-driven-scaling.md#understanding-scaling-behaviors) and also involved complex decisions that determined when to scale. The Azure Logic Apps scale monitor voted to scale up, scale down, or keep the current number of worker instances for your logic app, based on [*workflow job execution delays*](#workflow-job-execution-delay).
 
 <a name="workflow-job-execution-delay"></a>
 
@@ -42,7 +41,7 @@ Previously, Azure Logic Apps used an *incremental scaling model* that added or r
 > The scale monitor makes scaling decisions to keep the execution delays under control. For more 
 > information about the runtime schedules and runs jobs, see [Azure Logic Apps Running Anywhere](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
-By comparison, target-based scaling lets you scale up to four worker instances at a time. The scale monitor calculates the desired number of worker instances required to process jobs across the job queues and returns this number to the scale controller, which helps make decisions about scaling. Also, the target-based scaling model also includes host settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. This capability lets you achieve higher throughput and reduced latency for fluctuating Standard logic app workloads.
+In comparison, target-based scaling lets you scale up to four worker instances at a time. The scale monitor calculates the desired number of worker instances required to process jobs across the job queues and returns this number to the scale controller, which helps make decisions about scaling. Also, the target-based scaling model also includes host settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. This capability lets you achieve higher throughput and reduced latency for fluctuating Standard logic app workloads.
 
 The following diagram shows the sequence for how the scaling components interact in target-based scaling:
 

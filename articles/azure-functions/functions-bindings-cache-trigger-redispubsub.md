@@ -135,6 +135,8 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisPubSubT
 
 ### [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 This sample listens to the channel `pubsubTest`.
 
 ```csharp

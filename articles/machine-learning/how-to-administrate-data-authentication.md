@@ -23,22 +23,34 @@ Learn how to manage data access and how to authenticate in Azure Machine Learnin
 > [!IMPORTANT]
 > This article is intended for Azure administrators who want to create the required infrastructure for an Azure Machine Learning solution.
 
-In general, data access from studio involves these checks:
+## Credential-based data authentication
+In general, credential-based data authentication from studio involves these checks:
+* Does the user who is accessing data from the credential-based datastore have been assigned a RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
+    - This permission is required to retrieve credentials from the datastore on behalf of the user.
+* Does the stored credential (service principal, account key, or sas token) have access to the data resource?
+
+## Identity-based data authentication
+In general, identity-based data authentication from studio involves these checks:
 
 * Which user wants to access the resources?
-    - Depending on the storage type, different types of authentication are available, for example
-      -  account key
-      -  token
-      -  service principal
-      -  managed identity
+    - Depending on the conext the data is being accessed, different types of authentication are available, for example
       -  user identity
+      -  compute managed identity
+      -  workspace managed identity
+    - Jobs, including the dataset "Generate Profile" option, run on a compute resource in __your subscription__, and access the data from that location. The compute managed identity needs permission to the storage resource, instead of the identity of the user that submitted the job.
     - For authentication based on a user identity, you must know *which* specific user tried to access the storage resource. For more information about _user_ authentication, see [authentication for Azure Machine Learning](how-to-setup-authentication.md). For more information about service-level authentication, see [authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
-* Does this user have permission?
-    - Does the user have the correct credentials? If yes, does the service principal, managed identity, etc., have the necessary permissions for that storage resource? Permissions are granted using Azure role-based access controls (Azure RBAC).
+* Does this user have permission for reading?
+    - Does the user identity or the compute managed identity, etc., have the necessary permissions for that storage resource? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - The storage account [Reader](../role-based-access-control/built-in-roles.md#reader) reads the storage metadata.
-    - The [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads data within a blob container.
-    - The [Contributor](../role-based-access-control/built-in-roles.md#contributor) allows write access to a storage account.
-    - More roles may be required, depending on the type of storage.
+    - The [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads and lists Blob storage containers and blobs.
+    - Please find more [Azure built-in roles for storage here](../role-based-access-control/built-in-roles/storage.md).
+* Does this user have permission for writing?
+    - Does the user identity or the compute managed identity, etc., have the necessary permissions for that storage resource? Permissions are granted using Azure role-based access controls (Azure RBAC).
+    - The storage account [Reader](../role-based-access-control/built-in-roles.md#reader) reads the storage metadata.
+    - The [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) reads, writes, and deletes Azure Storage containers and blobs. 
+    - Please find more [Azure built-in roles for storage here](../role-based-access-control/built-in-roles/storage.md).
+ 
+## Other general checks for authetication
 * Where does the access come from?
     - User: Is the client IP address in the VNet/subnet range?
     - Workspace: Is the workspace public, or does it have a private endpoint in a VNet/subnet?

@@ -49,7 +49,7 @@
   - name: Data processing and residency
     href: concept-data-processing.md
   - name: Micro agent configurations 
-    displayNAme: collectors, configuration, configurations, event-based, trigger, general
+    displayName: collectors, configuration, configurations, event-based, trigger, general
     href: concept-micro-agent-configuration.md
   - name: Micro agent event collection 
     displayName: process events, network connection
@@ -108,7 +108,7 @@
       href: concept-rtos-security-alerts-recommendations.md
   - name: Manage cloud device inventory
     href: how-to-manage-device-inventory-on-the-cloud.md
-    displayNAme: device inventory, device, inventory, EIoT, eiot
+    displayName: device inventory, device, inventory, EIoT, eiot
   - name: Move a resource to a different region
     href: how-to-region-move.md
   - name: Troubleshoot
@@ -183,7 +183,7 @@
 - name: Reference
   items:
   - name: Defender-IoT-micro-agent for Azure RTOS API (Preview)
-    displayNAme: prototype, disable
+    displayName: prototype, disable
     href: azure-rtos-security-module-api.md
   - name: Frequently asked questions
     displayName: FAQ, embedded, dependencies, data, quota, internet, 

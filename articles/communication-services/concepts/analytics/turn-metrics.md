@@ -3,7 +3,6 @@ title: TURN metrics definitions for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of TURN metrics available in the Azure portal.
 author: mkhribech
-manager: timmitchell
 services: azure-communication-services
 ms.author: mkhribech
 ms.date: 06/26/2023

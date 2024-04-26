@@ -63,7 +63,7 @@ The limits in this table apply per Speech resource when you create a custom spee
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
-| Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
+| Max text size when you're using the `text` parameter in the [Models_Create](/rest/api/speechtotext/models/create) API request | 200 KB | 500 KB |
 
 ### Text to speech quotas and limits per resource
 

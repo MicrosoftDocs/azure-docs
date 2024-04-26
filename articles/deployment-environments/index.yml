@@ -37,6 +37,8 @@ landingContent:
         links:
           - text: 'Create & configure a dev center'
             url: quickstart-create-and-configure-devcenter.md
+          - text: 'Create dev center & project (Azure Resource Manager)'
+            url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
       - linkListType: how-to-guide

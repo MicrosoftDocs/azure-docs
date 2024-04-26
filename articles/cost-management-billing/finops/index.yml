@@ -5,8 +5,7 @@ summary: FinOps combines financial management principles with cloud engineering 
 metadata:
   title: FinOps documentation
   description: FinOps combines financial management principles with cloud engineering and operations to provide organizations with a better understanding of their cloud spending and to help them make informed decisions on how to allocate and manage their cloud costs.
-  ms.service: cost-management-billing
-  ms.subservice: finops
+  ms.service: finops
   ms.topic: landing-page
   author: bandersmsft
   ms.author: banders

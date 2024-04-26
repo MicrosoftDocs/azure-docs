@@ -343,7 +343,7 @@ For Azure services, use the recommended zone names as described in the following
 >[!div class="mx-tdBreakAll"]
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
->| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.us | search.windows.us |
+>| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.azure.us | search.azure.us |
 >| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 >| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 

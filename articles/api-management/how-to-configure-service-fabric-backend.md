@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Set up a Service Fabric backend in API Management using the Azure portal
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article shows how to configure a [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) service as a custom API backend using the Azure portal. For demonstration purposes, it shows how to set up a basic stateless ASP.NET Core Reliable Service as the Service Fabric backend.
 
 For background, see [Backends in API Management](backends.md).

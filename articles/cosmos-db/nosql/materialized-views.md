@@ -1,7 +1,7 @@
 ---
 title: Materialized views (preview)
 titleSuffix: Azure Cosmos DB for NoSQL
-description: Learn how to efficiently query a base container by using predefined filters in materialized views for Azure Cosmos DB for NoSQL.
+description: Learn how to efficiently query a base container by using predefined filters in materialized views for Azure Cosmos DB for NoSQL. Use Materialized Views as Global Secondary Indexes.
 author: AbhinavTrips
 ms.author: abtripathi
 ms.reviewer: sidandrews
@@ -21,11 +21,11 @@ ms.date: 06/09/2023
 
 Applications frequently are required to make queries that don't specify a partition key. In these cases, the queries might scan through all data for a small result set. The queries end up being expensive because they inadvertently run as a cross-partition query.
 
-Materialized views, when defined, help provide a way to efficiently query a base container in Azure Cosmos DB by using filters that don't include the partition key. When users write to the base container, the materialized view is built automatically in the background. This view can have a different partition key for efficient lookups. The view also contains only fields that are explicitly projected from the base container. This view is a read-only table.
+Materialized views, when defined, help provide a way to efficiently query a base container in Azure Cosmos DB by using filters that don't include the partition key. When users write to the base container, the materialized view is built automatically in the background. This view can have a different partition key for efficient lookups. The view also contains only fields that are explicitly projected from the base container. This view is a read-only table. The Azure Cosmos DB Materialized Views for NoSQL API, can be used as Global Secondary Indexes for your workloads.
 
-With a materialized view, you can:
+With the Azure Cosmos DB Materialized Views (or the Global Secondary Index) for NoSQL API, you can:
 
-- Use the view as a lookup or mapping container to persist cross-partition scans that would otherwise be expensive queries.
+- Use the view as a lookup or mapping container to avoid cross-partition scans that would otherwise be expensive queries.
 - Provide a SQL-based predicate (without conditions) to populate only specific fields.
 - Use change feed triggers to create real-time views to simplify event-based scenarios that are commonly stored as separate containers.
 
@@ -280,7 +280,6 @@ After the materialized view is created, the materialized view container automati
 
 There are a few limitations with the Azure Cosmos DB for NoSQL API materialized view feature while it is in preview:
 
-- Materialized views can't be created on a container that existed before support for materialized views was enabled on the account. To use materialized views, create a new container after the feature is enabled.
 - `WHERE` clauses aren't supported in the materialized view definition.
 - You can project only the source container item's JSON `object` property list in the materialized view definition. Currently, the list can contain only one level of properties in the JSON tree.
 - In the materialized view definition, aliases aren't supported for fields of documents.

@@ -4,8 +4,12 @@ description: Learn how to plan your Microsoft Sentinel costs, and understand pri
 author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
-ms.topic: how-to
-ms.date: 07/05/2023
+ms.topic: conceptual
+ms.date: 03/07/2024
+ms.collection: usx-security
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 #Customer intent: As a SOC manager, plan Microsoft Sentinel costs so I can understand and optimize the costs of my SIEM.
 ---
 
@@ -19,13 +23,15 @@ Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azu
 
 This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Free trial
 
 Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
-Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+Usage beyond these limits is charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
-During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days left until the trial expires.
 
 ## Identify data sources and plan costs accordingly
 
@@ -58,13 +64,13 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
 - **Pay-As-You-Go** is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10<sup>9</sup> bytes).
 
-- Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers which are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
+- Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers that are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
 
     **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100-GB bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted rate for that tier.
 
     Increase your commitment tier anytime to optimize costs as your data volume increases. Lowering the commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
-    To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Workspaces older than July 2023 will have the option to switch to the simplified pricing tiers experience to unify billing meters, or continue to use the classic pricing tiers which separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
+    To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Switch any workspaces older than July 2023 to the simplified pricing tiers experience to unify billing meters. Or, continue to use the classic pricing tiers that separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
 
 #### Basic logs
 
@@ -78,13 +84,13 @@ Basic logs are best suited for use in playbook automation, ad-hoc querying, inve
 
 ### Simplified pricing tiers
 
-Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. Here's a screenshot showing the simplified pricing tier that all new workspaces will use.
+Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. The following screenshot shows the simplified pricing tier that all new workspaces use.
 
 :::image type="content" source="media/billing/simplified-pricing-tier.png" alt-text="Screenshot shows simplified pricing tier." lightbox="media/billing/simplified-pricing-tier.png":::
 
-Workspaces configured with classic pricing tiers have the option to switch to the simplified pricing tiers. For more information on how to **Switch to new pricing**, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
+Switch any workspace configured with classic pricing tiers to the simplified pricing tiers. For more information on how to **Switch to new pricing**, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
 
-Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and fewer steps estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current [Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) security data ingestion into Log Analytics has been extended to the simplified pricing tiers. This greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
+Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and fewer steps estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current Microsoft Defender for Servers P2 benefit granting 500 MB of security data ingestion into Log Analytics is extended to the simplified pricing tiers. This change greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each virtual machine (VM) protected in this manner. For more information, see [FAQ - Microsoft Defender for Servers P2 benefit granting 500 MB](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-).
 
 ### Understand your Microsoft Sentinel bill
 
@@ -96,7 +102,7 @@ The costs shown in the following image are for example purposes only. They're no
 
 :::image type="content" source="media/billing/sample-bill-classic.png" alt-text="Screenshot showing the Microsoft Sentinel section of a sample Azure bill, to help you estimate costs." lightbox="media/billing/sample-bill-classic.png":::
 
-Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Since ingestion and analysis are billed on a daily basis, if your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
+Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Ingestion and analysis are billed on a daily basis. If your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
 
 # [Simplified](#tab/simplified)
 The following tabs show how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
@@ -185,11 +191,11 @@ Learn about pricing for these services:
 - [BYOML pricing](https://azure.microsoft.com/pricing/details/machine-learning-studio/)
 - [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/)
 
-Any other services you use could have associated costs.
+Any other services you use might have associated costs.
 
 ## Data retention and archived logs costs
 
-After you enable Microsoft Sentinel on a Log Analytics workspace consider these configuration options: 
+After you enable Microsoft Sentinel on a Log Analytics workspace, consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 - Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
@@ -211,14 +217,22 @@ Removing Microsoft Sentinel doesn't remove the Log Analytics workspace Microsoft
 
 The following data sources are free with Microsoft Sentinel:
 
-- Azure Activity Logs.
-- Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams.
-- Security alerts, including alerts from Microsoft Defender XDR, Microsoft Defender for Cloud, Microsoft Defender for Office 365, Microsoft Defender for Identity, Microsoft Defender for Cloud Apps, and Microsoft Defender for Endpoint.
-- Microsoft Defender for Cloud and Microsoft Defender for Cloud Apps alerts. 
+- Azure Activity Logs
+- Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams
+- Security alerts, including alerts from the following sources:
+  - Microsoft Defender XDR
+  - Microsoft Defender for Cloud
+  - Microsoft Defender for Office 365
+  - Microsoft Defender for Identity
+  - Microsoft Defender for Cloud Apps
+  - Microsoft Defender for Endpoint
+- Alerts from the following sources:
+  - Microsoft Defender for Cloud
+  - Microsoft Defender for Cloud Apps
 
 Although alerts are free, the raw logs for some Microsoft Defender XDR, Defender for Cloud Apps, Microsoft Entra ID, and Azure Information Protection (AIP) data types are paid.
 
-The following table lists the data sources in Microsoft Sentinel that aren't charged. This is the same list as Log Analytics. For more information, see [excluded tables](../azure-monitor/logs/cost-logs.md#excluded-tables).
+The following table lists the data sources in Microsoft Sentinel and Log Analytics that aren't charged. For more information, see [excluded tables](../azure-monitor/logs/cost-logs.md#excluded-tables).
 
 | Microsoft Sentinel data connector   | Free data type | 
 |-------------------------------------|--------------------------------|

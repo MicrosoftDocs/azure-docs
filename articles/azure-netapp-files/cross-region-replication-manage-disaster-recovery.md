@@ -20,9 +20,9 @@ The details are described below.
 
 ## Fail over to destination volume
 
-When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume.  
+Failover is a manual process. When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume. . 
 
-1. To break replication peering, select the destination volume. Click **Replication** under Storage Service.  
+1. To break replication peering, select the destination volume. Select **Replication** under Storage Service.  
 
 2.	Check the following fields before continuing:  
     * Ensure that Mirror State shows ***Mirrored***.   

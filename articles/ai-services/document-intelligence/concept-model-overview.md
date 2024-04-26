@@ -49,26 +49,29 @@ The following table shows the available models for each current preview and stab
 |----------------|-----------|---|--|---|---|
 |Document analysis models|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
 |Document analysis models|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
-|Document analysis models|[General document](concept-general-document.md)          |moved to layout| ✔️| ✔️| n/a|
-|Prebuilt models|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
+|Document analysis models|[General document](concept-general-document.md)          |moved to layout**| ✔️| ✔️| n/a|
 |Prebuilt models|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
 |Prebuilt models|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
 |Prebuilt models|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
 |Prebuilt models|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
 |Prebuilt models|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
-|Prebuilt models|[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
-|Prebuilt models|[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
-|Prebuilt models|[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
-|Prebuilt models|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US 1040 Tax*](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
+|Prebuilt models|[US 1098 Tax*](concept-tax-document.md)                   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US 1099 Tax*](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
 |Prebuilt models|[US Mortgage 1003 URLA](concept-mortgage-documents.md)    | ✔️| n/a| n/a| n/a|
-|Prebuilt models|[US Mortgage 1008 ](concept-mortgage-documents.md)       | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US Mortgage 1008 Summary](concept-mortgage-documents.md)       | ✔️| n/a| n/a| n/a|
 |Prebuilt models|[US Mortgage closing disclosure](concept-mortgage-documents.md)   | ✔️| n/a| n/a| n/a|
-|Custom models|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
-|Custom models|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
-|Custom models|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
-|Custom models|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
+|Prebuilt models|[Marriage certificate](concept-marriage-certificate.md)   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[Credit card](concept-credit-card.md)   | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
+|Custom classification model|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
+|Custom extraction model|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
+|Customextraction model|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
+|Custom extraction model|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
 |All models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
+
+\* - Contains sub-models. See the model specific information for supported variations and sub-types.
 
 |**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|---|
@@ -96,6 +99,7 @@ Add-On* - Query fields are priced differently than the other add-on features. Se
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number, and other key information from US health insurance cards.|
 | [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
+| [US Mortgage document models](#us-mortgage-documents) | Process US mortgage forms to extract borrower loan and property information.  |
 | [Contract](#contract) | Extract agreement and party details.|
 | [Invoice](#invoice)  | Automate invoices. |
 | [Receipt](#receipt)  | Extract receipt data from receipts.|
@@ -117,9 +121,9 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2024-02-29-preview, 2023-10-31-preview)
 * [`queryFields`](concept-add-on-capabilities.md#query-fields) (2024-02-29-preview, 2023-10-31-preview) `Not available with the US.Tax models`
 
-## Analysis features
+## Model details 
 
-[!INCLUDE [input requirements](./includes/model-analysis-features.md)]
+This section describes the output you can expect from each model. Please note that you can extend the output of most models with add-on features.
 
 ### Read OCR
 
@@ -170,10 +174,9 @@ The US tax document models analyze and extract key fields and line items from a 
   |Model|Description|ModelID|
   |---|---|---|
   |US Tax W-2|Extract taxable compensation details.|**prebuilt-tax.us.W-2**|
-  |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
-  |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
-  |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
-  |US Tax 1099|Extract wage information details.|**prebuilt-tax.us.1099(variations)**|
+  US Tax 1040|Extract mortgage interest details.|**prebuilt-tax.us.1040(variations)**|
+  |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098(variations)**|
+  |US Tax 1099|Extract income received from sources other than employer.|**prebuilt-tax.us.1099(variations)**|
   
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
@@ -181,7 +184,29 @@ The US tax document models analyze and extract key fields and line items from a 
 
 > [!div class="nextstepaction"]
 > [Learn more: Tax document models](concept-tax-document.md)
+> 
 
+### US mortgage documents
+
+:::image type="icon" source="media/studio/mortgage-documents.png":::
+
+The US mortgage document models analyze and extract key fields including borrower, loan and property information from a select group of mortgage documents. The API supports the analysis of English-language US mortgage documents of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The following models are currently supported:
+
+  |Model|Description|ModelID|
+  |---|---|---|
+  |1003 End-User License Agreement (EULA)|Extract loan, borrower, property details.|**prebuilt-mortgage.us.1003**|
+  |1008 Summary document|Extract borrower, seller, property, mortgage and underwriting details.|**prebuilt-mortgage.us.1008**|
+  |Closing disclosure|Extract closing, transaction costs and loan details.|**prebuilt-mortgage.us.closingDisclosure**|
+  |Marriage certificate|Extract marriage information details for joint loan applicants.|**prebuilt-marriageCertificate**|
+  |US Tax W-2|Extract taxable compensation details for income verification.|**prebuilt-tax.us.W-2**|
+  
+***Sample Closing disclosure document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=mortgage.us.closingDisclosure)***:
+
+:::image type="content" source="./media/studio/closing-disclosure.png" alt-text="Screenshot of a sample closing disclosure.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: Mortgage document models](concept-mortgage-documents.md)
+> 
 ### Contract
 
 :::image type="icon" source="media/overview/icon-contract.png":::
@@ -234,13 +259,43 @@ Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 s
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
 
+### Marriage certificate
+
+:::image type="icon" source="media/studio/marriage-certificate-icon.png":::
+
+Use the marriage certificate model to process U.S. marriage certificates to extract key fields including the individuals, date and location.
+
+***Sample U.S. marriage certificate processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=marriageCertificate.us)***:
+
+:::image type="content" source="./media/studio/marriage-certificate.png" alt-text="Screenshot of a sample marriage certificate." lightbox="./media/studio/marriage-certificate.png":::
+
+> [!div class="nextstepaction"]
+> [Learn more: identity document model](concept-marriage-certificate.md)
+
+### Credit card
+
+:::image type="icon" source="media/studio/credit-card-icon.png":::
+
+Use the credit card model to process credit and debit cards to extract key fields.
+
+***Sample credit card processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=creditCard)***:
+
+:::image type="content" source="./media/studio/credit-card.png" alt-text="Screenshot of a sample credit card." lightbox="./media/studio/credit-card.png":::
+
+> [!div class="nextstepaction"]
+> [Learn more: identity document model](concept-credit-card.md)
+
 ### Custom models
 
 :::image type="icon" source="media/studio/custom.png":::
 
-Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
+Custom models can be broadly classified into two types. Custom classification models that support classification of a "document type" and custom extraction models that can extract a defined schema from a specific document type.
 
-Version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
+:::image type="content" source="media/custom-models.png" alt-text="Diagram of types of custom models and associated model build modes.":::
+
+Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
+
+Version v3.0 custom model supports signature detection in custom template (form) and cross-page tables in both template and neural models.
 
 ***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
@@ -285,24 +340,6 @@ A composed model is created by taking a collection of custom models and assignin
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
 
-## Model data extraction
-
-| **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
-|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
-| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.1098E](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.1098T](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-tax.us.1099(variations)](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
-| [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  || ✓  |  |
-| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
-| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
-| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
-| [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
-| [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
-| [Custom](concept-custom.md#compare-model-features) | ✓  ||  ✓ | ✓ | ✓  |   | | ✓ |
 
 ## Input requirements
 

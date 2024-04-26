@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 03/26/2024
 ms.custom: devx-track-java
 ---
 
@@ -18,27 +18,21 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-After deploying new binary to your app, you may want to check the functionality and see information about your running application. This article explains how to access the API from a test endpoint provided by Azure Spring Apps and expose the production-ready features for your app.
+Spring Boot Actuator brings production-ready features to your apps. You can effortlessly monitor your app, collect metrics, and understand the status or database activity with this tool. You gain access to professional-grade tools without needing to build them from scratch.
 
-## Prerequisites
+The actuator exposes vital operational data about your running application, like health status, metrics, information, and more. The actuator uses HTTP endpoints or Java Management Extensions (JMX), making it easy to interact with. After you integrate it, it provides several default endpoints, and like other Spring modules, it's easily configurable and extendable.
 
-This article assumes that you have a Spring Boot 2.x application that can be successfully deployed and booted on Azure Spring Apps service.  See [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md)
+Azure Spring Apps uses the actuator for enriching metrics through JMX. It can also work with Application Live View in the Enterprise plan to help you get and interact with the data from apps.
 
-## Verify app through test endpoint
+:::image type="content" source="media/concept-manage-monitor-app-spring-boot-actuator/data-flow.png" alt-text="Diagram that shows the data flow using Spring Boot Actuator." lightbox="media/concept-manage-monitor-app-spring-boot-actuator/data-flow.png":::
 
-1. Go to **Application dashboard** and select your app to enter the app overview page.
+## Configure Spring Boot Actuator
 
-1. In the **Overview** pane, you should see **Test Endpoint**.  Access this endpoint from command line or browser and observe the API response.
+The following sections describe how to configure the actuator.
 
-1. Note the **Test endpoint** URI that will be used in the coming section.
+### Add actuator dependency
 
->[!TIP]
-> * If the app returns a front-end page and references other files through relative path, confirm that your test endpoint ends with a slash (/). This will ensure that the CSS file is loaded correctly.
-> * If you view your API from a brower and your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the form "https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/\<app-name>/\<deployment-name>".  Use this form to access your endpoint.
-
-## Add actuator dependency
-
-To add the actuator to a Maven-based project, add the 'Starter' dependency:
+To add the actuator to a Maven-based project, add the following dependency:
 
 ```xml
 <dependencies>
@@ -49,37 +43,32 @@ To add the actuator to a Maven-based project, add the 'Starter' dependency:
 </dependencies>
 ```
 
-Compile the new binary and deploy it to your app.
+This configuration works with any Spring Boot version because versions are covered in the Spring Boot Bill of Materials (BOM).
 
-## Enable production-ready features
+### Configure actuator endpoint
 
-Actuator endpoints let you monitor and interact with your application. By default, Spring Boot application exposes `health` and `info` endpoints to show arbitrary application info and health information.
+By default, a Spring Boot application exposes the `health` endpoint only. To observe the configuration and configurable environment, use the following steps to enable the `env` and `configprops` endpoints as well:
 
-To observe the configuration and configurable environment, we need to enable `env` and `configgrops` endpoints as well.
-
-1. Go to app **Overview** pane, select **Configuration** in the setting menu, go to the **Environment variables** configuration page.
-1. Add the following properties as in the "key:value" form. This environment will open the Spring Actuator endpoint "health".
+1. Go to app **Overview** pane, select **Configuration** in the setting menu, and then go to the **Environment variables** configuration page.
+1. Add the following properties as in the "key:value" form. This environment opens the following Spring Actuator endpoints: `health`, `env`, and `configprops`.
 
    ```properties
-   management.endpoints.web.exposure.include: health
+   management.endpoints.web.exposure.include: health,env,configprops
    ```
 
-1. Select the **Save** button, your application will restart automatically and load the new environment variables.
+1. Select **Save**. Your application restarts automatically and loads the new environment variables.
 
-You can now go back to the app overview pane and wait until the Provisioning Status changes to "Succeeded".  There will be more than one running instance.
+You can now go back to the app **Overview** pane and wait until the Provisioning Status changes to **Succeeded**.
 
-> [!NOTE]
-> Once you expose the app to public, these actuator endpoints are exposed to public as well. You can hide all endpoints by deleting the environment variables `management.endpoints.web.exposure.include`, and set `management.endpoints.web.exposure.exclude=*`
+To view all the endpoints built-in and related configurations, see the [Exposing Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints) section of [Spring Boot Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html).
 
-## View the actuator endpoint to view application information
+### Secure actuator endpoint
 
-1. You can now access the url `"<test-endpoint>/actuator/"` to see all endpoints exposed by Spring Boot Actuator.
-1. Access url `"<test-endpoint>/actuator/env"`, you can see active profiles used by the app, and all environment variables loaded.
-1. If you want to search a specific environment, you can access url  `"<test-endpoint>/actuator/env/{toMatch}"` to view it.
+When you open the app to the public, these actuator endpoints are exposed to the public as well. We recommend that you hide all endpoints by setting `management.endpoints.web.exposure.exclude=*`, because the `exclude` property takes precedence over the `include` property. Be aware that this action blocks Application Live View in the Enterprise plan and other apps or tools that rely on the actuator HTTP endpoint.
 
-To view all the endpoints built-in, see [Exposing Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
+In the Enterprise plan, you can disable the public endpoint of apps and configure a routing rule in VMware Spring Cloud Gateway to disable actuator access from the public. For more information, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Next steps
 
-* [Understand metrics for Azure Spring Apps](./concept-metrics.md)
-* [Understanding app status in Azure Spring Apps](./concept-app-status.md)
+* [Metrics for Azure Spring Apps](./concept-metrics.md)
+* [App status in Azure Spring Apps](./concept-app-status.md)

@@ -66,6 +66,10 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 
 
 
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 ## Prepare
 
 The following procedures show how to prepare the workspace and resources for the move by using a Resource Manager template.

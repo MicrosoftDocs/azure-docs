@@ -315,9 +315,10 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
             ],
             "permissions": [
               {
-                "actions": ["Microsoft.KeyVault/vaults/keys/read"],
+                "actions": [],
                 "notActions": [],
                 "dataActions": [
+                    "Microsoft.KeyVault/vaults/keys/read",
                     "Microsoft.KeyVault/vaults/keys/encrypt/action",
                     "Microsoft.KeyVault/vaults/keys/decrypt/action"
                 ],

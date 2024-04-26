@@ -173,9 +173,7 @@ You can also set the sampling percentage by using the environment variable `APPL
 > [!NOTE]
 > For the sampling percentage, choose a percentage that's close to 100/N, where N is an integer. Currently, sampling doesn't support other values.
 
-## Sampling overrides (preview)
-
-This feature is in preview, starting from 3.0.3.
+## Sampling overrides
 
 Sampling overrides allow you to override the [default sampling percentage](#sampling). For example, you can:
 

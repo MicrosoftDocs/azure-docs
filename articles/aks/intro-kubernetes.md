@@ -4,6 +4,9 @@ description: Learn the features and benefits of Azure Kubernetes Service to depl
 ms.topic: overview
 ms.custom: build-2023
 ms.date: 05/02/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # What is Azure Kubernetes Service?
@@ -188,3 +191,4 @@ Learn more about deploying and managing AKS.
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
+

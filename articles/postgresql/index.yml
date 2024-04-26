@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for PostgreSQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: sunilagarwal
   ms.author: sunila
-  ms.review: maghan
+  ms.reviewer: maghan
   ms.date: 07/07/2023
   ms.service: postgresql
   ms.topic: landing-page
