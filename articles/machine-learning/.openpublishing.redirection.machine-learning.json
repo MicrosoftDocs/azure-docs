@@ -4269,6 +4269,16 @@
         "source_path_from_root": "/articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
         "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
         "redirect_document_id": false
-    }      
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/troubleshoot-guidance",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/troubleshoot-guidance.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/troubleshoot-guidance",
+        "redirect_document_id": true
+    }            
 ]
 }

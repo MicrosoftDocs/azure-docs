@@ -22,7 +22,7 @@ A prompt flow compute session provides computing resources that are required for
 
 To assign roles, you need to have `owner` or `Microsoft.Authorization/roleAssignments/write` permission on the resource.
 
-For users of the compute session, assign the `AzureML Data Scientist` role in the workspace . To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true).
+For users of the compute session, assign the `AzureML Data Scientist` role in the workspace. To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true).
 
 Role assignment might take several minutes to take effect.
 
@@ -35,25 +35,25 @@ Before you use Azure Machine Learning studio to start a compute session, make su
 - The working directory (`workspaceworkingdirectory`) exists in the workspace.
 - If you use a virtual network for prompt flow, you understand the considerations in [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
 
-### Start an compute session on a flow page
+### Start a compute session on a flow page
 
-One flow will bind to one compute session. You can start an compute session on a flow page.
+One flow binds to one compute session. You can start a compute session on a flow page.
 
-- Select **Start**. Start an compute session by using the environment defined in `flow.dag.yaml` in the flow folder, it runs on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
+- Select **Start**. Start a compute session by using the environment defined in `flow.dag.yaml` in the flow folder, it runs on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
 
-  :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session.png" alt-text="Screenshot of prompt flow with default settings for starting an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session.png":::
+  :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session.png" alt-text="Screenshot of prompt flow with default settings for starting a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session.png":::
 
 - Select **Start with advanced settings**. In the advanced settings, you can:
 
   - Select compute type. You can choose between serverless compute and compute instance. 
     - If you choose serverless compute, you can set following settings:
-        - Customize the VM size that the compute session uses. Please opt for VM series D and above. For additional information, refer to the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
-        - Customize the idle time, which will delete the compute session automatically if it isn't in use for a while.
+        - Customize the VM size that the compute session uses. Opt for VM series D and above. For more information, see the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
+        - Customize the idle time, which delete the compute session automatically if it isn't in use for a while.
         - Set the user-assigned managed identity. The compute session uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has enough permission. If you don't set this identity, we use the user identity by default. 
 
-        :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings.png":::
+        :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings.png":::
 
-        - You can use following CLI command to assign UAI to workspace. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods). 
+        - You can use following CLI command to assign user assigned managed identity to workspace. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods). 
 
 
         ```azurecli
@@ -76,18 +76,18 @@ One flow will bind to one compute session. You can start an compute session on a
         |Resource|Permission|
         |---|---|
         |Azure Machine Learning workspace|Contributor|
-        |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor + Storage File Data Privileged Contributor (data plane,consume flow draft in fileshare and data in blob)|
+        |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor + Storage File Data Privileged Contributor (data plane, consume flow draft in fileshare and data in blob)|
         |Azure Key Vault (when using [RBAC permission model](../../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
         |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
         |Azure Container Registry|Contributor|
         |Azure Application Insights|Contributor|
 
     - If you choose compute instance as compute type, you can only set idle shutdown time. 
-        - As it is running on an existing compute instance the VM size is fixed and cannot change in session side.
+        - As it's running on an existing compute instance the VM size is fixed and can't change in session side.
         - Identity used for this session is also defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../how-to-create-compute-instance.md#assign-managed-identity)
-        - For the idle shutdown time it is used to define life cycle of the compute session, if the session is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will take effect from compute level.
+        - For the idle shutdown time it's used to define life cycle of the compute session, if the session is idle for the time you set, it is deleted automatically. And of you have idle shut-down enabled on compute instance, then it takes effect from compute level.
 
-            :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings-compute-instance.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings-compute-instance.png":::
+            :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings-compute-instance.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings-compute-instance.png":::
         - Learn more about [how to create and manage compute instance](../how-to-create-compute-instance.md)
 
 ## Use a compute session to submit a flow run in CLI/SDK
@@ -96,7 +96,7 @@ Same as authoring UI, you can also specify the compute session in CLI/SDK when y
 
 # [Azure CLI](#tab/cli)
 
-You can also specify the instance type or compute instance name under resource part. If you don't specify the instance type or compute instance name,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. Learn more about [serverless compute](../how-to-use-serverless-compute.md).
+You can also specify the instance type or compute instance name under resource part. If you don't specify the instance type or compute instance name,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance, and disk size. Learn more about [serverless compute](../how-to-use-serverless-compute.md).
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
@@ -163,7 +163,7 @@ base_run = pf.run(
 print(base_run)
 ```
 
-Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
+Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps.](./how-to-integrate-with-llm-app-devops.md)
 
 ---
 
@@ -192,23 +192,23 @@ The `requirements.txt` file is copied to the flow folder, and use it to start yo
 
 ## Update a compute session on the flow page UI
 
-On a flow page, you can use the following options to manage an compute session:
+On a flow page, you can use the following options to manage a compute session:
 
-- **Change compute session settings**, you change compute settings like VM size and e user-assigned managed identity for serverless compute, if you are using compute instance you can change to use other instance. You can also change 
--   can also change the user-assigned managed identity for serverless compute. If you change the VM size, the compute session will be reset with the new VM size. If you
+- **Change compute session settings**, you change compute settings like VM size and e user-assigned managed identity for serverless compute, if you're using compute instance you can change to use other instance. You can also change 
+-   can also change the user-assigned managed identity for serverless compute. If you change the VM size, the compute session is reset with the new VM size. If you
 - **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
 - **View installed packages** shows the packages that are installed in the compute session. It includes the packages install to base image and packages specify in the `requirements.txt` file in the flow folder.
 - **Reset compute session** deletes the current compute session and creates a new one with the same environment. If you encounter a package conflict issue, you can try this option.
 - **Stop compute session** deletes the current compute session. If there's no active compute session on the underlying compute, the serverless compute resource will also be deleted.
 
-:::image type="content" source="./media/how-to-manage-compute-session/update-compute-session.png" alt-text="Screenshot of actions for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/update-compute-session.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/update-compute-session.png" alt-text="Screenshot of actions for a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/update-compute-session.png":::
 
 You can also customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. After you add more packages in this file, you can choose either of these options:
 
 - **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
 - **Save only** just saves the `requirements.txt` file. You can install the packages later yourself.
 
-:::image type="content" source="./media/how-to-manage-compute-session/save-install.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/save-install.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/save-install.png" alt-text="Screenshot of the option to save and install packages for a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/save-install.png":::
 
 > [!NOTE]
 > You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
@@ -222,7 +222,7 @@ You can also customize the environment that you use to run this flow by adding p
 If you want to use a private feed in Azure DevOps, follow these steps:
 
 1. Assign managed identity to workspace or compute instance.
-    1. Use serverless compute as compute session, you need assign user-assigned managed identity to workspace.
+    1. Use serverless compute as compute session, you need to assign user-assigned managed identity to workspace.
         1. Create a user-assigned managed identity and add this identity in the Azure DevOps organization. To learn more, see [Use service principals and managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
             > [!NOTE]
@@ -243,10 +243,10 @@ If you want to use a private feed in Azure DevOps, follow these steps:
    ```
 
 3. Specify using user-assigned managed identity in the compute session configuration. 
-    1. If you are using serverless compute, specify the user-assigned managed identity in **Start with advanced settings** if compute session isn't running, or use the **Change compute session settings** button if compute session is running.
+    1. If you're using serverless compute, specify the user-assigned managed identity in **Start with advanced settings** if compute session isn't running, or use the **Change compute session settings** button if compute session is running.
 
        :::image type="content" source="./media/how-to-manage-compute-session/compute-session-user-assigned-identity.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity. " lightbox = "./media/how-to-manage-compute-session/compute-session-user-assigned-identity.png":::
-    2. If you are using compute instance, it will use the user-assigned managed identity that you assigned to the compute instance.
+    2. If you're using compute instance, it uses the user-assigned managed identity that you assigned to the compute instance.
 
 
 > [!NOTE]
@@ -256,13 +256,13 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 By default, we use the latest prompt flow base image. If you want to use a different base image, you can [build a custom one](how-to-customize-session-base-image.md). 
 
-- In studio UI, you can change base image in base image settings under compute session settings. You need apply this change and 
+- In studio UI, you can change base image in base image settings under compute session settings. You need to apply this change and 
 
-:::image type="content" source="./media/how-to-manage-compute-session/change-base-image.png" alt-text="Screenshot of changing base image of an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/change-base-image.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/change-base-image.png" alt-text="Screenshot of changing base image of a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/change-base-image.png":::
 
 - You can also specify the new base image under `environment` in the `flow.dag.yaml` file in the flow folder. To use the new base image, you need to reset the compute session. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
-    :::image type="content" source="./media/how-to-manage-compute-session/base-image-in-flow-dag.png" alt-text="Screenshot of actions for customizing an base image for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/base-image-in-flow-dag.png":::
+    :::image type="content" source="./media/how-to-manage-compute-session/base-image-in-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/base-image-in-flow-dag.png":::
     
     ```yaml
     environment:
@@ -275,15 +275,15 @@ When you using serverless compute as compute session, you can manage the serverl
 
 :::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of list of serverless instance." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
 
-You can also active flow and running running on it under active flows and runs tab. As delete the instance will impact the flow and runs on it.
+You can also active flow and running on it under active flows and runs tab. As delete the instance impacts the flow and runs on it.
 
 :::image type="content" source="./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png" alt-text="Screenshot of compute detail page of serverless instance." lightbox = "./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png":::
 
-## Relationship between compute session, compute resource, flow and user
+## Relationship between compute session, compute resource, flow, and user
 
 - One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size or different user-assigned managed identity.
 - One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. 
-- One compute resource can host multiple compute session. Compute session is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple compute session from same user. 
+- One compute resource can host multiple compute sessions. Compute session is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple compute sessions from same user. 
 - One compute session only belongs to single compute resource in same time. But you can delete or stop compute session and reallocate it to other compute resource.
 - One flow only have one compute session, as we expect each flow is self contained which defined the base image and required python package in flow folder. 
 
@@ -293,8 +293,8 @@ Compute session has following advantages over compute instance runtime:
 - Automatic manage lifecycle of session and underlying compute. You don't need to manually create and managed them anymore.
 - Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
 
-You can switch compute instance runtime to an compute session by using the following steps:
-- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Compute session will install the packages in `requirements.txt` file when it starts.
+You can switch compute instance runtime to a compute session by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Compute session installs the packages in `requirements.txt` file when it starts.
 - If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for compute session](#change-the-base-image-for-compute-session). Make sure you or related user assigned managed identity on workspace have `acr pull` permission for the image.
 
 :::image type="content" source="./media/how-to-manage-compute-session/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-manage-compute-session/image-path-environment-detail.png":::
