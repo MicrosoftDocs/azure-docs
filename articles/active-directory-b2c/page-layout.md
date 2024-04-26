@@ -295,7 +295,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 ## MFA page (multifactor)
 
 **1.2.16**
-- Fixed enter key for 'Phone only' mode.
+- Fixes enter key for 'Phone only' mode.
 - Enhancements to Captcha Control
 
 **1.2.15**
