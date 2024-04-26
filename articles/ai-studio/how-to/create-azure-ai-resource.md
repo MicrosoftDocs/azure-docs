@@ -82,12 +82,6 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
 
 ## Manage your hub from the Azure portal
 
-### Hub keys
-
-View your keys and endpoints for your hub from the overview page within the Azure portal.
-
-:::image type="content" source="../media/how-to/resource-manage-view-keys.png" alt-text="Screenshot of the hub in the Azure portal showing the keys and endpoints." lightbox="../media/how-to/resource-manage-view-keys.png":::
-
 ### Manage access control
 
 Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about hub [role-based access control](../concepts/rbac-ai-studio.md).

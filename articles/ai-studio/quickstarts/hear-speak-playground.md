@@ -116,7 +116,7 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 ## Next steps
 
 - [Create a project in Azure AI Studio](../how-to/create-projects.md)
-- [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md)
+- [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md)
 - [Learn more about Azure AI Speech](../../ai-services/speech-service/overview.md)
 
 

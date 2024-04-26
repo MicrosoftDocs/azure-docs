@@ -51,7 +51,7 @@ landingContent:
             url: quickstarts/multimodal-vision.md
       - linkListType: tutorial
         links:
-          - text: Deploy a web app for chat on your data
+          - text: Deploy an enterprise chat web app
             url: tutorials/deploy-chat-web-app.md
           - text: Build your own copilot using prompt flow
             url: tutorials/deploy-copilot-ai-studio.md

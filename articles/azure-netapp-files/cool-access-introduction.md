@@ -45,14 +45,18 @@ Standard storage with cool access is supported for the following regions:
 * East Asia  
 * East US 2   
 * France Central
+* Germany North 
 * Germany West Central
 * Japan East
 * Japan West 
+* Korea Central
+* Korea South 
 * North Central US 
 * North Europe  
 * Norway East
 * Norway West
 * Qatar Central
+* South Africa North
 * South Central US
 * South India
 * Southeast Asia

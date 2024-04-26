@@ -208,7 +208,7 @@
     - name: Import a Logic App
       href: import-logic-app-as-api.md
     - name: Configure Service Fabric backend
-      href: how-to-configure-service-fabric-backend.md
+      href: how-to-configure-service-fabric-backend.yml
     - name: OData
       items:
       - name: Import OData API
