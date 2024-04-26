@@ -7,7 +7,7 @@ ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/01/2024
-ms.custom: devx-track-java, devguide-csharp
+ms.custom: devx-track-java, devguide-java
 ---
 
 # Implement a retry policy with Java
