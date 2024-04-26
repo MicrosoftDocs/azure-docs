@@ -181,6 +181,10 @@ public class KafkaSinkToGen2 {
     > [!NOTE]
     >  Make sure to add classloader.resolve-order as ‘parent-first’ and hadoop.classpath.enable as `true`
 
+1. Select Job Log aggregation to push job logs to storage account.
+
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/enable-job-log.png" alt-text="Screenshot showing how to enable job log." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/enable-job-log.png":::
+
 1. You can see the job running.
 
     :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png" alt-text="Screenshot showing Flink UI." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png":::
