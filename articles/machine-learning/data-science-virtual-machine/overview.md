@@ -78,7 +78,7 @@ The DSVM can evaluate or learn new data science [tools](./tools-included.md). Tr
 
 ### Deep learning with GPUs
 
-In the DSVM, your training models can use deep learning algorithms on graphics processing unit (GPU)-based hardware. If you take advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you lever GPU-based hardware in the cloud, according to your needs. You can switch to a GPU-based VM when you train large models, or when you need high-speed computations while you keep the same OS disk. You can choose any of the N series GPU-enabled virtual machine SKUs with DSVM. Azure free accounts don't support GPU-enabled virtual machine SKUs. 
+In the DSVM, your training models can use deep learning algorithms on graphics processing unit (GPU)-based hardware. If you take advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you lever GPU-based hardware in the cloud, according to your needs. You can switch to a GPU-based VM when you train large models, or when you need high-speed computations while you keep the same OS disk. You can choose any of the N series GPU-enabled virtual machine SKUs with DSVM. Azure free accounts don't support GPU-enabled virtual machine SKUs.
 
 A Windows-edition DSVM comes preinstalled with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux editions, deep learning on GPUs is enabled on the Ubuntu DSVMs.
 
