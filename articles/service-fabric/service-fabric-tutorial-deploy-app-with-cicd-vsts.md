@@ -59,17 +59,15 @@ Choose a target profile within your application project to use for your continuo
 
 Share your application source files to a project in Azure DevOps so you can generate builds.
 
-Create a new local Git repo for your project by selecting **Git** -> **Create Git Repository** on the top bar of Visual Studio using the [steps] (/visualstudio/version-control/git-create-repository?view=vs-2022#create-a-github-repo)
+Create a [new GitHub repo and Azure DevOps repo](https://learn.microsoft.com/en-us/visualstudio/version-control/git-create-repository?view=vs-2022#create-a-github-repo) from VS 2022 IDE by selecting Git -> Create Git Repository from Git menu
 
-In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
+Select your account in the drop-down and enter your repository name and click **Create and Push** button.
 
-![Screenshot of the Team Explorer - Synchronization window in Visual Studio. The Publish to Git Repo button is highlighted under Push to Azure DevOps.][push-git-repo]
+![Screenshot of creating new Git repository.][push-git-repo]
 
-Verify your email and select your account in the **Azure DevOps Domain** drop-down. Enter your repository name and select **Publish repository**.
+Publishing the repo creates a new project in Azure DevOps account with the same name as the local repo. 
 
-![Screenshot of the Push to Azure DevOps settings with the Email, Account, Repository name, and Publish Repository button highlighted.][publish-code]
-
-Publishing the repo creates a new project in your account with the same name as the local repo. To create the repo in an existing project, click **Advanced** next to **Repository** name and select a project. You can view your code on the web by selecting **See it on the web**.
+View the newly created repository by navigating to https://dev.azure.com/<OrganizationName>, hover mouse over the name of your project, and select the **Repos** icon.
 
 ## Configure Continuous Delivery with Azure Pipelines
 
@@ -182,8 +180,8 @@ Advance to the next tutorial:
 > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
-[publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfileNew.png
-[push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
+[publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
+[push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfileNew.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
