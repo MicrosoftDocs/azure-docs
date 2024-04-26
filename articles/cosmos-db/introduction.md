@@ -57,6 +57,19 @@ When you decide that Azure Cosmos DB is right for you, you can receive up to 63%
 
 Besides AI, Azure Cosmos DB should also be your goto database for a variety of use cases, including [retail and marketing](use-cases.md#retail-and-marketing), [IoT and telematics](use-cases.md#iot-and-telematics), [gaming](use-cases.md#gaming), [social](social-media-apps.md), and [personalization](use-cases.md#personalization), among others. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications.
 
+### For what kinds of apps is Azure Cosmos DB a good fit?
+
+- **Flexible Schema for Iterative Development.** E.g., apps wanting to adopt flexible modern DevOps practices and accelerate feature deployment timelines.
+- **Latency sensitive workloads.** E.g., real-time Personalization.
+- **Highly elastic workloads.** E.g., concert booking platform.
+- **High throughput workloads.** E.g., IoT device state/telemetry.
+- **Highly available mission critical workloads.** E.g., customer-facing Web Apps.
+
+### For what kinds of apps is Azure Cosmos DB a poor fit?
+
+- **Analytical workloads (OLAP).** E.g., interactive, streaming, and batch analytics to enable Data Scientist / Data Analyst scenarios. Consider Microsoft Fabric instead.
+- **Highly relational apps.** E.g., white-label CRM applications. Consider Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL instead.
+
 ## ...with unmatched reliability and flexibility
 
 ### Guaranteed speed at any scale
