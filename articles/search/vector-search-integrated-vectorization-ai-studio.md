@@ -22,7 +22,7 @@ There are lots of options on embeddings models to consider when choosing how to 
 
 1. Navigate to [the Azure AI Studio model catalog](https://ai.azure.com/explore/models). On this page, under "Inference tasks" on the right hand side, select "Embeddings":
 
-   :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-catalog-embeddings-filter.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-catalog-embeddings-filter.png" alt-text="Screenshot of the Azure AI Studio model catalog page highlighting how to filter by embeddings models":::
+   :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-catalog-embeddings-filter.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-catalog-embeddings-filter.png" alt-text="Screenshot of the Azure AI Studio model catalog page highlighting how to filter by embeddings models.":::
 
 1. Select the model you would like to vectorize your content with from the list. Then select "Deploy" and pick one of the available deployment options.
 
@@ -35,7 +35,7 @@ There are lots of options on embeddings models to consider when choosing how to 
 1. Copy the "URL", "Primary key" and "Model ID" fields and set them aside for later.
     1. (Optional) You can change your endpoint to use Token authentication instead of Key authentication. If you enable token authentication, you only need to copy the "URL" and "Model ID" and also make a note of which region the model was deployed to.
 
-    :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" alt-text="Screenshot of the a deployed endpoint in AI Studio highlighting the fields to copy and save for later":::
+    :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" alt-text="Screenshot of the a deployed endpoint in AI Studio highlighting the fields to copy and save for later.":::
 
 1. Navigate back to your Azure AI Search resource. At this point, you should follow [the steps to enable integrated vectorization](vector-search-integrated-vectorization.md#how-to-use-integrated-vectorization) via creating a datasource, skillset, index, and indexer definition. 
 
