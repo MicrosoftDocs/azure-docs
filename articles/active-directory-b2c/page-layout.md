@@ -68,7 +68,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Enhancements to Captcha Control
   
 **2.1.29**
-- Implementation of Captcha Control 
+- Implement CAPTCHA Control.
 
 **2.1.26**
 - Replaced `Keypress` to `Key Down` event and avoid `Asterisk` for nonrequired in classic mode.
