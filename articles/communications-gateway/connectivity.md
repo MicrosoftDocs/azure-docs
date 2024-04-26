@@ -26,7 +26,7 @@ Azure Communications Gateway supports multiple types of connection to your netwo
 - We strongly recommend using Microsoft Azure Peering Service Voice (also called MAPS Voice or MAPSV).
 - If you can't use MAPS Voice, we recommend ExpressRoute Microsoft Peering.
 
-Azure Communications Gateway is normally deployed with Public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection Preview to deploy Azure Communications Gateway into your own subnet.
+Azure Communications Gateway is normally deployed with public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS Voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection (preview) to deploy Azure Communications Gateway into your own subnet.
 
 The following table lists all the available connection types and whether they're supported for each communications service. The connection types are in the order that we recommend (with recommended types first).
 
@@ -34,11 +34,11 @@ The following table lists all the available connection types and whether they're
 |---------|---------|---------|---------|---------|
 | MAPS Voice |✅ |✅|✅|- Best media quality because of prioritization with Microsoft network<br>- No extra costs<br>- See [Internet peering for Peering Service Voice walkthrough](../internet-peering/walkthrough-communications-services-partner.md)|
 |ExpressRoute Microsoft Peering |✅|✅|✅|- Easy to deploy<br>- Extra cost<br>- Consult with your onboarding team and ensure that it's available in your region<br>- See [Using ExpressRoute for Microsoft PSTN services](/azure/expressroute/using-expressroute-for-microsoft-pstn)|
-|VNet Injection Preview | ⚠️ ExpressRoute Private Peering only for live service |✅|✅|- Control connectivity to your network from your own VNet<br>- Enables use of ExpressRoute Private Peering and VPNs<br>- Additional deployment steps<br>-Extra cost |
+|VNet Injection (preview) | ⚠️ ExpressRoute Private Peering must be used for production deployments |✅|✅|- Control connectivity to your network from your own VNet<br>- Enables use of ExpressRoute Private Peering and Azure VPN Gateways<br>- Additional deployment steps<br>-Extra cost |
 |Public internet |⚠️ Lab deployments only|✅|✅|- No extra setup<br>- Where available, not recommended for production |
 
 > [!NOTE]
-> The Operator Connect and Teams Phone Mobile programs do not allow production deployments to use the public internet, including VPNs over the public internet.
+> The Operator Connect and Teams Phone Mobile programs do not allow production deployments to use the public internet, including virtual private networks over the public internet.
 
 Set up your network as in the following diagram and configure it in accordance with any network connectivity specifications for your chosen communications services. For production deployments, your network must have two sites with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
@@ -100,11 +100,11 @@ Azure Communications Gateway uses the following local port ranges which must be 
 
 All Azure Communications Gateway IP addresses can be used for both signaling (SIP) and media (RTP/RTCP). When connecting to multiple networks, additional SIP local ports are used, please refer to your Azure Communications Gateway resource in the Azure portal for details.
 
-## VNet injection preview
+## VNet injection for Azure Communications Gateway (preview)
 
-VNet injection preview for Azure Communications Gateway allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into VNets in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
+VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
 
-If you use VNet injection preview with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
+If you use VNet injection (preview) with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
 
 :::image type="content" source="../expressroute/media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of two regions with connectivity compliant with Operator Connect and Teams Phone Mobile.":::
 

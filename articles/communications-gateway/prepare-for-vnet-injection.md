@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 04/26/2024
 ---
 
-# Prepare to connect Azure Communications Gateway to your own virtual network (Preview)
+# Prepare to connect Azure Communications Gateway to your own virtual network (preview)
 
-This article describes the steps required to connect an Azure Communications Gateway to your own virtual network. This procedure is required to deploy Azure Communications Gateway into a subnet that you control and is used when connecting your on premises network with ExpressRoute Private Peering or Virtual Private Networks (VPNs). Azure Communications Gateway has two service regions with their own connectivity, which means that you need to provide virtual networks (VNets) and subnets in each of these regions.
+This article describes the steps required to connect an Azure Communications Gateway to your own virtual network using VNet injection for Azure Communications Gateway (preview). This procedure is required to deploy Azure Communications Gateway into a subnet that you control and is used when connecting your on premises network with ExpressRoute Private Peering or though an Azure VPN Gateway. Azure Communications Gateway has two service regions with their own connectivity, which means that you need to provide virtual networks and subnets in each of these regions.
 
 The following diagram shows an overview of Azure Communications Gateway deployed with VNet injection. The network interfaces on Azure Communications Gateway facing your network are deployed into your subnet, while the network interfaces facing backend communications services remain managed by Microsoft.
 
@@ -18,25 +18,26 @@ The following diagram shows an overview of Azure Communications Gateway deployed
 add diagram in here. 
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Your Azure subscription is [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
 - Your onboarding team are aware that you intend to use your own virtual network.
-- Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network.
 - An Azure virtual network and subnet in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 - Each subnet has at least 16 free IP addresses which can be used by Azure Communications Gateway. 
-- Your subscription is [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
-- Your chosen connectivity solution (for example ExpressRoute) is deployed into your Azure subscription and ready to use. 
+- Your chosen connectivity solution (for example ExpressRoute) is deployed into your Azure subscription and ready to use.
+
+> [!TIP]
+> Lab deployments only have one service region, so you only need to set up a single region during this procedure.
 
 ## 1. Provide permissions to the Azure Communications Gateway service principal
 
 To give Azure Communications Gateway permission to deploy network interfaces into your subnets:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the VNet to use in the first service region for Azure Communications Gateway. 
+1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the virtual network to use in the first service region for Azure Communications Gateway. 
 1. Select **Access control (IAM)**.
 1. Select **Add role assignment**.
 1. Search for and select **AzureCommunicationsGateway** in the search bar.
 1. Assign the **Network Contributor** role.
-1. Repeat these steps for the VNet to use in the other service region.
+1. Repeat these steps for the virtual network to use in the other service region.
 
 ## 2. Delegate the virtual network subnets
 
@@ -44,11 +45,11 @@ To use your virtual network with Azure Communications Gateway, you need to [dele
 
 Follow these steps to delegate your subnets for use with your Azure Communications Gateway:
 
-1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the VNet to use in the first service region for Azure Communications Gateway.
+1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the virtual network to use in the first service region for Azure Communications Gateway.
 
 1. Select  **Subnets**.
 
-1. Select a dedicated subnet you wish to delegate to Azure Communications Gateway.
+1. Select a subnet you wish to delegate to Azure Communications Gateway.
 
     > [!IMPORTANT]
     > The subnet you use must be dedicated to Azure Communications Gateway.
@@ -105,4 +106,3 @@ Go to your network security group, and select **Subnets**.
 
 > [!div class="nextstepaction"]
 > [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
-> [Deploy an Azure Communications Gateway resource and connect it to your networks](deploy.md)
