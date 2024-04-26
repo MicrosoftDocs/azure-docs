@@ -26,7 +26,7 @@ Azure Communications Gateway supports multiple types of connection to your netwo
 - We strongly recommend using Microsoft Azure Peering Service Voice (also called MAPS Voice or MAPSV).
 - If you can't use MAPS Voice, we recommend ExpressRoute Microsoft Peering.
 
-Azure Communications Gateway is normally deployed with public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS Voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection (preview) to deploy Azure Communications Gateway into your own subnet.
+Azure Communications Gateway is normally deployed with public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS Voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection for Azure Communications Gateway (preview) to deploy the interfaces which connect to your network into your own subnet.
 
 The following table lists all the available connection types and whether they're supported for each communications service. The connection types are in the order that we recommend (with recommended types first).
 
@@ -94,6 +94,7 @@ Azure Communications Gateway provides multiple FQDNs:
 Azure Communications Gateway uses the following local port ranges which must be accessible from your network, depending on the connectivity type chosen: 
 
 | Port Range | Protocol | Transport |
+|---------|---------|---------|
 | 16384-23983| RTP/RTCP <br> SRTP/SRTCP | UDP |
 | 5060 | SIP | UDP/TCP |
 | 5061 | SIP over TLS | TCP |

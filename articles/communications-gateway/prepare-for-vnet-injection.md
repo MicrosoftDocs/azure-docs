@@ -26,7 +26,7 @@ The following diagram shows an overview of Azure Communications Gateway deployed
 > [!TIP]
 > Lab deployments only have one service region, so you only need to set up a single region during this procedure.
 
-## 1. Provide permissions to the Azure Communications Gateway service principal
+## 1. Provide permissions to the Azure Communications Gateway Service Principal
 
 To give Azure Communications Gateway permission to deploy network interfaces into your subnets:
 
@@ -34,7 +34,7 @@ To give Azure Communications Gateway permission to deploy network interfaces int
 1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the virtual network to use in the first service region for Azure Communications Gateway. 
 1. Select **Access control (IAM)**.
 1. Select **Add role assignment**.
-1. Search for and select **AzureCommunicationsGateway** in the search bar.
+1. Search for and select the **AzureCommunicationsGateway** Service Principal in the search bar.
 1. Assign the **Network Contributor** role.
 1. Repeat these steps for the virtual network to use in the other service region.
 
