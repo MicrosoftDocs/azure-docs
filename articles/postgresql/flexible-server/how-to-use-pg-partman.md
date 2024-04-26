@@ -182,6 +182,7 @@ Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your serve
     SELECT * FROM cron.job; 
     ```
 
+    ```text
     -[ RECORD 1 ]----------------------------------------------------------------------- 
 
     jobid    | 1 
@@ -193,7 +194,7 @@ Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your serve
     username | postgres 
     active   | t 
     jobname  | sample_job 
-    
+    ```
 
 6. Run history of the job can be checked using the command below. 
 
