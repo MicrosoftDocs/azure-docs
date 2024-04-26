@@ -16,7 +16,7 @@ ms.date: 04/25/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) supports this feature.
 
-There are lots of options on embeddings models to consider when choosing how to vectorize your data. Within [the Azure AI Studio model catalog,](../ai-studio/how-to/model-catalog.md) there exists several such embedding models. These models are deployable to an Azure Machine Learning project, which then allows [integrated vectorization](vector-search-integrated-vectorization.md) to be performed with them via the built-in [AmlSkill](cognitive-search-aml-skill.md) and [the AI Studio vectorizer](vector-search-vectorizer-aml-ai-studio-catalog.md). This guide walks you through how to seemlessly index embeddings using one of these models within Azure AI Search.
+There are lots of options on embeddings models to consider when choosing how to vectorize your data. Within [the Azure AI Studio model catalog,](../ai-studio/how-to/model-catalog.md) there exists several such embedding models. These models are deployable to an Azure Machine Learning project, which then allows [integrated vectorization](vector-search-integrated-vectorization.md) to be performed with them via the built-in [AmlSkill](cognitive-search-aml-skill.md) and [the AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md). This guide walks you through how to seemlessly index embeddings using one of these models within Azure AI Search.
 
 ## How to deploy an embedding model from the Azure AI Studio model catalog
 
@@ -202,7 +202,7 @@ If you selected a different `embedding_types` in your skill definition that you 
 
 ## Sample AI Studio vectorizer payload
 
-The [AI Studio vectorizer](vector-search-vectorizer-aml-ai-studio-catalog.md), unlike the AMLSkill, is tailored to work only with those embedding models that are deployable via the AI Studio model catalog. The main difference is that you don't have to worry about the request and response payload, but you do have to provide the `modelName`, which corresponds to the "Model ID" that you copied after deploying the model in AI Studio. Here's a sample payload of how you would configure the vectorizer on your index definition given the properties copied from AI Studio.
+The [AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), unlike the AMLSkill, is tailored to work only with those embedding models that are deployable via the AI Studio model catalog. The main difference is that you don't have to worry about the request and response payload, but you do have to provide the `modelName`, which corresponds to the "Model ID" that you copied after deploying the model in AI Studio. Here's a sample payload of how you would configure the vectorizer on your index definition given the properties copied from AI Studio.
 
 For Cohere models, you should NOT add the `/v1/embed` path to the end of your URL like you did with the skill.
 
@@ -235,5 +235,5 @@ If you can't use key based authentication, you can instead configure the skill a
 + [Configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
 + [Configure index projections in a skillset](index-projections-concept-intro.md)
 + [AML skill](cognitive-search-aml-skill.md)
-+ [Azure AI Studio vectorizer](vector-search-vectorizer-aml-ai-studio-catalog.md)
++ [Azure AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md)
 + [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
