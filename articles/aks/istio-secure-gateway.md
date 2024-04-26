@@ -259,7 +259,7 @@ Confirm that the sample application's product page is accessible. The expected o
 ```
 
 > [!NOTE]
-> To configure HTTPS ingress access to an HTTPS service, i.e., configure an ingress gateway to perform SNI passthrough, instead of TLS termination on incoming requests update the gateway definition to set tls mode to `PASSTHROUGH`. This instructs the gateway to pass the ingress traffic “as is”, without terminating TLS.
+> To configure HTTPS ingress access to an HTTPS service, i.e., configure an ingress gateway to perform SNI passthrough instead of TLS termination on incoming requests, update the tls mode in the gateway definition to `PASSTHROUGH`. This instructs the gateway to pass the ingress traffic “as is”, without terminating TLS.
 
 ## Configure a mutual TLS ingress gateway
 Extend your gateway definition to support mutual TLS.
