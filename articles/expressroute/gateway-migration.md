@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.custom: ignite-2023, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.author: duau
 ---
 
