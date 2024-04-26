@@ -161,4 +161,4 @@ The natively integrated vector databaseg in the NoSQL API is under development. 
 - [Azure AI Search](../search/vector-store.md)
 - [Open Source Vector Databases](mongodb/vcore/vector-search-ai.md)
 
-:::image type="content" source="media/vector-search/vector-indexes-in-databases-and-ai-search.png" lightbox="media/vector-search/vector-indexes-in-databases-and-ai-search.png" alt-text="Vector indexing services":::
+:::image type="content" source="media/vector-search/azure-databases-and-ai-search.png" lightbox="media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::

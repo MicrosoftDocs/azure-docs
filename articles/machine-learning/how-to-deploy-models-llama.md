@@ -41,9 +41,7 @@ The following models are available in Azure Marketplace for Meta Llama models wh
 # [Meta Llama 3](#tab/llama-three)
 
 * [Meta Llama-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
-* [Meta Llama-3 8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
 * [Meta Llama-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
-* [Meta Llama-3 70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
 
 If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-meta-llama-models-to-real-time-endpoints) instead.
 
@@ -62,11 +60,13 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 ### Prerequisites
 
+# [Meta Llama 3](#tab/llama-three)
+
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **West US 3** regions.
+    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **Sweden Central** regions for Meta Llama 3 models.
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -87,6 +87,36 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
     For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
+
+# [Meta Llama 2](#tab/llama-two)
+
+- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
+- An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+
+    > [!IMPORTANT]
+    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **West US 3** regions for Meta Llama 2 models.
+
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
+
+    - On the Azure subscription—to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering:
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
+      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.SaaS/register/action`
+ 
+    - On the resource group—to create and use the SaaS resource:
+      - `Microsoft.SaaS/resources/read`
+      - `Microsoft.SaaS/resources/write`
+ 
+    - On the workspace—to deploy endpoints (the Azure Machine Learning data scientist role contains these permissions already):
+      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
+      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
+
+    For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+  
+---
+
 ### Create a new deployment
 
 To create a deployment:
@@ -94,7 +124,7 @@ To create a deployment:
 # [Meta Llama 3](#tab/llama-three)
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** region.
+1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
