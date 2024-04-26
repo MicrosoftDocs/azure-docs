@@ -30,6 +30,6 @@ For more information on Microsoft's privacy commitments, see the "Enterprise and
 
 For more information about data residency with Device Update, see [Regional mapping for disaster recovery for Device Update](device-update-region-mapping.md).
 
-# Device Update usage of Content Delivery Networks
+**Device Update usage of Content Delivery Networks**
 
-In order to maintain the scalability and availability of your imported updates, the Device Update for IoT Hub service distributes imported updates to select global Content Delivery Networks (CDNs). This allows your IoT devices to download your imported updates from the closest available CDN endpoint, increasing download speed and reliability. To learn more, visit [Content Delivery Networks](https://learn.microsoft.com/en-us/azure/architecture/best-practices/cdn).
+In order to maintain the scalability and availability of your imported updates, the Device Update for IoT Hub service distributes imported updates to select global Content Delivery Networks (CDNs). This allows your IoT devices to download your imported updates from the closest available CDN endpoint, increasing download speed and reliability. To learn more, visit [Content Delivery Networks](/azure/architecture/best-practices/cdn).
