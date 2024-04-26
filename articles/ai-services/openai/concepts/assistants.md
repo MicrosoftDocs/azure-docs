@@ -55,6 +55,24 @@ We strongly recommend the following data access controls:
 - Routinely audit which accounts/individuals have access to the Azure OpenAI resource. API keys and resource level access enable a wide range of operations including reading and modifying messages and files.
 - Enable [diagnostic settings](../how-to/monitoring.md#configure-diagnostic-settings) to allow long-term tracking of certain aspects of the Azure OpenAI resource's activity log.
 
+## Context window management
+
+Assistants automatically truncates text to ensure it stays within the model's maximum context length. You can customize this behavior by specifying the maximum tokens you'd like a run to utilize and/or the maximum number of recent messages you'd like to include in a run.
+
+### Max completion and max prompt tokens
+
+To control the token usage in a single Run, set `max_prompt_tokens` and `max_completion_tokens` when you create the Run. These limits apply to the total number of tokens used in all completions throughout the Run's lifecycle.
+
+For example, initiating a Run with `max_prompt_tokens` set to 500 and `max_completion_tokens` set to 1000 means the first completion will truncate the thread to 500 tokens and cap the output at 1000 tokens. If only 200 prompt tokens and 300 completion tokens are used in the first completion, the second completion will have available limits of 300 prompt tokens and 700 completion tokens.
+
+If a completion reaches the `max_completion_tokens` limit, the Run will terminate with a status of incomplete, and details will be provided in the `incomplete_details` field of the Run object.
+
+When using the File Search tool, we recommend setting the `max_prompt_tokens` to no less than 20,000. For longer conversations or multiple interactions with File Search, consider increasing this limit to 50,000, or ideally, removing the `max_prompt_tokens` limits altogether to get the highest quality results.
+
+## Truncation strategy
+
+You may also specify a truncation strategy to control how your thread should be rendered into the model's context window. Using a truncation strategy of type `auto` will use OpenAI's default truncation strategy. Using a truncation strategy of type `last_messages` will allow you to specify the number of the most recent messages to include in the context window.
+
 ## See also
 
 * Learn more about Assistants and [Code Interpreter](../how-to/code-interpreter.md)

@@ -560,6 +560,9 @@ Represents an execution run on a thread.
 | `tools` | array | The list of tools that the assistant used for this run.|
 | `file_ids` | array | The list of File IDs the assistant used for this run.|
 | `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
+| `tool_choice` | string or object | Controls which (if any) tool is called by the model. `none` means the model won't call any tools and instead generates a message. `auto` is the default value and means the model can pick between generating a message or calling a tool. Specifying a particular tool like `{"type": "file_search"}` or `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that tool. |
+| `max_prompt_tokens` | integer or null | The maximum number of prompt tokens specified to have been used over the course of the run. |
+| `max_completion_tokens` | integer or null | The maximum number of completion tokens specified to have been used over the course of the run. |
 
 
 ## Run step object
