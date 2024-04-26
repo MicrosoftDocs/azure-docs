@@ -15,14 +15,12 @@ Azure offers several configuration options for ensuring high availability of Azu
 ## At a glance
 
 Applications running on multiple VMs
-
 |Recommendation  |Benefits  |
 |---------|---------|
 |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.     |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
 |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.    |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
 
 Applications running on a single VM
-
 |Recommendation  |Benefits  |
 |---------|---------|
 |Use Ultra Disks, Premium SSD v2, and Premium SSD disks.     |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime service level agreement (SLA), and these disk types offer the best performance.         |
