@@ -18,6 +18,12 @@ The Azure Maps Android SDK stores data in data sources. Using data sources optim
 - **GeoJSON source**: Manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of shapes).
 - **Vector tile source**: Loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of shapes).
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 ## GeoJSON data source
 
 Azure Maps uses GeoJSON as one of its primary data models. GeoJSON is an open geospatial standard way for representing geospatial data in JSON format. GeoJSON classes available in the Azure Maps Android SDK to easy create, and serialize GeoJSON data. Load and store GeoJSON data in the `DataSource` class and render it using layers. The following code shows how GeoJSON objects can be created in Azure Maps.
@@ -1045,9 +1051,9 @@ See the following articles for more code samples to add to your maps:
 [Polygon layer]: how-to-add-shapes-to-android-map.md
 [Tile layer]: how-to-add-tile-layer-android-map.md
 <!---------   REST API Links     --------------->
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Road tiles]: /rest/api/maps/render/get-map-tile
 [Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render/get-map-tile
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

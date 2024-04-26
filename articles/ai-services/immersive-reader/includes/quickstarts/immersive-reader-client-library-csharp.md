@@ -1,42 +1,38 @@
 ---
 title: Immersive Reader C# client library quickstart 
 titleSuffix: Azure AI services
-description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
+description: Learn how to build a web app using C#, and add the Immersive Reader API functionality.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 09/14/2020
-ms.author: rwaller
+ms.date: 02/14/2024
+ms.author: sharmas
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
-
-In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
+In this quickstart guide, you build a web app from scratch using C#, and integrate Immersive Reader using the client library. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Visual Studio 2022](https://visualstudio.microsoft.com/downloads)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* [Visual Studio 2022](https://visualstudio.microsoft.com/downloads).
 
 ## Create a web app project
 
-Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 6. Name the project "QuickstartSampleWebApp".
+Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 6. Name the project *QuickstartSampleWebApp*.
 
-![New project - C#](../../media/quickstart-csharp/1-createproject.png)
+:::image type="content" source="../../media/quickstart-csharp/1-create-project.png" alt-text="Screenshot of Visual Studio screen to create new project.":::
 
-![Configure new project - C#](../../media/quickstart-csharp/2-configureproject.png)
+:::image type="content" source="../../media/quickstart-csharp/2-configure-project.png" alt-text="Screenshot of Visual Studio screen to configure project.":::
 
-![New ASP.NET Core web application - C#](../../media/quickstart-csharp/3-createmvc.png)
+:::image type="content" source="../../media/quickstart-csharp/3-create-mvc.png" alt-text="Screenshot of Aspnet core web app screen.":::
 
 ## Set up authentication
 
-### Configure authentication values
-
-Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](/aspnet/core/security/app-secrets?tabs=windows). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
+Right-click on the project in the **Solution Explorer** and choose **Manage User Secrets**. This opens a file called *secrets.json*. This file isn't checked into source control. To learn more, see [Safe storage of app secrets](/aspnet/core/security/app-secrets?tabs=windows). Replace the contents of *secrets.json* with the following, supplying the values given when you created your Immersive Reader resource.
 
 > [!IMPORTANT]
 > Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
@@ -52,31 +48,31 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 
 ### Install Identity Client NuGet package
 
-The following code uses objects from the **Microsoft.Identity.Client** NuGet package so you'll need to add a reference to that package in your project.
+The following code uses objects from the `Microsoft.Identity.Client` NuGet package so you need to add a reference to that package in your project.
 
 > [!IMPORTANT]
-> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../../../../active-directory/develop/msal-migration.md) for more details.
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020. We strongly encourage you to upgrade. For more information, see the [migration guide](/entra/identity-platform/msal-migration).
 
-Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and run the following command:
+Open the NuGet Package Manager Console from **Tools** -> **NuGet Package Manager** -> **Package Manager Console** and run the following command:
 
-```powershell
-    Install-Package Microsoft.Identity.Client -Version 4.42.0
+```console
+    Install-Package Microsoft.Identity.Client -Version 4.59.0
 ```
 
-### Update the controller to acquire the token 
+### Update the controller to acquire the token
 
-Open _Controllers\HomeController.cs_, and add the following code after the _using_ statements at the top of the file.
+Open *Controllers\HomeController.cs*, and add the following code after the `using` statements at the top of the file.
 
 ```csharp
 using Microsoft.Identity.Client;
 ```
 
-Now, we'll configure the controller to obtain the Microsoft Entra ID values from _secrets.json_. At the top of the _HomeController_ class, after ```public class HomeController : Controller {```, add the following code.
+Configure the controller to obtain the Microsoft Entra ID values from *secrets.json*. At the top of the `HomeController` class, after ```public class HomeController : Controller {```, add the following code.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
-private readonly string ClientId;     // Azure AD ApplicationId
-private readonly string ClientSecret; // Azure AD Application Service Principal password
+private readonly string ClientId;     // Microsoft Entra ApplicationId
+private readonly string ClientSecret; // Microsoft Entra Application Service Principal password
 private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 
 private IConfidentialClientApplication _confidentialClientApplication;
@@ -123,7 +119,7 @@ public HomeController(Microsoft.Extensions.Configuration.IConfiguration configur
 }
 
 /// <summary>
-/// Get an Azure AD authentication token
+/// Get a Microsoft Entra ID authentication token
 /// </summary>
 public async Task<string> GetTokenAsync()
 {
@@ -148,7 +144,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
     }
     catch (Exception e)
     {
-        string message = "Unable to acquire Azure AD token. Check the console for more information.";
+        string message = "Unable to acquire Microsoft Entra token. Check the console for more information.";
         Debug.WriteLine(message, e);
         return new JsonResult(new { error = message });
     }
@@ -156,13 +152,14 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## Add sample content
-First, open _Views\Shared\Layout.cshtml_. Before the line ```</head>```, add the following code:
+
+First, open *Views\Shared\Layout.cshtml*. Before the line ```</head>```, add the following code:
 
 ```html
 @RenderSection("Styles", required: false)
 ```
 
-Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ and replace all automatically generated code with this sample:
+Now add sample content to this web app. Open *Views\Home\Index.cshtml* and replace all automatically generated code with this sample:
 
 ```html
 @{
@@ -228,13 +225,13 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
 </div>
 ```
 
-Notice that all of the text has a **lang** attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
+Notice that all of the text has a `lang` attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
 
 ## Add JavaScript to handle launching Immersive Reader
 
-The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](../../reference.md).
+The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. To learn more, see the [JavaScript SDK reference](../../reference.md).
 
-At the bottom of _Views\Home\Index.cshtml_, add the following code:
+At the bottom of *Views\Home\Index.cshtml*, add the following code:
 
 ```html
 @section Scripts
@@ -310,15 +307,15 @@ From the menu bar, select **Debug > Start Debugging**, or press **F5** to start 
 
 In your browser, you should see:
 
-![Sample app - C#](../../media/quickstart-csharp/4-buildapp.png)
+:::image type="content" source="../../media/quickstart-csharp/4-build-app.png" alt-text="Screenshot of the app running in the browser.":::
 
-## Launch the Immersive Reader
+### Launch the Immersive Reader
 
-When you select the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
+When you select the **Immersive Reader** button, the Immersive Reader launches with the content on the page.
 
-![Immersive Reader - C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
+:::image type="content" source="../../media/quickstart-csharp/5-view-immersive-reader.png" alt-text="Screenshot of the Immersive Reader app.":::
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
+> [Explore the Immersive Reader SDK reference](../../reference.md)

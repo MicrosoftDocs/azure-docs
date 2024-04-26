@@ -18,6 +18,8 @@ Azure Communication Services can be used to build custom applications and experi
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
+[!INCLUDE [Survey Request](../includes/survey-request.md)]
+
 ## User identity models
 
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the user:

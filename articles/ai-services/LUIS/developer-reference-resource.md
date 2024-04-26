@@ -7,8 +7,9 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: reference
-ms.date: 01/12/2021
-ms.devlang: csharp, javascript
+ms.date: 01/19/2024
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ---
 
@@ -37,8 +38,6 @@ The Language Understanding service is accessed from an Azure resource you need t
 * Use the **authoring** resource for training to create, edit, train, and publish.
 * Use the **prediction** for runtime to send user's text and receive a prediction.
 
-Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
-
 Use [Azure AI services sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code) to learn and use the most common tasks.
 
 ### REST specifications
@@ -51,8 +50,8 @@ Both authoring and prediction endpoint APIS are available from REST APIs:
 
 |Type|Version|
 |--|--|
-|Authoring|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
-|Prediction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+|Authoring|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](/rest/api/cognitiveservices-luis/authoring/operation-groups)|
+|Prediction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)|
 
 ### REST Endpoints
 

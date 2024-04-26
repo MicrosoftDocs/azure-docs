@@ -3,16 +3,9 @@ title: Configuration management for the Microsoft Threat Modeling Tool
 titleSuffix: Azure
 description: Learn about configuration management for the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib

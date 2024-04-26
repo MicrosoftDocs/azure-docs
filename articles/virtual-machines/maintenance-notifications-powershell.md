@@ -3,7 +3,6 @@ title: Get maintenance notifications for Azure VMs using PowerShell
 description: View maintenance notifications for virtual machines running in Azure and start self-service maintenance using PowerShell.
 ms.service: virtual-machines
 ms.subservice: maintenance
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.custom: devx-track-azurepowershell

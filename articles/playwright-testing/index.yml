@@ -8,9 +8,9 @@ metadata:
   description: Learn how to run end-to-end tests for your web apps at scale with Microsoft Playwright Testing Preview. Run Playwright tests with high parallelization across different operating system and browser combinations simultaneously. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more.
   ms.service: playwright-testing
   ms.topic: landing-page
-  ms.collection: collection
-  ms.author: nicktrog
-  author: ntrogh
+
+  ms.author: vanshsingh
+  author: vvs11
   ms.date: 08/23/2023
   ms.custom: playwright-testing-preview
 

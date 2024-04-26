@@ -5,12 +5,11 @@ description: Learn about the Azure Machine Learning compute instance, a fully ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: jcioffi
-author: jesscioffi
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
-ms.date: 10/19/2022
+ms.date: 01/17/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---

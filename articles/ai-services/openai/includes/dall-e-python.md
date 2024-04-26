@@ -9,12 +9,11 @@ ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 11/06/2023
-keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
+[Library source code](https://github.com/openai/openai-python/tree/main/src/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 
@@ -22,15 +21,15 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Py
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
-- An Azure OpenAI resource created in the `SwedenCentral` region.
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
+- An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - An Azure OpenAI resource created in the `EastUS` region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 ---
@@ -64,8 +63,6 @@ Open a command prompt and browse to your project folder. Create a new python fil
 
 ## Install the Python SDK
 
-> [!IMPORTANT]
-> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E when used with Azure OpenAI. To access DALL-E with Azure OpenAI use version `0.28.1`.
 
 Install the OpenAI Python SDK by using the following command:
 
@@ -75,7 +72,10 @@ Install the OpenAI Python SDK by using the following command:
 pip install openai
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
+
+> [!IMPORTANT]
+> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E 2 when used with Azure OpenAI. To access DALL-E 2 with Azure OpenAI use version `0.28.1`. Or, follow the [migration guide](/azure/ai-services/openai/how-to/migration?tabs=python%2Cdalle-fix) to use DALL-E 2 with OpenAI 1.x.
 
 ```bash
 pip install openai==0.28.1
@@ -105,7 +105,7 @@ from PIL import Image
 import json
 
 client = AzureOpenAI(
-    api_version="2023-12-01-preview",  
+    api_version="2024-02-01",  
     api_key=os.environ["AZURE_OPENAI_API_KEY"],  
     azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT']
 )
@@ -143,7 +143,7 @@ image.show()
 1. Change the value of `prompt` to your preferred text.
 1. Change the value of `model` to the name of your deployed DALL-E 3 model.
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```python
 import openai
@@ -153,7 +153,7 @@ from PIL import Image
 
 # Get endpoint and key from environment variables
 openai.api_base = os.environ['AZURE_OPENAI_ENDPOINT']
-openai.api_key = os.environ['AZURE_OPENAI_KEY']     
+openai.api_key = os.environ['AZURE_OPENAI_API_KEY']     
 
 # Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
 openai.api_version = '2023-06-01-preview'
@@ -217,6 +217,6 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* Learn more in this [Azure OpenAI overview](../overview.md).
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 * Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
 * See the [API reference](../reference.md#image-generation)

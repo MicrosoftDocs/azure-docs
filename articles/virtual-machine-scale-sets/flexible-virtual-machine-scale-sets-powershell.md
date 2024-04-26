@@ -37,7 +37,8 @@ Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.c
 ```azurepowershell-interactive
 New-AzVmss `
     -ResourceGroup "myVMSSResourceGroup" `
-    -Name "myScaleSet" ` 
+    -Name "myScaleSet" `
+    -OrchestrationMode "Flexible" `
     -Location "East US" `
     -InstanceCount "2" `
     -ImageName "Win2019Datacenter"

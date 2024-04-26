@@ -30,13 +30,13 @@ For more information on creating identity federation using Azure's identity serv
 ## Step 1: Purchase Oracle Database@Azure in the Azure portal 
 
 1.  Sign in to your Azure account.
-2.  Navigate to the Marketplace service in the Azure portal. See [What is Azure Marketplace?](https://learn.microsoft.com/marketplace/azure-marketplace-overview) in the Azure documentation for more information on Azure Marketplace.
+2.  Navigate to the Marketplace service in the Azure portal. See [What is Azure Marketplace?](/marketplace/azure-marketplace-overview) in the Azure documentation for more information on Azure Marketplace.
 
     Alternately, if you received an email from Azure with a link to your private offer, you can select the link to go to your offer in the Azure portal. Skip to step 4 if you selected a link to your offer and are viewing it in the Azure portal.
 
 3.  In Azure Marketplace, under **Management**, select **Private Offer Management**.
 4.  In the list of private offers, select the **View + accept** button in the row for the Oracle Database@Azure offer.
-5.  Review the offer details, then accept and subscribe to the private offer. For more information on private offers in the Azure Marketplace, see [Private offers in Azure Marketplace](https://learn.microsoft.com/marketplace/private-offers-in-azure-marketplace)
+5.  Review the offer details, then accept and subscribe to the private offer. For more information on private offers in the Azure Marketplace, see [Private offers in Azure Marketplace](/marketplace/private-offers-in-azure-marketplace)
 
     To accept and subscribe to the private offer:
 
@@ -46,7 +46,7 @@ For more information on creating identity federation using Azure's identity serv
     4.  On the **Private Offer Management** page, the status of the private offer shows **Preparing for purchase**. After 10 to 15 minutes, the status updates to **Ready** and the **Purchase** button is enabled. Once the **Purchase** button is enabled, select it to continue. Your browser redirects to the **Create OracleSubscription** page.
 6. On the **Create OracleSubscription** page, select the **Basics** tab under **Project details** if this tab isn't already selected.
 7.  Use the **Subscription** selector to select your subscription if it isn't already selected.
-8. In the Instance details section, enter "default" (with no quotation marks) in the Name field.review the information in the following fields, which are configured for you:
+8. In the Instance details section, enter "default" (with no quotation marks) in the Name field.Review the information in the following fields, which are configured for you:
      - **Name**: This field is automatically set to “default”.
      - **Region**: This field is automatically set to “Global”.
      - **Plan and Billing term**: The values in these fields are automatically set for your offer, and you don't need to set or change these values.

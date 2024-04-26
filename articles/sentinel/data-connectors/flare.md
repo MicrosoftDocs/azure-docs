@@ -18,7 +18,7 @@ ms.author: cwatson
 | --- | --- |
 | **Log Analytics table(s)** | Firework_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [Flare](https://flare.io/company/contact/) |
+| **Supported by** | [Flare](https://flare.io/) |
 
 ## Query samples
 

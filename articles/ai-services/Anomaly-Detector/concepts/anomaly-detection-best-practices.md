@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: best-practice
 ms.custom: cogserv-non-critical-anomaly-detector
-ms.date: 01/22/2021
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

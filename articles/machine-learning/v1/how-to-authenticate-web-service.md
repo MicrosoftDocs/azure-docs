@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 # Configure authentication for models deployed as web services

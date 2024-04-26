@@ -6,17 +6,18 @@ author: rhurey
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 1/18/2024
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.devlang: cpp, csharp, java, python
+ms.devlang: cpp
 ms.custom: devx-track-azurepowershell, devx-track-extended-java, devx-track-python, devx-track-azurecli
 ---
+
 # Microsoft Entra authentication with the Speech SDK
 
 When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Microsoft Entra ID. This article describes how to configure a Speech resource and create a Speech SDK configuration object to use Microsoft Entra ID for authentication.
 
-This article shows how to use Microsoft Entra authentication with the Speech SDK. You'll learn how to:
+This article shows how to use Microsoft Entra authentication with the Speech SDK. You learn how to:
 
 > [!div class="checklist"]
 >
@@ -42,7 +43,7 @@ To configure your Speech resource for Microsoft Entra authentication, create a c
 ### Assign roles
 For Microsoft Entra authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.
 
-You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.yml) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 <a name='get-an-azure-ad-access-token'></a>
 
@@ -175,7 +176,7 @@ $resourceId = resource.Id
 
 With a Microsoft Entra access token, you can now create a Speech SDK configuration object.
 
-The method of providing the token, and the method to construct the corresponding Speech SDK ```Config``` object varies by the object you'll be using.
+The method of providing the token, and the method to construct the corresponding Speech SDK ```Config``` object varies by the object you're using.
 
 ### SpeechRecognizer, SpeechSynthesizer, IntentRecognizer, ConversationTranscriber
 

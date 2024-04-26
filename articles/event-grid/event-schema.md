@@ -79,7 +79,7 @@ All events have the same following top-level data:
 | `eventType` | string | Yes | One of the registered event types for this event source. |
 | eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Yes | Unique identifier for the event. |
-| `data` | object | No | Event data specific to the resource provider. |
+| `data` | object | Yes | Event data specific to the resource provider. |
 | `dataVersion` | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid stamps onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 

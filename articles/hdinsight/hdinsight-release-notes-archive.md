@@ -4,7 +4,7 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 10/26/2023
+ms.date: 04/16/2024
 ---
 
 # Archived release notes
@@ -12,7 +12,166 @@ ms.date: 10/26/2023
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
+Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
+
+To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
+
+## Release Information
+
+### Release date:  February  15, 2024
+
+This release applies to HDInsight 4.x and 5.x versions. HDInsight release will be available to all regions over several days. This release is applicable for image number **2401250802**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+> [!NOTE]
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
+For workload specific versions, see 
+
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+## New features
+
+- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. Learn more about it [here](./spark/ranger-policies-for-spark.md).
+  
+### Fixed issues
+
+- Security fixes from Ambari and Oozie components
+
+
+### :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+
+* Basic and Standard A-series VMs Retirement.
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+ 
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
+
+We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
+
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
+
+### Next steps
+* [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)
+* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--january-10-2024)
+
+
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/Azure/HDInsight/releases).
+
+### Release date:  January 10, 2024
+
+This hotfix release applies to HDInsight 4.x and 5.x versions. HDInsight release will be available to all regions over several days. This release is applicable for image number **2401030422**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+> [!NOTE]
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
+For workload specific versions, see 
+
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+### Fixed issues
+
+- Security fixes from Ambari and Oozie components
+
+
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg":::  Coming soon
+
+* Basic and Standard A-series VMs Retirement.
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
+
+We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
+
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
+
+
+## Release date:  October 26, 2023
+
+This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2310140056**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+For workload specific versions, see 
+
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+## What's new
+
+* HDInsight announces the General availability of HDInsight 5.1 starting November 1, 2023. This release brings in a full stack refresh to the [open source components](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) and the integrations from Microsoft. 
+    * Latest Open Source Versions – [HDInsight 5.1](./hdinsight-5x-component-versioning.md) comes with the latest stable [open-source version](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x) available. Customers can benefit from all latest open source features, Microsoft performance improvements, and Bug fixes. 
+    * Secure – The latest versions come with the most recent security fixes, both open-source security fixes and security improvements by Microsoft. 
+    * Lower TCO – With performance enhancements customers can lower the operating cost, along with [enhanced autoscale](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271).
+   
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to connect the storage account.
+    
+* HDInsight Cluster Creation with Custom VNets.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customer might face creation failures if this check is not enabled.
+    
+ * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
+     * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture.
+       
+* In-line quota update.
+   * Now you can request quota increase directly from the My Quota page, with the direct API call it is much faster. In case the API call fails, you can create a new support request for quota increase.
+
+### :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+
+* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be rolled out to all regions starting upcoming release.
+
+* Basic and Standard A-series VMs Retirement.
+   * On August 31, 2024, we will retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
+
+We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
+
+> [!NOTE]
+> This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image 2308221128 or 2310140056. Customers are advised to plan accordingly. 
+
+| CVE | Severity | CVE Title | Remark |
+| - | - | - | - |
+| [CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156) |	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on image 2308221128 or 2310140056 |
+| [CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters, or update to 2310140056 image |
+
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
 ## Release date: September 7, 2023
 
@@ -39,7 +198,7 @@ For workload specific versions, see
 | [CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156) |	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on 2308221128 image |
 | [CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters |
 
-## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
+## Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be implemented by September 30, 2023.
 * Cluster permissions for secure storage  
@@ -66,7 +225,7 @@ You’re welcome to add more proposals and ideas and other topics here and vote 
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2307201242**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -79,10 +238,12 @@ For workload specific versions, see
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-## ![Icon showing Whats new.](./media/hdinsight-release-notes/whats-new.svg) What's new
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/whats-new.svg"::: What's new
 * HDInsight 5.1 is now supported with ESP cluster.  
 * Upgraded version of Ranger 2.3.0 and Oozie 5.2.1 are now part of HDInsight 5.1
 * The Spark 3.3.1 (HDInsight 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works together with the Interactive Query (HDInsight 5.1) cluster.
+* Ubuntu 18.04 is supported under [ESM(Extended Security Maintenance)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for Azure HDInsight July 2023, release onwards. 
+
 
 > [!IMPORTANT]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on August 8, 2023. The action is to update to the latest image **2307201242**. Customers are advised to plan accordingly. 
@@ -96,7 +257,7 @@ For workload specific versions, see
 | [CVE-2023-38188](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38188) |	Important|Azure Apache Hadoop Spoofing Vulnerability |
  
 
-## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg)Coming soon
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg":::Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. Customers need to plan for the updates before 30, September 2023.
 * Cluster permissions for secure storage  
@@ -123,7 +284,7 @@ You’re welcome to add more proposals and ideas and other topics here and vote 
 
 This release applies to HDInsight 4.x and 5.x HDInsight release is available to all regions over several days. This release is applicable for image number **2304280205**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -135,7 +296,7 @@ For workload specific versions, see
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-updated.png" alt-text="Icon showing update with text.":::
 
 1. Azure HDInsight 5.1 updated with
 
@@ -152,7 +313,7 @@ For workload specific versions, see
     > * All components are integrated with Hadoop 3.3.4 & ZK 3.6.3
     > * All above upgraded components are now available in non-ESP clusters for public preview.
 
-![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-feature.png" alt-text="Icon showing new features with text.":::
 
 1. **Enhanced Autoscale for HDInsight**
 
@@ -170,11 +331,11 @@ For workload specific versions, see
 
     For more information, see [Cluster capacity planning in Azure HDInsight | Microsoft Learn](./hdinsight-capacity-planning.md#view-quota-management-for-hdinsight)
     
-![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-regions-added.png" alt-text="Icon showing new regions added with text."::: 
 
 * Poland Central
 
-## Coming soon
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg":::
 
 * The max length of cluster name changes to 45 from 59 characters, to improve the security posture of clusters.
 * Cluster permissions for secure storage  
@@ -192,7 +353,7 @@ For workload specific versions, see
 
 This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -207,7 +368,7 @@ For workload specific versions, see
 > [!IMPORTANT] 
 > Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
 
-![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-feature.png" alt-text="Icon showing new features with text."::: 
 
 **HDInsight 5.1**
 
@@ -215,7 +376,7 @@ We have started rolling out a new version of HDInsight 5.1. All new open-source 
 
 For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-versioning.md)
 
-![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-updated.png" alt-text="Icon showing update with text.":::
 
 **Kafka 3.2.0 Upgrade (Preview)** 
 
@@ -242,7 +403,7 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 > ESP isn't supported for Kafka and HBase in this release.
 >
 
-![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-end-of-support.png" alt-text="Icon showing end of support with text.":::
 
 End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md)
 
@@ -276,18 +437,18 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
 
-![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-feature.png" alt-text="Icon showing new features with text."::: 
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
 * **Ambari** user auto UI sign out due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
 * **Spark** - A new and optimized version of Spark 3.1.3 is included in this release. We tested Apache Spark 3.1.2(previous version) and Apache Spark 3.1.3(current version) using the TPC-DS benchmark. The test was carried out using E8 V3  SKU, for Apache Spark on 1-TB workload. Apache Spark 3.1.3 (current version) outperformed Apache Spark 3.1.2 (previous version) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. The Microsoft Spark team added optimizations available in Azure Synapse with Azure HDInsight. For more information, please refer to [ Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
-![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-regions-added.png" alt-text="Icon showing new regions added with text."::: 
 
 * Qatar Central
 * Germany North
 
-![Icon showing what's changed with text.](media/hdinsight-release-notes/new-icon-for-changed.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-changed.png" alt-text="Icon showing what's changed with text.":::
 
 * HDInsight has moved away from Azul Zulu Java JDK  8 to `Adoptium Temurin JDK 8`, which supports high-quality TCK certified runtimes, and associated technology for use across the Java ecosystem.
 
@@ -311,14 +472,14 @@ For workload specific versions, see [here.](./hdinsight-40-component-versioning.
   * OMI
   * Apache Pheonix
 
-![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-updated.png" alt-text="Icon showing update with text.":::
 
 HDInsight to implement TLS1.2 going forward, and earlier versions are updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
 
 For more information, see [How to enable Transport Layer Security (TLS)](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
 
-![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-end-of-support.png" alt-text="Icon showing end of support with text.":::
 
 End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022. HDInsight begins release of cluster images using Ubuntu 18.04 from June 27,  2021. We recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
 
@@ -328,7 +489,7 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 
 1. If the value for “Description” property in output is “Ubuntu 16.04 LTS”, then this update is applicable to the cluster.  
 
-![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-bugfix.png" alt-text="Icon showing bug fixes with text."::: 
 
 * Support for Availability Zones selection for Kafka and HBase (write access) clusters.
 
@@ -355,7 +516,7 @@ This release applies to HDInsight 4.0.  HDInsight release is made available to 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 
-![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-new-feature.png" alt-text="Icon_showing_new_features."::: 
 ### New Feature
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
@@ -381,7 +542,7 @@ Selective logging analysis is now available on all regions for public preview. Y
 For more information, [see here](./selective-logging-analysis.md)
 
 
-![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-bugfix.png" alt-text="Icon_showing_bug_fixes."::: 
 ### Fixed
 
 #### **Log analytics**
@@ -397,7 +558,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 ```
 sudo /opt/omi/bin/ominiserver/ --version
 ```
-![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/check-oms-version.png" alt-text="Screenshot showing how to check OMS Upgrade.":::
 
 **How to upgrade your OMS version from 13 to 14**
 
@@ -410,7 +571,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 1. Select **Node type(s)**
 1. Select **Create** 
 
-![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/oms-upgrade.png" alt-text="Screenshot showing how to do OMS Upgrade.":::
 
 1. Verify the successful installation of the patch using the following steps:  
 
@@ -459,7 +620,7 @@ This release applies to HDInsight 4.0.  HDInsight release is made available to 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 
-![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-new-feature.png" alt-text="Icon_showing_new_features."::: 
 ### New Feature
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
@@ -485,7 +646,7 @@ Selective logging analysis is now available on all regions for public preview. Y
 For more information, [see here](./selective-logging-analysis.md)
 
 
-![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+:::image type="content" border="true" source="media/hdinsight-release-notes/icon-for-bugfix.png" alt-text="Icon_showing_bug_fixes."::: 
 
 ### Fixed
 
@@ -502,7 +663,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 ```
 sudo /opt/omi/bin/ominiserver/ --version
 ```
-![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/check-oms-version.png" alt-text="Screenshot showing how to check OMS Upgrade.":::
 
 **How to upgrade your OMS version from 13 to 14**
 
@@ -515,7 +676,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 1. Select **Node type(s)**
 1. Select **Create** 
 
-![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/oms-upgrade.png" alt-text="Screenshot showing how to do OMS Upgrade.":::
 
 1. Verify the successful installation of the patch using the following steps:  
 
@@ -580,7 +741,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 > 
 > * If you are using Azure User Interface to create Spark Cluster for HDInsight, you will see from the dropdown list an other version Spark 3.1.(HDI 5.0) along with the older versions.  This version is a renamed version of Spark 3.1.(HDI 4.0). This is only an UI level change, which doesn’t impact anything for the existing users and users who are already using the ARM template.
 
-![Screenshot_of spark 3.1 for HDI 5.0.](media/hdinsight-release-notes/spark-3-1-for-hdi-5-0.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/spark-3-1-for-hdi-5-0.png" alt-text="Screenshot_of spark 3.1 for HDI 5.0.":::
 
 > [!NOTE]
 > **Interactive Query**
@@ -588,7 +749,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 > * If you are creating an Interactive Query Cluster, you will see from the dropdown list an other version as Interactive Query 3.1 (HDI 5.0).
 > * If you are going to use Spark 3.1 version along with Hive which require ACID support, you need to select this version Interactive Query 3.1 (HDI 5.0).
 
-![Screenshot_of interactive query 3.1 for HDI 5.0.](media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png)
+:::image type="content" border="true" source="media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png" alt-text="Screenshot_of interactive query 3.1 for HDI 5.0.":::
 
 ### TEZ bug fixes
 
@@ -1260,7 +1421,7 @@ A minimum 4-core VM is required for Head Node to ensure the high availability an
 #### Cluster worker node provisioning change
 When 80% of the worker nodes are ready, the cluster enters **operational** stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
  
-After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minute, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes aren't available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
+After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minute period, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes aren't available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
  
 #### Create new service principal through HDInsight
 Previously, with cluster creation, customers can create a new service principal to access the connected ADLS Gen 1 account in Azure portal. Starting June 15, 2020, new service principal creation is not possible in the HDInsight creation workflow, only existing service principal is supported. See [Create Service Principal and Certificates using Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
@@ -1359,7 +1520,7 @@ Service tags simplify security for Azure virtual machines and Azure virtual netw
 #### Custom Ambari DB
 HDInsight now allows you to use your own SQL DB for Apache Ambari. You can configure this custom Ambari DB from the Azure portal or through Resource Manager template.  This feature allows you to choose the right SQL DB for your processing and capacity needs. You can also upgrade easily to match business growth requirements. For more information, see [Set up HDInsight clusters with a custom Ambari DB](hdinsight-custom-ambari-db.md).
 
-:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="Custom Ambari DB":::
+:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="Custom Ambari DB.":::
 
 ### Deprecation
 No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).

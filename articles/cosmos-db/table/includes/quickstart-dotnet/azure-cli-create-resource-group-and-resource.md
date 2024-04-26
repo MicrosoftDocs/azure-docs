@@ -2,7 +2,7 @@
 author: alexwolfmsft
 ms.service: cosmos-db
 ms.subservice: table
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/08/2022
 ms.author: alexwolf

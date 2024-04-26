@@ -1,10 +1,14 @@
 ---
 title: Create and perform incident tasks in Microsoft Sentinel using playbooks
 description: This article explains how to use playbooks to create (and optionally perform) incident tasks, in order to manage complex analyst workflow processes in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/24/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Create and perform incident tasks in Microsoft Sentinel using playbooks
@@ -12,10 +16,6 @@ ms.date: 11/24/2022
 This article explains how to use playbooks to create (and optionally perform) incident tasks, in order to manage complex analyst workflow processes in Microsoft Sentinel.
 
 [Incident tasks](incident-tasks.md) can be created automatically not only by playbooks, but also by automation rules, and also manually, ad-hoc, from within an incident.
-
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Use cases for different roles
 
@@ -54,7 +54,7 @@ In this example we're going to add a playbook action that adds a task to the inc
 
 To add and configure these actions, take the following steps:
 
-1. From the **Microsoft Sentinel** connector, add the **Add task to incident (Preview)** action.  
+1. From the **Microsoft Sentinel** connector, add the **Add task to incident** action.  
     Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field. Enter **Reset user password** as the **Title**. Add a description if you want.
 
     :::image type="content" source="media/create-tasks-playbook/add-task-reset-password.png" alt-text="Screenshot shows playbook actions to add a task to reset a user's password.":::
@@ -80,7 +80,7 @@ To add and configure these actions, take the following steps:
 
     :::image type="content" source="media/create-tasks-playbook/confirm-compromised.png" alt-text="Screenshot shows sending entities to AADIP to confirm compromise.":::
 
-1. Add the **Mark a task as completed (Preview)** action from the Microsoft Sentinel connector.  
+1. Add the **Mark a task as completed** action from the Microsoft Sentinel connector.  
     Add the **Incident task ID** dynamic content item to the **Task ARM id** field.
 
     :::image type="content" source="media/create-tasks-playbook/mark-complete.png" alt-text="Screenshot shows how to add a playbook action to mark an incident task complete.":::
@@ -107,19 +107,19 @@ In this example we're going to add a playbook action that researches an IP addre
 
 1. Inside the **For each** loop, select **Add an action**.  
     Add a **Condition** from the **Control** actions library.  
-    Add the **Last analysis statistics Malicious** dynamic content item from the **Get an IP report** output (you may have to select "See more" to find it), select the **is greater than** operator, and enter `0` as the value. This condition asks the question "Did the Virus Total IP report have any results?"
+    Add the **Last analysis statistics Malicious** dynamic content item from the **Get an IP report** output (you might have to select "See more" to find it), select the **is greater than** operator, and enter `0` as the value. This condition asks the question "Did the Virus Total IP report have any results?"
 
     :::image type="content" source="media/create-tasks-playbook/set-condition.png" alt-text="Screenshot shows how to set a true-false condition in a playbook.":::
 
 1. Inside the **True** option, select **Add an action**.  
-    Select the **Add task to incident (Preview)** action from the **Microsoft Sentinel** connector.  
+    Select the **Add task to incident** action from the **Microsoft Sentinel** connector.  
     Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field.  
     Enter **Mark user as compromised** as the **Title**. Add a description if you want.
 
     :::image type="content" source="media/create-tasks-playbook/condition-true.png" alt-text="Screenshot shows playbook actions to add a task to mark a user as compromised.":::
 
 1. Inside the **False** option, select **Add an action**.  
-    Select the **Add task to incident (Preview)** action from the **Microsoft Sentinel** connector.  
+    Select the **Add task to incident** action from the **Microsoft Sentinel** connector.  
     Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field.  
     Enter **Reach out to the user to confirm the activity** as the **Title**. Add a description if you want.
 

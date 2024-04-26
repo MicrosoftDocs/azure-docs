@@ -20,14 +20,15 @@ ms.date: 05/16/2023
 - [11:35](/shows/mdc-in-the-field/data-aware-security-posture#time=11m35s) - Demonstration
 
 ## Recommended resources
-  - Learn more about  [Data Aware Security Posture](concept-data-security-posture.md)
-  - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
-  - Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
+
+- Learn more about  [Data Aware Security Posture](concept-data-security-posture.md)
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
+- Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
 
 - Follow us on social media:
 
-     - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
-     - [Twitter](https://twitter.com/msftsecurity)
+  - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
+  - [Twitter](https://twitter.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

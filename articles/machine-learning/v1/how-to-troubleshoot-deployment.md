@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting remote model deployment 
+title: Troubleshooting remote model deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, contperf-fy20q4, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 

@@ -3,11 +3,11 @@ title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data, which Azure Key Vault receives during creation or update of vaults, keys, secrets, certificates, and managed storage accounts.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: reference
-ms.date: 01/11/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---

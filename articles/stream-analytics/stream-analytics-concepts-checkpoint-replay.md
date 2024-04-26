@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2022
-ms.custom: seodec18, event-tier1-build-2022
 ---
 # Checkpoint and replay concepts in Azure Stream Analytics jobs
 This article describes the internal checkpoint and replay concepts in Azure Stream Analytics, and the impact those have on job recovery. Each time a Stream Analytics job runs, state information is maintained internally. That state information is saved in a checkpoint periodically. In some scenarios, the checkpoint information is used for job recovery if a job failure or upgrade occurs. In other circumstances, the checkpoint cannot be used for recovery, and a replay is necessary.

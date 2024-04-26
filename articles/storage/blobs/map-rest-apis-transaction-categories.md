@@ -63,9 +63,9 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)                              | Other                     | Other                       | Write                       |
 | [Delete Blob](/rest/api/storageservices/delete-blob)                                      | Free                      | Free                        | Free                        |
 | [Undelete Blob](/rest/api/storageservices/undelete-blob)                                  | Write                     | Write                       | Write                       |
-| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (tier down)                      | Write                     | Write                       | Write                       |
-| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (tier up)                        | Read                      | Read                        | Read                        |
-| [Blob Batch](/rest/api/storageservices/blob-batch) (Set Blob Tier)                        | Other                     | Other                       | Other                       |
+| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (tier down)                      | Write                     | Write                       | N/A                       |
+| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (tier up)                        | Read                      | Read                        | N/A                        |
+| [Blob Batch](/rest/api/storageservices/blob-batch) (Set Blob Tier)                        | Other                     | Other                       | N/A                       |
 | [Set Immutability Policy](/rest/api/storageservices/set-blob-immutability-policy)         | Other                     | Other                       | Other                       |
 | [Delete Immutability Policy](/rest/api/storageservices/delete-blob-immutability-policy)   | Other                     | Other                       | Other                       |
 | [Set Legal Hold](/rest/api/storageservices/set-blob-legal-hold)                           | Other                     | Other                       | Other                       |

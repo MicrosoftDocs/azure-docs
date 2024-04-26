@@ -16,7 +16,7 @@ Azure Event Hubs enables you to automatically capture the streaming data in Even
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
 > [!IMPORTANT]
-> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub.
+> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub when not using managed identity for authentication.
 > - Event Hubs doesn't support capturing events in a premium storage account.
 > - Event Hubs capture supports any non-premium Azure storage account with support for block blobs.
 
@@ -70,7 +70,7 @@ The capture feature is included in the premium tier so there is no additional ch
 Capture doesn't consume egress quota as it is billed separately. 
 
 ## Integration with Event Grid 
-You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a Azure Synapse Analytics using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
+You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to an Azure Synapse Analytics using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
 ## Explore captured files
 To learn how to explore captured Avro files, see [Explore captured Avro files](explore-captured-avro-files.md).

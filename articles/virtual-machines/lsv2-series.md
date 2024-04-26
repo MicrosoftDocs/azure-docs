@@ -4,7 +4,7 @@ description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom: devx-track-linux
+ms.custom:
 ms.topic: conceptual
 ms.date: 06/01/2022
 ms.author: sasham
@@ -21,7 +21,7 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 >
 > The high throughput and IOPs of the local disk makes the Lsv2-series VMs ideal for NoSQL stores such as Apache Cassandra and MongoDB which replicate data across multiple VMs to achieve persistence in the event of the failure of a single VM.
 >
-> To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).  
+> To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).
 
 [ACU](acu.md): 150-175<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
@@ -52,7 +52,7 @@ Bursting: Supported<br>
 
 <sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.
 
-<sup>5</sup> Lsv2-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>5</sup> Lsv2-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
 
 <sup>6</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
 

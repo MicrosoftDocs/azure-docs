@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 02/13/2024
 ---
 
 # Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps
@@ -384,7 +384,14 @@ To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-o
 
 1. On the **Create an alert rule** page, from the **Signal name** list, select the signal for which you want to get an alert.
 
-   For example, to send an alert when a trigger fails, follow these steps:
+   > [!NOTE]
+   >
+   > Available alert signals differ between Consumption and Standard logic apps. For example, 
+   > Consumption logic apps have many trigger-related signals, such as **Triggers Completed** 
+   > and **Triggers Failed**, while Standard workflows have the **Workflow Triggers Completed Count** 
+   > and **Workflow Triggers Failure Rate** signals.
+
+   For example, to send an alert when a trigger fails in a Consumption workflow, follow these steps:
 
    1. From the **Signal name** list, select the **Triggers Failed** signal.
 
@@ -411,7 +418,7 @@ To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-o
 
       For example, the finished condition looks similar to the following example, and the **Create an alert rule** page now shows the cost for running that alert:
 
-      ![Screenshot shows the alert rule condition.](./media/monitor-logic-apps/set-up-condition-for-alert.png)
+      ![Screenshot shows Consumption logic app and alert rule condition.](./media/monitor-logic-apps/set-up-condition-for-alert.png)
 
 1. When you're ready, select **Review + Create**.
 

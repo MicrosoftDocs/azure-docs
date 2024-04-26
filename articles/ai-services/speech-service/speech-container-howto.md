@@ -6,14 +6,14 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 1/22/2024
 ms.author: eur
 keywords: on-premises, Docker, container
 ---
 
 # Install and run Speech containers with Docker
 
-By using containers, you can use a subset of the Speech service features in your own environment. In this article, you'll learn how to download, install, and run a Speech container.
+By using containers, you can use a subset of the Speech service features in your own environment. In this article, you learn how to download, install, and run a Speech container.
 
 > [!NOTE]
 > Disconnected container pricing and commitment tiers vary from standard containers. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -29,13 +29,13 @@ You must meet the following prerequisites before you use Speech service containe
 
 ### Billing arguments
 
-Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. 
+Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service always. 
 
 Three primary parameters for all Azure AI containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey` parameter.
 
-The <a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank">`docker run` <span class="docon docon-navigate-external x-hidden-focus"></span></a> command will start the container when all three of the following options are provided with valid values:
+The <a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank">`docker run` <span class="docon docon-navigate-external x-hidden-focus"></span></a> command starts the container when all three of the following options are provided with valid values:
 
 | Option | Description |
 |--------|-------------|
@@ -67,7 +67,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 > [!NOTE]
 > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
-> For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
+> For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see the previous table).
 > Also, the first run of either container might take longer because models are being paged into memory.
 
 ## Host computer requirements and recommendations
@@ -99,8 +99,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 Take note the following best practices with the `docker run` command:
 
-- **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
-- **Argument order**: Do not change the order of the arguments unless you are familiar with Docker containers.
+- **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this character based on your host operating system's requirements.
+- **Argument order**: Don't change the order of the arguments unless you're familiar with Docker containers.
 
 You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. The following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
 
@@ -191,7 +191,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-The container will test for network connectivity to the billing endpoint.
+The container tests for network connectivity to the billing endpoint.
 
 ## Run disconnected containers
 

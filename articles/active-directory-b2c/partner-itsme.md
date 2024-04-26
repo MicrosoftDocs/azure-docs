@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C authentication with itsme OpenID Connect (OIDC), I want to configure the itsme Identity Provider in Azure AD B2C, so that users can sign in securely using their itsme digital ID app without the need for passwords or multiple PIN codes.
+
 ---
 
 # Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C

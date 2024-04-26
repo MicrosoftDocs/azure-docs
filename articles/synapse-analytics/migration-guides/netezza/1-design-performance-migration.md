@@ -3,8 +3,6 @@ title: "Design and performance for Netezza migrations"
 description: Learn how Netezza and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish

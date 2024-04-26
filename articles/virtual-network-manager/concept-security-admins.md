@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 12/07/2023
-ms.custom: template-concept, ignite-fall-2021, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Security admin rules in Azure Virtual Network Manager

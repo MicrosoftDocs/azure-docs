@@ -7,7 +7,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -19,7 +20,7 @@ Returns the natural logarithm of the specified numeric expression.
 
 ## Syntax
 
-```sql
+```nosql
 LOG(<numeric_expr> [, <numeric_base>])  
 ```  
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 The following example returns the logarithm value of various values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/log-base/query.sql" highlight="2-3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/log-base/query.sql" highlight="2-3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/log-base/result.json":::
 

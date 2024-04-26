@@ -1,7 +1,7 @@
 ---
 description: Overview of how to use the Azure Cloud Shell window.
 ms.contributor: jahelmic
-ms.date: 11/14/2022
+ms.date: 01/23/2024
 ms.topic: article
 tags: azure-resource-manager
 title: Using the Azure Cloud Shell window
@@ -127,11 +127,6 @@ Scroll with your mouse or touchpad to move terminal text.
 The `exit` command terminates the active session. Cloud Shell also terminates your session after 20
 minutes without interaction.
 
-## Next steps
-
-- [Bash in Cloud Shell Quickstart][13]
-- [PowerShell in Cloud Shell Quickstart][12]
-
 <!-- link references -->
 [02]: media/using-the-shell-window/env-selector.png
 [03]: media/using-the-shell-window/minmax.png
@@ -143,6 +138,4 @@ minutes without interaction.
 [09]: media/using-the-shell-window/text-font.png
 [10]: media/using-the-shell-window/text-size.png
 [11]: media/using-the-shell-window/uploaddownload.png
-[12]: quickstart-powershell.md
-[13]: quickstart.md
 [14]: using-cloud-shell-editor.md

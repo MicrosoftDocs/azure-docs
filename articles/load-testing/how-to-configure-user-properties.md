@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to use JMeter user properties with Azure Load Testing.
 services: load-testing
 ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 04/05/2023
 ms.topic: how-to
 ---

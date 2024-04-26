@@ -7,10 +7,12 @@ manager: martinco
 
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 12/15/2022
+ms.topic: concept-article
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: As a developer, I want to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---
 
 # Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration

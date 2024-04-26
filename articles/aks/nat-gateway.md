@@ -36,6 +36,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
         --outbound-type managedNATGateway \
         --nat-gateway-managed-outbound-ip-count 2 \
         --nat-gateway-idle-timeout 4
+   ```
 
 * Update the outbound IP address or idle timeout using the [`az aks update`][az-aks-update] command with the `--nat-gateway-managed-outbound-ip-count` or `--nat-gateway-idle-timeout` parameter.
 
@@ -130,7 +131,7 @@ This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-ku
         --assign-identity $IDENTITY_ID
     ```
 
-## Disable OutboundNAT for Windows (Preview)
+## Disable OutboundNAT for Windows
 
 Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. An example issue is node port reuse. In this example, Windows OutboundNAT uses ports to translate your pod IP to your Windows node host IP, which can cause an unstable connection to the external service due to a port exhaustion issue.
 
@@ -138,36 +139,7 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
 ### Prerequisites
 
-* If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
-* You need to install or update `aks-preview` and register the feature flag.
-
-  1. Install or update `aks-preview` using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
-
-    ```azurecli-interactive
-    # Install aks-preview
-    az extension add --name aks-preview
-
-    # Update aks-preview
-    az extension update --name aks-preview
-    ```
-
-  2. Register the feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
-    ```
-
-  3. Check the registration status using the [`az feature list`][az-feature-list] command.
-
-    ```azurecli-interactive
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
-    ```
-
-  4. Refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
+* Existing AKS cluster with v1.26 or above. If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
 
 ### Limitations
 
@@ -229,3 +201,4 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-provider-register]: /cli/azure/provider#az_provider_register
+

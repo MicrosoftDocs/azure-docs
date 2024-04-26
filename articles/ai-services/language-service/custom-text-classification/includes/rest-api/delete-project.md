@@ -1,11 +1,10 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 When you no longer need your project, you can delete it with the following **DELETE** request. Replace the placeholder values with your own values.   

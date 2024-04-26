@@ -81,3 +81,4 @@ When you're performing the following physical repairs, a replace action is requi
 Restarting, reimaging, and replacing are effective troubleshooting methods that you can use to address technical problems. However, it's important to have a systematic approach and to consider other factors before you try any drastic measures.
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

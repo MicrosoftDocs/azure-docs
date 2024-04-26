@@ -19,7 +19,7 @@ The following table describes the network topologies supported by each network f
 
 |Topology |Supported |
 | :------------------- |:---------------:|
-|Connectivity to BareMetal Infrasturcture (BMI) in a local VNet| Yes |
+|Connectivity to BareMetal Infrastructure (BMI) in a local VNet| Yes |
 |Connectivity to BMI in a peered VNet (Same region)|Yes |
 |Connectivity to BMI in a peered VNet\* (Cross region or global peering) with VWAN\*|Yes |
 |Connectivity to BM in a peered VNet* (Cross region or global peering)* without VWAN| No|

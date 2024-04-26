@@ -6,7 +6,6 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: sidandrews
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Limit the total throughput provisioned on your Azure Cosmos DB account

@@ -36,15 +36,17 @@
     href: how-to-cache-token.md
   - name: Store user preferences
     href: how-to-store-user-preferences.md
+  - name: Create an iOS app that reads from photos
+    href: tutorial-ios-picture-immersive-reader.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
         href: ../../ai-services/cognitive-services-virtual-networks.md?context=/azure/ai-services/immersive-reader/context/context
       - name: Use Microsoft Entra authentication
         href: ../../ai-services/authentication.md?context=/azure/ai-services/immersive-reader/context/context
-- name: Security Advisory
+- name: Security advisory
   items:
-  - name: Update Role Assignment for Microsoft Entra authentication
+  - name: Update Microsoft Entra role assignment
     href: security-how-to-update-role-assignment.md
 - name: Reference
   items:

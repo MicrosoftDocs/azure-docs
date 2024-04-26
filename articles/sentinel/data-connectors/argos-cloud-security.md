@@ -87,7 +87,7 @@ Enter the information into the [ARGOS Sentinel](https://app.argos-security.io/ac
 
 New detections will automatically be forwarded.
 
-[Learn more about the integration](https://www.argos-security.io/resources#integrations)
+[Learn more about the integration](https://argos-security.io/2021/11/23/how-to-integrate-with-microsoft-sentinel-siem/)
 
 
 

@@ -3,7 +3,7 @@ title: Azure Event Hubs output binding for Azure Functions
 description: Learn to write messages to Azure Event Hubs streams using Azure Functions.
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/03/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -45,9 +45,11 @@ This article supports both programming models.
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="20-31":::
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
 
@@ -306,7 +308,7 @@ Use the [EventHubAttribute] to define an output binding to an event hub, which s
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, these properties are supported for `event_hub_output`:
 
 | Property    | Description |
 |-------------|-----------------------------|

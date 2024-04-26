@@ -4,7 +4,6 @@ ms.topic: include
 author: dlepow
 ms.author: danlep
 ms.date: 02/24/2023
-ms.custom: 
 ---
 
 ## Test your GraphQL API

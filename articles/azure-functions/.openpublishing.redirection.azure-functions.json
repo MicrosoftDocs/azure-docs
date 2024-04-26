@@ -1,0 +1,609 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-vsts-continuous.md",
+            "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-test-a-function.md",
+            "redirect_url": "/azure/azure-functions/supported-languages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-cli.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-example.md",
+            "redirect_url": "/azure/azure-functions/functions-triggers-bindings#bindings-code-examples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function-azure-cli.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-java-maven.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-function-python.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-cli-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-visual-studio-code.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-vs-code-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-function-vs-code.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-vs-code-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-function-powershell.md",
+            "redirect_url": "/azure/azure-functions/create-first-function-vs-code-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-bindings.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-bindings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-cloud-backup.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-cloud-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-install.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-custom-orchestration-status.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-custom-orchestration-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-diagnostics.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-disaster-recovery-geo-distribution.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-error-handling.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-error-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-eternal-orchestrations.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-eternal-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-event-publishing.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-event-publishing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-external-events.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-external-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-http-api.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-http-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-instance-management.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-instance-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-checkpointing-and-replay.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-checkpointing-and-replay.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-concepts.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-overview.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-perf-and-scale.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-perf-and-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-phone-verification.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-phone-verification",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-sequence.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-sequence",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-singletons.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-singletons",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-sub-orchestrations.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-sub-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-task-hubs.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-task-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-timers.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-timers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-types-features-overview.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-types-features-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-unit-testing.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-unit-testing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-versioning.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-versioning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-preview.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-versions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-webjobs-sdk.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-webjobs-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-counter.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
+            "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/add-output-binding-storage-queue-python.md",
+            "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/add-output-binding-storage-queue-vs.md",
+            "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/add-output-binding-storage-queue-vs-code.md",
+            "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-best-practices.md",
+            "redirect_url": "/azure/azure-functions/functions-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-documentdb.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-documentdb.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-documentdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-event-hubs.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-a-web-hook-or-api-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-github-webhook-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-http-webhook.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-mobile-apps.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-mobile-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-notification-hubs.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-notification-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/install-update-binding-extensions-manual.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-register",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-how-to-use-sendgrid.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-service-bus.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-service-bus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-storage.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-storage.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-storage-blob.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-storage-queue.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage-queue",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-storage-table.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage-table",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-timer.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-timer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-bindings-twilio.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-twilio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-compare-logic-apps-ms-flow-webjobs.md",
+            "redirect_url": "/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-continuous-deployment.md",
+            "redirect_url": "/azure/azure-functions/functions-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-create-an-azure-connected-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-an-azure-connected-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-create-an-event-processing-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-an-event-processing-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-create-a-web-hook-or-api-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-a-web-hook-or-api-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function-azure-portal.md",
+            "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-government/documentation-government-functions.md",
+            "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-create-first-azure-function.md",
+            "redirect_url": "/azure/azure-functions/functions-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function.md",
+            "redirect_url": "/azure/azure-functions/functions-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-create-first-azure-function-azure-portal.md",
+            "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-an-event-processing-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-scheduled-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-an-azure-connected-function.md",
+            "redirect_url": "/azure/azure-functions/functions-create-storage-queue-triggered-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-vnet-old.md",
+            "redirect_url": "/azure/azure-functions/functions-create-vnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-visual-studio.md",
+            "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-how-to-use-azure-function-app-settings.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-use-azure-function-app-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-monitoring.md",
+            "redirect_url": "/azure/azure-functions/functions-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-api-definition-getting-started.md",
+            "redirect_url": "/azure/azure-functions/functions-openapi-definition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/dotnet-isolated-process-developer-howtos.md",
+            "redirect_url": "/azure/azure-functions/dotnet-isolated-process-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-overview.md",
+            "redirect_url": "/azure/azure-functions/functions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-reference-csharp.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-reference-fsharp.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-fsharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-java-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-java-refernece.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-reference-node.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-run-local.md",
+            "redirect_url": "/azure/azure-functions/functions-run-local",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-scale.md",
+            "redirect_url": "/azure/azure-functions/functions-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-scenario-database-table-cleanup.md",
+            "redirect_url": "/azure/azure-functions/functions-scenario-database-table-cleanup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-test-a-function.md",
+            "redirect_url": "/azure/azure-functions/functions-test-a-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/functions-triggers-bindings.md",
+            "redirect_url": "/azure/azure-functions/functions-triggers-bindings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-external-file.md",
+            "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-external-table.md",
+            "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-api-definition.md",
+            "redirect_url": "/azure/azure-functions/functions-openapi-definition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/functions/index.md",
+            "redirect_url": "/azure/azure-functions/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/recover-module-not-found.md",
+            "redirect_url": "/azure/azure-functions/recover-python-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
+            "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-runtime-overview.md",
+            "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
+            "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/monitor-metrics.md",
+            "redirect_url": "/azure/azure-functions/monitor-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-errors.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-error-pages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
+            "redirect_url": "/azure/azure-functions/functions-event-grid-blob-trigger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-triggers-python.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-python?pivots=python-mode-decorators#triggers-and-inputs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/update-java-versions.md",
+            "redirect_url": "/azure/azure-functions/update-language-versions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/functions/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-student-starter.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-reference-fsharp.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-csharp#convert-a-c-script-app-to-a-c-project",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-kotlin-maven.md",
+            "redirect_url": "/azure/azure-functions/functions-create-maven-kotlin-intellij",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/tutorial-vs-code-serverless-python.md",
+            "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-microsoft-graph.md",
+            "redirect_url": "/graph/tutorials/azure-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-function-app-linux-app-service-plan.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-premium-plan-function-app-portal.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-geo-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
+            "redirect_document_id": false
+        }
+    ]
+}

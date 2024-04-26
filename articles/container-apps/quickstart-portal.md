@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 01/10/2024
 ms.author: cshoe
-ms.custom: mode-ui, event-tier1-build-2022
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy your first container app using the Azure portal

@@ -2,7 +2,6 @@
 title: Azure Monitor workbooks - Transform JSON data with JSONPath
 description: Use JSONPath in Azure Monitor workbooks to transform the JSON data results to a different data format. 
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023
@@ -73,7 +72,7 @@ In this example, the JSON object represents a store's inventory. We're going to 
 
     :::image type="content" source="media/workbooks-jsonpath/query-jsonpath.png" alt-text="Screenshot that shows editing a query item with JSON data source and JSON path result format.":::
 
-## Use regular expressions to covert values
+## Use regular expressions to convert values
 
 You may have some data that isn't in a standard format. To use that data effectively, you would want to convert that data into a standard format.
 

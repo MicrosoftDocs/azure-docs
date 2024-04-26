@@ -82,7 +82,7 @@ The following articles provide you with information on how to use Event Grid or 
 
 - [Learn about System Topics](system-topics.md)
 - [Learn about Partner Topics](partner-events-overview.md)
-- [Learn bout Event Domains](event-domains.md)
+- [Learn about Event Domains](event-domains.md)
 - [Learn about event handlers](event-handlers.md)
 - [Learn about event filtering](event-filtering.md)
 - [Publish and subscribe using custom topics](custom-event-quickstart-portal.md).

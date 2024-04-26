@@ -6,7 +6,7 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 03/01/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -14,6 +14,9 @@ ms.custom: references_regions
 # Save on select VMs in US West for a limited time
 
 Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – February 29, 2024.
+
+> [!NOTE]
+> This limited-time offer expired on March 1, 2024. You can still purchase Azure Reserved VM Instances at regular discounted prices. For more information about reservation discount, see [How the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).
 
 ## Purchase the limited time offer
 

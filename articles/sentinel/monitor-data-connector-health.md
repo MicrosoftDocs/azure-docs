@@ -1,10 +1,10 @@
 ---
 title: Monitor the health of your Microsoft Sentinel data connectors
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 02/11/2024
 ms.service: microsoft-sentinel
 ---
 
@@ -14,7 +14,7 @@ To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel s
 
 The following features allow you to perform this monitoring from within Microsoft Sentinel:
 
-- **Data connectors health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
+- **Data collection health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
 - ***SentinelHealth* data table (Preview)**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
@@ -26,9 +26,15 @@ The following features allow you to perform this monitoring from within Microsof
 
 ## Use the health monitoring workbook
 
-1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
+1. From the Microsoft Sentinel portal, select **Content hub** from the **Content management** section of the navigation menu.
 
-1. In the **Workbooks** gallery, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
+1. In the **Content hub**, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
+
+1. Select **Install** from the details pane. When you see a notification message that the workbook is installed, or if instead of *Install*, you see *Configuration*, proceed to the next step.
+
+1. Select **Workbooks** from the **Threat management** section of the navigation menu.
+
+1. In the **Workbooks** page, select the **Templates** tab, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 
 1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
 

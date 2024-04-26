@@ -5,13 +5,11 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
-ms.custom: template-how-to , devx-track-azurecli 
+ms.custom: template-how-to , devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
 # Share gallery resources across subscriptions and tenants with RBAC
@@ -23,7 +21,7 @@ As the Azure Compute Gallery, definition, and version are all resources, they ca
 | Azure Compute Gallery | Yes                  | Yes          | Yes                  |
 | Image Definition     | No                   | Yes          | Yes                  |
 
-We recommend sharing at the Gallery level for the best experience. We don't recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the Gallery level for the best experience. We don't recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.yml).
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 

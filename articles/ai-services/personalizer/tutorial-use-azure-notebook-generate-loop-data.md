@@ -7,7 +7,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 01/19/2024
 ms.custom:
 #Customer intent: As a Python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---

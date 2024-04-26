@@ -142,7 +142,7 @@ If you don't provide a relationship name, the query will include all relationshi
 >[!NOTE]
 > The examples in this section focus on relationship name. They all show non-directional relationships, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
-Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`). This section shows the syntax of specifying named relationships.
+Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`), after a colon (`:`). This section shows the syntax of specifying named relationships.
 
 For a single name, use the following syntax. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, `relationship_name`, and `twin_or_twin_collection_2`.
 
@@ -151,6 +151,9 @@ For a single name, use the following syntax. The placeholder values that should 
 For multiple possible names use the following syntax. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, `relationship_name_option_1`, `relationship_name_option_2`, `twin_or_twin_collection_2`, and the note to continue the pattern as needed for the number of relationship names you want to enter.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameMultiSyntax":::
+
+>[!IMPORTANT]
+> The colon (`:`) within the square brackets is a required part of the syntax for specifying a relationship name in a `MATCH` query. If you don't include the colon, your query doesn't specify a relationship name. Instead, you have a query that [assigns a query variable to the relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties).
 
 (Default) To leave name unspecified, leave the brackets empty of name information, like this:
 
@@ -246,7 +249,7 @@ To assign a query variable to the relationship, put the variable name in the squ
 
 ### Examples
 
-The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship Rel should have a name property with a value of 'child'.
+The following example assigns a query variable 'Rel' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship Rel should have a name property with a value of 'child'.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchVariableExample":::
 

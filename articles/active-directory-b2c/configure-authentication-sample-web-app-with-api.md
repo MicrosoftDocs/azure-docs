@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a web application that calls a web API, I want to configure authentication using Azure AD B2C, so that I can securely sign users in to my application and call a secure web API.
+
 ---
 
 # Configure authentication in a sample web app that calls a web API by using Azure AD B2C

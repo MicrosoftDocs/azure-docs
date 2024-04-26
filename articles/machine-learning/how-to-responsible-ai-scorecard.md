@@ -10,7 +10,7 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
 ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.custom: responsible-ml
 ---
 
 # Use Responsible AI scorecard (preview) in Azure Machine Learning

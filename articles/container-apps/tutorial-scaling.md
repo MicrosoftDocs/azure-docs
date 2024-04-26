@@ -21,7 +21,7 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *Contributor* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *Contributor* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
@@ -121,7 +121,7 @@ az containerapp up \
   --location centralus \
   --environment 'my-container-apps' \
   --image mcr.microsoft.com/k8se/quickstart:latest \
-  --target-port 80 \
+  --target-port 8080 \
   --ingress external \
   --query properties.configuration.ingress.fqdn \
 ```
@@ -135,8 +135,8 @@ az containerapp up `
   --location centralus `
   --environment my-container-apps `
   --image mcr.microsoft.com/k8se/quickstart:latest `
-  --target-port 80 `
-  --ingress external  `
+  --target-port 8080 `
+  --ingress external `
   --query properties.configuration.ingress.fqdn `
 ```
 
@@ -228,7 +228,7 @@ The `show` command returns entries from the system logs for your container app i
 }
 {
 	"TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
-	"Log":"Now listening on: http://[::]:3500"
+	"Log":"Now listening on: http://[::]:8080"
 }
 {
 	"TimeStamp":"2023-08-01T16:47:31.9490917+00:00",

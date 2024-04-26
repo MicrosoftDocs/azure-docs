@@ -3,7 +3,7 @@ title: Linter rule - use resource ID functions
 description: Linter rule - use resource ID functions
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/23/2022
+ms.date: 03/20/2024
 ---
 
 # Linter rule - use resource ID functions

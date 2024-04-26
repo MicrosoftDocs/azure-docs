@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support, devx-track-python
+
+
+#Customer intent: As a Python web app developer, I want to enable and customize Azure AD B2C authentication in my application, so that I can provide a secure and personalized authentication experience for my users.
+
 ---
 
 # Enable authentication options in a Python web app by using Azure AD B2C 

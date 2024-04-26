@@ -3,7 +3,6 @@ title: Disable Azure Automanage for virtual machines
 description: Learn how to disable Azure Automanage for Automanaged virtual machines.
 author: mmccrory
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/07/2022
 ms.author: memccror

@@ -2,7 +2,7 @@
 title: Azure Communication Services Call Automation how-to for passing call contextual data in Call Automation 
 titleSuffix: An Azure Communication Services how-to document
 description: Provides a how-to guide for passing contextual information with Call Automation.
-author: juta
+author: jutik0
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
@@ -34,7 +34,7 @@ For all the code samples, `client` is CallAutomationClient object that can be cr
 ## Technical parameters
 Call Automation supports up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
-The custom SIP header key must start with a mandatory ‘X-MS-Custom-’ prefix.  The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC.
+The custom SIP header key must start with a mandatory ‘X-MS-Custom-’ prefix.  The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. The SIP header key may consist of alphanumeric characters and a few selected symbols which includes `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC. The SIP header value may consist of alphanumeric characters and a few selected symbols which includes `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
 
 The maximum length of a VOIP header key is 64 chars. These headers can be sent without ‘x-MS-Custom’ prefix. The maximum length of VOIP header value is 1024 chars.
 
@@ -112,8 +112,8 @@ result = call_connection_client.add_participant(
 #Invite a PSTN user and set UUI and custom SIP headers
 caller_id_number = PhoneNumberIdentifier("+16044561234")
 sip_headers = {}
-sip_headers.add("User-To-User", "value")
-sip_headers.add("X-MS-Custom-headerName", "headerValue")
+sip_headers["User-To-User"] = "value"
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
 target = PhoneNumberIdentifier("+16041234567")
 result = call_connection_client.add_participant(
     target,
@@ -202,8 +202,8 @@ result = call_connection_client.transfer_call_to_participant(
 transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
 transferee = PhoneNumberIdentifer("transferee_phoneNumber")
 sip_headers={}
-sip_headers.add("X-MS-Custom-headerName", "headerValue")
-sip_headers.add("User-To-User","uuivale")
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
+sip_headers["User-To-User"] = "uuivalue"
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
@@ -276,7 +276,7 @@ voipHeaders = callCustomContext.voipHeaders
 sipHeaders = callCustomContext.sipHeaders
 
 # Get SIP UUI header value
-userToUser = sipHeaders.get("user-To-User")
+userToUser = sipHeaders["user-To-User"]
 
 # Proceed to answer or reject call as usual
 ```

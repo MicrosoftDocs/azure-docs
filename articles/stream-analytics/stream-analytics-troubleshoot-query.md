@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
-ms.custom: seodec18
 ---
 
 # Troubleshoot Azure Stream Analytics queries
@@ -99,7 +98,7 @@ This time, the data in the output is formatted and populated as expected.
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

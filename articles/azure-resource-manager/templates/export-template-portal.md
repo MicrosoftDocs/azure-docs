@@ -3,8 +3,9 @@ title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ---
+
 # Use Azure portal to export a template
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
@@ -36,7 +37,7 @@ To export one or more resources from a resource group:
 
    :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
 
-   **Include parameters** is selected by default.  When selected, all template parameters will be included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+   **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
 
 ## Export template from a resource
 
@@ -50,7 +51,7 @@ To export one resource:
 
    :::image type="content" source="./media/export-template-portal/export-single-resource.png" alt-text="Screenshot of exporting a single resource in Azure portal.":::
 
-1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource. **Include parameters** is selected by default.  When selected, all template parameters will be included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource. **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
 
 ## Download template before deployment
 

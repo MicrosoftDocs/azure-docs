@@ -1,17 +1,10 @@
 ---
 title: Requirements and considerations for large volumes | Microsoft Docs
-description: Describes the requirements and considerations you need to be aware of before using large volumes.  
+description: Describes the requirements and considerations you need to be aware of before using large volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: references_regions
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.author: anfdocs
@@ -32,9 +25,9 @@ The following requirements and considerations apply to large volumes. For perfor
 
 * Existing regular volumes can't be resized over 100 TiB.
 * You can't convert regular Azure NetApp Files volumes to large volumes.
-* You must create a large volume at a size greater than 100 TiB. A single volume can't exceed 500 TiB.  
-* You can't resize a large volume to less than 100 TiB.
-* You can only resize a large to be volume up to 30%, of lowest provisioned size. 
+* You must create a large volume at a size of 50 TiB or larger. A single volume can't exceed 500 TiB.  
+* You can't resize a large volume to less than 50 TiB.
+    A large volume cannot be resized to less than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits).
 * Large volumes are currently not supported with Azure NetApp Files backup.
 * Large volumes aren't currently supported with cross-region replication.
 * You can't create a large volume with application volume groups.
@@ -44,11 +37,12 @@ The following requirements and considerations apply to large volumes. For perfor
     
     | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |
     | --- | --- | --- |
-    | Standard | 100 to 500 | 1,600 |
-    | Premium | 100 to 500 | 6,400 | 
-    | Ultra | 100 to 500 | 10,240 | 
+    | Standard | 50 to 500 | 1,600 |
+    | Premium | 50 to 500 | 6,400 | 
+    | Ultra | 50 to 500 | 10,240 | 
     
 * Large volumes aren't currently supported with standard storage with cool access.
+
 ## Supported regions
 
 Support for Azure NetApp Files large volumes is available in the following regions:
@@ -61,6 +55,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * Central US
 * East US
 * East US 2
+* France Central
 * Germany West Central
 * Japan East
 * North Europe
@@ -72,6 +67,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * UAE North
 * UK West
 * UK South
+* US Gov Virginia 
 * West Europe
 * West US
 * West US 2

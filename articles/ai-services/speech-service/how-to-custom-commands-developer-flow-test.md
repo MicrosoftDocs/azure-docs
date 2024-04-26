@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -19,7 +19,7 @@ In this article, you learn different approaches to testing a custom commands app
 
 ## Test in the portal
 
-Test in the portal is the simplest and quickest way to check if your custom command application work as expected. After the app is successfully trained, click `Test` button to start testing.
+Test in the portal is the simplest and quickest way to check if your custom command application work as expected. After the app is successfully trained, select `Test` button to start testing.
 
 > [!div class="mx-imgBorder"]
 > ![Test in the portal](media/custom-commands/create-basic-test-chat-no-mic.png)

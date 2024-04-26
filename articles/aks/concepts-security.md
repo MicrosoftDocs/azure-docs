@@ -3,8 +3,9 @@ title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
 author: miwithro
 ms.topic: conceptual
+ms.subservice: aks-security
 ms.custom: build-2023
-ms.date: 10/31/2023
+ms.date: 03/18/2024
 ms.author: miwithro
 ---
 
@@ -56,6 +57,8 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 
 For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
 
+AKS clusters running Azure Generation 2 VMs includes support for [Trusted Launch][trusted-launch] (preview), which protects against advanced and persistent attack techniques by combining technologies that can be independently enabled, like secure boot and virtualized version of trusted platform module (vTPM). Administrators can deploy AKS worker nodes with verified and signed bootloaders, OS kernels, and drivers to ensure integrity of the entire boot chain of the underlying VM.
+
 ### Node authorization
 
 Node authorization is a special-purpose authorization mode that specifically authorizes kubelet API requests to protect against East-West attacks.  Node authorization is enabled by default on AKS 1.24 + clusters.
@@ -81,25 +84,6 @@ Because of compliance or regulatory requirements, certain workloads may require 
 * [Kernel isolated containers][azure-confidential-containers] to use as the agent nodes in an AKS cluster. These containers are completely isolated to a specific hardware type and isolated from the Azure Host fabric, the host operating system, and the hypervisor. They are dedicated to a single customer. Select [one of the isolated VMs sizes][isolated-vm-size] as the **node size** when creating an AKS cluster or adding a node pool.
 * [Confidential Containers][confidential-containers] (preview), also based on Kata Confidential Containers, encrypts container memory and prevents data in memory during computation from being in clear text, readable format, and tampering. It helps isolate your containers from other container groups/pods, as well as VM node OS kernel. Confidential Containers (preview) uses hardware based memory encryption (SEV-SNP).
 * [Pod Sandboxing][pod-sandboxing] (preview) provides an isolation boundary between the container application and the shared kernel and compute resources (CPU, memory, and network) of the container host.
-
-## Cluster upgrades
-
-Azure provides upgrade orchestration tools to upgrade of an AKS cluster and components, maintain security and compliance, and access the latest features. This upgrade orchestration includes both the Kubernetes master and agent components. 
-
-To start the upgrade process, specify one of the [listed available Kubernetes versions](supported-kubernetes-versions.md). Azure then safely cordons and drains each AKS node and upgrades.
-
-### Cordon and drain
-
-During the upgrade process, AKS nodes are individually cordoned from the cluster to prevent new pods from being scheduled on them. The nodes are then drained and upgraded as follows:
-
-1. A new node is deployed into the node pool. 
-    * This node runs the latest OS image and patches.
-1. One of the existing nodes is identified for upgrade. 
-1. Pods on the identified node are gracefully terminated and scheduled on the other nodes in the node pool.
-1. The emptied node is deleted from the AKS cluster.
-1. Steps 1-4 are repeated until all nodes are successfully replaced as part of the upgrade process.
-
-For more information, see [Upgrade an AKS cluster][aks-upgrade-cluster].
 
 ## Network security
 
@@ -179,3 +163,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
 [manage-ssh-access]: manage-ssh-node-access.md
+[trusted-launch]: use-trusted-launch.md

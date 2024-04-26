@@ -5,7 +5,7 @@ author: khelanmodi
 ms.author: khelanmodi
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2023
+ms.date: 03/12/2024
 ---
 
 # Data encryption in Azure Cosmos DB for MongoDB vCore
@@ -16,7 +16,7 @@ ms.date: 11/30/2023
 
 As a platform as a service (PaaS), Azure Cosmos DB is easy to use. Because all user data stored in Azure Cosmos DB is encrypted at rest and in transport, you don't have to take any action. In other words, encryption at rest is "on" by default. There are no controls to turn it off or on. Azure Cosmos DB uses AES-256 encryption on all regions where the account is running.
 
-We provide this feature while we continue to meet our [availability and performance service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db). Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). 
+We provide this feature while we continue to meet our [availability and performance service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db). Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Customer managed keys (CMK) encryption will be released in the second half of 2024. 
 
 ## Implementation of encryption at rest for Azure Cosmos DB
 
@@ -40,6 +40,10 @@ Find answers to commonly asked questions about encryption.
 ### How much more does Azure Storage cost if Storage Service Encryption is enabled?
 
 There's no extra cost.
+
+### Can I encrypt my data with customer managed keys (CMK)?
+
+This feature is coming to the service in the second half of 2024.
 
 ### How often are encryption keys rotated?
 

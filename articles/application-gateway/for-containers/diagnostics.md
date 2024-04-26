@@ -1,16 +1,16 @@
 ---
-title: Diagnostic logs for Application Gateway for Containers (preview)
+title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 1/10/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Diagnostic logs for Application Gateway for Containers (preview)
+# Diagnostic logs for Application Gateway for Containers
 
 Learn how to troubleshoot common problems in Application Gateway for Containers.
 
@@ -39,7 +39,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
   3. Under **Monitoring**, select **Diagnostic settings**.
   4. Select **Add diagnostic setting**.
-  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**. 
+  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**.
   6. Select **Save** to save your settings. See the following example:
 
       ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs.png)
@@ -104,6 +104,7 @@ Each access log entry in Application Gateway for Containers contains the followi
 | userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
 
 Here an example of the access log emitted in JSON format to a storage account.
+
 ```JSON
 {
     "category": "TrafficControllerAccessLog",

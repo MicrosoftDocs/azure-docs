@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Reference: Self-hosted gateway Azure Arc configuration settings
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article provides a reference for required and optional settings that are used to configure the Azure Arc extension for API Management [self-hosted gateway container](self-hosted-gateway-overview.md). 
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]

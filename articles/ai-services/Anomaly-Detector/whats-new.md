@@ -6,7 +6,7 @@ ms.topic: whats-new
 ms.author: mbullwin
 author: mrbullwinkle
 manager: nitinme
-ms.date: 12/15/2022
+ms.date: 01/18/2024
 ---
 
 # What's new in Anomaly Detector

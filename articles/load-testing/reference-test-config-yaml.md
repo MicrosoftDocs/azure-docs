@@ -5,8 +5,8 @@ description: 'Learn how to configure a load test by using a YAML file. The YAML 
 services: load-testing
 ms.service: load-testing
 ms.topic: reference
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 12/06/2023
 adobe-target: true
 ---

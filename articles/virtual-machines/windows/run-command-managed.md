@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 > [!IMPORTANT]
 > **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality will soon be available.
 
-The Run Command feature uses the virtual machine (VM) agent to scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+The Run Command feature uses the virtual machine (VM) agent to execute scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action orientated Run Command](run-command.md): 
 - Support for updated Run Command through ARM deployment template 

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -18,7 +18,7 @@ You also need a *.wav* audio file on your local machine. You can use your own *.
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK for JavaScript. Run this command: `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
+To set up your environment, install the Speech SDK for JavaScript. Run this command: `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 ### Set environment variables
 
@@ -28,7 +28,7 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. R
 
 Follow these steps to create a Node.js console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named *SpeechRecognition.js*.
+1. Open a command prompt window where you want the new project, and create a new file named *SpeechRecognition.js*.
 1. Install the Speech SDK for JavaScript:
 
    ```console
@@ -75,6 +75,7 @@ Follow these steps to create a Node.js console application for speech recognitio
    ```
 
 1. In *SpeechRecognition.js*, replace *YourAudioFile.wav* with your own *.wav* file. This example only recognizes speech from a *.wav* file. For information about other audio formats, see [How to use compressed input audio](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md). This example supports up to 30 seconds of audio.
+
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, use `es-ES` for Spanish (Spain). If you don't specify a language, the default is `en-US`. For details about how to identify one of multiple languages that might be spoken, see [Language identification](~/articles/ai-services/speech-service/language-identification.md).
 
 1. Run your new console application to start speech recognition from a file:
@@ -84,7 +85,7 @@ Follow these steps to create a Node.js console application for speech recognitio
    ```
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
    The speech from the audio file should be output as text:
 

@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix slow requests when you use Azure Cosm
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022, devx-track-dotnet
+ms.custom: devx-track-dotnet
 ms.date: 08/02/2023
 ms.author: maquaran
 ms.topic: troubleshooting

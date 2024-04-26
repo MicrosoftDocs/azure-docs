@@ -34,7 +34,9 @@ landingContent:
             url: oracle-database-quick-create.md
           - text: WebLogic Server on Azure VMs
             url: oracle-weblogic.md
-          - text: WebLogic Server on Azure Kubernetes Service
+          - text: How-to guide for WebLogic Server on Azure VMs
+            url: weblogic-server-azure-virtual-machine.md
+          - text: WebLogic Server on Azure Kubernetes Service overview
             url: weblogic-aks.md
 
   #card 5  
@@ -72,8 +74,10 @@ landingContent:
         links:
           - text: Migrate Oracle workload to Azure VMs
             url: oracle-migration.md
-          - text: Storage options for oracle on Azure VMs
-            url: oracle-storage.md 
+          - text: Performance best practices for Oracle on Azure VMs
+            url: oracle-performance-best-practice.md
+          - text: Partner storage offerings for Oracle on Azure VMs 
+            url: oracle-third-party-storage.md
   
   #card 8
   - title: Backup and disaster recovery

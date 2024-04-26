@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: helohr
-manager: femila
 ---
 
 # Proxy server guidelines for Azure Virtual Desktop

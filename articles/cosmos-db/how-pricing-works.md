@@ -1,5 +1,5 @@
 ---
-title: Pricing model of Azure Cosmos DB 
+title: Pricing model of Azure Cosmos DB
 description: This article explains the pricing model of Azure Cosmos DB and how it simplifies your cost management and cost planning.
 author: seesharprun
 ms.author: sidandrews
@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/05/2024
-ms.custom: cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Pricing model in Azure Cosmos DB

@@ -3,7 +3,7 @@ title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive
 ms.date: 04/24/2023
 ---
 

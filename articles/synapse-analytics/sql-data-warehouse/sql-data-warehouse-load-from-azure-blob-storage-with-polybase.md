@@ -7,7 +7,6 @@ ms.date: 11/20/2020
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Load Contoso retail data into dedicated SQL pools in Azure Synapse Analytics

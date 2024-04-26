@@ -8,7 +8,7 @@ ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
  
 <a name="HOLTop"></a>

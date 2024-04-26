@@ -3,7 +3,7 @@ title: Scalability and high availability
 description: This article describes how IoT Central automatically scales to handle more devices, its high availability disaster recovery capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/21/2023
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

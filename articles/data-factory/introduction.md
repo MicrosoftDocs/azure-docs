@@ -17,6 +17,20 @@ In the world of big data, raw, unorganized data is often stored in relational, n
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. Azure Data Factory is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
+## Features of Azure Data Factory
+
+Data Compression: During the Data Copy activity, it is possible to compress the data and write the compressed data to the target data source. This feature helps optimize bandwidth usage in data copying.
+
+Extensive Connectivity Support for Different Data Sources: Azure Data Factory provides broad connectivity support for connecting to different data sources. This is useful when you want to pull or write data from different data sources.
+
+Custom Event Triggers: Azure Data Factory allows you to automate data processing using custom event triggers. This feature allows you to automatically execute a certain action when a certain event occurs.
+
+Data Preview and Validation: During the Data Copy activity, tools are provided for previewing and validating data. This feature helps you ensure that data is copied correctly and written to the target data source correctly.
+
+Customizable Data Flows: Azure Data Factory allows you to create customizable data flows. This feature allows you to add custom actions or steps for data processing.
+
+Integrated Security: Azure Data Factory offers integrated security features such as Azure Active Directory integration and role-based access control to control access to dataflows. This feature increases security in data processing and protects your data.
+
 ## Usage scenarios 
 
 For example, imagine a gaming company that collects petabytes of game logs that are produced by games in the cloud. The company wants to analyze these logs to gain insights into customer preferences, demographics, and usage behavior. It also wants to identify up-sell and cross-sell opportunities, develop compelling new features, drive business growth, and provide a better experience to its customers.

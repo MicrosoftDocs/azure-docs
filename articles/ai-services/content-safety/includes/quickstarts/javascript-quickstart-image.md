@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
-ms.date: 10/10/2023
+ms.date: 03/07/2024
 ms.author: pafarley
 ---
 
-[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest/samples) |
+[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0) |
 
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * The current version of [Node.js](https://nodejs.org/)
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 
 ## Set up application
@@ -91,11 +91,14 @@ async function main() {
     if (isUnexpected(result)) {
         throw result;
     }
-    
-    console.log("Hate severity: ", result.body.hateResult?.severity);
-    console.log("SelfHarm severity: ", result.body.selfHarmResult?.severity);
-    console.log("Sexual severity: ", result.body.sexualResult?.severity);
-    console.log("Violence severity: ", result.body.violenceResult?.severity);
+    for (let i = 0; i < result.body.categoriesAnalysis.length; i++) {
+    const imageCategoriesAnalysisOutput = result.body.categoriesAnalysis[i];
+    console.log(
+      imageCategoriesAnalysisOutput.category,
+      " severity: ",
+      imageCategoriesAnalysisOutput.severity
+    );
+  }
 }
 
 main().catch((err) => {

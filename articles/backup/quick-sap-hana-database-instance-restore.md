@@ -28,7 +28,7 @@ For more information about the supported configurations and scenarios, see [SAP 
 
 ## Restore the database
 
-[!INCLUDE [How to restore the entire SAP HANA system to a snapshot restore point.](../../includes/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point.md)]
+[!INCLUDE [How to restore the entire SAP HANA system to a snapshot restore point](../../includes/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point.md)]
 
 ## Next steps
 

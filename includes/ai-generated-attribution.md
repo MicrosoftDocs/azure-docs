@@ -3,7 +3,7 @@ author: tfitzmac
 ms.author: tomfitz
 ms.date: 04/14/2023
 ms.topic: include
-ms.prod: azure
+ms.service: azure
 ---
 
 > [!NOTE]

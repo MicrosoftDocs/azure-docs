@@ -4,11 +4,10 @@ description: Learn how to use Azure PowerShell to deploy Azure Spot Virtual Mach
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/28/2023
 ms.author: jushiman
-ms.reviewer: cynthn 
+ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
 ---
 

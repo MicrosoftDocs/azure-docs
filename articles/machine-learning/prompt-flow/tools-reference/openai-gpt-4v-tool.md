@@ -44,7 +44,7 @@ Set up connections to provisioned resources in prompt flow.
 |------------------------|-------------|------------------------------------------------------------------------------------------------|----------|
 | connection             | OpenAI      | The OpenAI connection to be used in the tool.                                                  | Yes      |
 | model                  | string      | The language model to use, currently only support gpt-4-vision-preview.                        | Yes      |
-| prompt                 | string      | The text prompt that the language model uses to generate its response.                         | Yes      |
+| prompt                 | string      | Text prompt that the language model uses to generate its response. The Jinja template for composing prompts in this tool follows a similar structure to the chat API in the LLM tool. To represent an image input within your prompt, you can use the syntax `![image]({{INPUT NAME}})`. Image input can be passed in the `user`, `system` and `assistant` messages.                 | Yes      |
 | max\_tokens            | integer     | The maximum number of tokens to generate in the response. Default is a low value decided by [OpenAI API](https://platform.openai.com/docs/guides/vision).                      | No       |
 | temperature            | float       | The randomness of the generated text. Default is 1.                                            | No       |
 | stop                   | list        | The stopping sequence for the generated text. Default is null.                                 | No       |
@@ -57,3 +57,7 @@ Set up connections to provisioned resources in prompt flow.
 | Return Type | Description                              |
 |-------------|------------------------------------------|
 | string      | The text of one response of conversation |
+
+## Next step
+
+Learn more about [how to process images in prompt flow](../how-to-process-image.md).

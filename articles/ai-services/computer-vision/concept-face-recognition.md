@@ -11,13 +11,13 @@ ms.subservice: azure-ai-face
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 02/14/2024
 ms.author: pafarley
 ---
 
 # Face recognition
 
-This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, face recognition is the act of verifying or identifying individuals by their faces. Face recognition is important in implementing the identification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
+This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, face recognition is the process of verifying or identifying individuals by their faces. Face recognition is important in implementing the identification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
 
 You can try out the capabilities of face recognition quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
@@ -48,7 +48,7 @@ The recognition operations use mainly the following data structures. These objec
 
 See the [Face recognition data structures](./concept-face-recognition-data-structures.md) guide.
 
-## Input data
+## Input requirements
 
 Use the following tips to ensure that your input images give the most accurate recognition results:
 

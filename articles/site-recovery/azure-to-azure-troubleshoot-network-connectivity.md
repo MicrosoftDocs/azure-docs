@@ -138,4 +138,4 @@ To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connect
 
 ## Next steps
 
-[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

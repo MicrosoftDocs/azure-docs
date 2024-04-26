@@ -4,7 +4,7 @@ description:  Get the Azure PowerShell samples to perform common tasks in Azure 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: table
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 01/20/2021
 ms.author: sidandrews

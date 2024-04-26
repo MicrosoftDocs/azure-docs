@@ -187,7 +187,7 @@ To view the JSON for the module twin:
 1. Select the **Device ID** of the IoT Edge device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
-   :::image type="content" source="./media/how-to-monitor-module-twins/select-module-twin.png" alt-text="Screenshot showing how to select a module twin to view in the Azure portal .":::
+   :::image type="content" source="./media/how-to-monitor-module-twins/select-module-twin.png" alt-text="Screenshot showing how to select a module twin to view in the Azure portal.":::
 
 If you see the message "A module identity doesn't exist for this module", this error indicates that the back-end solution is no longer available that originally created the identity.
 
@@ -195,11 +195,11 @@ If you see the message "A module identity doesn't exist for this module", this e
 
 To review and edit a module twin:
 
-1. If not already installed, install the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
+1. If not already installed, install the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 1. In the **Explorer**, expand the **Azure IoT Hub**, and then expand the device with the module you want to monitor.
 1. Right-click the module and select **Edit Module Twin**. A temporary file of the module twin is downloaded to your computer and displayed in Visual Studio Code.
 
-   :::image type="content" source="./media/how-to-monitor-module-twins/edit-module-twin-vscode.png" alt-text="Screenshot showing how to get a module twin to edit in Visual Studio Code .":::
+   :::image type="content" source="./media/how-to-monitor-module-twins/edit-module-twin-vscode.png" alt-text="Screenshot showing how to get a module twin to edit in Visual Studio Code.":::
 
 If you make changes, select **Update Module Twin** above the code in the editor to save changes to your IoT hub.
 

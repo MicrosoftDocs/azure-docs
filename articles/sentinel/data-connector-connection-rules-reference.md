@@ -30,12 +30,12 @@ Reference the [Create or Update](/rest/api/securityinsights/data-connectors/crea
 
 **PUT** method
 ```http
-https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataConnectorId}}?api-version=
+https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataConnectorId}}?api-version={{apiVersion}}
 ```
 
 ## URI parameters
 
-For more information, see [Data Connectors - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
+For more information about the latest API version, see [Data Connectors - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters).
 
 |Name  | Description  |
 |---------|---------|
@@ -54,7 +54,6 @@ The request body for the CCP data connector has the following structure:
    "name": "{{dataConnectorId}}",
    "kind": "RestApiPoller",
    "etag": "",
-   "DataType": ""
    "properties": {
         "connectorDefinitionName": "",
         "auth": {},
@@ -91,14 +90,11 @@ The CCP supports the following authentication types:
 > [!NOTE]
 > CCP OAuth2 implementation does not support certificate credentials.
 
-As a best practice, use parameters in the auth section instead of hard-coding credentials.
-- For more information, see [Best practice recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+As a best practice, use parameters in the auth section instead of hard-coding credentials. For more information, see [Secure confidential input](create-codeless-connector.md#secure-confidential-input).
 
-In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. 
-- For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
+In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
 
-To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters.
-- For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
+To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
 
 #### Basic auth
 
@@ -120,7 +116,7 @@ Example Basic auth using parameters defined in `connectorUIconfig`:
 
 | Field | Required | Type | Description | Default value |
 | ---- | ---- | ---- | ---- | ---- |
-| **ApiKey** | Mandatory | string | user secret key | |
+| **ApiKey** | True | string | user secret key | |
 | **ApiKeyName** | | string | name of the Uri header containing the ApiKey value | `Authorization` |
 | **ApiKeyIdentifier** | | string | string value to prepend the token | `token` |
 | **IsApiKeyInPostPayload** | | boolean | send secret in POST body instead of header | `false` |
@@ -162,9 +158,9 @@ After the user returns to the client via the redirect URL, the application will 
 | ---- | ---- | ---- | ---- | 
 | **ClientId** | True	| String | The client id |
 | **ClientSecret**	| True | String | The client secret |
-| **AuthorizationCode** | Mandatory when grantType = `authorization_code` |	String | If grant type is `authorization_code` this field value will be the authorization code returned from the auth serve. |
+| **AuthorizationCode** | True when grantType = `authorization_code` |	String | If grant type is `authorization_code` this field value will be the authorization code returned from the auth serve. |
 | **Scope** | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc). |
-| **RedirectUri** | True | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
+| **RedirectUri** | True when grantType = `authorization_code` | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights` |
 | **GrantType** | True | String | `authorization_code` or `client_credentials` |
 | **TokenEndpoint** | True | String | URL to exchange code with valid token in `authorization_code` grant or client id and secret with valid token in `client_credentials` grant. |
 | **TokenEndpointHeaders** |  | Object | An optional key value object to send custom headers to token server |
@@ -189,7 +185,7 @@ OAuth2 auth code grant
     "authorizationEndpointQueryParameters": {
         "prompt": "consent"
     },
-    "redirectionUri": "https://portal.azure.com/TokenAuthorize",
+    "redirectUri": "https://portal.azure.com/TokenAuthorize/ExtensionName/Microsoft_Azure_Security_Insights",
     "tokenEndpointHeaders": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
@@ -436,7 +432,7 @@ Paging: {
 
 ```json
 Paging: {
- "pagingType" = "PersistentLinkHeader", 
+ "pagingType" : "PersistentLinkHeader", 
  "pageSizeParameterName" : "limit", 
  "pageSize" : 500 
 }
@@ -444,7 +440,7 @@ Paging: {
 
 #### Configure NextPageUrl
 
-`NextPageUrl` paging means the API response includes a complex link in the response body similar to `LinkHeader`, but the 
+`NextPageUrl` paging means the API response includes a complex link in the response body similar to `LinkHeader`, but the URL is included in the response body instead of the header.
 
 | Field | Required | Type | Description |
 |----|----|----|----|

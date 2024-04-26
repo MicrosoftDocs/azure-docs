@@ -20,6 +20,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: quickstart-load-balancer-standard-public-terraform.md
     expanded: true
   - name: Create an internal load balancer
     items:
@@ -35,6 +38,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: quickstart-load-balancer-standard-internal-terraform.md
     expanded: true
 - name: Tutorials
   items:
@@ -100,10 +106,14 @@
     href: distribution-mode-concepts.md
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
-  - name: Availability zones
-    href: load-balancer-standard-availability-zones.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
+  - name: Reliability
+    items:
+    - name: Availability zones and cross-region load balancer
+      href: ../reliability/reliability-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+    - name: Availability zone migration
+      href: ../reliability/migrate-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
   - name: Gateway load balancer
     items:
     - name: Overview

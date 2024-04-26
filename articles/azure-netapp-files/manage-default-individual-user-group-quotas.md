@@ -1,11 +1,10 @@
 ---
-title: Manage default and individual user and group quotas for Azure NetApp Files volumes  | Microsoft Docs 
+title: Manage default and individual user and group quotas for Azure NetApp Files volumes  | Microsoft Docs
 description: Describes the considerations and steps for managing user and group quotas for Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/14/2023
 ---
@@ -23,7 +22,7 @@ Quota rules only come into effect on the CRR/CZR destination volume after the re
 
 * A quota rule is specific to a volume and is applied to an existing volume.  
 * Deleting a volume results in deleting all the associated quota rules for that volume. 
-* You can create a maximum number of 100 quota rules for a volume. You can [request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) through the portal.
+* You can create a maximum number of 100 quota rules for a volume.
 * Azure NetApp Files doesn't support individual group quota and default group quota for SMB and dual protocol volumes.
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
 * Auxiliary groups only help in permission checks. You can't use auxiliary groups to restrict the quota (disk space) for a file.
@@ -39,7 +38,7 @@ Quota rules only come into effect on the CRR/CZR destination volume after the re
 
 1. From the Azure portal, navigate to the volume for which you want to create a quota rule. Select **User and group quotas** in the navigation pane, then click **Add** to create a quota rule for a volume.  
 
-    ![Screenshot that shows the New Quota window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-new-quota.png) 
+    ![Screenshot that shows the New Quota window of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-new-quota.png) 
 
 2. In the **New quota** window that appears, provide information for the following fields, then click **Create**.
 
@@ -71,15 +70,15 @@ Quota rules only come into effect on the CRR/CZR destination volume after the re
 
 1. On the Azure portal, navigate to the volume whose quota rule you want to edit or delete.  Select `…` at the end of the quota rule row, then select **Edit** or **Delete** as appropriate. 
 
-    ![Screenshot that shows the Edit and Delete options of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-delete-edit.png) 
+    ![Screenshot that shows the Edit and Delete options of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-delete-edit.png) 
 
     1. If you're editing a quota rule, update **Quota Limit** in the Edit User Quota Rule window that appears.
     
-        ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-edit-rule.png) 
+        ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-edit-rule.png) 
 
     1. If you're deleting a quota rule, confirm the deletion by selecting **Yes**.  
     
-        ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-confirm-delete.png) 
+        ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-confirm-delete.png) 
 
 ## Next steps 
 * [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md)

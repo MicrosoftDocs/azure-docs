@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 12/20/2023
+ms.date: 03/06/2024
 ms.service: vpn-gateway
 ms.topic: include
 ---
@@ -51,8 +51,6 @@ All gateways that are still using Standard or High Performance SKUs will be migr
 
 Final communication will be sent before initiating migration on any gateways.
 
-### Is VPN Gateway Basic SKU retiring as well ?
+### Is VPN Gateway Basic SKU retiring as well?
 
-No, Basic SKU is here to stay. We will soon add support for Standard IP to Basic SKU as currently it only supports Basic IP (which is on retirement path). Currently, you can create a Basic SKU through Powershell/CLI and once the support for Standard IP is added, portal should support Basic SKU creation as well.
-
-
+No, the VPN Gateway Basic SKU is here to stay. You can create a VPN gateway using the Basic gateway SKU via PowerShell or CLI. Currently, VPN Gateway Basic gateway SKUs only support the Basic SKU public IP address resource (which is on a path to retirement). We're working on adding support to the VPN Gateway Basic gateway SKU for the Standard SKU public IP address resource.

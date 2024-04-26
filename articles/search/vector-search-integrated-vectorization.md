@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 03/27/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
@@ -65,7 +65,7 @@ Data chunking (Text Split skill) is free and available on all Azure AI services 
 
 + Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks. You can use vectorized or non-vectorized chunks for chat-style search.
 
-+ Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
++ Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector store to retrieve document IDs, and then send the document's vector fields to another model.
 
 + Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview.md#what-scenarios-can-vector-search-support).
 
@@ -77,9 +77,9 @@ We recommend using the built-in vectorization support of Azure AI Studio. If thi
 
 For query-only vectorization:
 
-1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer) to an index. It should be the same embedding model used to generate vectors in the index.
-1. [Assign the vectorizer](vector-search-how-to-configure-vectorizer.md#assign-a-vector-profile-to-a-field) to the vector field.
-1. [Formulate a vector query](vector-search-how-to-query.md#query-with-integrated-vectorization-preview) that specifies the text string to vectorize.
+1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer-and-vector-profile) to an index. It should be the same embedding model used to generate vectors in the index.
+1. [Assign the vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer-and-vector-profile) to a vector profile, and then assign a vector profile to the vector field.
+1. [Formulate a vector query](vector-search-how-to-configure-vectorizer.md#test-a-vectorizer) that specifies the text string to vectorize.
 
 A more common scenario - data chunking and vectorization during indexing:
 

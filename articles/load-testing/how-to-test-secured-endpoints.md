@@ -1,8 +1,8 @@
 ---
 title: Load test authenticated endpoints
 description: Learn how to load test authenticated endpoints with Azure Load Testing. Use shared secrets, credentials, or client certificates for load testing applications that require authentication.
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 services: load-testing
 ms.service: load-testing
 ms.topic: how-to 

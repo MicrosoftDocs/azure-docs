@@ -8,10 +8,9 @@ metadata:
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
   ms.topic: landing-page
   ms.service: azure-monitor
-  ms.custom: ignite-2022
   author: rboucher
   ms.author: robb
-  ms.date: 03/14/2023
+  ms.date: 03/11/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -148,5 +147,5 @@ landingContent:
             url:  /cli/azure/azure-cli-reference-for-monitor
           - text: PowerShell Reference
             url:  /powershell/module/az.monitor/?view=azps-9.5.0
-          - text: REST API Reference
-            url:  /rest/api/monitor/
+          - text: REST API Reference Index
+            url:  azure-monitor-rest-api-index.md  

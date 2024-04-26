@@ -1,7 +1,7 @@
 ---
 title: Preconfigured appliances for OT network monitoring
 description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
-ms.date: 07/11/2022
+ms.date: 04/08/2024
 ms.topic: limits-and-quotas
 ---
 
@@ -15,7 +15,7 @@ Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to prov
 
 > [!NOTE]
 > This article also includes information relevant for on-premises management consoles. For more information, see the [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
-> 
+
 ## Advantages of pre-configured appliances
 
 Pre-configured physical appliances have been validated for Defender for IoT OT system monitoring, and have the following advantages over installing your own software:

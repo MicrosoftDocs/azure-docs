@@ -2,8 +2,12 @@
 title: Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (Preview)
 description: Learn how to use Microsoft Entra pod-managed identities in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 08/15/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (Preview)
@@ -16,7 +20,7 @@ Microsoft Entra pod-managed identities use Kubernetes primitives to associate [m
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
 >
-> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service was deprecated on 10/24/2022, and the project archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
 >
 > To disable the AKS Managed add-on, use the following command: `az feature unregister --namespace "Microsoft.ContainerService" --name "EnablePodIdentityPreview"`.
 
@@ -357,3 +361,4 @@ For more information on managed identities, see [Managed identities for Azure re
 <!-- LINKS - external -->
 [RFC 1123]: https://tools.ietf.org/html/rfc1123
 [DNS subdomain name]: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names
+

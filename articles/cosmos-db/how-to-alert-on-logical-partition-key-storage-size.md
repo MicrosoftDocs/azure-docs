@@ -2,9 +2,8 @@
 title: Create alerts to monitor if storage for a logical partition key is approaching 20 GB
 description: Learn how to set up alerts for Azure Cosmos DB using Log Analytics
 author: deborahc
-ms.author: dech 
+ms.author: dech
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 02/08/2022
 ---

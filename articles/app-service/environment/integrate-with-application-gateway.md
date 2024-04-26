@@ -7,7 +7,6 @@ ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
 ms.date: 10/12/2021
 ms.author: madsd
-ms.custom: seodec18
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway
 
@@ -66,7 +65,7 @@ You need to create an App Service plan and an app in your ILB ASE. When creating
 
 ### A public DNS name to the application gateway
 
-To connect to the application gateway from internet, you need a routable domain name. In this case, I used a routable domain name `asabuludemo.com` and planning to connect to an App Service with this domain name `app.asabuludemo.com`. The IP addresses mapped to this app domain name need to set to the public IP after the application gateway created.
+To connect to the application gateway from internet, you need a routable domain name. In this case, I used a routable domain name `asabuludemo.com` and planning to connect to an App Service with this domain name `app.asabuludemo.com`. The IP address mapped to this app domain name needs to be set to the Application Gateway Public IP address after the application gateway is created.
 With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#buy-and-map-an-app-service-domain). 
 
 ### A valid public certificate

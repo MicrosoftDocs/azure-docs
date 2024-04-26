@@ -10,7 +10,7 @@ ms.reviewer: mopeakande
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
+ms.custom: how-to, deploy, devplatv2
 ---
 
 # View costs for an Azure Machine Learning managed online endpoint
@@ -23,7 +23,7 @@ Learn how to view costs for a managed online endpoint. Costs for your endpoints 
 ## Prerequisites
 
 - Deploy an Azure Machine Learning managed online endpoint.
-- Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.md) access on the subscription where the endpoint is deployed
+- Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.yml) access on the subscription where the endpoint is deployed
 
 ## View costs
 

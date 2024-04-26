@@ -6,15 +6,15 @@ ms.author: aahi
 ms.service: azure-ai-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 02/14/2024
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
 # Develop Azure AI services applications with Key Vault
 
-Use this article to learn how to develop Azure AI services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
+Learn how to develop Azure AI services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
 
-Key Vault reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application. 
+Key Vault reduces the risk that secrets may be accidentally leaked, because you avoid storing security information in your application. 
 
 ## Prerequisites
 

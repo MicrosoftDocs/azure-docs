@@ -3,7 +3,6 @@ title:  Add, update, or delete a payment method
 description: This article describes how to add, update, or delete a payment method used to pay for an Azure subscription.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
@@ -42,7 +41,7 @@ When you create a new subscription, you can specify a new credit card. When you 
 
 ## Manage pay-as-you-go credit cards
 
-The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](./troubleshoot-declined-card.md).
+The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../troubleshoot-billing/troubleshoot-declined-card.md).
 
 ### Change credit card for all subscriptions by adding a new credit card
 
@@ -88,7 +87,7 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Search for **Cost Management + Billing**.
     :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of Search." lightbox="./media/change-credit-card/search.png" :::
 1. Select **Payment methods**.
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods" lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
 1. On the right side of the page, for the credit card that you want to edit, select the ellipsis (`...`) at the end of the row. Select **Edit**. 
     :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit navigation." lightbox="./media/change-credit-card/edit-card-x.png" :::
 1. Update the credit card details.  

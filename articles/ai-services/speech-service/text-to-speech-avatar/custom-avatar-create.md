@@ -1,14 +1,14 @@
 ---
 title: How to create a custom text to speech avatar - Speech service
 titleSuffix: Azure AI services
-description: Learn how to create a custom text to speech avatar
-author: sally-baolian
+description: Learn how to create a custom text to speech avatar.
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: custom text to speech avatar 
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # How to create a custom text to speech avatar (preview)

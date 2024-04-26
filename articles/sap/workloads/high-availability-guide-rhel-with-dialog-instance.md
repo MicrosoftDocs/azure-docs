@@ -1,63 +1,59 @@
 ---
-title: Deploy SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL | Microsoft Docs
-description: Configure SAP Dialog Instance on SAP ASCS/SCS high availability VMs on RHEL
+title: Deploy SAP dialog instances with SAP ASCS/SCS high-availability VMs on RHEL | Microsoft Docs
+description: Configure SAP dialog instances on SAP ASCS/SCS high-availability VMs on RHEL.
 services: virtual-machines-linux,virtual-network,storage
-documentationcenter: saponazure
 author: dennispadia
 manager: rdeltcheva
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 08/16/2022
+ms.date: 01/21/2024
 ms.author: depadia
 ---
 
-# Deploy SAP Dialog Instances with SAP ASCS/SCS high availability VMs on Red Hat Enterprise Linux
+# Deploy SAP dialog instances with SAP ASCS/SCS high-availability VMs on RHEL
 
-This article describes how to install and configure Primary Application Server (PAS) and Additional Application Server (AAS) dialog instance on the same SAP ASCS/SCS high availability cluster running on Red Hat Enterprise Linux (RHEL).
+This article describes how to install and configure Primary Application Server (PAS) and Additional Application Server (AAS) dialog instances on the same ABAP SAP Central Services (ASCS)/SAP Central Services (SCS) high-availability cluster running on Red Hat Enterprise Linux (RHEL).
 
 ## References
 
 * [Configuring SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker](https://access.redhat.com/articles/3974941)
 * [Configuring SAP NetWeaver ASCS/ERS ENSA1 with Standalone Resources in RHEL 7.5+ and RHEL 8](https://access.redhat.com/articles/3569681)
 * SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533), which has:
-  * List of Azure VM sizes that are supported for the deployment of SAP software
-  * Important capacity information for Azure VM sizes
-  * Supported SAP software, and operating system (OS) and database combinations
-  * Required SAP kernel version for Windows and Linux on Microsoft Azure
+  * A list of Azure virtual machine (VM) sizes that are supported for the deployment of SAP software.
+  * Important capacity information for Azure VM sizes.
+  * Supported SAP software and operating system (OS) and database combinations.
+  * Required SAP kernel version for Windows and Linux on Azure.
 * SAP Note [2015553](https://launchpad.support.sap.com/#/notes/2015553) lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167) has recommended OS settings for Red Hat Enterprise Linux 7.x
-* SAP Note [2772999](https://launchpad.support.sap.com/#/notes/2772999) has recommended OS settings for Red Hat Enterprise Linux 8.x
-* SAP Note [2009879](https://launchpad.support.sap.com/#/notes/2009879) has SAP HANA Guidelines for Red Hat Enterprise Linux
+* SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167) lists the recommended OS settings for Red Hat Enterprise Linux 7.x.
+* SAP Note [2772999](https://launchpad.support.sap.com/#/notes/2772999) lists the recommended OS settings for Red Hat Enterprise Linux 8.x.
+* SAP Note [2009879](https://launchpad.support.sap.com/#/notes/2009879) has SAP HANA guidelines for Red Hat Enterprise Linux.
 * SAP Note [2178632](https://launchpad.support.sap.com/#/notes/2178632) has detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP Note [2191498](https://launchpad.support.sap.com/#/notes/2191498) has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692](https://launchpad.support.sap.com/#/notes/224362) has information about SAP licensing on Linux in Azure.
-* SAP Note [1999351](https://launchpad.support.sap.com/#/notes/1999351) has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Note [1999351](https://launchpad.support.sap.com/#/notes/1999351) has more troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux](planning-guide.md)
 * [Azure Virtual Machines deployment for SAP on Linux](deployment-guide.md)
 * [Azure Virtual Machines DBMS deployment for SAP on Linux](dbms-guide-general.md)
-* [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
-* General RHEL documentation
-  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* [SAP Netweaver in Pacemaker cluster](https://access.redhat.com/articles/3150081)
+* General RHEL documentation:
+  * [High-Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [High-Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [High-Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Azure-specific RHEL documentation:
-  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
+  * [Support Policies for RHEL High-Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## Overview
 
-This article describes the cost optimization scenario where you deploy Primary Application Server (PAS) and Additional Application Server (AAS) dialog instances with SAP ASCS/SCS and SAP ERS instances in high availability setup. To minimize the number of VMs for a single SAP system, you want to install PAS and AAS on the same host where SAP ASCS/SCS and SAP ERS are running. With SAP ASCS/SCS being configured in high availability cluster setup, you want PAS and AAS to be managed by cluster as well. The configuration is basically an addition to already configured SAP ASCS/SCS cluster setup. In this setup PAS and AAS will be installed on a virtual hostname and its instance directory is managed by the cluster.
+This article describes the cost optimization scenario where you deploy PAS and AAS dialog instances with SAP ASCS/SCS and Enqueue Replication Server (ERS) instances in a high-availability setup. To minimize the number of VMs for a single SAP system, you want to install PAS and AAS on the same host where SAP ASCS/SCS and SAP ERS are running. With SAP ASCS/SCS being configured in a high-availability cluster setup, you want PAS and AAS also to be managed by cluster. The configuration is basically an addition to an already configured SAP ASCS/SCS cluster setup. In this setup, PAS and AAS are installed on a virtual host name, and its instance directory is managed by the cluster.
 
-For this setup, PAS and AAS require a highly available instance directory (`/usr/sap/<SID>/D<nr>`). You can place the instance directory filesystem on the same high available storage that you've used for ASCS and ERS instance configuration. The presented architecture showcases [NFS on Azure Files](../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for highly available instance directory for the setup.
+For this setup, PAS and AAS require a highly available instance directory (`/usr/sap/<SID>/D<nr>`). You can place the instance directory file system on the same high-available storage that you used for ASCS and ERS instance configuration. The presented architecture showcases [NFS on Azure Files](../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for a highly available instance directory for the setup.
 
-The example shown in this article to describe deployment uses following system information -
+The example shown in this article to describe deployment uses the following system information:
 
-| Instance name                       | Instance number | Virtual hostname | Virtual IP (Probe Port) |
+| Instance name                       | Instance number | Virtual host name | Virtual IP (Probe port) |
 | ----------------------------------- | --------------- | ---------------- | ----------------------- |
 | ABAP SAP Central Services (ASCS)    | 00              | sapascs          | 10.90.90.10 (62000)     |
 | Enqueue Replication Server (ERS)    | 01              | sapers           | 10.90.90.9 (62001)      |
@@ -66,89 +62,75 @@ The example shown in this article to describe deployment uses following system i
 | SAP system identifier               | NW1             | ---              | ---                     |
 
 > [!NOTE]
->
-> Install additional SAP application instances on separate VMs, if you want to scale out.
+> Install more SAP application instances on separate VMs if you want to scale out.
 
-![Architecture of dialog instance installation with SAP ASCS/SCS cluster](media/high-availability-guide-rhel/high-availability-rhel-dialog-instance-architecture.png)
+![Diagram that shows the architecture of dialog instance installation with an SAP ASCS/SCS cluster.](media/high-availability-guide-rhel/high-availability-rhel-dialog-instance-architecture.png)
 
-### Important consideration for the cost optimization solution
+### Important considerations for the cost-optimization solution
 
-* Only two dialog instances, PAS and one AAS can be deployed with SAP ASCS/SCS cluster setup.
-* If you want to scale out your SAP system with additional application servers (like **sapa03** and **sapa04**), you can install them in separate VMs. With PAS and AAS being installed on virtual hostnames, you can either install additional application server using physical or virtual hostname in separate VMs. To learn more on how to assign virtual hostname to a VM, refer to the blog [Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593).
-* With PAS and AAS deployment with SAP ASCS/SCS cluster setup, the instance number of ASCS, ERS, PAS and AAS must be different.
-* Consider sizing your VM SKUs appropriately based on the sizing guidelines. You have to factor in the cluster behavior where multiple SAP instances (ASCS, ERS, PAS and AAS) may run on a single VM when other VM in the cluster is unavailable.
-* The dialog instances (PAS and AAS) running with SAP ASCS/SCS cluster setup must be installed using virtual hostname.
-* You must use the same storage solution of SAP ASCS/SCS cluster setup to deploy PAS and AAS instances as well. For example, if you have configured SAP ASCS/SCS cluster using NFS on Azure files, same storage solution must be used to deploy PAS and AAS.
-* Instance directory `/usr/sap/<SID>/D<nr>` of PAS and AAS must be mounted on NFS file system and will be managed as resource by the cluster.
+* Only two dialog instances, PAS and one AAS, can be deployed with an SAP ASCS/SCS cluster setup.
+* If you want to scale out your SAP system with more application servers (like **sapa03** and **sapa04**), you can install them in separate VMs. With PAS and AAS being installed on virtual host names, you can install more application servers by using either a physical or virtual host name in separate VMs. To learn more about how to assign a virtual host name to a VM, see the blog [Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593).
+* With a PAS and AAS deployment with an SAP ASCS/SCS cluster setup, the instance numbers of ASCS, ERS, PAS, and AAS must be different.
+* Consider sizing your VM SKUs appropriately based on the sizing guidelines. You must factor in the cluster behavior where multiple SAP instances (ASCS, ERS, PAS, and AAS) might run on a single VM when another VM in the cluster is unavailable.
+* The dialog instances (PAS and AAS) running with an SAP ASCS/SCS cluster setup must be installed by using a virtual host name.
+* You also must use the same storage solution of the SAP ASCS/SCS cluster setup to deploy PAS and AAS instances. For example, if you configured an SAP ASCS/SCS cluster by using NFS on Azure Files, the same storage solution must be used to deploy PAS and AAS.
+* The instance directory `/usr/sap/<SID>/D<nr>` of PAS and AAS must be mounted on an NFS file system and are managed as a resource by the cluster.
   > [!NOTE]
-  >
   > For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
-* To install additional application servers on separate VMs, you can either use NFS shares or local managed disk for instance directory filesystem. If you're installing additional application servers for SAP J2EE system, `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
-* In traditional SAP ASCS/SCS high availability configuration, application server instances running on separate VMs aren't affected when there's any effect on SAP ASCS and ERS cluster nodes. But with the cost optimization configuration, either PAS or AAS instance will restart when there's an effect on one of the nodes in the cluster.
-* Refer [NFS on Azure Files consideration](high-availability-guide-rhel-nfs-azure-files.md#important-considerations-for-nfs-on-azure-files-shares) and [Azure NetApp Files consideration](high-availability-guide-rhel-netapp-files.md#important-considerations), as same consideration applies for this setup as well.
+* To install more application servers on separate VMs, you can either use NFS shares or a local managed disk for an instance directory file system. If you're installing more application servers for an SAP J2EE system, `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
+* In a traditional SAP ASCS/SCS high-availability configuration, application server instances running on separate VMs aren't affected when there's any effect on SAP ASCS and ERS cluster nodes. But with the cost-optimization configuration, either the PAS or AAS instance restarts when there's an effect on one of the nodes in the cluster.
+* See [NFS on Azure Files considerations](high-availability-guide-rhel-nfs-azure-files.md#important-considerations-for-nfs-on-azure-files-shares) and [Azure NetApp Files considerations](high-availability-guide-rhel-netapp-files.md#important-considerations) because the same considerations apply to this setup.
 
-## Pre-requisites
+## Prerequisites
 
-The configuration described in this article is an addition to your already configured SAP ASCS/SCS cluster setup. In this configuration, PAS and AAS will be installed on a virtual hostname and its instance directory is managed by the cluster. Based on your storage, follow the steps described in below guide to configure `SAPInstance` resource for SAP ASCS and SAP ERS instance in the cluster.
+The configuration described in this article is an addition to your already configured SAP ASCS/SCS cluster setup. In this configuration, PAS and AAS are installed on a virtual host name, and its instance directory is managed by the cluster. Based on your storage, use the steps described in the following articles to configure the `SAPInstance` resource for the SAP ASCS and SAP ERS instance in the cluster.
 
-* NFS on Azure Files - [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md)
-* Azure NetApp Files - [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](high-availability-guide-rhel-netapp-files.md)
+* **NFS on Azure Files**: [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md)
+* **Azure NetApp Files**: [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](high-availability-guide-rhel-netapp-files.md)
 
-Once you have installed **ASCS**, **ERS** and **Database** instance using SWPM, follow below steps to install PAS and AAS instances.
+After you install the **ASCS**, **ERS**, and **Database** instance by using Software Provisioning Manager (SWPM), follow the next steps to install the PAS and AAS instances.
 
 ## Configure Azure Load Balancer for PAS and AAS
 
-This document assumes that you’ve already configured SAP ASCS/SCS cluster setup, which requires Azure Load Balancer. In the same Azure load balancer, follow below steps to create virtual IPs and load balancing rules for PAS and AAS.
+This article assumes that you already configured the load balancer for the SAP ASCS/SCS cluster setup as described in [Configure Azure Load Balancer](./high-availability-guide-rhel-nfs-azure-files.md#configure-azure-load-balancer). In the same Azure Load Balancer instance, follow these steps to create more front-end IPs and load-balancing rules for PAS and AAS.
 
-1. Open the internal load balancer that you've created for SAP ASCS/SCS cluster setup.
-2. Create the frontend IP address for PAS and AAS instance
-   1. IP address for PAS is **10.90.90.30**
-      1. In **Settings** > **Frontend IP configuration**, click on **Add**.
-      2. Enter the name of the new frontend IP (for example, **frontend.NW1.PAS**).
-      3. Select the **subnet**.
-      4. Set the **assignment** to **Static** and enter the IP address (for example, **10.90.90.30**).
-      5. Click Ok.
-   2. IP address for AAS is **10.90.90.31**
-      1. Repeat the steps above under "2.a" to create a frontend IP address for ERS (for example **10.90.90.31** and **frontend.NW1.AAS**)
-3. Backend Pool remains same, as we're deploying PAS and AAS on the same backend pool (**backend.NW1**).
-4. Create health probe for PAS and AAS instance
-   1. Port for PAS is **62002**
-      1. In **Settings** > **Health probes**, click on **Add**.
-      2. Enter the name of the health probe (for example, **health.NW1.PAS**).
-      3. Select **TCP** as protocol, port **62002** and keep interval **5**.
-      4. Click Ok.
-   2. Port for AAS is **62003**
-      1. Repeat the steps above under "4.a" to create health probe for AAS (for example **62003** and **health.NW1.AAS**)
-5. Create load balancing rules for PAS and AAS instance
-   1. Load balancing rule for PAS
-      1. In **Settings** > **Load balancing rules**, click on **Add**.
-      2. Enter the name of load balancing rule (for example, **lb.NW1.PAS**).
-      3. Select the frontend IP address for PAS, backend pool, and health probe you created earlier (for example **frontend.NW1.PAS**, **backend.NW1**, and **health.NW1.PAS**)
-      4. Select **HA ports**
-      5. Make sure to **enable Floating IP**
-      6. Click OK
-   2. Load balancing rule for AAS
-      1. Repeat the steps above under “5.1” to create load balancing rule for AAS (for example, **lb.NW1.AAS**).
+1. Open the internal load balancer that was created for the SAP ASCS/SCS cluster setup.
+1. **Frontend IP Configuration**: Create two front-end IPs, one for PAS and another for AAS (for example, **10.90.90.30** and **10.90.90.31**).
+1. **Backend Pool**: This pool remains the same because we're deploying PAS and AAS on the same back-end pool.
+1. **Inbound rules**: Create two load-balancing rules, one for PAS and another for AAS. Follow the same steps for both load-balancing rules.
+1. **Frontend IP address**: Select the front-end IP.
+   1. **Backend pool**: Select the back-end pool.
+   1. **High availability ports**: Select this option.
+   1. **Protocol**: Select **TCP**.
+   1. **Health Probe**: Create a health probe with the following details (applies for both PAS and AAS):
+      1. **Protocol**: Select **TCP**.
+      1. **Port**: For example, **620<Instance-no.>** for PAS and **620<Instance-no.>** for AAS.
+      1. **Interval**: Enter **5**.
+      1. **Probe Threshold**: Enter **2**.
+   1. **Idle timeout (minutes)**: Enter **30**.
+   1. **Enable Floating IP**: Select this option.
+
+The health probe configuration property `numberOfProbes`, otherwise known as **Unhealthy threshold** in the Azure portal, isn't respected. To control the number of successful or failed consecutive probes, set the property `probeThreshold` to `2`. It's currently not possible to set this property by using the Azure portal. Use either the [Azure CLI](/cli/azure/network/lb/probe) or the [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!IMPORTANT]
->
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
+> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need more IP addresses for the VMs, deploy a second NIC.
 
-> [!NOTE]
->
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
+When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure Load Balancer instance, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For steps on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
->
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## Prepare servers for PAS and AAS installation
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
+When steps in this document are marked with the following prefixes, they mean:
 
-1. **[A]** Setup hostname resolution
+- **[A]**: Applicable to all nodes.
+- **[1]**: Only applicable to node 1.
+- **[2]**: Only applicable to node 2.
 
-   You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file. Replace the IP address and the hostname in the following commands
+1. **[A]** Set up host name resolution.
+
+   You can either use a DNS server or modify `/etc/hosts` on all nodes. This example shows how to use the `/etc/hosts` file. Replace the IP address and the host name in the following commands:
 
    ```bash
    sudo vi /etc/hosts
@@ -167,14 +149,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    10.90.90.31   sapaas
    ```
 
-2. **[1]** Create the SAP directories on the NFS share. Mount temporarily the NFS share **sapnw1** on one of the VMs and create the SAP directories that will be used as nested mount points.
+1. **[1]** Create the SAP directories on the NFS share. Mount the NFS share **sapnw1** temporarily on one of the VMs, and create the SAP directories to be used as nested mount points.
 
-   1. If using, NFS on Azure files
+   1. If you're using NFS on Azure Files:
 
       ```bash
       # mount temporarily the volume
       sudo mkdir -p /saptmp
-      sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+      sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
       
       # create the SAP directories
       sudo cd /saptmp
@@ -187,7 +169,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       sudo rmdir /saptmp
       ```
 
-   2. If using, Azure NetApp Files
+   1. If you're using Azure NetApp Files:
 
       ```bash
       # mount temporarily the volume
@@ -209,7 +191,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       sudo rmdir /saptmp
       ```
 
-3. **[A]** Create the shared directories
+1. **[A]** Create the shared directories.
 
    ```bash
    sudo mkdir -p /usr/sap/NW1/D02
@@ -219,7 +201,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo chattr +i /usr/sap/NW1/D03
    ```
 
-4. **[A]** Configure SWAP space. When installing dialog instance with central services, you need to configure more swap space.
+1. **[A]** Configure swap space. When you install a dialog instance with central services, you must configure more swap space.
 
    ```bash
    sudo vi /etc/waagent.conf
@@ -244,25 +226,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo service waagent restart
    ```
 
-5. **[A]** Add firewall rules for PAS and AAS
+1. **[A]** Add firewall rules for PAS and AAS.
 
    ```bash
-   # Probe port for PAS and AAS
-   sudo firewall-cmd --zone=public --add-port=62002/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62002/tcp
-   sudo firewall-cmd --zone=public --add-port=62003/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62003/tcp
-   
-   # Gateway port for PAS and AAS
-   sudo firewall-cmd --zone=public --add-port=3302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3302/tcp
-   sudo firewall-cmd --zone=public --add-port=3303/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3303/tcp
+   # Probe and gateway port for PAS and AAS
+   sudo firewall-cmd --zone=public --add-port={62002,62003,3302,3303}/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port={62002,62003,3303,3303}/tcp
    ```
 
-## Installing SAP Netweaver PAS instance
+## Install an SAP Netweaver PAS instance
 
-1. **[1]** Check the status of the cluster. Before configuring PAS resource for installation, make sure ASCS and ERS resources are configured and started.
+1. **[1]** Check the status of the cluster. Before you configure a PAS resource for installation, make sure the ASCS and ERS resources are configured and started.
 
    ```bash
    sudo pcs status
@@ -284,7 +258,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl2
    ```
 
-2. **[1]** Create filesystem, virtual IP and health probe resource for PAS instance.
+1. **[1]** Create file system, virtual IP, and health probe resources for the PAS instance.
 
    ```bash
    sudo pcs node standby sap-cl2
@@ -293,7 +267,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # If using NFS on Azure files
    sudo pcs resource create fs_NW1_PAS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1D02' \
-     directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
      op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
      op monitor interval=200 timeout=40 \
@@ -316,7 +290,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-NW1_PAS
    ```
 
-   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
+   Make sure that the cluster status is okay and that all resources are started. It isn't important on which node the resources are running.
 
    ```bash
    sudo pcs status
@@ -344,17 +318,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      fs_NW1_PAS        (ocf::heartbeat:Filesystem):     Started sap-cl1
    ```
 
-3. **[1]** Change the ownership of `/usr/sap/SID/D02` folder after filesystem is mounted.
+1. **[1]** Change the ownership of the `/usr/sap/SID/D02` folder after the file system is mounted.
 
    ```bash
    sudo chown nw1adm:sapsys /usr/sap/NW1/D02
    ```
 
-4. **[1]** Install SAP Netweaver PAS
+1. **[1]** Install the SAP Netweaver PAS.
 
-   Install SAP NetWeaver PAS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the PAS, for example **sappas**, **10.90.90.30** and the instance number that you used for the probe of the load balancer, for example **02**.
+   Install the SAP NetWeaver PAS as a root on the first node by using a virtual host name that maps to the IP address of the load balancer front-end configuration for the PAS. For example, use **sappas**, **10.90.90.30**, and the instance number that you used for the probe of the load balancer, for example **02**.
 
-   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+   You can use the sapinst parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to sapinst.
 
    ```bash
    # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
@@ -363,9 +337,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<pas_virtual_hostname>
    ```
 
-5. Update the `/usr/sap/sapservices` file
+1. Update the `/usr/sap/sapservices` file.
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by pacemaker must be commented out from `/usr/sap/sapservices` file.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from the `/usr/sap/sapservices` file.
 
    ```bash
    sudo vi /usr/sap/sapservices
@@ -374,7 +348,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # LD_LIBRARY_PATH=/usr/sap/NW1/D02/exe:$LD_LIBRARY_PATH;export LD_LIBRARY_PATH;/usr/sap/NW1/D02/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_D02_sappas -D -u nw1adm
    ```
 
-6. **[1]** Create PAS cluster resource
+1. **[1]** Create the PAS cluster resource.
 
    ```bash
    # If using NFS on Azure Files or NFSv3 on Azure NetApp Files
@@ -390,7 +364,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-NW1_PAS
    ```
 
-   Check the status of cluster
+   Check the status of the cluster.
 
    ```bash
    sudo pcs status
@@ -419,15 +393,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      rsc_sap_NW1_PAS02 (ocf::heartbeat:SAPInstance):    Started sap-cl1
    ```
 
-7. Configure constraint to start PAS resource group only after ASCS instances is started.
+1. Configure a constraint to start the PAS resource group only after the ASCS instance is started.
 
    ```bash
    sudo pcs constraint order g-NW1_ASCS then g-NW1_PAS kind=Optional symmetrical=false
    ```
 
-## Installing SAP Netweaver AAS instance
+## Install an SAP Netweaver AAS instance
 
-1. **[2]** Check the status of the cluster. Before configure AAS resource for installation, make sure ASCS, ERS and PAS resources are started.
+1. **[2]** Check the status of the cluster. Before you configure an AAS resource for installation, make sure the ASCS, ERS, and PAS resources are started.
 
    ```bash
    sudo pcs status
@@ -456,7 +430,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      rsc_sap_NW1_PAS02 (ocf::heartbeat:SAPInstance):    Started sap-cl1
    ```
 
-2. **[2]** Create filesystem, virtual IP and health probe resource for AAS instance.
+1. **[2]** Create file system, virtual IP, and health probe resources for the AAS instance.
 
    ```bash
    sudo pcs node unstandby sap-cl2
@@ -471,7 +445,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # If using NFS on Azure files
    sudo pcs resource create fs_NW1_AAS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1D03' \
-     directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
      op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
      op monitor interval=200 timeout=40 \
@@ -494,7 +468,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-NW1_AAS
    ```
 
-   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running. As g-NW1_PAS resource group is stopped, all the PAS resources will be in stopped (disabled) state.
+   Make sure that the cluster status is okay and that all resources are started. It isn't important on which node the resources are running. Because the g-NW1_PAS resource group is stopped, all the PAS resources are stopped in the (disabled) state.
 
    ```bash
    sudo pcs status
@@ -527,17 +501,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      fs_NW1_AAS        (ocf::heartbeat:Filesystem):     Started sap-cl2
    ```
 
-3. **[2]** Change the ownership of `/usr/sap/SID/D03` folder after filesystem is mounted.
+1. **[2]** Change the ownership of the `/usr/sap/SID/D03` folder after the file system is mounted.
 
    ```bash
    sudo chown nw1adm:sapsys /usr/sap/NW1/D03
    ```
 
-4. **[2]** Install SAP Netweaver AAS
+1. **[2]** Install an SAP Netweaver AAS.
 
-   Install SAP NetWeaver AAS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the PAS, for example **sapaas**, **10.90.90.31** and the instance number that you used for the probe of the load balancer, for example **03**.
+   Install an SAP NetWeaver AAS as the root on the second node by using a virtual host name that maps to the IP address of the load balancer front-end configuration for the PAS. For example, use **sapaas**, **10.90.90.31**, and the instance number that you used for the probe of the load balancer, for example, **03**.
 
-   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+   You can use the sapinst parameter `SAPINST_REMOTE_ACCESS_USER` to allow a nonroot user to connect to sapinst.
 
    ```bash
    # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
@@ -546,9 +520,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<aas_virtual_hostname>
    ```
 
-5. Update the `/usr/sap/sapservices` file
+1. Update the `/usr/sap/sapservices` file.
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by pacemaker must be commented out from `/usr/sap/sapservices` file.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from the `/usr/sap/sapservices` file.
 
    ```bash
    sudo vi /usr/sap/sapservices
@@ -557,7 +531,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #LD_LIBRARY_PATH=/usr/sap/NW1/D03/exe:$LD_LIBRARY_PATH;export LD_LIBRARY_PATH;/usr/sap/NW1/D03/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_D03_sapaas -D -u nw1adm
    ```
 
-6. **[2]** Create AAS cluster resource
+1. **[2]** Create an AAS cluster resource.
 
    ```bash
    # If using NFS on Azure Files or NFSv3 on Azure NetApp Files
@@ -573,7 +547,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-NW1_AAS
    ```
 
-   Check the status of cluster.
+   Check the status of the cluster.
 
    ```bash
    sudo pcs status
@@ -607,7 +581,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      rsc_sap_NW1_AAS03 (ocf::heartbeat:SAPInstance):    Started sap-cl2
    ```
 
-7. Configure constraint to start AAS resource group only after ASCS instances is started.
+1. Configure a constraint to start the AAS resource group only after the ASCS instance is started.
 
    ```bash
    sudo pcs constraint order g-NW1_ASCS then g-NW1_AAS kind=Optional symmetrical=false
@@ -635,7 +609,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sap-cl1:nw1adm > scp -r nw1adm@sap-cl2:/home/nw1adm/.hdb/sapaas . 
    ```
 
-2. **[1]** To ensure PAS and AAS instances don't run on the same nodes whenever both nodes are running. Add a negative colocation constraint with below command -
+1. **[1]** To ensure the PAS and AAS instances don't run on the same nodes whenever both nodes are running, add a negative colocation constraint with the following command:
 
    ```bash
    sudo pcs constraint colocation add g-NW1_AAS with g-NW1_PAS score=-1000
@@ -643,9 +617,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs resource enable g-NW1_PAS
    ```
 
-   The score of -1000 is to ensure that if only one node is available then both the instances will continue to run on the other node. If you would like to keep the AAS instance down in such situation, then you can use the `score=-INFINITY` to enforce this condition.
+   The score of -1000 ensures that if only one node is available, both the instances continue to run on the other node. If you want to keep the AAS instance down in such a situation, you can use `score=-INFINITY` to enforce this condition.
 
-3. Check the status of cluster.
+1. Check the status of the cluster.
 
    ```bash
    sudo pcs status
@@ -680,4 +654,4 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ## Test the cluster setup
 
-Thoroughly test your pacemaker cluster. [Execute the typical failover tests](high-availability-guide-rhel.md#test-the-cluster-setup).
+Thoroughly test your Pacemaker cluster by running [the typical failover tests](high-availability-guide-rhel.md#test-the-cluster-setup).

@@ -6,7 +6,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 01/19/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

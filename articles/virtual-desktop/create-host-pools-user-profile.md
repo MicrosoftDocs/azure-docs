@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/08/2022
 ms.author: helohr
-manager: femila
 ---
 # Create a profile container for a host pool using a file share
 

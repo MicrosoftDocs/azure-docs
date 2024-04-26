@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
@@ -19,7 +19,8 @@ With session affinity, Application Gateway for Containers presents a cookie in t
   ![A diagram depicting Application Gateway for Containers session affinity.](./media/session-affinity/session-affinity.png)
 
 The following steps are depicted in the previous diagram:
-1. A client initiates a request to an Application Gateway for Containers' (AGC) frontend
+
+1. A client initiates a request to an Application Gateway for Containers' (AGC) frontend.
 2. AGC selects one of the many available pods to load balance the request to. In this example, we assume Pod C is selected out of the four available pods.
 3. Pod C returns a response to AGC.
 4. In addition to the backend response from Pod C, AGC adds a Set-Cookie header containing a uniquely generated hash used for routing.
@@ -39,6 +40,7 @@ The following steps are depicted in the previous diagram:
 | cookieDuration | Required if affinityType is application-cookie.  This is the duration (lifetime) of the cookie in seconds. |
 
 In managed cookie affinity type, Application Gateway uses predefined values when the cookie is offered to the client.
+
 - The name of the cookie is: `AGCAffinity`.
 - The duration (lifetime) of the cookie is 86,400 seconds (one day).
 - The `cookieName` and `cookieDuration` properties and values are discarded.

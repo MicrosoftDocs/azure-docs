@@ -2,18 +2,20 @@
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure CLI
 services: private-link
-author: asudbring
+author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
-ms.author: allensu
+ms.author: abell
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurecli
 ---
 
 # Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint using Azure CLI
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
+
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
 
 In this tutorial, you learn how to:
 

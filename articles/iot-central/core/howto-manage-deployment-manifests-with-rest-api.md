@@ -3,7 +3,7 @@ title: Azure IoT Central deployment manifests and the REST API
 description: How to use the IoT Central REST API to manage IoT Edge deployment manifests in an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/22/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -121,7 +121,7 @@ The following example shows a request body that adds a deployment manifest that 
 The request body has some required fields:
 
 * `id`: a unique ID for the deployment manifest in the IoT Central application.
-* `displayName`: a name for the deployment manifest that's displayed in the UI.
+* `displayName`: a name for the deployment manifest displayed in the UI.
 * `data`: the IoT Edge deployment manifest.
 
 The response to this request looks like the following example:
@@ -477,7 +477,7 @@ The response to this request looks like the following example:
 
 ## Assign a deployment manifest to a device
 
-To use a deployment manifest that's already stored in your IoT Central application, first use the [Get a deployment manifest](#get-a-deployment-manifest) API to fetch it.
+To use a deployment manifest already stored in your IoT Central application, first use the [Get a deployment manifest](#get-a-deployment-manifest) API to fetch it.
 Use the following request to assign a deployment manifest to an IoT Edge device in your IoT Central application:
 
 ```http

@@ -46,9 +46,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 
 | Category | Unsupported operations |
 |---|---|
-| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving properties such as permissions |
-| Resuming Uploads | `reput`. `put -a` |
-| Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
+| Random writes | Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path)) |
 | Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
 | Capacity Information | `df` - usage info for filesystem |
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
@@ -62,8 +60,6 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 - _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
 
 - Microsoft Entra ID isn't supported for the SFTP endpoint.
-
-- POSIX-like access control lists (ACLs) aren't supported for the SFTP endpoint.
 
 To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
@@ -80,8 +76,10 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 ## Other
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
+
+- Resume and append operations require enabling the `SFTP Resumable Uploads` preview feature on your subscription. For more information on enabling preview features, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md).
   
--  By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
+- By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
 - Maximum file upload size via the SFTP endpoint is 100 GB. 
 

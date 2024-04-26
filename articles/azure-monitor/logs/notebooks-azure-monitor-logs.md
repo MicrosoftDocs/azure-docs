@@ -204,13 +204,13 @@ Send your analysis results to a custom table in your Log Analytics workspace to 
     
         ```json
         [
-          {     
+          {
             "TimeGenerated": "2023-03-19T19:56:43.7447391Z",    
             "ActualUsage": 40.1,    
             "DataType": "AzureDiagnostics"     
           } 
         ]
-       ```
+        ```
  
 1. Define the constants you need for the Logs Ingestion API:
 

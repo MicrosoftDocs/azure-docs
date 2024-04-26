@@ -2,8 +2,8 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 11/17/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, devx-track-arm-template
+ms.date: 03/20/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Azure Resource Manager template specs
@@ -17,7 +17,7 @@ To deploy the template spec, you use standard Azure tools like PowerShell, Azure
 > [!NOTE]
 > To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
-When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your templates along with copy loops to create multiple instances of these resources.
+When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmos DB instance and its underlying databases and containers. You can then use conditional statements in your templates along with copy loops to create multiple instances of these resources.
 
 ### Training resources
 
@@ -353,7 +353,7 @@ az deployment group create \
 
 ## Versioning
 
-When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
+When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.  You can have an unlimit number of versions. 
 
 ## Use tags
 

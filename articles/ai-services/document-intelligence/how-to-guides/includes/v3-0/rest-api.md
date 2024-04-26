@@ -4,18 +4,25 @@ description: Use the Document Intelligence REST API v3.0 to create a forms proce
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, linux-related-content
 ms.topic: include
-ms.date: 11/21/2023
+ms.date: 03/27/2024
 ms.author: lajanuar
+monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
+
+
+:::moniker range="doc-intel-3.1.0"
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../../sdk-overview-v3-1.md) | 
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../../sdk-overview-v3-0.md) | 
+:::moniker-end
 
 > [!NOTE]
 >
-> This project targets Azure AI Document Intelligence API version 3.1 and uses cURL to execute REST API calls.
-
-[Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
+> This project uses the  `cURL` command-line tool to execute REST API calls.
 
 ## Prerequisites
 
@@ -40,10 +47,7 @@ ms.author: lajanuar
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
-
-[!INCLUDE [environment-variables](set-environment-variables.md)]
+[!INCLUDE [environment-variables](../set-environment-variables.md)]
 
 ## Analyze documents and get results
 
@@ -82,12 +86,9 @@ You receive a `202 (Success)` response that includes an `Operation-location` hea
 
 :::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="Screenshot shows a POST response with the operation location highlighted.":::
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=post-request-analyze) -->
-
 ### Get analyze result (GET Request)
 
-After you call the [Analyze document](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [`Get analyze` result}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data.
+After you call the [`Analyze document`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [`Get analyze` result}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -109,9 +110,6 @@ Use the NodeJS *json tool* as a JSON formatter for cURL. If you don't have [Node
    curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json
    ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=format-json) -->
-
 #### [macOS](#tab/macOS)
 
 The *json_pp* command tool ships with macOS and can be used as a JSON formatter for cURL.
@@ -122,9 +120,6 @@ The *json_pp* command tool ships with macOS and can be used as a JSON formatter 
   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
   ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=format-json) -->
-
 #### [Linux](#tab/linux)
 
 The *json_pp* command line tool is preinstalled in most Linux distributions. If it isn't included, you can use your distribution's package manager to install it.
@@ -134,9 +129,6 @@ The *json_pp* command line tool is preinstalled in most Linux distributions. If 
   ```console
   curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
   ```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 ---
 
@@ -151,9 +143,6 @@ Before you run the following command, make these changes:
 ```console
 curl -i -X GET "<POST response>" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `<json-tool>`
 ```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=get-request-results) -->
 
 ### Examine the response
 

@@ -3,7 +3,7 @@ title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
 ms.date: 05/24/2023
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Batch resources with PowerShell cmdlets
@@ -25,7 +25,7 @@ We recommend that you update your Azure PowerShell modules frequently to take ad
   ```
 
 - **Register with the Batch provider namespace**. You only need to perform this operation **once per subscription**.
-  
+
   ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```

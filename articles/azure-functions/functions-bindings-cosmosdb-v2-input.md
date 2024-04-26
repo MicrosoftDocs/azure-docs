@@ -3,8 +3,9 @@ title: Azure Cosmos DB input binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB input binding in Azure Functions.
 ms.topic: reference
 ms.date: 03/02/2023
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -43,6 +44,8 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 

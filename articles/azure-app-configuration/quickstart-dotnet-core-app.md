@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
-ms.date: 07/11/2023
+ms.date: 02/20/2024
 ms.author: malev
 #Customer intent: As a .NET developer, I want to manage all my app settings in one place.
 ---
@@ -19,7 +19,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET console 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Add a key-value
 
@@ -31,11 +31,11 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 ## Create a .NET console app
 
-You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new .NET console app project:
+1. In the new folder, run the following command to create a new .NET console app project:
 
     ```dotnetcli
     dotnet new console
@@ -49,22 +49,20 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
-2. Run the following command to restore packages for your project:
+1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
 
-3. Open *Program.cs*, and add a reference to the .NET App Configuration provider.
+1. Open *Program.cs*, and add the following statements:
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method in the `Program.cs` file.
-
-    ### [ASP.NET Core 6.0+](#tab/core6x)
+1. Use App Configuration by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
     ```csharp
     var builder = new ConfigurationBuilder();
@@ -73,21 +71,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     var config = builder.Build();
     Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
     ```
-
-    ### [ASP.NET Core 3.x](#tab/core3x)
-    
-    ```csharp
-    static void Main(string[] args)
-    {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
-    
-        var config = builder.Build();
-        Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
-    }
-    ```
-
-    ---
 
 ## Build and run the app locally
 
@@ -119,8 +102,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
-
     ### [Linux](#tab/linux)
 
     If you use Linux, run the following command:
@@ -128,8 +109,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     ```console
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
     ---
 

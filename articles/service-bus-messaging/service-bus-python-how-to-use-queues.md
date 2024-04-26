@@ -1,13 +1,12 @@
 ---
 title: Get started with Azure Service Bus queues (Python)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
-documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 01/12/2023
+ms.date: 02/06/2024
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: seo-python-october2019, devx-track-python, mode-api, passwordless-python
+ms.custom: devx-track-python, mode-api, passwordless-python
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Python)
@@ -35,7 +34,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 
-- [Python 3.7](https://www.python.org/downloads/) or higher.
+- [Python 3.8](https://www.python.org/downloads/) or higher.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -422,6 +421,6 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
 - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
-    - The **sync_samples** folder has samples that show you how to interact with Service Bus in a synchronous manner. In this quick start, you used this method. 
-    - The **async_samples** folder has samples that show you how to interact with Service Bus in an asynchronous manner. 
+    - The **sync_samples** folder has samples that show you how to interact with Service Bus in a synchronous manner. 
+    - The **async_samples** folder has samples that show you how to interact with Service Bus in an asynchronous manner. In this quick start, you used this method. 
 - [azure-servicebus reference documentation](/python/api/azure-servicebus/azure.servicebus?preserve-view=true)

@@ -1,7 +1,6 @@
 ---
 title: SQL Authentication  in Azure Synapse Analytics
 description: Learn about SQL authentication in Azure Synapse Analytics. Azure Synapse Analytics has two SQL form-factors to control your resource consumption. 
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql

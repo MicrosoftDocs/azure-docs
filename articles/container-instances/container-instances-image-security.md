@@ -7,7 +7,6 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: 
 ---
 
 # Security considerations for Azure Container Instances

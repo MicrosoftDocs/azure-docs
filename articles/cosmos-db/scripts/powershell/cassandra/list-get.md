@@ -7,8 +7,8 @@ ms.subservice: apache-cassandra
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # List and get keyspaces and tables for Azure Cosmos DB - API for Cassandra

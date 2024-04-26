@@ -1,12 +1,10 @@
 ---
-title: HX-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HX-series VM size in Azure.  
-services: virtual-machines 
-tags: azure-resource-manager 
-ms.service: virtual-machines 
+title: HX-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
+description: Learn about the HX-series VM size in Azure.
+services: virtual-machines
+ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
+ms.topic: article
 ms.date: 05/23/2023
 ms.reviewer: cynthn
 ms.author: padmalathas
@@ -14,6 +12,9 @@ author: padmalathas
 ---
 
 # HX-series virtual machine overview 
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -142,5 +143,3 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
-
-

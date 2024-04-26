@@ -24,7 +24,7 @@ Specifically, this article shows you:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) for Java, version 8, 11, or 17
+- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently only supported in preview on Linux only)
 - An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 - Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)

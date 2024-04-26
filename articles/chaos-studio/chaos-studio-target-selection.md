@@ -2,11 +2,12 @@
 title: Target selection in Azure Chaos Studio
 description: Understand two different ways to select experiment targets and target scoping in Azure Chaos Studio.
 author: prasha-microsoft
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 09/25/2023
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept
 ---
 
 # Target selection in Azure Chaos Studio

@@ -12,11 +12,11 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand how pipelines use jq expressions so that I can configure pipeline stages.
 ---
 
-# What is jq in Data Processor pipelines?
+# What is jq in Azure IoT Data Processor Preview pipelines?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[jq](https://jqlang.github.io/jq/) is an open source JSON processor that you can use restructure and format structured payloads in Azure IoT Data Processor (preview)) pipelines:
+[jq](https://jqlang.github.io/jq/) is an open source JSON processor that you can use restructure and format structured payloads in Azure IoT Data Processor Preview) pipelines:
 
 - The [filter](howto-configure-filter-stage.md) pipeline stage uses jq to enable flexible filter queries.
 - The [transform](howto-configure-transform-stage.md) pipeline stage uses jq to enable data transformation.
