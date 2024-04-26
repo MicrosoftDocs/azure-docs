@@ -86,7 +86,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
 | PricingCurrency | MCA | Currency used when rating based on negotiated prices. |
-| PricingModel | All | Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`) |
+| PricingModel | All | Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot` and `SavingsPlan`) |
 | Product | All | Name of the product. |
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
