@@ -163,9 +163,12 @@ items:
         - name: Terminology 
           href: concepts-event-grid-namespaces.md
         - name: Event handlers (Push delivery)
+          href: namespace-topics-event-handlers.md
           items:
           - name: Event Hubs
             href: namespace-handler-event-hubs.md
+          - name: Webhook
+            href: namespace-handler-webhook.md
         - name: Delivery properties
           href: namespace-delivery-properties.md
         - name: Publisher operations
