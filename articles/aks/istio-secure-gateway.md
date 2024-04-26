@@ -75,7 +75,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
     
-3. Authorize the user-assigned managed identity of the add-on to access Azure Keyvault resource using access policy. Alternatively, follow the instructions [here][akv-rbac-guide] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
+3. Authorize the user-assigned managed identity of the add-on to access Azure Keyvault resource using access policy. Alternatively, if your Key Vault is using Azure RBAC for the permissions model, follow the instructions [here][akv-rbac-guide] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
     
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
