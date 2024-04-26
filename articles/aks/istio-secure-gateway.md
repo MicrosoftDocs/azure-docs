@@ -17,11 +17,11 @@ The [Deploy external or internal Istio Ingress][istio-deploy-ingress] article de
 
 Before proceeding, complete the following prerequisites:
 - Enable the Istio add-on on the cluster as per [documentation][istio-deploy-addon]
-- Deploy an external Istio Ingress gateway as per [documentation][istio-deploy-ingress]
+- Deploy an external Istio ingress gateway as per [documentation][istio-deploy-ingress]
 
 ### Summary of Previous Steps
 
-Following steps are complete:
+"Ensure that the following steps are complete:
 
 - [Set environment variables][istio-addon-env-vars]
 - [Install Istio add-on][istio-deploy-existing-cluster]
@@ -56,11 +56,11 @@ This article requires several certificates and keys. You can use your favorite t
     
 ## Configure a TLS ingress gateway
 
-Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv-basic-concepts] to host certificates/keys and [Azure Keyvault Secrets Provider add-on][akv-addon] to sync secrets to the cluster.
+Create a Kubernetes TLS secret for the ingress gateway; use [Azure Key Vault][akv-basic-concepts] to host certificates/keys and [Azure Key Vault Secrets Provider add-on][akv-addon] to sync secrets to the cluster.
 
-### Set up Azure Keyvault and sync secrets to the cluster
+### Set up Azure Key Vault and sync secrets to the cluster
 
-1. Create Azure Keyvault
+1. Create Azure Key Vault
 
     You need an [Azure Key Vault resource][akv-quickstart] to supply the certificate and key inputs to the Istio add-on.
 
@@ -75,7 +75,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
     
-3. Authorize the user-assigned managed identity of the add-on to access Azure Keyvault resource using access policy. Alternatively, if your Key Vault is using Azure RBAC for the permissions model, follow the instructions [here][akv-rbac-guide] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
+3. Authorize the user-assigned managed identity of the add-on to access Azure Key Vault resource using access policy. Alternatively, if your Key Vault is using Azure RBAC for the permissions model, follow the instructions [here][akv-rbac-guide] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
     
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
@@ -85,7 +85,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
     ```
 
-4. Create secrets in Azure Keyvault using the certificates and keys.
+4. Create secrets in Azure Key Vault using the certificates and keys.
 
     ```bash
     az keyvault secret set --vault-name $AKV_NAME --name test-productpage-bookinfo-key --file bookinfo_certs/productpage.bookinfo.com.key
@@ -93,7 +93,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     az keyvault secret set --vault-name $AKV_NAME --name test-bookinfo-crt --file bookinfo_certs/bookinfo.com.crt
     ```
     
-5. Use the following manifest to deploy SecretProviderClass to provide azure keyvault specific parameters to the CSI driver.
+5. Use the following manifest to deploy SecretProviderClass to provide Azure Key Vault specific parameters to the CSI driver.
     
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -131,7 +131,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     EOF
     ```
 
-6. Use the following manifest to deploy a sample pod to sync secrets from keyvault to the cluster.
+6. Use the following manifest to deploy a sample pod. The secret store CSI driver requires a pod to reference the SecretProviderClass resource to ensure secrets sync from Azure Key Vault to the cluster.
     
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -235,6 +235,9 @@ spec:
 EOF
 ```
 
+> [!NOTE]
+> In the gateway definition, `credentialName` must match the `secretName` in SecretProviderClass resource and `selector` must refer to the external ingress gateway by its label, in which the key of the label is `istio` and the value is `aks-istio-ingressgateway-external`.
+
 Set environment variables for external ingress host and ports:
     
 ```bash
@@ -316,7 +319,7 @@ Extend your gateway definition to support mutual TLS.
     EOF
     ```
 
-    Use the following manifest to redeploy sample pod to sync secrets from keyvault to the cluster.
+    Use the following manifest to redeploy sample pod to sync secrets from Azure Key Vault to the cluster.
 
     ```bash
     cat <<EOF | kubectl apply -f -
