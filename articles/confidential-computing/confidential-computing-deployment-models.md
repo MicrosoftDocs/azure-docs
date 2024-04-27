@@ -15,7 +15,7 @@ Azure confidential computing supports multiple deployment models. These differen
 
 ## Infrastructure as a Service (IaaS)
 
-Under Infrastructure as a Service (IaaS) deployment model, there's various options to choose from. You can use Confidential VMs (CVMs) based on [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](confidential-vm-overview.md) or [Intel Trust Domain Extensions (TDX)](tdx-confidential-vm-overview.md) or use Application Enclaves with [Intel Software Guard Extensions (SGX)](confidential-computing-enclaves.md). Both options provide organizations with differing deployment models depending on the size of what you are willing to trust.
+Under Infrastructure as a Service (IaaS) deployment model, there's various options to choose from. You can use Confidential VMs (CVMs) based on [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](confidential-vm-overview.md) or [Intel Trust Domain Extensions (TDX)](tdx-confidential-vm-overview.md) or use Application Enclaves with [Intel Software Guard Extensions (SGX)](confidential-computing-enclaves.md). Both options provide organizations with differing deployment models depending your trust boundary.
 
 ![Infrastructure-Boundary](https://github.com/MicrosoftDocs/azure-docs-pr/assets/63871188/e32cfafe-23ca-47c8-91e2-b86431add46d)
 
@@ -67,7 +67,7 @@ There are some differences in the security postures of [confidential VMs](#confi
 
 VM admins or any other app or service running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
 
-![ConfidentialVM](https://github.com/MicrosoftDocs/azure-docs-pr/assets/63871188/89760138-1157-43a0-9a73-07cc3de1cc36)
+![ConfidentialVM](https://github.com/michamcr/azure-docs-pr/assets/63871188/b64f2d68-56f9-46b1-95bf-9b0f348c367b)
 
 ### Application Enclaves
 
@@ -75,7 +75,7 @@ VM admins or any other app or service running inside the VM, operate beyond the 
 
 Intel SGX helps protect data in use by application isolation. By protecting selected code and data from modification, developers can partition their application into hardened enclaves or trusted execution modules to help increase application security. Entities outside the enclave can't read or write the enclave memory, whatever their permissions levels. The hypervisor or the operating system also can't obtain this access through normal OS-level calls. To call an enclave function, you have to use a new set of instructions in the Intel SGX CPUs. This process includes several protection checks.
 
-![AppEnclaves](https://github.com/MicrosoftDocs/azure-docs-pr/assets/63871188/788cc0a7-321a-4e3b-bdd6-9e73bc3e1104)
+![AppEnclaves](https://github.com/michamcr/azure-docs-pr/assets/63871188/bedacca5-fb81-4f9f-b6fb-51f90fccc372)
 
 ## Next steps
 
