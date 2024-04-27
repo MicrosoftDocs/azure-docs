@@ -18,7 +18,7 @@ Log scrubbing is only supported on Azure Front Door Standard and Premium. If you
 
 ## Default log behavior
 
-Normally, when Azure Front Door serves a request, Azure Front Door logs the details of the request in clear text. Sensitive data might be included in the request URI (such as passwords), and client IP and socket IP are logged. This data is viewable by anyone with access to the Azure Front Door access logs. To protect customer data, you can set up log scrubbing rules targeting this sensitive data for protection.
+When Azure Front Door serves a request, Azure Front Door logs the details of the request in clear text. Sensitive data might be included in the request URI (such as passwords), and client IP and socket IP are logged. This data is viewable by anyone with access to the Azure Front Door access logs. To protect customer data, you can set up log scrubbing rules targeting this sensitive data for protection.
 
 ## Scrubbing fields
 
