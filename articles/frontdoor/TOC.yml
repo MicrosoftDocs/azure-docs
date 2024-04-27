@@ -155,7 +155,7 @@
         - name: URL redirect
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Sensitive data protection
-        href: sensitive-data-protection.md
+        href: tandard-premium/sensitive-data-protection.md
       - name: Understand billing
         href: billing.md
       - name: Price comparison between tiers
@@ -293,7 +293,7 @@
           - name: Azure CLI
             href: standard-premium/how-to-cache-purge-cli.md
         - name: Protect sensitive data
-          href: how-to-protect-sensitive-data.md
+          href: tandard-premium/how-to-protect-sensitive-data.md
         - name: Compression
           href: standard-premium/how-to-compression.md
         - name: Blue/Green deployment with Front Door
