@@ -20,7 +20,7 @@ Azure confidential computing offers confidential VMs are for tenants with high s
 
 ## Confidential VMs on Microsoft Mechanics
 
-[!VIDEO https://www.youtube.com/embed/mkCSGGNtwmc]
+> [!VIDEO https://www.youtube.com/embed/mkCSGGNtwmc]
 
 ## Benefits
 
