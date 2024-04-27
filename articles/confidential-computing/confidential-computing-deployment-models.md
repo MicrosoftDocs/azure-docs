@@ -15,7 +15,7 @@ Azure confidential computing supports multiple deployment models. These differen
 
 ## Infrastructure as a Service (IaaS)
 
-Under Infrastructure as a Service (IaaS) deployment model, there's two options and various technologies to choose from. You can use **Confidential VMs** (CVMs) based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) or use **Application Enclaves** with [Intel SGX](confidential-computing-enclaves.md). These options provide organizations with differing deployment models depending your trust boundary, or desired ease of deployment.
+Under Infrastructure as a Service (IaaS) deployment model, you can use **Confidential VMs** (CVMs) based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) or  **Application Enclaves** with [Intel SGX](confidential-computing-enclaves.md). These options provide organizations with differing deployment models depending your trust boundary, or desired ease of deployment.
 
 ![Infrastructure-Boundary](https://github.com/MicrosoftDocs/azure-docs-pr/assets/63871188/e32cfafe-23ca-47c8-91e2-b86431add46d)
 
