@@ -12,12 +12,12 @@ ms.author: jushiman
 
 # Application enclaves
 
-With Azure confidential computing, you can create application enclaves for virtual machines (VMs) that run Intel Software Guard Extensions (SGX). Application enclaves are isolated environments that protect specific code and data. When creating enclaves, you must determine what part of the application runs within the enclave. When you create or manage enclaves, be sure to use compatible SDKs and frameworks for the chosen deployment stack. 
+Application enclaves, such as Intel SGX, are isolated environments that protect specific code and data. When creating enclaves, you must determine what part of the application runs within the enclave. When you create or manage enclaves, be sure to use compatible SDKs and frameworks for the chosen deployment stack. 
 
 > [!NOTE]
 > If you haven't already read the [introduction to Intel SGX VMs and enclaves](confidential-computing-enclaves.md), do so before continuing.
 
-## Application enclaves on Microsoft Mechanics
+## Microsoft Mechanics
 
 > [!VIDEO https://www.youtube.com/embed/oFPYxVUVWrE]
 
