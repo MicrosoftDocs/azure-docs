@@ -75,6 +75,8 @@ For some data sources such as uploading files from your local machine (preview) 
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
 
+:::image type="content" source="../media/use-your-data/azure-databases-and-ai-search.png" lightbox="../media/use-your-data/azure-databases-and-ai-search.png" alt-text="Diagram of vector indexing services.":::
+
 # [Azure AI Search](#tab/ai-search)
 
 You might want to consider using an Azure AI Search index when you either want to:
