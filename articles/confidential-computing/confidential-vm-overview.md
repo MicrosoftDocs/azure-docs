@@ -18,6 +18,10 @@ Azure confidential computing offers confidential VMs are for tenants with high s
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
 
+## Confidential VMs on Microsoft Mechanics
+
+> [!VIDEO https://www.youtube.com/embed/mkCSGGNtwmc]
+
 ## Benefits
 
 Some of the benefits of confidential VMs include:
