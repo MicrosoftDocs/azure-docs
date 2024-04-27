@@ -45,12 +45,10 @@ Azure OpenAI On Your Data supports the following file types:
 
 There's an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
 
-* If you're converting data from an unsupported format into a supported format, make sure the conversion:
+* If you're converting data from an unsupported format into a supported format, optimize the quality of the model response by ensuring the conversion:
 
     * Doesn't lead to significant data loss.
     * Doesn't add unexpected noise to your data.  
-
-    This affects the quality of the model response. 
 
 * If your files have special formatting, such as tables and columns, or bullet points, prepare your data with the data preparation script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#optional-crack-pdfs-to-text).
 
@@ -70,7 +68,7 @@ For some data sources such as uploading files from your local machine (preview) 
 |Data source  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
-| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB have natively integrated vector indexing and do not require Azure AI Search; however, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB for NoSQL will offer a natively integrated vector database by mid-2024.     |
+| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB offer natively integrated vector indexing; therefore, they do not require Azure AI Search. However, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB for NoSQL's natively integrated vector database bebuts in mid-2024.     |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
@@ -115,7 +113,7 @@ If you're using your own index, you can customize the [field mapping](#index-fie
 
 ### Intelligent search
 
-Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search will default to hybrid + semantic search.
+Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search defaults to hybrid + semantic search.
 
 ### Document-level access control
 
@@ -133,7 +131,7 @@ If you're using your own index, you will be prompted in the Azure OpenAI Studio 
 
 In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
 
-Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../references/on-your-data.md) using the `fieldsMapping` parameter.   
+Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure it [in the API](../references/on-your-data.md) using the `fieldsMapping` parameter.   
 
 ### Search filter (API)
 
@@ -175,7 +173,7 @@ To add vCore-based Azure Cosmos DB for MongoDB as a data source, you will need a
 
 When you add your vCore-based Azure Cosmos DB for MongoDB data source, you can specify data fields to properly map your data for retrieval.
 
-* Content data (required): One or more provided fields that will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
+* Content data (required): One or more provided fields to be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
 * File name/title/URL: Used to display more information when a document is referenced in the chat.
 * Vector fields (required): Select the field in your database that contains the vectors.
 
@@ -198,7 +196,7 @@ To keep your Azure AI Search index up-to-date with your latest data, you can sch
 
     :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
 
-After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added or modified from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull, reprocess, and index the documents that were added or modified from the storage container. This process ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
    - `{Index Name}-index`
    - `{Index Name}-indexer`
    - `{Index Name}-indexer-chunk`
@@ -224,7 +222,7 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 # [Upload files (preview)](#tab/file-upload)
 
-Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data, and optionally creating a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
+Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data. You also have the option to create a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
 
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
