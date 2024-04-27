@@ -1,20 +1,32 @@
 ---
-title: Data retention and archive in Azure Monitor Logs
-description: Configure archive settings for a table in a Log Analytics workspace in Azure Monitor.
+title: Data retention and retention tiers in Azure Monitor Logs
+description: Configure retention settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
 ms.date: 6/28/2023
-# Customer intent: As an Azure account administrator, I want to set data retention and archive policies to save retention costs.
+# Customer intent: As an Azure account administrator, I want to use data tiers to manage data based on my account's data usage and retention needs in one Log Analytics workspace.
 ---
 
-# Data retention and archive in Azure Monitor Logs
+# Data retention and retention tiers in Azure Monitor Logs
 
-Azure Monitor Logs retains data in two states:
+Data tiers let you manage your Log Analytics workspace to meet the data analysis and retention needs of all your users. You don't have to manage a separate storage account for cheap retention of high-volume verbose logs you rarely access - just use the Auxiliary tier. Use the data tiers to manage all of your log data in one Log Analytics workspace, without ever having to move your data, and always have easy access to your logs.  
+
+This article describes how to use Azure Monitor Logs data tiers to manage data based on your account's data usage and retention needs in one Log Analytics workspace.
+
+## Use data tiers and data plans
+
+The three Azure Monitor Logs are:
+
+|Tier|Use|
+|-|-|
+|**Analytics**|Real-time monitoring, alerts, analytics, complex queries, and dashboards.|
+|**Basic**|Developer incident response and troubleshooting.|
+|**Auxiliary**|Verbose logs for audit and compliance, which rarely used directly.|
+
+retains data in two states:
 
 * **Interactive retention**: Lets you retain Analytics logs for [interactive queries](../logs/get-started-queries.md) of up to 2 years.
 * **Archive**: Lets you keep older, less used data in your workspace at a reduced cost. You can access data in the archived state by using [search jobs](../logs/search-jobs.md) and [restore](../logs/restore.md). You can keep data in archived state for up to 12 years. 
-
-The default free-tier retention period is "interactive retention" for 30 days. 
 
 This article describes how to configure data retention and archiving.
 

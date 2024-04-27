@@ -1002,6 +1002,13 @@ items:
           items:
           - name: Create a Log Analytics workspace
             href: logs/quick-create-workspace.md
+          - name: Manage access
+            displayName: Manage access to a Log Analytics workspace
+            href: logs/manage-access.md
+          - name: Change pricing tier
+            href: logs/change-pricing-tier.md
+          - name: Set a daily cap
+            href: logs/daily-cap.md
           - name: Move, delete, or recover a Log Analytics workspace
             items:
               - name: Move a workspace
@@ -1025,16 +1032,16 @@ items:
           items:
           - name: View and manage table properties
             href: logs/manage-logs-tables.md
-          - name: Add or delete tables and columns
-            href: logs/create-custom-table.md
-          - name: Set Basic or Analytics log data plan
-            displayName: Basic logs, cost optimization
+          - name: Select a table's data plan
+            displayName: Basic, Analytics, Auxiliary, cost optimization
             href: logs/basic-logs-configure.md
-        - name: Archive and restore
-          items:
-          - name: Data retention and archive
+          - name: Configure data retention
             href: logs/data-retention-archive.md
             displayName: Log retention, log archive, cost optimization
+          - name: Add or delete tables and columns
+            href: logs/create-custom-table.md
+        - name: Search jobs and data restore
+          items:
           - name: Run a search job
             href: logs/search-jobs.md
           - name: Restore logs
