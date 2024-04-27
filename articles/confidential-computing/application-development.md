@@ -19,7 +19,7 @@ With Azure confidential computing, you can create application enclaves for virtu
 
 ## Application enclaves on Microsoft Mechanics
 
-[!VIDEO https://www.youtube.com/embed/oFPYxVUVWrE]
+> [!VIDEO https://www.youtube.com/embed/oFPYxVUVWrE]
 
 ### Developing applications
 
