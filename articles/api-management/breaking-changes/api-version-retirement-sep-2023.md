@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 04/24/2024
+ms.date: 04/26/2024
 ms.author: danlep
 ---
 
@@ -55,7 +55,9 @@ We also recommend setting the **Minimum API version** in your API Management ins
 
 ### Update Minimum API version setting on your API Management instance
 
-We recommend setting the **Minimum API version** for your API Management instance using the Azure portal. This setting limits control plane API calls to your instance to an API version equal to or newer than this value. By setting this value, you can assess the impact of the API version retirements on your tooling. Currently, you can set this value to **2021-08-01**.
+We recommend setting the **Minimum API version** for your API Management instance using the Azure portal. This setting limits control plane API calls to your instance to an API version equal to or newer than this value. By setting this value to **2021-08-01**, you can assess the impact of the API version retirements on your tooling.
+
+
 
 To set the **Minimum API version** in the portal:
 
