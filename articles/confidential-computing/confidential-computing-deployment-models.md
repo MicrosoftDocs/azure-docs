@@ -59,7 +59,7 @@ You might opt for a confidential container-based approach when:
 
 Both options offer the highest security level for Azure services. 
 
-There are some differences in the security postures of [confidential VMs](#confidential-vms-on-amd-sev-snp) and [confidential containers](#secure-enclaves-on-intel-sgx) as follows.
+There are some differences in the security postures of [confidential VMs](#confidential-vms) and [confidential containers](#application-enclaves) as follows.
 
 ### Confidential VMs
 
