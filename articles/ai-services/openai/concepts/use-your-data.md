@@ -68,7 +68,7 @@ For some data sources such as uploading files from your local machine (preview) 
 |Data source  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
-| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB offer natively integrated vector indexing; therefore, they don't require Azure AI Search. However, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB for NoSQL's natively integrated vector database bebuts in mid-2024.     |
+| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB offer natively integrated vector indexing; therefore, they don't require Azure AI Search. However, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB for NoSQL's natively integrated vector database debuts in mid-2024.     |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
@@ -493,9 +493,9 @@ As part of this RAG pipeline, there are three steps at a high-level:
 
 In total, there are two calls made to the model: 
 
-* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
+* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history, and the instructions sent to the model for intent generation. 
 
-* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
+* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information, and the instructions sent to it for generation. 
 
 The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns below gives the average total tokens used for generating a response. 
 
@@ -577,9 +577,9 @@ Upgrade to a higher pricing tier or delete unused assets.
 
 **Preprocessing Timeout Issues** 
 
-*couldn't execute skill because the Web API request failed*
+*Couldn't execute skill because the Web API request failed*
 
-*couldn't execute skill because Web API skill response is invalid* 
+*Couldn't execute skill because Web API skill response is invalid* 
 
 Resolution: 
 
@@ -595,7 +595,7 @@ This means the storage account isn't accessible with the given credentials. In t
 
 ### 503 errors when sending queries with Azure AI Search
 
-Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the amount of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
+Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the number of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
 
 ## Regional availability and model support
 
