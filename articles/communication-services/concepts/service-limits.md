@@ -165,7 +165,7 @@ Azure Communication Services stores chat messages according to your [data retent
 If you set a retention policy for a chat thread, it can be 30 days or higher. Alternatively, you can choose not to set a retention policy on a chat thread. If you have strict compliance needs, we recommend that you delete the chat threads using the API [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread.md). Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
 
 > [!NOTE] 
-> Accidentally deleted messages are not recoverable by the system.
+> Accidentally deleted messages are not recoverable by the system. If you make a support request after your data retention policy time period has passed, the chat thread can no longer be retrieved.
 
 ## Voice and video calling
 

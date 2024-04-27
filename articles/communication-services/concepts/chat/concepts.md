@@ -14,7 +14,7 @@ ms.subservice: chat
 
 # Chat concepts
 
-Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support. 
+Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support.
 
 The Chat APIs provide an **auto-scaling** service for persistently stored text and data communication. Other key features include:
 
@@ -23,7 +23,6 @@ The Chat APIs provide an **auto-scaling** service for persistently stored text a
 - **Microsoft Teams Meetings** - Chat SDKs can [join Teams meetings](../../quickstarts/chat/meeting-interop.md) and communicate with Teams chat messages.
 - **Real-time Notifications** - Chat SDKs use efficient persistent connectivity (WebSockets) to receive real-time notifications such as when a remote user is typing. When apps are running in the background, built-in functionality is available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end users of new threads and messages.
 - **Bot Extensibility** - It's easy to add Azure bots to the Chat service with [Azure Bot integration](../../quickstarts/chat/quickstart-botframework-integration.md).
-
 
 ## Chat overview
 
@@ -41,7 +40,7 @@ Azure Communication Services supports three levels of user access control, using
 ### Chat Data 
 Azure Communication Services stores chat messages according to the [data retention policy](/purview/create-retention-policies.md) in effect when the message is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-You can choose between indefinite message retention, automatic deletion after 90 days, or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message.md) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread.md). Any message created before the new retention policy isn't affected unless you specifically change the policy for that message.
+You can choose between indefinite message retention, automatic deletion between 30 to 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread.md?view=rest-communication-chat-2024-03-07&tabs=HTTP), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message.md) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread.md). Any message created before the new retention policy isn't affected unless you specifically change the policy for that message. If you make a support request after your data retention policy time period has passed, the chat thread can no longer be retrieved.
 
 Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md). 
 
@@ -61,7 +60,7 @@ There are two core parts to chat architecture: 1) Trusted service and 2) Client 
 
 :::image type="content" source="../../media/chat-architecture-updated.svg" alt-text="Diagram showing Communication Services' chat architecture.":::
 
- - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. For more information, see [Quickstart: Create and manaage access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
+ - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. For more information, see [Quickstart: Create and manage access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that users need to connect directly to Communication Services. After you create the chat thread and add participants, they can use the client application to connect to the chat thread and send messages. Participants can use real-time notifications in your client application to subscribe to message & thread updates from other members.
 
 ## Build intelligent, AI-powered chat experiences
