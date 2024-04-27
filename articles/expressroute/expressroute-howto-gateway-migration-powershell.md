@@ -27,9 +27,10 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 ## Prerequisites
 
+[!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements-no-header.md)]
 - Review the [Gateway migration](gateway-migration.md) article before you begin.
 - You must have an existing [ExpressRoute Virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md) in your Azure subscription.
-[!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements-no-header.md)]
+
   
 
 ## Migrate to a new gateway in using PowerShell
@@ -80,7 +81,7 @@ This script deletes the old gateway and its connections.
 
 1. Run the **CommitMigration.ps1** script to complete the migration. 
 
-    ```console
+    ```azurepowershell-interactive
    gateway-migration/commitmigration.ps1
     ```
 1. Enter the ID of the pre-migration gateway.
