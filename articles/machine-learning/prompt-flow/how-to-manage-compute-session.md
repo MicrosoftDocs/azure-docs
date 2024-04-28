@@ -26,7 +26,7 @@ For users of the compute session, assign the `AzureML Data Scientist` role in th
 
 Role assignment might take several minutes to take effect.
 
-## Start a compute session on the UI
+## Start a compute session in studio
 
 Before you use Azure Machine Learning studio to start a compute session, make sure that:
 
