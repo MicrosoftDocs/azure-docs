@@ -85,7 +85,7 @@ $diskConfig = New-AzDiskConfig -Location $region -CreateOption Empty -DiskSizeGB
 
 $dataDisk = New-AzDisk -ResourceGroupName $myRG -DiskName $myDisk -Disk $diskConfig
 
-Add-AzVMDataDisk -VMName $myVM -ResourceGroupName $myRG -DiskName $myDisk -Lun $lun -CreateOption Attach -ManagedDiskId $dataDisk.Id
+Add-AzVMDataDisk -VMName $myVM -ResourceGroupName $myRG -DiskName $myDisk -Lun $lun -CreateOption Empty -ManagedDiskId $dataDisk.Id
 ```
 
 To migrate data from an existing disk or snapshot to a new disk with performance plus enabled, use the following script:
