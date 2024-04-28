@@ -15,7 +15,7 @@ To ensure endpoint availability behind firewalls, enable public availability tes
 Ensure your internal website has a public Domain Name System (DNS) record. Availability tests fail if DNS can't be resolved. For more information, see [Create a custom domain name for internal application](https://microsoft.sharepoint-df.com/teams/GenevaSynthetics-MSRC85155SecurityIncident/cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
 
 > [!WARNING]
-> The IP addresses used by the availability tests service are shared and can expose your firewall-protected service endpoints to other tests. IP address filtering alone doesn't secure your service's traffic, so it's recommended to add extra custom headers to verify the origin of web request. For more information, see [Azure Service Tags](https://learn.microsoft.com/azure/virtual-network/service-tags-overview).
+> The IP addresses used by the availability tests service are shared and can expose your firewall-protected service endpoints to other tests. IP address filtering alone doesn't secure your service's traffic, so it's recommended to add extra custom headers to verify the origin of web request. For more information, see [Virtual network service tags](../../virtual-network/service-tags-overview.md#virtual-network-service-tags).
 
 ### Authenticate traffic
 
@@ -25,7 +25,7 @@ Set custom headers in [standard availability tests](availability-standard-tests.
 2. Add the custom header "X-Customer-InstanceId" with the value `ApplicationInsightsAvailability:<GUID generated in step 1>` under the "Standard test info" section when creating or updating your availability tests.
 3. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
 
-    :::image type="content" source="media/availability-private-test/customvalidationheader.png" alt-text="Screenshot that shows custom validation header.":::
+    :::image type="content" source="media/availability-private-test/custom-validation-header.png" alt-text="Screenshot that shows custom validation header.":::
 
 Alternatively, set the token as a query parameter. For example, `https://yourtestendpoint/?x-customer-instanceid=applicationinsightsavailability:<your guid>`.
 
