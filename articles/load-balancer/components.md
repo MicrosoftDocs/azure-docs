@@ -39,7 +39,7 @@ The group of virtual machines or instances in a virtual machine scale set that i
 
 Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without other operations. The scope of the backend pool is any virtual machine in a single virtual network. 
 
-Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md).
+Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md). VMs do not need a public IP address in order to be attached to backend pool of a public load balancer. Also, you can attach VMs to the backend pool of a load balancer even if they are in a stopped state. 
 
 When considering how to design your backend pool, design for the least number of individual backend pool resources to optimize the length of management operations. There's no difference in data plane performance or scale.
 

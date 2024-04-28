@@ -113,7 +113,7 @@
     - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
     - name: Deploy IoT Edge VM using a Bicep file
-      displayname: ARM,template,resource manager
+      displayName: ARM,template,resource manager
       href: how-to-install-iot-edge-ubuntuvm-bicep.md
     - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md

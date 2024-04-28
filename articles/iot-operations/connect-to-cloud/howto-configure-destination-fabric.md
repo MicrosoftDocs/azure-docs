@@ -30,7 +30,7 @@ To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 Before you can write to Microsoft Fabric from a data pipeline, you need to grant access to the lakehouse from the pipeline. You can use either a service principal or a managed identity to authenticate the pipeline. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
 
-Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/onelake-security#authentication).
+Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/security/get-started-security#authentication).
 
 # [Service principal](#tab/serviceprincipal)
 

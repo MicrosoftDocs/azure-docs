@@ -64,6 +64,23 @@ az account set --subscription <subscription id>
 - If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
 - If the Single Server instance has 'Query Store' enabled, enabling slow query logs on target Flexible Server instance is recommended to support similar functionality. You can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights#configure-slow-query-logs-by-using-the-azure-portal). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights#view-query-insights-by-using-workbooks).
 - If your Single Server instance has Legacy Storage architecture (General Purpose storage V1), you need to set the parameter log_bin=ON for your Single Server instance before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server.
+- If your Single Server instance has engine version v8.0, consider performing the following actions to avoid any breaking changes due to community minor version differences between the Single and Flexible Server instance :
+
+  - Run the following statement to check if your instance could be impacted by erroneous histogram information. If the corresponding tables are output, we recommend that you refer to [https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/](https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/) to delete the histogram information, and then recreate it on the Flexible Server. It's worth noting that the histogram inf` is only statistical information about the columns, and this information only exists in system tables, so deleting the histogram info will not affect the table data.
+
+    ```sql
+        SELECT DISTINCT SCHEMA_NAME, TABLE_NAME FROM `information_schema`.`column_statistics`;
+    ```
+
+  - Run the following command to check for tables that could have their table column order be disorganized. If this check identifies any affected tables, you need to dump all the data from these tables and then import it back. Failure to do so can lead to the sequence of columns in the binlog not matching the sequence of columns in the user tables. This discrepancy can prevent users from setting up replication, restoring data, enabling High Availability (HA), and other operations.
+
+    ```sql
+        SELECT table_schema, table_name, COUNT(*) AS column_count, MAX(ORDINAL_POSITION) AS max_ordinal_position
+        FROM information_schema.columns
+        GROUP BY table_schema, table_name
+        HAVING column_count != max_ordinal_position;
+    ```
+
 - Only instance-level import is supported. No option to import selected databases within an instance is provided.
 - Below items should be copied from source to target by the user post the Import operation:
   - Read-Replicas
@@ -251,6 +268,7 @@ Below is the benchmarked performance based on varying number of tables for 10 Gi
 
 - Copy the following properties from the source Single Server to target Flexible Server post Azure Database for MySQL Import operation is completed successfully:
   - Read-Replicas
+  - Server parameter value for event_scheduler
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
 

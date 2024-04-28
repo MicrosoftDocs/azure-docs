@@ -188,7 +188,7 @@ Two default jobs can be run for Windows that scrape metrics required for the das
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
 
 > [!NOTE]
-> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview).
 
 ## Metrics scraped for Windows
 
@@ -254,7 +254,7 @@ The following default dashboards are automatically provisioned and configured by
 
 ## Recording rules
 
-The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
+The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
 
 - `cluster:node_cpu:ratio_rate5m`
 - `namespace_cpu:kube_pod_container_resource_requests:sum`

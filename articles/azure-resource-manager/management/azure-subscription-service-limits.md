@@ -215,6 +215,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [maps-limits](../../../includes/maps-limits.md)]
 
+## Azure Managed Grafana limits
+
+[!INCLUDE [Azure Managed Grafana limits](../../../includes/azure-managed-grafana-limits.md)]
+
 ## Azure Monitor limits
 
 For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
@@ -229,7 +233,7 @@ For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor
 
 ## Azure Policy limits
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [azure-policy-limits](../../governance/includes/policy/azure-policy-limits.md)]
 
 ## Azure Quantum limits
 

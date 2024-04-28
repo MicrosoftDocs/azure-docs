@@ -16,21 +16,21 @@ ms.author: vikancha
 > [!TIP]
 > Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
-GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs. Storage throughput and network bandwidth are also included for each size in this grouping.
+GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 
 - The [NCv3-series](ncv3-series.md) and [NC T4_v3-series](nct4-v3-series.md) sizes are optimized for compute-intensive GPU-accelerated applications. Some examples are CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. The NC T4 v3-series is focused on inference workloads featuring NVIDIA's Tesla T4 GPU and AMD EPYC2 Rome processor. The NCv3-series is focused on high-performance computing and AI workloads featuring NVIDIA’s Tesla V100 GPU.
 
-- The [NC 100 v4-series](nc-a100-v4-series.md) sizes are focused on midrange AI training and batch inference workload. The NC A100 v4-series offers flexibility to select one, two, or four NVIDIA A100 80GB PCIe Tensor Core GPUs per VM to leverage the right-size GPU acceleration for your workload.
+- The [NC 100 v4-series](nc-a100-v4-series.md) sizes are focused on midrange AI training and batch inference workload. The NC A100 v4-series offers flexibility to select one, two, or four NVIDIA A100 80GB PCIe Tensor Core GPUs per VM to use the right-size GPU acceleration for your workload.
 
 - The [ND A100 v4-series](nda100-v4-series.md) sizes are focused on scale-up and scale-out deep learning training and accelerated HPC applications. The ND A100 v4-series uses 8 NVIDIA A100 TensorCore GPUs, each available with a 200 Gigabit Mellanox InfiniBand HDR connection and 40 GB of GPU memory.
 
 - [NGads V620-series](ngads-v-620-series.md) VM sizes are optimized for high performance, interactive gaming experiences hosted in Azure.  They're powered by AMD Radeon PRO V620 GPUs and AMD EPYC 7763 (Milan) CPUs.
 
-- [NV-series](nv-series.md) and [NVv3-series](nvv3-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by the NVIDIA Tesla M60 GPU.
+- [NVv3-series](nvv3-series.md) and [NVads A10 v5-series](nva10v5-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by NVIDIA Tesla M60 GPU (NVv3) and A10 GPUs(NVads A10 v5).
 
-- [NVv4-series](nvv4-series.md) VM sizes optimized and designed for VDI and remote visualization. With partitioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources. These VMs are backed by the AMD Radeon Instinct MI25 GPU. NVv4 VMs currently support only Windows guest operating system.
+- [NVv4-series](nvv4-series.md) VM sizes optimized and designed for VDI and remote visualization. With partitioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources. These VMs are backed by AMD Radeon Instinct MI25 GPU. NVv4 VMs currently support only Windows guest operating system.
 
-- [NDm A100 v4-series](ndm-a100-v4-series.md) virtual machine is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly coupled scale-up and scale-out HPC workloads. The NDm A100 v4 series starts with a single virtual machine (VM) and eight NVIDIA Ampere A100 80GB Tensor Core GPUs.
+- [NDm A100 v4-series](ndm-a100-v4-series.md) virtual machines are designed for high-end Deep Learning training and tightly coupled scale-up and scale-out HPC workloads. The NDm A100 v4 series starts with a single virtual machine (VM) and eight NVIDIA Ampere A100 80GB Tensor Core GPUs.
 
 
 ## Supported operating systems and drivers
@@ -55,7 +55,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA or AMD G
 
 - If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
-- You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC, NCv2, NCv3, ND, NDv2, NV, or NVv2 cores. To request a quota increase, [open an online customer support request](../azure-portal/supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
+- You might need to increase the cores quota (per region) in your Azure subscription, and increase the quota separately for each GPU VM family. To request a quota increase, [open an online customer support request](../azure-portal/supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
 
 ## Other sizes
 

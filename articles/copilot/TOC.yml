@@ -10,6 +10,10 @@
     href: limited-access.md
   - name: Responsible AI FAQ
     href: responsible-ai-faq.md
+- name: How-to guides
+  items:
+  - name: Write effective prompts
+    href: write-effective-prompts.md
 - name: Enhanced scenarios
   items:
   - name: Get resource information

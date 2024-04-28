@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 03/23/2024
+ms.date: 04/03/2024
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
@@ -53,7 +53,6 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
 ## Build your app
 
-# [YAML](#tab/yaml)
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Pipelines** page. Then select **New pipeline**.
@@ -65,29 +64,11 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 1. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
 
-# [Classic](#tab/classic)
-
-To get started: 
-
-How you build your app in Azure Pipelines depends on your app's programming language. Each language has specific build steps that create a deployment artifact. A deployment artifact is used to update your function app in Azure.
-
-To use built-in build templates, when you create a new build pipeline, select **Use the classic editor** to create a pipeline by using designer templates.
-
-![Screenshot of the Azure Pipelines classic editor.](media/functions-how-to-azure-devops/classic-editor.png)
-
-After you configure the source of your code, search for Azure Functions build templates. Select the template that matches your app language.
-
-![Screenshot of Azure Functions build template.](media/functions-how-to-azure-devops/build-templates.png)
-
-In some cases, build artifacts have a specific folder structure. You might need to select the **Prepend root folder name to archive paths** check box.
-
-![Screenshot of option to prepend the root folder name.](media/functions-how-to-azure-devops/prepend-root-folder.png)
-
----
 
 ### Example YAML build pipelines
 
 The following language-specific pipelines can be used for building apps. 
+
 # [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app. 
@@ -207,8 +188,6 @@ steps:
 
 You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
-# [YAML](#tab/yaml)
-
 To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`.
 
 ```yaml
@@ -237,20 +216,12 @@ variables:
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 
-# [Classic](#tab/classic)
-
-You'll need to create a separate release pipeline to deploy to Azure Functions. When you create a new release pipeline, search for the Azure Functions release template.
-
-![Screenshot of search for the Azure Functions release template.](media/functions-how-to-azure-devops/release-template.png)
-
----
 
 ## Deploy a container
 
 You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md). 
 ### Deploy with the Azure Function App for Container task
 
-# [YAML](#tab/yaml/)
 
 The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
 
@@ -280,17 +251,8 @@ variables:
 
 The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image. 
 
-# [Classic](#tab/classic/)
 
-The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) in your release pipeline.
-
-
-How you deploy your app depends on your app's programming language. Each language has a template with specific deploy steps. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.
-
----
 ## Deploy to a slot
-
-# [YAML](#tab/yaml)
 
 You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
@@ -315,13 +277,6 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
     SourceSlot: staging
     SwapWithProduction: true
 ```
-# [Classic](#tab/classic)
-
-You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
-
-Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to specify the slot to deploy to. You can swap the slots by using the **Azure App Service Manage** task.
-
----
 
 ## Create a pipeline with Azure CLI
 
@@ -350,7 +305,6 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
 ## Build your app
 
-# [YAML](#tab/yaml)
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
@@ -360,25 +314,6 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 1. Azure Pipelines will analyze your repository and recommend a template. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
 
-# [Classic](#tab/classic)
-
-To get started: 
-
-How you build your app in Azure Pipelines depends on your app's programming language. Each language has specific build steps that create a deployment artifact. A deployment artifact is used to update your function app in Azure.
-
-To use built-in build templates, when you create a new build pipeline, select **Use the classic editor** to create a pipeline by using designer templates.
-
-![Screenshot of select the Azure Pipelines classic editor.](media/functions-how-to-azure-devops/classic-editor.png)
-
-After you configure the source of your code, search for Azure Functions build templates. Select the template that matches your app language.
-
-![Screenshot of select an Azure Functions build template.](media/functions-how-to-azure-devops/build-templates.png)
-
-In some cases, build artifacts have a specific folder structure. You might need to select the **Prepend root folder name to archive paths** check box.
-
-![Screenshot of the option to prepend the root folder name.](media/functions-how-to-azure-devops/prepend-root-folder.png)
-
----
 
 ### Example YAML build pipelines
 
@@ -502,9 +437,7 @@ steps:
 
 You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
-The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks and deployment won't proceed when there are issues. 
-
-# [YAML](#tab/yaml)
+The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
 
 To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`.
 
@@ -535,21 +468,11 @@ variables:
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 
-# [Classic](#tab/classic)
-
-You'll need to create a separate release pipeline to deploy to Azure Functions. When you create a new release pipeline, search for the Azure Functions release template.
-
-![Screenshot of search for the Azure Functions release template.](media/functions-how-to-azure-devops/release-template.png)
-
----
-
 ## Deploy a container
 
 You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md) . 
 
 ### Deploy with the Azure Function App for Container task
-
-# [YAML](#tab/yaml/)
 
 The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
 
@@ -579,17 +502,7 @@ variables:
 
 The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image.
 
-# [Classic](#tab/classic/)
-
-The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) in your release pipeline.
-
-
-How you deploy your app depends on your app's programming language. Each language has a template with specific deploy steps. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.
-
----
 ## Deploy to a slot
-
-# [YAML](#tab/yaml)
 
 You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
@@ -615,13 +528,6 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
     SourceSlot: staging
     SwapWithProduction: true
 ```
-# [Classic](#tab/classic)
-
-You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
-
-Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to specify the slot to deploy to. You can swap the slots by using the **Azure App Service Manage** task.
-
----
 
 ## Create a pipeline with Azure CLI
 

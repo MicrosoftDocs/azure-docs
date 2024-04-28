@@ -21,7 +21,7 @@ You can:
 * Manage your agreement with an enterprise customer.
 * Manage numbers for the enterprise.
 * View civic addresses for an enterprise.
-* Configure a custom header for a number.
+* Configure a custom header for a number (not available for Teams Phone Mobile).
 
 ## Prerequisites
 
@@ -138,7 +138,6 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
             | `serviceDetails_teamsPhoneMobile_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
             | `serviceDetails_teamsPhoneMobile_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
             | `serviceDetails_teamsPhoneMobile_configuration_displayedCountryCode` | The country code to display for the number. Required if you're uploading a North American Toll-Free number, otherwise optional. | A valid country code |
-            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
 
     1. Select **Create numbers**.
     1. Select **File Upload**.
@@ -163,7 +162,7 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 
 ## Configure a custom header for a number
 
-You can specify a custom SIP header value for an enterprise telephone number, which applies to all SIP messages sent and received by that number.
+You can specify a custom SIP header value for an enterprise telephone number, which applies to all SIP messages sent and received by that number. This feature is available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile.
 
 1. In the sidebar, locate the **Number Management (Preview)** section and select **Numbers**.
 1. Select the **Phone number** checkbox then select **Manage number**.

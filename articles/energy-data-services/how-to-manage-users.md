@@ -25,7 +25,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 The Azure object ID (OID) is the Microsoft Entra user OID.
 
 1. Find the OID of the users first. If you're managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
-1. Input the OID of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance. You can not use user's email id in the parameter and must use object ID.
+1. Input the OID of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance. You can not use user's email ID in the parameter and must use object ID.
 
    :::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot that shows finding the object ID from Microsoft Entra ID.":::
 
@@ -48,7 +48,7 @@ The Azure object ID (OID) is the Microsoft Entra user OID.
   
 To know more about the OSDU bootstrap groups, check out [here](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/master/docs/bootstrap/bootstrap-groups-structure.md).
 
-## Get the list of all available groups in a data partition
+## Get the list of all the groups you have access to in a data partition
 
 Run the following curl command in Azure Cloud Shell to get all the groups that are available for you or that you have access to in the specific data partition of the Azure Data Manager for Energy instance.
 
@@ -58,7 +58,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
     --header 'Authorization: Bearer <access_token>'
 ```
 
-## Add users to an OSDU group in a data partition
+## Add members to an OSDU group in a data partition
 
 1. Run the following curl command in Azure Cloud Shell to add the users to the users group by using the entitlement service.
 1. The value to be sent for the parameter `email` is the OID of the user and not the user's email address.
@@ -69,9 +69,14 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
         --header 'Authorization: Bearer <access_token>' \
         --header 'Content-Type: application/json' \
         --data-raw '{
-                        "email": "<Object_ID>",
+                        "email": "<Object_ID_1>",
                         "role": "MEMBER"
-                    }'
+                    },
+                   {
+                        "email": "<Object_ID_2>",
+                        "role": "MEMBER"
+                    }
+                   '
     ```
 
     **Sample request for users OSDU group**
@@ -157,10 +162,20 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
         }
     ```
 
-## Delete OSDU groups of a specific user in a data partition
+## Remove a member from a group in a data partition
+1. Run the following curl command in Azure Cloud Shell to remove a specific member from a group.
+1. If the API tries to remove a member from `users@` group but the member is already part of other groups, then the API request will fail. To remove member from `users@` group and thus from the data partition, you can use Delete command. 
+    
+    ```bash
+        curl --location --request DELETE 'https://<adme-url>/api/entitlements/v2/groups/<group-id>/members/<object-id>' \
+        --header 'data-partition-id: <data-partition-id>' \
+        --header 'Authorization: Bearer <access_token>'
+    ```
+    
+## Delete a specific user from all the groups in a data partition
 
 1. Run the following curl command in Azure Cloud Shell to delete a specific user from a specific data partition.
-1. *Do not* delete the OWNER of a group unless you have another OWNER who can manage users in that group.
+1. *Do not* delete the OWNER of a group unless you have another OWNER who can manage users in that group. Though [users.data.root](concepts-entitlements.md#peculiarity-of-usersdataroot-group) is the default and permanent owner of all the data records. 
     
     ```bash
         curl --location --request DELETE 'https://<adme-url>/api/entitlements/v2/members/<object-id>' \
