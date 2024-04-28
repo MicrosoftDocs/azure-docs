@@ -8,13 +8,13 @@ ms.topic: overview
 ms.date: 04/24/2024
 ---
 
-# About Vector Embeddings and Vector Search in Azure Cache for Redis
+# What are Vector Embeddings and Vector Search in Azure Cache for Redis
 
-Vector similarity search (VSS) has become a popular tehnology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database together with models like [Azure OpenAI](../ai-services/openai/overview.md) for Retrival-Augmented Generative AI and analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
+Vector similarity search (VSS) has become a popular technology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database by combining it models like [Azure OpenAI](../ai-services/openai/overview.md) for Retrieval-Augmented Generative AI and analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
 
-For tutorials and sample applications on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see:
+For tutorials and sample applications on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see the following:
 
-- [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis with Langchain](./cache-tutorial-vector-similarity.md)
+- [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis with LangChain](./cache-tutorial-vector-similarity.md)
 - [Sample: Using Redis as vector database in a Chatbot application with .NET Semantic Kernel](https://github.com/CawaMS/chatappredis)
 - [Sample: Using Redis as semantic cache in a Dall-E powered image gallery with Redis OM for .NET](https://github.com/CawaMS/OutputCacheOpenAI)
 
@@ -27,8 +27,6 @@ This table contains the information for vector search availability in different 
 |Tier      | Basic / Standard  | Premium  |Enterprise | Enterprise Flash  |
 |--------- |:------------------:|:----------:|:---------:|:---------:|
 |Available | No          | No       |  Yes  | Yes (preview) |
-
-
 
 ## What are vector embeddings?
 
@@ -54,8 +52,10 @@ A vector database is a database that can store, manage, retrieve, and compare ve
 
 ### Index and search method
 
-Vector databases need to index data for fast search and retrieval. In addition, it should support built-in search queries for simplified programming experiences.
+Vector databases need to index data for fast search and retrieval. In addition, a vector database should support built-in search queries for simplified programming experiences.
+
 There are several indexing methods, such as:
+
 - **FLAT** - Brute-force index
 - **HNSW** - Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs
 
@@ -81,7 +81,13 @@ Vector similarity search can be used in multiple applications. Some common use-c
 
 ## Why choose Azure Cache for Redis for storing and searching vectors?
 
-Azure Cache for Redis can be used effectively as a vector database to store embeddings vectors and to perform vector similarity searches. Support for vector storage and search has been available in many key machine learning frameworks like [Semantic Kernel](https://github.com/microsoft/semantic-kernel), [LangChain](https://python.langchain.com/docs/integrations/vectorstores/redis) and [LlamaIndex](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/RedisIndexDemo.html) feature rich integrations with Redis. For example, the Redis LangChain integration [automatically generates an index schema for metadata](https://python.langchain.com/docs/integrations/vectorstores/redis#inspecting-the-created-index) passed in when using Redis as a vector store. This makes it much easier to filter results based on metadata.
+Azure Cache for Redis can be used effectively as a vector database to store embeddings vectors and to perform vector similarity searches. Support for vector storage and search has been available in many key machine learning frameworks like:
+
+- [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
+- [LangChain](https://python.langchain.com/docs/integrations/vectorstores/redis)
+- [LlamaIndex](https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/RedisIndexDemo.html)
+
+These frameworks feature rich integrations with Redis. For example, the Redis LangChain integration [automatically generates an index schema for metadata](https://python.langchain.com/docs/integrations/vectorstores/redis#inspecting-the-created-index) passed in when using Redis as a vector store. This makes it much easier to filter results based on metadata.
 
 Redis has a wide range of search capabilities through the [RediSearch module](cache-redis-modules.md#redisearch), which is available in the Enterprise tier of Azure Cache for Redis. These include:
 
