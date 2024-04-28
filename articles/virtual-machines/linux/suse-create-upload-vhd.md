@@ -237,17 +237,17 @@ If the the message "___No repositories defined___" appears from the `zypper lr` 
    
 Below are examples of commands for adding these repositories (versions and links may vary):
 
-    ```bash
-    sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
-    sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
-    sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
-    ```
+```bash
+sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
+sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
+sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
+```
 
 You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
 
-    ```bash
-    sudo zypper mr -e [NUMBER OF REPOSITORY]
-    ```
+```bash
+sudo zypper mr -e [NUMBER OF REPOSITORY]
+```
 
 5. Update the kernel to the latest available version:
 
