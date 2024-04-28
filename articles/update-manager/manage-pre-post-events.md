@@ -65,6 +65,7 @@ You can configure pre and post events on an existing schedule and can add multip
 1. On the **Create Event Subscription** page, enter the following details:
     - In the **Event Subscription Details** section, provide an appropriate name. 
     - Keep the schema as **Event Grid Schema**.
+    - In the **Topic Details** scetion, provide an appropriate name to the **System Topic Name**.
     - In the **Event Types** section, **Filter to Event Types**, select the event types that you want to get pushed to the endpoint or destination. You can select between **Pre Maintenance Event** and **Post Maintenance Event**.
     - In the **Endpoint details** section, select the endpoint where you want to receive the response from. It would help customers to trigger their pre or post event.  
        
@@ -74,6 +75,7 @@ You can configure pre and post events on an existing schedule and can add multip
 
 > [!NOTE]
 > - The pre and post event can only be created at a scheduled maintenance configuration level.
+> - System Topic gets automatically created per maintenance configuration and all event subscription are linked to the System Topic in the EventGrid.
 > - The pre and post event run falls outside of the schedule maintenance window.
 
 ## View pre and post events
@@ -104,6 +106,9 @@ To delete pre and post events, follow these steps:
 
     :::image type="content" source="./media/manage-pre-post-events/delete-event-inline.png" alt-text="Screenshot that shows how to delete the pre and post events." lightbox="./media/manage-pre-post-events/delete-event-expanded.png":::
 
+> [!NOTE]
+> - If all the pre and post events are deleted from the maintenance configuration, System Topic gets automatically deleted from the EventGrid.
+> - Avoid deleting System Topic manually from the EventGrid service.
 
 ## Cancel a schedule from a pre event
 
@@ -139,9 +144,13 @@ maintenanceresources
 | order by name desc
 ```
 
-   :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot for cancelation done by the user." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png" :::
+ :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot for cancelation done by the user." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png" :::
 
-   If the maintenance job is canceled by the system due to any reason, the error message in the JSON is obtained from the Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance schedule canceled due to internal platform failure**.
++ <your-s-id> : Subscription IDs in which maintenance configuration is created
++ <your-rg-id> : Resource Group Name in which maintenance configuration is created
++ <mc-name> : Name of maintenance configuration in pre event is created
+
+If the maintenance job is canceled by the system due to any reason, the error message in the JSON is obtained from the Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance schedule canceled due to internal platform failure**.
 
 #### Invoke the Cancelation API
 
