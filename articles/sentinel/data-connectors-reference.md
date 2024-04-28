@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 03/02/2024
+ms.date: 04/26/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -424,7 +424,7 @@ Data connectors are available as part of the following offerings:
 
 ## Microsoft Corporation
 
-- [Dynamics 365](data-connectors/dynamics- 365.md)
+- [Dynamics 365](data-connectors/dynamics-365.md)
 - [Azure Firewall](data-connectors/azure-firewall.md)
 - [Azure SQL Databases](data-connectors/azure-sql-databases.md)
 
