@@ -299,7 +299,7 @@ Switch a compute instance runtime to a compute session by using the following st
 
 :::image type="content" source="./media/how-to-manage-compute-session/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-manage-compute-session/image-path-environment-detail.png":::
 
-- For compute resource, you can continue to use the existing compute instance if you would like to manually manage the lifecycle of compute resource or you can try serverless compute which lifecycle is managed by system.
+- For the compute resource, you can continue to use the existing compute instance if you would like to manually manage the lifecycle or you can try serverless compute whose lifecycle is managed by the system.
 
 ## Next steps
 
