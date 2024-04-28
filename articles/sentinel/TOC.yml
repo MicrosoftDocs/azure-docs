@@ -814,8 +814,10 @@
       href: connect-azure-functions-template.md    
     - name: CEF/Syslog        
       items:
+      - name: Overview
+        href: cef-syslog-ama-overview.md  
       - name: CEF and Syslog via AMA
-        href: connect-cef-syslog-ama.md        
+        href: connect-cef-syslog-ama.md 
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)
