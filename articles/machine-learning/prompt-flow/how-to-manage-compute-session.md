@@ -289,7 +289,7 @@ You can also access flows and running on the compute under the **Active flows an
 
 ## Switch compute instance runtime to compute session
 
-Compute session has following advantages over compute instance runtime:
+Compute sessions have the following advantages over compute instance runtimes:
 - Automatic manage lifecycle of session and underlying compute. You don't need to manually create and managed them anymore.
 - Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
 
