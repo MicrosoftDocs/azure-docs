@@ -256,7 +256,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 By default, we use the latest prompt flow base image. If you want to use a different base image, you can [build a custom one](how-to-customize-session-base-image.md). 
 
-- In studio UI, you can change base image in base image settings under compute session settings. You need to apply this change and 
+- In studio, you can change the base image in base image settings under compute session settings. You need to apply this change and 
 
 :::image type="content" source="./media/how-to-manage-compute-session/change-base-image.png" alt-text="Screenshot of changing base image of a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/change-base-image.png":::
 
