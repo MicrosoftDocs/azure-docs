@@ -1,5 +1,5 @@
 ---
-title: Same-account (in-account) restore for continuous backup (preview)
+title: Same-account (in-account) restore for continuous backup  
 titleSuffix: Azure Cosmos DB
 description: An introduction to restoring a deleted container or database to a specific point in time in the same Azure Cosmos DB account.
 author: kanshiG
@@ -8,10 +8,10 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 04/15/2024
 ---
 
-# Restore a deleted database or container in the same account by using continuous backup (preview)
+# Restore a deleted database or container in the same account by using continuous backup 
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
@@ -68,7 +68,7 @@ Here's a list of the current behavior characteristics of the point-in-time in-ac
 
 - Restoration of a container or database is blocked if a delete operation is already in process on either the container or the database.
 
-- If an account has more than three different resources, restoration operations can't be run in parallel.  
+- If an account has more than three different resources, more than three resources in an account cannot be restored in parallel.  
 
 - Restoration of a database or container resource succeeds when the resource is present as of restore time in the current write region of the account.
 
