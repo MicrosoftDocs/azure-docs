@@ -47,7 +47,7 @@ OrcaAlerts_CL
 ## Vendor installation instructions
 
 
-Follow [guidance](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration) for integrating Orca Security Alerts logs with Microsoft Sentinel.
+Follow [guidance](https://docs.orcasecurity.io/docs/integrating-azure-sentinel) for integrating Orca Security Alerts logs with Microsoft Sentinel.
 
 
 
