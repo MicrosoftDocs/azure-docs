@@ -92,7 +92,7 @@ One flow binds to one compute session. You can start a compute session on a flow
 
 ## Use a compute session to submit a flow run in CLI/SDK
 
-Same as authoring UI, you can also specify the compute session in CLI/SDK when you submit a flow run.
+Besides studio, you can also specify the compute session in CLI/SDK when you submit a flow run.
 
 # [Azure CLI](#tab/cli)
 
