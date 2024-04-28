@@ -287,7 +287,7 @@ You can also access flows and running on the compute under the **Active flows an
 - One compute session only belongs to single compute resource in same time. But you can delete or stop compute session and reallocate it to other compute resource.
 - One flow only have one compute session, as we expect each flow is self contained which defined the base image and required python package in flow folder. 
 
-## Switch compute instance runtime to compute session
+## Switch runtime to compute session
 
 Compute sessions have the following advantages over compute instance runtimes:
 - Automatic manage lifecycle of session and underlying compute. You don't need to manually create and managed them anymore.
