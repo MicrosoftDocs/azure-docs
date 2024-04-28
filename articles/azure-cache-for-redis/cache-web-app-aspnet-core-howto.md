@@ -17,7 +17,7 @@ In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core w
 
 There are also caching providers in .NET core. To quickly start using Redis with minimal changes to your existing code, see:
 
-- [ASP.NET core Output Cache provider](/aspnet/core/performance/caching/output?view=aspnetcore-8.0#redis-cache)
+- [ASP.NET core Output Cache provider](/aspnet/core/performance/caching/output#redis-cache)
 - [ASP.NET core Distributed Caching provider](/aspnet/core/performance/caching/distributed#distributed-redis-cache)
 - [ASP.NET core Redis session provider](/aspnet/core/fundamentals/app-state#configure-session-state)
 
