@@ -261,20 +261,23 @@ In a standalone application, the Actuator HTTP port defaults to the same as the 
 
 By default, all endpoints are accessible by the default context path of the application, suffixed with `/actuator`. If for some reason, you have existing endpoints in the application starting with `/actuator` then you can customize the base path to something else, set `management.endpoints.web.base-path=/<another-path-for-actuator>`.
 
-After you change these two configurations for your application, the Application Live View won't connect to the customized port or path automatically, you will have to configure these two properties on an Azure Spring Apps deployment.
+After you change these two configurations for your application, you may notice that the application status in the Application Live View is 404. It's because the Application Live View won't connect to the customized port or path automatically, you will have to configure these two properties on an Azure Spring Apps deployment.
 
 ### [Azure portal](#tab/Portal)
 
 Use the following steps to configure the deployment on Azure portal:
 
-1. Navigate to your service resource, and then select **Developer Tools**.
-1. Select **Manage tools**.
+1. Navigate to your service resource, and then go to the **Apps **page, 
 
-   
-1. Select the **Enable App Live View** checkbox, and then select **Save**.
+:::image type="content" source="media/how-to-use-application-live-view/app-list.png" alt-text="Screenshot of the Apps page for a service instance." lightbox="media/how-to-use-application-live-view/app-list.png":::
 
-1. You can then view the state of Application Live View on the **Developer Tools**.
+1. Select an application to configure the custom actuator settings.
 
+:::image type="content" source="media/how-to-use-application-live-view/app-configuration.png" alt-text="Screenshot of the configuration page of an app for a service instance." lightbox="media/how-to-use-application-live-view/app-configuration.png":::
+
+1. Select **Save** to apply the configuration changes.
+
+:::image type="content" source="media/how-to-use-application-live-view/app-configuration-save.png" alt-text="Screenshot of the save for app configurations for a service instance." lightbox="media/how-to-use-application-live-view/app-configuration-save.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
