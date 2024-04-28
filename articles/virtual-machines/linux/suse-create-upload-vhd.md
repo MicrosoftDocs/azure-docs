@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.collection: linux
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/28/2024
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 ---
@@ -270,7 +270,7 @@ You can then verify that the repositories have been added by running the command
 7. Modify the kernel boot line in your GRUB configuration to include other kernel parameters for Azure. To do this, open */boot/grub/menu.lst* in a text editor and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-     console=ttyS0 earlyprintk=ttyS0
+    console=ttyS0 earlyprintk=ttyS0
     ```
 
    This option ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
@@ -318,12 +318,12 @@ You can then verify that the repositories have been added by running the command
     If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovisioning step.
 
     ```bash
-        sudo rm -f ~/.bash_history # Remove current user history
-        sudo rm -rf /var/lib/waagent/
-        sudo rm -f /var/log/waagent.log
-        sudo waagent -force -deprovision+user
-        sudo rm -f ~/.bash_history # Remove root user history
-        sudo export HISTSIZE=0
+    sudo rm -f ~/.bash_history # Remove current user history
+    sudo rm -rf /var/lib/waagent/
+    sudo rm -f /var/log/waagent.log
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history # Remove root user history
+    sudo export HISTSIZE=0
     ```
 
 14. Select **Action** > **Shut Down** in Hyper-V Manager.
