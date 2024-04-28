@@ -19,7 +19,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **Azure VMs** - [Back up entire Windows/Linux VMs](backup-azure-vms-introduction.md) (using backup extensions) or back up files, folders, and system state using the [MARS agent](backup-azure-manage-mars.md).
 - **Azure Managed Disks** - [Back up Azure Managed Disks](backup-managed-disks.md)
 - **Azure Files shares** - [Back up Azure File shares to a storage account](backup-afs.md)
-- **SQL Server in Azure VMs** -  [Back up SQL Server databases running on Azure VMs](backup-azure-sql-database.md). However, in order to backup Azure SQL Database, [you need to use its built-in backup feature](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview)
+- **SQL Server in Azure VMs** -  [Back up SQL Server databases running on Azure VMs](backup-azure-sql-database.md). However, in order to backup Azure SQL Database, [you need to use its built-in backup feature](https://github.com/MicrosoftDocs/sql-docs/blob/afec4836198e877d40dfd0603cb287945a3489f9/azure-sql/database/automated-backups-overview.md)
 - **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
 - **Azure Database for PostgreSQL servers** -  [Back up Azure PostgreSQL databases and retain the backups for up to 10 years](backup-azure-database-postgresql.md)
 - **Azure Blobs** - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
