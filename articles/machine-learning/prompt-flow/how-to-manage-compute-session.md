@@ -295,7 +295,7 @@ Compute session has following advantages over compute instance runtime:
 
 Switch a compute instance runtime to a compute session by using the following steps:
 - Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Compute session installs the packages in `requirements.txt` file when it starts.
-- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for compute session](#change-the-base-image-for-compute-session). Make sure you or related user assigned managed identity on workspace have `acr pull` permission for the image.
+- If you create a custom environment to create a compute instance runtime, you can get the image from environment detail page, and specify it in the `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for compute session](#change-the-base-image-for-compute-session). Make sure you or the related user assigned managed identity on the workspace has `acr pull` permission for the image.
 
 :::image type="content" source="./media/how-to-manage-compute-session/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-manage-compute-session/image-path-environment-detail.png":::
 
