@@ -209,7 +209,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
        --output tsv
    ```
 
-   You can also access the Application Live View using Visual Studio Code (VS Code). For more information, see the [Use Application Live View in VS Code](#use-application-live-view-in-vs-code) section.
+   You can also access the Application Live View using Visual Studio Code (VS Code). For more information, see the [Use Application Live View in VS Code](#use-application-live-view-in-vs-code) section.   
 
 ## Manage Application Live View in existing Enterprise plan instances
 
@@ -255,6 +255,44 @@ az spring dev-tool create \
 
 ---
 
+## Configure non-default settings for the Spring Boot Actuator
+
+In a standalone application, the Actuator HTTP port defaults to the same as the main HTTP port. To make the application listen on a different port, set the external property: `management.server.port`.
+
+By default, all endpoints are accessible by the default context path of the application, suffixed with `/actuator`. If for some reason, you have existing endpoints in the application starting with `/actuator` then you can customize the base path to something else, set `management.endpoints.web.base-path=/<another-path-for-actuator>`.
+
+After you change these two configurations for your application, the Application Live View won't connect to the customized port or path automatically, you will have to configure these two properties on an Azure Spring Apps deployment.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to configure the deployment on Azure portal:
+
+1. Navigate to your service resource, and then select **Developer Tools**.
+1. Select **Manage tools**.
+
+   
+1. Select the **Enable App Live View** checkbox, and then select **Save**.
+
+1. You can then view the state of Application Live View on the **Developer Tools**.
+
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to deploy your application with the custom actuator settings the Azure CLI:
+
+```azurecli
+az spring app deploy \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --name <app-name> \
+    --artifact-path <jar-file-in-target-folder> \
+    --custom-actuator-path \
+    --custom-actuator-port 
+```
+
+---
+
+
 ## Use Application Live View in VS Code
 
 You can access Application Live View directly in VS Code to monitor your apps in the Azure Spring Apps Enterprise plan.
@@ -282,7 +320,7 @@ Use the following steps to view the Application Live View page for an app:
 1. Expand the service instance and the app that you want to monitor. Right-click the app.
 1. Select **Open Application Live View** from the menu to open the Application Live View page for the app in your default browser.
 
-   :::image type="content" source="media/how-to-use-application-live-view/visual-studio-code-open-app.png" alt-text="Screenshot of the VS Code extension showing the Open Application Live View option for an app." lightbox="media/how-to-use-application-live-view/visual-studio-code-open-app.png":::
+   :::image type="content" source="media/how-to-use-application-live-view/visual-studio-code-open-app.png" alt-text="Screenshot of the VS Code extension showing the Open Application Live View option for an app." lightbox="media/how-to-use-application-live-view/visual-studio-code-open-app.png":::   
 
 ### Troubleshoot Application Live View issues
 
