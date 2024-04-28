@@ -52,8 +52,8 @@ VM sizes with up to 64-GB RAM from the following General Purpose VM series suppo
 - [Edsv5-series](edv5-edsv5-series.md)
 
 VM sizes with up to 112-GB RAM from the following GPU VM series support hibernation.
-- [NVv4-series](../virtual-machines/nvv4-series)
-- [NVadsA10v5-series](../virtual-machines/nva10v5-series)
+- [NVv4-series](../virtual-machines/nvv4-series.md)
+- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md)
 
 ### General limitations
 - You can't enable hibernation on existing VMs.
