@@ -215,7 +215,7 @@ You can also customize the environment that you use to run this flow by adding p
 >
 > Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the session base image.
 > 
-> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md)
+> `requirements.txt` won't support local wheel files.  Build them in your image and update the customized base image in `flow.dag.yaml`. Learn more about [how to build a custom base image](how-to-customize-session-base-image.md).
 
 #### Add packages in a private feed in Azure DevOps
 
