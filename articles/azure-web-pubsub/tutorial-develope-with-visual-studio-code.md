@@ -91,7 +91,7 @@ In this scenario, you create a new Azure Web Pubsub Service resource and configu
     |--|--|
     | Select User Events | Select **All** |
     | Select System Events | Select **connected** |
-    | Input Server Port | Enter **3000** |
+    | Input Server Port | Enter **8080** |
 
 1. The exetension will created a new terminal to run the Local Tunnel Tool and a notification reminds you to open Local Tunnel Portal will show up. Click the button "Yes" or open "http://localhost:4000" in web browser manually to view the portal.
 
