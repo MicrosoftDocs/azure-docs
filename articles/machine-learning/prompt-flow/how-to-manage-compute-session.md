@@ -190,7 +190,7 @@ additional_includes:
 
 The `requirements.txt` file is copied to the flow folder, and use it to start your compute session.
 
-## Update a compute session on the flow page UI
+## Update a compute session on the studio flow page
 
 On a flow page, you can use the following options to manage a compute session:
 
