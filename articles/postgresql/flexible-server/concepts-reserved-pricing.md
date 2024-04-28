@@ -4,8 +4,8 @@ description: Learn about reserved compute pricing and how to purchase Azure Data
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: sunila
-author: sunilagarwal
+ms.author: kabharati
+author: kabharati
 ms.date: 02/03/2024
 ---
 

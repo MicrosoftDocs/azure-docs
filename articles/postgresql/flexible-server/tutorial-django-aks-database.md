@@ -3,9 +3,8 @@ title: 'Tutorial: Deploy Django on AKS cluster by using Azure CLI'
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
+ms.author: maximagapov
+author: agapovm
 ms.topic: tutorial
 ms.date: 02/26/2024
 ms.custom: mvc, devx-track-azurecli

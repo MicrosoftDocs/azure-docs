@@ -1,8 +1,8 @@
 ---
 title: Manage firewall rules - Azure CLI
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using Azure CLI command line.
-author: sunilagarwal
-ms.author: sunila
+author: GennadNY
+ms.author: gennadyk
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli

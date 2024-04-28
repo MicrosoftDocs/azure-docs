@@ -5,9 +5,9 @@ services: postgresql
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
+ms.author: guybo
+author: gbowerman
+
 ms.date: 01/23/2024
 ---
 

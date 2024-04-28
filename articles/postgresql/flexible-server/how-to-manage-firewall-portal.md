@@ -1,9 +1,9 @@
 ---
 title: Manage firewall rules - Azure portal
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-author: sunilagarwal
-ms.author: sunila
-ms.service: postgresql
+ms.author: guybo
+author: GennadNY
+ms.author: gennadyk
 ms.subservice: flexible-server
 ms.custom:
   - ignite-2023

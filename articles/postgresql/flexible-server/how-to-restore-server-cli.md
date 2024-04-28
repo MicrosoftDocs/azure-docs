@@ -4,9 +4,8 @@ description: This article describes how to perform restore operations in Azure D
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
+ms.author: kabharati
+author: kabharati
 ms.topic: how-to
 ms.date: 01/23/2024
 ---

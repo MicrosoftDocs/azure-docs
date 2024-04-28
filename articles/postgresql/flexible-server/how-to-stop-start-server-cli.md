@@ -6,7 +6,6 @@ ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
 author: AlicjaKucharczyk
 ms.author: alkuchar
-ms.reviewer: ""
 ms.topic: how-to
 ms.date: 01/23/2024
 ---

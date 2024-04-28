@@ -3,9 +3,8 @@ title: Manage high availability - Azure CLI
 description: This article describes how to configure high availability in Azure Database for PostgreSQL - Flexible Server with the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
+ms.author: guybo
+author: gbowerman
 ms.topic: how-to
 ms.date: 6/16/2022
 ms.custom: references_regions, devx-track-azurecli

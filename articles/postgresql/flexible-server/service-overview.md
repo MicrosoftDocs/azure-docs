@@ -4,8 +4,8 @@ description: Provides an overview of the Azure Database for PostgreSQL - Flexibl
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.author: sunila
-author: sunilagarwal
+ms.author: guybo
+author: gbowerman
 ms.custom: mvc
 ms.date: 04/07/2024
 adobe-target: true

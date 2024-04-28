@@ -4,8 +4,8 @@ description: This quickstart provides several Python code samples you can use to
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.author: sunila
-author: sunilagarwal
+ms.author: maximagapov
+author: agapovm
 ms.devlang: python
 ms.custom: mvc, mode-api, devx-track-python
 ms.date: 03/16/2024

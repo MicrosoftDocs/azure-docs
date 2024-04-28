@@ -4,9 +4,8 @@ description: This topic gives guidance on troubleshooting common issues with Azu
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
+ms.author: guybo
+author: gbowerman
 ms.topic: how-to
 ms.date: 01/23/2024
 ---

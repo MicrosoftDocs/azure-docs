@@ -4,9 +4,8 @@ description: Learn how to manage an Azure Database for PostgreSQL - Flexible Ser
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
+ms.author: guybo
+author: gbowerman
 ms.topic: how-to
 ms.date: 01/23/2024
 ---
