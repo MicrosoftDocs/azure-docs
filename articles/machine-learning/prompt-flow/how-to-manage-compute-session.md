@@ -271,7 +271,7 @@ By default, we use the latest prompt flow base image. If you want to use a diffe
     ```
 
 ## Manage serverless instance used by compute session
-When you using serverless compute as compute session, you can manage the serverless instance used by compute session. You can view the serverless instance used by compute session in the compute session list tab under compute page. 
+When you using serverless compute as a compute session, you can manage the serverless instance. View the serverless instance in the compute session list tab on the compute page. 
 
 :::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of list of serverless instance." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
 
