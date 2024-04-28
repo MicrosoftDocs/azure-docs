@@ -553,6 +553,19 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 > [!NOTE]
 > There might could be a few minutes delay before the logs are available in Log Analytics.
 
+## Examine Git revisions of the configuration files
+
+You can find the Git revision of the configuration file of the [Pattern](#pattern) in the logs of Application Configuration Service. Following exmaple log indicates the configuration file for `payment/default` pattern is pulled with `example-commit-id` in the `main` branch from `https://github.com/Azure-Samples/acme-fitness-store-config` repository. You can learn how to query logs in the [Check logs](#check-logs) section.
+
+```Output
+Applied ConfigMap ({config-map-name}) for content (payment/default) from Git repositories https://github.com/Azure-Samples/acme-fitness-store-config@main@sha1:{example-commit-id}
+```
+
+You can also find the Git revision with Azure CLI in [Examine configuration file with Azure CLI](#examine-configuration-file-with-azure-cli) section.
+
+> [!NOTE]
+> Git revision is not avilable for the Gen1 version of Application Configuration Service.
+
 ## Troubleshoot known issues
 
 If the latest changes aren't reflected in the applications, check the following items based on the [Refresh strategies](#refresh-strategies) section:
@@ -561,6 +574,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
+- Confirm that the Application Configuration Service is using the correct Git revisions as described in the [Examine Git revisions of the configuration files](#examine-git-revisions-of-the-configuration-files) section.
 - Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated, as described in the [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section of this article. If it isn't updated, raise a ticket.
 - Confirm that the `ConfigMap` is mounted to the application as a file, as described in the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section of this article. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
