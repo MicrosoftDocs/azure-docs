@@ -45,7 +45,6 @@ There are multiple methods to address restricted or blocked outbound internet ac
 
 - [Use the Route All feature in Azure Functions](#use-route-all)
 - [Use service tags with an NSG in your virtual network](#use-service-tags)
-- [Use a private endpoint for your subnet](#use-a-private-endpoint)
 
 ### Use Route All
 
