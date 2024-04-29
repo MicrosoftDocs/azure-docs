@@ -58,6 +58,12 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 [!INCLUDE [Developer SKU](../../includes/bastion-developer-sku-description.md)]
 
+**Diagram: Private-only deployment**
+
+:::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
+
+[!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)]
+
 ## Availability zones
 
 [!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
