@@ -160,13 +160,6 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Workspaces per resource group | 800 |
 
 
-### Azure Machine Learning job schedules
-[Azure Machine Learning job schedules](how-to-schedule-pipeline-job.md) have the following limits.
-
-| **Resource** | **Limit** |
-| --- | --- |
-| Schedules per region | 100 |
-
 ### Azure Machine Learning integration with Synapse
 
 Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. Serverless Spark utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and [requesting for quota and limit increase](#request-quota-and-limit-increases) for ESv3 series under the "Machine Learning Service: Virtual Machine Quota" category.

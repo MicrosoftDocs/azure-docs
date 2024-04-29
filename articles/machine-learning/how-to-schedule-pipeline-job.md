@@ -492,6 +492,11 @@ Currently there are three action rules related to schedules and you can configur
 | Write  | Create, update, disable and enable schedules in Machine Learning workspace | Microsoft.MachineLearningServices/workspaces/schedules/write  |
 | Delete | Delete a schedule in Machine Learning workspace                            | Microsoft.MachineLearningServices/workspaces/schedules/delete |
 
+## Cost considerations
+
+- Schedules are billed based on the number of schedules each schedule will create a logic apps host azure machine learning subs on behalf (HOBO) of the user. 
+- The cost of logic apps will change back to the user's azure subscription, and you can find costs of HOBO resources are billed using the same meter emitted by the original RP. They are shown under the host resource (the workspace).
+
 ## Frequently asked questions
 
 - Why my schedules created by SDK aren't listed in UI?
