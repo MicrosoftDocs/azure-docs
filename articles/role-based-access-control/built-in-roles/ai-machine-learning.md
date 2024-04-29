@@ -16,7 +16,7 @@ ms.custom: generated
 This article lists the Azure built-in roles in the AI + machine learning category.
 
 
-## Azure Machine Learning Compute Operator
+## AzureML Compute Operator
 
 Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs).
 
@@ -59,7 +59,7 @@ Can access and perform CRUD operations on Machine Learning Services managed comp
 }
 ```
 
-## Azure Machine Learning Data Scientist
+## AzureML Data Scientist
 
 Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself.
 
