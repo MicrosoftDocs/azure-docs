@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 04/19/2024
+ms.date: 04/30/2024
 ms.service: virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
@@ -119,10 +119,10 @@ When you select **Direct routing within virtual network** or **Direct routing wi
 
 The following are the limitations of UDR management with Azure Virtual Network Manager:
 
-- Conflicting routing rules (rules with same destination but different next hops) are not supported within or across rule collections that target the same virtual network or subnet.
-- If there already exists a route in the route table with the same destination as the routing rule, then the routing rule will be ignored.
-- If a virtual network manager-created UDR is manually modified in the route table, the route will not be cleaned up in case an empty commit is done, or any update to the rule will not be reflected in the route with the same destination.
-- Existing Azure services in the Hub virtual network will continue to have their existing limitations with respect to Route Table and UDRs.
+- When conflicting routing rules exist (rules with same destination but different next hops), they aren't supported within or across rule collections that target the same virtual network or subnet.
+- When you create a route rule with the same destination as an existing route in the route table, the routing rule is ignored.
+- When a virtual network manager-created UDR is manually modified in the route table, the route isn't up when an empty commit is performed. Also, any update to the rule isn't reflected in the route with the same destination.
+- Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
 
 ## Next step
 

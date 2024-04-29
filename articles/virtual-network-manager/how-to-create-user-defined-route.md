@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/30/2024
 #customer intent: As a network engineer, I want to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager.
 ---
 
@@ -54,7 +54,7 @@ In this step, you deploy a Virtual Network Manager instance with the defined sco
 
 1. Select **Review + create** and then select **Create** to deploy the Virtual Network Manager instance.
 
-## Create virtual networks
+## Create virtual networks and subnets
 
 In this step, you create two virtual networks to become members of a network group.
 
@@ -154,9 +154,9 @@ In this step, you create a network group containing your virtual networks using 
 
 1. Select **Save** to create the policy.
    
-## Create a routing configuration 
+## Create a routing configuration and rule collection
 
-In this step, you create a routing configuration to define the UDRs for the network group.
+In this step, you define the UDRs for the network group by creating a routing configuration and rule collection with routing rules.
 
 1. Return the **vnm-1** Virtual Network Manager instance and **Configurations** under **Settings**.
 
