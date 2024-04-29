@@ -23,21 +23,12 @@ A ConfigMap can be consumed as environment variables or a mounted file. In this 
 >
 
 > [!NOTE]
-> You could use [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) to run the [azure-appconfig-aks](https://github.com/Azure-Samples/azure-appconfig-aks) template to quickly set up what this quickstart demonstrates from scratch:
+> This quickstart will walk you through setting up the Azure App Configuration Kubernetes Provider. Optionally, you can use the following [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) commands with the `azure-appconfig-aks` template to provision Azure resources and deploy the sample application used by this quickstart. For more information about this template, visit the [azure-appconfig-aks](https://github.com/Azure-Samples/azure-appconfig-aks) repo on GitHub.
 > 
-> 1. Run the `azd init` command with the `azure-appconfig-aks` template:
->
 >  ``` azd
 >  azd init -t azure-appconfig-aks
->  ```
->
-> 2. Run the `azd up` command to deploy the resources:
->
->  ``` azd
 >  azd up
 >  ```
->
-> Going through the following detailed steps in this quickstart manually provides a better understanding of how the Azure App Configuration Kubernetes Provider works.
 >
 
 ## Prerequisites
