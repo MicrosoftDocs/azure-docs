@@ -76,7 +76,7 @@ The network security group configuration consists of two steps, to be carried ou
 
 Work with your onboarding team to determine the right network security group configuration for your virtual networks. This configuration depends on your connectivity choice (for example ExpressRoute) and your virtual network topology.
 
-Your network security group configuration must allow traffic to the necessary [Port ranges used by Azure Communications Gateway](./connectivity.md#port-ranges-used-by-azure-communications-gateway).
+Your network security group configuration must allow traffic to the necessary [port ranges used by Azure Communications Gateway](./connectivity.md#port-ranges-used-by-azure-communications-gateway).
 
 > [!TIP]
 > You can use [recommendations for network security groups](/azure/well-architected/security/networking#network-security-groups#network-security-groups) to help ensure your configuration matches best practices for security.
