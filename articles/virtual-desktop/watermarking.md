@@ -73,7 +73,10 @@ To enable watermarking using Microsoft Intune:
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png" alt-text="A screenshot of the Intune admin center showing Azure Virtual Desktop settings." lightbox="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png":::
 
-1. Check the box for **Enable watermarking**, then close the settings picker. Don't select **\[Deprecated\] Enable watermarking** as this doesn't include the option to specify the QR code embedded content.
+1. Check the box for **Enable watermarking**, then close the settings picker.
+
+   > [!IMPORTANT]
+   > Don't select **\[Deprecated\] Enable watermarking** as this setting doesn't include the option to specify the QR code embedded content.
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Enable watermarking** to **Enabled**.
 
