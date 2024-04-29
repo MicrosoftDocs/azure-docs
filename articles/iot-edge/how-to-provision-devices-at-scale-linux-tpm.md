@@ -257,7 +257,7 @@ nano ~/config.toml
    [provisioning]
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "SCOPE_ID_HERE"
+   id_scope = "DPS_ID_SCOPE_HERE"
 
    # Uncomment to send a custom payload during DPS registration
    # payload = { uri = "PATH_TO_JSON_FILE" }
