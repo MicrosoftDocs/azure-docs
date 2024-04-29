@@ -3,12 +3,13 @@ title: Generate vector embeddings with Azure OpenAI in Azure Database for Postgr
 description: Use vector indexes and Azure Open AI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
-ms.date: 04/05/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
@@ -28,7 +29,7 @@ Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embedding
 
 In the Azure OpenAI resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint and the keys for your Azure OpenAI resource. To invoke the model deployment, enable the `azure_ai` extension using the endpoint and one of the keys.
 
-```postgresql
+```sql
 select azure_ai.set_setting('azure_openai.endpoint', 'https://<endpoint>.openai.azure.com'); 
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>'); 
 ```
@@ -37,7 +38,7 @@ select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 
 Invokes the Azure OpenAI API to create embeddings using the provided deployment over the given input.
 
-```postgresql
+```sql
 azure_openai.create_embeddings(deployment_name text, input text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_openai.create_embeddings(deployment_name text, input text[], batch_size integer DEFAULT 100, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 ```
@@ -77,7 +78,7 @@ azure_openai.create_embeddings(deployment_name text, input text[], batch_size in
 
 ## Use OpenAI to create embeddings and store them in a vector data type
 
-```postgresql
+```sql
 -- Create tables and populate data
 DROP TABLE IF EXISTS conference_session_embeddings;
 DROP TABLE IF EXISTS conference_sessions;
