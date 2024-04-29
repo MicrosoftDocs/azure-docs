@@ -42,4 +42,4 @@ By monitoring and reporting on configuration changes, Nexus Network Fabric enhan
 
 ## Next steps
 
-[How to configure diagnostic settings and monitor configuration differences](howto-configure-diagnostic-settings-and-monitor-configuration-differences.md)
+[How to configure diagnostic settings and monitor configuration differences](howto-configure-diagnostic-settings-monitor-configuration-differences.md)
