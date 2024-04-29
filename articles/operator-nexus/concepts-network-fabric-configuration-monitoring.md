@@ -41,4 +41,4 @@ Nexus Network Fabric meticulously tracks configuration changes, associating each
 By monitoring and reporting on configuration changes, Nexus Network Fabric enhances accountability within network management. Administrators can swiftly identify the individuals responsible for initiating modifications, facilitating effective oversight and adherence to security protocols.
 
 ## Next steps
-[How to configure diagnostic settings and monitor configuration differences](howto-configure-diagnostic-settings-and-monitor-configuration-differences)
+[How to configure diagnostic settings and monitor configuration differences](howto-configure-diagnostic-settings-and-monitor-configuration-differences.md)

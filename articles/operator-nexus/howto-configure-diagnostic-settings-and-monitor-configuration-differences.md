@@ -15,9 +15,9 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 ## Step 1: Accessing device settings in Azure Portal
 
-- Log in to the Azure Portal.
+- Sign in to the Azure portal.
 
-- In the search bar at the top of the portal, type "Network Device" and press Enter.
+- In **Search resources, service, and docs (G+/)** at the top of the portal page, enter **Network Device**.
 
 :::image type="content" source="media/search-network-device.png" alt-text="Search box for Network Device in portal.":::
 
@@ -27,7 +27,7 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 - After selecting the appropriate network device, navigate to the monitoring and select diagnostic settings.
 
-- Within the diagnostic settings section, select the option "Add diagnostic setting".
+- Within the diagnostic settings section, select "Add diagnostic setting".
 
 :::image type="content" source="media/network-device-dignostics-settings.png" alt-text="Showcases diagnostics settings page for network device.":::
 
@@ -37,22 +37,26 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 :::image type="content" source="media/network-device-system-session-history-updates.png" alt-text="Showcases specific categories of data to collect in portal.":::
 
-## Step 3: Choosing Log Destination
+## Step 3: Choosing log destination
 
-After adding the diagnostic setting, choose the destination for pushing the logs.
+- Once the diagnostic setting is added, locate the section where the log destination can be specified.
 
-Options include Log Analytics Workspace, Storage account, and Event Hub.
+- Select the log destination from several choices, including Log Analytics Workspace, Storage account, and Event Hubs.
 
-In our example, we'll push the logs to the Log Analytics Workspace.
+:::image type="content" source="media/network-device-log-analytics-workspace.png" alt-text="Screenshot showcasing the configuration page for selecting Log Analytics Workspace as the log destination for a network device.":::
 
-## Step 4: Configuring Diagnostic Settings
+>!Note:
+>In our example, we'll push the logs to the Log Analytics Workspace.<br>
+>To set up the Log Analytics Workspace, if you haven't done so already, you might need to create one. Simply follow the prompts to create a new workspace or select an existing one.
 
-image "diagnostics settings.png" 
+- Once the log destination is configured, confirm the settings and save.
 
-## Step 5: Monitoring Configuration Differences
+## Step 5: Monitoring configuration differences
 
-Access the Log Analytics Workspace.
+- Navigate to the Log Analytics Workspace where the logs from the network device are being stored.
 
-Choose logs and run appropriate queries based on your requirements.
+- Within the Log Analytics Workspace, access the query interface or log search functionality. 
 
-Select the event category as "MNFSystemSessionHistoryUpdates" to view configuration results comprehensively.
+:::image type="content" source="media/network-device-config-difference.png" alt-text="Screenshot displaying the comparison of configuration differences for a network device in a visual format.":::
+
+- In the query interface, specify the event category as "MNFSystemSessionHistoryUpdates". This will filter the logs to specifically show configuration updates and changes comprehensively.
