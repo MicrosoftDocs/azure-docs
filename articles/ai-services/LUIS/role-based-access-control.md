@@ -75,14 +75,12 @@ A user that should only be validating and reviewing LUIS applications, typically
     :::column-end:::
     :::column span="":::
       All GET APIs under: 
-        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+        * [LUIS Programmatic v3.0-preview](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true)
+        * [LUIS Programmatic v2.0 APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v2.0&preserve-view=true)
 
       All the APIs under: 
         * LUIS Endpoint APIs v2.0
-        * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
-        * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
-
+        * [LUIS Endpoint APIs v3.0](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-runtime-v3.0&preserve-view=true)
       All the Batch Testing Web APIs
     :::column-end:::
 :::row-end:::
@@ -113,16 +111,16 @@ A user that is responsible for building and modifying LUIS application, as a col
 
       All POST, PUT and DELETE APIs under:
 
-        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
+        * [LUIS Programmatic v3.0-preview](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true)
+        * [LUIS Programmatic v2.0 APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v2.0&preserve-view=true)
 
         Except for
-        * [Delete application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
-        * [Move app to another LUIS authoring Azure resource](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-        * [Publish an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
-        * [Update application settings](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
-        * [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
-        * [Remove an assigned LUIS azure accounts from an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
+        * [Delete application](/rest/api/cognitiveservices-luis/authoring/apps/delete?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * Move app to another LUIS authoring Azure resource
+        * [Publish an application](/rest/api/cognitiveservices-luis/authoring/apps/publish?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * [Update application settings](/rest/api/cognitiveservices-luis/authoring/apps/update-settings?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * [Assign a LUIS azure accounts to an application](/rest/api/cognitiveservices-luis/authoring/azure-accounts/assign-to-app?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * [Remove an assigned LUIS azure accounts from an application](/rest/api/cognitiveservices-luis/authoring/azure-accounts/remove-from-app?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
     :::column-end:::
 :::row-end:::
 

@@ -3,7 +3,7 @@ author: akashraokm
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
-ms.date: 04/19/2024
+ms.date: 04/26/2024
 ms.author: akashrao
 ---
 | Region | Intel V3/V4/V5/AMD Compute | Zone-Redundant HA | Same-Zone HA | Geo-Redundant backup | 

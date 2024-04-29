@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 04/26/2024
 ---
 
 # Configure vector quantization and reduced storage for smaller vectors in Azure AI Search
@@ -19,14 +19,14 @@ This article describes vector quantization and other techniques for compressing 
 
 ## Evaluate the options
 
-As a first step, review your options for reducing the amount of storage used by vector fields. These options aren't mutually exclusive so you can use multiple options together. 
+As a first step, review the three options for reducing the amount of storage used by vector fields. These options aren't mutually exclusive. 
 
-We recommend scalar quantization because it's the most  effective option for most scenarios. Narrow types (except for `Float16`) require a special effort into making them, and `stored` saves storage, which isn't as expensive as memory.
+We recommend scalar quantization because it compresses vector size in memory and on disk with minimal effort, and that tends to provide the most benefit in most scenarios. In contrast, narrow types (except for `Float16`) require a special effort into making them, and `stored` saves on disk storage, which isn't as expensive as memory.
 
 | Approach | Why use this option |
 |----------|---------------------|
-| Assign smaller primitive data types to vector fields | Narrow data types, such as `Float16`, `Int16`, and `Int8`, consume less space in memory and on disk. This option is viable if your embedding model outputs vectors in a narrow data format. Or, if you have custom quantization logic that outputs small data. A more common use case is recasting the native `Float32` embeddings produced by most models to `Float16`. |
-| Eliminate optional storage of retrievable vectors | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field storage by up to 50 percent. |
+| Assign smaller primitive data types to vector fields | Narrow data types, such as `Float16`, `Int16`, and `Int8`, consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. |
+| Eliminate optional storage of retrievable vectors | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
 | Add scalar quantization | Use built-in scalar quantization to compress native `Float32` embeddings to `Int8`. This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like `Int8` produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in scalar quantization of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
 
 All of these options are defined on an empty index. To implement any of them, use the Azure portal, [2024-03-01-preview REST APIs](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package.
@@ -199,7 +199,11 @@ Each component of the vector is mapped to the closest representative value withi
 
 ## Example index with vectorCompression, data types, and stored property
 
-Here's a JSON example of a search index that specifies `vectorCompression` on `Float32` field, a `Float16` data type on second vector field, and a `stored` property set to false. It's a composite of the vector compression and storage features in this preview.
+Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
+
++ "HotelNameVector" provides a narrow data type example, recasting the original `Float32` values to `Float16`, expressed as `Collection(Edm.Half)` in the search index.
++ "HotelNameVector" also has `stored` set to false. Extra embeddings used in a query response are not stored. When `stored` is false, `retrievable` must also be false.
++ "DescriptionVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. "DescriptionVector" also has `stored` set to false. 
 
 ```json
 ### Create a new index
@@ -245,15 +249,15 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
             "filterable": false, 
             "retrievable": false, 
             "sortable": false, 
-            "facetable": false,
-            "stored": false,
+            "facetable": false
         },
         {
             "name": "DescriptionVector",
             "type": "Collection(Edm.Single)",
             "searchable": true,
-            "retrievable": true,
+            "retrievable": false,
             "dimensions": 1536,
+            "stored": false,
             "vectorSearchProfile": "my-vector-profile-with-compression"
         },
         {
@@ -298,63 +302,63 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
             "facetable": false
         }
     ],
-    "vectorSearch": {
-        "compressions": [
-          {  
-            "name": "my-scalar-quantization",  
-            "kind": "scalarQuantization",  
-            "rerankWithOriginalVectors": true,  
-            "defaultOversampling": 10.0,  
-            "scalarQuantizationParameters": {  
-              "quantizedDataType": "int8",
-            }  
-          }  
-        ],  
-        "algorithms": [
-            {
-                "name": "my-hnsw-vector-config-1",
-                "kind": "hnsw",
-                "hnswParameters": 
-                {
-                    "m": 4,
-                    "efConstruction": 400,
-                    "efSearch": 500,
-                    "metric": "cosine"
+"vectorSearch": {
+    "compressions": [
+        {
+            "name": "my-scalar-quantization",
+            "kind": "scalarQuantization",
+            "rerankWithOriginalVectors": true,
+            "defaultOversampling": 10.0,
+                "scalarQuantizationParameters": {
+                    "quantizedDataType": "int8"
                 }
-            },
+        }
+    ],
+    "algorithms": [
+        {
+            "name": "my-hnsw-vector-config-1",
+            "kind": "hnsw",
+            "hnswParameters": 
             {
-                "name": "my-hnsw-vector-config-2",
-                "kind": "hnsw",
-                "hnswParameters": 
-                {
-                    "m": 4,
-                    "metric": "euclidean"
-                }
-            },
-            {
-                "name": "my-eknn-vector-config",
-                "kind": "exhaustiveKnn",
-                "exhaustiveKnnParameters": 
-                {
-                    "metric": "cosine"
-                }
+                "m": 4,
+                "efConstruction": 400,
+                "efSearch": 500,
+                "metric": "cosine"
             }
-        ],
-        "profiles": [      
+        },
+        {
+            "name": "my-hnsw-vector-config-2",
+            "kind": "hnsw",
+            "hnswParameters": 
             {
-                "name": "my-vector-profile-with-compression",
-                "compression": "my-scalar-quantization", 
-                "algorithm": "my-hnsw-vector-config-1",
-                "vectorizer": null
-            },
-            {
-                "name": "my-vector-profile-no-compression",
-                "compression": null, 
-                "algorithm": "my-eknn-vector-config",
-                "vectorizer": null
+                "m": 4,
+                "metric": "euclidean"
             }
-      ]
-    },
+        },
+        {
+            "name": "my-eknn-vector-config",
+            "kind": "exhaustiveKnn",
+            "exhaustiveKnnParameters": 
+            {
+                "metric": "cosine"
+            }
+        }
+    ],
+    "profiles": [      
+        {
+            "name": "my-vector-profile-with-compression",
+            "compression": "my-scalar-quantization",
+            "algorithm": "my-hnsw-vector-config-1",
+            "vectorizer": null
+        },
+        {
+            "name": "my-vector-profile-no-compression",
+            "compression": null,
+            "algorithm": "my-eknn-vector-config",
+            "vectorizer": null
+        }
+    ]
+},
     "semantic": {
         "configurations": [
             {
