@@ -149,7 +149,7 @@ To request an exception from the Azure Machine Learning product team, use the st
 
 <sup>4</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error. There are some VM SKUs that are exempt from extra quota. See [virtual machine quota allocation for deployment](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment) for more.
 
-<sup>5</sup> Requests per second, connections, bandwidth etc are related. If you request for increase for any of these limits, ensure estimating/calculating other related limites together.
+<sup>5</sup> Requests per second, connections, bandwidth etc. are related. If you request an increase for any of these limits, ensure estimating/calculating other related limits together.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -159,13 +159,6 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Steps in a pipeline | 30,000 |
 | Workspaces per resource group | 800 |
 
-
-### Azure Machine Learning job schedules
-[Azure Machine Learning job schedules](how-to-schedule-pipeline-job.md) have the following limits.
-
-| **Resource** | **Limit** |
-| --- | --- |
-| Schedules per region | 100 |
 
 ### Azure Machine Learning integration with Synapse
 
