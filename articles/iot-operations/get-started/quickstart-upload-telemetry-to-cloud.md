@@ -47,7 +47,7 @@ Navigate to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/
 
 1. Select **Workspaces** in the left navigation bar, then select **New workspace**:
 
-    :::image type="content" source="media/quickstart-upload-telemetry-to-cloud/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace."::: <!-- TODO: Update this screenshot to a recommended name for the workspace -->
+    :::image type="content" source="media/quickstart-upload-telemetry-to-cloud/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace.":::
 
 1. Enter a name for your workspace, such as _yournameaioworkspace_, and select **Apply**. Make a note of this name, you need it later.
 
