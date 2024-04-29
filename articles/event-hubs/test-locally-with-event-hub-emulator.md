@@ -29,7 +29,7 @@ This article summarizes the steps to develop and test with local event hubs emul
 1. Event Hub emulator is available as docker container image. You can download the latest image from MCR endpoint
 2. Emulator has dependency on Azurite so we should spin up Azurite as well. 
 
-
+---
 ## Running the emulator 
 
 This section highlights different steps to run Event Hubs emulator. Details are shared below:
@@ -116,7 +116,7 @@ networks:
 ## Interacting with Emulator
 Ensure to copy the connection string
 
-### Send Events to emulator
+## Send Events to emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
 ### [C#](#tab/C#)
@@ -130,8 +130,8 @@ TBD
 
 ### [Java](#tab/Java)
 TBD
-
-### Receive Events from emulator
+---
+## Receive Events from emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
 ### [C#](#tab/C#)
@@ -145,7 +145,7 @@ TBD
 
 ### [Java](#tab/Java)
 TBD
-
+---
 *Bonus*: To make first round of testing easy, we have packaged a sample .NET Console application in [directory](EventHub/Samples/.NET/EventHubs-Emulator-Demo)
 
 
