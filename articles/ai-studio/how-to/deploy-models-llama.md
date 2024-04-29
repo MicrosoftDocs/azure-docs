@@ -36,9 +36,7 @@ Meta Llama 3 models are deployed as a service with pay-as-you-go through Microso
 
 The following models are available in Azure Marketplace for Llama 3 when deployed as a service with pay-as-you-go:
 
-* [Meta Llama-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
 * [Meta Llama-3 8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
-* [Meta Llama-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
 * [Meta Llama-3 70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
 
 # [Meta Llama 2](#tab/llama-two)
@@ -58,11 +56,41 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 ### Prerequisites
 
+# [Meta Llama 3](#tab/llama-three)
+
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Meta Llama models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
+    > For Meta Llama 3 models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **Sweden Central** regions.
+
+- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
+
+    - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
+      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.SaaS/register/action`
+ 
+    - On the resource group—to create and use the SaaS resource:
+      - `Microsoft.SaaS/resources/read`
+      - `Microsoft.SaaS/resources/write`
+ 
+    - On the Azure AI project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
+      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
+      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
+
+    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+  
+# [Meta Llama 2](#tab/llama-two)
+
+- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+
+    > [!IMPORTANT]
+    > For Meta Llama 2 models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
@@ -84,6 +112,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
+---
 
 ### Create a new deployment
 
@@ -98,7 +127,7 @@ To create a deployment:
 
 1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
 
-1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** region.
+1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
