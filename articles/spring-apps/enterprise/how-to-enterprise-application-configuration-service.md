@@ -416,7 +416,7 @@ az role assignment create \
 
 ---
 
-### Examine configuration file with Azure CLI
+### Examine configuration file with the Azure CLI
 
 Use the following command to view the content of the configuration file by [Pattern](#pattern):
 
@@ -555,16 +555,16 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 
 ## Examine Git revisions of the configuration files
 
-You can find the Git revision of the configuration file of the [Pattern](#pattern) in the logs of Application Configuration Service. Following exmaple log indicates the configuration file for `payment/default` pattern is pulled with `example-commit-id` in the `main` branch from `https://github.com/Azure-Samples/acme-fitness-store-config` repository. You can learn how to query logs in the [Check logs](#check-logs) section.
+You can find the Git revision of the configuration file of the [Pattern](#pattern) in the logs of Application Configuration Service. The following example log indicates that the configuration file for the `payment/default` pattern is pulled with `example-commit-id` from the `main` branch of the `https://github.com/Azure-Samples/acme-fitness-store-config` repository. You can learn how to query logs in the [Check logs](#check-logs) section.
 
-```Output
+```output
 Applied ConfigMap ({config-map-name}) for content (payment/default) from Git repositories https://github.com/Azure-Samples/acme-fitness-store-config@main@sha1:{example-commit-id}
 ```
 
-You can also find the Git revision with Azure CLI in [Examine configuration file with Azure CLI](#examine-configuration-file-with-azure-cli) section.
+You can also find the Git revision by using the Azure CLI. For more information, see the [Examine configuration file with Azure CLI](#examine-configuration-file-with-the-azure-cli) section.
 
 > [!NOTE]
-> Git revision is not avilable for the Gen1 version of Application Configuration Service.
+> Git revision is not available for the Gen1 version of Application Configuration Service.
 
 ## Troubleshoot known issues
 
