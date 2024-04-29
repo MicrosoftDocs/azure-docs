@@ -18,7 +18,7 @@ You can also use the test results to diagnose errors during a load test. The `re
 
 You can generate the Apache JMeter dashboard from the CSV log file following the steps mentioned [here](https://jmeter.apache.org/usermanual/generating-dashboard.html#report).
 
-You can also downlaod the Azure Load Testing Result dashboard as an HTML report for offline viewing and collaboration. 
+You can also download the Azure Load Testing Result dashboard as an HTML report for offline viewing and collaboration. 
 
 ## Prerequisites  
 
