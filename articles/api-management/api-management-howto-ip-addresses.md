@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/29/2024
+ms.date: 04/29/2024
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ---
@@ -19,7 +19,7 @@ In this article we describe how to retrieve the IP addresses of Azure API Manage
 
 ## IP addresses of API Management service
 
-Every API Management service instance in Developer, Basic, Standard, or Premium tier has public IP addresses, which are exclusive only to that service instance (they are not shared with other resources).
+Every API Management service instance in Developer, Basic, Standard, or Premium tier has dedicated public IP addresses, which are exclusive only to that service instance (they are not shared with other resources).
 
 You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal.
 
@@ -53,7 +53,9 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses: public and private.
 
-* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. In the *internal* VNet configuration, public IP addresses are only used for Azure internal management operations and don't expose your instance to the internet. 
+* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. If configured in the *internal* VNet configuration, public IP addresses are only used for Azure internal management operations and don't expose your instance to the internet. 
+
+    [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
 * Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
@@ -138,4 +140,10 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
 
     > [!IMPORTANT]
-    > When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different [public IP address](api-management-using-with-vnet.md?tabs=stv2#prerequisites) resource than the one configured previously. You may swap back to the original IP address if needed.
+    > When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you may configure a different [public IP address](api-management-using-with-vnet.md?tabs=stv2#prerequisites) resource than the one configured previously, or you may choose not to configure a public IP address. You may swap back to the original IP address if needed.
+
+## Related content
+
+- [Deploy API Management to a virtual network - external mode](api-management-using-with-vnet.md)
+- [Deploy API Management to a virtual network - internal mode](api-management-using-with-internal-vnet.md)
+- [Using a virtual network with Azure API Management](virtual-network-concepts.md)
