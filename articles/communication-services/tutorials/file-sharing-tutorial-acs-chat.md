@@ -58,7 +58,7 @@ The diagram shows a typical flow of a file sharing scenario for both upload and 
 
 You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Function](/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload) to write the backend code required for file sharing.
 
-Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked previously.
+Once implemented, you can call this Azure Function inside the `handleAttachmentSelection` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked previously.
 
 ### Securing your Azure Blob storage container
 
@@ -200,7 +200,7 @@ const uploadOptions: AttachmentUploadOptions = {
 const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTasks) => {
   for (const task of uploadTasks) {
     try {
-      const uniqueFileName = `${task}-${v4()}-${task.file?.name}`;
+      const uniqueFileName = `${v4()}-${task.file?.name}`;
       const url = await uploadFileToAzureBlob(task);
       task.notifyUploadCompleted(uniqueFileName, url);
     } catch (error) {
@@ -292,6 +292,10 @@ const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTask
     }
   }
 }
+
+export const attachmentUploadOptions: AttachmentUploadOptions = {
+  handleAttachmentSelection: attachmentSelectionHandler
+};
 ```
 
 ## File downloads - advanced usage
@@ -357,7 +361,7 @@ const customHandler = = async (attachment: AttachmentMetadata, message?: ChatMes
 }
 ```
 
-Download errors are displayed to users in an error bar on top of the Chat Composite.
+If there were any issues during the download and the user needs to be notified, we can just `throw` an error with a message in the `onClick` function then the message would be shown in the error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 
