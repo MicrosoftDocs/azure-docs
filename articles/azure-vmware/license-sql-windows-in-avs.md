@@ -95,4 +95,4 @@ In addition to taking advantage of Azure Hybrid Benefit for SQL Server, Windows 
 ## More Information
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
-[Azure VMware Solution pricing](https://azure.microsoft.com/en-us/pricing/details/azure-vmware/) 
+[Azure VMware Solution pricing](https://azure.microsoft.com/pricing/details/azure-vmware/) 
