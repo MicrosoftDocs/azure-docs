@@ -1,8 +1,8 @@
 ---
 title: Manage assets overview
 description: Understand concepts and options needed to manage the assets that are part of your Azure IoT Operations solution.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.topic: overview
 ms.date: 03/20/2024
 ai-usage: ai-assisted

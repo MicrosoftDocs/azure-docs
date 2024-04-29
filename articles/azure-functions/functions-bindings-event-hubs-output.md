@@ -308,7 +308,7 @@ Use the [EventHubAttribute] to define an output binding to an event hub, which s
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, these properties are supported for `event_hub_output`:
 
 | Property    | Description |
 |-------------|-----------------------------|
