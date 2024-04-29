@@ -41,7 +41,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
     - `Microsoft.Authorization/policyAssignments/read`
 > [!IMPORTANT]
-> Make sure your subscription has quota for 32 vCPUs of the [Standard_DS4_v2](../../virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](../../quotas/per-vm-quota-requests) through the Azure portal.
+> Make sure your subscription has quota for 32 vCPUs of the [Standard_DS4_v2](/azure/virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](/azure/quotas/per-vm-quota-requests) through the Azure portal.
 
 :::zone target="docs" pivot="bicep"
 - To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
