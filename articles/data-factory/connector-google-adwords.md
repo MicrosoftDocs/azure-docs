@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/18/2024
+ms.date: 04/29/2024
 ---
 
 # Copy data from Google Ads using Azure Data Factory or Synapse Analytics
@@ -318,6 +318,19 @@ Upgrade your Google AdWords linked service to the latest Google Ads linked servi
 1. Be aware that there are certain limitations with this upgrade: 
     1. Not all report types from AWQL are supported in GAQL. 
     1. Not all AWQL queries are cleanly translated to GAQL queries.  
+
+## Differences between Google Ads using the recommended driver version and using the legacy driver version
+
+The table below shows the feature differences between Google Ads using the recommended driver version and using the legacy driver version.
+
+| Google Ads using the recommended driver version | Google Ads using the legacy driver version |
+|:---|:---|
+|Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
+|ServiceAuthentication supports two properties: email and privateKey. |ServiceAuthentication supports four properties: email, keyFilePath, trustedCertPath and useSystemTrustStore. |
+|Selecting table in dataset is not supported.|Support selecting a table in dataset and querying the table in copy activity.|
+|Support GAQL syntax as query language.|Support SQL syntax as query language.|
+|The output column names are the same as Google Ads.|The output column names don't match Google Ads exactly.|
+|The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
