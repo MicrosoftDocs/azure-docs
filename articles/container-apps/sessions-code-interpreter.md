@@ -35,7 +35,14 @@ You can create a session pool using the Azure portal, Azure CLI, or Azure Resour
 
 ### Create a session pool with Azure CLI
 
-To create a session pool with the Azure CLI, use the `az containerapps sessionpool create` command. The following example creates a Python code interpreter session pool named `my-session-pool`:
+To create a code interpreter session pool using the Azure CLI, ensure you have the latest versions of the Azure CLI and the Azure Container Apps extension. Run the following command:
+
+```bash
+az upgrade
+az extension add --name containerapps --upgrade --allow-preview
+```
+
+Use the `az containerapps sessionpool create` command to create the pool. The following example creates a Python code interpreter session pool named `my-session-pool`:
 
 ```bash
 az containerapp sessionpool create \
