@@ -49,7 +49,7 @@ In the context of the Azure platform:
 
 In AKS, you can deploy a cluster that uses one of the following network models:
 
-- ***Kubenet* networking**
+- **Kubenet* networking**
 
   The network resources are typically created and configured as the AKS cluster is deployed.
 
@@ -109,38 +109,6 @@ It's possible to install in AKS a non-Microsoft CNI using the [Bring your own CN
 ### Compare network models
 
 Both kubenet and Azure CNI provide network connectivity for your AKS clusters. However, there are advantages and disadvantages to each. At a high level, the following considerations apply:
-
-- **kubenet**
-
-  - Conserves IP address space.
-  - Uses Kubernetes internal or external load balancers to reach pods from outside of the cluster.
-  - You manually manage and maintain user-defined routes (UDRs).
-  - Maximum of 400 nodes per cluster.
-  
-- **Azure CNI**
-
-  * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
-  * Requires more IP address space.
-
-| Network model | When to use |
-|---------------|-------------|
-| **Kubenet** | • IP address space conversation is a priority. </br> • Simple configuration. </br> • Fewer than 400 nodes per cluster. </br> • Kubernetes internal or external load balancers are sufficient for reaching pods from outside the cluster. </br> • Manually managing and maintaining user defined routes is acceptable. |
-| **Azure CNI** | • Full virtual network connectivity is required for pods. </br> • Advanced AKS features (such as virtual nodes) are needed. </br> • Sufficient IP address space is available. </br> • Pod to pod and pod to virtual machine connectivity is needed. </br> • External resources need to reach pods directly. </br> • AKS network policies are required. |
-| **Azure CNI Overlay** | • IP address shortage is a concern. </br> • Scaling up to 1,000 nodes and 250 pods per node is sufficient. </br> • Extra hop for pod connectivity is acceptable. </br> • Simpler network configuration. </br> • AKS egress requirements can be met. |
-
-The following behavior differences exist between kubenet and Azure CNI:
-
-| Capability | Kubenet | Azure CNI | Azure CNI Overlay | Azure CNI Powered by Cilium |
-|--|--|--|--|--|
-| Deploy cluster in existing or new virtual network | Supported - UDRs manually applied | Supported | Supported | Supported |
-| Pod-pod connectivity | Supported | Supported | Supported | Supported |
-| Pod-VM connectivity; VM in the same virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
-| Pod-VM connectivity; VM in peered virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
-| On-premises access using VPN or Express Route | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
-| Access to resources secured by service endpoints | Supported | Supported | Supported | |
-| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | Supported| Same limitations when using Overlay mode |
-| Support for Windows node pools | Not Supported | Supported | Supported | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations] |
-| Default Azure DNS and Private Zones | Supported | Supported | Supported | |
 
 For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
 

@@ -54,10 +54,9 @@ Choosing a networking model is the first step in selecting a CNI plugin. The two
 
 - **Overlay Networking Model**
 
-  - Conserves VNet IP address space.
+  - Conserves VNet IP address space by using logically separate CIDR ranges for pods.
   - Large cluster scale support.
   - Simpler IP address management.
-  - Extra hop required.
   
 - **Flat Networking Model**
 
