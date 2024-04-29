@@ -18,7 +18,7 @@ The following diagram shows an overview of Azure Communications Gateway deployed
 
 ## Prerequisites
 - Your Azure subscription is [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
-- Your onboarding team is aware that you intend to use your own virtual network.
+- Your onboarding team is aware that you intend to use your own virtual networks.
 - You  have an Azure virtual network and subnet in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 - Each subnet has at least 16 free IP addresses which can be used by Azure Communications Gateway. 
 - Your chosen connectivity solution (for example ExpressRoute) is deployed into your Azure subscription and ready to use.
@@ -76,7 +76,7 @@ The network security group configuration consists of two steps, to be carried ou
 
 Work with your onboarding team to determine the right network security group configuration for your virtual networks. This configuration depends on your connectivity choice (for example ExpressRoute) and your virtual network topology.
 
-Your network security group configuration should allow traffic to the necessary [Port ranges used by Azure Communications Gateway](./connectivity.md#port-ranges-used-by-azure-communications-gateway).
+Your network security group configuration must allow traffic to the necessary [Port ranges used by Azure Communications Gateway](./connectivity.md#port-ranges-used-by-azure-communications-gateway).
 
 ### Associate the subnet with the network security group
 

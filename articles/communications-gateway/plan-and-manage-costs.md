@@ -69,7 +69,7 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 You must pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
 
-- If you're connecting to the public internet with Microsoft Azure Peering Service for Voice (MAPS Voice), bandwidth costs are included in Azure Communications Gateway but you might need to pay a third party for the cross-connect at the exchange location.
+- If you're connecting to the public internet with Microsoft Azure Peering Service for Voice (MAPS Voice), bandwidth costs are included in Azure Communications Gateway but you might need to pay a third party for the cross-connects at the exchange location.
 - If you're connecting to Azure with ExpressRoute, you must purchase ExpressRoute circuits with a specified bandwidth and data billing model.
 - If you're connecting into Azure as a next hop, you might need to pay virtual network peering costs.
 
