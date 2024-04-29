@@ -20,7 +20,7 @@ SSO allows the connection to skip the credential prompt and automatically sign t
 
 ## Prerequisites
 
-To enable SSO for dev boxes, you must configure single sign-on for your organization. For more information, see: [Configure single sign-on for Windows 365 using Microsoft Entra authentication](/windows-365/enterprise/configure-single-sign-on).
+To enable SSO for dev boxes, you must configure single sign-on for your organization. For more information, see: [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication](/azure/virtual-desktop/configure-single-sign-on).
  
 ## Enable SSO for dev boxes
 
@@ -51,6 +51,16 @@ When single sign-on is enabled for a pool, new dev boxes created from that pool 
 You can disable SSO for a pool at any time by deselecting the **Enable single sign-on** option on the **Edit pool** page.
 
 If you disable single sign-on for a pool, new dev boxes created from that pool prompt the user for credentials. Existing dev boxes continue to use SSO.
+
+## Understand the user experience
+
+When single sign-on is enabled for a pool, your sign-on experience is as follows:
+
+The first time you connect to a dev box with single sign-on enabled, you first sign into your physical machine. Then you connect to your dev box from the Remote Desktop app or the developer portal. When the dev box starts up, you must enter your credentials to access the dev box. 
+
+The next time you connect to your dev box, whether through the Remote Desktop app or through the developer portal, you don't have to enter your credentials. 
+
+If your connection to your dev box is interrupted because your client machine goes to sleep, you see a message explaining the issue, and you can reconnect by selecting the **Reconnect** button. You don't have to reenter your credentials. 
 
 ## Related content
 

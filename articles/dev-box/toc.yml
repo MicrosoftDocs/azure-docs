@@ -78,7 +78,7 @@ items:
   - name: Configure conditional access policies
     href: how-to-configure-intune-conditional-access-policies.md
   - name: Enable single sign-on for dev boxes
-    href: how-to-enable-single-sign-on
+    href: how-to-enable-single-sign-on.md
     displayName: SSO
 - name: Manage costs
   items:
