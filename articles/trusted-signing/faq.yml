@@ -4,7 +4,7 @@ metadata:
   description: Get answers to frequently asked questions (FAQs) for Trusted. #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
   author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
   ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-  ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
+  ms.service: trusted-signing
   ms.topic: faq #Required
   ms.date: 03/18/2024 #Required; mm/dd/yyyy format.
 title: Trusted Signing FAQs #Required. This appears as the headline in the article as displayed.
