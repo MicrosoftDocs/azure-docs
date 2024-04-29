@@ -11,6 +11,8 @@ ms.custom: devdivchpfy22
 
 # Tutorial: Use the Azure API Management extension for Visual Studio Code to import and manage APIs
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 In this tutorial, you learn how to use the API Management extension for Visual Studio Code for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
 
 You learn how to:

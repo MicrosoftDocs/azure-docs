@@ -4,7 +4,7 @@ description: Optimization of default configurations to enhance Java application 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: ignite-2024
+ms.custom: ignite-2024, devx-track-azurecli, devx-track-extended-java
 ms.topic: conceptual
 ms.date: 02/27/2024
 ms.author: cshoe

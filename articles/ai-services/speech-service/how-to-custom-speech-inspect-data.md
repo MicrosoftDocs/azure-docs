@@ -121,9 +121,9 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a test, use the [Evaluations_Create](/rest/api/speechtotext/evaluations/create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
 - Set the required `model1` property to the URI of a model that you want to test.
 - Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` property to the URI of a dataset that you want to use for the test.
@@ -205,7 +205,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the evaluation's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get) details about the evaluation's project and test results. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Delete) the evaluation.
+The top-level `self` property in the response body is the evaluation's URI. Use this URI to [get](/rest/api/speechtotext/evaluations/get) details about the evaluation's project and test results. You also use this URI to [update](/rest/api/speechtotext/evaluations/update) or [delete](/rest/api/speechtotext/evaluations/delete) the evaluation.
 
 ::: zone-end
 
@@ -304,7 +304,7 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To get test results, start by using the [Evaluations_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
+To get test results, start by using the [Evaluations_Get](/rest/api/speechtotext/evaluations/get) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

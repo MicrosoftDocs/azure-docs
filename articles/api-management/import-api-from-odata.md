@@ -11,6 +11,8 @@ ms.author: danlep
 ---
 # Import an OData API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an OData-compliant service as an API in API Management. 
 
 In this article, you learn how to:

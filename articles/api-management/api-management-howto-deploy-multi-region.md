@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Deploy an Azure API Management instance to multiple Azure regions
 
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
+
 Azure API Management supports multi-region deployment, which enables API publishers to add regional API gateways to an existing API Management instance in one or more supported Azure regions. Multi-region deployment helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline.
 
 When adding a region, you configure:
@@ -23,8 +25,6 @@ When adding a region, you configure:
 
 >[!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
-
-[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## About multi-region deployment
 

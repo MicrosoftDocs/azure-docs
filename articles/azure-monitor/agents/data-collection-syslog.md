@@ -2,6 +2,7 @@
 title: Collect Syslog events with Azure Monitor Agent 
 description: Configure collection of Syslog events by using a data collection rule on virtual machines with Azure Monitor Agent.
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 05/10/2023
 ms.reviewer: glinuxagent
 ---
@@ -188,6 +189,7 @@ You need:
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
+- Syslog messages must follow RFC standards ([RFC5424](https://www.ietf.org/rfc/rfc5424.txt) or [RFC3164](https://www.ietf.org/rfc/rfc3164.txt))
 
 ## Syslog record properties
 

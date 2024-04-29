@@ -196,6 +196,6 @@ Programming languages
 [27]: https://kubernetes.io/docs/reference/kubectl/
 [28]: https://pnp.github.io/office365-cli/
 [29]: https://puppet.com/docs/bolt/latest/bolt.html
-[30]: https://www.ansible.com/microsoft-azure
+[30]: /azure/developer/ansible/overview
 [31]: https://www.terraform.io/docs/providers/azurerm/
 [32]: persisting-shell-storage.md

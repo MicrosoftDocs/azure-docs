@@ -4,6 +4,9 @@ description: Learn how to access clusters when integrating Microsoft Entra ID in
 ms.topic: article
 ms.subservice: aks-integration
 ms.date: 04/20/2023
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ---
 
@@ -176,3 +179,4 @@ Make sure the admin of the security group has given your account an *Active* ass
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
 [az-aks-create]: /cli/azure/aks#az_aks_create
+

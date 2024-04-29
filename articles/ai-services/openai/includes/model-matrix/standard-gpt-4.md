@@ -13,14 +13,14 @@ ms.date: 03/13/2024
 | australiaeast    | ✅                | ✅                        | -                       | ✅                          | ✅                    |
 | canadaeast       | ✅                | ✅                        | -                       | -                         | ✅                    |
 | eastus           | -               | -                       | ✅                        | -                         | -                   |
-| eastus2          | ✅                | ✅                        | -                       | -                         | ✅                    |
+| eastus2          | -               | ✅                        | -                       | -                         | -                   |
 | francecentral    | ✅                | ✅                        | -                       | -                         | ✅                    |
-| japaneast        | ✅                | -                       | -                       | ✅                          | ✅                    |
+| japaneast        | -               | -                       | -                       | ✅                          | -                   |
 | northcentralus   | -               | -                       | ✅                        | -                         | -                   |
 | norwayeast       | -               | ✅                        | -                       | -                         | -                   |
 | southcentralus   | -               | -                       | ✅                        | -                         | -                   |
 | southindia       | -               | ✅                        | -                       | -                         | -                   |
 | swedencentral    | ✅                | ✅                        | -                       | ✅                          | ✅                    |
 | switzerlandnorth | ✅                | -                       | -                       | ✅                          | ✅                    |
-| uksouth          | ✅                | ✅                        | -                       | -                         | ✅                    |
+| uksouth          | -               | ✅                        | -                       | -                         | -                   |
 | westus           | -               | ✅                        | -                       | ✅                          | -                   |

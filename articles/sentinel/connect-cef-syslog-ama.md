@@ -4,6 +4,7 @@ description: Ingest and filter Syslog messages, including those in Common Event 
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 02/19/2024
 #Customer intent: As a security operator, I want to ingest and filter Syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---

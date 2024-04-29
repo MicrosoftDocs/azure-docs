@@ -16,6 +16,8 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Prerequisites
 
+[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An identity (user or service principal) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli). This identity needs to have the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
@@ -150,11 +152,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
 
     ```azurecli-interactive
     # Join the first member cluster
-    az fleet member create \
-        --resource-group ${GROUP} \
-        --fleet-name ${FLEET} \
-        --name ${MEMBER_NAME_1} \
-        --member-cluster-id ${MEMBER_CLUSTER_ID_1}
+    az fleet member create --resource-group ${GROUP} --fleet-name ${FLEET} --name ${MEMBER_NAME_1} --member-cluster-id ${MEMBER_CLUSTER_ID_1}
     ```
 
     Your output should look similar to the following example output:
@@ -197,9 +195,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
 
 ## Next steps
 
-* [Orchestrate updates across multiple member clusters](./update-orchestration.md).
-* [Set up Kubernetes resource propagation from hub cluster to member clusters](./resource-propagation.md).
-* [Set up multi-cluster layer-4 load balancing](./l4-load-balancing.md).
+* [Access the Kubernetes API of the Fleet resource](./quickstart-access-fleet-kubernetes-api.md).
 
 <!-- INTERNAL LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add

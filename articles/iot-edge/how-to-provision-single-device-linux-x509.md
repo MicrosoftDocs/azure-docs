@@ -4,6 +4,7 @@ titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with X.509 certificates
 author: PatAltimore
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
 ms.date: 02/27/2024

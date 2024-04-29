@@ -9,13 +9,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.topic: conceptual
-ms.date: 03/05/2024
+ms.date: 04/03/2024
 ---
 
 # Create an Azure AI Search service in the portal
 
-[**Azure AI Search**](search-what-is-azure-search.md) adds vector and full text search as an information retrieval solution for the enterprise, and for traditional and generative AI scenarios.
+[**Azure AI Search**](search-what-is-azure-search.md) is a vector and full text information retrieval solution for the enterprise, and for traditional and generative AI scenarios.
 
 If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials, except for those featuring semantic ranking (it requires a billable service).
 
@@ -29,7 +30,7 @@ The following service properties are fixed for the lifetime of the service. Cons
 
 + Service name becomes part of the URL endpoint ([review tips for helpful service names](#name-the-service)).
 + [Tier](search-sku-tier.md) (Free, Basic, Standard, and so forth) determines the underlying physical hardware and billing. Some features are tier-constrained.
-+ [Service region](#choose-a-region) can determine the availability of certain scenarios. If you need high availability or [AI enrichment](cognitive-search-concept-intro.md), create the resource in a region that provides the feature. 
++ [Service region](#choose-a-region) can determine the availability of certain scenarios and higher storage limits. If you need availability zones or [AI enrichment](cognitive-search-concept-intro.md) or more storage, create the resource in a region that provides the feature. 
 
 ## Subscribe (free or paid)
 
@@ -88,11 +89,33 @@ Service name requirements:
 
 Azure AI Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 
+We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after April 3, 2024:
+
+| Country | Regions providing extra capacity per partition |
+|---------|------------------------------------------------|
+| **United States** | East US​, East US 2, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
+| **United Kingdom** | UK South​, UK West​ ​ |
+| **United Arab Emirates** | UAE North​​ |
+| **Switzerland** | Switzerland West​ |
+| **Sweden** | Sweden Central​​ |
+| **Poland** | Poland Central​​ |
+| **Norway** | Norway East​​ |
+| **Korea** | Korea Central, Korea South​ ​ |
+| **Japan** | Japan East, Japan West​ |
+| **Italy** | Italy North​​ |
+| **India** | Central India, Jio India West​ ​ |
+| **France** | France Central​​ |
+| **Europe** | North Europe​​ |
+| **Canada** | Canada Central​, Canada East​​ |
+| **Bazil** | Brazil South​​ |
+| **Asia Pacific** | East Asia, Southeast Asia​ ​ |
+| **Australia** | Australia East​, Australia Southeast​​ |
+
 If you use multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among same-region services.
 
-Two notable exceptions might lead to provisioning Azure services in separate regions:
+Two notable exceptions might warrant provisioning Azure services in separate regions:
 
-+ [Outbound connections from Azure AI Search to Azure Storage](search-indexer-securing-resources.md). You might want Azure Storage in a different region if you're enabling a firewall.
++ [Outbound connections from Azure AI Search to Azure Storage](search-indexer-securing-resources.md). You might want search and storage in different regions if you're enabling a firewall.
 
 + Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
@@ -114,6 +137,8 @@ Azure AI Search is offered in [multiple pricing tiers](https://azure.microsoft.c
 Basic and Standard are the most common choices for production workloads, but many customers start with the Free service. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
 
 :::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" lightbox="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page." border="true":::
+
+Search services created after April 3, 2024 have larger partitions and higher vector quotas.
 
 Remember, a pricing tier can't be changed once the service is created. If you need a higher or lower tier, you should re-create the service.
 
@@ -146,7 +171,7 @@ An endpoint and key aren't needed for portal-based tasks. The portal is already 
 
 ## Scale your service
 
-After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). If you chose the Standard tier, you can scale the service in two dimensions: replicas and partitions. For the Basic tier, you can only add replicas. For the free service, scale isn't available.
+After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). On a billable tier, you can scale the service in two dimensions: replicas and partitions. For the free service, scale up isn't available and replica and partition configuration isn't offered.
 
 ***Partitions*** allow your service to store and search through more documents.
 

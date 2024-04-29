@@ -99,7 +99,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use managed identity to access data
-            url: ../managed-identity-based-authentication.md  
+            url: ../managed-identity-based-authentication.yml  
           - text: Configure role-based access control
             url: ../how-to-setup-rbac.md 
           - text: Configure customer-managed keys

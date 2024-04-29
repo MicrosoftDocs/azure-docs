@@ -13,15 +13,12 @@ All rules **without actions** are combined using an `OR` condition and result in
 
 Each rule **with an action** produces a copy of the message. This message will have a property called `RuleName` where the value is the name of the matching rule. The action can add or update properties, or delete properties from the original message to produce a message on the subscription. 
 
-Consider the following scenario:
-
-- Subscription has five rules.
-- Two rules contain actions.
-- Three rules don't contain actions.
-
-In this example, if you send one message that matches all five rules, you get three messages on the subscription. That's two messages for two rules with actions and one message for three rules without actions. 
+Consider the following scenario where a subscription has five rules: two rules with actions and the other three without actions. In this example, if you send one message that matches all five rules, you get three messages on the subscription. That's two messages for two rules with actions and one message for three rules without actions. 
 
 Each newly created topic subscription has an initial default subscription rule. If you don't explicitly specify a filter condition for the rule, the applied filter is the **true** filter that enables all messages to be selected into the subscription. The default rule has no associated annotation action.
+
+> [!NOTE]
+> This article applies to non-JMS scenarios. For JMS scenarios, use [message selectors](java-message-service-20-entities.md#message-selectors). 
 
 ## Filters
 Service Bus supports three types of filters:

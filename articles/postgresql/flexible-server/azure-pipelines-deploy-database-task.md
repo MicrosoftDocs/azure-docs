@@ -4,10 +4,10 @@ description: Enable Azure Database for PostgreSQL - Flexible Server CLI task for
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.author: sunila
-author: sunilagarwal
+ms.author: ialonso
+author: nachoalonsoportillo
 ms.custom: mode-other
-ms.date: 01/16/2024
+ms.date: 02/03/2024
 ---
 
 # Azure Pipelines task - Azure Database for PostgreSQL - Flexible Server

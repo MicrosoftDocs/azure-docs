@@ -101,14 +101,14 @@ For volumes 100 TiB or under, if you've allocated at least 5 TiB of quota for a 
 For volumes 100 TiB or under, you can increase the `maxfiles` limit up to 531,278,150 if your volume quota is at least 25 TiB.
 
 >[!IMPORTANT]
-> When files or folders are allocated to an Azure NetApp Files volume, they count against the `maxfiles` limit. If a file or folder is deleted, the internal data structures for `maxfiles` allocation remain the same. For instance, if the files used in a volume increase to 63,753,378 and 100,000 files are deleted, the `maxfiles` allocation will remain at 63,753,378. 
+> When files or folders are allocated to an Azure NetApp Files volume, they count against the `maxfiles` limit. If a file or folder is deleted, the internal data structures for `maxfiles` allocation remain the same. For instance, if the files used in a volume increase to 63,753,378 and 100,000 files are deleted, the `maxfiles` allocation remains at 63,753,378. 
 > Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, the `maxfiles` limit for a 2 TiB volume is 63,753,378. If you create more than 63,753,378 files in that volume, the volume quota cannot be reduced below its corresponding index of 2 TiB.
 
 **For [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes):**
 
 | Volume size (quota) | Automatic readjustment of the `maxfiles` limit |
 | - | - |
-|   > 100 TiB    | 2,550,135,120                  |
+|   > 50 TiB    | 2,550,135,120                  | 
              
 You can increase the `maxfiles` limit beyond 2,550,135,120 using a support request. For every 2,550,135,120 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 120 TiB. For example, if you increase `maxfiles` limit from 2,550,135,120 to 5,100,270,240 files (or any number in between), you need to increase the volume quota to at least 240 TiB.
  

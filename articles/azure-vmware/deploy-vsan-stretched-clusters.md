@@ -39,7 +39,7 @@ Next, repeat the process to [peer ExpressRoute Global Reach](./tutorial-expressr
 
 ## Storage policies supported
 
-The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" and SFTT of "RAID 1 (Mirroring)" enabled as the default policies for the cluster:
+The following SPBM policies are supported with a Primary Failures To Tolerate (PFTT) of "Dual Site Mirroring" and Secondary Failures To Tolerate (SFTT) of "RAID 1 (Mirroring)" enabled as the default policies for the cluster:
 
 - Site disaster tolerance settings (PFTT):
     - Dual site mirroring

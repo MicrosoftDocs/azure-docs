@@ -4,7 +4,7 @@ description: This article describes how you can manage Microsoft Entra ID enable
 author: achudnovskij
 ms.author: anchudno
 ms.reviewer: maghan
-ms.date: 01/02/2024
+ms.date: 02/21/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-arm-template
@@ -74,7 +74,9 @@ select * from pgaadauth_list_principals(true);
 ```sql
 select * from pgaadauth_create_principal('<roleName>', <isAdmin>, <isMfa>);
 
-For example: select * from pgaadauth_create_principal('mary@contoso.com', false, false);
+--For example: 
+
+select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 ```
 
 **Parameters:**
@@ -91,7 +93,7 @@ For example: select * from pgaadauth_create_principal('mary@contoso.com', false,
 Remember that any Microsoft Entra role that is created in PostgreSQL must be dropped using a Microsoft Entra Admin. If you use a regular PostgreSQL admin to drop an Entra role then it will result in an error.
 
 ```sql
-Drop Role rolename;
+DROP ROLE rolename;
 ```
 
 ## Create a role using Microsoft Entra object identifier

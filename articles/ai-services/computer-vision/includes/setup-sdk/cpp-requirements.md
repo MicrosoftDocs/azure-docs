@@ -1,6 +1,7 @@
 ---
 author: PatrickFarley
 ms.service: azure-ai-vision
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley

@@ -2,10 +2,10 @@
 title: VM Insights Dependency Agent
 description: This article describes how to upgrade the VM insights Dependency agent using command-line, setup wizard, and other methods.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
 ms.date: 09/28/2023
-
 ---
 
 # Dependency Agent

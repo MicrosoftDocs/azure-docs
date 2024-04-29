@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: nathan-wisner-ms
 ms.author: nathanwisner
-ms.date: 12/21/2023
+ms.date: 02/03/2024
 ---
 
 # Azure Advisor for Azure Database for PostgreSQL - Flexible Server

@@ -6,7 +6,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is.
-ms.date: 03/07/2024
+ms.date: 04/02/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -28,14 +28,15 @@ Commands used in this article refer to the following resource groups:
     - Managed resource group used to host Azure-ARC Kubernetes resources 
 - Tenant resource groups:
     - Fabric - tenant networking resources (such as networks) 
-    - Compute - tenant compute resources (such as VMs, and Nexus AKS clusters) 
+    - Compute - tenant compute resources (such as VMs, and Nexus Azure Kubernetes Services (AKS) clusters) 
 
 ## Prerequisites
 
 Before provisioning a NAKS cluster:
 
-- Configure external networks between CEs and PEs (or Telco Edge) that allow connectivity with the provider edge. Configuring access to external services like firewalls and services hosted on Azure (tenant not platform) is outside of the scope of this article.
-- Configure elements on PEs/Telco Edge that aren't controlled by Nexus Network Fabric, such as  Express Route Circuits configuration for tenant workloads connectivity to Azure.
+- Configure external networks between the Customer Edge (CE) and Provider Edge (PE) (or Telco Edge) devices that allow connectivity with the provider edge. Configuring access to external services like firewalls and services hosted on Azure (tenant not platform) is outside of the scope of this article.
+- Configure a jumpbox to connect routing domains. Configuring a jumpbox is outside of the scope of this article.
+- Configure network elements on PEs/Telco Edge that aren't controlled by Nexus Network Fabric, such as  Express Route Circuits configuration for tenant workloads connectivity to Azure (optional for hybrid setups) or connectivity via the operator's core network.
 - Review the [Nexus Kubernetes release calendar](../operator-nexus/reference-nexus-kubernetes-cluster-supported-versions.md) to identify available releases and support plans.
 - Review the [Nexus Kubernetes Cluster Overview](../operator-nexus/concepts-nexus-kubernetes-cluster.md). 
 - Review the [Network Fabric Overview](../operator-nexus/concepts-network-fabric.md).
@@ -51,29 +52,31 @@ Complete these tasks to set up your internal network.
 Use the following Azure CLI commands to create the isolation domain (ISD):
 
 ```azurecli
-export subscriptionId=”<SUBSCRIPTION-ID>” 
-export rgManagedFabric=”<RG-MANAGED-FABRIC>” 
-export nnfId=”<NETWORK-FABRIC-ID>” 
-export rgFabric=”<RG-FABRIC>” 
-export l3Isd=”<ISD-NAME>” 
-export region=”<REGION>” 
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgManagedFabric="<RG-MANAGED-FABRIC>" 
+export nnfId="<NETWORK-FABRIC-ID>" 
+export rgFabric="<RG-FABRIC>" 
+export l3Isd="<ISD-NAME>" 
+export region="<REGION>" 
  
 az networkfabric l3domain create –resource-name $l3Isd \ 
 --resource-group $rgFabric \ 
 --location $region \ 
---nf-id “/subscriptions/$subscriptionId/resourceGroups/$rgManagedFabric/providers/Microsoft.ManagedNetworkFabric/networkFabrics/$nnfId” \ 
---redistribute-connected-subnets “True” \ 
---redistribute-static-routes “True” \ 
---subscription “$subscriptionId”
+--nf-id "/subscriptions/$subscriptionId/resourceGroups/$rgManagedFabric/providers/Microsoft.ManagedNetworkFabric/networkFabrics/$nnfId" \ 
+--redistribute-connected-subnets "True" \ 
+--redistribute-static-routes "True" \ 
+--subscription "$subscriptionId"
 ```
 
-To view the new isolation domain in the Azure portal:
+To view the new  L3ISD isolation domain, enter the following command: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to  for **Network Fabric (Operator Nexus)** resource.
-1. Select **network fabric** from the list.
-1. Select **Isolation Domain**. 
-1. Select the relevant isolation domain (ISD).
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgFabric="<RG-FABRIC>" 
+export l3Isd="<ISD-NAME>" 
+ 
+az networkfabric l3domain show --resource-name $l3Isd -g $rgFabric --subscription $subscriptionId
+```
 
 ## Create the internal network
 
@@ -84,148 +87,181 @@ Before creating or modifying the internal network, you must disable the ISD. Re-
 Use the following commands to disable the ISD:
 
 ```azurecli
-export subscriptionId=”<SUBSCRIPTION-ID>” 
-export rgFabric=”<RG-FABRIC>” 
-export l3Isd=”<ISD-NAME>” 
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgFabric="<RG-FABRIC>" 
+export l3Isd="<ISD-NAME>" 
   
-# Disable ISD in order to create internal networks, wait for 5 minutes and check the status is Disabled 
+# Disable ISD to create internal networks, wait for 5 minutes and check the status is Disabled 
  
-az networkfabric l3domain update-admin-state –resource-name “$l3Isd” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId” \ 
+az networkfabric l3domain update-admin-state –resource-name "$l3Isd" \ 
+--resource-group "$rgFabric" \ 
+--subscription "$subscriptionId" \ 
 --state Disable 
  
 # Check the status of the ISD 
  
-az networkfabric l3domain show –resource-name “$l3Isd” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId”
+az networkfabric l3domain show –resource-name "$l3Isd" \ 
+--resource-group "$rgFabric" \ 
+--subscription "$subscriptionId"
 ```
 
-With the ISD disabled, you can add, modify, or remove the internal network. When you're finished making changes, re-enable ISD. 
+With the ISD disabled, you can add, modify, or remove the internal network. When you're finished making changes, re-enable ISD as described in [Enable isolation domain](#enable-isolation-domain). 
 
 ## Create the default Azure Container Network Interface internal network 
 
 Use the following commands to create the default Azure Container Network Interface (CNI) internal network:
 
 ```azurecli
-export subscriptionId=”<SUBSCRIPTION-ID>” 
-export intnwDefCni=”<DEFAULT-CNI-NAME>” 
-export l3Isd=”<ISD-NAME>” 
-export rgFabric=”<RG-FABRIC>” 
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export intnwDefCni="<DEFAULT-CNI-NAME>" 
+export l3Isd="<ISD-NAME>" 
+export rgFabric="<RG-FABRIC>" 
 export vlan=<VLAN-ID> 
 export peerAsn=<PEER-ASN> 
-export ipv4ListenRangePrefix=”<DEFAULT-CNI-IPV4-PREFIX>/<PREFIX-LEN>” 
+export ipv4ListenRangePrefix="<DEFAULT-CNI-IPV4-PREFIX>/<PREFIX-LEN>" 
 export mtu=9000 
  
-az networkfabric internalnetwork create –resource-name “$intnwDefCni” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId” \ 
---l3domain “$l3Isd” \ 
+az networkfabric internalnetwork create –resource-name "$intnwDefCni" \ 
+--resource-group "$rgFabric" \ 
+--subscription "$subscriptionId" \ 
+--l3domain "$l3Isd" \ 
 --vlan-id $vlan \ 
 --mtu $mtu \ 
---connected-ipv4-subnets “[{prefix:$ipv4ListenRangePrefix}]” \ 
+--connected-ipv4-subnets "[{prefix:$ipv4ListenRangePrefix}]" \ 
 --bgp-configuration
+{peerASN:$peerAsn,allowAS:0,defaultRouteOriginate:True,ipv4ListenRangePrefixes:['$ipv4ListenRangePrefix']}" 
 ```
 
-## Create internal networks for SMF ULB (S11/S5), UPF iPPE (N3, N6) 
+## Create internal networks for User Plane Function (N3, N6) and Access and Mobility Management Function (N2) interfaces 
 
-When creating the SMF ULB and UPF iPPE internal networks, make sure to include IP-v6 addressing. You don't need to configure the  BGP fabric-side ASN. ASN is included in network fabric resource creation. Use the following commands to create these internal networks:
+When you're creating User Plane Function (UPF) internal networks, dual stack IPv4/IPv6 is supported. You don't need to configure the Border Gateway Protocol (BGP) fabric-side Autonomous System Number (ASN) because ASN is included in network fabric resource creation. Use the following commands to create these internal networks. 
+
+> [!NOTE]
+> Create the number of internal networks as described in the [Prerequisites](#prerequisites) section.
 
 ```azurecli
-export subscriptionId=”<SUBSCRIPTION-ID>” 
-export intnwName=”<INTNW-NAME>” 
-export l3Isd=”<ISD-NAME>” 
-export rgFabric=”<RG-FABRIC>” 
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export intnwName="<INTNW-NAME>" 
+export l3Isd="<ISD-NAME>" // N2, N3, N6  
+export rgFabric="<RG-FABRIC>" 
 export vlan=<VLAN-ID> 
 export peerAsn=<PEER-ASN> 
-export ipv4ListenRangePrefix=”<IPV4-PREFIX>/<PREFIX-LEN>” 
-export ipv6ListenRangePrefix=”<IPV6-PREFIX>/<PREFIX-LEN>” 
+export ipv4ListenRangePrefix="<IPV4-PREFIX>/<PREFIX-LEN>" 
+export ipv6ListenRangePrefix="<IPV6-PREFIX>/<PREFIX-LEN>" 
 export mtu=9000 
  
-az networkfabric internalnetwork create –resource-name “$intnwName” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId” \ 
---l3domain “$l3Isd” \ 
+az networkfabric internalnetwork create –resource-name "$intnwName" \ 
+--resource-group "$rgFabric" \ 
+--subscription "$subscriptionId" \ 
+--l3domain "$l3Isd" \ 
 --vlan-id $vlan \ 
 --mtu $mtu \ 
---connected-ipv4-subnets “[{prefix:$ipv4ListenRangePrefix}]” \ 
---connected-ipv6-subnets “[{prefix:’$ipv6ListenRangePrefix’}]” \ 
---bgp-configuration “{peerASN:$peerAsn,allowAS:0,defaultRouteOriginate:True,ipv4ListenRangePrefixes:[$ipv4ListenRangePrefix],ipv6ListenRangePrefixes:[‘$ipv6ListenRangePrefix’]}”
+--connected-ipv4-subnets "[{prefix:$ipv4ListenRangePrefix}]" \ 
+--connected-ipv6-subnets "[{prefix:'$ipv6ListenRangePrefix'}]" \ //optional
+--bgp-configuration 
+"{peerASN:$peerAsn,allowAS:0,defaultRouteOriginate:True,ipv4ListenRangePrefixes:[$ipv4ListenRangePrefix],ipv6ListenRangePrefixes:['$ipv6ListenRangePrefix']}"
 ```
 
-To view the fabric ASN  from the Azure portal:
+To view the list of internal networks created, enter the following commands:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for the **Network Fabric (Operator Nexus)** resource.
-1. Select **network fabric** from the list.
-1. Review the ASN in properties – **Fabric ASN** or in the **Internal Network** details.
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgFabric="<RG-FABRIC>" 
+export l3Isd="<ISD-NAME>" 
+ 
+az networkfabric internalnetwork list -o table --subscription $subscriptionId -g $rgFabric --l3domain $l3Isd
+```
+
+To view the details of a specific internal network, enter the following commands:
+
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgFabric="<RG-FABRIC>" 
+export l3Isd="<ISD-NAME>" 
+export intnwName="<INTNW-NAME>" 
+ 
+az networkfabric internalnetwork show --resource-name $intnwName -g $rgFabric --l3domain $l3Isd
+```
 
 ### Enable isolation domain
 
 Use the following commands to enable the ISD:
 
 ```azurecli
-export subscriptionId=”<SUBSCRIPTION-ID>” 
-export rgFabric=”<RG-FABRIC>” 
-export l3Isd=”<ISD-NAME>” 
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgFabric="<RG-FABRIC>" 
+export l3Isd="<ISD-NAME>" 
   
 # Enable ISD, wait for 5 minutes and check the status is Enabled 
  
-az networkfabric l3domain update-admin-state –resource-name “$l3Isd” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId” \ 
+az networkfabric l3domain update-admin-state –resource-name "$l3Isd" \ 
+--resource-group "$rgFabric" \ 
+--subscription "$subscriptionId" \ 
 --state Enable 
  
 # Check the status of the ISD 
  
-az networkfabric l3domain show –resource-name “$l3Isd” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId”
+az networkfabric l3domain show –resource-name "$l3Isd" \ 
+--resource-group "$rgFabric" \ 
+--subscription "$subscriptionId"
 ```
 
 ### Recommended routing settings
 
-To configure BGP and BFD routing for internal networks, use the default settings. See [Nexus documentation](../operator-nexus/howto-configure-isolation-domain.md) for parameter descriptions.
+To configure BGP and Bidirectional Forwarding Detection (BFD) routing for internal networks, use the default settings. See the [Nexus documentation](../operator-nexus/howto-configure-isolation-domain.md) for parameter descriptions.
 
 ## Create L3 networks 
 
-Before deploying the NAKS cluster, you must create NC L3 networking resources that map to network fabric (NF) resources. 
-You must create L3 network NC resources for the default CNI interface,  including the ISD/VLAN/IP prefix of a  corresponding internal network.   Attach these resources directly to VMs to perform VLAN tagging at the NIC (VF) level instead of the application level (access ports from application perspective) and/or if  IP addresses are allocated by Nexus (using IP Address Management (ipam) functionality). 
-An L3 network is used for the default CNI interface. Additional interfaces that require multiple VLANs per single interface must be trunk interfaces.  
+Before deploying the NAKS cluster, you must create network cloud (NC) L3 networking resources that map to network fabric (NF) resources. 
+You must create L3 network NC resources for the default CNI interface,  including the ISD/VLAN/IP prefix of a  corresponding internal network. Attach these resources directly to VMs to perform VLAN tagging at the Network Interface Card (NIC) Virtual Function (VF) level instead of the application level (access ports from application perspective) and/or if IP addresses are allocated by Nexus (using IP Address Management (ipam) functionality).
+ 
+An L3 network is used for the default CNI interface. Other interfaces that require multiple VLANs per single interface must be trunk interfaces.  
 
 Use the following commands to create the L3 network:  
 
 ```azurecli
-Export subscriptionId=”<SUBSCRIPTION-ID>” 
-export rgManagedUndercloudCluster=”<RG-MANAGED-UNDERCLOUD-CLUSTER>” 
-export undercloudCustLocationName=”<UNDERCLOUD-CUST-LOCATION-NAME>” 
-export rgFabric=”<RG-FABRIC>” 
-export rgCompute=”<RG-COMPUTE>” 
-export l3Name=”<L3-NET-NAME>” 
-export l3Isd=”<ISD-NAME>” 
-export region=”<REGION>” 
+Export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgManagedUndercloudCluster="<RG-MANAGED-UNDERCLOUD-CLUSTER>" 
+export undercloudCustLocationName="<UNDERCLOUD-CUST-LOCATION-NAME>" 
+export rgFabric="<RG-FABRIC>" 
+export rgCompute="<RG-COMPUTE>" 
+export l3Name="<L3-NET-NAME>" 
+export l3Isd="<ISD-NAME>" 
+export region="<REGION>" 
 export vlan=<VLAN-ID> 
-export ipAllocationType=”IPV4” // DualStack, IPV4, IPV6 
-export ipv4ConnectedPrefix=”<DEFAULT-CNI-IPV4-PREFIX>/<PREFIX-LEN>” // if IPV4 or DualStack 
-export ipv6ConnectedPrefix=”<DEFAULT-CNI-IPV6-PREFIX>/<PREFIX-LEN>” // if IPV6 or DualStack 
+export ipAllocationType="IPV4" // DualStack, IPV4, IPV6 
+export ipv4ConnectedPrefix="<DEFAULT-CNI-IPV4-PREFIX>/<PREFIX-LEN>" // if IPV4 or DualStack 
+export ipv6ConnectedPrefix="<DEFAULT-CNI-IPV6-PREFIX>/<PREFIX-LEN>" // if IPV6 or DualStack 
  
  az networkcloud l3network create –l3-network-name $l3Name \ 
---l3-isolation-domain-id “/subscriptions/$subscriptionId/resourceGroups/$rgFabric/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/$l3Isd” \ 
+--l3-isolation-domain-id 
+"/subscriptions/$subscriptionId/resourceGroups/$rgFabric/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/$l3Isd" \ 
 --vlan $vlan \ 
 --ip-allocation-type $ipAllocationType \ 
 --ipv4-connected-prefix $ipv4ConnectedPrefix \ 
---extended-location name=”/subscriptions/$subscriptionId/resourceGroups/$rgManagedUndercloudCluster/providers/Microsoft.ExtendedLocation/customLocations/$undercloudCustLocationName” type=”CustomLocation” \ 
+--extended-location name="/subscriptions/$subscriptionId/resourceGroups/$rgManagedUndercloudCluster/providers/Microsoft.ExtendedLocation/customLocations/$undercloudCustLocationName" type="CustomLocation" \ 
 --resource-group $rgCompute \ 
 --location $region \ 
 --subscription $subscriptionId \ 
---interface-name “vlan-$vlan”
+--interface-name "vlan-$vlan"
+```
+
+To view the L3 network created, enter the following commands:
+
+
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgCompute="<RG-COMPUTE>" 
+export l3Name="<L3-NET-NAME>" 
+ 
+az networkcloud l3network show -n $l3Name -g $rgCompute --subscription $subscriptionId
 ```
 
 ### Trunked networks
 
 A `trunkednetwork` network cloud resource is required if a single port/interface connected to a virtual machine must carry multiple virtual local area networks (VLANs). Tagging is performed at the application layer instead of NIC. A trunk interface can carry VLANs that are a part of different ISDs. 
-You must create a trunked network for both SMF ULB (S11/S5) and UPF iPPE (N3, N6).
+
+You must create a trunked network for the Access and Management Mobility Function (AMF) (N2) and UPF (N3, N6). 
 
 Use the following commands to create a trunked network:
 
@@ -241,7 +277,8 @@ export vlanUlb=<VLAN-ULB-ID>
 export region="<REGION>" 
  
 az networkcloud trunkednetwork create --name $trunkName \ 
---isolation-domain-ids "/subscriptions/$subscriptionId/resourceGroups/$rgFabric/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/$l3IsdUlb" \ 
+--isolation-domain-ids
+ "/subscriptions/$subscriptionId/resourceGroups/$rgFabric/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/$l3IsdUlb" \ 
 --vlans $vlanUlb \ 
 --extended-location name="/subscriptions/$subscriptionId/resourceGroups/$rgManagedUndercloudCluster/providers/Microsoft.ExtendedLocation/customLocations/$undercloudCustLocationName" type="CustomLocation" \ 
 --resource-group $rgCompute \ 
@@ -249,72 +286,78 @@ az networkcloud trunkednetwork create --name $trunkName \
 --interface-name "trunk-ulb" \ 
 --subscription $subscriptionId
 ```
+To view the trunked network resource created, enter the following command: 
+
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgCompute="<RG-COMPUTE>" 
+export trunkName="<TRUNK-NAME>" 
+ 
+az networkcloud trunkednetwork show -n $trunkName -g $rgCompute --subscription $subscriptionId
+```
 
 ## Configure the Cloud Services Network proxy and allowlisted domains 
 
 A Cloud Services Network proxy (CSN proxy) is used to access Azure and internet destinations. You must explicitly add these domains to an allowlist in the CSN configuration for a NAKS cluster to access Azure services and for Arc integration. 
 
-### Azure Operator Service Manager/Network Function Manager-based Cloud Services Networks endpoints
+### Network Function Manager-based Cloud Services Networks endpoints
 
-Add the following egress points for AOSM/NFM based deployment support (HybridNetwork RP, CustomLocation RP reachability, ACR, Arc):
+Add the following egress points for Network Function Manager (NFM) based deployment support (HybridNetwork Resource Provider (RP), CustomLocation RP reachability, ACR, Arc):
 
-```azurecli
-.azurecr.io / port 80 
-.azurecr.io / port 443 
-.mecdevice.azure.com / port 443 
-eastus-prod.mecdevice.azure.com / port 443 
-.microsoftmetrics.com / port 443 
-crprivatemobilenetwork.azurecr.io / port 443 
-.guestconfiguration.azure.com / port 443 
-.kubernetesconfiguration.azure.com / port 443 
-eastus.obo.arc.azure.com / port 8084 
-.windows.net / port 80 
-.windows.net / port 443 
-.k8connecthelm.azureedge.net / port 80 
-.k8connecthelm.azureedge.net / port 443 
-.k8sconnectcsp.azureedge.net / port 80 
-.k8sconnectcsp.azureedge.net / port 443 
-.arc.azure.net / port 80 
-.arc.azure.net / port 443
-```
+- .azurecr.io / port 80 
+- .azurecr.io / port 443 
+- .mecdevice.azure.com / port 443 
+- eastus-prod.mecdevice.azure.com / port 443 
+- .microsoftmetrics.com / port 443 
+- crprivatemobilenetwork.azurecr.io / port 443 
+- .guestconfiguration.azure.com / port 443 
+- .kubernetesconfiguration.azure.com / port 443 
+- eastus.obo.arc.azure.com / port 8084 
+- .windows.net / port 80 
+- .windows.net / port 443 
+- .k8connecthelm.azureedge.net / port 80 
+- .k8connecthelm.azureedge.net / port 443 
+- .k8sconnectcsp.azureedge.net / port 80 
+- .k8sconnectcsp.azureedge.net / port 443 
+- .arc.azure.net / port 80 
+- .arc.azure.net / port 443
+
 
 ### Python Cloud Services Networks endpoints
 
-For python packages installation (part of fed-kube_addons pod-node_config command list used for NAKS), add the following commands: 
+For python packages installation (part of the fed-kube_addons pod-node_config command list used for NAKS), add the following endpoints: 
 
-```python
-pypi.org / port 443 
-files.pythonhosted.org / port 443
-```
+- pypi.org / port 443 
+- files.pythonhosted.org / port 443
 
 > [!NOTE]
-> Additional ADX endpoints may need to be included in the allowlist if there is a requirement to inject data into Azure ADX. 
+> Additional Azure Detat Explorer (ADX) endpoints may need to be included in the allowlist if there is a requirement to inject data into ADX. 
 
 ### Optional Cloud Services Networks endpoints 
 
 Use the following destination to run containers that have their endpoints stored in public container registries or to install more packages for the auxiliary virtual machines: 
 
-```azurecli
-.ghcr.io / port 80 
-.ghcr.io / port 443 
-.k8s.gcr.io / port 80 
-.k8s.gcr.io / port 443 
-.k8s.io / port 80 
-.k8s.io / port 443 
-.docker.io / port 80 
-.docker.io / port 443 
-.docker.com / port 80 
-.docker.com / port 443 
-.pkg.dev / port 80 
-.pkg.dev / port 443 
-.ubuntu.com / port 80 
-.ubuntu.com / port 443
-```
+- .ghcr.io / port 80 
+- .ghcr.io / port 443 
+- .k8s.gcr.io / port 80 
+- .k8s.gcr.io / port 443 
+- .k8s.io / port 80 
+- .k8s.io / port 443 
+- .docker.io / port 80 
+- .docker.io / port 443 
+- .docker.com / port 80 
+- .docker.com / port 443 
+- .pkg.dev / port 80 
+- .pkg.dev / port 443 
+- .ubuntu.com / port 80 
+- .ubuntu.com / port 443
 
 ## Create Cloud Services Networks
 
 You must create a separate CSN instance for each NAKS cluster when you deploy Azure Operator 5G Core Preview on the Nexus platform. 
-Adjust the additional-egress-endpoints list based on the previous description and lists. 
+
+> [!NOTE]
+> Adjust the `additional-egress-endpoints` list based on the description and lists provided in the previous sections. 
 
 ```azurecli
 export subscriptionId="<SUBSCRIPTION-ID>" 
@@ -352,14 +395,22 @@ az networkcloud cloudservicesnetwork create --cloud-services-network-name $csnNa
   ]'    07-
 ```
 
-After you create the CSN, verify the `egress-endpoints` from the Azure portal. In the search bar, enter **Cloud Services Networks (Operator Nexus)** resource. Select **Overview**, then navigate to **Enabled egress endpoints** to see the list of endpoints you created.
+After you create the CSN, verify the `egress-endpoints` using the following commands at the command line:
+
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgCompute="<RG-COMPUTE>" 
+export csnName="<CSN-NAME>" 
+ 
+az networkcloud cloudservicesnetwork show -n $csnName -g $rgCompute --subscription $subscriptionId
+```
 
 ## Create a Nexus Azure Kubernetes Services Cluster
 
-Nexus related resource providers must deploy self-managed resource groups that are used to deploy the necessary resources created by customers. When Nexus AKS clusters are provisioned, they must be Arc-enabled. The Network Cloud resource provider creates its own managed resource group and deploys it in an Azure Arc Kubernetes cluster resource. Following this deployment, this cluster resource is linked to the NAKS cluster resource.   
+Nexus related resource providers must deploy self-managed resource groups used to deploy the necessary resources created by customers. When Nexus AKS clusters are provisioned, they must be Arc-enabled. The Network Cloud resource provider creates its own managed resource group and deploys it in an Azure Arc Kubernetes cluster resource. Following this deployment, this cluster resource is linked to the NAKS cluster resource.   
 
 > [!NOTE]
-> After the NAKS cluster deploys, and the managed resource group is created, you may need to grant privileges to all a user/entra group/service principal access to the managed resource group. This action is contingent upon the subscription level IAM settings.
+> After the NAKS cluster deploys, and the managed resource group is created, you may need to grant privileges to all a user/entra group/service principal access to the managed resource group. This action is contingent upon the subscription level Identity Access Management (IAM) settings.
 
 Use the following Azure CLI commands to create the NAKS cluster:
 
@@ -404,66 +455,56 @@ az networkcloud kubernetescluster create --name $naksName \
 --subscription $subscriptionId
 ```
 
-After the cluster is created, you can enable the Network Function Manager (NFM) extension and set a custom location so the cluster can be deployed via Azure Operator Service Manager (AOSM) or NFM. 
+To verify the list of created Nexus clusters, enter the following command:
+
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+ 
+az networkcloud kubernetescluster list -o table --subscription $subscriptionId
+```
+
+To verify the details of a created cluster, enter the following command:
+
+```azurecli
+export subscriptionId="<SUBSCRIPTION-ID>" 
+export rgCompute="<RG-COMPUTE>" 
+export naksName="<NAKS-NAME>" 
+ 
+az networkcloud kubernetescluster show -n $naksName -g $rgCompute --subscription $subscriptionId
+```
+
+After the cluster is created, you can enable the NFM extension and set a custom location so the cluster can be deployed via AOSM or NFM. 
 
 ## Access the Nexus Azure Kubernetes Services cluster 
 
  There are several ways to access the Tenant NAKS cluster's API server:
 
-- Directly from the IP address/port (from a jumpbox) 
-- Use the  Azure CLI and connectedk8s proxy option as described under the link to access clusters directly.
-  You must have a custom role assigned to the managed resource group created by the Network Cloud RP. One of the following actions must be enabled in this role:
+- Directly from the IP address/port (from a jumpbox that has connectivity to the Tenant NAKS API server) 
+- Using the  Azure CLI and connectedk8s proxy option as described under the link to access clusters directly. The Service Principal's or user's EntraID/AAD group (used with Azure CLI) must be provided during the NAKS cluster provisioning. Additionally, you must have a custom role assigned to the managed resource group created by the Network Cloud RP. One of the following actions must be enabled in this role:
 
   - Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action 
   - A user or service provider as a contributor to the managed resource group 
 
-## Prepare  the cluster for workloads via AO5GC resource provider/Azure Operator Service Manager/Network Function Manager 
+## Azure Edge services
 
-Before [Azure Operator Services Manager](https://azure.microsoft.com/products/operator-service-manager) (AOSM) and [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) (NFM) can be used to deploy applications on top of Nexus Azure Kubernetes clusters, you must enable the Network Function Operator extension and set a custom location. For more information, see the following sections. 
+Azure Operator 5G Core is a telecommunications workload that enables you to offer services to consumer and enterprise end-users. The Azure Operator 5G Core workloads run on a Network Functions Virtualization Infrastructure (NFVI) layer and may depend on other NFVI services. 
 
-### Enable the Network Function Operator extension 
+### Edge NFVI functions (running on Azure Operator Nexus)  
 
-You must enable the Network Function Operator Kubernetes Arc extension so that Azure NFM service can install workloads on top of NAKS clusters. Enable the extension at Azure Arc connected cluster level in the managed resource group created by Network Cloud RP.
+> [!NOTE]
+> The Edge NFVI related services may be updated occasionally. For more information about these services, see the specific service's documentation. 
 
-1. Enter the following Azure CLI commands to enable the NF Operator extension:
+- **Azure Operator Nexus** - Azure Operator Nexus is a carrier-grade, next-generation hybrid cloud platform for telecommunication operators. Azure Operator Nexus is purpose-built for operators' network-intensive workloads and mission-critical applications.  
+ 
+- Any other hardware and services Azure Operator Nexus may depend on. 
 
-    ```azurecli
-    az k8s-extension create -g <NAKS-MANAGED-RESOURCE-GRUP> \ 
-    -c <NAKS-ARC-CLUSTER-NAME> \ 
-    --cluster-type connectedClusters \ 
-    --cluster-resource-provider “Microsoft.Kubernetes/connectedClusters” \ 
-    --name networkfunction-operator \ 
-    --extension-type Microsoft.Azure.HybridNetwork \ 
-    --auto-upgrade-minor-version true \ 
-    --scope cluster \ 
-    --release-namespace azurehybridnetwork \ 
-    --release-train preview \ 
-    --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
-    ```
+- **Azure Arc** -  Provides a unified management and governance platform for Azure Operator 5G Core applications and services across Azure and on-premises environments.  
 
-1. Enter the following command and note  the connected cluster ID: 
-   `az connectedk8s show -n <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  --query id -o tsv`
-1. Enter the following command and note the cluster extension ID for which to enable the custom location:
-   `az k8s-extension show -c <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  -t connectedClusters -n networkfunction-operator`
+- **Azure Monitor** -  Provides a comprehensive solution for monitoring the performance and health of Azure Operator 5G Core applications and services across Azure and on-premises environments.  
 
-### Set the custom location 
+- **EntraID** - Provides identity and access management for Azure Operator 5G Core users and administrators across Azure and on-premises environments.  
 
-A [custom location](/azure/azure-arc/kubernetes/conceptual-custom-locations) must be enabled for Nexus AKS clusters so that these clusters can be used as target locations for deploying Azure services instances. 
-Refer to  (link) to learn how to enable a customer location.  
-
-> [!IMPORTANT]
-> A custom location must to be created in a resource group where NAKS cluster is created. 
-
-Enter the following Azure CLI commands to set a custom location. Replace the connectedClusterID and clusterExtensionID variables with the names noted when you enabled  the Network Function Operator extension. 
-
-```azurecli
-az customlocation create -n <CUSTOM-LOCATION-NAME> \ 
--g <NAKS-RESOURCE-GRUP> \ 
--l eastus \ 
---namespace azurehybridnetwork \ 
---host-resource-id <CONNECTED-CLUSTER-ID> \ 
---cluster-extension-ids <CLUSTER-EXTENSION-ID>
-```
+- **Azure Key Vault** -  Provides a secure and centralized store for managing encryption keys and secrets for Azure Operator 5G Core across Azure and on-premises environments. 
 
 ## Related content
 

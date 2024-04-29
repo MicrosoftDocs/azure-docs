@@ -21,6 +21,14 @@ Dapr is incrementally adoptable. You can use any of the API building blocks as n
 
 ## Capabilities and features
 
+[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
+- Downloading Dapr tooling
+- Manually installing and managing the Dapr runtime on your AKS cluster
+
+[You can install, deploy, and configure the Dapr extension on your cluster using either the Azure CLI or a Bicep template.](./dapr.md) 
+
+Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
+
 Dapr provides the following set of capabilities to help with your microservice development on AKS:
 
 - Easy provisioning of Dapr on AKS through [cluster extensions][cluster-extensions].
@@ -198,6 +206,7 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-quickstart]: ./quickstart-dapr.md
 [dapr-migration]: ./dapr-migration.md
 [aks-msi]: ./use-managed-identity.md
+[dapr-configuration-options]: ./dapr-settings.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
