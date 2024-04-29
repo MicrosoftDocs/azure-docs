@@ -494,7 +494,7 @@ Currently there are three action rules related to schedules and you can configur
 
 ## Cost considerations
 
-- Schedules are billed based on the number of schedules each schedule will create a logic apps host azure machine learning subs on behalf (HOBO) of the user. 
+- Schedules are billed based on the number of schedules, each schedule will create a logic apps host azure machine learning subs on behalf (HOBO) of the user. 
 - The cost of logic apps will change back to the user's azure subscription, and you can find costs of HOBO resources are billed using the same meter emitted by the original RP. They are shown under the host resource (the workspace).
 
 ## Frequently asked questions
