@@ -20,6 +20,10 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 
 :::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
+>[!Note]
+> Azure Monitor Agent uses a TCP port to receive messages sent by rsyslog or syslog-ng, however, in case SELinux is enabled and we aren't able to use semanage to add rules for the TCP port, we will use Unix sockets.
+
+
 The following facilities are supported with the Syslog collector:
 * None
 * Kern
