@@ -1,12 +1,13 @@
 ---
 title: Audit logging
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Flexible Server.
+author: GennadNY
+ms.author: gennadyk
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: gennadyk
-author: GennadNY
-ms.date: 01/23/2024
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Flexible Server
