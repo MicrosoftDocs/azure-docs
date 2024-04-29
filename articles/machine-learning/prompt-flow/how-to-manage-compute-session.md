@@ -283,7 +283,7 @@ You can also access flows and running on the compute under the **Active flows an
 
 - One single user can have multiple compute resources (serverless or compute instance). Because of different needs, a single user can have multiple compute resources. For example, one user can have multiple compute resources with different VM size or different user-assigned managed identity.
 - One compute resource can only be used by single user. A compute resource is used as private development box of a single user.  Multiple users can't share the same compute resources. 
-- One compute resource can host multiple compute sessions. Compute session is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple compute sessions from same user. 
+- One compute resource can host multiple compute sessions. A compute session is a container running on an underlying compute resource.  For example, prompt flow authoring doesn't need too much compute resources, so a single compute resource can host multiple compute sessions from the same user. 
 - One compute session only belongs to single compute resource in same time. But you can delete or stop compute session and reallocate it to other compute resource.
 - One flow only have one compute session, as we expect each flow is self contained which defined the base image and required python package in flow folder. 
 
