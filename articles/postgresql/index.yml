@@ -104,7 +104,7 @@ landingContent:
             url: concepts-business-continuity.md
           - text: High availability
             url: concepts-high-availability.md
-          - text: Backup and restore
+          - text: Back up and restore
             url: flexible-server/concepts-backup-restore.md
       - linkListType: how-to-guide
         links:
