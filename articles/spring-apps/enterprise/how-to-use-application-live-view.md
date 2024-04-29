@@ -279,7 +279,6 @@ Use the following steps to configure the deployment on Azure portal:
 
 :::image type="content" source="media/how-to-use-application-live-view/app-configuration-save.png" alt-text="Screenshot of the save for app configurations for a service instance." lightbox="media/how-to-use-application-live-view/app-configuration-save.png":::
 
-Please note that this configuration can be set to an app or a deployment. But when you configure it to the app, the real place it takes effect is on the current active deployment. So if you set it on the app, and create another deployment, the configuration won't apply to that deployment automatically.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -296,6 +295,9 @@ az spring app deploy \
 ```
 
 ---
+
+> [!NOTE]
+> Please note that this configuration can be set to an app or a deployment. But when you configure it to the app, the real place it takes effect is on the current active deployment. So if you set it on the app, and create another deployment, the configuration won't apply to that deployment automatically.
 
 
 ## Use Application Live View in VS Code
