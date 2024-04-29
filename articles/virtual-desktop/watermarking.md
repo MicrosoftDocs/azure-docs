@@ -77,7 +77,7 @@ To enable watermarking using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Enable watermarking** to **Enabled**.
 
-   :::image type="content" source="media/watermarking/watermarking-intune-settings-catalog.png" alt-text="A screenshot of the available settings for watermarking in Intune." lightbox="media/administrative-template/watermarking-intune-settings-catalog.png":::
+   :::image type="content" source="media/watermarking/watermarking-intune-settings-catalog.png" alt-text="A screenshot of the available settings for watermarking in Intune." lightbox="media/watermarking/watermarking-intune-settings-catalog.png":::
 
 1. You can configure the following options:
 
@@ -114,7 +114,7 @@ To enable watermarking using Group Policy:
 
 1. Open the policy setting **Enable watermarking** and set it to **Enabled**.
 
-   :::image type="content" source="media/watermarking/watermarking-group-policy.png" alt-text="A screenshot of the available settings for watermarking in Group Policy." lightbox="media/administrative-template/watermarking-group-policy.png":::
+   :::image type="content" source="media/watermarking/watermarking-group-policy.png" alt-text="A screenshot of the available settings for watermarking in Group Policy." lightbox="media/watermarking/watermarking-group-policy.png":::
 
 1. You can configure the following options:
 
