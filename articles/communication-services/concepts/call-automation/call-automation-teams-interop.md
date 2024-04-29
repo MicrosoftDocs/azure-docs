@@ -21,16 +21,16 @@ Azure Communication Services Call Automation provides developers the ability to 
 Developers can use Call Automation APIs to add Teams users to their calling workflows and customer interactions, helping you deliver advanced customer service solutions​ with easy-to-use REST APIs and SDKs. This interoperability is offered over VoIP to reduce telephony infrastructure overhead. Developers can add Teams users to Azure Communication Services calls using the user's Entra object ID (OID).  
 
 ## Use-cases
-1. Streamline customer service operations: Enable customer service agents to manage both internal and external customer facing communications through Teams app, by connecting your CCaaS solution to Microsoft Teams. The simplified integration model reeduces setup time for both CCaaS and Teams tenant. Each new tenant will be able to use this setup in a few minutes after Microsoft Teams admin grants necessary permissions to the Azure Communication Services resource.
+1. Streamline customer service operations: Enable customer service agents to manage both internal and external customer facing communications through Teams app, by connecting your CCaaS solution to Microsoft Teams. The simplified integration model reduces setup time for both CCaaS and Teams tenant. Each new tenant will be able to use this setup in a few minutes after Microsoft Teams admin grants necessary permissions to the Azure Communication Services resource.
 1. Expert Consultation: Businesses can invite subject matter experts into their customer service workflows for expedient issue resolution, and to improve their first call resolution rate. 
 
 ## Scenario Showcase – Streamline customer service operations
-Lets take the example of Contoso Airlines, who uses Teams as their UCaaS solution. for their customer service operations, they want to use AI powered virtual agents to triage and resolve incoming customer calls and hand-off complex issues to human agents (On Microsoft Teams). The below dataflow diagram depicts how this scenario can be achieved using Azure Communication Services.  
+Lets take the example of Contoso Airlines, who uses Teams as their UCaaS solution. For their customer service operations, they want to use AI powered virtual agents to triage and resolve incoming customer calls and hand-off complex issues to human agents (On Microsoft Teams). The below dataflow diagram depicts how this scenario can be achieved using Azure Communication Services.  
 
 [ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png)
 As previously mentioned, Call automation API enables you to build programmable calling workflows. In this case, Contoso has developed a service that uses Call Automation API to handle and orchestrate customer calls.  
 1. Customer calls Contoso's helpline number.
-2. The incoming call is published to Contoso's service which uses Call Automation API to answer the call.
+2. The incoming call is published to Contoso's service, which uses Call Automation API to answer the call.
 3. The service connects the customer to virtual agent/bot to triage the call, using IVR or natural language based voice prompts.
 4. When the bot requests for handing off the call to a human agent for further assistance,  Contoso's service identifies an available agent (presence via Graph APIs) and tries to add them to the call.
 5. The Teams user receives the incoming call notification. They accept and join the call. 
@@ -40,7 +40,7 @@ Now, lets look at the scenario where Contoso is already using a CCaaS provider f
 
 1. Customer is connected to contact center solution in an ongoing call. The customer might be waiting in queue or interacting with a virtual agent/bot. Contact center solution identifies an available agent on Teams (presence via Graph APIs) to connect to this call. 
 1. Contact Center provider has implemented a web service, using Azure Communication Services Call Automation, that requests this Teams user to be added to the call. 
-3. Since customer call is handled by contact center provider, they will need to configure a SBC with Azure Communication Services Direct Routing in order to route/connect calls to Microsoft. With this model, only the contact center provider needs to have a SBC setup that can handle connections to multiple Teams tenants, making it easy for developers to implement per-region multi-tenant trunks that maximize value. Contoso doesnt have to setup Teams Direct Routing for each tenant, thus reducing the telephony overhead and Contoso's onboarding time to contact center provider. 
+3. Since customer call is handled by contact center provider, they need to configure a SBC with Azure Communication Services Direct Routing in order to route/connect calls to Microsoft. With this model, only the contact center provider needs to have a SBC setup. This SBC can handle connections to multiple Teams tenants, making it easy for developers to implement per-region multitenant trunks that maximize value. Contoso doesn't have to set up Teams Direct Routing for each tenant, thus reducing the telephony overhead and Contoso's onboarding time to contact center provider. 
 1. With Teams interop built into Call Automation, Azure Communication Services then uses the Teams user’s ObjectId to add them to the call. The Teams user receives the incoming call notification. They accept and join the call. 
 
 
@@ -56,7 +56,7 @@ The following list presents the set of features that are currently available in 
 | Mid-call scenarios    | Add one or more endpoints to an existing call with a Microsoft Teams user     | ✔️    | 
 |                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | ✔️    |
 |                       | Play Audio from an audio file or text prompt (text-to-speech)   | ✔️    |
-|                       | Recognize user input through DTMF or ovice (speech-to-text)  | ❌    | 
+|                       | Recognize user input through DTMF or voice (speech-to-text)  | ❌    | 
 |                       | Remove one or more endpoints from an existing call| ✔️    | 
 |                       | Blind Transfer a 1:1 call to another endpoint     | ✔️    |
 |                       | Hang up a call (remove the call leg)              | ✔️    |
