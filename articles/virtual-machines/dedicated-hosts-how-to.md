@@ -732,7 +732,7 @@ $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 
 ## Redeploy a host
 
-Redeploying a host will move the host and all associated VMs to a different node of the same SKU. None of the host parameters would change except for the ‘Host asset ID’, which corresponds to the underlying Node Id. During redeploy operation host's provisioning state will change from 'Provisioning succeeded' to 'Updating', once the redeploy operation is complete the provisioning state will revert to ''Provisioning succeeded'.
+If a VM or the underlying host remains unresponsive after following all the potential troubleshooting steps users can trigger service healing of the host and not wait for the platform to initiate the repair. Redeploying a host will move the host and all associated VMs to a different node of the same SKU. None of the host parameters would change except for the ‘Host asset ID’, which corresponds to the underlying Node Id.
 
 > [!WARNING]
 > Redeploy operation involves service healing hence would result in loss of any non-persistent data such as data stored on ephemeral disks. Save your work before redeploying.
@@ -755,7 +755,6 @@ az vm host redeploy \
  --host-group myHostGroup \
  --name myDedicatedHost
 ```
-
 
 ---
 
