@@ -314,17 +314,33 @@ To find your Microsoft Entra tenant ID, either run the PowerShell command named 
 
 1. In the [Azure portal](https://portal.azure.com), open your Microsoft Entra tenant. These steps use **Fabrikam** as the example tenant.
 
-1. On the Microsoft Entra tenant menu, under **Manage**, select **Properties**.
+1. On the Microsoft Entra tenant menu, select **Overview**.
 
 1. Copy and save your tenant ID for later use, for example:
 
-   ![Screenshot showing your Microsoft Entra ID "Properties" pane with tenant ID's copy button selected.](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
+   :::image type="content" source="media/logic-apps-azure-functions/tenant-id.png" alt-text="Screenshot shows Microsoft Entra ID Properties page with tenant ID's copy button selected." lightbox="media/logic-apps-azure-functions/tenant-id.png":::
+
+<a name="find-enterprise-app-application-id"></a>
+
+### Find application ID for Enterprise application
+
+If you're using an [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal) as the identity provider for your for authentication, find, copy, and use the **Application ID** for your Enterprise application.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your Enterprise application.
+
+1. On the application menu, select **Overview**.
+
+1. Under **Properties**, find and copy the **Application ID** to use later in your Azure Functions action's **Audience** property for your workflow.
+
+   :::image type="content" source="media/logic-apps-azure-functions/enterprise-application-id.png" alt-text="{alt-text}" lightbox="media/logic-apps-azure-functions/enterprise-application-id.png":::
+
+1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity) by using the built-in Azure Functions action.
 
 <a name="create-app-registration"></a>
 
 ### Create app registration for your function app (Consumption workflows only)
 
-After you find the object ID or client ID for your Consumption logic app's managed identity and tenant ID for your Microsoft Entra ID, you can set up your function app to use Microsoft Entra authentication by creating an app registration.
+After you find the object ID (system-assigned) or client ID (user-assigned) for your Consumption logic app's managed identity and the tenant ID for your Microsoft Entra ID, you can set up your function app to use Microsoft Entra authentication by creating an app registration.
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 
@@ -340,13 +356,12 @@ After you find the object ID or client ID for your Consumption logic app's manag
    |----------|----------|-------|-------------|
    | **Application (client) ID** | Yes | <*object-or-client-ID*> | The unique identifier to use for this app registration. For this scenario, use your managed identity's object ID (system-assigned) or client ID (user-assigned). |
    | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
-   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Azure-AD-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Azure-AD-tenant-ID*>** |
+   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Entra-tenant-ID*>** |
    | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
-   |||||
 
    At this point, your version looks similar to this example:
 
-   ![Screenshot showing the app registration for your logic app and identity provider for your function app.](./media/logic-apps-azure-functions/azure-active-directory-authentication-settings.png)
+   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-authentication-settings.png" alt-text="Screenshot shows app registration for your logic app and identity provider for your function app." lightbox="media/logic-apps-azure-functions/tenant-authentication-settings.png":::
 
    If you're setting up your function app with an identity provider for the first time, the App Service authentication settings section also appears. These options determine how your function app responds to unauthenticated requests. The default selection redirects all requests to log in with the new identity provider. You can customize this behavior now or adjust these settings later from the main **Authentication** page by selecting **Edit** next to **Authentication settings**. To learn more about these options, review [Authentication flow - Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md#authentication-flow).
 
@@ -354,9 +369,11 @@ After you find the object ID or client ID for your Consumption logic app's manag
 
 1. To finish creating the app registration, select **Add**.
 
-   When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. Your function app can now use this app registration for authentication.
+   When you're done, the **Authentication** page now lists the identity provider and application (client) ID for the app registration. Your function app can now use this app registration for authentication.
 
-1. Copy the app ID (client ID) for your function to use in the **Audience** property later in your workflow.
+1. Copy the **Application (client) ID** value to use later in the Azure Functions action's **Audience** property for your workflow.
+
+   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-application-id.png" alt-text="Screenshot shows new identity provider for function app" lightbox="media/logic-apps-azure-functions/identity-provider-application-id.png":::
 
 1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity) by using the built-in Azure Functions action.
 
