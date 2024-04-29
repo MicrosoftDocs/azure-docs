@@ -15,6 +15,7 @@ ms.custom: public_preview
 # Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
 Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions on the call. This programmability enables you to build intelligent calling workflows that can adapt to customer needs in real time and be fully customized for your business logic. You can learn more about the API [here](./call-automation.md). This document describes the interoperability Call Automation supports with Microsoft Teams.
 
@@ -27,7 +28,7 @@ Developers can use Call Automation APIs to add Teams users to their calling work
 ## Scenario Showcase – Streamline customer service operations
 Lets take the example of Contoso Airlines, who uses Teams as their UCaaS solution. For their customer service operations, they want to use AI powered virtual agents to triage and resolve incoming customer calls and hand-off complex issues to human agents (On Microsoft Teams). The below dataflow diagram depicts how this scenario can be achieved using Azure Communication Services.  
 
-[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png)
+[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png#lightbox)
 As previously mentioned, Call automation API enables you to build programmable calling workflows. In this case, Contoso has developed a service that uses Call Automation API to handle and orchestrate customer calls.  
 1. Customer calls Contoso's helpline number.
 2. The incoming call is published to Contoso's service, which uses Call Automation API to answer the call.
@@ -36,7 +37,7 @@ As previously mentioned, Call automation API enables you to build programmable c
 5. The Teams user receives the incoming call notification. They accept and join the call. 
 
 Now, lets look at the scenario where Contoso is already using a CCaaS provider for their customer service operations. The below diagram depicts how CCaaS can use Call automation to connect Contoso's Teams tenant to their CCaaS solution. 
-[ ![Diagram of calling flow for a contact center provider with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop-ccaas.png)
+[ ![Diagram of calling flow for a contact center provider with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop-ccaas.png#lightbox)
 
 1. Customer is connected to contact center solution in an ongoing call. The customer might be waiting in queue or interacting with a virtual agent/bot. Contact center solution identifies an available agent on Teams (presence via Graph APIs) to connect to this call. 
 1. Contact Center provider has implemented a web service, using Azure Communication Services Call Automation, that requests this Teams user to be added to the call. 
