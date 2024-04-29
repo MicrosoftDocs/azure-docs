@@ -27,7 +27,6 @@ Configure Dapr for your container apps environment with a [Dapr-enabled containe
 
 ## Supported Dapr APIs and components
 
-
 ### Managed APIs
 
 Azure Container Apps offers managed generally available and preview versions of Dapr APIs (building blocks) marked _stable_ in the open source project. 
@@ -50,29 +49,8 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
 
-### Managed versus standard components
 
-In Azure Container Apps, a subset of Dapr components is supported. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. 
-
-- [Managed components:](#managed-components) Fully managed, GA components that receive immediate investigation in critical (security or serious regression) scenarios. Managed components are recommended for production use.
-- [Standard components:](#standard-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
-
-#### Managed components
-
-| API | Component | Type |
-| --- | --------- | ------ |
-| State management | Azure Blob Storage v1<br>Azure Table Storage<br>Microsoft SQL Server | `state.azure.blobstorage`<br>`state.azure.tablestorage`<br>`state.sqlserver` | 
-| Publish & subscribe | Azure Service Bus Queues<br>Azure Service Bus Topics<br>Azure Event Hubs | `pubsub.azure.servicebus.queues`<br>`pubsub.azure.servicebus.topics`<br>`pubsub.azure.eventhubs` |
-| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs` |
-
-#### Standard components
-
-| API | Component | Type |
-| --- | --------- | ------ |
-| State management | Azure CosmosDB<br>PostgreSQL<br>MySQL & MariaDB<br>Redis | `state.azure.cosmosdb`<br>`state.postgresql`<br>`state.mysql`<br>`state.redis` | 
-| Publish & subscribe | Apache Kafka<br>Redis Streams | `pubsub.kafka`<br>`pubsub.redis` |
-| Binding | Azure Event Grid<br>Azure CosmosDB<br>Apache Kafka<br>PostgreSQL<br>Redis | `bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb`<br>`bindings.kafka`<br>`bindings.postgresql`<br>`bindings.redis` |
-| Configuration | PostgreSQL<br>Redis | `bindings.postgresql`<br>`bindings.redis` |
+[!INCLUDE [component-support](../../includes/dapr-in-azure/dapr-support-policy.md)]
 
 ## Limitations
 
