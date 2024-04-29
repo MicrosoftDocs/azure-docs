@@ -37,7 +37,7 @@ Once your OPC UA data has been processed and enriched in the cloud, you'll have 
 
 ## Create a new dataset in the lakehouse
 
-This section prepares your lakehouse data to be a source for Power BI. You'll create a new dataset in your lakehouse that contains the contextualized telemetry table you created in the [previous quickstart](quickstart-upload-telemetry-to-cloud.md).
+This section prepares your lakehouse data to be a source for Power BI. You'll create a new dataset in your lakehouse that contains the telemetry table you created in the [previous quickstart](quickstart-upload-telemetry-to-cloud.md).
 
 1. In the lakehouse menu, select **New semantic model**.
 
@@ -50,20 +50,22 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     >:::image type="content" source="media/quickstart-get-insights/new-semantic-model-workaround-2.png" alt-text="Screenshot of a Fabric lakehouse showing the Add to default semantic model option.":::
     >Skip the next step.
 
-1. Enter a recognizable name for your dataset such as *aiomqdestination*, select *OPCUA* (the contextualized telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
+1. Enter a recognizable name for your dataset such as *aiomqdestination*, select *OPCUA* (the telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
 
 ## Configure Power BI report
 
-In this section, you'll import a Power BI report template and configure it to pull data from your data sources. 
+In this section, you'll import a Power BI report template and configure it to pull data from your data sources.
 
 These steps are for Power BI Desktop, so open that application now.
 
 ### Import template and load Asset Registry data
 
-1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/insightsTemplate.pbit).
+1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/raw/main/samples/dashboard/insightsTemplate.pbit).
 1. Open a new instance of Power BI Desktop. Close any startup screens and open a new blank report.
 1. Select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
-1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you created your assets and select **Load**. This imports a template that uses a custom [Power Query M](/powerquery-m/) script to display visuals of the sample asset data.
+1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you created your assets and select **Load**. This imports a template that uses a custom [Power Query M](/powerquery-m/) script to display visuals of the sample asset data. You may be prompted to sign in to your Azure account to access the data.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-import-template.png" alt-text="Screenshot of Power BI showing the Import Power BI template dialog.":::
 
     >[!NOTE]
     >As the file imports, you see an error for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
@@ -73,11 +75,11 @@ These steps are for Power BI Desktop, so open that application now.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-initial-report.png" alt-text="Screenshot of Power BI Desktop showing a blank report." lightbox="media/quickstart-get-insights/power-bi-initial-report.png":::
 
-1. Optional: To view the script that imports the asset data, right-select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
+1. Optional: To view the script that imports the asset data from the Azure Device Registry, right-select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button." lightbox="media/quickstart-get-insights/power-bi-edit-query.png":::
     
-    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
+    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**. These queries retrieve the custom property values from the thermostat asset that you created in a previous quickstart. These custom property values provide contextual information such as the batch number and asset location.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
     
@@ -94,7 +96,7 @@ At this point, the visuals in the Power BI report display errors. That's because
 
     This displays a list of data source options. Select the dataset you created in the previous section and select **Create**.
 
-1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* contextualized telemetry table. Select **Submit**.
+1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* telemetry table. Select **Submit**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-connect-to-your-data.png" alt-text="Screenshot of Power BI showing the Connect to your data options.":::
 
