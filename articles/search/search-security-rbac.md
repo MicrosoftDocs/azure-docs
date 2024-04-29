@@ -195,7 +195,7 @@ Make sure that you [register your client application with Microsoft Entra ID](se
 
    + Search Service Contributors can view and create any object, but can't load documents or query an index. To verify permissions, [create a search index](search-how-to-create-search-index.md#create-an-index).
 
-   + Search Index Data Contributors can load and query documents. To verify permissions, run the [Import data wizard](search-get-started-portal.md).
+   + Search Index Data Contributors can load and query documents. To verify permissions, use [Search explorer](search-explorer.md) to query documents. There's no load documents option in the portal outside of Import data wizard. Because the wizard also creates objects, you would need Search Service Contributor, plus Search Index Data Contributor.
 
    + Search Index Data Readers can query the index. To verify permissions, use [Search explorer](search-explorer.md). You should be able to send queries and view results, but you shouldn't be able to view the index definition.
 
