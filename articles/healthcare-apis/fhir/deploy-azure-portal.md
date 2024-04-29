@@ -15,7 +15,7 @@ The Azure portal provides a web interface with guided workflows, making it an ef
 
 ## Prerequisites
 
-- Verify you have an Azure subscription and permissions to create resource groups and deploy resources.
+- Verify you have an Azure subscription and permissions for creating resource groups and deploy resources.
 
 - Deploy a workspace for Azure Health Data Services. For steps, see [Deploy workspace in the Azure portal](../healthcare-apis-quickstart.md).
 
@@ -27,16 +27,16 @@ The Azure portal provides a web interface with guided workflows, making it an ef
               
    - **Basics tab**: Give the FHIR service a friendly and unique name. Select the **FHIR version** (**STU3** or **R4**), and then choose **Next: Additional settings**.
 
-     :::image type="content" source="media/fhir-service/create-ahds-fhir-service.png" alt-text="Screenshot showing how to create a FHIR service from the Basics tab." lightbox="media/fhir-service/create-ahds-fhir-service.png":::
+     :::image type="content" source="media/fhir-service/create-ahds-fhir-service-sml.png" alt-text="Screenshot showing how to create a FHIR service from the Basics tab." lightbox="media/fhir-service/create-ahds-fhir-service-lrg.png":::
 
-   - **Additional settings tab** (optional): This tab allows you to:
+   - **Additional settings tab (optional)**: This tab allows you to:
      - **View authentication settings**: The default configuration for the FHIR service is **Use Azure RBAC for assigning data plane roles**. When configured in this mode, the authority for the FHIR service is set to the Microsoft Entra tenant for the subscription.
 
-     - **Integration with non-Microsoft Entra ID (optional)**: Use this option when you need to configure up to two additional identity providers other than Micrsoft Entra ID to authenticate and access FHIR resources with SMART on FHIR scopes.
+     - **Integration with non-Microsoft Entra ID (optional)**: Use this option when you need to configure up to two additional identity providers other than Microsoft Entra ID to authenticate and access FHIR resources with SMART on FHIR scopes.
     
-     - **Setting versioning policy**: The versioning policy controls the history setting for FHIR service at the system level or individual resource type level. For more information, see [FHIR versioning policy and history management](fhir-versioning-policy-and-history-management.md). Choose **Next: Security**.
+     - **Setting versioning policy (optional)**: The versioning policy controls the history setting for FHIR service at the system level or individual resource type level. For more information, see [FHIR versioning policy and history management](fhir-versioning-policy-and-history-management.md). Choose **Next: Security**.
 
-   - On the **Security settings** tab, review the fields. 
+   - On the **Security settings tab (optional)**, review the fields. 
 
        By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of data. Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or use the Azure Key Vault APIs to generate keys. For more information, see [Configure customer-managed keys for the FHIR service](configure-customer-managed-keys.md). Choose **Next: Tags**. 
 
@@ -48,7 +48,7 @@ The Azure portal provides a web interface with guided workflows, making it an ef
 
    The deployment process might take several minutes. When the deployment completes, you see a confirmation message.
 
-   :::image type="content" source="media/fhir-service/deployment-success-fhir-service.png" alt-text="Screenshot showing successful deployment." lightbox="media/fhir-service/deployment-success-fhir-service.png":::
+   :::image type="content" source="media/fhir-service/deployment-success-fhir-service-sml.png" alt-text="Screenshot showing successful deployment." lightbox="media/fhir-service/deployment-success-fhir-service-sml.png":::
 
 1. Validate the deployment. Fetch the capability statement from your new FHIR service. Fetch a capability statement by browsing to `https://<WORKSPACE-NAME>-<FHIR-SERVICE-NAME>.fhir.azurehealthcareapis.com/metadata`.
 
