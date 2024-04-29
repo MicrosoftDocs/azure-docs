@@ -31,7 +31,7 @@ The ErGw1Az, ErGw2Az, ErGw3Az, and ErGwScale (Preview) SKUs, also known as Az-En
 
 The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as nonavailability zone enabled SKUs are historically associated with Basic IPs, don't support the distribution of the gateway across multiple availability zones.  
 
-For enhanced reliability, it's recommended to use an Availability-Zone Enabled virtual network gateway SKU. These SKUs support a zone-redundant setup and are, by default, associated with Standard IPs. This setup ensures that even if one zone experiences issues, the virtual network gateway infrastructure remains operational due to the distribution across multiple zones. For a deeper understanding of zone redundant gateways, please refer to [Availability Zone deployments.](../reliability/availability-zones-overview.md)
+For enhanced reliability, it's recommended to use an Availability-Zone Enabled virtual network gateway SKU. These SKUs support a zone-redundant setup and are, by default, associated with Standard IPs. This setup ensures that even if one zone experiences an issue, the virtual network gateway infrastructure remains operational due to the distribution across multiple zones. For a deeper understanding of zone redundant gateways, please refer to [Availability Zone deployments.](../reliability/availability-zones-overview.md)
 
 ## Gateway migration experience
 
@@ -52,7 +52,7 @@ The guided gateway migration experience supports:
 * Non-Az-enabled SKU on Basic IP to Non-az enabled SKU on Standard IP.
 * Non-Az-enabled SKU to Az-enabled SKU.
 
-It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability. TO learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
+It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability. To learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 ### Limitations
 
