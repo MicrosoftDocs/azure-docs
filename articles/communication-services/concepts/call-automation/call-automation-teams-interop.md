@@ -76,7 +76,7 @@ The following list presents the set of features that are currently available in 
 | Microsoft Teams Android | ❌ |
 | Custom app built using Azure Communications Services, signed in with Microsoft 365 Identity |✔️ |
 
-Learn more about the experience for Teams users joining Azure Communication Services calls [here](./../interop/teams-interop-group-calls.md)
+Learn more about the experience for Teams users joining Azure Communication Services calls [here](./../interop/teams-interop-group-calls.md).
 
 ## Next steps
 
