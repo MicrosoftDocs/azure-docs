@@ -253,10 +253,6 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
-   + The SDK requires the scope to be `https://search.azure.com/.default`.
-
-   + The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for `https://search.azure.com/.default`.
-
 1. Here's an example of a client connection using `DefaultAzureCredential()`.
 
     ```csharp
