@@ -9,7 +9,7 @@ ms.author: rifox
 
 This guide describes the various events or properties changes your app can subscribe to. Subscribing to those events allows your app to be informed about state change in the calling SDK and react accordingly.
 
-This guide assumes you went through the QuickStart or have an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
+This guide assumes you went through the QuickStart or that you implemented an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 Each object in the JavaScript calling SDK has `properties` and `collections`. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
@@ -56,7 +56,7 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 
 **When does it occur ?**
 
-The `incomingCall` event is fires when an incoming is comming.
+The `incomingCall` event is fires when an incoming is coming.
 
 **How should your application react to the event ?**
 
@@ -65,10 +65,10 @@ Your application should notify the user of the incoming call. The notification p
 ### Event Name: `callsUpdated`
 
 **When does it occur ?**
-The callsUpdated updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives or terminate call.
+The callsUpdated updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
 
 **How should your application react to the event ?**
-Your application should updates its UI based on the number of active calls for the CallAgent instance.
+Your application should update its UI based on the number of active calls for the CallAgent instance.
 
 ### Event Name: `connectionStateChanged`
 
@@ -76,7 +76,7 @@ Your application should updates its UI based on the number of active calls for t
 The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
 
 **How should your application react to the event ?**
-Your application should updates its UI based on the new state. The possible connection state values are `Connected` and `Disconnected`
+Your application should update its UI based on the new state. The possible connection state values are `Connected` and `Disconnected`
 
 <!---------- Call object ---------->
 ### Events on the `Call` object
@@ -85,7 +85,7 @@ Your application should updates its UI based on the new state. The possible conn
 
 **When does it occur ?**
 
-The `stateChanged`  events is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
+The `stateChanged`  event is fired when the call state changes. For example, when a call goes from `connected` to `disconnected`.
 
 **How should your application react to the event ?**
 
@@ -95,7 +95,7 @@ Your application should update its UI accordingly. Disabling or enabling appropr
 
 **When does it occur ?**
 
-The `stateChanged`  event is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
+The `stateChanged`  event is fired when the call state changes. For example, when a call goes from `connected` to `disconnected`.
 
 **How might your application react to the event ?**
 
@@ -105,11 +105,11 @@ Your application should update its UI accordingly. Disabling or enabling appropr
 
 **When does it occur ?**
 
-The `idChanged`  event is fired when the id of a call changes. The id of a call changes when the call moves from `connecting` state to `connected`. Once the call is connected the ID of the call remains identitcal.
+The `idChanged`  event is fired when the ID of a call changes. The ID of a call changes when the call moves from `connecting` state to `connected`. Once the call is connected, the ID of the call remains identical.
 
 **How might your application react to the event ?**
 
-Your application should save the new call ID but it can also be retreived from the call object later when needed.
+Your application should save the new call ID but it can also be retrieved from the call object later when needed.
 
 #### Event: `isMutedChanged`
 
@@ -125,7 +125,7 @@ Your application should update the mute / unmute button to the proper state.
 
 **When does it occur ?**
 
-The `isScreenSharingOnChanged` event is fired when screensharing for the local user is enabled or disabled.
+The `isScreenSharingOnChanged` event is fired when screen sharing for the local user is enabled or disabled.
 
 **How might your application react to the event ?**
 
@@ -146,7 +146,7 @@ Your application should show a preview of the local video and enable or disable 
 
 **When does it occur ?**
 
-Your application should subrscibe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
+Your application should subscribe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
 
 **How might your application react to the event ?**
 
@@ -156,7 +156,7 @@ Your application should show a preview of the local video and enable or disable 
 
 **When does it occur ?**
 
-The `localVideoStreamsUpdated` event is fired when the list of remote particpants changes. These changes happen when particpants join or leave the call
+The `localVideoStreamsUpdated` event is fired when the list of remote participants changes. These changes happen when participants join or leave the call.
 
 **How might your application react to the event ?**
 
@@ -166,7 +166,7 @@ Your application should show previews for the `LocalVideoStream` added.
 
 **When does it occur ?**
 
-The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote particpants add or remove audio streams to the call.
+The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote participants add or remove audio streams to the call.
 
 **How might your application react to the event ?**
 
@@ -180,13 +180,13 @@ The `totalParticipantCountChanged` fires when the number of totalParticipant cha
 
 **How might your application react to the event ?**
 
-If your application is displaying a participant counter,  your application can update it's  participant counter when the event is received.
+If your application is displaying a participant counter, your application can update its participant counter when the event is received.
 
 #### Event: `roleChanged`
 
 **When does it occur ?**
 
-The `roleChanged` participant fires when the localParticipant roles changes in the call. An example would be when the local particpant become presenter `ACSCallParticipantRolePresenter` in a call.
+The `roleChanged` participant fires when the localParticipant roles changes in the call. An example would be when the local participant become presenter `ACSCallParticipantRolePresenter` in a call.
 
 **How might your application react to the event ?**
 Your application should enable or disabled button base on the user new role.
@@ -199,10 +199,10 @@ Your application should enable or disabled button base on the user new role.
 
 **When does it occur ?**
 
-The `stateChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticpant become presenter `ACSCallParticipantRolePresenter` in a call.
+The `stateChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
 
 **How might your application react to the event ?**
-Your application should updated its UI based on the `RemoteParticipant` new role.
+Your application should update its UI based on the `RemoteParticipant` new role.
 
 #### Event: `isMutedChanged`
 
@@ -212,27 +212,27 @@ The `isMutedChanged` event fires when one of the `RemoteParticipant` mutes or un
 
 **How might your application react to the event ?**
 
-Your application may display an icon near by the view that display the participant.
+Your application may display an icon near by the view that displays the participant.
 
 #### Event: `displayNameChanged`
 
 **When does it occur ?**
 
-The `displayNameChanged` when the name of the `RemoteParticpant` is updated.
+The `displayNameChanged` when the name of the `RemoteParticipant` is updated.
 
 **How might your application react to the event ?**
 
-Your application should update the name of the participant if its being display in the UI.
+Your application should update the name of the participant if it's being displayed in the UI.
 
 #### Event: `roleChanged`
 
 **When does it occur ?**
 
-The `roleChanged` when the role of the `RemoteParticpant` is updated.
+The `roleChanged` when the role of the `RemoteParticipant` is updated.
 
 **How might your application react to the event ?**
 
-Your application should update its UI based on the new role of the particpant.
+Your application should update its UI based on the new role of the participant.
 
 #### Event: `isSpeakingChanged`
 
@@ -248,7 +248,7 @@ Your application UI should give priority to display the `RemotePartipant` who be
 
 **When does it occur ?**
 
-The `videoStreamsUpdated` when a  remote particpant add or remove a VideoStream to/from the call.
+The `videoStreamsUpdated` when a  remote participant add or remove a VideoStream to/from the call.
 
 **How might your application react to the event ?**
 
