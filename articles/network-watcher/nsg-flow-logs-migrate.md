@@ -22,7 +22,7 @@ In this article, you learn how to migrate your existing network security group f
 
 - PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-- Necessary RBAC permissions for subscriptions of the flow logs and Log Analytics workspaces if traffic analytics is enabled for any of the network security group flow logs. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
+- Necessary RBAC permissions for the subscriptions of the flow logs and Log Analytics workspaces (if traffic analytics is enabled for any of the network security group flow logs). For more information, see [Network Watcher permissions](required-rbac-permissions.md).
 
 - Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log).
 
@@ -106,7 +106,7 @@ In this section, you learn how to use the script file that you downloaded in the
     > [!NOTE]
     > Keep the script and analysis report files for reference in case you have any issues with the migration.
     
-1. Check the Azure portal to confirm that the status of network security group flow logs that you migrated became disabled, and virtual network flow logs are created to replace them.
+1. Check the Azure portal to confirm that the status of network security group flow logs that you migrated became disabled. Check also the newly created virtual network flow logs as a result of the migration process.
  
     :::image type="content" source="./media/nsg-flow-logs-migrate/list-flow-logs.png" alt-text="Screenshot that shows the newly created virtual network flow log as a result of migrating from network security group flow log." lightbox="./media/nsg-flow-logs-migrate/list-flow-logs.png":::
 
