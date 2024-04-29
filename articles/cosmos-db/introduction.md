@@ -11,11 +11,12 @@ ms.date: 04/03/2024
 adobe-target: true
 ---
 
-# Database for AI Era
+# Azure Cosmos DB - Database for the AI Era
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
-> "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance." – Satya Nadella, Microsoft chairman and chief executive officer
+> "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance."
+> – Satya Nadella, Microsoft chairman and chief executive officer
 
 Today's applications are required to be highly responsive and always online. They must respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users.
 
