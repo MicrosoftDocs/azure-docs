@@ -24,7 +24,7 @@ author: mrbullwinkle
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../../../ai-studio//how-to/create-projects.md) in Azure AI Studio.
-1. From the Azure AI Studio Home page, select **Build** > **Playground**.
+1. From your project overview, select **Assistants**, located under **Project playground**.
 
     The Assistants playground allows you to explore, prototype, and test AI Assistants without needing to run any code. From this page, you can quickly iterate and experiment with new ideas.
     
