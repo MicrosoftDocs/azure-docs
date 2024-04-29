@@ -21,15 +21,15 @@ This is the replacement for the following preview models:
 ### Differences between OpenAI and Azure OpenAI GPT-4 Turbo GA models
 
 - OpenAI's version of the latest `0409` turbo model supports JSON mode and function calling for all inference requests.
-- Azure OpenAI's version of the latest `turbo-2024-04-09` currently does not support the use of JSON mode and function calling when making inference requests with image (vision) input. Text based input requests do support JSON mode and function calling.
+- Azure OpenAI's version of the latest `turbo-2024-04-09` currently doesn't support the use of JSON mode and function calling when making inference requests with image (vision) input. Text based input requests do support JSON mode and function calling.
 
 ### Differences from gpt-4 vision-preview
 
-- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision are not supported for `gpt-4` `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
+- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision aren't supported for `gpt-4` **Version*:** `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
 
 ### GPT-4 Turbo provisioned managed availability
 
-- `gpt-4` **Version:** `turbo-2024-04-09` is available for both standard and provisioned deployments. Currently the provisioned version of this model does not support image/vision inference requests. Provisioned deployments of the this model only accept text input. Standard model deployments accept both text and image/vision inference requests.
+- `gpt-4` **Version:** `turbo-2024-04-09` is available for both standard and provisioned deployments. Currently the provisioned version of this model **doesn't support image/vision inference requests**. Provisioned deployments of this model only accept text input. Standard model deployments accept both text and image/vision inference requests.
 
 ### Region availability
 
