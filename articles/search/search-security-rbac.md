@@ -419,7 +419,7 @@ These steps create a custom role that augments search query rights to include li
         "roleName": "search index data explorer",
         "description": "",
         "assignableScopes": [
-            "/subscriptions/a5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0/resourceGroups/heidist-free-search-svc/providers/Microsoft.Search/searchServices/demo-search-svc"
+            "/subscriptions/0000000000000000000000000000000/resourceGroups/free-search-svc/providers/Microsoft.Search/searchServices/demo-search-svc"
         ],
         "permissions": [
             {
