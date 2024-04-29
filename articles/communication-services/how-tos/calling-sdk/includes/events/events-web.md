@@ -248,7 +248,7 @@ Your application UI should give priority to display the `RemotePartipant` who be
 
 **When does it occur ?**
 
-The `videoStreamsUpdated` when a  remote participant add or remove a VideoStream to/from the call.
+The `videoStreamsUpdated` when a remote participant adds or remove a VideoStream to/from the call.
 
 **How might your application react to the event ?**
 
