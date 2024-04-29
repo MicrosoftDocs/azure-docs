@@ -152,8 +152,7 @@ queue.saveonshutdown="on"
 target="127.0.0.1" Port="28330" Protocol="tcp")
 ```
 
->[!Note]
->The following configuration is used when you use SELinux and we decide to use Unix sockets.
+The following configuration is used when you use SELinux and we decide to use Unix sockets.
 ```
 $ cat /etc/rsyslog.d/10-azuremonitoragent.conf
 # Azure Monitor Agent configuration: forward logs to azuremonitoragent
@@ -199,8 +198,7 @@ log {
 	flags(flow-control);
 };
 ```
->[!Note]
->The following configuration is used when you use SELinux and we decide to use Unix sockets.
+The following configuration is used when you use SELinux and we decide to use Unix sockets.
 ```
 $ cat /etc/syslog-ng/conf.d/azuremonitoragent.conf 
 # Azure MDSD configuration: syslog forwarding config for mdsd agent options {}; 
