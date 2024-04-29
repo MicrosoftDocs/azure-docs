@@ -25,7 +25,7 @@ In this tutorial, you create a chat application using Azure Web PubSub with the 
 
 1. Open a new Visual Studio Code window.
 
-1. Select <kbd>F1</kbd> to open the command palette.
+1. Press <kbd>F1</kbd> to open the command palette.
 
 1. Enter **Git: Clone** and press enter.
 
@@ -44,7 +44,7 @@ In this tutorial, you create a chat application using Azure Web PubSub with the 
 
 ## Sign in to Azure
 
-1. Select <kbd>F1</kbd> to open the command palette.
+1. Press <kbd>F1</kbd> to open the command palette.
 
 1. Select **Azure: Sign In** and follow the prompts to authenticate.
 
@@ -55,7 +55,7 @@ In this tutorial, you create a chat application using Azure Web PubSub with the 
 The Azure Web PubSub extension for Visual Studio Code enables users to quickly create, manage, and utilize Azure Web PubSub Service and its developer tools such as [Azure Web PubSub Local Tunnel Tool](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool).
 In this scenario, you create a new Azure Web Pubsub Service resource and configure it to host your application. After installing the Web PubSub extension, you can access its features under the Azure control panel in Visual Studio Code.
 
-1. Select <kbd>F1</kbd> to open the command palette and run the **Azure Web PubSub: Create Web PubSub Service** command.
+1. Press <kbd>F1</kbd> to open the command palette and run the **Azure Web PubSub: Create Web PubSub Service** command.
 
 1. Enter the following values as prompted by the extension.
 
@@ -63,7 +63,7 @@ In this scenario, you create a new Azure Web Pubsub Service resource and configu
     |--|--|
     | Select subscription | Select the Azure subscription you want to use. |
     | Select resource group | Select the Azure resource group you want to use. |
-    | Enter a name for the service | Enter *my-wps*. |
+    | Enter a name for the service | Enter `my-wps`. |
     | Select a location | Select an Azure region close to you. |
     | Select a pricing tier | Select a pricing tier you want to use. |
     | Select a unit count | Select a unit count you want to use.|
@@ -75,13 +75,13 @@ In this scenario, you create a new Azure Web Pubsub Service resource and configu
 ## Create a hub setting
 1. Open **Azure** icon in the Activity Bar in the left side of Visual Studio Code. 
 
-    > If your activity bar is hidden, you won't be able to access the extension. Show the Activity Bar by clicking View > Appearance > Show Activity Bar
+    > If your activity bar is hidden, you won't be able to access the extension. Show the Activity Bar by clicking **View > Appearance > Show Activity Bar**
 
-1. In the resource tree, find the Azure Web Pubsub resource **my-wps** you created and click it to expand
+1. In the resource tree, find the Azure Web Pubsub resource `my-wps` you created and click it to expand
 
 1. Right click the item **Hub Settings** and then select **Create Hub Setting**
 
-1. Input *sample_chat* as the hub name and create the hub setting. It doesn't matter whether to create extra event handlers or not. Wait for the progress notification shown as finished
+1. Input `sample_chat` as the hub name and create the hub setting. It doesn't matter whether to create extra event handlers or not. Wait for the progress notification shown as finished
 
 1. Below the item **Hub Settings**, a new subitem *Hub sample_chat* shall appear. Right click on the new item and then choose "Attach Local Tunnel"
 
@@ -96,15 +96,23 @@ In this scenario, you create a new Azure Web Pubsub Service resource and configu
 1. The extension will created a new terminal to run the Local Tunnel Tool and a notification reminds you to open Local Tunnel Portal shows up. Click the button "Yes" or open "http://localhost:4000" in web browser manually to view the portal.
 
 ## Run the server application
-1. Ensure your working directory is `azure-webpubsub/samples/javascript/chatapp/nativeapi`
+1. Ensure working directory is `azure-webpubsub/samples/javascript/chatapp/nativeapi`
 
-1. Run `npm install`
+1. Install Node.js dependencies
 
-1. Open **Azure** icon in the Activity Bar and find the Azure Web PubSub resource **my-wps**. Then right click on the resource item and select **Copy Connection String**. The connection string is copied to your clipboard
+    ```bash
+    npm install
+    ```
 
-1. Run the server application `node server.js "<paste-your-connection-string-here>"`
+1. Open **Azure** icon in the Activity Bar and find the Azure Web PubSub resource `my-wps`. Then right click on the resource item and select **Copy Connection String**. The connection string is copied to your clipboard
 
-1. Open http://localhost:8080/index.html in browser to try your chat application. 
+1. Run the server application with copied connection string
+
+    ```bash
+    node server.js "<connection-string>"
+    ```
+
+1. Open `http://localhost:8080/index.html` in browser to try your chat application. 
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Web PubSub repo](https://github.com/azure/azure-webpubsub/).
