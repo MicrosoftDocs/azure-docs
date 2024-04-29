@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Crowdstrike Falcon Data Replicator V2 (using Azure Functions) connector for Microsoft Sentinel
