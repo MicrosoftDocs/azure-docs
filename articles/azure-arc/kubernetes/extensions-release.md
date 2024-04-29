@@ -135,6 +135,7 @@ Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1
 Changes made for this version:
 
 - The log-level parameters for controllers (including `fluxconfig-agent` and `fluxconfig-controller`) are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
+- Helm chart changes to expose new SSH host key algorithm to connect to Azure DevOps. For more information, see [Azure DevOps SSH-RSA deprecation](tutorial-use-gitops-flux2.md#azure-devops-ssh-rsa-deprecation).
 
 ### 1.8.4 (April 2024)
 
