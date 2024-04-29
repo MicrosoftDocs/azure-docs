@@ -108,7 +108,10 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - VMs requiring vnet encryption
 - Pinned subscription cannot use the feature
 - Only the subscription that created the reservation can use it. 
-- Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature. 
+- Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature.
+- Clouds supported for capacity reservation:
+   - Azure Cloud
+   - Azure for Government
 
 
 ## Pricing and billing 

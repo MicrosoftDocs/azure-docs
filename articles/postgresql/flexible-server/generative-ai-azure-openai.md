@@ -3,12 +3,13 @@ title: Generate vector embeddings with Azure OpenAI in Azure Database for Postgr
 description: Use vector indexes and Azure Open AI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
-ms.date: 04/05/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
