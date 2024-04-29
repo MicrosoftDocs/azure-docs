@@ -209,7 +209,7 @@ Create this YAML file (update the values):
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 name: adls_gen2_credless_example
 type: azure_data_lake_gen2
-description: Credential-less datastore pointing to an Azure Data Lake Storage Gen2.
+description: Credential-less datastore pointing to an Azure Data Lake Storage Gen2 instance.
 account_name: mytestdatalakegen2
 filesystem: my-gen2-container
 ```
@@ -228,7 +228,7 @@ Create this YAML file (update the values):
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 name: adls_gen2_example
 type: azure_data_lake_gen2
-description: Datastore pointing to an Azure Data Lake Storage Gen2.
+description: Datastore pointing to an Azure Data Lake Storage Gen2 instance.
 account_name: mytestdatalakegen2
 filesystem: my-gen2-container
 credentials:
@@ -319,7 +319,7 @@ Create this YAML file (update the values):
 $schema: https://azuremlschemas.azureedge.net/latest/azureFile.schema.json
 name: file_sas_example
 type: azure_file
-description: Datastore pointing to an Azure File Share using SAS token.
+description: Datastore pointing to an Azure File Share using an SAS token.
 account_name: mytestfilestore
 file_share_name: my-share
 credentials:
@@ -383,7 +383,7 @@ Create this YAML file (update the values):
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
 name: alds_gen1_credless_example
 type: azure_data_lake_gen1
-description: Credential-less datastore pointing to an Azure Data Lake Storage Gen1.
+description: Credential-less datastore pointing to an Azure Data Lake Storage Gen1 instance.
 store_name: mytestdatalakegen1
 ```
 
@@ -401,7 +401,7 @@ Create this YAML file (update the values):
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
 name: adls_gen1_example
 type: azure_data_lake_gen1
-description: Datastore pointing to an Azure Data Lake Storage Gen1.
+description: Datastore pointing to an Azure Data Lake Storage Gen1 instance.
 store_name: mytestdatalakegen1
 credentials:
   tenant_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -510,7 +510,7 @@ Create the following YAML file (update the values):
 $schema: http://azureml/sdk-2-0/OneLakeDatastore.json
 name: onelake_example_id
 type: one_lake
-description: Credential-less datastore pointing to an OneLake Lakehouse.
+description: Credential-less datastore pointing to a OneLake lakehouse.
 one_lake_workspace_name: "AzureML_Sample_OneLakeWS"
 endpoint: "msit-onelake.dfs.fabric.microsoft.com"
 artifact:
@@ -532,7 +532,7 @@ Create the following YAML file (update the values):
 $schema: http://azureml/sdk-2-0/OneLakeDatastore.json
 name: onelake_example_id
 type: one_lake
-description: Credential-less datastore pointing to an OneLake Lakehouse.
+description: Credential-less datastore pointing to a OneLake lakehouse.
 one_lake_workspace_name: "AzureML_Sample_OneLakeWS"
 endpoint: "msit-onelake.dfs.fabric.microsoft.com"
 artifact:
