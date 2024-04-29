@@ -197,7 +197,7 @@ Make sure that you [register your client application with Microsoft Entra ID](se
 
    + Search Index Data Readers can use Search Explorer to query the index. You can use any API version to check for access. You should be able to send queries and view results, but you shouldn't be able to view the index definition.
 
-   + Search Index Data Contributors can select **New Index** to create a new index. Saving a new index verifies write access on the service.
+   + Search Service Contributors can select **New Index** to create a new index. Saving a new index verifies write access on the service.
 
 ### [**REST API**](#tab/test-rest)
 
@@ -325,7 +325,7 @@ If you're already a Contributor or Owner of your search service, you can present
    Or by using PowerShell:
 
    ```powershell
-   Get-AzAccessToken -ResourceUrl "https://graph.microsoft.com/"
+   Get-AzAccessToken -ResourceUrl "https://search.azure.com"
    ```
 
 1. In a new text file in Visual Studio Code, paste in these variables:

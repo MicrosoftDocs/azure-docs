@@ -15,7 +15,9 @@ Azure confidential computing supports multiple deployment models. These differen
 
 ## Infrastructure as a Service (IaaS)
 
-Under Infrastructure as a Service (IaaS) deployment model, you can use confidential virtual machines (VMs) in confidential computing. You can use VMs based on [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](confidential-vm-overview.md), [Intel Trust Domain Extensions (TDX)](tdx-confidential-vm-overview.md) or [Intel Software Guard Extensions (SGX) application enclaves](confidential-computing-enclaves.md).
+Under Infrastructure as a Service (IaaS) deployment model, you can use **Confidential VMs** (CVMs) based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation or **Application Enclaves** with [Intel SGX](confidential-computing-enclaves.md) for App isolation. These options provide organizations with differing deployment models depending your trust boundary, or desired ease of deployment.
+
+![Infrastructure-Boundary](https://github.com/MicrosoftDocs/azure-docs-pr/assets/63871188/e32cfafe-23ca-47c8-91e2-b86431add46d)
 
 Infrastructure as a Service (IaaS) is a cloud computing deployment model that grants access to scalable computing resources, such as servers, storage, networking, and virtualization, on demand. By adopting IaaS deployment model, organizations can forego the process of procuring, configuring, and managing their own infrastructure, instead only paying for the resources they utilize. This makes it a cost-effective solution.
 
@@ -57,25 +59,23 @@ You might opt for a confidential container-based approach when:
 
 Both options offer the highest security level for Azure services. 
 
-There are some differences in the security postures of [confidential VMs](#confidential-vms-on-amd-sev-snp) and [confidential containers](#secure-enclaves-on-intel-sgx) as follows.
+There are some differences in the security postures of [confidential VMs](#confidential-vms) and [confidential containers](#application-enclaves) as follows.
 
-### Confidential VMs on AMD SEV-SNP
+### Confidential VMs
 
-**Confidential VMs on AMD SEV-SNP** offer hardware-encrypted protection of the entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the cloud service provider (CSP) manages. You can use this type of confidential VM to prevent the CSP accessing data and code executed within the VM.
+**Confidential VMs** offer hardware-encrypted protection of the entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the cloud service provider (CSP) manages. You can use this type of confidential VM to prevent the CSP accessing data and code executed within the VM.
 
 VM admins or any other app or service running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
 
-AMD SEV-SNP technology provides VM isolation from the hypervisor. The hardware-based memory integrity protection helps prevent malicious hypervisor-based attacks. The SEV-SNP model trusts the AMD Secure Processor and the VM. The model doesn't trust any other hardware and software components. Untrusted components include the BIOS, and the hypervisor on the host system.
+![ConfidentialVM](https://github.com/michamcr/azure-docs-pr/assets/63871188/b64f2d68-56f9-46b1-95bf-9b0f348c367b)
 
-:::image type="content" source="media/confidential-computing-deployment-models/amd-sev-snp-vm.png" alt-text="Diagram of AMD SEV-SNP VM architecture, defining trusted and untrusted components.":::
+### Application Enclaves
 
-### Secure enclaves on Intel SGX
+**Application Enclaves** protects memory spaces inside a VM with hardware-based encryption. The security boundary of application enclaves is more restricted than confidential VMs. For Intel SGX, the security boundary applies to portions of memory within a VM. Guest admins, apps, and services running inside the VM can't access any data and code in execution inside the enclave.
 
-**Secure enclaves on Intel SGX** protect memory spaces inside a VM with hardware-based encryption. The security boundary of application enclaves is more restricted than confidential VMs on AMD SEV-SNP. For Intel SGX, the security boundary applies to portions of memory within a VM. Users, apps, and services running inside the Intel SGX-powered VM can't access any data and code in execution inside the enclave.
+Intel SGX enhances application security by isolating data in use. It creates secure enclaves that prevent modifications to selected code and data, ensuring that only authorized code can access them. Even with high-level permissions, entities outside the enclave, including the OS and hypervisor, cannot access enclave memory through standard calls. Accessing enclave functions requires specific Intel SGX CPU instructions, which include multiple security checks.
 
-Intel SGX helps protect data in use by application isolation. By protecting selected code and data from modification, developers can partition their application into hardened enclaves or trusted execution modules to help increase application security. Entities outside the enclave can't read or write the enclave memory, whatever their permissions levels. The hypervisor or the operating system also can't obtain this access through normal OS-level calls. To call an enclave function, you have to use a new set of instructions in the Intel SGX CPUs. This process includes several protection checks.
-
-:::image type="content" source="media/confidential-computing-deployment-models/intel-sgx-enclave.png" alt-text="Diagram of Intel SGX enclaves architecture, showing secure information inside app enclave.":::
+![AppEnclaves](https://github.com/michamcr/azure-docs-pr/assets/63871188/bedacca5-fb81-4f9f-b6fb-51f90fccc372)
 
 ## Next steps
 
