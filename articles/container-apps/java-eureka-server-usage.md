@@ -64,10 +64,9 @@ The `az containerapp update` command uses the `--configuration` parameter to con
 
 The following configuration settings are available on the `eureka.server` configuration property.
 
-
-| Name | Description |
-|--|--|
-| `eureka.server.enable-self-preservation` | When enabled, the server keeps track of the number of renewals it should receive from the server. Any time, the number of renewals drops below the threshold percentage as defined by eureka.server.renewal-percent-threshold. The default value is set to true in the original Eureka server, but in the Eureka Server Java component, we have set its default value to false. See [Limitations of Spring Cloud Eureka Java component](#limitations)  | false |
+| Name | Description | Default value |
+|--|--|--|
+| `eureka.server.enable-self-preservation` | When enabled, the server keeps track of the number of renewals it should receive from the server. Any time, the number of renewals drops below the threshold percentage as defined by eureka.server.renewal-percent-threshold. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Spring Cloud Eureka Java component](#limitations)  | false |
 | `eureka.server.renewal-percent-threshold`| The minimum percentage of renewals that is expected from the clients in the period specified by eureka.server.renewal-threshold-update-interval-ms. If the renewals drop below the threshold, the expirations are disabled if the eureka.server.enable-self-preservation is enabled. | 0.85 |
 | `eureka.server.renewal-threshold-update-interval-ms` | The interval with which the threshold as specified in eureka.server.renewal-percent-threshold needs to be updated. | 0 |
 | `eureka.server.expected-client-renewal-interval-seconds` | The interval with which clients are expected to send their heartbeats. Defaults to 30 seconds. If clients send heartbeats with different frequency, say, every 15 seconds, then this parameter should be tuned accordingly, otherwise, self-preservation won't work as expected. | 30 |
