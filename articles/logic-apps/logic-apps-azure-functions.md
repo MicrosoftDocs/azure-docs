@@ -302,11 +302,21 @@ Before you can set up your function app to use Microsoft Entra authentication, y
 
      1. On the managed identity's **Overview** pane, copy the identity's **Client ID**, for example:
 
-        ![Screenshot showing the user-assigned identity's "Overview" pane with the client ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
+        ![Screenshot showing the user-assigned identity's "Overview" pane with the client ID selected.](./media/logic-apps-azure-functions/user-identity-client-id.png)
+
+### Find application ID for Azure Enterprise application
+
+If you want to use an [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal), rather than a managed identity to create the app registration to use for authentication, find, copy, and use the **Application ID** from your Enterprise application to later create an app registration for your function app.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your Enterprise application.
+
+1. On the application menu, select **Overview**.
+
+1. Under **Properties**, find and copy the **Application ID** to [create an app registration for your function app](#create-app-registration).
+
+   :::image type="content" source="media/logic-apps-azure-functions/enterprise-application-id.png" alt-text="{alt-text}" lightbox="media/logic-apps-azure-functions/enterprise-application-id.png":::
 
 <a name="find-tenant-id"></a>
-
-<a name='find-the-tenant-id-for-your-azure-ad'></a>
 
 #### Find the tenant ID for your Microsoft Entra ID
 
@@ -321,20 +331,6 @@ To find your Microsoft Entra tenant ID, either run the PowerShell command named 
    :::image type="content" source="media/logic-apps-azure-functions/tenant-id.png" alt-text="Screenshot shows Microsoft Entra ID Properties page with tenant ID's copy button selected." lightbox="media/logic-apps-azure-functions/tenant-id.png":::
 
 <a name="find-enterprise-app-application-id"></a>
-
-### Find application ID for Enterprise application
-
-If you're using an [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal) as the identity provider for your for authentication, find, copy, and use the **Application ID** for your Enterprise application.
-
-1. In the [Azure portal](https://portal.azure.com), find and open your Enterprise application.
-
-1. On the application menu, select **Overview**.
-
-1. Under **Properties**, find and copy the **Application ID** to use later in your Azure Functions action's **Audience** property for your workflow.
-
-   :::image type="content" source="media/logic-apps-azure-functions/enterprise-application-id.png" alt-text="{alt-text}" lightbox="media/logic-apps-azure-functions/enterprise-application-id.png":::
-
-1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity) by using the built-in Azure Functions action.
 
 <a name="create-app-registration"></a>
 
@@ -354,22 +350,22 @@ After you find the object ID (system-assigned) or client ID (user-assigned) for 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Application (client) ID** | Yes | <*object-or-client-ID*> | The unique identifier to use for this app registration. For this scenario, use your managed identity's object ID (system-assigned) or client ID (user-assigned). |
+   | **Application (client) ID** | Yes | <*object-client-or-application-ID*> | The unique identifier to use for this app registration. For example, you can use any of the following options: <br><br>- The object ID for your logic app's system-assigned managed identity <br>- The client ID for your logic app's user-assigned managed identity <br>- The application ID for an Enterprise application |
    | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
    | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Entra-tenant-ID*>** |
    | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
 
    At this point, your version looks similar to this example:
 
-   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-authentication-settings.png" alt-text="Screenshot shows app registration for your logic app and identity provider for your function app." lightbox="media/logic-apps-azure-functions/tenant-authentication-settings.png":::
+   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-authentication-settings.png" alt-text="Screenshot shows app registration for your logic app and identity provider for your function app." lightbox="media/logic-apps-azure-functions/identity-provider-authentication-settings.png":::
 
-   If you're setting up your function app with an identity provider for the first time, the App Service authentication settings section also appears. These options determine how your function app responds to unauthenticated requests. The default selection redirects all requests to log in with the new identity provider. You can customize this behavior now or adjust these settings later from the main **Authentication** page by selecting **Edit** next to **Authentication settings**. To learn more about these options, review [Authentication flow - Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md#authentication-flow).
+   If you're setting up your function app with an identity provider for the first time, the **App Service authentication settings** section also appears. These options determine how your function app responds to unauthenticated requests. The default selection redirects all requests to log in with the new identity provider. You can customize this behavior now or adjust these settings later from the main **Authentication** page by selecting **Edit** next to **Authentication settings**. To learn more about these options, review [Authentication flow - Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md#authentication-flow).
 
    Otherwise, you can continue with the next step.
 
 1. To finish creating the app registration, select **Add**.
 
-   When you're done, the **Authentication** page now lists the identity provider and application (client) ID for the app registration. Your function app can now use this app registration for authentication.
+   When you're done, the **Authentication** page now lists the identity provider and the app registration's application (client) ID. Your function app can now use this app registration for authentication.
 
 1. Copy the **Application (client) ID** value to use later in the Azure Functions action's **Audience** property for your workflow.
 
