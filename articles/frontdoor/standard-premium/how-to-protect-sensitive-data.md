@@ -45,3 +45,4 @@ To verify your sensitive data protection rules, open the Azure Front Door log an
 
 - [Learn about Azure Front Door sensitive data protection](../create-front-door-portal.md).
 - [Learn how to create an Azure Front Door profile](sensitive-data-protection.md).
+- [Learn how to migrate Azure Front Door (classic) to Standard/Premium tier](../migrate-tier.md).
