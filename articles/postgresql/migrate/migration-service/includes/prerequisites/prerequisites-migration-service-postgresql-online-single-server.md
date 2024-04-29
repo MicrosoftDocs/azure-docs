@@ -1,8 +1,8 @@
 ---
 title: "Prerequisites for the migration service in Azure Database for PostgreSQL (online)"
 description: Providing the prerequisites of the migration service in Azure Database for PostgreSQL
-author: apduvuri
-ms.author: adityaduvuri
+author: hariramt
+ms.author: hariramt
 ms.reviewer: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
@@ -56,18 +56,11 @@ The following table can help set up the network between the source and target.
 
 | Source | Target | Connectivity Tips |
 | --- | --- | --- |
-| Public | Public | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Public | No other action is required if the source is allow-listed in the target's firewall rules. |
 | Private | Public | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
-| Public | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Private | No other action is required if the source is allow-listed in the target's firewall rules. |
 | Private | Private | Establish an ExpressRoute, IPsec VPN, VPN Tunneling, or virtual network Peering between the source and target. |
 | Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/). |
-
-**Additional Networking Considerations:**
-
-- pg_hba.conf Configuration: To facilitate connectivity between the source and target PostgreSQL instances, it's essential to verify and potentially modify the pg_hba.conf file. This file includes client authentication and must be configured to allow the target PostgreSQL to connect to the source. Changes to the pg_hba.conf file typically require a restart of the source PostgreSQL instance to take effect.
-
-> [!NOTE]
-> The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. For PostgreSQL instances on AWS RDS or similar managed services, the pg_hba.conf file is not directly accessible or applicable. Instead, access is controlled through the service's provided security and network access configurations.
 
 For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../../how-to-network-setup-migration-service.md).
 
