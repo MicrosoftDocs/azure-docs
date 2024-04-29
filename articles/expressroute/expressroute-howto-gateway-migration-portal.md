@@ -91,6 +91,9 @@ Here are the steps to migrate to a new gateway in Azure portal.
     :::image type="content" source="media/gateway-migration/commit-step.png" alt-text="Screenshot of the commit step for migrating a virtual network gateway."lightbox="media/gateway-migration/commit-step.png":::
 
 
+>[!IMPORTANT]
+> - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
+> - When migrating your gateway, you can expect possible interruption for a maximum of 30 seconds.
 
 ## Next steps
 

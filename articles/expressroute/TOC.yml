@@ -239,7 +239,7 @@
     items:
     - name: Azure portal
       href: expressroute-howto-gateway-migration-portal.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: expressroute-howto-gateway-migration-powershell.md
   - name: Moving from classic to Resource Manager
     items:
