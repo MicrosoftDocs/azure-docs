@@ -46,6 +46,8 @@ landingContent:
             url: flexible-server/quickstart-create-server-portal.md
           - text: Create an Azure Database for PostgreSQL - Flexible Server instance using ARM template
             url: flexible-server/quickstart-create-server-arm-template.md
+          - text: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI
+            url: flexible-server/quickstart-create-server-cli.md
       - linkListType: tutorial
         links:
           - text: Create App and database server in virtual network
