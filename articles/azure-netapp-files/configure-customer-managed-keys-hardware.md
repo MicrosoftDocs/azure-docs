@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 08/09/2023
+ms.date: 04/26/2024
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
