@@ -1,12 +1,13 @@
 ---
 title: Server concepts for Azure Database for PostgreSQL - Flexible Server
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
-ms.author: sunila
-author: sunilagarwal
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 01/23/2024
 ---
 
 # Server concepts for Azure Database for PostgreSQL - Flexible Server

@@ -1,10 +1,10 @@
 ---
-title: Promote read replicas 
+title: Promote read replicas
 description: This article describes the promote action for read replica feature in Azure Database for PostgreSQL - Flexible Server.
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 03/06/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
