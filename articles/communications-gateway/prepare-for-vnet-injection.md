@@ -19,8 +19,8 @@ The following diagram shows an overview of Azure Communications Gateway deployed
 ## Prerequisites
 - Your Azure subscription is [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
 - Your onboarding team is aware that you intend to use your own virtual networks.
-- You  have an Azure virtual network and subnet in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
-- Each subnet has at least 16 free IP addresses which can be used by Azure Communications Gateway. 
+- You  have an Azure virtual network in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network).
+- You have a subnet to be dedicated to Azure Communications Gateway in each Azure virtual network. These subnets must each have at least 16 IP addresses (a /28 IPv4 range or larger). Learn how to create a [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 - Your chosen connectivity solution (for example ExpressRoute) is deployed into your Azure subscription and ready to use.
 
 > [!TIP]
@@ -77,6 +77,9 @@ The network security group configuration consists of two steps, to be carried ou
 Work with your onboarding team to determine the right network security group configuration for your virtual networks. This configuration depends on your connectivity choice (for example ExpressRoute) and your virtual network topology.
 
 Your network security group configuration must allow traffic to the necessary [Port ranges used by Azure Communications Gateway](./connectivity.md#port-ranges-used-by-azure-communications-gateway).
+
+> [!TIP]
+> You can use [recommendations for network security groups](/azure/well-architected/security/networking#network-security-groups#network-security-groups) to help ensure your configuration matches best practices for security.
 
 ### Associate the subnet with the network security group
 

@@ -38,7 +38,7 @@ The following table lists all the available connection types and whether they're
 |Public internet |⚠️ Lab deployments only|✅|✅|- No extra setup<br>- Where available, not recommended for production |
 
 > [!NOTE]
-> The Operator Connect and Teams Phone Mobile programs do not allow production deployments to use the public internet, including virtual private networks over the public internet.
+> The Operator Connect and Teams Phone Mobile programs do not allow production deployments to use the public internet, including VPNs over the public internet.
 
 Set up your network as in the following diagram and configure it in accordance with any network connectivity specifications for your chosen communications services. For production deployments, your network must have two sites with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
@@ -103,7 +103,7 @@ All Azure Communications Gateway IP addresses can be used for both signaling (SI
 
 ## VNet injection for Azure Communications Gateway (preview)
 
-VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway that connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
+VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway that connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and VPNs.
 
 If you use VNet injection (preview) with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
 

@@ -16,7 +16,7 @@ This article covers new features and improvements for Azure Communications Gatew
 
 ### VNet injection for Azure Communications Gateway (preview)
 
-From April 2024, you can set up private networking between your on-premises environment and Azure Communications Gateway. VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and virtual private networks.
+From April 2024, you can set up private networking between your on-premises environment and Azure Communications Gateway. VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks (VPNs).
 
 For more information about private networking, see [Connecting to Azure Communications Gateway](./connectivity.md). For deployment instructions, see [Prepare to connect Azure Communications Gateway to your own virtual network](./prepare-for-vnet-injection.md).
 
