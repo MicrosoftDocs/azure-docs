@@ -1,10 +1,11 @@
 ---
 author: akashraokm
+ms.author: akashrao
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
-ms.date: 04/23/2024
-ms.author: akashrao
 ---
 |                                      **Extension name**                                      |                                                   **Description**                                                   |    **PostgreSQL 16**   |     **PostgreSQL 15**     |     **PostgreSQL 14**     |     **PostgreSQL 13**     |     **PostgreSQL 12**     |    **PostgreSQL 11**     |
 |----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|--------------------------|---------------------------|---------------------------|---------------------------|---------------------------|--------------------------|
