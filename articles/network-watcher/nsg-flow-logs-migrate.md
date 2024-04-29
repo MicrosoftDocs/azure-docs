@@ -110,9 +110,14 @@ In this section, you learn how to use the script file that you downloaded in the
  
     :::image type="content" source="./media/nsg-flow-logs-migrate/list-flow-logs.png" alt-text="Screenshot that shows the newly created virtual network flow log as a result of migrating from network security group flow log." lightbox="./media/nsg-flow-logs-migrate/list-flow-logs.png":::
 
-1. Delete the network security group flow logs that you migrated. To do so, select the flow logs that you want to delete, and then select **Delete**.
+1. Add a filter to only list network security group flow logs from the subscriptions and regions that you choose. You can skip this step if you migrated only a few network security group flow logs. 
 
-    :::image type="content" source="./media/nsg-flow-logs-migrate/delete-nsg-flow-logs.png" alt-text="Screenshot that shows how to delete migrated network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/delete-nsg-flow-logs.png":::
+    :::image type="content" source="./media/nsg-flow-logs-migrate/filter-flow-logs.png" alt-text="Screenshot that shows how to use a filter to only list network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/filter-flow-logs.png":::
+
+1. Select the flow logs that you want to delete, and then select **Delete**
+
+    :::image type="content" source="./media/nsg-flow-logs-migrate/select-flow-logs.png" alt-text="Screenshot that shows how to select the migrated network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/select-flow-logs.png":::
+
 
 ## Related content
 
