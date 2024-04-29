@@ -86,7 +86,7 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 ## Model summary table and region availability
 
 > [!NOTE]
-> This article only covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed in the unified table below. These tables also do not apply to customers using only **Provisioned** deployment types which have their own unique model/region availability matrix. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
+> This article primarily covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed in the unified table below. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
 
 ### Standard deployment model availability
 
@@ -97,6 +97,10 @@ This table does not include fine-tuning regional availability, consult the dedic
 ### Standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
+
+### Provisioned deployment model availability
+
+[!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
 
 ### GPT-4 and GPT-4 Turbo Preview models
 
