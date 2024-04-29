@@ -5,8 +5,9 @@ description: Learn how to deploy Mistral Large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 04/26/2024
-ms.reviewer: fkriti
+ms.date: 04/29/2024
+ms.reviewer: kritifaujdar 
+reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
@@ -35,7 +36,7 @@ Additionally, Mistral Large is:
 * __Specialized in RAG.__ Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
 * __Strong in coding.__ Code generation, review, and comments. Supports all mainstream coding languages.
 * __Multi-lingual by design.__ Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* __Responsible AI compliant.__ Efficient guardrails baked in the model and another safety layer with the `safe_mode` option.
+* __Responsible AI compliant.__ Efficient guardrails baked in the model and extra safety layer with the `safe_mode` option.
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -43,17 +44,18 @@ Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can 
 
 Mistral Small is:
 
-- **A small model optimized for low latency.** Very efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency. 
-- **Specialized in RAG.** Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
-- **Strong in coding.** Code generation, review, and comments. Supports all mainstream coding languages.
-- **Multi-lingual by design.** Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-- **Responsible AI compliant.** Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
+- **A small model optimized for low latency.** Very efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency. 
+- **Specialized in RAG.** Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
+- **Strong in coding.** Code generation, review, and comments. Supports all mainstream coding languages.
+- **Multi-lingual by design.** Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
+- **Responsible AI compliant.** Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
+
 ---
 ## Deploy Mistral family of models with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go. Pay-as-you-go deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-**Mistral Large** and **Mistral Small** can be deployed as a service with pay-as-you-go and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
+**Mistral Large** and **Mistral Small** are eligible to be deployed as a service with pay-as-you-go and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
 
 ### Prerequisites
 
@@ -61,7 +63,7 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Mistral family models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **France Central** regions.
+    > The pay-as-you-go model deployment offering for eligible models in the Mistral family is only available in AI hubs created in the **East US 2** and **Sweden Central** regions. For _Mistral Large_, the pay-as-you-go offering is also available in the **France Central** region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -82,7 +84,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral-large model, your project must be in the **East US 2** or **France Central** regions.
+1. Select the project in which you want to deploy your model. To deploy the Mistral-large model, your project must be in the **East US 2**, **Sweden Central**, or **France Central** region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
@@ -102,7 +104,7 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment for chat completions using the [`<target_url>/v1/chat/completions`](#chat-api) API.
 1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
 
-To learn about billing for the Mistral AI model deployed with pay-as-you-go, see [Cost and quota considerations for Mistral Large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
+To learn about billing for the Mistral AI model deployed with pay-as-you-go, see [Cost and quota considerations for Mistral family of models deployed as a service](#cost-and-quota-considerations-for-mistral-family-of-models-deployed-as-a-service).
 
 ### Consume the Mistral family of models as a service
 
@@ -116,7 +118,7 @@ You can consume Mistral Large by using the chat API.
 
 1. Make an API request using the [`/v1/chat/completions`](#chat-api) API using [`<target_url>/v1/chat/completions`](#chat-api).
 
-For more information on using the APIs, see the [reference](#reference-for-mistral-large-deployed-as-a-service) section.
+For more information on using the APIs, see the [reference](#reference-for-mistral-family-of-models-deployed-as-a-service) section.
 
 ### Reference for Mistral family of models deployed as a service
 
