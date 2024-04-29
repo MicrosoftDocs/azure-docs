@@ -23,10 +23,10 @@ Azure provides a global [role-based access control authorization system](../role
 
 + Data plane operations, such as creating, loading, and querying indexes.
 
-Per-user access over search results (sometimes referred to as row-level security or document-level security) isn't supported. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor shouldn't have access.
+Per-user access over search results (sometimes referred to as *row-level security* or *document-level security*) isn't supported. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor shouldn't have access.
 
 > [!NOTE]
-> A quick note about terminology. "Control plane" refers to operations supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. "Data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+> A quick note about terminology. *Control plane* refers to operations supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
 
 ## Built-in roles used in Search
 
@@ -197,7 +197,7 @@ Make sure that you [register your client application with Microsoft Entra ID](se
 
    + Search Index Data Contributors can load and query documents. To verify permissions, run the [Import data wizard](search-get-started-portal.md).
 
-   + Search Index Data Readers can query the index. To verfiy permissions, use [Search explorer](search-explorer.md). You should be able to send queries and view results, but you shouldn't be able to view the index definition.
+   + Search Index Data Readers can query the index. To verify permissions, use [Search explorer](search-explorer.md). You should be able to send queries and view results, but you shouldn't be able to view the index definition.
 
 ### [**REST API**](#tab/test-rest)
 
@@ -253,7 +253,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
-   + When obtaining the OAuth token, the scope is `https://search.azure.com/.default`. The SDK requires the audience to be `https://search.azure.com` The `.default` is a Microsoft Entra convention.
+   + The SDK requires the scope to be `https://search.azure.com/.default`. The audience is `https://search.azure.com`. The `.default` suffix is a Microsoft Entra convention.
 
    + The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for `https://search.azure.com/.default`.
 
@@ -548,9 +548,9 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 ## Conditional Access
 
-[Conditional Access](../active-directory/conditional-access/overview.md) is a tool in Microsoft Entra ID used to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure AI Search service using role-based access control, Conditional Access can enforce organizational policies.
+We recommend [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview) if you need to enforce organizational policies, such as multifactor authentication.
 
-To enable a Conditional Access policy for Azure AI Search, follow the below steps:
+To enable a Conditional Access policy for Azure AI Search, follow these steps:
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
@@ -558,7 +558,7 @@ To enable a Conditional Access policy for Azure AI Search, follow the below step
 
 1. Select **Policies**.
 
-1. Select **+ New policy**.
+1. Select **New policy**.
 
 1. In the **Cloud apps or actions** section of the policy, add **Azure AI Search** as a cloud app depending on how you want to set up your policy.
 
