@@ -35,7 +35,7 @@ In the following code example, we configure the retry options in an instance of 
 
 ```java
 RequestRetryOptions retryOptions = new RequestRetryOptions(RetryPolicyType.FIXED, 2, 3, 1000L, 1500L, null);
-BlobServiceClient storageClient = new BlobServiceClientBuilder()
+BlobServiceClient client = new BlobServiceClientBuilder()
         .endpoint("https://<storage-account-name>.blob.core.windows.net/")
         .credential(credential)
         .retryOptions(retryOptions)
@@ -45,7 +45,7 @@ BlobServiceClient storageClient = new BlobServiceClientBuilder()
 
 In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. You can configure various retry strategies for service clients based on the needs of your app.
 
-## Next steps
-Now that you understand how to implement a retry policy using the Azure Storage client library for Java, see the following articles for more detailed architectural guidance:
+## Related content
+
 - For architectural guidance and general best practices for retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).
