@@ -37,9 +37,9 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
 - You need to have the [following permissions on the subscription][Azure-Policy-RBAC-permissions]:
 
-    - *Microsoft.Authorization/policyAssignments/write*
+    - `Microsoft.Authorization/policyAssignments/write`
 
-    - *Microsoft.Authorization/policyAssignments/read*
+    - `Microsoft.Authorization/policyAssignments/read`
 > [!IMPORTANT]
 > Make sure your subscription has quota for 32 vCPUs of the [Standard_DS4_v2](../../virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](../../quotas/per-vm-quota-requests) through the Azure portal.
 
