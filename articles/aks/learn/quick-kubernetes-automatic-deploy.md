@@ -26,7 +26,7 @@ In this quickstart, you learn to:
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -35,12 +35,17 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - Register the `AutomaticSKUPreview` feature in your Azure subscription.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
+- You need to have the [following permissions on the subscription][Azure-Policy-RBAC-permissions]:
 
+    - *Microsoft.Authorization/policyAssignments/write*
+
+    - *Microsoft.Authorization/policyAssignments/read*
 > [!IMPORTANT]
 > Make sure your subscription has quota for 32 vCPUs of the [Standard_DS4_v2](../../virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](../../quotas/per-vm-quota-requests) through the Azure portal.
 
 :::zone target="docs" pivot="bicep"
 - To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
 :::zone-end
 
 ### Install the aks-preview Azure CLI extension
@@ -390,3 +395,4 @@ To learn more about AKS Automatic, continue to the introduction.
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [what-is-aks-automatic]: ../intro-aks-automatic.md
+[Azure-Policy-RBAC-permissions]: /azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
