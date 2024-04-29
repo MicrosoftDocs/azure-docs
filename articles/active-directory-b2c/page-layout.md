@@ -64,7 +64,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 ## Self-asserted page (selfasserted)
 
 **2.1.30**
-- Removed Change Email for readonly scenarios (i.e. Change Phone Number).
+- Removed Change Email for readonly scenarios (i.e. Change Phone Number). You will no longer be able to change the email if you are trying to change your phone number, it will now be read only.
 - Enhancements to Captcha Control
   
 **2.1.29**
