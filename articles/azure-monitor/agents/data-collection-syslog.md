@@ -151,7 +151,25 @@ queue.dequeueBatchSize="2048"
 queue.saveonshutdown="on"
 target="127.0.0.1" Port="28330" Protocol="tcp")
 ```
- 
+
+>[!Note]
+>The following configuration is used when you use SELinux and we decide to use Unix sockets.
+```
+$ cat /etc/rsyslog.d/10-azuremonitoragent.conf
+# Azure Monitor Agent configuration: forward logs to azuremonitoragent
+$OMUxSockSocket /run/azuremonitoragent/default_syslog.socket
+template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="<%PRI%>%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%") 
+$OMUxSockDefaultTemplate AMA_RSYSLOG_TraditionalForwardFormat
+# Forwarding all events through Unix Domain Socket
+*.* :omuxsock: 
+```
+
+```
+$ cat /etc/rsyslog.d/05-azuremonitoragent-loadomuxsock.conf
+# Azure Monitor Agent configuration: load rsyslog forwarding module. 
+$ModLoad omuxsock
+```
+
 On some legacy systems, such as CentOS 7.3, we've seen rsyslog log formatting issues when a traditional forwarding format is used to send Syslog events to Azure Monitor Agent. For these systems, Azure Monitor Agent automatically places a legacy forwarder template instead:
 
 `template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%\n")`
