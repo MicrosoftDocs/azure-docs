@@ -65,8 +65,6 @@ These steps are for Power BI Desktop, so open that application now.
 1. Select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
 1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you created your assets and select **Load**. This imports a template that uses a custom [Power Query M](/powerquery-m/) script to display visuals of the sample asset data. You may be prompted to sign in to your Azure account to access the data.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-import-template.png" alt-text="Screenshot of Power BI showing the Import Power BI template dialog.":::
-
     >[!NOTE]
     >As the file imports, you see an error for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
     >:::image type="content" source="media/quickstart-get-insights/power-bi-import-error.png" alt-text="Screenshot of Power BI showing an error labeled DirectQuery to AS - quickStartDataset.":::
