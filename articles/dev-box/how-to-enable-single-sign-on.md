@@ -24,7 +24,9 @@ To enable SSO for dev boxes, you must configure single sign-on for your organiza
  
 ## Enable SSO for dev boxes
 
-Single sign-on is enabled at the pool level. When you enable SSO for a pool, all new dev boxes created from that pool use SSO. Existing dev boxes continue to use the existing sign-on method. You can only enable single sign-on for dev boxes in an existing pool. You can't enable SSO for dev boxes as you create a pool.
+Single sign-on is enabled at the pool level. Dev Box supports single sign-on for dev box pools that use Microsoft Entra joined networks, not pools using Microsoft Entra hybrid joined networks.
+
+When you enable SSO for a pool, all new dev boxes created from that pool use SSO. Existing dev boxes continue to use the existing sign-on method. You can enable single sign-on for dev boxes as you create a pool, or an existing pool.
 
 To enable SSO for dev boxes in a pool, follow these steps:
 
