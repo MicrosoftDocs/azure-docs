@@ -21,22 +21,11 @@ The following diagram shows an overview of Azure Communications Gateway deployed
 - Your onboarding team is aware that you intend to use your own virtual networks.
 - You  have an Azure virtual network in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network).
 - You have a subnet to be dedicated to Azure Communications Gateway in each Azure virtual network. These subnets must each have at least 16 IP addresses (a /28 IPv4 range or larger). Learn how to create a [subnet](/azure/virtual-network/virtual-network-manage-subnet).
+- Your Azure account has the Network Contributor role, or a parent of this role, on the virtual networks.
 - Your chosen connectivity solution (for example ExpressRoute) is deployed into your Azure subscription and ready to use.
 
 > [!TIP]
 > Lab deployments only have one service region, so you only need to set up a single region during this procedure.
-
-## Provide permissions to the Azure Communications Gateway Service Principal
-
-To give Azure Communications Gateway permission to deploy network interfaces into your subnets:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the virtual network to use in the first service region for Azure Communications Gateway. 
-1. Select **Access control (IAM)**.
-1. Select **Add role assignment**.
-1. Search for and select the **AzureCommunicationsGateway** Service Principal in the search bar.
-1. Assign the **Network Contributor** role.
-1. Repeat these steps for the virtual network to use in the other service region.
 
 ## Delegate the virtual network subnets
 
