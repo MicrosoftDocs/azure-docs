@@ -16,7 +16,7 @@ ms.topic: how-to
 
 In this article, you learn how to enable single sign-on (SSO) for dev boxes in Microsoft Dev Box pools. 
 
-SSO allows the connection to skip the credential prompt and automatically sign the user in to Windows through Microsoft Entra authentication. Microsoft Entra authentication provides other benefits including passwordless authentication and support for third-party identity providers. To get started, review the steps to configure single sign-on.
+SSO allows you to skip the credential prompt when connecting to a dev box and automatically sign in to Windows through Microsoft Entra authentication. Microsoft Entra authentication provides other benefits including passwordless authentication and support for third-party identity providers. To get started, review the steps to configure single sign-on.
 
 ## Prerequisites
 
@@ -24,20 +24,20 @@ To enable SSO for dev boxes, you must configure single sign-on for your organiza
  
 ## Enable SSO for dev boxes
 
-Single sign-on is enabled at the pool level. Dev Box supports single sign-on for dev box pools that use Microsoft Entra joined networks, not pools using Microsoft Entra hybrid joined networks.
+Single sign-on is enabled at the pool level. Dev Box supports single sign-on for dev box pools that use Microsoft Entra joined networks, and Microsoft hosted network, but not pools using Microsoft Entra hybrid joined networks.
 
 When you enable SSO for a pool, all new dev boxes created from that pool use SSO. Existing dev boxes continue to use the existing sign-on method. You can enable single sign-on for dev boxes as you create a pool, or an existing pool.
 
 ### Enable SSO when creating a new pool
 
-To enable SSO for dev boxes in an existing pool, follow these steps:
+To enable SSO for dev boxes as you create a pool, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter *projects*. 
 1. In the list of results, select **Projects**.
 1. Select the project in which you want to create the pool.
 1. In the left menu, under **Manage**, select **Dev box pools**.
-1. In the toolbar, select **Create**
+1. In the toolbar, select **Create**.
 1. On the **Create pool** page, under **Management**, select **Enable single sign-on**.
 
     :::image type="content" source="./media/how-to-enable-single-sign-on/create-pool-single-sign-on.png" alt-text="Screenshot that shows the Create pool page in Microsoft Dev Box.":::
@@ -65,6 +65,23 @@ To enable SSO for dev boxes in an existing pool, follow these steps:
 ## Disable SSO for dev boxes
 
 You can disable SSO for a pool at any time by deselecting the **Enable single sign-on** option on the **Edit pool** page.
+
+To disable SSO for dev boxes in an existing pool, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box, enter *projects*. 
+1. In the list of results, select **Projects**.
+1. Select the project that contains the pool you want to disable SSO for.
+1. In the left menu, under **Manage**, select **Dev box pools**.
+1. Select the pool that you want to disable SSO for.
+1. On the line for the pool, at the right end, select **...** and then select **Edit**.
+ 
+   :::image type="content" source="media/how-to-enable-single-sign-on/azure-portal-pool-edit.png" alt-text="Screenshot of the Azure portal showing the list of pools in a project with the menu and edit option highlighted.":::
+ 
+1. On the **Edit pool** page, under **Management**, clear **Enable single sign-on**, and then select **Save**.
+  
+   :::image type="content" source="media/how-to-enable-single-sign-on/azure-portal-pool-edit.png" alt-text="Screenshot of the Azure portal showing the list of pools in a project with the menu and edit option highlighted.":::
+ 
 
 If you disable single sign-on for a pool, new dev boxes created from that pool prompt the user for credentials. Existing dev boxes continue to use SSO.
 
