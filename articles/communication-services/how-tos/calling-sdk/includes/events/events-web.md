@@ -74,7 +74,7 @@ Your application should update its UI accordingly. Disabling or enabling appropr
 
 **When does it occur ?**
 
-The `idChanged`  event is fired when the id of a call changes. The id of a call changes when the call is established and should not change after.
+The `idChanged`  event is fired when the id of a call changes. The id of a call changes when the call moves from `connecting` state to `connected`. Once the call is connected the ID of the call remains identitcal.
 
 **How might your application react to the event ?**
 
@@ -139,7 +139,7 @@ The `remoteAudioStreamsUpdated` event is fired when the list of remote audio str
 
 **How might your application react to the event ?**
 
-<!--TODO KLG Fill this once we have the infos -->
+If a stream was being processed and is now removed, the processing should be stopped. On the other hand, if a stream is added then the event reception is a good place to start the processing of the new audio stream.
 
 #### Event: `totalParticipantCountChanged`
 
