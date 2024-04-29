@@ -4,11 +4,11 @@ description: Real-time scoring with online inference endpoints on Azure Machine 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan
-ms.date: 03/19/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-#customer intent: As a developer, I want to learn how to invoke Azure Machine Learning models from Azure Database for PostgreSQL, so that I can perform real-time scoring with online inference endpoints.
+# customer intent: As a developer, I want to learn how to invoke Azure Machine Learning models from Azure Database for PostgreSQL, so that I can perform real-time scoring with online inference endpoints.
 ---
 
 # Integrate Azure Database for PostgreSQL with Azure Machine Learning Services (Preview)
