@@ -1,6 +1,6 @@
 ---
 title: Quickstart Trusted Signing 
-description: Quickstart onboarding to Trusted Signing to sign your files 
+description: Quickstart onboarding to Trusted Signing to sign your files.
 author: mehasharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
@@ -23,7 +23,6 @@ Trusted Signing provides users with both an Azure portal and Azure CLI extension
 ## Prerequisites
 
 An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin if you don’t already have.
-
 
 ## Register the Trusted Signing resource provider
 
@@ -55,32 +54,34 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 4. To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command.
-•   To upgrade to the latest version, use the following command:
 
-```bash
-az upgrade [--all {false, true}]
-   [--allow-preview {false, true}]
-    [--yes]
-```
+   - To upgrade to the latest version, use the following command:
+
+    ```bash
+    az upgrade [--all {false, true}]
+       [--allow-preview {false, true}]
+        [--yes]
+    ```
 
 5. To set your default subscription ID, use the `az account set -s <subscriptionId>` command.
 
 6. You can register Trusted Signing resource provider with the command below:
 
-```
-az provider register --namespace "Microsoft.CodeSigning"
-```
+    ```
+    az provider register --namespace "Microsoft.CodeSigning"
+    ```
 
 7. You can verify that registration is complete with the command below: 
 
-```
-az provider show --namespace "Microsoft.CodeSigning"
-```
+    ```
+    az provider show --namespace "Microsoft.CodeSigning"
+    ```
 
 8. You can add the extension for Trusted Signing with the command below:
-```
-az extension add --name trustedsigning
-```
+
+    ```
+    az extension add --name trustedsigning
+    ```
 
 ---
 
@@ -235,20 +236,21 @@ A certificate profile resource is the logical container of the certificates that
 
  To create a certificate profile in the Azure portal, follow these steps:
 
-1. Navigate to your new trusted signing account in the Azure portal.
+1. In the Azure portal, go to your new trusted signing account.
 2. On the trusted signing account overview page or from Objects, select **Certificate Profile**.
 3. On the **Certificate Profiles**, choose the certificate profile type from the pull-down menu.
     - Public identity validation is applicable to Public Trust, Public Trust Test.
     - Private identity validation is applicable to Private Trust, Private Trust CI Policy.
 4. On the **Create certificate profile**, provide the following information:
-•   **Certificate Profile Name**: A unique name is required. (See the below Certificate Profile naming constraints for naming requirements.)
-•   **Certificate Type**: This field is autopopulated based on your selection.
-•   In **Verified CN and O** pull-down menu, choose an identity validation that needs to be displayed on the certificate.
-•   Include **street address**, select the box if this field must be included in the certificate.
-•   Include **postal code**, select the box if this field must be included in the certificate.
-•   Generated **Certificate Subject Preview** shows the preview of the certificate issued.
-•   The values in remaining fields are autopopulated based on the selection in Verified CN and O.
-•   Select **Create**.
+
+   - **Certificate Profile Name**: A unique name is required. (See the below Certificate Profile naming constraints for naming requirements.)
+   - **Certificate Type**: This field is autopopulated based on your selection.
+   - In **Verified CN and O** pull-down menu, choose an identity validation that needs to be displayed on the certificate.
+   - Include **street address**, select the box if this field must be included in the certificate.
+   - Include **postal code**, select the box if this field must be included in the certificate.
+   - Generated **Certificate Subject Preview** shows the preview of the certificate issued.
+   - The values in remaining fields are autopopulated based on the selection in Verified CN and O.
+   - Select **Create**.
 
 :::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot of trusted-signing-certificateprofile-creation." lightbox="media/trusted-signing-certificate-profile-creation.png":::
 
@@ -266,10 +268,10 @@ To create a certificate profile with Azure CLI, follow these steps:
 
 1. Create a certificate profile using the following command:
 
-```
-trustedsigning certificate-profile create -g MyResourceGroup --a
-    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
+    ```
+    trustedsigning certificate-profile create -g MyResourceGroup --a
+        account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ```
 
 - See the below Certificate Profile naming constraints for naming requirements.
 
