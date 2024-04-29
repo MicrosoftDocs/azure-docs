@@ -302,12 +302,12 @@ spec:
     messagePayloadType: "json"
     maxMessagesPerBatch: 10
     clientId: id
-    mqttSourceTopic: "thermostat"
+    mqttSourceTopic: "dlc"
     qos: 1
     table:
       # TODO: add db and table name
       tablePath: "<db>"
-      tableName: "<table>"
+      tableName: "thermostat"
       schema:
       - name: "externalAssetId"
         format: utf8
@@ -335,7 +335,7 @@ spec:
         mapping: "$received_time"
 ```
 
-This example accepts data from the `thermostat` topic with messages in JSON format such as the following:
+This example accepts data from the `dlc` topic with messages in JSON format such as the following:
 
 ```json
 {
