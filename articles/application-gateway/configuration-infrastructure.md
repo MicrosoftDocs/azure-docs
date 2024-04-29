@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/18/2024
+ms.date: 04/25/2024
 ms.author: greglin
 ---
 
@@ -70,7 +70,9 @@ The virtual network resource supports [DNS server](../virtual-network/manage-vir
 
 The Application Gateway resource is deployed inside a virtual network, so checks are also performed to verify the permission on the virtual network resource. This validation is performed during both creation and management operations and also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
-Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.yml) to verify that the users (and service principals) that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the virtual network or subnet. This validation also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
+Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.yml) to verify that the users and service principals that operate application gateways have at least the following permissions on the virtual network or subnet:
+- **Microsoft.Network/virtualNetworks/subnets/join/action** 
+- **Microsoft.Network/virtualNetworks/subnets/read**
 
 You can use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support these permissions. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 

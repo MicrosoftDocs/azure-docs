@@ -88,7 +88,7 @@ A reasonable setting for shared buffers is 25% of RAM. Setting a value of greate
 
 All new and idle connections on an Azure Database for PostgreSQL flexible server database consume up to 2 MB of memory. One way to monitor connections is by using the following query:
 
-```postgresql
+```sql
 select count(*) from pg_stat_activity;
 ```
 
