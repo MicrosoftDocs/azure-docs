@@ -102,8 +102,8 @@ This table shows a column that represents each level of a fictitious directory h
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Delete /Oregon/          |   `-WX`   |   `RWX`    |  `RWX`      | `RWX`          |
-| Delete /Oregon/Portland/ |   `--X`   |   `-WX`    |  `RWX`      | `RWX`          |
+| Delete /Oregon/          |   `-WX`   |   `RWX`    |  `RWX`      | `---`          |
+| Delete /Oregon/Portland/ |   `--X`   |   `-WX`    |  `RWX`      | `---`          |
 | Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -111,7 +111,7 @@ This table shows a column that represents each level of a fictitious directory h
 
 ### Deleting files and directories
 
-As shown in the previous table, write permissions on the file are not required to delete it as long as the previous two conditions are true. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+As shown in the previous table, write permissions on the file are not required to delete it as long as the directory permissions are set properly. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
 
 > [!NOTE]
 > The root directory "/" can never be deleted.
