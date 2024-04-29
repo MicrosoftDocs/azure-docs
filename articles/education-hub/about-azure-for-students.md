@@ -14,7 +14,7 @@ ms.service: azure-education
 
 Joining Azure for Students grants you $100 in Azure credits, with no credit card required. This credit is valid for one year. You can renew each year that you're an active student to get an additional $100.
 
-Your subscription includes free access to select versions of services like Azure Virtual Machines, Azure SQL Database, Azure Blob Storage, and more. You can deploy these services after you join.
+Your subscription includes free access to select versions of services like Azure Virtual Machines, Azure SQL Database, Azure Blob Storage, and more. You can deploy resources for these services after you join.
 
 ## Prerequisites
 
@@ -34,4 +34,5 @@ You need to verify yourself as an active student to become eligible for the offe
 ## Next steps
 
 - [Access the Azure Education Hub](access-education-hub.md)
+- [Deploy resources](deploy-resources-azure-for-students.md)
 - [Learn about support options](educator-service-desk.md)
