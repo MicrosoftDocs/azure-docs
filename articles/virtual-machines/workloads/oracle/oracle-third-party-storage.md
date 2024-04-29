@@ -26,7 +26,7 @@ DBaaS is delivered as a managed database service, which means that the provider 
 
 ## Lightbits: performance for Oracle on Azure VMs  
 
-The [Lightbits](https://www.lightbitslabs.com/azure/) Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises rely on. It can deliver up to 1 million IOPS/volume and up to 3 million IOPs per VM. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of [Lsv3](/azure/virtual-machines/lsv3-series) and [Lasv3](/azure/virtual-machines/lasv3-series) VMs for their clusters.
+The [Lightbits](https://www.lightbitslabs.com/azure/) Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises rely on. It can deliver up to 1 million IOPS/volume and up to 3 million IOPs per VM. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of [Lsv3](../../lsv3-series.md) and [Lasv3](../../lasv3-series.md) VMs for their clusters.
 
 For other options, see L32sv3/L32asv3: 7.68 TB, L48sv3/L48asv3: 11.52 TB, L64sv3/L64asv3: 15.36 TB, L80sv3/L80asv3: 19.20 TB.
 In real-world workload test scenarios, Lightbits delivers more than 10X more IOPS than the best available Azure native storage (Ultra disk).
