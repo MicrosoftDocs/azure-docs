@@ -38,10 +38,10 @@ You can create a session pool using the Azure portal, Azure CLI, or Azure Resour
 To create a session pool with the Azure CLI, use the `az containerapps sessionpool create` command. The following example creates a Python code interpreter session pool named `my-session-pool`:
 
 ```bash
-az containerapps sessionpool create \
+az containerapp sessionpool create \
     --name my-session-pool --resource-group my-resource-group \
     --location westus2 \
-    --pool-type python-lts \
+    --pool-type PythonLTS \
     --max-concurrent-sessions 100 \
     --cooldown-period-in-seconds 300 \
     --egress-enabled false
@@ -51,7 +51,7 @@ You can define the following settings when you create a session pool:
 
 | Setting | Description |
 |---------|-------------|
-| `--pool-type` | The type of code interpreter to use. The only currently supported value is `python-lts`. |
+| `--pool-type` | The type of code interpreter to use. The only currently supported value is `PythonLTS`. |
 | `--max-concurrent-sessions` | The maximum number of sessions that can be concurrently in use. During public preview, the maximum value is `400`. |
 | `--cooldown-period-in-seconds` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. Value must be between `???` and `????`. |
 | `--egress-enabled` | Whether outbound network traffic is allowed from the session. Default `false`. |
@@ -63,7 +63,7 @@ To use code interpreter sessions with LLM framework integrations or by calling t
 To retrieve the management API endpoint for a session pool, use the `az containerapps sessionpool show` command:
 
 ```bash
-az containerapps sessionpool show \
+az containerapp sessionpool show \
     --name my-session-pool --resource-group my-resource-group \
     --query 'properties.poolManagementEndpoint' -o tsv
 ```
