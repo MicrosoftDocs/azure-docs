@@ -246,6 +246,8 @@
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
+        - name: Delete an AKS cluster
+          href: delete-cluster.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
