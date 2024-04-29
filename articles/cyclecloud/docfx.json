@@ -9,7 +9,9 @@
           "group": "cyclecloud-7-group",
           "files": ["**/**.md", 
                      "**/**.yml"],
-           "exclude": ["**/obj/**"]
+           "exclude": [
+            "**/obj/**",
+            "**/includes/**"]
          }
        ],
     "resource": [
@@ -23,7 +25,6 @@
         ],
         "exclude": [
           "**/obj/**",
-          "**/includes/**",
           "_themes/**",
           "_themes.pdf/**"
         ]
