@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
 ms.topic: concept-article
-ms.date: 04/25/2024
+ms.date: 04/29/2024
 
 # CustomerIntent: As a developer, I want understand what the Azure IoT MQ state store protocol is, so
 # that I can implement a client app to interact with the MQ state store.
@@ -45,7 +45,7 @@ To communicate with the state store, clients must `PUBLISH` requests to the syst
 
 To build a request, the following MQTT5 properties are required. If these properties aren't present or the request isn't of type QoS 1, the request fails.
 
-- [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`.  Setting the response topic as `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke` or as one that begins with `clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8` is not permitted on a state store request.  The state store will disconnect MQTT clients that attempt to do this.
+- [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`. Setting the response topic as `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke` or as one that begins with `clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8` is not permitted on a state store request. The state store disconnects MQTT clients that use an invalid response topic.
 - [Correlation Data](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Correlation_Data). When the state store sends a response, it includes the correlation data of the initial request.
 
 The following diagram shows an expanded view of the request and response:
@@ -109,7 +109,7 @@ The following example output shows state store RESP3 payloads:
 
 ### Response format
 
-When the state store detects an invalid RESP3 payload, it still returns a response to the requestor's `Response Topic`. Examples of invalid payloads include an invalid command, an illegal RESP3, or integer overflow.  An invalid payload starts with the string `-ERR` and contains more details.
+When the state store detects an invalid RESP3 payload, it still returns a response to the requestor's `Response Topic`. Examples of invalid payloads include an invalid command, an illegal RESP3, or integer overflow. An invalid payload starts with the string `-ERR` and contains more details.
 
 > [!NOTE]
 > A `GET`, `DEL`, or `VDEL` request on a nonexistent key is not considered an error.
@@ -283,9 +283,10 @@ Clients being able to write keys for which they don't actually own the lock, is 
 Clients can register with the state store to receive notifications of keys being modified. Consider the scenario where a thermostat uses the state store key `{thermostatName}\setPoint`. Other state store clients can change this key's value to change the thermostat's setPoint. Rather than polling for changes, the thermostat can register with the state store to receive messages when `{thermostatName}\setPoint` is modified.
 
 ### KEYNOTIFY request messages
+
 State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
 
-The request payload is of the following form:
+The request payload has the following form:
 
 ```console
 KEYNOTIFY<CR><LF>
@@ -293,7 +294,8 @@ KEYNOTIFY<CR><LF>
 {optionalFields}<CR><LF>
 ```
 
-Where
+Where:
+
 * KEYNOTIFY is a string literal specifying the command.
 * `{keyName}` is the key name to listen for notifications on. Wildcards aren't currently supported.
 * `{optionalFields}`  The currently supported optional field values are:
@@ -310,6 +312,7 @@ SOMEKEY<CR><LF>
 ```
 
 ### KEYNOTIFY response message
+
 Like all state store RPC requests, the state store returns its response to the `Response Topic` and uses the `Correlation Data` properties specified from the initial request. For `KEYNOTIFY`, a successful response indicates that the state store processed the request. After the state store successfully processes the request, it either monitors the key for the current client, or stops monitoring.
 
 On success, the state store's response is the same as a successful `SET`.
@@ -324,13 +327,14 @@ If a client sends a `KEYNOTIFY SOMEKEY STOP` request but the state store isn't m
 :0<CR><LF>
 ```
 
-
 Any other failure follows the state store's general error reporting pattern:
+
 ```
 -ERR: <DESCRIPTION OF ERROR><CR><LF>
 ```
 
 ### KEYNOTIFY notification topics and lifecycle
+
 When a `keyName` being monitored via `KEYNOTIFY` is modified or deleted, the state store sends a notification to the client. The topic is determined by convention - the client doesn't specify the topic during the `KEYNOTIFY` process.
 
 The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed.
@@ -350,6 +354,7 @@ A client using notifications should `SUBSCRIBE` to this topic and wait for the `
 If a client disconnects, it must resubscribe to the `KEYNOTIFY` notification topic and resend the `KEYNOTIFY` command for any keys it needs to continue monitoring. Unlike MQTT subscriptions, which can be persisted across a nonclean session, the state store internally removes any `KEYNOTIFY` messages when a given client disconnects.
 
 ### KEYNOTIFY notification message format
+
 When a key being monitored via `KEYNOTIFY` is modified, the state store will `PUBLISH` a message to the notification topic following the format to state store clients registered for the change.
 
 ```console
@@ -359,6 +364,7 @@ NOTIFY<CR><LF>
 ```
 
 The following details are included in the message:
+
 * `NOTIFY` is a string literal included as the first argument in the payload, indicating a notification arrived.
 * `{operation}` is the event that occurred. Currently these operations are:
   * `SET` the value was modified. This operation can only occur as the result of a `SET` command from a state store client.
