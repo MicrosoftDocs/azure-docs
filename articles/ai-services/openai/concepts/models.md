@@ -102,13 +102,15 @@ This table does not include fine-tuning regional availability, consult the dedic
 
 [!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
 
+For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
+
 ### GPT-4 and GPT-4 Turbo Preview models
 
 GPT-4, GPT-4-32k, and GPT-4 Turbo with Vision are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
 
 These models can only be used with the Chat Completion API.
 
-GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. 
+GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
 
