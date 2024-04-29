@@ -8,10 +8,6 @@ author: bwren
 ---
 
 # Configuration of Azure Monitor edge pipeline
-
-- Pipeline has small p
-
-
 [Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and route telemetry to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
 
 ## Overview
@@ -99,11 +95,15 @@ The following tables and diagrams describe the detailed steps and components in 
 
 :::image type="content" source="media/edge-pipeline/layered-network.png" lightbox="media/edge-pipeline/layered-network.png" alt-text="Diagram of a layered network for Azure Monitor edge pipeline." border="false":::
 
-To use Azure Monitor pipeline in a layered network configuration, you must add the following URLs to the allowlist for the Arc-enabled Kubernetes cluster. See [Configure Azure IoT Layered Network Management Preview on level 4 cluster](/azure/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network?tabs=k3s#configure-layered-network-management-preview-service).
+To use Azure Monitor pipeline in a layered network configuration, you must add the following entries to the allowlist for the Arc-enabled Kubernetes cluster. See [Configure Azure IoT Layered Network Management Preview on level 4 cluster](/azure/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network?tabs=k3s#configure-layered-network-management-preview-service).
 
-- `*.ingest.monitor.azure.com`
-- `login.windows.net`
-- These are both external type
+
+```yml
+- destinationUrl: "*.ingest.monitor.azure.com"
+  destinationType: external
+- destinationUrl: "login.windows.net"
+  destinationType: external
+```
 
 
 ## Create table in Log Analytics workspace
@@ -121,7 +121,7 @@ az monitor log-analytics workspace table create --workspace-name my-workspace --
 ## Enable cache
 Edge devices in some environments may experience intermittent connectivity due to various factors such as network congestion, signal interference, power outage, or mobility. In these environments, you can configure the edge pipeline to cache data by creating a [persistent volume](https://kubernetes.io) in your cluster. The process for this will vary based on your particular environment, but the configuration must meet the following requirements:
 
-   - Metadata namespace must be the same as the specified instance of Azure Monitor Pipeline.
+   - Metadata namespace must be the same as the specified instance of Azure Monitor pipeline.
    - Access mode must support `ReadWriteMany`.
 
 Once the volume is created in the appropriate namespace, configure it using parameters in the pipeline configuration file below.
@@ -843,7 +843,7 @@ In the Azure portal, navigate to the **Kubernetes services** menu and select you
 Click on the entry for **\<pipeline name\>-external-service** and note the IP address and port in the **Endpoints** column. This is the external IP address and port that your clients will send data to.
 
 ### Verify heartbeat
-Each pipeline configured in your pipeline instance will send a heartbeat record to the `Heartbeat` table in your Log Analytics workspace every minute. If there are multiple workspaces in the pipeline instance, then the first one configured will be used.
+Each pipeline configured in your pipeline instance will send a heartbeat record to the `Heartbeat` table in your Log Analytics workspace every minute. The contents of the `OSMajorVersion` column should match the name your pipeline instance. If there are multiple workspaces in the pipeline instance, then the first one configured will be used.
 
 Retrieve the heartbeat records using a log query as in the following example:
 
@@ -871,7 +871,7 @@ If the application producing logs is external to the cluster, copy the *external
 ## Verify data
 The final step is to verify that the data is received in the Log Analytics workspace. You can perform this verification by running a query in the Log Analytics workspace to retrieve data from the table.
 
-[Screenshot placeholder]
+:::image type="content" source="media/edge-pipeline/log-results-syslog.png" lightbox="media/edge-pipeline/log-results-syslog.png" alt-text="Screenshot of log query that returns of Syslog collection." ::: 
 
 ## Next steps
 
