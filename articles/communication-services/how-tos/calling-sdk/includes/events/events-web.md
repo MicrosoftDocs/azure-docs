@@ -48,6 +48,37 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 });
 ```
 
+
+<!---------- CallClient  object ---------->
+### Events on the `CallClient` object
+
+#### Event Name: `incomingCall`
+
+**When does it occur ?**
+
+The `incomingCall` event is fires when an incoming is comming.
+
+**How should your application react to the event ?**
+
+Your application should notify the user of the incoming call. The notification prompt should propose the user to accept or refuse the call.
+
+### Event Name: `callsUpdated`
+
+**When does it occur ?**
+The callsUpdated updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives or terminate call.
+
+**How should your application react to the event ?**
+Your application should updates its UI based on the number of active calls for the CallAgent instance.
+
+### Event Name: `connectionStateChanged`
+
+**When does it occur ?**
+The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
+
+**How should your application react to the event ?**
+Your application should updates its UI based on the new state. The possible connection state values are `Connected` and `Disconnected`
+
+<!---------- Call object ---------->
 ### Events on the `Call` object
 
 #### Event Name: `stateChanged`
@@ -159,3 +190,66 @@ The `roleChanged` participant fires when the localParticipant roles changes in t
 
 **How might your application react to the event ?**
 Your application should enable or disabled button base on the user new role.
+
+<!---- RemoteParticipant  ---->
+
+### Events on the `RemoteParticipant` object
+
+#### Event: `stateChanged`
+
+**When does it occur ?**
+
+The `stateChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticpant become presenter `ACSCallParticipantRolePresenter` in a call.
+
+**How might your application react to the event ?**
+Your application should updated its UI based on the `RemoteParticipant` new role.
+
+#### Event: `isMutedChanged`
+
+**When does it occur ?**
+
+The `isMutedChanged` event fires when one of the `RemoteParticipant` mutes or unmute its microphone.
+
+**How might your application react to the event ?**
+
+Your application may display an icon near by the view that display the participant.
+
+#### Event: `displayNameChanged`
+
+**When does it occur ?**
+
+The `displayNameChanged` when the name of the `RemoteParticpant` is updated.
+
+**How might your application react to the event ?**
+
+Your application should update the name of the participant if its being display in the UI.
+
+#### Event: `roleChanged`
+
+**When does it occur ?**
+
+The `roleChanged` when the role of the `RemoteParticpant` is updated.
+
+**How might your application react to the event ?**
+
+Your application should update its UI based on the new role of the particpant.
+
+#### Event: `isSpeakingChanged`
+
+**When does it occur ?**
+
+The `isSpeakingChanged` when the dominant speaker in a call changes.
+
+**How might your application react to the event ?**
+
+Your application UI should give priority to display the `RemotePartipant` who became dominant speaker.
+
+#### Event: `videoStreamsUpdated`
+
+**When does it occur ?**
+
+The `videoStreamsUpdated` when a  remote particpant add or remove a VideoStream to/from the call.
+
+**How might your application react to the event ?**
+
+If your application was processing a stream that is removed. Your application should stop the processing. When a new stream is added your application may want to render or process it.
