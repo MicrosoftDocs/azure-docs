@@ -394,6 +394,6 @@ Addressing the issue of telemetry data flow from API Management to Application I
 
 ## Next steps
 
-+ Learn more about [Azure Application Insights](/azure/application-insights/).
++ Learn more about [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).
 + Learn about visualizing data from Application Insights using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)
