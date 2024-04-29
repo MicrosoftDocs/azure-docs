@@ -27,11 +27,14 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 ## Prerequisites
 
-[!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements-no-header.md)]
 - Review the [Gateway migration](gateway-migration.md) article before you begin.
 - You must have an existing [ExpressRoute Virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md) in your Azure subscription.
 
-  
+### Working with Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## Migrate to a new gateway in using PowerShell
 
