@@ -464,7 +464,7 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 **Responses for delete protection**:
 
-*DELETE* protection is an [asynchronous operation](/azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
+*DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 | Name | Type | Description |
