@@ -170,8 +170,6 @@ If you have strict compliance needs, we recommend that you delete the chat threa
 > [!NOTE] 
 > If you accidentally deleted messages, they can't be recovered by the system. Additionally, if you submit a support request for a deleted chat thread after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available.
 
-If you make a support request after your data retention policy time period has passed, the chat thread can no longer be retrieved.
-
 ## Voice and video calling
 
 ### PSTN Call limitations
