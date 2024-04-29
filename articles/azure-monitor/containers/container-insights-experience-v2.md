@@ -1,6 +1,6 @@
 ---
 title: Switch to use container insights with managed Prometheus | Microsoft Docs
-description: This article describes how you can replace your container insights visualizations to use Prometheus metrics
+description: This article describes how you can replace your container insights visualizations to use Prometheus metrics.
 ms.topic: conceptual
 ms.date: 02/01/2024
 ms.reviewer: aul
@@ -15,66 +15,65 @@ Container insights currently uses data from Log Analytics to power the visualiza
 
 ## Prerequisites
 
-To view your container insights data using Prometheus, ensure the following steps are complete
+To view your container insights data using Prometheus, ensure the following steps are complete.
 
-* AKS cluster [configured with managed Prometheus](./kubernetes-monitoring-enable.md#existing-cluster-prometheus-only)
-    * If your cluster does not yet have Prometheus enabled, you may follow the link above or steps below to enable 
+* Azure Kubernetes Service (AKS) [configured with managed Prometheus](./kubernetes-monitoring-enable.md#existing-cluster-prometheus-only)
 * User has `Reader` permission or higher on the associated [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md)
 * Ad block is disabled or set to allow `monitor.azure.com` traffic
 * For Windows clusters, [enable Windows metric collection](./kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview)
 
 ## Accessing Prometheus based container insights
 
-Because Azure Monitor supports various levels of customization, your cluster may currently have logs-based Container Insights, managed Prometheus, or some other combination.
+Because Azure Monitor supports various levels of customization, your cluster may currently have logs based Container Insights, managed Prometheus, or some other combination.
 
-### [No Prometheus or logs-based Container Insights enabled](#tab/unmonitored)
+### [No Prometheus or logs based Container Insights enabled](#tab/unmonitored)
 
-1.) Open the Azure portal and navigate to your desired AKS cluster
+1.) Open the Azure portal and navigate to your desired AKS cluster.
 
-2.) Choose the `Insights` menu item from the menu, which will display a splash screen indicating no monitoring enabled
+2.) Choose the `Insights` menu item from the menu, displaying a splash screen indicating no monitoring enabled.
 
 ![Screenshot of unmonitoring cluster.](media/container-insights-experience-v2/splash-screen-nothing-enabled.png)
 
-3.) Select the `Configure monitoring` button to open up the monitoring configuration blade
+3.) Select the `Configure monitoring` button to open up the monitoring configuration blade.
 
-4.) Underneath the advanced settings blade, choose `Logs and events` from the Cost presets dropdown
+4.) Underneath the advanced settings blade, choose `Logs and events` from the Cost presets dropdown.
 
-5.) Click the `Configure` button to finish the setup
+5.) To finish the setup, click the `Configure` button.
 
-6.) Once the onboarding deployment completes, you should be able to see the Insights experience using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (New)`
+6.) Once the onboarding deployment completes, you should be able to see the Insights experience using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (New)`.
 
 ![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-prom-full.png)
 
-### [Logs-based Container Insights enabled](#tab/LA)
+### [Logs based Container Insights enabled](#tab/LA)
 
-1.) Open the Azure portal and navigate to your desired AKS cluster
+1.) Open the Azure portal and navigate to your desired AKS cluster.
 
-2.) Choose the `Insights` menu item from the menu, a banner will be displayed at the top to configure managed Prometheus
+2.) Choose the `Insights` menu item from the menu, which displays a banner at the top to configure managed Prometheus.
 
 3.) Using the banner, select the `Configure` button to complete onboarding to managed Prometheus or deploy the requisite recording rules.
 
 ![Screenshot of AKS cluster with Prometheus banner](media/container-insights-experience-v2/ci-logs-prom-banner.png)
 
-If the banner was previously dismissed, you can instead us the dropdown in the toolbar that says `Log Analytics visualizations (classic)`, and select the `Managed Prometheus visualizations (New)` option, which will open up a pop-up to complete onboarding
+If the banner was previously dismissed, you can instead use the dropdown in the toolbar that says `Log Analytics visualizations (classic)`, and select the `Managed Prometheus visualizations (New)` option, which opens up a pop-up to complete onboarding.
 
 ![Screenshot of AKS cluster with toggle dropdown](media/container-insights-experience-v2/ci-logs-dropdown.png)
 
-4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (new)`
+4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (New)`.
 
 ![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-prom-full.png)
 
 
-### [Prometheus enabled and logs-based Container Insights not enabled or with custom settings applied](#tab/Prom)
+### [Prometheus enabled and logs based Container Insights not enabled or with custom settings applied](#tab/Prom)
 
-1.) Open the Azure portal and navigate to your desired AKS cluster
+1.) Open the Azure portal and navigate to your desired AKS cluster.
 
-2.) Choose the `Insights` menu item from the menu, a screen will be displayed with a banner to enable Prometheus recording rules
+2.) Choose the `Insights` menu item from the menu, which displays a banner for enabling Prometheus recording rules.
 
 ![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-splash-screen-prom-only.png)
 
-3.) Click `Enable` to deploy the recording rules
+3.) Click `Enable` to deploy the recording rules.
 
-4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (new)`
+4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (new)`.
 
 > [!Note]
 > Some charts will only have partial data for the default time range until sufficient time has elapsed for the recording rules to collect data.
@@ -105,9 +104,9 @@ az aks update -n <clusterName> -g <resourceGroup> --enable-azure-monitor-metrics
 
 ### Disable Log Analytics data collection
 
-If you're currently using the logs based container insights experience, then you can choose to stop ingesting metrics to Log Analytics to save on billing. Once you've confirmed the Prometheus backed container insights experience is sufficient for your purposes, complete the steps to stop metrics ingestion to Log Analytics.
+If you're currently using the logs based container insights experience, then you can choose to stop ingesting metrics to Log Analytics to save on billing. Once you confirm the Prometheus backed container insights experience is sufficient for your purposes, complete the steps to stop metrics ingestion to Log Analytics.
 
-1.) Navigate to the monitoring settings for your clusters by following the instructions on how to configure your [container insights DCR](./container-insights-data-collection-dcr.md#configure-data-collection)
+1.) Navigate to the monitoring settings for your clusters by following the instructions on how to configure your [container insights data collection rule](./container-insights-data-collection-dcr.md#configure-data-collection)
 
 2.) From the Cost presets dropdown, select "Logs and Events" and save to configure.
 
@@ -128,20 +127,20 @@ When using the Prometheus based container insights experience, you may encounter
 
 ### Unable to access Data Collection Rule
 
-This occurs when the user does not have permissions to view the associated Prometheus data collection rule for the cluster. To resolve this error, grant access to the Prometheus data collection rule.
+This error occurs when the user doesn't have permissions to view the associated Prometheus data collection rule for the cluster. To resolve this error, grant access to the Prometheus data collection rule.
 
 ### Unable to access Azure Monitor workspace
 
-This occurs when the user does not have permissions to view the associated Azure Monitor workspace for the cluster. To resolve this error, grant access to the Azure Monitor workspace.
+This error occurs when the user doesn't have permissions to view the associated Azure Monitor workspace for the cluster. To resolve this error, grant access to the Azure Monitor workspace.
 
 ### The data could not be retrieved
 
-This error typically occurs when querying large volumes of data. This can be resolved by reducing the time range to a shorter window or filtering for fewer objects.
+This error typically occurs when querying large volumes of data and may be resolved by reducing the time range to a shorter window or filtering for fewer objects.
 
 ### Access denied
 
-This occurs when the user's portal token expires or does not have permissions to view the associated Azure Monitor workspace for the cluster. This can typically be resolved by refreshing the browser session or logging in again.
+This occurs when the user's portal token expires or doesn't have permissions to view the associated Azure Monitor workspace for the cluster. This can typically be resolved by refreshing the browser session or logging in again.
 
 ### An unknown error occurred
 
-If this error message persists, please contact support to open up a ticket.
+If this error message persists, then contact support to open up a ticket.
