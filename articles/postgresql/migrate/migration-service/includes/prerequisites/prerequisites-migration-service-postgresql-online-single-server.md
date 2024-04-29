@@ -1,8 +1,8 @@
 ---
 title: "Prerequisites for the migration service in Azure Database for PostgreSQL (online)"
 description: Providing the prerequisites of the migration service in Azure Database for PostgreSQL
-author: apduvuri
-ms.author: adityaduvuri
+author: hariramt
+ms.author: hariramt
 ms.reviewer: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
@@ -17,6 +17,19 @@ Before you start your migration with migration service in Azure Database for Pos
 
 Source PostgreSQL version should be `>= 9.5`. If the source PostgreSQL version is less than `9.5`, upgrade the source PostgreSQL version to `9.5` or higher before migration.
 
+### Set up Online migration parameters
+
+For Online migration, the replication support should be set to Logical under replication settings of the source PostgreSQL server. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be more than the number of Databases that need to be migrated. The parameters can be set in the Azure portal under **Settings->Server Parameters** or configured in the command line using the following commands:
+
+- ALTER SYSTEM SET wal_level = logical;
+- ALTER SYSTEM SET max_wal_senders = `number of databases to migrate` + 1;
+- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate` + 1;
+
+Ensure that there are no **long running transactions**. Long running transactions don't allow creation of replication slots. The creation of a replication slot will succeed if all long running transactions are committed or rolled-back. You'll need to restart the source PostgreSQL server after completing all the Online migration prerequisites.
+
+> [!NOTE]
+> For online migration with Azure Database for PostgreSQL single server, the Azure replication support is set to logical under the replication settings of the single server page in the Azure portal.
+
 ### Target setup
 
 - Azure Database for PostgreSQL must be set up in Azure before migration.
@@ -25,18 +38,9 @@ Source PostgreSQL version should be `>= 9.5`. If the source PostgreSQL version i
 
 - For detailed instructions on creating a new Azure Database for PostgreSQL, refer to the following link: [Quickstart: Create server](/azure/postgresql/flexible-server/).
 
-### Set up Online migration parameters
+- The server parameter `max_replication_slots` should be more than the number of Databases that need to be migrated. It can be set in the Azure portal under **Settings->Server Parameters** or configured in the command line using the following command:
 
-For Online migration, the replication support should be set to Logical under replication settings of the source PostgreSQL server. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
-
-- ALTER SYSTEM SET wal_level = logical;
-- ALTER SYSTEM SET max_wal_senders = `number of databases to migrate`;
-- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate`;
-
-You'll need to restart the source PostgreSQL server after completing all the Online migration prerequisites.
-
-> [!NOTE]
-> For online migration with Azure Database for PostgreSQL single server, the Azure replication support is set to logical under the replication settings of the single server page in the Azure portal.
+- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate` + 1;
 
 ### Network setup
 
@@ -54,18 +58,11 @@ The following table can help set up the network between the source and target.
 
 | Source | Target | Connectivity Tips |
 | --- | --- | --- |
-| Public | Public | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Public | No other action is required if the source is allow-listed in the target's firewall rules. |
 | Private | Public | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
-| Public | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Private | No other action is required if the source is allow-listed in the target's firewall rules. |
 | Private | Private | Establish an ExpressRoute, IPsec VPN, VPN Tunneling, or virtual network Peering between the source and target. |
 | Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/). |
-
-**Additional Networking Considerations:**
-
-- pg_hba.conf Configuration: To facilitate connectivity between the source and target PostgreSQL instances, it's essential to verify and potentially modify the pg_hba.conf file. This file includes client authentication and must be configured to allow the target PostgreSQL to connect to the source. Changes to the pg_hba.conf file typically require a restart of the source PostgreSQL instance to take effect.
-
-> [!NOTE]
-> The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. For PostgreSQL instances on AWS RDS or similar managed services, the pg_hba.conf file is not directly accessible or applicable. Instead, access is controlled through the service's provided security and network access configurations.
 
 For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../../how-to-network-setup-migration-service.md).
 
