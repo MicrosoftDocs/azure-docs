@@ -45,9 +45,7 @@ VM guest data lets you analyze and troubleshoot the performance and operational 
 |**VM operating system metrics and logs (recommended)**|Monitor application performance and events, resource consumption by specific applications and processes, and operating system-level performance and events. <br><br>This data is important for troubleshooting application-specific issues, optimizing resource usage within VMs, and ensuring optimal performance for workloads running inside VMs.|Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [DCR](#data-collection-rules).|<ul><li>[Guest performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)</li><li>[Windows events](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)</li><li>[Syslog events](/azure/azure-monitor/agents/data-collection-syslog)</li></ul>|<ul><li>In Windows, collect application logs at the **Critical**, **Error**, and **Warning** levels.</li><li>In Linux, collect **LOG_SYSLOG** facility logs at the **LOG_WARNING** level.</li></ul>|
 |**Advanced/custom VM guest data**|Monitoring of web servers, Linux appliances, and any type of data you want to collect from a VM. |Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [DCR](#data-collection-rules).|<ul><li>[IIS logs](/azure/azure-monitor/agents/data-collection-iis)</li><li>[SNMP traps](/azure/azure-monitor/agents/data-collection-snmp-data)</li><li>[Any data written to a text or JSON file](/azure/azure-monitor/agents/data-collection-text-log)</li></ul>||
 
-[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
-
-### VM insights
+## VM insights
 
 VM insights monitors your Azure and hybrid virtual machines in a single interface. VM insights provides the following benefits for monitoring VMs in Azure Monitor:
 
