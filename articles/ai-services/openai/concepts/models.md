@@ -34,7 +34,7 @@ GPT-4 Turbo is a large multimodal model (accepting text or image inputs and gene
 
 ## GPT-4
 
-GPT-4 is the predecessor to GPT-4 Turbo. Both the GPT-4 and GPT-4 Turbo models have a base model name of `gpt-4`. You can distinguish between legacy GPT-4 and Turbo by examining the model version. For new customers we recommend 
+GPT-4 is the predecessor to GPT-4 Turbo. Both the GPT-4 and GPT-4 Turbo models have a base model name of `gpt-4`. You can distinguish between legacy GPT-4 and Turbo by examining the model version. 
 
 - `gpt-4` **Version** `0613`
 - `gpt-4-32k` **Version** `0613`
