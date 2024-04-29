@@ -47,7 +47,8 @@ Split Experimentation Workspace is available in Azure Marketplace. To create a S
 ### Find Split Experimentation Workspace
 
 1. In the Azure portal, go to **Marketplace**.
-<!--This is TBD once I have more information-->
+1. In the pane that open, enter **Split Experimentation**, then select **Split Experimentation for Azure App Configuration**.
+1. Select a plan from the **Plan** dropdown list and select **Subscribe**.
 
 ### Fill out Split Experimentation Workspace create form
 
@@ -74,6 +75,7 @@ This action opens a new panel. Select or enter the requested information followi
 [!INCLUDE [Split Experimentation Workspace create form](../includes/split-experimentation-workspace-create-form.md)]
 
 ## Next steps
+
 <!--content tbd
 - Manage Split Experimentation Workspace
 - How to set up experiments in Azure App Configuration
