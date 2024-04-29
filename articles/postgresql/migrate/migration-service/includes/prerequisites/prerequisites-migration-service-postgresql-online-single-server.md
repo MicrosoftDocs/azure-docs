@@ -17,14 +17,6 @@ Before you start your migration with migration service in Azure Database for Pos
 
 Source PostgreSQL version should be `>= 9.5`. If the source PostgreSQL version is less than `9.5`, upgrade the source PostgreSQL version to `9.5` or higher before migration.
 
-### Target setup
-
-- Azure Database for PostgreSQL must be set up in Azure before migration.
-
-- The SKU chosen for the Azure Database for PostgreSQL should correspond with the specifications of the source database to ensure compatibility and adequate performance.
-
-- For detailed instructions on creating a new Azure Database for PostgreSQL, refer to the following link: [Quickstart: Create server](/azure/postgresql/flexible-server/).
-
 ### Set up Online migration parameters
 
 For Online migration, the replication support should be set to Logical under replication settings of the source PostgreSQL server. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
@@ -33,10 +25,20 @@ For Online migration, the replication support should be set to Logical under rep
 - ALTER SYSTEM SET max_wal_senders = `number of databases to migrate`;
 - ALTER SYSTEM SET max_replication_slots = `number of databases to migrate`;
 
-You'll need to restart the source PostgreSQL server after completing all the Online migration prerequisites.
+Ensure that there are no **long running transactions**. Long running transactions don't allow creation of replication slots. The creation of a replication slot will succeed if all long running transactions are committed or rolled-back. You'll need to restart the source PostgreSQL server after completing all the Online migration prerequisites.
 
 > [!NOTE]
 > For online migration with Azure Database for PostgreSQL single server, the Azure replication support is set to logical under the replication settings of the single server page in the Azure portal.
+
+### Target setup
+
+- Azure Database for PostgreSQL must be set up in Azure before migration.
+
+- The SKU chosen for the Azure Database for PostgreSQL should correspond with the specifications of the source database to ensure compatibility and adequate performance.
+
+- For detailed instructions on creating a new Azure Database for PostgreSQL, refer to the following link: [Quickstart: Create server](/azure/postgresql/flexible-server/).
+
+- The `pg_replication_origin` parameter on the target should be at least (1 + `number of databases to migrate`) onto the target.
 
 ### Network setup
 
