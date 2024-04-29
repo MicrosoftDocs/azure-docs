@@ -35,22 +35,19 @@ Using this license, download and sign into [Power BI Desktop](/power-bi/fundamen
 
 Once your OPC UA data has been processed and enriched in the cloud, you'll have a lot of information available to analyze. You might want to create reports containing graphs and visualizations to help you organize and derive insights from this data. The template and steps in this quickstart illustrate how you can connect that data to Power BI to build such reports.
 
-## Create a new dataset in the lakehouse
+## Update lakehouse semantic model
 
-This section prepares your lakehouse data to be a source for Power BI. You'll create a new dataset in your lakehouse that contains the contextualized telemetry table you created in the [previous quickstart](quickstart-upload-telemetry-to-cloud.md).
+This section prepares your lakehouse data to be a source for Power BI. You'll update the default semantic model for your lakehouse to include the telemetry from the *OPCUA* table you created in the [previous quickstart](quickstart-upload-telemetry-to-cloud.md).
 
-1. In the lakehouse menu, select **New semantic model**.
+1. Select **Lakehouse** in the top right corner and change it to **SQL analytics endpoint**.
 
-    :::image type="content" source="media/quickstart-get-insights/new-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the New Semantic Model button.":::
+    :::image type="content" source="media/quickstart-get-insights/sql-analytics-endpoint.png" alt-text="Screenshot of a Fabric lakehouse showing the SQL analytics endpoint option.":::
 
-    >[!TIP]
-    >If you see an error that *RLE_DICTIONARY is not supported*, you can work around this by creating the semantic model another way. Select **Lakehouse** in the top right corner and change it to **SQL analytics endpoint**.
-    >:::image type="content" source="media/quickstart-get-insights/new-semantic-model-workaround-1.png" alt-text="Screenshot of a Fabric lakehouse showing the SQL analytics endpoint option.":::
-    >Then, open the options next to the *OPCUA* table and select **Add to default semantic model**. Alternatively, you can select **Manage default Power BI semantic model** and select the *OPCUA* table from that dialogue.
-    >:::image type="content" source="media/quickstart-get-insights/new-semantic-model-workaround-2.png" alt-text="Screenshot of a Fabric lakehouse showing the Add to default semantic model option.":::
-    >Skip the next step.
+1. Switch to the **Reporting** tab. Verify that the *OPCUA* table is open, and select **Automatically update semantic model**.
 
-1. Enter a recognizable name for your dataset such as *aiomqdestination*, select *OPCUA* (the contextualized telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
+    :::image type="content" source="media/quickstart-get-insights/automatically-update-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the Add to default semantic model option.":::
+
+    After a short wait, you'll see a notification confirming that Fabric has successfully updated the semantic model. The default semantic model's name is *aiomqdestination*, named after the lakehouse.
 
 ## Configure Power BI report
 
@@ -83,7 +80,7 @@ These steps are for Power BI Desktop, so open that application now.
     
     When you're finished, exit the Power Query Editor window.
 
-### Configure remaining report visuals
+### Connect data source
 
 At this point, the visuals in the Power BI report display errors. That's because you need to connect your telemetry data source.
 
@@ -92,7 +89,7 @@ At this point, the visuals in the Power BI report display errors. That's because
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-change-data-source.png" alt-text="Screenshot of Power BI showing the Data source settings.":::
 
-    This displays a list of data source options. Select the dataset you created in the previous section and select **Create**.
+    This displays a list of data source options. Select *aiomqdestination* (the default dataset you updated in the previous section) and select **Create**.
 
 1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* contextualized telemetry table. Select **Submit**.
 
