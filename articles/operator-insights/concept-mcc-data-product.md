@@ -53,10 +53,14 @@ The following data types are provided for all Quality of Experience - Affirmed M
 - `enrichment`: This data type holds the enriched Event Data Records and covers multiple sub data types for precomputed aggregations targeted to accelerate specific dashboards, granularities, and queries. These multiple sub data types include:
     - `agg-enrichment-5m`: contains enriched Event Data Records aggregated over five-minute intervals.
     - `agg-enrichment-1h`: contains enriched Event Data Records aggregated over one-hour intervals.
+    - `agg-enrichment-1d`: contains enriched Event Data Records aggregated over one-day intervals.
     - `enriched-flow-dcount`: contains precomputed counts used to report the unique IMSIs, MCCs, and Applications over time.
 - `location`: This optional data type contains data enriched with location information, if you have a source of location data. This covers the following sub data types.
+    - `agg-location-5m`: contains enriched location data aggregated over five-minute intervals.
     - `agg-location-1h`: contains enriched location data aggregated over one-hour intervals.
+    - `agg-location-1d`: contains enriched location data aggregated over one-day intervals.
     - `enriched-loc-dcount`: contains precomputed counts used to report location data over time.
+- `agg-functions`: This data type contains functions used in the visualizations to conditionally select different data sources depending on the given parameters.
 
 ## Setup
 
