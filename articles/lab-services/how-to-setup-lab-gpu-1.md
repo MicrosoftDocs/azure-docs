@@ -52,7 +52,7 @@ As shown in the preceding image, this option is enabled by default, which ensure
 - When you select a *visualization* GPU size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, recent GRID drivers are installed, which enables the use of graphics-intensive applications.
 
 > [!IMPORTANT]
-> The **Install GPU drivers** option only installs the drivers when they aren't present on your lab's image.  For example, the GPU drivers are already installed on the Azure marketplace's [Data Science image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm).  If you create a lab using the Data Science image and choose to **Install GPU drivers**, the drivers won't be updated to a more recent version.  To update the drivers, you will need to manually install them as explained in the next section.  
+> The **Install GPU drivers** option only installs the drivers when they aren't present on your lab's image.  For example, the GPU drivers are already installed on the Azure marketplace's [Data Science image](../machine-learning/data-science-virtual-machine/overview.md#what-does-the-dsvm-include).  If you create a lab using the Data Science image and choose to **Install GPU drivers**, the drivers won't be updated to a more recent version.  To update the drivers, you will need to manually install them as explained in the next section.  
 
 ### Install the drivers manually
 
