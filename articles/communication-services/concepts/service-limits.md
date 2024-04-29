@@ -160,9 +160,9 @@ This sandbox setup is to help developers start building the application. Once yo
 > ** Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
-Azure Communication Services stores chat messages according to your [data retention policy](/purview/create-retention-policies.md). 
+Azure Communication Services stores chat messages according to your [data retention policy](/purview/create-retention-policies). 
 
-If you set a retention policy for a chat thread, it can be 30 days or higher. Alternatively, you can choose not to set a retention policy on a chat thread. If you have strict compliance needs, we recommend that you delete the chat threads using the API [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread.md). Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
+If you set a retention policy for a chat thread, it can be 30 days or higher. Alternatively, you can choose not to set a retention policy on a chat thread. If you have strict compliance needs, we recommend that you delete the chat threads using the API [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
 
 > [!NOTE] 
 > Accidentally deleted messages are not recoverable by the system. If you make a support request after your data retention policy time period has passed, the chat thread can no longer be retrieved.
