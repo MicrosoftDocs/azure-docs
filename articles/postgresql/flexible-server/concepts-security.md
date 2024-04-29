@@ -55,8 +55,6 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 - Recommended actions for how to investigate and mitigate the threat
 - Options for continuing your investigations with Microsoft Sentinel
 
-
-
 ### Microsoft Defender for Cloud and Brute Force Attacks
 
 A brute force attack is among the most common and fairly successful hacking methods, despite being least sophisticated hacking methods. The theory behind such an attack is that if you take an infinite number of attempts to guess a password, you're bound to be right eventually. When Microsoft Defender for Cloud detects a brute force attack, it triggers an [alert](../../defender-for-cloud/defender-for-databases-introduction.md#what-kind-of-alerts-does-microsoft-defender-for-open-source-relational-databases-provide) to bring you awareness that a brute force attack took place. It also can separate simple brute force attack from brute force attack on a valid user or a successful brute force attack.
@@ -70,6 +68,9 @@ To get alerts from the Microsoft Defender plan, you'll first need to **enable it
 1. Select Enable in the right pane.
 
 :::image type="content" source="media/concepts-security/defender-for-cloud-azure-portal-postgresql.png" alt-text="Screenshot of Azure portal showing how to enable Cloud Defender." lightbox="media/concepts-security/defender-for-cloud-azure-portal-postgresql.png":::
+
+> [!NOTE]
+> If you have the "open-source relational databases" feature enabled in your Microsoft Defender plan, you will observe that Microsoft Defender is automatically enabled by default for your Azure Database for PostgreSQL flexible server resource.
 
 ## Access management
 

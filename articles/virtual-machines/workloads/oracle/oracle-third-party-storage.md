@@ -1,6 +1,6 @@
 ---
-title: Partner storage options for Oracle on Azure VMs 
-description: This article describes how third-party storage options are available for Oracle on Azure Virtual Machines.
+title: Partner storage offerings for Oracle on Azure VMs 
+description: This article describes how Partner storage offerings are available for Oracle on Azure Virtual Machines.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 03/26/2024
 ---
 
-# Partner storage options for Oracle on Azure VMs
+# Partner storage offerings for Oracle on Azure VMs
 
-This article describes third-party storage options for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
+This article describes Partner storage offerings for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
 
 ## Oracle as a DBaaS on Azure 
 
@@ -24,7 +24,7 @@ DBaaS is delivered as a managed database service, which means that the provider 
 - Running on Azure high-performance-compute (HPC, LSV3 series), the most demanding production Oracle workloads can be brought to Azure.  
 - Support for all Oracle database management packs.  
 
-## Lightbits performance for Oracle on Azure VMs  
+## Lightbits: performance for Oracle on Azure VMs  
 
 The Lightbits Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises rely on. It can deliver up to 1 million IOPS/volume and up to 3 million IOPs per VM. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of Lsv3 and Lasv3 VMs for their clusters. 
 
@@ -74,3 +74,7 @@ The following table provides other inputs to help you to determine the appropria
 | BCDR                     | One-to-Many Multi-Zone and Multi-Region Replication, Instant zero footprint Snapshot, Clone, Revert, and Extract for AI / BI, Testing, or Back up |
 | Redundancy & Scale Targets | One-to-Many Multi-Zone and Multi-Region Replication                                                  |
 | Encryption   | Azure Key Vault based & bring your own encryption      |
+
+## Next steps
+- [Migrate Oracle workload to Azure VMs (IaaS)](oracle-migration.md)
+- [Performance best practices for Oracle on Azure VMs](oracle-performance-best-practice.md)
