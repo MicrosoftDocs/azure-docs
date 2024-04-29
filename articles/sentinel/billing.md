@@ -218,6 +218,7 @@ Removing Microsoft Sentinel doesn't remove the Log Analytics workspace Microsoft
 The following data sources are free with Microsoft Sentinel:
 
 - Azure Activity Logs
+- Microsoft Sentinel Health 
 - Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams
 - Security alerts, including alerts from the following sources:
   - Microsoft Defender XDR
@@ -236,7 +237,8 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 
 | Microsoft Sentinel data connector   | Free data type | 
 |-------------------------------------|--------------------------------|
-| **Azure Activity Logs**         | AzureActivity                  |           
+| **Azure Activity Logs**         | AzureActivity                  |
+| **Health monitoring for Microsoft Sentinel** <sup>[1](#audithealthnote)</sup>  | SentinelHealth |
 | **Microsoft Entra ID Protection**         | SecurityAlert (IPC)                  | 
 | **Office 365**                     | OfficeActivity (SharePoint)    | 
 || OfficeActivity (Exchange)|
@@ -249,6 +251,7 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 | **Microsoft Defender for Identity** | SecurityAlert (AATP)           | 
 | **Microsoft Defender for Cloud Apps**   | SecurityAlert (Defender for Cloud Apps)           | 
 
+<a id="audithealthnote">*<sup>1</sup>*</a> *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*
 
 For data connectors that include both free and paid data types, select which data types you want to enable.
 
