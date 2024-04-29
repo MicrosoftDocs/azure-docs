@@ -17,8 +17,6 @@ ms.date: 04/22/2024
 
 Dapr is incrementally adoptable. You can use any of the API building blocks as needed. [Learn the support level Microsoft offers for each Dapr API and component.](#currently-supported)
 
-:::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC." lightbox="./media/dapr-overview/dapr-building-blocks.png":::
-
 ## Capabilities and features
 
 [Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
