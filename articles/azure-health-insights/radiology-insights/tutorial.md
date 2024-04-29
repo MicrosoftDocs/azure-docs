@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Retrieve supporting evidence of Radiology Insights inferences"
+title: "Tutorial: Retrieve supporting evidence of Radiology Insights inferences (Health Insights)"
 description: "This tutorial page shows how supporting evidence of Radiology Insights inferences can be retrieved."
 author: hvanhoe
-ms.author: hvanhoe
+ms.author: henkvanhoe
 ms.service: azure-health-insights
 ms.topic: tutorial  #Don't change.
 ms.date: 04/17/2024
@@ -23,7 +23,7 @@ In this tutorial, you:
 > * retrieve the imaging procedure recommendation and imaging procedure contained in this follow-up recommendation
 > * display the (SNOMED) codes and the evidence for the Modality and the Anatomy contained in the imaging procedure
 
-If you don’t have a service subscription, create a free trial account: <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+If you don’t have a service subscription, create a [free trial account](//azure.microsoft.com/free/ai-services). 
 
 A complete working example of the code contained in this tutorial (with some extra additions) can be found here: [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java).
 

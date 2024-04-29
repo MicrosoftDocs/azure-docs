@@ -200,7 +200,7 @@ Next to the provided evidence for this inference, there can be an extension with
 
 When the findingOptions provideFocusedSentenceEvidence is on true, there can also be an extension with url "ci_sentence". This extension refers to the sentence containing the first word of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable using the model configuration.
 
-Cfr [Model Configuration](model-configuration.md) for more info.
+Additional info can be found in the document [Model Configuration](model-configuration.md).
 
 Finding: status and resourceType: 
 - status: is always set to "unknown"
@@ -239,7 +239,7 @@ Much relevant information is in the components. The component’s "code" field c
 
 
 Component description:
-(S inference ,ome of the components are optional)
+For this inference some of the components are optional.
 
 Finding: component "subject of information"
 This component has SNOMED code 131195008: SUBJECT OF INFORMATION (ATTRIBUTE). It also has the "valueCodeableConcept" field filled. The value is a SNOMED code describing the medical problem that the finding pertains to.
