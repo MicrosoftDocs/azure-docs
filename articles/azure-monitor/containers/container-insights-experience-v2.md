@@ -1,28 +1,28 @@
 ---
-title: Switch to use container insights with managed Prometheus | Microsoft Docs
-description: This article describes how you can replace your container insights visualizations to use Prometheus metrics.
+title: Switch to use Container Insights with managed Prometheus | Microsoft Docs
+description: This article describes how you can replace your Container Insights visualizations to use Prometheus metrics.
 ms.topic: conceptual
 ms.date: 02/01/2024
 ms.reviewer: aul
 ---
 
-# Switch to using managed Prometheus for container insights (preview)
+# Switch to using managed Prometheus for Container Insights (preview)
 
-Container insights currently uses data from Log Analytics to power the visualizations in the Azure portal. However, with the release of managed Prometheus, this new format of metrics collection is cheaper and more efficient. Container insights now offers the ability to visualize using only managed Prometheus data. This article helps you with the setup to start using managed Prometheus as your primary container insights visualization tool.
+Container Insights currently uses data from Log Analytics to power the visualizations in the Azure portal. However, with the release of managed Prometheus, this new format of metrics collection is cheaper and more efficient. Container Insights now offers the ability to visualize using only managed Prometheus data. This article helps you with the setup to start using managed Prometheus as your primary Container Insights visualization tool.
 
 > [!Note]
 > This feature is currently in public preview. For additional information, please read the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## Prerequisites
 
-To view your container insights data using Prometheus, ensure the following steps are complete.
+To view your Container Insights data using Prometheus, ensure the following steps are complete.
 
 * Azure Kubernetes Service (AKS) [configured with managed Prometheus](./kubernetes-monitoring-enable.md#existing-cluster-prometheus-only)
 * User has `Reader` permission or higher on the associated [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md)
 * Ad block is disabled or set to allow `monitor.azure.com` traffic
 * For Windows clusters, [enable Windows metric collection](./kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview)
 
-## Accessing Prometheus based container insights
+## Accessing Prometheus based Container Insights
 
 Because Azure Monitor supports various levels of customization, your cluster may currently have logs based Container Insights, managed Prometheus, or some other combination.
 
@@ -42,7 +42,7 @@ Because Azure Monitor supports various levels of customization, your cluster may
 
 6.) Once the onboarding deployment completes, you should be able to see the Insights experience using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (New)`.
 
-![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-prom-full.png)
+![Screenshot of AKS cluster with Prometheus based Container Insights.](media/container-insights-experience-v2/ci-prom-full.png)
 
 ### [Logs based Container Insights enabled](#tab/LA)
 
@@ -60,7 +60,7 @@ If the banner was previously dismissed, you can instead use the dropdown in the 
 
 4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (New)`.
 
-![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-prom-full.png)
+![Screenshot of AKS cluster with Prometheus based Container Insights.](media/container-insights-experience-v2/ci-prom-full.png)
 
 
 ### [Prometheus enabled and logs based Container Insights not enabled or with custom settings applied](#tab/Prom)
@@ -69,7 +69,7 @@ If the banner was previously dismissed, you can instead use the dropdown in the 
 
 2.) Choose the `Insights` menu item from the menu, which displays a banner for enabling Prometheus recording rules.
 
-![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-splash-screen-prom-only.png)
+![Screenshot of AKS cluster with Prometheus based Container Insights.](media/container-insights-experience-v2/ci-splash-screen-prom-only.png)
 
 3.) Click `Enable` to deploy the recording rules.
 
@@ -78,7 +78,7 @@ If the banner was previously dismissed, you can instead use the dropdown in the 
 > [!Note]
 > Some charts will only have partial data for the default time range until sufficient time has elapsed for the recording rules to collect data.
 
-![Screenshot of AKS cluster with Prometheus based container insights, with recording rule banner.](media/container-insights-experience-v2/ci-prom-recording-rules-loading.png)
+![Screenshot of AKS cluster with Prometheus based Container Insights, with recording rule banner.](media/container-insights-experience-v2/ci-prom-recording-rules-loading.png)
 
 ---
 
@@ -104,9 +104,9 @@ az aks update -n <clusterName> -g <resourceGroup> --enable-azure-monitor-metrics
 
 ### Disable Log Analytics data collection
 
-If you're currently using the logs based container insights experience, then you can choose to stop ingesting metrics to Log Analytics to save on billing. Once you confirm the Prometheus backed container insights experience is sufficient for your purposes, complete the steps to stop metrics ingestion to Log Analytics.
+If you're currently using the logs based Container Insights experience, then you can choose to stop ingesting metrics to Log Analytics to save on billing. Once you confirm the Prometheus backed Container Insights experience is sufficient for your purposes, complete the steps to stop metrics ingestion to Log Analytics.
 
-1.) Navigate to the monitoring settings for your clusters by following the instructions on how to configure your [container insights data collection rule](./container-insights-data-collection-dcr.md#configure-data-collection)
+1.) Navigate to the monitoring settings for your clusters by following the instructions on how to configure your [Container Insights data collection rule](./container-insights-data-collection-dcr.md#configure-data-collection)
 
 2.) From the Cost presets dropdown, select "Logs and Events" and save to configure.
 
@@ -119,11 +119,11 @@ As this feature is currently in preview, there are several, known limitations, t
 * Live data viewing on the Cluster tab
 * Workbooks reports data
 * Node memory working set and RSS metrics
-* Partial or no data available in the multi-cluster view based on container insights DCR settings
+* Partial or no data available in the multi-cluster view based on Container Insights DCR settings
 
 ## Troubleshooting
 
-When using the Prometheus based container insights experience, you may encounter the following errors.
+When using the Prometheus based Container Insights experience, you may encounter the following errors.
 
 ### Unable to access Data Collection Rule
 
