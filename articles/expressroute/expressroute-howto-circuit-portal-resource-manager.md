@@ -241,11 +241,18 @@ To modify an ExpressRoute circuit, select **Configuration**.
 
 ## <a name="delete"></a>Deprovisioning an ExpressRoute circuit
 
-If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+Deprovisioning an ExpressRoute circuit requires a specific sequence of steps.
+
+* Before you initiate a deprovisioning request with the service provider, you need to dissociate all Virtual Networks. You also need to remove any authorizations and, if it's being used, disable Global Reach. 
+* After you've deleted all resources associated with the circuit, ask your Service Provider or Internet Service Provider (ISP) to start the removal process.
+* Finally, before you delete the ExpressRoute circuit, make sure the *Provider Status* has been updated to **Not Provisioned** in the Circuit overview page.
+
+> [!NOTE]
+> If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
 1. On the Azure portal menu, navigate to the ExpressRoute circuit you wish to deprovision.
 
-1. In the **Overview** page, select **Delete**. Here you're asked to view all associated resources connected to the circuit. Select **Yes** to proceed with the deprovisioning.
+1. In the **Overview** page, select **Delete**. Here you're asked to view all associated resources connected to the circuit. Select **Yes** to see the linked connections that need to be removed before you can begin the deprovisioning process.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-deprovision.png" alt-text="Screenshot of deprovisioning circuit for ExpressRoute.":::
 
@@ -253,15 +260,13 @@ If the ExpressRoute circuit service provider provisioning state is **Provisionin
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-associated-resources.png" alt-text="Screenshot of deprovisioning associated resources to ExpressRoute circuit.":::
 
-1. Work with your service provider to deprovision the circuit on their side. The service provider provisioning state changes to **Not provisioned** when the service provider deprovisions the circuit. Once the service provider deprovisions the circuit, You can delete the circuit.
+1. Work with your service provider to deprovision the circuit on their side.
+1. After your service provider has confirmed that they've deprovisioned the circuit, confirm that the provisioning state changes to **Not Provisioned** in the Azure portal. Once the service provider status is **Not Provisioned**, you will be able to delete the circuit.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovisioned.png" alt-text="Screenshot of deprovisioned circuit.":::
 
 
-> [!NOTE]
->* You must unlink *all virtual networks* from the ExpressRoute circuit before deprovisioning. If this operation fails, check whether any virtual networks are linked to the circuit.
->* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
->* The circuit cannot be deleted if the service provider provisioning state is **Provisioning** or **Provisioned**. You must wait for the service provider to deprovision the circuit before you can delete it.
+
 
 
 ## Clean up resources
