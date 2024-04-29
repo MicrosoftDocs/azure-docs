@@ -1,9 +1,9 @@
 ---
-author: probableprime
-ms.service: Email-communication-services
+author: v-vprasannak
+ms.service: azure-communication-services
 ms.topic: include
 ms.date: 04/14/2024
-ms.author: rifox
+ms.author: v-vprasannak
 ---
 
 ## Prerequisites

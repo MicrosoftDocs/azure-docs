@@ -1,6 +1,6 @@
 ---
 author: v-vprasannak
-ms.service: email-communication-services
+ms.service: azure-communication-services
 ms.topic: include
 ms.date: 04/26/2024
 ms.author: v-vprasannak

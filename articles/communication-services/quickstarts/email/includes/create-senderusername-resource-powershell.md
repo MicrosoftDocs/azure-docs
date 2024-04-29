@@ -1,5 +1,10 @@
 ---
+author: v-vprasannak
+ms.service: azure-communication-services
 ms.custom: devx-track-azurepowershell
+ms.topic: include
+ms.date: 04/29/2024
+ms.author: v-vprasannak
 ---
 
 ## Prerequisites

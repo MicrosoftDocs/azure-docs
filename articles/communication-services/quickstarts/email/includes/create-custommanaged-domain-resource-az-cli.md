@@ -1,10 +1,10 @@
 ---
 author: v-vprasannak
-ms.service: Domain
+ms.service: azure-communication-services
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 04/11/2024
-ms.author: rifox
+ms.author: v-vprasannak
 ---
 
 ## Prerequisites

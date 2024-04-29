@@ -1,6 +1,6 @@
 ---
 author: v-vprasannak
-ms.service: Domain
+ms.service: azure-communication-services
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 04/26/2024
