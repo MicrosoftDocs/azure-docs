@@ -3,12 +3,13 @@ title: Supported versions
 description: Describes the supported PostgreSQL major and minor versions in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 4/23/2023
 ---
 
 # Supported PostgreSQL versions in Azure Database for PostgreSQL - Flexible Server
