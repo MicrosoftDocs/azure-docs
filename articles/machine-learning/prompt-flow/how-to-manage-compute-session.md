@@ -256,11 +256,11 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 By default, we use the latest prompt flow base image. If you want to use a different base image, you can [build a custom one](how-to-customize-session-base-image.md). 
 
-- In studio, you can change the base image in base image settings under compute session settings. You need to apply this change and 
+- In studio, you can change the base image in base image settings under compute session settings. 
 
 :::image type="content" source="./media/how-to-manage-compute-session/change-base-image.png" alt-text="Screenshot of changing base image of a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/change-base-image.png":::
 
-- You can also specify the new base image under `environment` in the `flow.dag.yaml` file in the flow folder. To use the new base image, you need to reset the compute session. This process takes several minutes as it pulls the new base image and reinstalls packages.
+- You can also specify the new base image under `environment` in the `flow.dag.yaml` file in the flow folder. 
 
     :::image type="content" source="./media/how-to-manage-compute-session/base-image-in-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/base-image-in-flow-dag.png":::
     
@@ -269,6 +269,8 @@ By default, we use the latest prompt flow base image. If you want to use a diffe
         image: <your-custom-image>
         python_requirements_txt: requirements.txt
     ```
+
+To use the new base image, you need to reset the compute session. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
 ## Manage serverless instance used by compute session
 When you using serverless compute as a compute session, you can manage the serverless instance. View the serverless instance in the compute session list tab on the compute page. 
