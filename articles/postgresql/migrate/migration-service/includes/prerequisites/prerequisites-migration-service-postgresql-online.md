@@ -19,13 +19,13 @@ Source PostgreSQL version should be `>= 9.5`. If the source PostgreSQL version i
 
 ### Set up Online migration parameters
 
-For Online migration, the replication support should be set to Logical under replication settings of the source PostgreSQL server. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
+For Online migration, the replication support should be set to Logical under replication settings of the source PostgreSQL server. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be more than the number of Databases that need to be migrated. The parameters can be set in the Azure portal under **Settings->Server Parameters** or configured in the command line using the following commands:
 
 - ALTER SYSTEM SET wal_level = logical;
-- ALTER SYSTEM SET max_wal_senders = `number of databases to migrate`;
-- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate`;
+- ALTER SYSTEM SET max_wal_senders = `number of databases to migrate` + 1;
+- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate` + 1;
 
-Ensure that there are no long running transactions. Long running transactions don't allow creation of replication slots. The creation of a replication slot will succeed if all long running transactions are committed or rolled-back. You'll need to restart the source PostgreSQL server after completing all the Online migration prerequisites.
+Ensure that there are no **long running transactions**. Long running transactions don't allow creation of replication slots. The creation of a replication slot will succeed if all long running transactions are committed or rolled-back. You'll need to restart the source PostgreSQL server after completing all the Online migration prerequisites.
 
 > [!NOTE]
 > For online migration with Azure Database for PostgreSQL single server, the Azure replication support is set to logical under the replication settings of the single server page in the Azure portal.
@@ -38,7 +38,9 @@ Ensure that there are no long running transactions. Long running transactions do
 
 - For detailed instructions on creating a new Azure Database for PostgreSQL, refer to the following link: [Quickstart: Create server](/azure/postgresql/flexible-server/).
 
-- The `pg_replication_origin` parameter on the target should be at least (1 + `number of databases to migrate`) onto the target.
+- The server parameter `max_replication_slots` should be more than the number of Databases that need to be migrated. It can be set in the Azure portal under **Settings->Server Parameters** or configured in the command line using the following command:
+
+- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate` + 1;
 
 ### Network setup
 
@@ -56,9 +58,9 @@ The following table can help set up the network between the source and target.
 
 | Source | Target | Connectivity Tips |
 | --- | --- | --- |
-| Public | Public | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Public | No other action is required if the source is allow-listed in the target's firewall rules. |
 | Private | Public | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
-| Public | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Private | No other action is required if the source is allow-listed in the target's firewall rules. |
 | Private | Private | Establish an ExpressRoute, IPsec VPN, VPN Tunneling, or virtual network Peering between the source and target. |
 | Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/). |
 
