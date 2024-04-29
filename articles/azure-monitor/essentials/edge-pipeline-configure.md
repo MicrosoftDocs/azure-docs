@@ -137,7 +137,12 @@ The current options for enabling and configuration are detailed in the tabs belo
 ### Configure pipeline using Azure Portal
 When you use the Azure portal to enable and configure the pipeline, all required components are created based on your selections. This saves you from the complexity of creating each component individually, but you made need to use other methods for 
 
-From the **Monitor** menu in the Azure portal, select **Pipelines** and then click **Create**. The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
+Perform one of the following in the Azure portal to launch the installation process for the Azure Monitor pipeline:
+
+- From the **Azure Monitor pipelines (preview)** menu, click  **Create**. 
+- From the menu for your Arc-enabled Kubernetes cluster, select **Extensions** and then add the **Azure Monitor pipeline extension (preview)** extension.
+
+The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
 
 :::image type="content" source="media/edge-pipeline/create-pipeline.png" lightbox="media/edge-pipeline/create-pipeline.png" alt-text="Screenshot of Create Azure Monitor pipeline screen.":::
 
