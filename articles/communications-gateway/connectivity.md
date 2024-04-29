@@ -99,11 +99,11 @@ Azure Communications Gateway uses the following local port ranges which must be 
 | 5060 | SIP | UDP/TCP |
 | 5061 | SIP over TLS | TCP |
 
-All Azure Communications Gateway IP addresses can be used for both signaling (SIP) and media (RTP/RTCP). When connecting to multiple networks, additional SIP local ports are used, please refer to your Azure Communications Gateway resource in the Azure portal for details.
+All Azure Communications Gateway IP addresses can be used for both signaling (SIP) and media (RTP/RTCP). When connecting to multiple networks, additional SIP local ports are used. For details, see your Azure Communications Gateway resource in the Azure portal.
 
 ## VNet injection for Azure Communications Gateway (preview)
 
-VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
+VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway that connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
 
 If you use VNet injection (preview) with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
 

@@ -50,7 +50,7 @@ Access to Azure Communications Gateway is restricted. When you've completed the 
 
 ## Create a network design
 
-Decide how Azure Communications Gateway should connect to your network. We recommend Microsoft Azure Peering Service Voice (sometimes called MAPS Voice). For more information about your options, see [Connectivity for Azure Communications Gateway](connectivity.md). If you are planning to use Azure Communications Gateway with VNet injection (preview), complete the [prerequisites for deploying Azure Communications Gateway with VNet injection](prepare-for-vnet-injection.md).
+Decide how Azure Communications Gateway should connect to your network. We recommend Microsoft Azure Peering Service Voice (sometimes called MAPS Voice). For more information about your options, see [Connectivity for Azure Communications Gateway](connectivity.md). If you're planning to use Azure Communications Gateway with VNet injection (preview), complete the [prerequisites for deploying Azure Communications Gateway with VNet injection](prepare-for-vnet-injection.md).
 
 For Teams Phone Mobile and Azure Operator Call Protection Preview, you must decide how your network should determine whether a call involves a relevant subscriber and therefore route the call correctly. You can:
 
