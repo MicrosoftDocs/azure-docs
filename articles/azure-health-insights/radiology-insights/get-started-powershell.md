@@ -1,13 +1,22 @@
 ---
-title: 'Create and deploy a HealthInsights resource with the Azure PowerShell'
-titleSuffix: Azure  AI Health Insights
-description: Learn how to use Azure PowerShell to create a HealthInsights resource.
+title: "Quickstart: Create and deploy a HealthInsights resource using PowerShell"
+description: "This document explains how to create and deploy a HealthInsights resource using PowerShell"
 author: hvanhoe
 ms.author: henkvanhoe
 ms.service: azure-health-insights
-ms.topic: include
-ms.date: 04/16/2024
+ms.topic: quickstart  #Don't change
+ms.date: 04/09/2024
 ---
+
+# Quickstart: Create and deploy an Azure HealthInsights resource
+
+This quickstart provides step-by-step instructions to create a resource and deploy a model. You can create resources in Azure in several different ways:
+
+- The [Azure portal](https://portal.azure.com/)
+- The REST APIs, the Azure CLI, PowerShell, or client libraries
+- Azure Resource Manager (ARM) templates
+
+In this article, you review examples for creating and deploying resources with PowerShell.
 
 ## Prerequisites
 
@@ -16,7 +25,7 @@ ms.date: 04/16/2024
 
 ## Sign in to the Azure PowerShell
 
-[Sign in](/powershell/azure/authenticate-azureps) to Azure PowerShell or select **Open Cloudshell** in the following steps.
+[Sign in](/powershell/azure/authenticate-azureps) to the Azure CLI or select **Open Cloudshell** in the following steps.
 
 ## Create an Azure resource group
 
@@ -75,3 +84,8 @@ You can also delete the resource group. If you choose to delete the resource gro
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name HealthInsightsResourceGroup
 ```
+
+
+## Next steps
+
+- Access Radiology Insights with the [REST API](get-started.md).
