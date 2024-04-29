@@ -2,8 +2,8 @@
 title: Deploy Dapr pluggable components
 titleSuffix: Azure IoT MQ
 description: Deploy Dapr and the IoT MQ pluggable components to a cluster.
-author: timlt
-ms.author: timlt
+author: PatAltimore 
+ms.author: patricka 
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
