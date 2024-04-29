@@ -5,7 +5,7 @@ description: This article helps you create and set custom IPSec policies for VPN
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 04/29/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
