@@ -177,7 +177,7 @@ Currently, AOSM doesn't support `null` as a default value in deployParameters sc
 
 When using the portal to create CGVs, your parameter autofills to have `"null"` as its value. If you don't change this value, the Portal shows an error message, saying: "New Configuration Group Value doesn't match the schema - please edit the values."
 
-:::image type="content" source="media/cgv_error.png" alt-text="Screenshot of the portal where there's an error message because the configuration group values don't match the configuration group schema." lightbox="media/cgv_error.png":::
+:::image type="content" source="media/cgv-error.png" alt-text="Screenshot of the portal where there's an error message because the configuration group values don't match the configuration group schema." lightbox="media/cgv-error.png":::
 
 To fix this error, change `"null"` to `null` in the CGVs.
 
