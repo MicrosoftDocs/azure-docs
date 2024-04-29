@@ -116,8 +116,11 @@ In this section, you learn how to use the script file that you downloaded in the
 
 1. Select the flow logs that you want to delete, and then select **Delete**
 
-    :::image type="content" source="./media/nsg-flow-logs-migrate/select-flow-logs.png" alt-text="Screenshot that shows how to select the migrated network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/select-flow-logs.png":::
+    :::image type="content" source="./media/nsg-flow-logs-migrate/select-flow-logs.png" alt-text="Screenshot that shows how to select and delete the migrated network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/select-flow-logs.png":::
 
+1. Enter *delete* and then select **Delete** to confirm the deletion.
+
+    :::image type="content" source="./media/nsg-flow-logs-migrate/delete-flow-logs-confirmation.png" alt-text="Screenshot that shows how to confirm the deletion of migrated flow logs." lightbox="./media/nsg-flow-logs-migrate/delete-flow-logs-confirmation.png":::
 
 ## Related content
 
