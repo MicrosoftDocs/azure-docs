@@ -5,7 +5,7 @@ author: mitulashah
 ms.author: mitulshah
 ms.service: energy-data-services
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 04/29/2024
 ms.custom: template-how-to
 
 #Customer intent: As an administrator, I want to set up a secured API gateway for Azure Data Manager for Energy APIs.
