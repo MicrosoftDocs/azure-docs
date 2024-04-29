@@ -40,7 +40,7 @@ The control plane includes the following core Kubernetes components:
 | Component | Description |  
 | ----------------- | ------------- |  
 | *kube-apiserver* | The API server exposes the underlying Kubernetes APIs and provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. |  
-| *etcd* | etcd is a highly available key vault store within Kubernetes that helps maintain the state of your Kubernetes cluster and configuration. |  
+| *etcd* | etcd is a highly available key-value store within Kubernetes that helps maintain the state of your Kubernetes cluster and configuration. |  
 | *kube-scheduler* | When you create or scale applications, the scheduler determines what nodes can run the workload and starts the identified nodes. |  
 | *kube-controller-manager* | The controller manager oversees a number of smaller controllers that perform actions such as replicating pods and handling node operations. |  
 
