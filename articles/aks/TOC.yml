@@ -246,6 +246,8 @@
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
+        - name: Delete an AKS cluster
+          href: delete-cluster.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -333,7 +335,11 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
-          href: availability-zones.md
+          items:
+            - name: Availability zones overview
+              href: availability-zones-overview.md
+            - name: Create a cluster with availability zones
+              href: availability-zones.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
