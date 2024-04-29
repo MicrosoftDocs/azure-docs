@@ -257,7 +257,7 @@ az spring dev-tool create \
 
 ## Configure non-default settings for the Spring Boot Actuator
 
-In a standalone application, the Actuator HTTP port defaults to the same as the main HTTP port. To make the application listen on a different port, set the external property: `management.server.port`.
+In a standalone application, the Actuator HTTP port defaults to the same as the main HTTP port. To make the application listen on a different port, set the property: `management.server.port=<another-port-for-actuator>`.
 
 By default, all endpoints are accessible by the default context path of the application, suffixed with `/actuator`. If for some reason, you have existing endpoints in the application starting with `/actuator` then you can customize the base path to something else, set `management.endpoints.web.base-path=/<another-path-for-actuator>`.
 
@@ -267,7 +267,7 @@ After you change these two configurations for your application, you may notice t
 
 Use the following steps to configure the deployment on Azure portal:
 
-1. Navigate to your service resource, and then go to the **Apps **page, 
+1. Navigate to your service resource, and then go to the **Apps ** page, 
 
 :::image type="content" source="media/how-to-use-application-live-view/app-list.png" alt-text="Screenshot of the Apps page for a service instance." lightbox="media/how-to-use-application-live-view/app-list.png":::
 
@@ -279,6 +279,8 @@ Use the following steps to configure the deployment on Azure portal:
 
 :::image type="content" source="media/how-to-use-application-live-view/app-configuration-save.png" alt-text="Screenshot of the save for app configurations for a service instance." lightbox="media/how-to-use-application-live-view/app-configuration-save.png":::
 
+Please note that this configuration can be set to an app or a deployment. But when you configure it to the app, the real place it takes effect is on the current active deployment. So if you set it on the app, and create another deployment, the configuration won't apply to that deployment automatically.
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to deploy your application with the custom actuator settings the Azure CLI:
@@ -289,8 +291,8 @@ az spring app deploy \
     --service <Azure-Spring-Apps-service-instance-name> \
     --name <app-name> \
     --artifact-path <jar-file-in-target-folder> \
-    --custom-actuator-path \
-    --custom-actuator-port 
+    --custom-actuator-path <another-path-for-actuator> \
+    --custom-actuator-port <another-port-for-actuator>
 ```
 
 ---
