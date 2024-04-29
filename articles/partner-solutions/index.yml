@@ -92,3 +92,9 @@ productDirectory:
       links:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management.
+  # Card 12
+    - title: Split Experimentation
+      imageSrc: ./media/index/split.svg
+      links:
+        - url: ./split-experimentation/split-overview.md
+          text: Run A/B tests for your applications and gather feedback for new features.
