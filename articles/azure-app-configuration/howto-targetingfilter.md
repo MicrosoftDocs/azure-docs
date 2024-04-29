@@ -28,9 +28,10 @@ In this article, you will learn how to add and configure a targeting feature fil
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
-    ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
 
-1. Select the **Targeting filter** in the filter type dropdown.
+1. The pane **Create a new filter** opens. Under **Filter type**, select the **Targeting filter** in the filter type dropdown.
 
 1. Select the **Override by Groups** and **Override by Users** checkbox.
 
@@ -62,16 +63,18 @@ In this article, you will learn how to add and configure a targeting feature fil
 
 1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
-1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
+1. The targeting feature filter is now listed in the feature flag details. Select **Apply** to save the feature flag.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new targeting filter.](./media/feature-filters/feature-flag-edit-apply-targeting-filter.png)
 
-Now, you sucessfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. Follow the instructions in the *Next Steps* section to use the feature flag with the targeting filter in your application.
+Now, you sucessfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. Follow the instructions in the [Next Steps](#next-steps) section to learn how it works in your application for the language or platform you are using.
 
 ## Next steps
 
-To learn how to use the feature flag with targeting filter in your application, continue to the following tutorial:
+In this tutorial, you learned the concept of the targeting filter and added it to a feature flag.
+
+To learn how to use the feature flag with a targeting filter in your application, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [ASP.NET](./howto-targetingfilter-aspnet-core.md)

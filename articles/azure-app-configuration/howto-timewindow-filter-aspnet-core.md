@@ -54,4 +54,4 @@ Once the start time has passed, refresh your browser a few times. You'll notice 
 > [Feature management overview](./concept-feature-management.md)
 
 > [!div class="nextstepaction"]
-> [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+> [Roll out features to targeted audience](./howto-targetingfilter-aspnet-core.md)

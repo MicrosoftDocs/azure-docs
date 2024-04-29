@@ -12,13 +12,11 @@ ms.date: 03/26/2024
 
 # Tutorial: Enable features on a schedule
 
-[Feature filters](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled dynamically. For instance, you might want to regulate the feature's availability on a schedule, such as enabling or disabling it until a certain moment. This can be accomplished using the time window filter, which provides the capability to enable a feature based on a time window. 
+[Feature filters](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled conditionally. The time window filter is one of the feature management library's built-in feature filters. For example, when you have a new product announcement, you can use it to unveil a feature automatically at a scheduled time. You can also use it to discontinue a planned promotion when a marketing campaign has ended.
 
-The time window filter is one of the built-in filters of the Microsoft feature management libraries. The time window filter can be accessible from the Azure App Configuration portal and you can add it to your feature flags. 
+In this article, you will learn how to add and configure a time window filter for your feature flags.
 
-In this article, you will learn how to add and configure a time window feature filter for your feature flags.
-
-## Add a time window filter to a feature flag
+## Add a time window filter
 
 1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
@@ -27,25 +25,27 @@ In this article, you will learn how to add and configure a time window feature f
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
 
-1. 1. Select the **Time window filter** in the filter type dropdown.
-
-1. Set the **Start date** to **Custom** and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**
+1. The pane **Create a new filter** opens. Under **Filter type**, select the **Time window filter** in the filter type dropdown.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, creating a new time window filter.](./media/feature-filters/add-timewindow-filter.png)
 
-1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
+1.A time window filter includes two parameters: start and expiry date. Set the **Start date** to Custom and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**. In this example, you schedule the **Beta** feature to be enabled automatically at a future time, and it will never be disabled once enabled.
 
-1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
+1. Select **Add** to save the configuration of the time window filter and return to the **Edit feature flag** screen.
+
+1. The time window filter is now listed in the feature flag details. Select **Apply** to save the feature flag.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new time window filter.](./media/feature-filters/feature-flag-edit-apply-timewindow-filter.png)
 
-Now, you sucessfully added a time window filter for your feature flag. This time window filter will disable your feature flag until the *Start* time you specificied. Follow the instructions in the *Next Steps* section to use the feature flag with the time window filter in your application.
+Now, you sucessfully added a time window filter to a feature flag. Follow the instructions in the [Next Steps](#next-steps) section to learn how it works in your application for the language or platform you are using.
 
 ## Next steps
 
-To learn how to use the feature flag with time window in your application, continue to the following tutorial:
+In this tutorial, you learned the concept of the time window filter and added it to a feature flag.
+
+To learn how to use the feature flag with a time window filter in your application, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [ASP.NET](./howto-timewindow-filter-aspnet-core.md)
@@ -56,4 +56,4 @@ To learn more about the feature filters, continue to the following tutorials:
 > [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 > [!div class="nextstepaction"]
-> [Roll out features to targeting audience](./howto-targetingfilter.md)
+> [Roll out features to targeted audience](./howto-targetingfilter.md)

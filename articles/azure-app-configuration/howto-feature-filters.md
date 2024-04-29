@@ -46,12 +46,12 @@ You can create custom feature filters that enable features based on your specifi
 
 1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
-1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
+1. The feature filter is now listed in the feature flag details. Select **Apply** to save the feature flag.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new custom filter.](./media/feature-filters/feature-flag-edit-apply-filter.png)
 
-You have successfully added a custom filter to a feature flag. Follow the instructions in the *Next Steps* section to implement the feature filter into your application for the language or platform you are using.
+You have successfully added a custom filter to a feature flag. Follow the instructions in the [Next Steps](#next-steps) section to implement the feature filter into your application for the language or platform you are using.
 
 ## Next steps
 
