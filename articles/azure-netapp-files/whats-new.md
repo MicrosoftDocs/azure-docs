@@ -16,9 +16,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## April 2024 
 
-* [Multiple Active Directory accounts per subscription](create-active-directory-connections.md#multi-ad) (Preview)
+* [Support for Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
 
-    Previously, only one Active Directory domain connection could be configured within an Azure subscription using Azure NetApp Files. The Multiple Active Directory accounts per subscription feature now allows you to configure each NetApp account in a subscription with its own Active Directory connection by creating multiple Active Directory configurations. Once enabled, you can choose the desired Active Directory connection when creating an SMB volume, NFSv4.1 Kerberos volume, or dual-protocol volume. This feature is in preview. 
+    The Azure NetApp Files support for Active Directory connection per NetApp account feature now allows each NetApp account to connect to its own Active Directory Forest and Domain, providing the ability to manage more than one Active Directory connections within a single region under a subscription. This enhancement enables distinct Active Directory connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. Active Directory connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to these Active Directory connections in the NetApp account, the management of Active Directory environments becomes more scalable, streamlined and efficient. This feature is now in public preview.
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
 
