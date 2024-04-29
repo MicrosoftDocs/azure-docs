@@ -162,13 +162,15 @@ This sandbox setup is to help developers start building the application. Once yo
 ### Chat storage
 Azure Communication Services stores chat messages according to your [data retention policy](/purview/create-retention-policies). 
 
-You can choose between indefinite message retention or automatic deletion between 30 to 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread).
+You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread).
 Alternatively, you can choose not to set a retention policy on a chat thread.
 
 If you have strict compliance needs, we recommend that you delete the chat threads using the API [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
 
 > [!NOTE] 
-> Accidentally deleted messages are not recoverable by the system. If you make a support request after your data retention policy time period has passed, the chat thread can no longer be retrieved.
+> If you accidentally deleted messages, they can't be recovered by the system. Additionally, if you submit a support request for a deleted chat thread after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available.
+
+If you make a support request after your data retention policy time period has passed, the chat thread can no longer be retrieved.
 
 ## Voice and video calling
 
