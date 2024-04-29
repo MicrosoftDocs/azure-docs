@@ -22,7 +22,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the virtual machine's detail page, select "Auto-shutdown" under the **Operations** section.
 3. In the "Auto-shutdown" configuration screen, toggle the switch to "On."
 4. Set the time you want the virtual machine to shut down.
-5. Select "Save" to save the auto-shutdown configuration.
+5. If you want to receive notification before shutdown, select "Yes" in the "Send notification before shutdown" option and provide details in "Email Address" or "Webhook URL" as per your choice.
+6. Select "Save" to save the auto-shutdown configuration.
 
 ### [Azure CLI](#tab/azure-cli)
 
