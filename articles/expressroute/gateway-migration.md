@@ -43,7 +43,7 @@ With the guided gateway migration experience you can deploy a second virtual net
 
 ### Azure portal
 
-The guided gateway migration experience supports non-Az-enabled SKU to Az-enabled SKU migration.
+The guided gateway migration experience supports non-Az-enabled SKU to Az-enabled SKU migration. To learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal](expressroute-howto-gateway-migration-portal.md).
 
 ### Azure PowerShell
 
@@ -52,7 +52,7 @@ The guided gateway migration experience supports:
 * Non-Az-enabled SKU on Basic IP to Non-az enabled SKU on Standard IP.
 * Non-Az-enabled SKU to Az-enabled SKU.
 
-It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability.
+It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability. TO learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 ### Limitations
 
@@ -78,5 +78,6 @@ The virtual network gateway connection resource isn't in a succeed state.
 ## Next steps
 
 * Learn how to [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal](expressroute-howto-gateway-migration-portal.md).
+* Learn how to [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 * Learn more about [Designing for high availability](designing-for-high-availability-with-expressroute.md).
 * Plan for [Disaster recovery](designing-for-disaster-recovery-with-expressroute-privatepeering.md) and [using VPN as a backup](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
