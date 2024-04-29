@@ -28,7 +28,25 @@ Single sign-on is enabled at the pool level. Dev Box supports single sign-on for
 
 When you enable SSO for a pool, all new dev boxes created from that pool use SSO. Existing dev boxes continue to use the existing sign-on method. You can enable single sign-on for dev boxes as you create a pool, or an existing pool.
 
-To enable SSO for dev boxes in a pool, follow these steps:
+### Enable SSO when creating a new pool
+
+To enable SSO for dev boxes in an existing pool, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box, enter *projects*. 
+1. In the list of results, select **Projects**.
+1. Select the project in which you want to create the pool.
+1. In the left menu, under **Manage**, select **Dev box pools**.
+1. In the toolbar, select **Create**
+1. On the **Create pool** page, under **Management**, select **Enable single sign-on**.
+
+    :::image type="content" source="./media/how-to-enable-single-sign-on/create-pool-single-sign-on.png" alt-text="Screenshot that shows the Create pool page in Microsoft Dev Box.":::
+
+1. Enter the remaining details for your new pool, and then select **Create**.
+
+### Enable SSO for an existing pool
+
+To enable SSO for dev boxes in an existing pool, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter *projects*. 
@@ -44,15 +62,13 @@ To enable SSO for dev boxes in a pool, follow these steps:
 
     :::image type="content" source="./media/how-to-enable-single-sign-on/edit-pool-single-sign-on.png" alt-text="Screenshot that shows the Edit pool page in Microsoft Dev Box.":::
 
-When single sign-on is enabled for a pool, new dev boxes created from that pool use SSO. Existing dev boxes continue to use the existing sign-on method.
-
 ## Disable SSO for dev boxes
 
 You can disable SSO for a pool at any time by deselecting the **Enable single sign-on** option on the **Edit pool** page.
 
 If you disable single sign-on for a pool, new dev boxes created from that pool prompt the user for credentials. Existing dev boxes continue to use SSO.
 
-## Understand the user experience
+## Understand the SSO user experience
 
 When single sign-on is enabled for a pool, your sign-on experience is as follows:
 
