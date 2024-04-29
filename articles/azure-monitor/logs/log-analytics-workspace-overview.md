@@ -7,7 +7,14 @@ ms.date: 10/24/2023
 
 # Log Analytics workspace overview
 
-A Log Analytics workspace is a unique environment for log data from Azure Monitor and other Azure services, such as Microsoft Sentinel and Microsoft Defender for Cloud. Each workspace has its own data repository and configuration but might combine data from multiple services. This article provides an overview of concepts related to Log Analytics workspaces and provides links to other documentation for more details on each.
+A Log Analytics workspace is a unique environment for log data from Azure Monitor and other Azure services, such as Microsoft Sentinel and Microsoft Defender for Cloud. Each workspace has its own data repository and configuration but might combine data from multiple services. You need a Log Analytics workspace if you collect data from:
+
+- Azure resources in your subscription.
+- On-premises computers monitored by System Center Operations Manager.
+- Device collections from Configuration Manager.
+- Diagnostics or log data from Azure Storage.
+
+This article provides an overview of concepts related to Log Analytics workspaces and provides links to other documentation for more details on each.
 
 > [!IMPORTANT]
 > You might see the term *Microsoft Sentinel workspace* used in [Microsoft Sentinel](../../sentinel/overview.md) documentation. This workspace is the same Log Analytics workspace described in this article, but it's enabled for Microsoft Sentinel. All data in the workspace is subject to Microsoft Sentinel pricing as described in the [Cost](#cost) section.
