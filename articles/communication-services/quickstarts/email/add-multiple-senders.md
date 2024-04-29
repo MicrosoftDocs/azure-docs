@@ -9,6 +9,9 @@ ms.author: bashan
 ms.date: 03/29/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
+ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
+ms.devlang: azurecli
 ---
 # Quickstart: How to add and remove Multiple Sender Addresses to Email Communication Service
 
