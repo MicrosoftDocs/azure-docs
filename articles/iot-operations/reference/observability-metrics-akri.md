@@ -1,8 +1,8 @@
 ---
 title: Metrics for Azure IoT Akri
 description: Available observability metrics for Azure IoT Akri to monitor the health and performance of your solution.
-author: timlt
-ms.author: timlt
+author: kgremban
+ms.author: kgremban
 ms.topic: reference
 ms.custom:
   - ignite-2023
