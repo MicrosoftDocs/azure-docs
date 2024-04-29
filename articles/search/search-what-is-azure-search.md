@@ -109,11 +109,10 @@ Customers often ask how Azure AI Search compares with other search-related solut
 
 Key strengths include:
 
-+ Store, index, and search vector embeddings for sentences, images, graphs, and more. 
-+ Find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. 
++ Support for vector and nonvector (text) indexing and queries. With vector similarity search, you can find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. 
 + Use hybrid search for the best of keyword and vector search.
-+ Relevance tuning through semantic ranking and scoring profiles.
-+ Data integration (crawlers) at the indexing layer.
++ Ranking and relevance tuning through semantic ranking and scoring profiles.
++ Azure data integration (crawlers) at the indexing layer.
 + Azure AI integration for transformations that make content text and vector searchable.
 + Microsoft Entra security for trusted connections, and Azure Private Link for private connections in no-internet scenarios.
 + [Full search experience](search-features-list.md): Linguistic and custom text analysis in 56 languages. Faceting, autocomplete queries and suggested results, and synonyms.
