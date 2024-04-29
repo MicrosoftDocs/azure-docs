@@ -65,7 +65,7 @@ items:
         href: get-speech-recognition-results.md
       - name: Real-time diarization quickstart
         href: get-started-stt-diarization.md
-    - name: Use the fast transcription API (Preview)
+    - name: Fast transcription API (Preview)
       href: fast-transcription-create.md
     - name: Batch transcription API
       items:
