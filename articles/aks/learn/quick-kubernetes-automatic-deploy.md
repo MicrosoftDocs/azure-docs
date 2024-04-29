@@ -26,19 +26,16 @@ In this quickstart, you learn to:
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.57.0 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
 - This article requires the `aks-preview` Azure CLI extension version 3.0.0b9 or later.
 - Register the `AutomaticSKUPreview` feature in your Azure subscription.
-- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
-- You need to have the [following permissions on the subscription][Azure-Policy-RBAC-permissions]:
+- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- The identity creating the cluster should also have the [following permissions on the subscription][Azure-Policy-RBAC-permissions]:
 
     - `Microsoft.Authorization/policyAssignments/write`
-
     - `Microsoft.Authorization/policyAssignments/read`
 > [!IMPORTANT]
 > Make sure your subscription has quota for 32 vCPUs of the [Standard_DS4_v2](/azure/virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](/azure/quotas/per-vm-quota-requests) through the Azure portal.
