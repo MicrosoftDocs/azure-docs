@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 04/29/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
@@ -103,13 +103,17 @@ In this section, you learn how to use the script file that you downloaded in the
     Do you want to rollback? You won't get the option to revert the actions done now again (y/n): n
     ```
 
+    > [!NOTE]
+    > Keep the script and analysis report files for reference in case you have any issues with the migration.
+    
 1. Check the Azure portal to confirm that the status of network security group flow logs that you migrated became disabled, and virtual network flow logs are created to replace them.
  
     :::image type="content" source="./media/nsg-flow-logs-migrate/list-flow-logs.png" alt-text="Screenshot that shows the newly created virtual network flow log as a result of migrating from network security group flow log." lightbox="./media/nsg-flow-logs-migrate/list-flow-logs.png":::
 
-    > [!NOTE]
-    > Keep the script and analysis report files for reference in case you have any issues with the migration.
-    
+1. Delete the network security group flow logs that you migrated. To do so, select the flow logs that you want to delete, and then select **Delete**.
+
+    :::image type="content" source="./media/nsg-flow-logs-migrate/delete-nsg-flow-logs.png" alt-text="Screenshot that shows how to delete migrated network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/delete-nsg-flow-logs.png":::
+
 ## Related content
 
 - [Network security group flow logs](nsg-flow-logs-overview.md)
