@@ -43,8 +43,6 @@ You can see the token context length supported by each model in the [model summa
 
 ## GPT-4 and GPT-4 Turbo models
 
-- Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
-
 - These models can only be used with the Chat Completion API.
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
