@@ -302,25 +302,29 @@ spec:
     messagePayloadType: "json"
     maxMessagesPerBatch: 10
     clientId: id
-    mqttSourceTopic: "orders"
+    mqttSourceTopic: "thermostat"
     qos: 1
     table:
       # TODO: add db and table name
       tablePath: "<db>"
       tableName: "<table>"
       schema:
-      - name: "orderId"
-        format: int32
-        optional: false
-        mapping: "data.orderId"
-      - name: "item"
+      - name: "externalAssetId"
         format: utf8
         optional: false
-        mapping: "data.item"
-      - name: "clientId"
+        mapping: "data.externalAssetId"
+      - name: "assetName"
         format: utf8
         optional: false
-        mapping: "$client_id"
+        mapping: "data.assetName"
+      - name: "currentTemperature"
+        format: float32
+        optional: false
+        mapping: "$data.currentTemperature"
+      - name: "pressure"
+        format: float32
+        optional: false
+        mapping: "$data.pressure"
       - name: "mqttTopic"
         format: utf8
         optional: false
@@ -331,13 +335,17 @@ spec:
         mapping: "$received_time"
 ```
 
-This example accepts data from the `orders` topic with messages in JSON format such as the following:
+This example accepts data from the `thermostat` topic with messages in JSON format such as the following:
 
 ```json
 {
   "data": {
-    "orderId": 10,
-    "item": "item10"
+    "externalAssetID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "assetName": "thermostat-de",
+    "currentTemperature": 5506,
+    "pressure": 5506,
+    "mqttTopic": "dlc",
+    "timestamp": "2024-04-02T22:36:03.1827681Z"
   }
 }
 ```
@@ -345,7 +353,12 @@ This example accepts data from the `orders` topic with messages in JSON format s
 Example command to send data to Azure Data Explorer:
 
 ```bash
-mosquitto_pub -t orders -q 1 -r -V 5 -d -i "orderClient" -h 10.0.0.4 -m '{"data": {"orderId": 10, "item": "item10"}}' --repeat 10 --repeat-delay 0 -c
+mosquitto_pub -t dlc -q 1 -r -V 5 -d -i "orderClient" \
+  -h 10.0.0.4 \
+  -m '{"data": {"externalAssetID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", "assetName": "thermostat-de", "currentTemperature": 5506, "pressure": 5506}}' \
+  --repeat 10 \
+  --repeat-delay 0 \
+  -c
 ```
 
 ## DataLakeConnector
@@ -476,7 +489,7 @@ Which maps to:
 
 | externalAssetId                      | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
 | ------------------------------------ | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
-| 59ad3b8b-c840-43b5-b79d-7804c6f42172 | thermostat-de   | 5506               | 5506     | dlc                           | 2024-04-02T22:36:03.1827681Z   |
+| xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | thermostat-de   | 5506               | 5506     | dlc                           | 2024-04-02T22:36:03.1827681Z   |
 
 > [!IMPORTANT]
 > If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.
