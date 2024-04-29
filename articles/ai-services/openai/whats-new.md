@@ -16,6 +16,15 @@ recommendations: false
 
 # What's new in Azure OpenAI Service
 
+## March 2024
+
+### GPT-4 Turbo model general availability (GA)
+
+[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
+
+
+
+
 ## April 2024
 
 ### Fine-tuning is now supported in two new regions East US 2 and Switzerland West

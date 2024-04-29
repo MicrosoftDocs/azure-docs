@@ -1,0 +1,36 @@
+---
+title: GPT-4 Turbo general availability
+titleSuffix: Azure OpenAI Service
+description: Information on GPT-4 Turbo model behavior and limitations
+manager: nitinme
+ms.service: azure-ai-openai
+ms.topic: include
+ms.date: 04/29/2024
+---
+
+The latest GA release of GPT-4 Turbo is:
+
+- `gpt-4` **Version:** `turbo-2024-04-09`
+
+This is the replacement for the following preview models:
+
+- `gpt-4` **Version:** `1106-Preview`
+- `gpt-4` **Version:** `0125-Preview`
+- `gpt-4` **Version:** `vision-preview`
+
+### Differences between OpenAI and Azure OpenAI GPT-4 Turbo GA models
+
+- OpenAI's version of the latest `0409` turbo model supports JSON mode and function calling for all inference requests.
+- Azure OpenAI's version of the latest `turbo-2024-04-09` currently does not support the use of JSON mode and function calling when making inference requests with image (vision) input. Text based input requests do support JSON mode and function calling.
+
+### Differences from gpt-4 vision-preview
+
+- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision are not supported for `gpt-4` `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
+
+### GPT-4 Turbo provisioned managed availability
+
+- `gpt-4` **Version:** `turbo-2024-04-09` is available for both standard and provisioned deployments. Currently the provisioned version of this model does not support image/vision inference requests. Provisioned deployments of the this model only accept text input. Standard model deployments accept both text and image/vision inference requests.
+
+### Region availability
+
+For information on model regional availability consult the model matrix for [standard](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability), and [provisioned deployments](../concepts/models.md#provisioned-deployment-model-availability).
