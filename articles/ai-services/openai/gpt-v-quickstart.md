@@ -17,7 +17,7 @@ zone_pivot_groups: openai-quickstart-gpt-v
 
 ## GPT-4 Turbo model upgrade
 
-[!INCLUDE [GPT-4 Turbo](../includes/gpt-4-turbo.md)]
+[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
 
 ::: zone pivot="programming-language-studio"
 
