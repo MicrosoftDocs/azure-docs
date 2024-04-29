@@ -19,7 +19,7 @@ NAT Gateway uses software defined networking to operate as a distributed and ful
 
 NAT Gateway provides source network address translation (SNAT) for private instances within subnets of your Azure virtual network. When configured on a subnet, the private IPs within your subnets SNAT to a NAT gateway's static public IP addresses to connect outbound to the internet. NAT Gateway also provides destination network address translation (DNAT) for response packets to an outbound originated connection only.
 
-:::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines and a Virtual Machine Scale Set.":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
 
 *Figure: NAT gateway for outbound to internet*
 
