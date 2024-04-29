@@ -277,7 +277,7 @@ When you using serverless compute as a compute session, you can manage the serve
 
 :::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of list of serverless instance." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
 
-You can also access flows and running on the compute under the **Active flows and runs** tab. As delete the instance impacts the flow and runs on it.
+You can also access flows and runs running on the compute under the **Active flows and runs** tab. As delete the instance impacts the flow and runs on it.
 
 :::image type="content" source="./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png" alt-text="Screenshot of compute detail page of serverless instance." lightbox = "./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png":::
 
