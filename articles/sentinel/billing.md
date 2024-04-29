@@ -251,7 +251,7 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 | **Microsoft Defender for Identity** | SecurityAlert (AATP)           | 
 | **Microsoft Defender for Cloud Apps**   | SecurityAlert (Defender for Cloud Apps)           | 
 
-<a id="audithealthnote">*<sup>1</sup>* *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*</a>
+<a id="audithealthnote">*<sup>1</sup>*</a> *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*
 
 For data connectors that include both free and paid data types, select which data types you want to enable.
 
