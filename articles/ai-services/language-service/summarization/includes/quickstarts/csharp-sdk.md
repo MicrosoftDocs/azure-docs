@@ -98,7 +98,7 @@ namespace Example
         
             TextAnalyticsActions actions = new TextAnalyticsActions()
             {
-                ExtractSummaryActions = new List<ExtractSummaryAction>() { new ExtractSummaryAction() }
+                ExtractiveSummarizeActions = new List<ExtractiveSummarizeAction>() { new ExtractiveSummarizeAction() }
             };
         
             // Start analysis process.
@@ -117,9 +117,9 @@ namespace Example
             // View operation results.
             await foreach (AnalyzeActionsResult documentsInPage in operation.Value)
             {
-                IReadOnlyCollection<ExtractSummaryActionResult> summaryResults = documentsInPage.ExtractSummaryResults;
+                IReadOnlyCollection<ExtractiveSummarizeActionResult> summaryResults = documentsInPage.ExtractiveSummarizeResults;
         
-                foreach (ExtractSummaryActionResult summaryActionResults in summaryResults)
+                foreach (ExtractiveSummarizeActionResult summaryActionResults in summaryResults)
                 {
                     if (summaryActionResults.HasError)
                     {
@@ -129,7 +129,7 @@ namespace Example
                         continue;
                     }
         
-                    foreach (ExtractSummaryResult documentResults in summaryActionResults.DocumentsResults)
+                    foreach (ExtractiveSummarizeResult documentResults in summaryActionResults.DocumentsResults)
                     {
                         if (documentResults.HasError)
                         {
@@ -142,7 +142,7 @@ namespace Example
                         Console.WriteLine($"  Extracted the following {documentResults.Sentences.Count} sentence(s):");
                         Console.WriteLine();
         
-                        foreach (SummarySentence sentence in documentResults.Sentences)
+                        foreach (ExtractiveSummarySentence sentence in documentResults.Sentences)
                         {
                             Console.WriteLine($"  Sentence: {sentence.Text}");
                             Console.WriteLine();
@@ -150,7 +150,6 @@ namespace Example
                     }
                 }
             }
-        
         }
 
         static async Task Main(string[] args)
