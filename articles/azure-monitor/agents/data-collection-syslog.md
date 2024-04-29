@@ -1,3 +1,4 @@
+
 ---
 title: Collect Syslog events with Azure Monitor Agent 
 description: Configure collection of Syslog events by using a data collection rule on virtual machines with Azure Monitor Agent.
@@ -198,6 +199,22 @@ log {
 	destination(d_azure_mdsd);
 	flags(flow-control);
 };
+```
+>[!Note]
+>The following configuration is used when you use SELinux and we decide to use Unix sockets.
+```
+$ cat /etc/syslog-ng/conf.d/azuremonitoragent.conf 
+# Azure MDSD configuration: syslog forwarding config for mdsd agent options {}; 
+# during install time, we detect if s_src exist, if it does then we 
+# replace it by appropriate source name like in redhat 's_sys' 
+# Forwrding using unix domain socket 
+destination d_azure_mdsd { 
+unix-dgram("/run/azuremonitoragent/default_syslog.socket" 
+flags(no_multi_line) 
+); 
+}; 
+log {	source(s_src); # will be automatically parsed from /etc/syslog-ng/syslog-ng.conf 
+destination(d_azure_mdsd); }; 
 ```
 
 >[!Note]
