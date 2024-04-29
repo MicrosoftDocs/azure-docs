@@ -106,7 +106,7 @@ To restore a dropped Azure Database for PostgreSQL flexible server instance, you
   }
 }
  ```
-## Commom Errors
+## Common Errors
 
 1. If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-03-01-preview API to avoid such issues.
 2. To avoid potential DNS errors, it is recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.
