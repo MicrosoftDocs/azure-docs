@@ -728,7 +728,7 @@ $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 
 [!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
 
----
+
 
 ## Redeploy a host
 
@@ -755,6 +755,9 @@ az vm host redeploy \
  --host-group myHostGroup \
  --name myDedicatedHost
 ```
+### [PowerShell](#tab/powershell)
+
+PowerShell support coming soon.
 
 ---
 
