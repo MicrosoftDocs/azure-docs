@@ -42,7 +42,7 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | GA | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#limitations)                                     |
 | [**State management**][dapr-statemgmt]                | GA | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
-| [**Pub/sub**][dapr-pubsub]                            | GA | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. You can also create [declarative subscriptions][dapr-subscriptions] to a topic using an external component JSON file. [Learn more about the declarative pub/sub API.][declarative-pubsub]                                                         |
+| [**Pub/sub**][dapr-pubsub]                            | GA | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. You can also create declarative subscriptions to a topic using an external component JSON file. [Learn more about the declarative pub/sub API.][declarative-pubsub]                                                         |
 | [**Bindings**][dapr-bindings]                         | GA | Trigger your applications based on events                                                                                                                       |
 | [**Actors**][dapr-actors]                             | GA | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
 | [**Observability**](./observability.md)               | GA | Send tracing information to an Application Insights backend.                                                                                                    |
@@ -70,7 +70,6 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 [dapr-faq]: ./faq.yml#are-alpha-dapr-apis-and-components-supported-or-available-in-azure-container-apps-
 [dapr-enable]: ./enable-dapr.md
 [dapr-components]: ./dapr-components.md
-[declarative-pubsub]: /rest/api/containerapps/dapr-subscriptions/create-or-update
 
 <!-- Links External -->
 

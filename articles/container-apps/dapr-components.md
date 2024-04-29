@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 04/29/2024
 ---
 
 # Dapr components in Azure Container Apps
@@ -20,8 +20,6 @@ Dapr components in container apps are environment-level resources that:
 - Can use Dapr secrets to securely retrieve configuration metadata.
 
 In this guide, you learn how to configure Dapr components for your Azure Container Apps services. 
-
-[Learn more about which components are supported in Azure Container Apps.](./dapr-overview.md#managed-versus-standard-components)
 
 ## Component schema
 
