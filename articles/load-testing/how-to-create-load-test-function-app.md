@@ -38,7 +38,7 @@ To create a load test for a function app:
 
     On this page, you can see the list of tests and the load test runs for this function app.
    
-:::image type="content" source="./media/how-to-create-load-test-app-service/app-service-load-testing.png" lightbox="./media/how-to-create-load-test-app-service/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
+    :::image type="content" source="./media/how-to-create-load-test-azure-functions/azure-functions-load-testing.png" lightbox="./media/how-to-create-load-test-azure-functions/azure-functions-load-testing.png" alt-text="Screenshot that shows Load Testing page in an app in Azure Functions.":::
 
 1. Optionally, select **Create load testing resource** if you don't have a load testing resource yet.
 
@@ -68,6 +68,8 @@ To create a load test for a function app:
     | **Headers**          | (Optional) Enter HTTP headers to include in the HTTP request. |
     | **Body**             | (Optional) Depending on the HTTP method, you can specify the HTTP body content. Azure Load Testing supports the following formats: raw data, JSON view, JavaScript, HTML, and XML. |
 
+    :::image type="content" source="./media/how-to-create-load-test-azure-functions/azure-functions-create-test-add-requests.png" lightbox="./media/how-to-create-load-test-azure-functions/azure-functions-create-test-add-requests.png" alt-text="Screenshot that shows adding requests to a load test in an app in Azure Functions.":::
+
     Learn more about [adding HTTP requests to a load test](./how-to-add-requests-to-url-based-test.md).
 
 1. Select the **Load configuration** tab to configure the load parameters for the load test.
@@ -85,7 +87,7 @@ To create a load test for a function app:
 
     Learn more about [load testing privately hosted endpoints](./how-to-test-private-endpoint.md).
 
-   :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-create-test-load-configuration.png" lightbox="./media/how-to-create-load-test-app-service/app-service-create-test-load-configuration.png" alt-text="Screenshot that shows the load configuration page for creating a test in App Service.":::
+    :::image type="content" source="./media/how-to-create-load-test-azure-functions/azure-functions-create-test-load-configuration.png" lightbox="./media/how-to-create-load-test-azure-functions/azure-functions-create-test-load-configuration.png" alt-text="Screenshot that shows the load configuration page for creating a test for an app in Azure Functions.":::
 
 
 1. Select **Review + create** to review the test configuration, and then select **Create** to create the load test.
@@ -109,7 +111,7 @@ You can view the list of test runs and a summary overview of the test results di
 
 1. Select a test run to go to the Azure Load Testing dashboard and analyze the test run details.
 
-   :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-test-runs-list.png" lightbox="./media/how-to-create-load-test-app-service/app-service-test-runs-list.png" alt-text="Screenshot that shows the test runs list in App Service.":::
+   :::image type="content" source="./media/how-to-create-load-test-azure-functions/azure-functions-test-runs-list.png" lightbox="./media/how-to-create-load-test-azure-functions/azure-functions-test-runs-list.png" alt-text="Screenshot that shows the test runs list for an app in Azure Functions.":::
 
 ## Next steps
 
