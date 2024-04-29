@@ -58,7 +58,7 @@ Here's how an access token for Azure Health Data Services is obtained using **au
 
 1. **The client sends a request to the Microsoft Entra authorization endpoint.** Microsoft Entra ID redirects the client to a sign-in page where the user authenticates using appropriate credentials (for example: username and password, or a two-factor authentication). **Upon successful authentication, an authorization code is returned to the client.** Microsoft Entra-only allows this authorization code to be returned to a registered reply URL configured in the client application registration.
 
-2. **The client application exchanges the authorization code for an access token at the Microsoft Entra token endpoint.** When the client application requests a token, the application may have to provide a client secret (which you can add during application registration).
+2. **The client application exchanges the authorization code for an access token at the Microsoft Entra token endpoint.** When the client application requests a token, the application might have to provide a client secret (which you can add during application registration).
  
 3. **The client makes a request to the Azure Health Data Services**, for example, a `GET` request to search all patients in the FHIR service. The request **includes the access token in an `HTTP` request header**, for example, **`Authorization: Bearer xxx`**.
 
@@ -80,7 +80,10 @@ Azure Health Data Services typically expects a [JSON Web Token](https://en.wikip
 * Payload (the claims)
 * Signature, as shown in the image. For more information, see [Azure access tokens](../active-directory/develop/configurable-token-lifetimes.md).
 
-[ ![JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
+:::image type="content" source="media/azure-access-token.png" alt-text="Screenshot showing web token signature":::
+
+
+[JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
 
 Use online tools such as [https://jwt.ms](https://jwt.ms/) to view the token content. For example, you can view the claims details.
 
@@ -90,14 +93,14 @@ Use online tools such as [https://jwt.ms](https://jwt.ms/) to view the token con
 |iss                     |https://sts.windows.net/{tenantid}/|Identifies the security token service (STS) that constructs and returns the token, and the Microsoft Entra tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI ends in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if it's applicable.|
 |iat                     |(time stamp)            |"Issued At" indicates when the authentication for this token occurred.|
 |nbf                     |(time stamp)            |The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
-|exp                     |(time stamp)            |The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. Note that a resource may reject the token before this time, for example if a change in authentication is required, or a token revocation has been detected.|
+|exp                     |(time stamp)            |The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. A resource might reject the token before this time, for example if a change in authentication is required, or a token revocation is detected.|
 |aio                     |E2ZgYxxx                |An internal claim used by Microsoft Entra ID to record data for token reuse. Should be ignored.|
 |appid                   |e97e1b8c-xxx            |The application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Microsoft Entra ID.|
 |appidacr                |1                       |Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2.|
-|idp                     |https://sts.windows.net/{tenantid}/|Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn’t in the same tenant as the issuer - guests, for instance. If the claim isn’t present, it means that the value of iss can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to a Microsoft Entra tenant), the idp claim may be 'live.com' or an STS URI containing the Microsoft account tenant 9188040d-6c67-4c5b-b112-36a304b66dad.|
+|idp                     |https://sts.windows.net/{tenantid}/|Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn’t in the same tenant as the issuer - guests, for instance. If the claim isn’t present, it means that the value of iss can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to a Microsoft Entra tenant), the idp claim might be 'live.com' or an STS URI containing the Microsoft account tenant 9188040d-6c67-4c5b-b112-36a304b66dad.|
 |oid                     |For example, tenantid         |The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user receives the same value in the oid claim. The Microsoft Graph returns this ID as the ID property for a given user account. Because the oid allows multiple apps to correlate users, the profile scope is required to receive this claim. Note: If a single user exists in multiple tenants, the user contains a different object ID in each tenant - they’re considered different accounts, even though the user logs into each account with the same credentials.|
 |rh                       |0.ARoxxx              |An internal claim used by Azure to revalidate tokens. It should be ignored.|
-|sub                      |For example, tenantid        |The principle about which the token asserts information, such as the user of an app. This value is immutable and can’t be reassigned or reused. The subject is a pairwise identifier - it’s unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps receive two different values for the subject claim. You may or may not desire this result depending on your architecture and privacy requirements.|
+|sub                      |For example, tenantid        |The principal about which the token asserts information, such as the user of an app. This value is immutable and can’t be reassigned or reused. The subject is a pairwise identifier - it’s unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps receive two different values for the subject claim. You might not want this result depending on your architecture and privacy requirements.|
 |tid                      |For example, tenantid        |A GUID that represents the Microsoft Entra tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is 9188040d-6c67-4c5b-b112-36a304b66dad. The profile scope is required in order to receive this claim.
 |uti                      |bY5glsxxx             |An internal claim used by Azure to revalidate tokens. It should be ignored.|
 |ver                      |1                     |Indicates the version of the token.|
@@ -116,9 +119,6 @@ When you create a new service of Azure Health Data Services, your data is encryp
 
 ## Next steps
 
-In this document, you learned the authentication and authorization of Azure Health Data Services. To learn how to deploy an instance of Azure Health Data Services, see
+[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
 
->[!div class="nextstepaction"]
->[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](./includes/healthcare-apis-fhir-trademark.md)]
