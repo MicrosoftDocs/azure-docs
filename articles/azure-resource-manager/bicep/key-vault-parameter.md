@@ -207,7 +207,7 @@ module sql './sql.bicep' = {
 
 ## Reference secrets in parameters file
 
-If you don't want to use a module, you can reference the key vault directly in the parameters file. However, the approach varies depending on whether you're working with a JSON parameter file or a Bicep parameter file.
+If you don't want to use a module, you can reference the key vault in the parameters file. However, the approach varies depending on whether you're using a JSON parameter file or a Bicep parameter file.
 
 The following Bicep file deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the Bicep doesn't specify where that value comes from.
 
