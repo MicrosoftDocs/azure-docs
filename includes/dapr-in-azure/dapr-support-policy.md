@@ -10,7 +10,7 @@ ms.author: hannahhunter
 A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: Tier 1 or Tier 2.  
 
 - [Tier 1 components:](../../articles/aks/dapr-overview.md#tier-1-components) Stable components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, Microsoft collaborates with open source to address in a hotfix or the next regular release.
-- [Tier 2 components:](../../articles/aks/dapr-overview.md#tier-2-components) Components that are investigated on a lesser priority with a third party provider.
+- [Tier 2 components:](../../articles/aks/dapr-overview.md#tier-2-components) Components that are investigated on a lesser priority, as they're not in stable state or are with a third party provider.
 
 ##### Tier 1 components
 
