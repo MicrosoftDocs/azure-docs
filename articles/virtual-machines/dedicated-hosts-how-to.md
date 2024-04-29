@@ -728,6 +728,37 @@ $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 
 [!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
 
+---
+
+## Redeploy a host
+
+Redeploying a host will move the host and all associated VMs to a different node of the same SKU. None of the host parameters would change except for the ‘Host asset ID’, which corresponds to the underlying Node Id. During redeploy operation host's provisioning state will change from 'Provisioning succeeded' to 'Updating', once the redeploy operation is complete the provisioning state will revert to ''Provisioning succeeded'.
+
+> [!WARNING]
+> Redeploy operation involves service healing hence would result in loss of any non-persistent data such as data stored on ephemeral disks. Save your work before redeploying.
+
+### [Portal](#tab/portal)
+
+1. Search for and select the host.
+1. In the top menu bar, select the **Redeploy** button.
+1. In the **Essentials** section of the Host Resource Pane, host's provisioning state will switch to **Updating** during the redeploy operation.
+1. Once the redeploy operation is completed, host's provisioning state will revert to **Provisioning succeeded**.
+1.  In the **Essentials** section of the Host Resource Pane, **Host asset ID** would be updated to a new ID
+
+### [CLI](#tab/cli)
+
+Redeploying the host using [az vm host redeploy](/cli/azure/vm#az-vm-host-redeploy).
+
+```azurecli-interactive
+az vm host redeploy \
+ --resource-group myResourceGroup \
+ --host-group myHostGroup \
+ --name myDedicatedHost
+```
+
+
+---
+
 ## Deleting a host
 
 You're being charged for your dedicated host even when no virtual machines are deployed on the host. You should delete any hosts you're currently not using to save costs.
