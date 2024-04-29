@@ -10,34 +10,19 @@ ms.date: 12/17/2023
 
 # Configure data plans for tables in Azure Monitor Logs
 
-Log plans let you set up and use your Log Analytics workspace for all your logging needs, including: 
+Log plans let you balance between how often you use the data in a table, the advanced analytics features you use, and cost savings.  
+Set up the tables in your Log Analytics workspace to meet all your logging needs, including: 
 
 - High-volume, verbose data that requires **cheap long-term storage for compliance**
 - App and resource data for **troubleshooting** by developers
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated data trends for **advanced analytics and machine learning** 
 
-This article describes what each log plan offers and which use cases it's optimal for, and explains how to configure the log plans of the tables in your Log Analytics workspace.
+This article explains what each log plan offers, which use cases it's optimal for, and how to configure the log plans of the tables in your Log Analytics workspace.
 
 ## Choose the best data plan for each table based on your needs
 
-The three Azure Monitor Logs tiers are:
-
-|Tier|Use|
-|-|-|
-|**Analytics**|Real-time monitoring, alerts, analytics, complex queries, and dashboards.|
-|**Basic**|Developer incident response and troubleshooting.|
-|**Auxiliary**|Verbose logs for audit and compliance, which rarely used directly.|
-
-
-Each data plan is optimized for a specific type of use 
-
-
-The  data plans
-
-Data tiers let you manage your Log Analytics workspace to meet the data analysis and retention needs of all your users. You don't have to manage a separate storage account for cheap retention of high-volume verbose logs you rarely access - just use the Auxiliary tier. Use the data tiers to manage all of your log data in one Log Analytics workspace, without ever having to move your data, and always have easy access to your logs.  
-
-## Compare the Analytics, Basic, and Auxiliary data plans
+This table compares the Analytics, Basic, and Auxiliary data plans:
 
 | Area                     | Analytics                                                                                   | Basic                                                                                       | Auxiliary (Preview)                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
