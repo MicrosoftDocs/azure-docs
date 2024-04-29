@@ -118,7 +118,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
         EXEC sys.sp_change_feed_disable_db
         ```
 
-### Trying to re-enable change feed on a table for that was recently disabled table will show an error. This is an uncommon behavior.
+### Trying to re-enable change feed on a table for which it was recently disabled will show an error. (This is an uncommon behavior.)
 
 * Applies To - Azure Synapse Link for Azure SQL Database and SQL Server 2022
 * Issue - When you try to enable a table that has been recently disabled with its metadata not yet been cleaned up and state marked as DISABLED, an error is thrown stating `A table can only be enabled once among all table groups`.

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article walks you through assigning permission to Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2024
+ms.date: 04/22/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -18,7 +18,7 @@ For users with Azure Enterprise agreements, a combination of permissions granted
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When scopes are used, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't access a parent scope that child scopes roll up to.
 
-Watch the [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) video to learn about assigning access to view costs and charges with Azure role-based access control (Azure RBAC). To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+Watch the [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) video to learn about assigning access to view costs and charges with Azure role-based access control (Azure RBAC). To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement). This video mentions the Azure EA portal, which is retired. However, equivalent functionality that's available in the Azure portal is also discussed.
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
