@@ -153,7 +153,7 @@
             - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
               href: howto-delete-access-control-list-network-to-network-interconnect.md
             - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
-              href: howto-configure-diagnostic-settings-and-monitor-configuration-differences.md
+              href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:

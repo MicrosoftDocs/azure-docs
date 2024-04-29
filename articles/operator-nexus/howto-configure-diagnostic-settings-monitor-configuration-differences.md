@@ -9,7 +9,7 @@ ms.date: 04/18/2024
 ms.custom: template-how-to
 ---
 
-# How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
+# How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric
 
 In this guide, we'll walk you through the process of setting up diagnostic settings and monitoring configuration differences in Nexus Network Fabric.
 
@@ -19,7 +19,7 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 - In **Search resources, service, and docs (G+/)** at the top of the portal page, enter **Network Device**.
 
-:::image type="content" source="media/search-network-device.png" alt-text="Search box for Network Device in portal.":::
+- :::image type="content" source="media/search-network-device.png" alt-text="Screenshot of search box for Network Device in portal.":::
 
 - Select the appropriate network device from the search results. Ensure that you choose the device for which you need to configure diagnostic settings.
 
@@ -29,7 +29,7 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 - Within the diagnostic settings section, select "Add diagnostic setting".
 
-:::image type="content" source="media/network-device-dignostics-settings.png" alt-text="Showcases diagnostics settings page for network device.":::
+- :::image type="content" source="media/network-device-dignostics-settings.png" alt-text="Screenshot of diagnostics settings page for network device.":::
 
 - In the diagnostic settings, provide a descriptive name for the diagnostic setting to easily identify its purpose.
 
@@ -43,7 +43,7 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 - Select the log destination from several choices, including Log Analytics Workspace, Storage account, and Event Hubs.
 
-:::image type="content" source="media/network-device-log-analytics-workspace.png" alt-text="Screenshot showcasing the configuration page for selecting Log Analytics Workspace as the log destination for a network device.":::
+- :::image type="content" source="media/network-device-log-analytics-workspace.png" alt-text="Screenshot of configuration page for selecting Log Analytics Workspace as the log destination for a network device.":::
 
 >!Note:
 >In our example, we'll push the logs to the Log Analytics Workspace.<br>
@@ -57,6 +57,6 @@ In this guide, we'll walk you through the process of setting up diagnostic setti
 
 - Within the Log Analytics Workspace, access the query interface or log search functionality. 
 
-:::image type="content" source="media/network-device-config-difference.png" alt-text="Screenshot displaying the comparison of configuration differences for a network device in a visual format.":::
+- :::image type="content" source="media/network-device-config-difference.png" alt-text="Screenshot of comparison of configuration differences for a network device in a visual format.":::
 
 - In the query interface, specify the event category as "MNFSystemSessionHistoryUpdates". This will filter the logs to specifically show configuration updates and changes comprehensively.
