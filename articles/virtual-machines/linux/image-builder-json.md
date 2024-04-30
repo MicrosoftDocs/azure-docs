@@ -1729,14 +1729,9 @@ Resource id of a pre-existing subnet on which the build VM and validation VM wil
 Resource id of a pre-existing subnet on which Azure Container Instance (ACI) will be deployed for [Isolated Builds](../security-isolated-image-builds-image-builder.md). This property is only available in API versions `2024-02-01` or newer though existing templates created using earlier API versions can be updated to specify this property.
 
 This field may be specified only if `subnetId` is also specified and must meet the following requirements:
-- It must not be the same subnet as the one specified in `subnetId`.
-- It must be on the same Virtual Network as the subnet specified in `subnetId`.
-- There must be a network path from the ACI subnet to the Build VM subnet. This is required so that the container instance running in the ACI can connect to the Build VM over ssh/WinRM to perform customizations & validations. Specifically, if there are Network Security Groups (NSGs) associated with the ACI and Build VM subnets then they must allow access from the ACI subnet to the Build VM subnet on port 5986 (for Windows) or port 22 (for Linux).
-- This subnet needs to be delegated to the ACI service so that it can be used to deploy ACI resources . This can be achieved in one of the two ways:
-  - You manage the delegation: The subnet must be delegated to ACI and must contain no resources (or only other ACI resources).
-  - AIB manages the delegation: The subnet must not be delegated to any service and must contain no resources.
-
-You can read more about subnet delegation for Azure services [here](../../virtual-network/manage-subnet-delegation.md). ACI specific subnet delegation information is available [here](../../container-instances/container-instances-virtual-network-concepts.md).
+- This subnet must be on the same Virtual Network as the subnet specified in `subnetId`.
+- This subnet must not be the same subnet as the one specified in `subnetId`.
+- This subnet must be delegated to the ACI service so that it can be used to deploy ACI resources. You can read more about subnet delegation for Azure services [here](../../virtual-network/manage-subnet-delegation.md). ACI specific subnet delegation information is available [here](../../container-instances/container-instances-virtual-network-concepts.md).
 
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
