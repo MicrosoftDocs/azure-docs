@@ -14,9 +14,6 @@ ms.custom: public_preview
 
 # Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-[!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
-
 Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions on the call. This programmability enables you to build intelligent calling workflows that can adapt to customer needs in real time and be fully customized for your business logic. You can learn more about the API [here](./call-automation.md). This document describes the interoperability Call Automation supports with Microsoft Teams.
 
 Developers can use Call Automation APIs to add Teams users to their calling workflows and customer interactions, helping you deliver advanced customer service solutions​ with easy-to-use REST APIs and SDKs. This interoperability is offered over VoIP to reduce telephony infrastructure overhead. Developers can add Teams users to Azure Communication Services calls using the user's Entra object ID (OID).  
@@ -44,7 +41,7 @@ Now, lets look at the scenario where Contoso is already using a CCaaS provider f
 3. Since customer call is handled by contact center provider, they need to configure an SBC with Azure Communication Services Direct Routing in order to route/connect calls to Microsoft. With this model, only the contact center provider needs to have an SBC setup. This SBC can handle connections to multiple Teams tenants, making it easy for developers to implement per-region multitenant trunks that maximize value. Contoso doesn't have to set up Teams Direct Routing for each tenant, thus reducing the telephony overhead and Contoso's onboarding time to contact center provider. 
 1. With Teams interop built into Call Automation, Azure Communication Services then uses the Teams user’s ObjectId to add them to the call. The Teams user receives the incoming call notification. They accept and join the call. 
 
-
+[!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
 ## Capabilities
 
