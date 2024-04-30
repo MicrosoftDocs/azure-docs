@@ -43,25 +43,25 @@ To perform the upload, the client library may use either [Put Blob](/rest/api/st
 
 The following example uploads a local file to a block blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go" id="snippet_upload_blob_file":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_file":::
 
 ## Upload a block blob from a stream
 
 The following example creates a `Reader` instance and reads from a string as if it were a stream of bytes. The stream is then uploaded to a block blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go" id="snippet_upload_blob_stream":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_stream":::
 
 ## Upload binary data to a block blob
 
 The following example uploads binary data to a block blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go" id="snippet_upload_blob_buffer":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_buffer":::
 
 ## Upload a block blob with index tags
 
 The following example uploads a block blob with index tags:
 
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go" id="snippet_upload_blob_tags":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_tags":::
 
 ## Upload a block blob with configuration options
 
@@ -78,7 +78,7 @@ For more information on transfer size limits for Blob Storage, see [Scale target
 
 The following code example shows how to specify data transfer options using the [UploadFileOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#UploadFileOptions). The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go" id="snippet_upload_blob_transfer_options":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_transfer_options":::
 
 ## Resources
 
