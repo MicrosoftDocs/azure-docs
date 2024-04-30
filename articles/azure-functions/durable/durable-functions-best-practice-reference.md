@@ -76,7 +76,7 @@ A single worker instance can execute multiple work items concurrently to increas
 As with Activity Functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain _rare_ conditions (that may occur during restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain some kind of ID that allows them to be manually de-duplicated in orchestrators.
 
 > [!NOTE]
-> The [MSSQL](./durable-functions-storage-providers.md#microsoft-sql-server-mssql) storage provider consumes external events and updates orchestrator state transactionally, so in those backends there should be no risk of duplicate events, unlike with the default [Azure Storage storage provider](./durable-functions-storage-providers.md). That said, it is still recommended that external events have unique names so that code is portable across backends.
+> The [MSSQL](./durable-functions-storage-providers.md#mssql) storage provider consumes external events and updates orchestrator state transactionally, so in those backends there should be no risk of duplicate events, unlike with the default [Azure Storage storage provider](./durable-functions-storage-providers.md). That said, it is still recommended that external events have unique names so that code is portable across backends.
 
 ### Invest in stress testing
 
