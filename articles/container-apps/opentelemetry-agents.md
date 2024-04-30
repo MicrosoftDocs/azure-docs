@@ -73,7 +73,7 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
         "destinations": ["appInsights"]
       },
       "logsConfiguration": {
-        "destinations": ["apInsights"]
+        "destinations": ["appInsights"]
       }
     }
   }
