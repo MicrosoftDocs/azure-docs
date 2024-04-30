@@ -1,6 +1,6 @@
 ---
 title: Define a new IoT device type in Azure IoT Central
-description: How to create an Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your device type.
+description: How to create a device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your device type.
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/01/2024
@@ -9,6 +9,8 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 # This article applies to solution builders and device developers.
+
+#customer intent: As an solution builders, I want define the device types that can connect to my application so that I can manage and monitor them effectively.
 ---
 
 # Define a new IoT device type in your Azure IoT Central application
@@ -36,7 +38,7 @@ To learn how to manage device templates by using the IoT Central REST API, see [
 You have several options to create device templates:
 
 - Design the device template in the IoT Central GUI.
-- Import a device template from the device catalog. Optionally, customize the device template to your requirements in IoT Central.
+- Import a device template from the list of featured device templates. Optionally, customize the device template to your requirements in IoT Central.
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties and views your IoT Central application needs to the device template.
 - When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
 - Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) and [IoT Central DTDL extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
@@ -45,15 +47,15 @@ You have several options to create device templates:
 > [!NOTE]
 > In each case, the device code must implement the capabilities defined in the model. The device code implementation isn't affected by the cloud properties and views sections of the device template.
 
-This section shows you how to import a device template from the catalog and how to customize it using the IoT Central GUI. This example uses the **ESP32-Azure IoT Kit** device template from the device catalog:
+This section shows you how to import a device template from the list of featured device templates and how to customize it using the IoT Central GUI. This example uses the **Onset Hobo MX-100 Temp Sensor** device template from the list of featured device templates:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
-1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
-1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+1. On the **Select type** page, scroll down until you find the **Onset Hobo MX-100 Temp Sensor** tile in the **Featured device templates** section.
+1. Select the **Onset Hobo MX-100 Temp Sensor** tile, and then select **Next: Review**.
 1. On the **Review** page, select **Create**.
-The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
+The name of the template you created is **Hobo MX-100**. The model includes components such as **Hobo MX-100** and **IotDevice**. Components define the capabilities of a Hobo MX-100 device. Capabilities can include  telemetry, properties, and commands. This device only has telemetry capabilities.
 
-:::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a Sensor controller device template." lightbox="media/howto-set-up-template/device-template.png":::
+:::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a device template." lightbox="media/howto-set-up-template/device-template.png":::
 
 ## Autogenerate a device template
 
@@ -92,7 +94,7 @@ To create a device model, you can:
 
 - Use IoT Central to create a custom model from scratch.
 - Import a DTDL model from a JSON file. A device builder might use Visual Studio Code to author a device model for your application.
-- Select one of the devices from the device catalog. This option imports the device model that the manufacturer published for this device. A device model imported like this is automatically published.
+- Select one of the devices from the list of featured device templates. This option imports the device model that the manufacturer published for this device. A device model imported like this is automatically published.
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 

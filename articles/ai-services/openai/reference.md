@@ -1026,7 +1026,7 @@ curl -X POST https://{your-resource-name}.openai.azure.com/openai/deployments/{d
   -d '{
     "prompt": "An avocado chair",
     "size": "1024x1024",
-    "n": 3,
+    "n": 1,
     "quality": "hd", 
     "style": "vivid"
   }'

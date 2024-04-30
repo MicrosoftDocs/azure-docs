@@ -70,7 +70,7 @@ For limits that apply to Change Tracking and Inventory, see [Azure Automation se
 
 Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
-To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS for Azure Automation](../automation-managing-data.md#tls-for-azure-automation).
 
 ### Python requirement
 

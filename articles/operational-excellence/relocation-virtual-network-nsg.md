@@ -30,6 +30,12 @@ This article shows you how to relocate an NSG to a new region by creating a copy
 - Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+
 ## Prepare
 
 The following steps show how to prepare the network security group for the configuration and security rule move using a Resource Manager template, and move the NSG configuration and security rules to the target region using the portal.

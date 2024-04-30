@@ -59,7 +59,7 @@ Latency varies based on what model you're using. For an identical request, expec
 When you send a completion request to the Azure OpenAI endpoint, your input text is converted to tokens that are then sent to your deployed model. The model receives the input tokens and then begins generating a response. It's an iterative sequential process, one token at a time. Another way to think of it is like a for loop with `n tokens = n iterations`. For most models, generating the response is the slowest step in the process.  
 
 At the time of the request, the requested generation size (max_tokens parameter) is used as an initial estimate of the generation size. The compute-time for generating the full size is reserved by the model as the request is processed. Once the generation is completed, the remaining quota is released. Ways to reduce the number of tokens:
-- Set the `max_token` parameter on each call as small as possible.
+- Set the `max_tokens` parameter on each call as small as possible.
 - Include stop sequences to prevent generating extra content.
 - Generate fewer responses: The best_of & n parameters can greatly increase latency because they generate multiple outputs. For the fastest response, either don't specify these values or set them to 1.
 

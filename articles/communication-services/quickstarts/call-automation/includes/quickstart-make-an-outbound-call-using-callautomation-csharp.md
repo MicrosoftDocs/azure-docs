@@ -19,7 +19,7 @@ ms.custom: mode-other
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
-- (Optional) A Microsoft Teams user with a phone license. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  Learn about enabling phone system with `voice` [here](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
 

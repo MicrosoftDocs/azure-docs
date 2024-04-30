@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 04/11/2024
+ms.date: 04/15/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,11 +20,25 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## May 2024
+
+|Date | Update |
+|--|--|
+| May  7 | [Defender for open-source databases is now available for RDS instances on AWS (Preview)](#defender-for-open-source-databases-is-now-available-for-rds-instances-on-aws-preview) |
+
+### Defender for open-source databases is now available for RDS instances on AWS (Preview)
+
+May 7, 2024
+
+We are announcing the availability of Defender for open-source databases for relation database service (RDS) instances on AWS.
+
+Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
+
 ## April 2024
 
 |Date | Update |
 |--|--|
-| April 17 | [Defender for open-source databases is now available for RDS instances on AWS (Preview)](#defender-for-open-source-databases-is-now-available-for-rds-instances-on-aws-preview) |
+| April 15 | [Defender for Containers is now generally available (GA) for AWS and GCP](#defender-for-containers-is-now-generally-available-ga-for-aws-and-gcp) |
 | April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
 | April 3 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
 | April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
@@ -32,13 +46,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 | April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
 | April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
 
-### Defender for open-source databases is now available for RDS instances on AWS (Preview)
+### Defender for Containers is now generally available (GA) for AWS and GCP
 
-April 17, 2024
+April 15, 2024
 
-We are announcing the availability of Defender for open-source databases for relation database service (RDS) instances on AWS.
+Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers are now Generally Available (GA). For more information, see [Containers support matrix in Defender for Cloud](support-matrix-defender-for-containers.md).
 
-Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
+In addition, there is a new authentication capability in AWS which simplifies provisioning. For more information, see [Configure Microsoft Defender for Containers components](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-269845&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks#deploying-the-defender-sensor).
 
 ### Risk prioritization is now the default experience in Defender for Cloud
 
@@ -266,11 +280,11 @@ March 6, 2024
 
 Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
-Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
 
 We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
 
-Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
+Learn how to [assign a security standard](update-regulatory-compliance-packages.yml).
 
 ### Deprecation of two recommendations related to PCI
 
@@ -306,7 +320,7 @@ February 28, 2024
 
 The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes:
 
-- Managing [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud across Azure, AWS, and GCP environments.
+- Managing [regulatory compliance standards](update-regulatory-compliance-packages.yml) in Defender for Cloud across Azure, AWS, and GCP environments.
 - Same cross cloud interface experience for creating and managing [Microsoft Cloud Security Benchmark(MCSB) custom recommendations](manage-mcsb.md).
 - The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md).
 
