@@ -53,38 +53,28 @@ It may take up to 2 minutes for the logger level change to take effect. You can 
 
 ## Supported Java logging frameworks
 
-Currently most of those popular Java logging frameworks are supported: [Log4j](https://logging.apache.org/log4j/2.x/), [SLF4J](https://slf4j.org/), [jboss-logging](https://github.com/jboss-logging/jboss-logging).
+Currently most of those popular Java logging frameworks are supported: [Log4j2](https://logging.apache.org/log4j/2.x/), [SLF4J](https://slf4j.org/), [jboss-logging](https://github.com/jboss-logging/jboss-logging). For Log4j, only version 2.* is supported.
 
-### Visibility of Log4j Log Levels
+### Supported log levels by different logging frameworks
 
-| Log Level | FATAL | ERROR | WARN | INFO | DEBUG | TRACE |
-|-----------|-------|-------|------|------|-------|-------|
-| **OFF**   |       |       |      |      |       |       |
-| **FATAL** | Y     |       |      |      |       |       |
-| **ERROR** | Y     | Y     |      |      |       |       |
-| **WARN**  | Y     | Y     | Y    |      |       |       |
-| **INFO**  | Y     | Y     | Y    | Y    |       |       |
-| **DEBUG** | Y     | Y     | Y    | Y    | Y     |       |
-| **TRACE** | Y     | Y     | Y    | Y    | Y     | Y     |
+Different logging frameworks have different log levels supported. In JVM diagnostics platform, some of them are supported as well but others are not yet. If you are using a specific logging framework and you want to use dynamic log level change, you need to make sure those log levels you are using are supported by both framework and platform.
 
-### Visibility of SLF4J Log Levels
+|               | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
+|---------------|-------|-------|-------|------|------|-------|-------|-----|
+| Log4j2        | YES   | YES   | YES   | YES  | YES  | YES   | YES   | YES |
+| SLF4J         | YES   | YES   | YES   | YES  | YES  | YES   | YES   | YES |
+| jboss-logging | NO    | YES   | YES   | YES  | YES  | YES   | YES   | NO  |
+| **Platform**  | YES   | NO    | YES   | YES  | YES  | YES   | YES   | NO  |
 
-| Log Level | ERROR | WARN | INFO | DEBUG | TRACE |
-|-----------|-------|------|------|-------|-------|
-| **OFF**   |       |      |      |       |       |
-| **ERROR** | Y     |      |      |       |       |
-| **WARN**  | Y     | Y    |      |       |       |
-| **INFO**  | Y     | Y    | Y    |       |       |
-| **DEBUG** | Y     | Y    | Y    | Y     |       |
-| **TRACE** | Y     | Y    | Y    | Y     | Y     |
+### General visibility of log levels
 
-### Visibility of jboss-logging Log Levels
-
-| Log Level | FATAL | ERROR | WARN | INFO | DEBUG |
-|-----------|-------|------|------|-------|-------|
-| **OFF**   |       |      |      |       |       |
-| **FATAL** | Y     |      |      |       |       |
-| **ERROR** | Y     | Y    |      |       |       |
-| **WARN**  | Y     | Y    | Y    |       |       |
-| **INFO**  | Y     | Y    | Y    | Y     |       |
-| **DEBUG** | Y     | Y    | Y    | Y     | Y     |
+|           | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
+|-----------|-------|-------|------|------|-------|-------|-----|
+| **OFF**   |       |       |      |      |       |       |     |
+| **FATAL** | YES   |       |      |      |       |       |     |
+| **ERROR** | YES   | YES   |      |      |       |       |     |
+| **WARN**  | YES   | YES   | YES  |      |       |       |     |
+| **INFO**  | YES   | YES   | YES  | YES  |       |       |     |
+| **DEBUG** | YES   | YES   | YES  | YES  | YES   |       |     |
+| **TRACE** | YES   | YES   | YES  | YES  | YES   | YES   |     |
+| **ALL**   | YES   | YES   | YES  | YES  | YES   | YES   | YES |
