@@ -4,7 +4,7 @@ description: How to self-host the API Center portal, a customer-managed website 
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 04/29/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -19,7 +19,7 @@ This article introduces the *API Center portal*, a website that developers and o
 
 ## About the API Center portal
 
-The API Center portal is a website that you can host in your Azure subscription to display the API inventory in your API center. The portal enables developers and other stakeholders in your organization to discover APIs and view API details. 
+The API Center portal is a website that you can build and host to display the API inventory in your API center. The portal enables developers and other stakeholders in your organization to discover APIs and view API details. 
 
 You can build and deploy a reference implementation of the portal using code in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. The portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve data from your API center. User access to API information is based on Azure role-based access control.
 
@@ -27,7 +27,7 @@ The API Center portal reference implementation provides:
 
 * A framework for publishing and maintaining a customer-managed API portal using GitHub Actions
 * A portal platform that customers can modify or extend to meet their needs
-* Flexibility to host on different infrastructures, including deployment to Azure Static Web Apps or Azure App Service  
+* Flexibility to host on different infrastructures, including deployment to service such as Azure Static Web Apps.  
 
 ## Prerequisites
 
@@ -75,8 +75,17 @@ Follow these steps to build and test the API Center portal locally.
     ```bash
     git clone https://github.com/Azure/APICenter-Portal-Starter.git
     ```
-    
-1. To configure the service, edit the `public/config.json` file to point to your service. Where indicated:
+1. Change to the `APICenter-Portal-Starter` directory.
+
+    ```bash
+    cd APICenter-Portal-Starter
+    ```
+1. Check out the main branch.
+
+    ```bash
+    git checkout main
+    ```  
+1. To configure the service, edit the `public/config.json` file to point to your service.Update the values in the following code snippet as follows:
     * Replace `<service name>` and `<region>` with the name of your API center and the region where it's deployed
     * Replace `<client ID>` and `<tenant ID>` with the **Application (client) ID** and **Directory (tenant) ID** of the app registration you created in the previous section.
     * Update the value of `title` to a name that you want to appear on the portal.
@@ -110,7 +119,7 @@ Follow these steps to build and test the API Center portal locally.
 
 ## Deploy to Azure
 
-For options to deploy the portal to Azure Static Web Apps or Azure App Service, see the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
+For steps to deploy the portal to Azure Static Web Apps, see the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
 
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
@@ -178,7 +187,6 @@ After re-registering the resource provider, try again to request API permissions
 Provide feedback, request features, and get support for the API Center portal reference implementation in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
 
 ## Related content
-
 
 * [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
 * [Best practices for Azure RBAC](../role-based-access-control/best-practices.md)
