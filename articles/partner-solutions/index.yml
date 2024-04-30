@@ -96,5 +96,5 @@ productDirectory:
     - title: Split Experimentation
       imageSrc: ./media/index/split-experimentation.svg
       links:
-        - url: ./split-experimentation/split-overview.md
+        - url: ./split-experimentation/overview.md
           text: Test different variants of a feature and monitor the impact at the feature-level. 
