@@ -182,6 +182,8 @@
       href: sizes.md
     - name: General purpose
       items:
+      - name: Dlsv6 and Dldsv6-series
+        href: dlsv6-dldsv6-series.md
       - name: Dasv6 and Dadsv6-series
         href: dasv6-dadsv6-series.md
       - name: Overview
