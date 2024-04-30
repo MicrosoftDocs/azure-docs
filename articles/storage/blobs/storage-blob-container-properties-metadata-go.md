@@ -45,7 +45,7 @@ To retrieve container properties, call the following method from a container cli
 
 The following code example fetches a container's system properties and writes some of the property values to a console window:
 
-:::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go id="snippet_get_container_properties":::
+:::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go" id="snippet_get_container_properties":::
 
 ## Set and retrieve metadata
 
@@ -57,7 +57,7 @@ Setting container metadata overwrites all existing metadata associated with the 
 
 The following code example sets metadata on a container:
 
-:::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go id="snippet_set_container_metadata":::
+:::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go" id="snippet_set_container_metadata":::
 
 To retrieve metadata, call the following method from a container client object:
 
@@ -65,7 +65,7 @@ To retrieve metadata, call the following method from a container client object:
 
 Metadata is included in the response from `GetProperties`. The following example reads in metadata values and writes them to a console window: 
 
-:::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go id="snippet_get_container_metadata":::
+:::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go" id="snippet_get_container_metadata":::
 
 ## Resources
 

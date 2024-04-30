@@ -37,11 +37,11 @@ To delete a blob, call the following method:
 
 The following example deletes a blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_delete_blob":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go" id="snippet_delete_blob":::
 
 If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_delete_blob_snapshots":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go" id="snippet_delete_blob_snapshots":::
 
 To delete *only* the snapshots and not the blob itself, you can pass the parameter `delete_snapshots="only"`.
 
@@ -64,7 +64,7 @@ To restore deleted blobs when versioning is disabled, call the following method:
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_restore_blob":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go" id="snippet_restore_blob":::
 
 #### Restore soft-deleted objects when versioning is enabled
 
@@ -74,7 +74,7 @@ If a storage account is configured to enable blob versioning, deleting a blob ca
 
 The following code example identifies a version of a deleted blob, and restores that version by copying it to the base blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_restore_blob_version":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go" id="snippet_restore_blob_version":::
 
 ## Resources
 

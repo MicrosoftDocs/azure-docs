@@ -41,13 +41,13 @@ You can use any of the following method to download a blob:
 
 The following example downloads a blob to a file path:
 
-:::code language="go" source="~/blob-devguide-go/cmd/download-blob/download_blob.go id="snippet_download_blob_file":::
+:::code language="go" source="~/blob-devguide-go/cmd/download-blob/download_blob.go" id="snippet_download_blob_file":::
 
 ## Download to a stream
 
 The following example downloads a blob to a stream, and reads from the stream by calling the [NewRetryReader](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#DownloadStreamResponse.NewRetryReader) method.
 
-:::code language="go" source="~/blob-devguide-go/cmd/download-blob/download_blob.go id="snippet_download_blob_stream":::
+:::code language="go" source="~/blob-devguide-go/cmd/download-blob/download_blob.go" id="snippet_download_blob_stream":::
 
 ## Resources
 

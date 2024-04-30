@@ -52,7 +52,7 @@ Any properties not explicitly set are cleared. To preserve any existing properti
 
 The following code example sets the `BlobContentType` and `BlobContentLanguage` system properties on a blob, while preserving the existing properties:
 
-:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go id="snippet_set_blob_properties":::
+:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go" id="snippet_set_blob_properties":::
 
 To retrieve properties on a blob, call  the following method from a blob client object:
 
@@ -60,7 +60,7 @@ To retrieve properties on a blob, call  the following method from a blob client 
 
 The following code example gets a blob's system properties and displays some of the values:
 
-:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go id="snippet_get_blob_properties":::
+:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go" id="snippet_get_blob_properties":::
 
 ## Set and retrieve metadata
 
@@ -70,13 +70,13 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 The following code example sets metadata on a blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go id="snippet_set_blob_metadata":::
+:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go" id="snippet_set_blob_metadata":::
 
 To retrieve metadata, call the [GetProperties](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.GetProperties) method from a blob client object, and access the `Metadata` field in the response. The `GetProperties` method retrieves blob properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
 The following code example reads metadata on a blob and prints each key/value pair: 
 
-:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go id="snippet_get_blob_metadata":::
+:::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go" id="snippet_get_blob_metadata":::
 
 ## Resources
 

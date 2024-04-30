@@ -39,7 +39,7 @@ After you delete a container, you can't create a container with the same name fo
 
 The following example shows how to delete a specified container:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go id="snippet_delete_container":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go" id="snippet_delete_container":::
 
 ## Restore a deleted container
 
@@ -49,7 +49,7 @@ When container soft delete is enabled for a storage account, a deleted container
 
 The following example lists containers, including soft-deleted containers, and iterates over the list to restore the specified soft-deleted container:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go id="snippet_restore_container":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go" id="snippet_restore_container":::
 
 ## Resources
 

@@ -61,15 +61,15 @@ To include soft-deleted containers with the results, set the `Deleted` field to 
 
 The following example lists all containers and metadata:
 
-:::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go id="snippet_list_containers":::
+:::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go" id="snippet_list_containers":::
 
 The following example lists only containers that begin with the specified prefix:
 
-:::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go id="snippet_list_containers_prefix":::
+:::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go" id="snippet_list_containers_prefix":::
 
 You can also specify a limit for the number of results per page. This example passes in a value for `MaxResults` and paginates the results:
 
-:::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go id="snippet_list_containers_pages":::
+:::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go" id="snippet_list_containers_pages":::
 
 ## Resources
 

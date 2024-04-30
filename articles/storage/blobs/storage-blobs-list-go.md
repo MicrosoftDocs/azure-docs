@@ -69,7 +69,7 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing. This example   blob snapshots and blob versions, if they exist:
 
-:::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go id="snippet_list_blobs_flat":::
+:::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go" id="snippet_list_blobs_flat":::
 
 Sample output is similar to:
 
@@ -83,7 +83,7 @@ folderA/folderB/file3.txt
 
 The following example lists blobs in a container that begin with a specific prefix:
 
-:::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go id="snippet_list_blobs_flat_options":::
+:::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go" id="snippet_list_blobs_flat_options":::
 
 When passing a prefix string of "sample", output is similar to:
 
@@ -109,7 +109,7 @@ To list blobs hierarchically, use the following method:
 
 The following example lists the blobs in the specified container using a hierarchical listing. In this example, the prefix parameter is initially set to an empty string to list all blobs in the container. The example then calls the listing operation recursively to traverse the virtual directory hierarchy and list blobs. 
 
-:::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go id="snippet_list_blobs_hierarchical":::
+:::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go" id="snippet_list_blobs_hierarchical":::
 
 Sample output is similar to:
 

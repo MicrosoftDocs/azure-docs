@@ -53,7 +53,7 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates the container if it doesn't already exist in the storage account:
 
-:::code language="go" source="~/blob-devguide-go/cmd/create-container/create_container.go id="snippet_create_root_container":::
+:::code language="go" source="~/blob-devguide-go/cmd/create-container/create_container.go" id="snippet_create_root_container":::
 
 ## Resources
 
