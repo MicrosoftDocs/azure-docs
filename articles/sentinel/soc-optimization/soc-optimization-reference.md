@@ -11,7 +11,7 @@ ms.collection:
   - tier1
   - usx-security
 ms.topic: reference
-ms.date: 03/17/2024
+ms.date: 04/30/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal

@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## May 2024
 
-- [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations)
+- [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
 
 ### Optimize your security operations with SOC optimizations (Preview)
 
