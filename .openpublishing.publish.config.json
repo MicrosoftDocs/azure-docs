@@ -873,6 +873,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "blob-devguide-go",
+      "url": "https://github.com/Azure-Samples/blob-storage-devguide-go",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
