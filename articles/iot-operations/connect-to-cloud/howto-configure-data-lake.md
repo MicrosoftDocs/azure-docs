@@ -229,7 +229,7 @@ Configure the data lake connector to send data to an Azure Data Explorer endpoin
 
 1. After the cluster is created, create a database to store your data. 
 
-1. You can create a table for given data via the Azure portal and create columns manually, or you can can use [KQL](/azure/data-explorer/kusto/management/create-table-command) in the query tab.
+1. You can create a table for given data via the Azure portal and create columns manually, or you can use [KQL](/azure/data-explorer/kusto/management/create-table-command) in the query tab.
 
     For example:
     
@@ -259,9 +259,20 @@ For example:
 .alter table thermostat policy streamingingestion enable
 .alter database TestDatabase policy streamingingestion enable
 ```
-### Deploy the ARC extension
+### Deploy ARC extension
 
 Deploy the broker as an ARC extension so that you get managed identity support. Follow the steps outlined in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+
+### Add the managed identity to the Azure Data Explorer cluster
+
+In order for the connector to authenticate to Azure Data Explorer, you must add the managed identity to the Azure Data Explorer cluster. 
+
+1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for the name of your MQ extension. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*. The MQ extension name is the same as the MQ managed identity name.
+1. In your Azure Data Explorer database, select **Permissions** > **Add** > **Ingestor**. Search for the MQ managed identity name and add it.
+
+For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
+
+Now, you're ready to deploy the connector and send data to Azure Data Explorer.
 
 ### Example deployment file
 
