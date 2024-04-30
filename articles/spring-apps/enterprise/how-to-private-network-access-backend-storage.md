@@ -76,7 +76,7 @@ az spring update \
 
 The Azure Spring Apps instance doesn't incur charges for this feature. However, you're billed for the private link resources hosted in your subscription that support this feature. For more information, see [Azure Private Link Pricing](https://azure.microsoft.com/pricing/details/private-link/) and [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 
-## Using custom DNS servers
+## Use custom DNS servers
 
 If you're using a custom DNS server and the Azure DNS IP `168.63.129.16` isn't configured as the upstream DNS server, you must manually bind all the DNS records of private DNS zones shown in the resource group `ap-res_{service instance name}_{service instance region}` to resolve the private IP addresses.
 
