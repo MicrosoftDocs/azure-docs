@@ -28,7 +28,7 @@ Microsoft Sentinel now provides SOC optimizations, which are high-fidelity and a
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
-If your workspace is onboarded to the unified security operations platform, SOC optimziations are also available in the Microsoft Defender portal.
+If your workspace is onboarded to the unified security operations platform, SOC optimizations are also available in the Microsoft Defender portal.
 
 For more information, see:
 
