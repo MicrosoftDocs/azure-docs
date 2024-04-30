@@ -11,11 +11,11 @@ The Service Bus Geo-Replication feature is one of the options to [insulate Azure
 
 The Geo-Replication feature ensures that the entire configuration and data of a namespace are continuously replicated from a primary region to a secondary region.
 - Queues, topics, subscriptions, filters.
-- Data, which resides in the entities.
+- Data, which reside in the entities.
 - All operations (lock, receive, delete, abandon, complete, etc.) executed against the messages within a namespace.
 - Namespace configuration (RBAC, CMK, advanced network settings, etc.).
 
-This feature allows to initiate a failover or failback between the primary and secondary regions at any time. The failover repoints the name for the namespace to the secondary region, and switches the roles between the primary and secondary regions. The failover is nearly instantaneous once initiated. 
+This feature allows initiating a failover or failback between the primary and secondary regions at any time. The failover repoints the name for the namespace to the secondary region, and switches the roles between the primary and secondary regions. The failover is nearly instantaneous once initiated. 
 
 ## Important points to consider during public preview
 
@@ -30,7 +30,7 @@ TODO_UPDATE_LIST
     - Identities (MSI, disable local auth) and encryption settings (customer-managed key (CMK) encryption or bring your own key (BYOK) encryption).
     - Autoscaling.
     - Partitioned namespaces.
-    - Auto-delete entities.
+    - Autodelete entities.
     - Send events to Event Grid.
 
 ## Basic concepts
@@ -55,11 +55,11 @@ There are two replication modes, synchronous and asynchronous. It's important to
 
 ### Asynchronous replication
 
-When using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time, the offset between the latest action on the primary and the secondary regions. If the lag for an active secondary grows beyond user configuration, the primary will throttle incoming requests.
+Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time, the offset between the latest action on the primary and the secondary regions. If the lag for an active secondary grows beyond user configuration, the primary will throttle incoming requests.
 
 ### Synchronous replication
 
-When using synchronous replication, all requests are replicated to the secondary, which must commit and confirm the operation before committing on the primary. As such, your application publishes at the rate it takes to publish, replicate, acknowledge, and commit. Moreover, it also means that your application is tied to the availability of both regions. If the secondary region goes down, messages won't be acknowledged and committed, and the primary will throttle incoming requests.
+Using synchronous replication, all requests are replicated to the secondary, which must commit and confirm the operation before committing on the primary. As such, your application publishes at the rate it takes to publish, replicate, acknowledge, and commit. Moreover, it also means that your application is tied to the availability of both regions. If the secondary region goes down, messages aren't acknowledged and committed, and the primary will throttle incoming requests.
 
 ### Replication mode comparison
 
@@ -67,13 +67,13 @@ With **synchronous** replication:
 - Latency is longer due to the distributed commit operations.
 - Availability is tied to the availability of two regions.
 
-On the other hand, synchronous replication provides the greatest assurance that your data is safe. If you have synchronous replication, then when we commit it, it's committed in all of the regions you configured for Geo-Replication. It provides the best data assurance and reliability.
+On the other hand, synchronous replication provides the greatest assurance that your data is safe. If you have synchronous replication, then when we commit it, it commits in all of the regions you configured for Geo-Replication, providing the best data assurance and reliability.
 
 With **asynchronous** replication:
 - Latency is impacted minimally.
-- Availability isn't immediately impacted by the loss of a secondary region. However, availability will get impacted once the configured maximum replication lag is reached.
+- The loss of a secondary region doesn't immediately impacted availability. However, availability gets impacted once the configured maximum replication lag is reached.
 
-As such, it doesn’t have the absolute guarantee that all regions have the data before we commit it like synchronous replication does, and data loss or duplication may occur. However, as you're no longer immediately impacted when a single region goes down, application availability and reliability will improve, in addition to having a lower latency.
+As such, it doesn’t have the absolute guarantee that all regions have the data before we commit it like synchronous replication does, and data loss or duplication may occur. However, as you're no longer immediately impacted when a single region goes down, application availability and reliability improves, in addition to having a lower latency.
 
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability and reliability of your application.
 
@@ -89,7 +89,7 @@ The Geo-Replication feature enables customers to configure a secondary region to
     > Currently only new namespaces are supported.
 - Configure the replication consistency; Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 - Trigger failover; All failovers are customer initiated.
-- Remove a secondary; If at any time you want to remove a secondary region, you can do so after which the data in the secondary region will be deleted.
+- Remove a secondary; If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
 
 ## Setup
 
