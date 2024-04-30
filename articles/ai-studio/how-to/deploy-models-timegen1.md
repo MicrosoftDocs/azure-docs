@@ -6,25 +6,26 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 4/29/2024
-ms.reviewer: fkriti
+ms.reviewer: kritifaujdar 
+reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
+
 ---
 
-# How to deploy TimeGEN-1 model with Azure AI Studio
+# How to deploy a TimeGEN-1 model with Azure AI Studio
 
 In this article, you learn how to use Azure AI Studio to deploy the TimeGEN-1 model as a service with pay-as you go billing.
 You can browse the TimeGEN-1 model in the [Model Catalog](model-catalog.md) by filtering on the Nixtla collection.
 
-## TimeGEN-1 
-Nixtla’s TimeGEN-1 is a generative pre-trained forecasting and anomaly detection model for time series data. TimeGEN-1 can produce accurate forecasts for new time series without training using only historical values and exogenous covariates as inputs.
+Nixtla's TimeGEN-1 is a generative pretrained forecasting and anomaly detection model for time series data. TimeGEN-1 can produce accurate forecasts for new time series without training, using only historical values and exogenous covariates as inputs.
 
 ## Deploy TimeGEN-1 with pay-as-you-go
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a service with pay-as-you-go. Pay-as-you-go deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-TimeGEN-1 can be deployed as a service with pay-as-you-go, and is offered by Nixtla through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of this model.
+TimeGEN-1 can be deployed as a service with pay-as-you-go and is offered by Nixtla through the Microsoft Azure Marketplace. Nixtla can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -35,9 +36,7 @@ TimeGEN-1 can be deployed as a service with pay-as-you-go, and is offered by Nix
     > The pay-as-you-go model deployment offering for TimeGEN1 is only available with hubs created in **East US 2** region.
 
 - An [AI Studio project](../how-to/create-projects.md).
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
-
-    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
 ### Create a new deployment
@@ -62,7 +61,7 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**.
 1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
 
-To learn about billing for the TimeGEN-1 deployed with pay-as-you-go, see [Cost and quota considerations for TimeGEN-1 deployed as a service](#cost-and-quota-considerations-for-timegen1-deployed-as-a-service).
+To learn about billing for TimeGEN-1 deployed with pay-as-you-go, see [Cost and quota considerations for TimeGEN-1 deployed as a service](#cost-and-quota-considerations-for-timegen1-deployed-as-a-service).
 
 ### Consume the TimeGEN-1 model as a service
 
@@ -76,13 +75,13 @@ TimeGEN-1 can be consumed using the chat API.
 
 1.Try the samples here:
 | Use Case | Description | Sample Notebook |
-|Quick Start Forecast|Nixtla’s TimeGEN1 is a generative pre-trained forecasting model for time series data. TimeGEN1 can produce accurate forecasts for new time series without training, using only historical values as inputs.|[Quick Start Forecast](https://aka.ms/quick-start-forecasting)|
+|Quick Start Forecast|Nixtla's TimeGEN1 is a generative pre-trained forecasting model for time series data. TimeGEN1 can produce accurate forecasts for new time series without training, using only historical values as inputs.|[Quick Start Forecast](https://aka.ms/quick-start-forecasting)|
 |Finetunning|Fine-tuning is a powerful process for utilizing Time-GEN1 more effectively. Foundation models such as TimeGEN1 are pre-trained on vast amounts of data, capturing wide-ranging features and patterns. These models can then be specialized for specific contexts or domains. With fine-tuning, the model's parameters are refined to forecast a new task, allowing it to tailor its vast pre-existing knowledge towards the requirements of the new data. Fine-tuning thus serves as a crucial bridge, linking TimeGEN1's broad capabilities to your tasks specificities. Concretely, the process of fine-tuning consists of performing a certain number of training iterations on your input data minimizing the forecasting error. The forecasts will then be produced with the updated model. To control the number of iterations, use the finetune_steps argument of the forecast method.|[Finetuning](https://aka.ms/finetuning-TimeGEN1)|
 |Anomaly Detection|Anomaly detection in time series data is crucial across various industries like finance and 
 healthcare. It involves monitoring ordered data points to spot irregularities that may signal 
 issues or threats. This enables organizations to act swiftly to prevent, improve or safeguard
 their operations.|[Anomaly Detection](https://aka.ms/anomaly-detection)|
-|Exogenous Variables|Calendar variables and special dates are one of the most common types of additional variables used in forecasting applications. They provide additional context on the current state of the time series, especially for window-based models such as TimeGEN1. These variables often include adding information on each observation’s month, week, day, or hour. For example, in high-frequency hourly data, providing the current month of the year provides more context than the limited history available in the input window to improve the forecasts.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
+|Exogenous Variables|Calendar variables and special dates are one of the most common types of additional variables used in forecasting applications. They provide additional context on the current state of the time series, especially for window-based models such as TimeGEN1. These variables often include adding information on each observation's month, week, day, or hour. For example, in high-frequency hourly data, providing the current month of the year provides more context than the limited history available in the input window to improve the forecasts.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
 |Demand Forecasting|Demand forecasting is the process of leveraging historical data and other analytical information to build models that help predict future estimates of customer demand for specific products over a specific period. It helps shape product road map, inventory production and inventory allocation, among other things.|[Demand Forecasting](https://aka.ms/demand-forecasting-with-TimeGEN1)|
 
     For more information on using the APIs, see the [reference](#reference-for-timegen1-deployed-as-a-service) section.
@@ -102,11 +101,11 @@ Additionally, you can pass multiple time series (stacked in the dataframe) consi
 - `id_col`: Column name in `df` that identifies unique time series. Each unique value in this column corresponds to a unique time series.
  |
 | **Forecast Horizon (`h`)**     | `int` | No default. This value must be specified. | Forecast horizon |
-| **Frequency (`freq`)** | `str` | None    |Frequency of the data. By default, the frequency will be inferred automatically. [See pandas’ available frequencies](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases). |
+| **Frequency (`freq`)** | `str` | None    |Frequency of the data. By default, the frequency will be inferred automatically. [See pandas' available frequencies](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases). |
 | **Identifying Column (`id_col`)**       | `str` | `unique_id`    | Column that identifies each series.|
 |**Time Column (`time_col`)**| `str`  |`ds`    | Column that identifies each timestep; its values can be timestamps or integers.  |
 | **Target Column (`target_col`)**         | `str` | `y`  | Column that contains the target. |
-| **Exogenous DataFrame (`X_df`)**| `DataFrame`| None  | DataFrame with `[unique_id, ds]` columns and `df`’s future exogenous variables. |
+| **Exogenous DataFrame (`X_df`)**| `DataFrame`| None  | DataFrame with `[unique_id, ds]` columns and `df`'s future exogenous variables. |
 |**Prediction Intervals (`level`)**|`List[Union[int, float]]`|None|Confidence levels between 0 and 100 for prediction intervals.|
 |**Quantiles (`quantiles`)**|`List[float]`|None|List of quantiles to forecast between (0, 1). `level` and `quantiles` should not be used simultaneously. The output dataframe will have the quantile columns formatted as `TimeGEN-q-(100 * q)` for each q. 100 * q represents percentiles but we choose this notation to avoid having dots in column names.|
 |**Fine-tuning Steps (`finetune_steps`)**|`int`|0|Number of steps used to fine-tune learning TimeGEN-1 in the new data.|
@@ -183,7 +182,7 @@ The response is a data frame of type `pandas.DataFrame` which containes the Time
 
 #### Example
 
-The following is an example response:
+The following JSON is an example response:
 
 ```json
 {
@@ -229,9 +228,14 @@ Each time a project subscribes to a given offer from the Azure Marketplace, a ne
 
 For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-## Next steps
+## Content filtering
+
+Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
+
+## Related content
+
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
