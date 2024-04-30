@@ -25,11 +25,25 @@ In this quickstart, you create and deploy your first container app using the `az
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-## Create a resource group
+## Create an Azure resource group
+
+Create a resource group to organize the services related to your container app deployment.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az group create \
+  --name my-container-apps \
+  --location centralus
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az group create --location centralus --resource-group my-container-apps
+New-AzResourceGroup -Location centralus -Name my-container-apps
 ```
+
+---
 
 ## Create and deploy the container app
 

@@ -51,7 +51,7 @@ The example shown in this article demonstrates how to use a custom container ima
 
 ::: zone pivot="container-apps-private-registry"
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
 
@@ -120,7 +120,7 @@ New-AzContainerApp @ContainerAppArgs
 
 ::: zone pivot="container-apps-public-registry"
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az containerapp create \
@@ -166,7 +166,7 @@ To verify a successful deployment, you can query the Log Analytics workspace. Yo
 
 Use the following commands to view console log messages.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
@@ -193,7 +193,7 @@ If you're not going to continue to use this application, run the following comma
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
