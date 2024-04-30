@@ -11,7 +11,7 @@ The Service Bus Geo-Replication feature is one of the options to [insulate Azure
 
 The Geo-Replication feature ensures that the entire configuration and data of a namespace are continuously replicated from a primary region to a secondary region.
 - Queues, topics, subscriptions, filters.
-- Data which resides in the entities.
+- Data, which resides in the entities.
 - All operations (lock, receive, delete, abandon, complete, etc.) executed against the messages within a namespace.
 - Namespace configuration (RBAC, CMK, advanced network settings, etc.).
 
@@ -59,7 +59,7 @@ When using asynchronous replication, all requests are committed on the primary, 
 
 ### Synchronous replication
 
-When using synchronous replication, all requests are replicated to the secondary, which must commit and confirm the operation before it's committed on the primary. This means your application publishes at the rate it takes to publish, replicate, acknowledge, and commit. Moreover, it also means that your application is tied to the availability of both regions. If the secondary region goes down, messages won't be acknowledged and committed, and the primary will throttle incoming requests.
+When using synchronous replication, all requests are replicated to the secondary, which must commit and confirm the operation before committing on the primary. As such, your application publishes at the rate it takes to publish, replicate, acknowledge, and commit. Moreover, it also means that your application is tied to the availability of both regions. If the secondary region goes down, messages won't be acknowledged and committed, and the primary will throttle incoming requests.
 
 ### Replication mode comparison
 

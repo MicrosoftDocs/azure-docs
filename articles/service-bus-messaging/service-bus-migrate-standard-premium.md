@@ -218,4 +218,4 @@ However, if you can migrate during a planned maintenance/housekeeping window, an
 ## Next steps
 
 * Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
-* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protection-against-outages-and-disasters---premium-tier).
+* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protection-against-outages-and-disasters).
