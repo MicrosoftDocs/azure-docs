@@ -85,10 +85,10 @@ After the forced migration, you must reconfigure the features listed above on th
 
 **Important** : Single Servers with networking and security features enabled will be force-migrated to a Flexible Server instance with public access in the disabled state to protect customer data. You must enable appropriate access after the forced migration to ensure business continuity.
 
-**NOTE:**
-If your server is in a region  where Azure Database for MySQL - Flexible Server is not supported, then post the sunset date, your Single Server instance will be available with limited operations to access data and to be able to migrate to Flexible Server. Your instance will not be force-migrated to Flexible Server. We strongly recommend that you use one of the following options to migrate before the sunset date to avoid any disruptions in business continuity:
-1.Use Azure DMS to perform a cross-region migration to Flexible Server in a suitable Azure region.
-2.Migrate to MySQL Server hosted on a VM in the region, if you are unable to change regions due to compliance issues.
+> [!NOTE]
+> If your server is in a region  where Azure Database for MySQL - Flexible Server is not supported, then post the sunset date, your Single Server instance will be available with limited operations to access data and to be able to migrate to Flexible Server. Your instance will not be force-migrated to Flexible Server. We strongly recommend that you use one of the following options to migrate before the sunset date to avoid any disruptions in business continuity:
+> 1.Use Azure DMS to perform a cross-region migration to Flexible Server in a suitable Azure region.
+> 2.Migrate to MySQL Server hosted on a VM in the region, if you are unable to change regions due to compliance issues.
 
 ## Frequently Asked Questions (FAQs)
 
