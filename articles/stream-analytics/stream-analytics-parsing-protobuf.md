@@ -45,9 +45,6 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 
     This Protobuf definition file refers to another Protobuf definition file in its imports. Because the Protobuf deserializer would have only the current Protobuf definition file and not know what *carseat.proto* is, it would be unable to deserialize correctly.
 
-- Enumerations aren't supported. If the Protobuf definition file contains enumerations, the `enum` field is empty when the Protobuf events deserialize. This condition leads to data loss.
-
-- Maps in Protobuf aren't supported. Maps in Protobuf result in an error about missing a string key.
   
 - When a Protobuf definition file contains a namespace or package, the message type must include it. For example:
 

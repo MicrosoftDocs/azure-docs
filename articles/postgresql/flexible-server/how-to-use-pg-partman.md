@@ -3,7 +3,9 @@ title: How to enable and use pg_partman
 description: How to enable and use pg_partman on Azure Database for PostgreSQL - Flexible Server to optimize database performance and improve query speed.
 ms.author: gapaderla
 author: GayathriPaderla
-ms.reviewer: sbalijepalli
+ms.author: gapaderla
+ms.reviewer: sbalijepalli, maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -156,9 +158,10 @@ SELECT partman.run_maintenance(p_parent_table:='partman.partition_test');
 > [!WARNING] 
 > If you insert data before creating partitions, the data goes to the default partition. If the default partition has data belonging to a new partition that you want to be created later, you get a default partition violation error and the procedure won't work. Therefore, change the premake value recommended above and then run the procedure. 
 
-## How to schedule maintenance procedure using pg_cron 
+## How to schedule maintenance procedure using `pg_cron`
 
 Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your server follow the below steps. 
+
 1.	Add pg_cron to `azure. extensions`, `shared_preload_libraries`, and `cron.database_name` server parameters from the Azure portal. 
 
     :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-prerequisites.png" alt-text="Screenshot of pgcron extension prerequisites.":::
@@ -227,7 +230,7 @@ Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your serve
 
 - I'm encountering an error when my `pg_partman_bgw` is running the maintenance proc. What could be the reasons? 
 
-    Same as above. 
+    Same as mentioned in the previous answer. 
 
 - How to set the partitions to start from the previous day. 
 
@@ -249,3 +252,4 @@ Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your serve
 ## Related content
 
 - [Vector search on Azure Database for PostgreSQL](how-to-use-pgvector.md)
+

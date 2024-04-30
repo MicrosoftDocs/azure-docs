@@ -71,6 +71,11 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic 
 
 - [Upgrade a public IP address - Azure CLI](public-ip-upgrade-cli.md)
 
+## FAQ
+
+### Will the Basic SKU public IP retirement impact Cloud Services Extended Support (CSES) deployments?
+No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
+
 ## Next steps
 
 For guidance on upgrading Basic Load Balancer to Standard SKUs, see:

@@ -22,8 +22,8 @@ In this article, you learn:
 
 ## Prerequisites
 
-- To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
-- To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
+- To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#install-the-module).
+- To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#install-the-extension).
 
 ## Understand change event properties
 

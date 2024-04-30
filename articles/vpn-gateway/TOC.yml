@@ -51,8 +51,8 @@
     href: about-zone-redundant-vnet-gateways.md
   - name: Security
     items:
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -287,10 +287,14 @@
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
   - name: Configure custom IPsec/IKE connection policies
     items:
-    - name: Azure portal
-      href: ipsec-ike-policy-howto.md 
-    - name: PowerShell
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Point-to-site connections
+      href: create-custom-policies-p2s-ps.md
+    - name: Site-to-site and VNet-to-VNet connections
+      items:
+      - name: Azure portal
+        href: ipsec-ike-policy-howto.md 
+      - name: PowerShell
+        href: vpn-gateway-ipsecikepolicy-rm-powershell.md
   - name: Configure active-active gateways
     items:
     - name: Azure portal
