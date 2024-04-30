@@ -241,23 +241,21 @@ To modify an ExpressRoute circuit, select **Configuration**.
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit 
 
-> [!IMPORTANT]
-> Deprovisioning and deleting an ExpressRoute circuit is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 1. On the Azure portal menu, navigate to the ExpressRoute circuit you wish to deprovision.
 
-1. In the **Overview** page, select **Delete**. Here you're asked to view all resources associated with the circuit. Select **Yes** to see the associations that need to be removed before starting the deprovisioning process.
+1. In the **Overview** page, select **Delete**. If there are any associated resources attached to the circuit, you're asked to view the resources. Select **Yes** to see the associations that need to be removed before starting the deprovisioning process. If there are no associated resources, you can proceed with step 4.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-deprovision.png" alt-text="Screenshot of deprovisioning circuit for ExpressRoute.":::
 
-1. In the **View Associated Resources of Circuit** pane, you can see the resources associated with the circuit. Ensure you delete all associated resources before proceeding with deprovisioning the circuit.
+1. In the **View Associated Resources of Circuit** pane, you can see the resources associated with the circuit. Ensure you delete the resources before proceeding with the deprovisioning of the circuit. 
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-associated-resources.png" alt-text="Screenshot of deprovisioning associated resources to ExpressRoute circuit.":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-associated-resources.png" alt-text="Screenshot of deleting associated resources to ExpressRoute circuit.":::
 
-1. Work with your circuit service provider to deprovision the circuit on their side.
+1. After deleting all associated resources, work with your circuit service provider to deprovision the circuit on their end. The circuit is required to be deprovisioned before it can be deleted. 
 
-1. After your circuit service provider has confirmed that they've deprovisioned the circuit, confirm that the *Provider status* changes to **Not provisioned** in the Azure portal. Once the *Provider status* is **Not provisioned**, you'll be able to delete the circuit.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-after-deletion.png" alt-text="Screenshot of deprovisioning the ExpressRoute circuit.":::
+
+1. After your circuit service provider has confirmed that they've deprovisioned the circuit, confirm that the *Provider status* changes to **Not provisioned** in the Azure portal. Once the *Provider status* is **Not provisioned**, you are able to delete the circuit.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovisioned.png" alt-text="Screenshot of deprovisioned circuit.":::
 
