@@ -8,7 +8,7 @@ ms.topic: quickstart  #Don't change
 ms.date: 04/09/2024
 ---
 
-# Quickstart: Create and deploy an Azure HealthInsights resource
+# Quickstart: Create and deploy an Azure HealthInsights resource (powershell)
 
 This quickstart provides step-by-step instructions to create a resource and deploy a model. You can create resources in Azure in several different ways:
 
