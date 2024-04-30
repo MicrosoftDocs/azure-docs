@@ -20,13 +20,13 @@ ms.author: lajanuar
 Send a `POST` request to:
 
 ```HTTP
-POST http://localhost:5000/translate?api-version=3.0&&from={from}&to={to}
+POST http://localhost:{port}/translate?api-version=3.0&&from={from}&to={to}
 ```
 
 ***Example request***
 
 ```bash
-curl -x POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=es" -H "Content-Type: application/json" -d "[{
+curl -x POST "https:localhost:5000/translate?api-version=3.0&from=en&to=es" -H "Content-Type: application/json" -d "[{
 'Text': 'I would really like to drive your car.'}]"
 
 ```
