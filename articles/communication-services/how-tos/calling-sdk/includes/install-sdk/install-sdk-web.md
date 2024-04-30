@@ -46,9 +46,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ### How to best manage SDK connectivity to Microsoft infrastructure
 
-The `Call Agent` instance lets you manage calls and join or start them. Your calling SDK needes to connect to Microsoft infrastructure to get notification of incoming calls and coordinate other call details. Sometimes the connection may fail be disconnected.
-
-Your call `Call Agent` will be in 2 possible states:
+The `Call Agent` instance helps you manage calls (to join or start calls). In order to work your calling SDK needs to connect to Microsoft infrastructure to get notifications of incoming calls and coordinate other call details. Sometimes the connection may fail be disconnected. To give you signal what the current state of your call `Call Agent` will be in 2 possible states:
 
 **Connected** - A `Call Agent` connectionStatue value of `Connected` means the client SDK is connected and capable of receiving notifications from Microsoft infrastructure.
 
