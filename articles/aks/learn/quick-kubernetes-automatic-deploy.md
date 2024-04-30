@@ -177,12 +177,11 @@ Create Automatic Kubernetes Cluster
 
 3. Get started with deploying your first application directly from your source control. 
 
-:::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Get Started Tab after creating an AKS Automatic cluster in the Azure portal.":::
+:::image type="content" source="./media/quick-automatic-kubernetes-portal/Automatic-Overview.png" alt-text="The screenshot of the Get Started Tab on Overview Blade after creating an AKS Automatic cluster in the Azure portal.":::
 
 :::zone-end
 
 :::zone target="docs" pivot="bicep"
-
 
 ## Create a resource group
 
