@@ -237,7 +237,7 @@ This will also ensure that all console messages are sent to the first serial por
     rhgb quiet crashkernel=auto
     ```
 
-    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 7. After you're done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
