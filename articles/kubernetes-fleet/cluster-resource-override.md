@@ -1,6 +1,6 @@
 ---
 title: "Customize cluster scoped resources in Azure Kubernetes Fleet Manager with cluster resource overrides"
-description:
+description: This article provides an overview of how to use the Fleet ClusterResourceOverride API to override cluster scoped resources in Azure Kubernetes Fleet Manager.
 ms.topic: how-to
 ms.date: 04/30/2024
 author: schaffererin
