@@ -4,7 +4,7 @@ metadata:
   description: Get answers to frequently asked questions (FAQs) for Trusted. #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
   author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
   ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-  ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
+  ms.service: trusted-signing #Required; service per approved list. slug assigned by ACOM.
   ms.topic: faq #Required
   ms.date: 03/18/2024 #Required; mm/dd/yyyy format.
 title: Trusted Signing FAQs #Required. This appears as the headline in the article as displayed.
@@ -19,7 +19,7 @@ sections:
     questions:
       - question: What Windows versions do Trusted Signing support? # Question.
         answer: | 
-          Refer to the [Trusted Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) page for details about Windows support for Trusted Signing.
+          Refer to the [Trusted Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-trusted-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) page for details about Windows support for Trusted Signing.
           The service is supported on all currently supported versions of:
           * Windows 11 (Supported out of the box) 
           * Windows 10 - RS5 (Windows 10, Version 1809/ October 2018 Update) or newer 
