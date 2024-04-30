@@ -27,7 +27,7 @@ The API Center portal reference implementation provides:
 
 * A framework for publishing and maintaining a customer-managed API portal using GitHub Actions
 * A portal platform that customers can modify or extend to meet their needs
-* Flexibility to host on different infrastructures, including deployment to serviceS such as Azure Static Web Apps.  
+* Flexibility to host on different infrastructures, including deployment to services such as Azure Static Web Apps.  
 
 ## Prerequisites
 
