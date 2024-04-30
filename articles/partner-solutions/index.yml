@@ -97,4 +97,4 @@ productDirectory:
       imageSrc: ./media/index/split-experimentation.svg
       links:
         - url: ./split-experimentation/split-overview.md
-          text: Run A/B tests for your applications and gather feedback for new features.
+          text: Test different variants of a feature and monitor the impact at the feature-level. 
