@@ -1,8 +1,8 @@
 ---
 title: Learn about the Azure IoT MQ state store protocol
 description: Learn how to implement an Azure IoT MQ state store protocol client
-author: timlt
-ms.author: timlt
+author: PatAltimore
+ms.author: patricka 
 ms.subservice: mq
 ms.topic: concept-article
 ms.custom:
