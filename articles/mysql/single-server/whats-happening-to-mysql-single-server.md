@@ -60,7 +60,8 @@ We strongly recommend to use the [Azure Database for MySQL Import CLI](../migrat
 > [!NOTE]
 > No SLAs, bug fixes, security fixes, or live support will be honored for your Single Server instance post the sunset date.
 
-**Forced migration post sunset date**
+### Forced migration post sunset date
+
 Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance in a phased manner. This may lead to limited feature availability as certain advanced functionality cannot be force-migrated without customer inputs to the Flexible Server instance. Read more about steps to re-configure such features post force-migration to minimize the potential impact below.
 
 The following features can’t be force-migrated as they require customer input for configuration and will not be enabled on the migrated Flexible Server instance:
@@ -72,7 +73,7 @@ The following features can’t be force-migrated as they require customer input 
 - Infrastructure Double encryption
 - Read Replicas
 
-**Action required post forced migration**
+### Action required post forced migration
 After the forced migration, you must reconfigure the features listed above on the migrated Flexible Server instance to ensure business continuity :
 
 - Private Link – Read more about how to configure [here](../flexible-server/how-to-networking-private-link-portal.md)
@@ -86,7 +87,7 @@ After the forced migration, you must reconfigure the features listed above on th
 
 > [!NOTE]
 > If your server is in a region  where Azure Database for MySQL - Flexible Server is not supported, then post the sunset date, your Single Server instance will be available with limited operations to access data and to be able to migrate to Flexible Server. Your instance will not be force-migrated to Flexible Server. We strongly recommend that you use one of the following options to migrate before the sunset date to avoid any disruptions in business continuity:
-
+>
 - Use Azure DMS to perform a cross-region migration to Flexible Server in a suitable Azure region.
 - Migrate to MySQL Server hosted on a VM in the region, if you are unable to change regions due to compliance issues.
 
