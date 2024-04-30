@@ -31,7 +31,15 @@ The protocol uses the following request-response model:
 
 The following diagram shows the basic view of the request and response:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-basic.png" alt-text="Diagram of state store basic request and response process." border="false":::
+<!--
+sequenceDiagram
+
+      Client->>+State Store: Request<BR>PUBLISH State Store Topic<BR>Payload
+      Note over State Store,Client: State Store Processes Request
+      State Store->>+Client: Response<BR>PUBLISH Response Topic<BR>Payload
+-->
+
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-basic.svg" alt-text="Diagram of state store basic request and response process." border="false":::
 
 ## State store system topic, QoS, and required MQTT5 properties
 
@@ -50,7 +58,15 @@ To build a request, the following MQTT5 properties are required. If these proper
 
 The following diagram shows an expanded view of the request and response:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-expanded.png" alt-text="Diagram of state store expanded request and response process." border="false":::
+<!--
+sequenceDiagram
+
+      Client->>+State Store:Request<BR>PUBLISH statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke<BR>Response Topic:client-defined-response-topic<BR>Correlation Data:1234<BR>Payload(RESP3)
+      Note over State Store,Client: State Store Processes Request
+      State Store->>+Client: Response<BR>PUBLISH client-defined-response-topic<br>Correlation Data:1234<BR>Payload(RESP3)
+-->
+
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-expanded.svg" alt-text="Diagram of state store expanded request and response process." border="false":::
 
 ## Supported commands
 
@@ -189,7 +205,15 @@ A client sets `keyName=value`. The client clock is October 3, 11:07:05PM GMT. Th
 
 The following diagram illustrates the `SET` command:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-version.png" alt-text="Diagram of state store command to set the version for a value." border="false":::
+<!--
+sequenceDiagram
+
+      Client->>+State Store: Request<BR>__ts=1696374425000:0:Client1<BR>Payload: SET keyName=value
+      Note over State Store,Client: State Store Processes Request
+      State Store->>+Client: Response<BR>__ts=1696374425000:1:StateStore<BR>Payload: OK
+-->
+
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-version.svg" alt-text="Diagram of state store command to set the version for a value." border="false":::
 
 The `__ts` (timestamp) property on the initial set contains `1696374425000` as the client wall clock, the counter as `0`, and its node-Id as `CLIENT`. On the response, the `__ts` property that the state store returns contains the `wallClock`, the counter incremented by one, and the node-Id as `StateStore`. The state store could return a higher `wallClock` value if its clock were ahead, based on the way HLC updates work.
 
@@ -197,7 +221,15 @@ This version is also returned on successful `GET`, `DEL`, and `VDEL` requests. O
 
 The following diagram illustrates the `GET` command:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-get-version.png" alt-text="Diagram of state store getting the version of a value." border="false":::
+<!--
+sequenceDiagram
+
+      Client->>+State Store: Request<BR>Payload: GET keyName
+      Note over State Store,Client: State Store Processes Request
+      State Store->>+Client: Response<BR>__ts=1696374425000:1:StateStore<BR>Payload: keyName's value
+-->
+
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-get-version.svg" alt-text="Diagram of state store getting the version of a value." border="false":::
 
 > [!NOTE]
 > The timestamp `__ts` that state store returns is the same as what it returned on the initial `SET` request.
@@ -248,13 +280,29 @@ When a client performs a `SET` request, it can optionally include the MQTT5 user
 
 The following diagram shows the process of `Client1` doing a `SET` request on `LockName`:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-lockname.png" alt-text="Diagram of a client doing a set request on the lock name property." border="false":::
+<!--
+sequenceDiagram
+
+      Client->>+State Store: Request<BR>__ts=1696374425000:0:Client1<BR>Payload: SET LockName Client1 NEX PX ...
+      Note over State Store,Client: State Store Processes Request
+      State Store->>+Client: Response<BR>__ts=1696374425000:1:StateStore<BR>Payload:  OK
+-->
+
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-lockname.svg" alt-text="Diagram of a client doing a set request on the lock name property." border="false":::
 
 Next, `Client1` uses the `__ts` property (`Property=1696374425000:1:StateStore`) unmodified as the basis of the `__ft` property in the request to modify `ProtectedKey`. Like all `SET` requests, the client must set the `__ts` property of `ProtectedKey`.
 
 The following diagram shows the process of `Client1` doing a `SET` request on `ProtectedKey`:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-protectedkey.png" alt-text="Diagram of client doing a set request on the protected key property." border="false":::
+<!--
+sequenceDiagram
+
+      Client->>+State Store: Request<BR>__ft =1696374425000:1:StateStore<BR>__ts=1696374425001:0:Client1<BR>Payload: SET LockName Client1 NEX PX ...
+      Note over State Store,Client: State Store Processes Request
+      State Store->>+Client: Response<BR>__ts=1696374425001:1:StateStore<BR>Payload: OK
+-->
+
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-protectedkey.svg" alt-text="Diagram of client doing a set request on the protected key property." border="false":::
 
 If the request succeeds, from this point on `ProtectedKey` requires a fencing token equal to or greater than the one specified in the `SET` request.
 
