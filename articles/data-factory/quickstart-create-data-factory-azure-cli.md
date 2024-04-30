@@ -234,7 +234,7 @@ Finally, create and run the pipeline.
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --name Adfv2QuickStartPipeline \
-       --pipeline @Adfv2QuickStartPipeline.json
+       --pipeline Adfv2QuickStartPipeline.json
    ```
 
 1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az-datafactory-pipeline-create-run) command:
