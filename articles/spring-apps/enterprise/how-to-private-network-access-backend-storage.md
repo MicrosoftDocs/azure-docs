@@ -35,7 +35,7 @@ When you deploy an application in an Azure Spring Apps service instance with VNe
 
 ## Enable private storage access when creating a new Azure Spring Apps instance
 
-When you [create an Azure Spring Apps instance in the virtual network](./how-to-deploy-in-azure-virtual-network.md), use the following commnd to pass the argument `--enable-private-storage-access true` to enable private storage access:
+When you [create an Azure Spring Apps instance in the virtual network](./how-to-deploy-in-azure-virtual-network.md), use the following command to pass the argument `--enable-private-storage-access true` to enable private storage access:
 
 ```azurecli
 az spring create \
@@ -74,7 +74,7 @@ az spring update \
 
 ## Additional costs
 
-The Azure Spring Apps instance doesn't incur charges for this feature. However, you are billed for the private link resources hosted in your subscription that support this feature. For more information, see [Azure Private Link Pricing](https://azure.microsoft.com/pricing/details/private-link/) and [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+The Azure Spring Apps instance doesn't incur charges for this feature. However, you're billed for the private link resources hosted in your subscription that support this feature. For more information, see [Azure Private Link Pricing](https://azure.microsoft.com/pricing/details/private-link/) and [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 
 ## Using custom DNS servers
 
