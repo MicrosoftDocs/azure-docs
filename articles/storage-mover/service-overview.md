@@ -27,7 +27,7 @@ Document score: 100 (520 words and 0 issues)
 
 :::row:::
     :::column:::
-        [![2-Minute demo introducing Azure Storage Mover - click to play!](./media/overview/storage-mover-overview-demo-video-still.png)](https://youtu.be/hFjo-tuJWL0)
+        [![2-Minute demonstration video introducing Azure Storage Mover - click to play!](./media/overview/storage-mover-overview-demo-video-still.png)](https://youtu.be/hFjo-tuJWL0)
     :::column-end:::
     :::column:::
         Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate your files and folders to Azure Storage while minimizing downtime for your workload.         
