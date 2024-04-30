@@ -32,7 +32,7 @@ In your module level `build.gradle`, add the dependency on the chat sdk.
 > Known issue: When using Android Chat and Calling SDK together in the same application, the Chat SDK's real-time notifications feature won't work. You'll get a dependency resolution issue. While we're working on a solution, you can turn off the real-time notifications feature by adding the following exclusions to the Chat SDK dependency in the app's `build.gradle` file:
 > 
 > ```groovy
-> implementation ("com.azure.android:azure-communication-chat:1.0.0") {
+> implementation ("com.azure.android:azure-communication-chat:2.0.3") {
 >     exclude group: 'com.microsoft', module: 'trouter-client-android'
 > }
 > ```
@@ -194,6 +194,7 @@ import android.widget.LinearLayout;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.List;
 import com.azure.android.communication.chat.ChatThreadAsyncClient;
 import com.azure.android.communication.chat.ChatThreadClientBuilder;
 import com.azure.android.communication.chat.models.ChatMessage;
@@ -388,10 +389,6 @@ Display names of the chat thread participants are not set by the Teams client. T
 The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 
 With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response has a `chatInfo` object that contains the `threadID`.
-
-You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
-A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadId` is where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
-
 
 ## Run the code
 
