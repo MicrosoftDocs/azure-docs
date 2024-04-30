@@ -21,6 +21,9 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 > * Deploy the application to a pod in AKS cluster and test the connection.
 > * Clean up resources.
 
+> [!IMPORTANT]
+> Service Connect within AKS is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -92,7 +95,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --name MyIdentity
     ```
 
-## Create service connection with Service Connector
+## Create service connection with Service Connector (preview)
 
 Create a service connection between an AKS cluster and an Azure storage account using the Azure portal.
 

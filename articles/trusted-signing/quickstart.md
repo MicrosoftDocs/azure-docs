@@ -6,6 +6,7 @@ ms.author: mesharm
 ms.service: trusted-signing 
 ms.topic: quickstart 
 ms.date: 04/12/2024 
+ms.custom: references_regions 
 ---
 
 
@@ -21,68 +22,35 @@ Trusted Signing provides users with both an Azure portal and Azure CLI extension
 
 ## Prerequisites
 
-An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](https://learn.microsoft.com/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) before you begin if you don’t already have.
+An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin if you don’t already have.
 
-## Create a Trusted Signing account
 
-A Trusted Signing account is a logical container of identity validation and certificate profile resources.
+## Register the Trusted Signing resource provider
 
-# [Azure portal](#tab/account-portal)
+Before using Trusted Signing, you must first register the Trusted Signing resource provider.
 
-The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:  
+**How to register**
+A resource provider is a service that supplies Azure resources. Use the Azure portal or Azure CLI az provider register command to register the Trusted Signing resource provider, 'Microsoft.CodeSigning'.
 
-| Region               | Region Class Fields  | Endpoint URI Value     |
-| :------------------- | :------------------- |:---------------|
-| East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US3<sup>[1](#myfootnote1)</sup>              |West US3                | <https://wus3.codesigning.azure.net>           |
-| West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
-| West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
-| North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
-| West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
-
-<a name="myfootnote1">1</a>: WestUS3 coming soon!
+# [Azure portal](#tab/registerrp-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From either the Azure portal menu or the Home page, select **Create a resource**.
-3. In the Search box, enter **Trusted Signing account**.
-4. From the results list, select **Trusted Signing account**.
-5. On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays.
-6. In the **Subscription** pull-down menu, select a subscription.
-7. In the **Resource group** field, select **Create new** and enter a resource group name.
-8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
-9. In the **Region** pull-down menu, select a region.
-10. In the **Pricing** tier pull-down menu, select a pricing tier.
-11. Select the **Review + Create** button.
+2. From either the Azure portal search bar or under All services, select **Subscriptions**.
+3. Select your **Subscription**, where you intend to create Trusted Signing resources.
 
-:::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
+:::image type="content" source="media/trusted-signing-subscription-resource-provider.png" alt-text="Screenshot of trusted-signing-subscription-resource-provider." lightbox="media/trusted-signing-subscription-resource-provider.png":::
 
-12. After successfully creating your Trusted Signing account, select **Go to resource**.  
+4. From the list of resource providers, select **Microsoft.CodeSigning**. By default the resource provider is NotRegistered.
+5. Click on the ellipsis, select **Register**.
+6. The status changes to **Registered**.
 
-**Trusted Signing account naming constraints**:
+:::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot of trusted-signing-resource-provider-registration." lightbox="media/trusted-signing-resource-provider-registration.png":::
 
-- Between 3-24 alphanumeric characters.
-- Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Globally unique.
-- Case insensitive (“Abc” is the same as “abc”).
-
-# [Azure CLI](#tab/account-cli)
-
-The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:
-
-| Region               | Region Class Fields  | Endpoint URI Value     |
-| :------------------- | :------------------- |:---------------|
-| East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US3 (upcoming)              |West US3                | <https://wus3.codesigning.azure.net>           |
-| West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
-| West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
-| North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
-| West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
-
-Complete the following steps to create a Trusted Signing account with Azure CLI:
+# [Azure CLI](#tab/registerrp-cli)
 
 1. If you're using a local installation, login to Azure CLI using the `az login` command.  
 
-2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
+2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -97,15 +65,89 @@ az upgrade [--all {false, true}]
 
 5. To set your default subscription ID, use the `az account set -s <subscriptionId>` command.
 
-6. Create a resource group using the following command:
+6. You can register Trusted Signing resource provider with the command below:
+
+```
+az provider register --namespace "Microsoft.CodeSigning"
+```
+
+7. You can verify that registration is complete with the command below: 
+
+```
+az provider show --namespace "Microsoft.CodeSigning"
+```
+
+8. You can add the extension for Trusted Signing with the command below:
+```
+az extension add --name trustedsigning
+```
+
+---
+
+## Create a Trusted Signing account
+
+A Trusted Signing account is a logical container of identity validation and certificate profile resources.
+
+# [Azure portal](#tab/account-portal)
+
+The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:  
+
+| Region                               | Region Class Fields  | Endpoint URI Value                   |
+| :----------------------------------- | :------------------- |:-------------------------------------|
+| East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
+| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
+| West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
+| West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
+| North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
+| West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
+
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. From either the Azure portal menu or the Home page, select **Create a resource**.
+3. In the Search box, enter **Trusted Signing account**.
+4. From the results list, select **Trusted Signing account**.
+5. On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays.
+6. In the **Subscription** pull-down menu, select a subscription.
+7. In the **Resource group** field, select **Create new** and enter a resource group name.
+8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
+9. In the **Region** pull-down menu, select a region.
+10. In the **Pricing** tier pull-down menu, select a pricing tier.
+11. Select the **Review + Create** button.
+
+    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
+
+12. After successfully creating your Trusted Signing account, select **Go to resource**.  
+
+**Trusted Signing account naming constraints**:
+
+- Between 3-24 alphanumeric characters.
+- Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
+- Globally unique.
+- Case insensitive (“Abc” is the same as “abc”).
+
+# [Azure CLI](#tab/account-cli)
+
+The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:
+
+| Region                               | Region Class Fields  | Endpoint URI Value                   |
+| :----------------------------------- | :------------------- |:-------------------------------------|
+| East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
+| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
+| West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
+| West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
+| North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
+| West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
+
+
+Complete the following steps to create a Trusted Signing account with Azure CLI:
+
+1. Create a resource group using the following command (Skip this step if you plan to use an existing resource group):
 
 ```
 az group create --name MyResourceGroup --location EastUS
 ```
 
-- To list accounts under the resource group, use the `trustedsigning list -g MyResourceGroup` command.
-
-7. Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.)
+2. Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.)
 
 ```
 trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
@@ -116,7 +158,10 @@ Or
 ```
 trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
-8. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+3. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+
+>[!Note]
+>If you are using older version of CLI from Trusted Signing Private Preview, your account is defaulted to Basic SKU. To use Premium either upgrade CLI to latest version or use Azure portal to create account.
 
 **Trusted Signing account naming constraints**:
 
@@ -127,9 +172,13 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 **Helpful commands**:
 
-- Show help commands and detailed options:  `trustedsigning -h`
-- Show the details of an account: `trustedsigning show -n MyAccount  -g MyResourceGroup`
-- Update tags:  `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"`
+| Command                                                                                  | Description                               |  
+|:-----------------------------------------------------------------------------------------|:------------------------------------------|
+| `trustedsigning -h`                                                                      | Show help commands and detailed options   |
+| `trustedsigning show -n MyAccount  -g MyResourceGroup`                                   | Show the details of an account            |
+| `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Update tags                               |
+| `trustedsigning list -g MyResourceGroup`                                                 | To list accounts under the resource group |
+
 
 ---
 
@@ -151,7 +200,7 @@ Here are the steps to create an Identity Validation request:
 | Input Fields       | Details     |
 | :------------------- | :------------------- |
 | **Organization Name**          | For Public Identity Validation, provide the Legal Business Entity to which the certificate will be issued. For Private Identity Validation, it defaults to your Azure Tenant Name.|
-| **(Private only) Organizational Unit**          | Enter the relevant information|
+| **(Private Identity Type only) Organizational Unit**          | Enter the relevant information|
 | **Website url**          | Enter the website that belongs to the Legal Business Entity.|
 | **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in seven days.  |
 | **Secondary Email**          | These email addresses must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
@@ -246,9 +295,11 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 
 **Helpful commands**:
 
-- Show help for sample commands and detailed parameter descriptions:   `trustedsigning certificate-profile create -–help`
-- List certificate profile under a Trusted Signing account:  `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`
-- Get details of a profile:  `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`
+| Command                               | Description  | 
+| :----------------------------------- | :------------------- |
+| `trustedsigning certificate-profile create -–help`                            | Show help for sample commands and detailed parameter descriptions              |
+| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            |List certificate profile under a Trusted Signing account          |
+| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Get details of a profile              |
 
 ---
 
@@ -306,3 +357,4 @@ In this Quickstart, you created a Trusted Signing account, an Identity Validatio
 - [Learn more about the signing integrations.](how-to-signing-integrations.md)
 - [Learn more about different Trust Models supported in Trusted Signing](concept-trusted-signing-trust-models.md)
 - [Learn more about Certificate management](concept-trusted-signing-cert-management.md)
+

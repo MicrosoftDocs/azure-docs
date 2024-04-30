@@ -43,6 +43,8 @@ items:
     href: tutorial-delete-private-cloud.md
 - name: Cost optimization
   items:
+  - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
+    href: extended-security-updates-windows-sql-server.md
   - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance

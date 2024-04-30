@@ -139,6 +139,8 @@
         href: ./samples/rbi-itf-nbfc-2017.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
+      - name: SOC 2 Type 2
+        href: ./samples/soc-2.md
       - name: SWIFT CSP-CSCF 2021
         href: ./samples/swift-csp-cscf-2021.md
       - name: SWIFT CSP-CSCF 2022
@@ -169,6 +171,8 @@
         href: ./samples/gov-nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/gov-nist-sp-800-171-r2.md
+      - name: SOC 2 Type 2
+        href: ./samples/gov-soc-2.md
   - name: Compute security baselines
     items:
     - name: Docker host security baseline

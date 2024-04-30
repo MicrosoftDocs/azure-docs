@@ -29,4 +29,4 @@ From the compliance dashboard, you're able to manage all of your compliance requ
 ## Next steps
 
 - [Improve your regulatory compliance](regulatory-compliance-dashboard.md)
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml)

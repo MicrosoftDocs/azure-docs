@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 02/06/2024
+ms.date: 04/19/2024
 ms.custom: engagement-fy23
 ---
 
@@ -17,6 +17,9 @@ This article describes how to set up the Azure Migrate appliance for assessment 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
 ## Set up the appliance
+
+>[!NOTE]
+>The appliance VM can be domain joined and managed with a domain account.
 
 You can deploy the Azure Migration appliance using these methods:
 

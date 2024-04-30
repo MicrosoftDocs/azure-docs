@@ -25,17 +25,17 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
 1. Add a new region to the account.
 
-    To add a new region to an Azure Cosmos DB account, see [Add/remove regions to an Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
+    To add a new region to an Azure Cosmos DB account, see [Add/remove regions to an Azure Cosmos DB account](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account).
 
 1. Perform a manual failover to the new region.
 
     When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step. 
     
-    To start a failover, see [Perform manual failover on an Azure Cosmos DB account](how-to-manage-database-account.md#manual-failover).
+    To start a failover, see [Perform manual failover on an Azure Cosmos DB account](how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account).
 
 1. Remove the original region.
 
-    To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
+    To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account).
 
 > [!NOTE]
 > If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
@@ -53,7 +53,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 1. Create a new Azure Cosmos DB account in the desired region.
 
-    To create a new account via the Azure portal, PowerShell, or the Azure CLI, see [Create an Azure Cosmos DB account](how-to-manage-database-account.md#create-an-account).
+    To create a new account via the Azure portal, PowerShell, or the Azure CLI, see [Create an Azure Cosmos DB account](how-to-manage-database-account.yml#create-an-account).
 
 1. Create a new database and container.
 
@@ -81,5 +81,5 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 For more information and examples on how to manage the Azure Cosmos DB account as well as databases and containers, read the following articles:
 
-* [Manage an Azure Cosmos DB account](how-to-manage-database-account.md)
+* [Manage an Azure Cosmos DB account](how-to-manage-database-account.yml)
 * [Change feed in Azure Cosmos DB](change-feed.md)

@@ -43,13 +43,18 @@ This statement pulls the most recently published core image, and makes it a basi
 
 ### Install Terraform in a Dockerfile
 
-You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. Here's an example of that process, installing version 1.5.5 of the Terraform CLI:
+You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+
+Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
 
 ```azure cli
-RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.4/terraform_1.5.5_linux_amd64.zip
+RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_amd64.zip
 RUN unzip terraform.zip && rm terraform.zip
 RUN mv terraform /usr/bin/terraform
 ```
+
+> [!Tip]
+> You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 
 The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
 

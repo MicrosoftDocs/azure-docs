@@ -42,22 +42,22 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
-    ml_client = MLClient.from_config(DefaultAzureCredentials())
+    ml_client = MLClient.from_config(DefaultAzureCredential())
     ```
     
     If running outside of Azure Machine Learning compute, you need to specify the workspace where the endpoint is deployed:
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
     subscription_id = "<subscription>"
     resource_group = "<resource-group>"
     workspace = "<workspace>"
     
-    ml_client = MLClient(DefaultAzureCredentials(), subscription_id, resource_group, workspace)
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
        
     # [REST](#tab/rest)

@@ -103,7 +103,7 @@ To add role assignments, you must have `Microsoft.Authorization/roleAssignments/
 To create a role assignment using the Azure CLI, use the [az role assignment](/cli/azure/role/assignment) command:
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --scope <scope>
+az role assignment create --role {role-name-or-id} --assignee {assignee-upn}> --scope {scope}
 ```
 
 For full details, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
@@ -114,17 +114,17 @@ To create a role assignment using Azure PowerShell, use the [New-AzRoleAssignmen
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName <role_name> -SignInName <assignee_upn> -Scope <scope>
+New-AzRoleAssignment -RoleDefinitionName {role-name} -SignInName {assignee-upn} -Scope {scope}
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId <applicationId> -Scope <scope>
+New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId {application-id} -Scope {scope}
 ```
 
 For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 # [Azure portal](#tab/azure-portal)
 
-To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
+To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
 
 ---
 
@@ -140,7 +140,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -161,10 +161,10 @@ For full details, see [Assign Azure roles using Azure CLI](../../role-based-acce
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {assignee-upn} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {application-id} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
 For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -179,7 +179,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 1. Go to Key Vault \> Access control (IAM) tab
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -191,7 +191,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee {assignee-upn} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
 For full details, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
@@ -200,10 +200,10 @@ For full details, see [Assign Azure roles using Azure CLI](../../role-based-acce
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {assignee-upn} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {application-id} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
 For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
@@ -225,7 +225,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -260,7 +260,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 ### Test and verify
 
 > [!NOTE]
-> Browsers use caching and page refresh is required after removing role assignments.<br>
+> Browsers use caching and page refresh is required after removing role assignments.
 > Allow several minutes for role assignments to refresh
 
 1. Validate adding new secret without "Key Vault Secrets Officer" role on key vault level.
@@ -361,6 +361,6 @@ No. RBAC permission model allows you to assign access to individual objects in K
 ## Learn more
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 - [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Azure Key Vault best practices](best-practices.md)
