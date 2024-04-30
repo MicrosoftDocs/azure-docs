@@ -1,13 +1,13 @@
 ---
 title: Azure Service Bus Geo-Replication | Microsoft Docs
-description: How to use geographical regions to fail over and disaster recovery in Azure Service Bus
+description: How to use geographical regions to fail over and disaster recovery in Azure Service Bus for metadata and data
 ms.topic: article
 ms.date: 04/29/2024
 ---
 
 # Azure Service Bus Geo-Replication (Public Preview)
 
-The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](TODO_ADD_LINK), provides replication of both metadata and the data itself. The feature is in public preview for the Service Bus Premium SKU. 
+The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), provides replication of both metadata and the data itself. The feature is in public preview for the Service Bus Premium SKU. 
 
 The Geo-Replication feature ensures that the entire configuration of a namespace (queues, topics, subscriptions, filters), the data residing in the entities, and all operations (lock, receive, delete, abandon, complete, etc.) executed against the messages are continuously replicated from a primary region to a secondary region within a namespace, and  allows you to initiate a failover or failback between the primary and secondary regions at any time. The failover re-points the name for the namespace to the secondary region, and switches the roles between the primary and secondary regions. The failover is nearly instantaneous once initiated. 
 
@@ -36,7 +36,7 @@ Some of the key aspects of Geo-Replication feature are:
 - Stable namespace FQDN; Upon successful configuration of a Geo-Replication enabled namespace, users can use the namespace FQDN in their client application. This behaves completely agnostic of the configured primary and secondary regions, and always points to the primary region.
 - When a customer initiates a failover, the FQDN points to the region selected to be the new primary region. The old primary becomes a secondary region.
 - Customer-managed failovers from primary to secondary region, providing full ownership and visibility for outage resolution. There is currently no automatic failover capability.
-- Synchronous and asynchronous replication modes, further described [here](#Replication-modes).
+- Synchronous and asynchronous replication modes, further described [here](#replication-modes).
 - There is no ability to support read-only views on secondary regions.
 - Secondary regions can be added or removed at the customer's discretion.
     > [!NOTE]
@@ -123,7 +123,7 @@ After the failover is initiated:
 1. The FQDN is updated to point to the secondary region, this can take up to a few minutes.
     > [!NOTE]
     > You can check the current primary region by initiating a ping command:
-    > ping <your-namespace-fully-qualified-name>
+    > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
 

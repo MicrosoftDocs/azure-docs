@@ -67,7 +67,7 @@
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
       - name: Azure Service Bus
-        href: /azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability
+        href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
         href: migrate-sql-database.md
       - name: Azure Storage accounts
@@ -119,7 +119,7 @@
       - name: Azure Public IP
         href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
       - name: Azure Service Bus
-        href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+        href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
       - name: Azure Service Fabric
         items:
         - name: Availability zones
