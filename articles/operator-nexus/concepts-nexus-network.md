@@ -23,15 +23,38 @@ wishes those networks are to be exposed within their cluster
 
 ## Nexus Network plugins
 
-Network plugin is the feature for application to select the right configuration for the virtual network inteface. Below plugins are supported
-as part of Network configuration:
-| Plugin Name | Available Network | Description|
-|---------------------|---------------|-----------|
-|SRIOV|L2,L3,Trunk||
-|DPDK|||
-|MACVLAN||
-|IPVLAN||
-|OSDev||
+Network plugin is the feature to configuration how Nexus Kubernetes cluster utilize the underlying Networks when attach networks to Nexus Kubernetes cluster.
+Below is a the type of plugin supported for different network types. 
+
+| Plugin Name | Available Network |
+|---------------------|---------------|
+|SRIOV|L2,L3,Trunk|
+|DPDK|L2,L3,Trunk|
+|MACVLAN|L2,L3,Trunk|
+|IPVLAN|L3,Trunk|
+|OSDev|L2,L3,Trunk|
+
+ * SRIOV: The SRIOV plugin generates a network attachment definition named after the corresponding network resource. This interface is integrated into a sriov-dp-config resource, 
+which is linked to by the network attachment definition. If a network is connected to the cluster multiple times, all interfaces will be available for scheduling via the network 
+attachment definition. No IP assignment is made to this type of interface within the node operating system.
+
+ * DPDK: Configured specifically for DPDK workloads, the DPDK plugin type creates a network attachment definition that mirrors the associated network resource. This interface is 
+placed within a sriov-dp-config resource, which the network attachment definition references. Multiple connections of the same network to the cluster make all interfaces schedulable 
+through the network attachment definition. Depending on the hardware of the platform, the interface might be linked to a specific driver to support DPDK processing. Like SRIOV, this 
+interface does not receive an IP assignment within the node operating system.
+
+ * OSDevice: The OSDevice plugin type is tailored for direct use within the node operating system, rather than Kubernetes. It acquires a network configuration that is visible and 
+functional within the node’s operating system network namespace. This plugin is suitable for instances where direct communication over this network from the node’s OS is required.
+
+ * IPVLAN: The IPVLAN plugin type facilitates the creation of a network attachment definition named according to the associated network resource. This interface allows for the efficient 
+routing of traffic in environments where network isolation is required without the need for multiple physical network interfaces. It operates by assigning multiple IP addresses to a 
+single network interface, each behaving as if it is on a separate physical device. Despite the separation at the IP layer, this type does not handle separate MAC addresses, and it does 
+not provide IP assignments within the node operating system.
+
+ * MACVLAN: The MACVLAN plugin type generates a network attachment definition reflective of the linked network resource. This interface type creates multiple virtual network interfaces 
+each with a unique MAC address over a single physical network interface. It is particularly useful in scenarios where applications running in containers need to appear as physically 
+separate on the network for security or compliance reasons. Each interface behaves as if it is directly connected to the physical network, which allows for IP assignments within the 
+node operating system.
 
 ## Nexus Network IPAM
 
