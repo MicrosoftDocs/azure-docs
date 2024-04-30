@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/21/2024
+author: jojohpm
+ms.author: jojoh
+ms.date: 04/29/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: banders
 ---
 
 # Tutorial: Improved exports experience - Preview

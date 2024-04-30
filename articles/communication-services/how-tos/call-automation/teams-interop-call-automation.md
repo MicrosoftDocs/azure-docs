@@ -16,8 +16,6 @@ services: azure-communication-services
 
 # Add a Microsoft Teams user to an existing call using Call Automation
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 In this quickstart, we use the Azure Communication Services Call Automation APIs to add, remove and transfer call to a Teams user.
 
 ## Prerequisites
@@ -39,6 +37,9 @@ Tenant level setting that enables/disables federation between their tenant and s
 
 [Set-CsExternalAccessPolicy (SkypeForBusiness)](/powershell/module/skype/set-csexternalaccesspolicy)
 User policy that allows the admin to further control which users in their organization can participate in federated communications with Communication Services users.
+
+Note that Teams user needs to have Phone license to use this feature. To assign the license, use the [Set-CsPhoneNumberAssignment cmdlet](/powershell/module/teams/set-csphonenumberassignment) and set the **EnterpriseVoiceEnabled** parameter to $true. For additional information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
+
 
 <a name='step-2-use-the-graph-api-to-get-azure-ad-object-id-for-teams-users-and-optionally-check-their-presence'></a>
 
