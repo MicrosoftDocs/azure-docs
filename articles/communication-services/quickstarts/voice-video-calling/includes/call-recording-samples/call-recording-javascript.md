@@ -85,7 +85,8 @@ var options: StartRecordingOptions = {
 var response = await callAutomationClient.getCallRecording().start(options);
 ```
 ## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
-
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
 ```javascript
 var locator: CallLocator = { id: "<ServerCallId>", kind: "serverCallLocator" };
 

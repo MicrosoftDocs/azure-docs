@@ -81,7 +81,8 @@ Start Recording session with your own Azure Blob Storage to store the recording 
 ```
 
 ### 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
-
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
 ```java
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
                     .setRecordingChannel(RecordingChannel.UNMIXED)

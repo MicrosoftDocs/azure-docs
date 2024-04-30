@@ -27,7 +27,7 @@ Bring your own Azure storage uses [Azure Managed Identities](/entra/identity/man
 ## Known issues
 
 - Azure Communication Services will also store your files in a built-in storage for 24 hours even if the exporting is successful.
-- Randomly, recording files are duplicated during the exporting process. Make sure you delete the duplicated file to avoid extra storage costs in your storage account.
+- For Pause on Start Recording the meta data file would have an incorrect pause duration in relation to the recording file.
 
 
 ## Next steps

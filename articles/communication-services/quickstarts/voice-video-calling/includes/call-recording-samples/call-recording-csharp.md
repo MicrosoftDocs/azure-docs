@@ -78,7 +78,8 @@ Response<RecordingStateResult> response = await callAutomationClient.GetCallReco
 .StartAsync(recordingOptions);
 ```
 ## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
-
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
 {

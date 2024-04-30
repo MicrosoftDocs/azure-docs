@@ -14,11 +14,7 @@ ms.custom: mode-api, devx-track-extended-java
 ---
 # Call recording: Bring your own Azure storage quickstart
 
-[!INCLUDE [Private Preview](../../../includes/private-preview-include-section.md)]
-
 This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
-
-You need to be part of the Azure Communication Services TAP program. It's likely that you’re already part of this program, and if you aren't, sign-up using https://aka.ms/acs-tap-invite. Bring your own Azure Storage uses Managed Identities, to access to this functionality for Call Recording, submit your Azure Communication Services Resource IDs by filling this - [Registration form](https://forms.office.com/r/njact5SiVJ). You need to fill the form every time you need a new resource ID allow-listed.
 
 ## Pre-requisite: Setting up Managed Identity and RBAC role assignments
 
@@ -77,7 +73,7 @@ Refer to this example of the event schema.
     "topic": "string", // /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}
     "subject": "string", // /recording/call/{call-id}/serverCallId/{serverCallId}
     "data": {
-        "storageType": "string", // acsstorage, blobstorage etc.
+        "storageType": "string", // AzureBlob etc.
         "recordingId": "string", // unique id for recording
         "recordingStorageInfo": {
             "recordingChunks": [
@@ -106,12 +102,12 @@ Refer to this example of the event schema.
 Recordings are stored in the following format as shown in the diagram.
         /YYYYMMDD/
             callId/
-            8+ recordingId(guid)/
+                first_8_of_recordingId + '-' + unique guid)/   
                                 0-acsmetadata.documentId.json
-                                0- audiomp3.documentId.mp3
+                                0-audiomp3.documentId.mp3
                                 1-acsmetadata.documentId.json
                                 1-audiomp3.documentId.mp3
-                                
+
 ![Diagram showing a Call Recording Folder structure](../media/call-recording-folder.png)
 
 ## Next steps

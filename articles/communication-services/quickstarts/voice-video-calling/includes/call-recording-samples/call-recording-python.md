@@ -71,6 +71,8 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
                    recording_storage = AzureBlobContainerRecordingStorage(container_url="<YOUR_STORAGE_CONTAINER_URL>"))
 ```
 ## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
 
 ```python
 response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
