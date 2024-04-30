@@ -33,6 +33,7 @@ The steps to configure both scenarios are covered in this article. You can confi
 
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). You also can use a route-based VPN gateway with a VPN connection configured for 'policy-based traffic selectors' as described in [Connect to multiple policy-based VPN devices](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU**.
+* **Both the ExpressRoute and VPN gateways must be able to communicate with each other via BGP to function properly.** If using a UDR on the gateway subnet, ensure that it doesn't include a route for the gateway subnet range itself as this will interfere with BGP traffic.
 * **If you want to use transit routing between ExpressRoute and VPN, the ASN of Azure VPN Gateway must be set to 65515.** Azure VPN Gateway supports the BGP routing protocol. For ExpressRoute and Azure VPN to work together, you must keep the Autonomous System Number of your Azure VPN gateway at its default value, 65515. If you previously selected an ASN other than 65515 and you change the setting to 65515, you must reset the VPN gateway for the setting to take effect.
 * **The gateway subnet must be /27 or a shorter prefix**, such as /26, /25, or you receive an error message when you add the ExpressRoute virtual network gateway.
 * **Coexistence for IPv4 traffic only.** ExpressRoute co-existence with VPN gateway is supported, but only for IPv4 traffic. IPv6 traffic isn't supported for VPN gateways.
@@ -86,7 +87,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
     :::image type="content" source="media/how-to-configure-coexisting-gateway-portal/vnet-basics.png" alt-text="Screenshot of basics tab for creating a virtual network.":::
 
-1. On **IP Addresses** tab, configure the virtual network address space. Then define the subnets you want to create, including the gateway subnet. Select **Review + create**, then *Create** to deploy the virtual network. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
+1. On **IP Addresses** tab, configure the virtual network address space. Then define the subnets you want to create, including the gateway subnet. Select **Review + create**, then *Create** to deploy the virtual network. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.yml#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
 
     > [!IMPORTANT]
     > The Gateway Subnet must be /27 or a shorter prefix (such as /26 or /25).

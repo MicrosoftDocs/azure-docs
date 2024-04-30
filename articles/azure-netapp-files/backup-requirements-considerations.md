@@ -40,9 +40,9 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
-* [Disabling backups](backup-disable.md) for a volume will delete all the backups stored in the Azure storage for that volume. If you delete a volume, the backups will remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
+* If you delete a volume, the backups remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
-* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription won't delete the backups. You can remove backups by [disabling backups](backup-disable.md) or [manually deleting the backups](backup-disable.md). If you delete the resource group without disabling backups, backups will continue to impact your billing.
+* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription won't delete the backups.
 
 * If you use the standard storage with cool access, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
 
@@ -55,7 +55,6 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)

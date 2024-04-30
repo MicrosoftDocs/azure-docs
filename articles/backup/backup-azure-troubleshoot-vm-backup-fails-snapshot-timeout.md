@@ -2,10 +2,10 @@
 title: Troubleshoot Agent and extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 05/05/2022
+ms.date: 04/08/2024
 ms.service: backup
-ms.custom:
-ms.reviewer: geg
+ms.custom: engagement-fy24
+ms.reviewer: sooryar
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -221,6 +221,11 @@ Check if the given virtual machine is actively (not in pause state) protected by
 The VM agent might have been corrupted, or the service might have been stopped. Reinstalling the VM agent helps get the latest version. It also helps restart communication with the service.
 
 1. Determine whether the Windows Azure Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Azure Guest Agent service and initiate the backup.
+
+   :::image type="content" source="./media/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout/open-services-window.png" alt-text="Screenshot shows how to open Windows Services." lightbox="./media/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout/open-services-window.png":::
+
+   :::image type="content" source="./media/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout/windows-azure-guest-service-running.png" alt-text="Screenshot shows the Windows Azure Guest service is in running state." lightbox="./media/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout/windows-azure-guest-service-running.png":::
+
 2. If the Windows Azure Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
 3. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Azure Guest Agent.
 4. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
@@ -301,11 +306,11 @@ The following conditions might cause the snapshot task to fail:
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select the ellipsis and select **Delete**.
 
-    ![Delete lock](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    :::image type="content" source="./media/backup-azure-arm-vms-prepare/delete-lock.png" alt-text="Screenshot shows how to delete a lock." lightbox="./media/backup-azure-arm-vms-prepare/delete-lock.png":::
 
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 
-After removing the lock, the restore points have to be cleaned up.
+After you remove the lock, the restore points have to be cleaned up.
 
 If you delete the Resource Group of the VM, or the VM itself, the instant restore snapshots of managed disks remain active and expire according to the retention set. To delete the instant restore snapshots (if you don't need them anymore) that are stored in the Restore Point Collection, clean up the restore point collection according to the steps given below.
 
@@ -328,12 +333,12 @@ To manually clear the restore points collection, which isn't cleared because of 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the **Hub** menu, select **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
-    ![Select the resource group](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    :::image type="content" source="./media/backup-azure-arm-vms-prepare/resource-group.png" alt-text="Screenshot shows how to select the resource group." lightbox="./media/backup-azure-arm-vms-prepare/resource-group.png":::
 
 3. Select Resource group, the **Overview** pane is displayed.
 4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Select the restore point collection](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    :::image type="content" source="./media/backup-azure-arm-vms-prepare/restore-point-collection.png" alt-text="Screenshot shows how to select the restore point collection." lightbox="./media/backup-azure-arm-vms-prepare/restore-point-collection.png":::
 
 5. Select **Delete** to clean the restore point collection.
 6. Retry the backup operation again.

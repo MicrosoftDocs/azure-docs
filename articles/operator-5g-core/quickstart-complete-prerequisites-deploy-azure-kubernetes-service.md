@@ -24,7 +24,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
 - Sizing (the number of worker nodes/VM sizes/flavors/subnet sizes)
 - Availability Zones
 - Federations installed
-- Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.md) in your Tenant to create the cluster, modify the Azure Virtual Machine Scale Sets, and [add user defined routes](../virtual-network/virtual-networks-udr-overview.md) to virtual network in case you’re going to deploy UPF. Validation was done with Subscription level contributor access. However, access/ role requirements can change over time as code in Azure changes.
+- Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.yml) in your Tenant to create the cluster, modify the Azure Virtual Machine Scale Sets, and [add user defined routes](../virtual-network/virtual-networks-udr-overview.md) to virtual network in case you’re going to deploy UPF. Validation was done with Subscription level contributor access. However, access/ role requirements can change over time as code in Azure changes.
  
 
 ## Create networks for network functions

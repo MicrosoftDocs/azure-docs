@@ -81,7 +81,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
 You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
 These requirements apply to buying a reserved VM instance:
 
-- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For EA subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin for the subscription.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 

@@ -1,7 +1,7 @@
 ---
 title: "Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal"
 description: Shows how to quickly stand up WebLogic Server on Azure Kubernetes Service.
-author: edburns
+author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
 ms.date: 02/09/2024
@@ -454,7 +454,7 @@ Use the following steps to build the image:
    => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
    ```
 
-1. If you have successfully created the image, then it should now be in your local machine’s Docker repository. You can verify the image creation by using the following command:
+1. If you have successfully created the image, then it should now be in your local machine's Docker repository. You can verify the image creation by using the following command:
 
    ```text
    docker images model-in-image:WLS-v1

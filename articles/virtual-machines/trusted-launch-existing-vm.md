@@ -69,7 +69,7 @@ This section steps through using the Azure portal to enable Trusted launch on ex
 
 > [!NOTE]
 >
-> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.md), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted launch using Portal. Please ensure [OS Version is supported for Trusted launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
+> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.yml), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted launch using Portal. Please ensure [OS Version is supported for Trusted launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
 
 :::image type="content" source="./media/trusted-launch/05-generation-2-to-trusted-launch-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
 

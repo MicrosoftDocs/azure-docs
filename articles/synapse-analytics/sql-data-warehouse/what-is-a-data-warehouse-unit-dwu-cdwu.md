@@ -3,7 +3,7 @@ title: Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.date: 10/30/2023
+ms.date: 04/17/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
@@ -72,7 +72,8 @@ The ideal number of data warehouse units depends very much on your workload and 
 Steps for finding the best DWU for your workload:
 
 1. Begin by selecting a smaller DWU.
-2. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe.
+1. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe. Verify by monitoring [resource utilization](sql-data-warehouse-concept-resource-utilization-query-activity.md).
+
 3. Identify any additional requirements for periodic periods of peak activity. Workloads that show significant peaks and troughs in activity may need to be scaled frequently.
 
 Dedicated SQL pool (formerly SQL DW) is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data.

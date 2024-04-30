@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 04/02/2024
+ms.date: 04/18/2024
 recommendations: false
 ---
 
@@ -18,15 +18,33 @@ recommendations: false
 
 ## April 2024
 
-### Fine-tuning is now supported in East US 2
+### Fine-tuning is now supported in two new regions East US 2 and Switzerland West
 
-Fine-tuning is now available in East US 2 with support for:
+Fine-tuning is now available with support for:
+
+### East US 2
 
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
 
+### Switzerland West
+
+- `babbage-002`
+- `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
 Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
+
+### Multi-turn chat training examples
+
+Fine-tuning now supports [multi-turn chat training examples](./how-to/fine-tuning.md#multi-turn-chat-file-format).
+
+### GPT-4 (0125) is available for Azure OpenAI On Your Data
+
+You can now use the GPT-4 (0125) model in [available regions](./concepts/models.md#public-cloud-regions) with Azure OpenAI On Your Data.
 
 ## March 2024
 
@@ -271,7 +289,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Embedding input array increase
 
-- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.md#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
+- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.yml#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
 
 ### New Regions
 
@@ -430,7 +448,7 @@ New training course:
 }
 ```
 
-**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
+**Content filtering is temporarily off** by default. Azure content moderation works differently than Azure OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
 
 ​These models will be re-enabled in Q1 2023 and be on by default. ​
 

@@ -55,8 +55,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 * [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-
-
 ## Next steps
 
 * [Language detection overview](overview.md)
