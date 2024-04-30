@@ -16,7 +16,7 @@ recommendations: false
 
 # What's new in Azure OpenAI Service
 
-Summary of the latest releases and major documentation updates for Azure OpenAI.
+This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## May 2024
 
