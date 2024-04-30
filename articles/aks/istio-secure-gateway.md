@@ -40,7 +40,7 @@ This article requires several certificates and keys. You can use your favorite t
     openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=bookinfo Inc./CN=bookinfo.com' -keyout bookinfo_certs/bookinfo.com.key -out bookinfo_certs/bookinfo.com.crt
     ```
 
-2. Generate a certificate and private key for <span>productpage.bookinfo.com</span>:
+2. Generate a certificate and private key for `productpage.bookinfo.com`:
     
     ```bash
     openssl req -out bookinfo_certs/productpage.bookinfo.com.csr -newkey rsa:2048 -nodes -keyout bookinfo_certs/productpage.bookinfo.com.key -subj "/CN=productpage.bookinfo.com/O=product organization"
