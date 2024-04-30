@@ -110,7 +110,7 @@ If you use VNet injection (preview) with Operator Connect or Teams Phone Mobile,
 :::image type="content" source="../expressroute/media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of two regions with connectivity compliant with Operator Connect and Teams Phone Mobile.":::
 
 > [!WARNING]
-> Any traffic in your own VNet is subject to standard Azure VNet and bandwidth charges.
+> Any traffic in your own virtual network is subject to standard Azure Virtual Network and bandwidth charges.
 
 ## Related content
 
