@@ -24,7 +24,7 @@ items:
     - name: Deploy a FHIR service
       items: 
         - name: Using Azure portal
-          href: fhir-portal-quickstart.md
+          href: deploy-azure-portal.md
         - name: Using Bicep
           href: fhir-service-bicep.md
         - name: Using ARM template
