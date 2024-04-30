@@ -91,7 +91,7 @@ You can register a new API in your API center from the exported definition by us
 The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *definitionFile.json*.
 
 ```azurecli
-az apic api register --resource-group myResourceGroup --service myAPICenter --api-location "/path/to/definitionFile.json
+az apic api register --resource-group myResourceGroup --service myAPICenter --api-location "/path/to/definitionFile.json"
 ```
 
 ### Import API definition to an existing API in your API center
