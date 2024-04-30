@@ -3,7 +3,8 @@ title: Extensions
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 04/07/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -40,55 +41,30 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
 ```json
 {
-
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-
     "contentVersion": "1.0.0.0",
-
     "parameters": {
-
         "flexibleServers_name": {
-
             "defaultValue": "mypostgreserver",
-
             "type": "String"
-
         },
-
         "azure_extensions_set_value": {
-
             "defaultValue": " dblink,dict_xsyn,pg_buffercache",
-
             "type": "String"
-
         }
-
     },
-
     "variables": {},
-
     "resources": [
-
         {
-
             "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
-
             "apiVersion": "2021-06-01",
-
             "name": "[concat(parameters('flexibleServers_name'), '/azure.extensions')]",
-
             "properties": {
-
                 "value": "[parameters('azure_extensions_set_value')]",
-
                 "source": "user-override"
-
             }
-
         }
-
     ]
-
 }
   ```
 

@@ -195,8 +195,6 @@ items:
           href: create-view-manage-namespace-topics.md
         - name: Create, view, and manage event subscriptions
           href: create-view-manage-event-subscriptions.md
-        - name: Forward events to Event Grid namespace topic
-          href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
