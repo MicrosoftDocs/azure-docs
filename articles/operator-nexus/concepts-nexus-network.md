@@ -12,7 +12,7 @@ ms.custom: template-concept
 # Nexus Network Overview
 
 This article describe core concepts of Nexus Networks, Include the options to configure nexus networks with critical properties introduction
-Nexus Network enable Application connect with on-prem network and other services over Azure public Cloud. It supports operator use cases with
+Nexus Network enables application connect with on-prem network and other services over Azure public Cloud. It supports operator use cases with
 standard industry technologies that are reliable, predictable, and familiar to operators and network equipment providers. This means supporting 
 technologies such as SR-IOV, DPDK, MACVLAN, IPVLAN and avoiding technologies that may inhibit line rate performance or increase troubleshooting 
 complexity for mission critical outages and issues.  
@@ -71,8 +71,7 @@ This setup uses dedicated Nexus relay infrastructure within Nexus owned subscrip
 The dedicated relay infrastructure allows Nexus to establish multiple hybrid connections with listeners at a reduced cost of goods sold (COGS). Each Nexus Cluster instance is equipped with its 
 own relay, and customers can manage Network ACL rules through the Nexus Cluster ARM APIs. These rules determine which networks can access both the az connectedk8s proxy and az ssh for their 
 Nexus Arc resources within that specific on-premises Nexus Cluster. This feature enhances operator security by adhering to security protocols established after previous Arc/Relay security incidents, 
-requiring remote Arc connectivity to have customer-defined network filters or ACLs, especially when not using private-endpoint features.
+requiring remote Arc connectivity to have customer-defined network filters or ACLs.
 
-Efforts are ongoing to implement private link technology, which is gradually being introduced across all relevant Azure services that operators rely on.
 
 
