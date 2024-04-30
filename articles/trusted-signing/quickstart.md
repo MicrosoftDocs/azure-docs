@@ -6,6 +6,7 @@ ms.author: mesharm
 ms.service: trusted-signing 
 ms.topic: quickstart 
 ms.date: 04/12/2024 
+ms.custom: references_regions 
 ---
 
 
@@ -47,16 +48,38 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
 # [Azure CLI](#tab/registerrp-cli)
 
-You can register Trusted Signing resource provider with the commands below:
+1. If you're using a local installation, login to Azure CLI using the `az login` command.  
+
+2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+
+3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+4. To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command.
+•   To upgrade to the latest version, use the following command:
+
+```bash
+az upgrade [--all {false, true}]
+   [--allow-preview {false, true}]
+    [--yes]
+```
+
+5. To set your default subscription ID, use the `az account set -s <subscriptionId>` command.
+
+6. You can register Trusted Signing resource provider with the command below:
 
 ```
 az provider register --namespace "Microsoft.CodeSigning"
 ```
 
-You can verify that registration is complete with the commands below: 
+7. You can verify that registration is complete with the command below: 
 
 ```
-az provider show --namespace "microsoft.ConfidentialLedger"
+az provider show --namespace "Microsoft.CodeSigning"
+```
+
+8. You can add the extension for Trusted Signing with the command below:
+```
+az extension add --name trustedsigning
 ```
 
 ---
@@ -72,13 +95,12 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | Region                               | Region Class Fields  | Endpoint URI Value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
 | East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
-| West US3<sup>[1](#myfootnote1)</sup> | WestUS3              | `https://wus3.codesigning.azure.net` |
+| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
 | West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
 | West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From either the Azure portal menu or the Home page, select **Create a resource**.
@@ -110,42 +132,22 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | Region                               | Region Class Fields  | Endpoint URI Value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
 | East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
-| West US3<sup>[1](#myfootnote1)</sup> | WestUS3             | `https://wus3.codesigning.azure.net` |
+| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
 | West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
 | West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 Complete the following steps to create a Trusted Signing account with Azure CLI:
 
-1. If you're using a local installation, login to Azure CLI using the `az login` command.  
-
-2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-
-3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-4. To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command.
-•   To upgrade to the latest version, use the following command:
-
-```bash
-az upgrade [--all {false, true}]
-   [--allow-preview {false, true}]
-    [--yes]
-```
-
-5. To set your default subscription ID, use the `az account set -s <subscriptionId>` command.
-
-6. Create a resource group using the following command:
+1. Create a resource group using the following command (Skip this step if you plan to use an existing resource group):
 
 ```
 az group create --name MyResourceGroup --location EastUS
 ```
 
-- To list accounts under the resource group, use the `trustedsigning list -g MyResourceGroup` command.
-
-7. Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.)
+2. Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.)
 
 ```
 trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
@@ -156,7 +158,10 @@ Or
 ```
 trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
-8. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+3. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+
+>[!Note]
+>If you are using older version of CLI from Trusted Signing Private Preview, your account is defaulted to Basic SKU. To use Premium either upgrade CLI to latest version or use Azure portal to create account.
 
 **Trusted Signing account naming constraints**:
 
@@ -167,9 +172,13 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 **Helpful commands**:
 
-- Show help commands and detailed options:  `trustedsigning -h`
-- Show the details of an account: `trustedsigning show -n MyAccount  -g MyResourceGroup`
-- Update tags:  `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"`
+| Command                                                                                  | Description                               |  
+|:-----------------------------------------------------------------------------------------|:------------------------------------------|
+| `trustedsigning -h`                                                                      | Show help commands and detailed options   |
+| `trustedsigning show -n MyAccount  -g MyResourceGroup`                                   | Show the details of an account            |
+| `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Update tags                               |
+| `trustedsigning list -g MyResourceGroup`                                                 | To list accounts under the resource group |
+
 
 ---
 
@@ -286,9 +295,11 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 
 **Helpful commands**:
 
-- Show help for sample commands and detailed parameter descriptions:   `trustedsigning certificate-profile create -–help`
-- List certificate profile under a Trusted Signing account:  `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`
-- Get details of a profile:  `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`
+| Command                               | Description  | 
+| :----------------------------------- | :------------------- |
+| `trustedsigning certificate-profile create -–help`                            | Show help for sample commands and detailed parameter descriptions              |
+| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            |List certificate profile under a Trusted Signing account          |
+| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Get details of a profile              |
 
 ---
 

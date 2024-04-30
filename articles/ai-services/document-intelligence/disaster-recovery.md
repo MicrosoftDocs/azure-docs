@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 04/23/2024
 ms.author: lajanuar
 ---
 
@@ -65,7 +65,7 @@ The process for copying a custom model consists of the following steps:
 The following HTTP request gets copy authorization from your target resource. You need to enter the endpoint and key of your target resource as headers.
 
 ```http
-POST https://<your-resource-endpoint>/documentintelligence/documentModels/{modelId}:copyTo?api-version=2024-02-29-preview
+POST https://<your-resource-endpoint>/documentintelligence/documentModels:authorizeCopy?api-version=2024-02-29-preview
 Ocp-Apim-Subscription-Key: {<your-key>}
 ```
 
