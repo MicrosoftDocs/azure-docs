@@ -102,28 +102,12 @@ The following limitations apply:
 ]
 ```
 
-## Code samples: transliterate text
-
 > [!NOTE]
 >
 > * Each sample runs on the `localhost` that you specified with the `docker run` command.
 > * While your container is running, `localhost` points to the container itself.
 > * You don't have to use `localhost:5000`. You can use any port that is not already in use in your host environment.
 > To specify a port, use the `-p` option.
-
-### Transliterate with REST API
-
-```rest
-
-  POST https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn HTTP/1.1
-  Ocp-Apim-Subscription-Key: ba6c4278a6c0412da1d8015ef9930d44
-  Content-Type:  application/json
-
-  [
-      {"Text":"こんにちは"},
-      {"Text":"さようなら"}
-  ]
-```
 
 ## Next Steps
 
