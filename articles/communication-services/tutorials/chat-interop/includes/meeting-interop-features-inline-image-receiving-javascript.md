@@ -17,7 +17,8 @@ There are two parts in this tutorial, you learn what you need to do:
 - [when sending out an inline image](#handle-sending-inline-images-in-new-message-request)
 
 
-Note that the ability to send an inline image is currently available in public preview and it's only available for JavaScript only. And for receiving inline images, it's currently general available and available for both JavaScript and C# in a Teams interoperability chat. 
+> [!NOTE] 
+> The ability to send inline images is currently available in public preview and it's only available for JavaScript only. For receiving inline images, it's currently general available and available for both JavaScript and C# in a Teams interoperability chat. 
 
 
 ## Sample Code
@@ -457,16 +458,16 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to `http://localhost:8080/`. Noticing we have a new section in the send box to attach images:
 
-:::image type="content" source="./media/meeting-interop-features-inline-5.png" alt-text="A screenshot of sample app with a newly add section to attach images":::
+:::image type="content" source="./media/meeting-interop-features-inline-5.png" alt-text="A screenshot of sample app with a newly add section to attach images.":::
 
 Then we can select images we wanted to attach:
 
 :::image type="content" source="./media/meeting-interop-features-inline-6.png" alt-text="A screenshot of a file picker that shows a list of images user can attach to their message.":::
 
-:::image type="content" source="./media/meeting-interop-features-inline-7.png" alt-text="A screenshot of the sample app showing 2 images attached":::
+:::image type="content" source="./media/meeting-interop-features-inline-7.png" alt-text="A screenshot of the sample app showing 2 images attached.":::
 
 The Teams user should now receive the image we just sent out when they click on send button:
 
-:::image type="content" source="./media/meeting-interop-features-inline-8.png" alt-text="A screenshot of the sample app showing a sent message with 2 images embedded":::
+:::image type="content" source="./media/meeting-interop-features-inline-8.png" alt-text="A screenshot of the sample app showing a sent message with 2 images embedded.":::
 
 :::image type="content" source="./media/meeting-interop-features-inline-9.png" alt-text="A screenshot of Teams client showing a received message with 2 image embedded.":::
