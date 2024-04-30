@@ -54,7 +54,7 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    If you select **SSH Key pair**, then select **Public key source** to specify a key source.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Local user configuration pane.](./media/secure-file-transfer-protocol-support-authorize-access/add-local-user-config-page.png)
+   > ![Screenshot of the Local user configuration pane.](./media/secure-file-transfer-protocol-support-authorize-access/add-local-user-configuration-page.png)
 
    The following table describes each key source option:
 
@@ -188,7 +188,7 @@ If you want to authorize access at the file and directory level, you can enable 
 1. In the **Permissions** tab, select the containers that you want to make available to this local user. Then, select which types of operations you want to enable this local user to perform.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Permissions tab.](./media/secure-file-transfer-protocol-support-authorize-access/container-perm-tab.png)
+   > ![Screenshot of the Permissions tab.](./media/secure-file-transfer-protocol-support-authorize-access/container-permissions-tab.png)
 
    > [!IMPORTANT]
    > The local user must have at least one container permission or ACL permission to the home directory of that container. Otherwise a connection attempt to that container will fail.
@@ -198,7 +198,7 @@ If you want to authorize access at the file and directory level, you can enable 
    You can also add this local user to a group by assigning that user to a group ID. That ID can be any number or number scheme that you want. Grouping users allow you to add and remove users without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users from the group.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the group ID and ACL authorization checkbox.](./media/secure-file-transfer-protocol-support-authorize-access/container-perm-tab-acl-authorization.png)
+   > ![Screenshot of the group ID and ACL authorization checkbox.](./media/secure-file-transfer-protocol-support-authorize-access/container-permissions-tab-acl-authorization.png)
 
    > [!NOTE]
    > A user ID for the local user is automatically generated. You can't modify this ID, but you can see the ID after you create the local user by reopening that user in the **Edit local user** pane.
