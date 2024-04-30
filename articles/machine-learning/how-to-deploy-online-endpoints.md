@@ -536,7 +536,6 @@ The template doesn't support local endpoints. See the Azure CLI or Python tabs f
 ---
 
 The following table contains the possible values for `provisioning_state`:
-
 |                   | Description                                |
 |-------------------|--------------------------------------------|
 | **__Creating__**  | The resource is being created.             |
