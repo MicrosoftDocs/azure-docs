@@ -46,7 +46,7 @@ Some tests are linkable back to their Application Insights resource for further 
 
 The **Outages & Downtime** tab has information on total outage instances and total downtime broken down by test.
 
-:::image type="content" source="./media/sla-report/outages-downtime.png" alt-text="Screenshot that shows the Outages & Downtime tab in the downtime and outages workbook." lightbox="./media/sla-report/outages-failures.png":::
+:::image type="content" source="./media/sla-report/outages-downtime.png" alt-text="Screenshot that shows the Outages & Downtime tab in the downtime and outages workbook." lightbox="./media/sla-report/outages-downtime.png":::
 
 The **Failures by Location** tab has a geo-map of failed testing locations to help identify potential problem connection areas.
 
