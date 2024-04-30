@@ -176,6 +176,7 @@ Choose your monitoring configurations from Azure Monitor, Managed Prometheus, Ma
 -- Monitor Snippet
 
 
+
 After creation, begin deploying your first application, either with or without connecting to a source control. 
 
 -- picture
