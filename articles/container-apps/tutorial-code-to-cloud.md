@@ -57,7 +57,9 @@ To complete this project, you need the following items:
 
 ::: zone-end
 
-[!INCLUDE [container-apps-setup-cli-steps.md](../../includes/container-apps-setup-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
+
+## Create environment variables
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
