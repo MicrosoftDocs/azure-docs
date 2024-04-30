@@ -373,6 +373,7 @@ Schema breakdown:
 | `osProfile.computerName` | Specifies the name of the computer | 2020-07-15
 | `osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
 | `osType` | Linux or Windows | 2017-04-02
+| `physicalZone` | Physical location of the VM | 2023-11-15
 | `placementGroupId` | [Placement Group](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your scale set | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it's an Azure Marketplace Image | 2018-04-02
 | `platformUpdateDomain` |  [Update domain](availability.md) the VM is running in | 2017-04-02
@@ -730,6 +731,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         }
     ],
     "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+    "physicalZone": "",
     "resourceGroupName": "macikgo-test-may-23",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
     "securityProfile": {
@@ -853,6 +855,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "disablePasswordAuthentication": "true"
     },
     "osType": "Linux",
+    "physicalZone": "",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
