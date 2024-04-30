@@ -1,15 +1,15 @@
 ---
 title: Compute and storage options
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
-ms.author: sunila
+author: gbowerman
+ms.author: guybo
 ms.reviewer: maghan
-ms.date: 02/12/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Compute and storage options in Azure Database for PostgreSQL - Flexible Server

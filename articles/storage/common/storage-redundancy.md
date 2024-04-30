@@ -247,7 +247,7 @@ Unmanaged disks don't support ZRS or GZRS.
 For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-Block blob storage accounts support locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
+> Block blob storage accounts support locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
 
 ## Data integrity
 

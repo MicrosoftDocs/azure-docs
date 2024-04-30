@@ -4,12 +4,12 @@ description: Learn how data encryption with a customer-managed key in Azure Data
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 1/24/2023
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Data encryption with a customer-managed key in Azure Database for PostgreSQL - Flexible Server
