@@ -51,6 +51,7 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - The maximum message size allowed is approximately 28 KB.
 - For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported.
 - For Teams Interop scenarios, it's the number of Azure Communication Services users, not Teams users, that must be below 20 for the typing indicator feature to be supported.
+- When creating a chat thread, you can set the retention policy between 30 and 90 days.
 - For Teams Interop scenarios, the typing indicator event might contain a blank display name when sent from Teams user.
 - For Teams Interop scenarios, read receipts aren't supported for Teams users.
   
