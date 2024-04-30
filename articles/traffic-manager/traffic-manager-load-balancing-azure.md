@@ -82,9 +82,9 @@ The following diagram shows the architecture of this scenario:
    * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
 3. Click **OK**.
 4. Define the virtual network, subnet, front-end IP, and listener configurations for the application gateway. In this scenario, the front-end IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
-5. Configure the listener with one of the following options:
-    * If you use HTTP, there is nothing to configure. Click **OK**.
-    * If you use HTTPS, further configuration is required. Refer to [Create an application gateway](../application-gateway/quick-create-portal.md), starting at step 9. When you have completed the configuration, click **OK**.
+
+ > [!NOTE]
+ > If you use HTTPS, select **HTTPS** next to **Protocol** on the **Listener** tab. The default option is HTTP. You must also create and assign an [SSL certificate](../application-gateway/create-ssl-portal.md#create-a-self-signed-certificate). For more information, see the [Application Gateway tutorial for SSL](../application-gateway/create-ssl-portal.md#configuration-tab).
 
 #### Configure URL routing for application gateways
 
