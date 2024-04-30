@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
 title: Trusted Signing # < 60 chars
-summary: Trusted Signing is a Microsoft fully managed end-to-end code signing solution for third party developers # < 160 chars
+summary: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third party developers # < 160 chars
 
 metadata:
   title: Trusted Signing documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Trusted Signing is a Microsoft fully managed end-to-end code signing solution for third party developers. The service is currently in a preview state. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: azure-code-signing #Required; use either service or product per approved list. 
+  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third party developers. The service is currently in a preview state. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: trusted-signing
   ms.topic: landing-page # Required
   author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
   ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
@@ -18,13 +18,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card 
-  - title: Signing Integrations
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Implement Signing Integrations with Trusted Signing
-            url: how-to-signing-integrations.md
-  - title: CI Policy Signing
+  - title: How-To Guides
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -48,6 +42,12 @@ landingContent:
         links:
           - text: Tutorial on assigning roles in the Trusted Signing service
             url: tutorial-assign-roles.md
+  - title: Quickstart with Trusted Signing
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Trusted Signing Quickstart
+            url: quickstart.md
   - title: Learn about Signing
     linkLists:
       - linkListType: concept

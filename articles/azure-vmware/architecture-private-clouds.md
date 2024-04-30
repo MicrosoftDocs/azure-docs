@@ -94,7 +94,7 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | Switzerland West | AZ01 | **AV36**, AV64 | No |
 | UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes |
 | UK South | AZ02 | **AV36**, AV64 | Yes |
-| UK South | AZ03 | AV36P, AV64 | No |
+| UK South | AZ03 | AV36P, AV64 | Yes |
 | UK West | AZ01 | AV36 | No |
 | West Europe | AZ01 | **AV36**, AV36P, AV52 | Yes |
 | West Europe | AZ02 | **AV36** | Yes |

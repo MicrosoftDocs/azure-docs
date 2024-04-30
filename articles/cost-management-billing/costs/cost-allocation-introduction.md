@@ -13,7 +13,7 @@ ms.reviewer: sadoulta
 
 # Introduction to cost allocation
 
-Cost allocation, as defined by the [FinOps Foundation](../finops/capabilities-allocation.md), is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency.
+Cost allocation, as defined by the [FinOps Foundation](/cloud-computing/finops/capabilities-allocation), is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency.
 
 This article introduces you to different Azure tools and features to enable you to allocate costs effectively and efficiently.
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 04/17/2024
 ms.author: jianleishen
 ---
 
@@ -322,6 +322,17 @@ Here are steps that help you upgrade your MySQL driver version:
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+
+## Differences between MySQL using the recommended driver version and using the legacy driver version
+
+The table below shows the data type mapping differences between MySQL connector using the recommended driver version and using the legacy driver version.
+
+|MySQL data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
+|:---|:---|:---|
+|bit(1)| UInt64|Boolean|
+|bit(M), M>1|UInt64|Byte[]|
+|bool|Boolean|Int16|
+|JSON|String|Byte[]|
 
 ## Related content
 
