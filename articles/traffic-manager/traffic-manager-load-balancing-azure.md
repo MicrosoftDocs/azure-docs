@@ -39,7 +39,7 @@ In this example scenario, we use a simple website that serves two types of conte
 
 Additionally, the default VM pool serving the dynamic content needs to talk to a back-end database that is hosted on a high-availability cluster. The entire deployment is set up through Azure Resource Manager.
 
-Traffic Manager, Application Gateway, and Load Balancer allows this website to achieve the following design goals:
+Using Traffic Manager, Application Gateway, and Load Balancer, you can enable this website to achieve the following design goals:
 
 * **Multi-geo redundancy**: If one region goes down, Traffic Manager routes traffic seamlessly to the closest region without any intervention from the application owner.
 * **Reduced latency**: Because Traffic Manager automatically directs the customer to the closest region, the customer experiences lower latency when requesting the webpage contents.
@@ -140,7 +140,7 @@ In this scenario, Traffic Manager is connected to application gateways (as confi
 
    ![Traffic Manager "Add endpoint"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. Now you can test your setup by accessing it with the DNS of your Traffic Manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up or bring down VMs and web servers that were created in different regions, and change the Traffic Manager profile settings to test your setup.
+4. Now you can test your setup by accessing it with the DNS of your Traffic Manager profile (in this example: `TrafficManagerScenario.trafficmanager.net`). You can resend requests, bring up VMs, or bring down VMs and web servers that were created in different regions. You can also change and test different Traffic Manager profile settings.
 
 ### Step 4: Create a load balancer
 
