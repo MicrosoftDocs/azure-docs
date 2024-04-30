@@ -49,7 +49,7 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 
 ## Cost
 
-While Code Optimizations incurs no extra costs.
+Code Optimizations incurs no extra costs.
 
 ## Supported regions
 
