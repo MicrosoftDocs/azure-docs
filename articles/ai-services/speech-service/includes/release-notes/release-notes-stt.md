@@ -16,7 +16,6 @@ Automatic multi-lingual speech translation is available in public preview. This 
 
 - Unspecified input language: Multi-lingual speech translation can receive audio in a wide range of languages, and there's no need to specify what the expected input language is. It makes it an invaluable feature to understand and collaborate across global contexts without the need for presetting.
 - Language switching: Multi-lingual speech translation allows for multiple languages to be spoken during the same session, and have them all translated into the same target language. There's no need to restart a session when the input language changes or any other actions by you.
-- Transcription. The service outputs a transcription in the specified target language. Source language transcription isn't available yet. 
 
 ##### How it works
 
