@@ -11,7 +11,7 @@ ms.date: 04/17/2024
 
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
 
-This tutorial is part four of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Azure Pipelines.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
+This tutorial is part four of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Azure Pipelines. An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
 
 In part three of the series, you learn how to:
 
@@ -21,7 +21,7 @@ In part three of the series, you learn how to:
 > * Create a release pipeline in Azure Pipelines
 > * Automatically deploy and upgrade an application
 
-In this tutorial series you learn how to:
+In these tutorials you learn how to:
 > [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
@@ -37,11 +37,11 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
+* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). An organization allows you to create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application
 
-If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
+If you didn't build the Voting sample application in [part one of this series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -49,9 +49,9 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Prepare a publish profile
 
-Now that you've [created an application](service-fabric-tutorial-create-dotnet-app.md) and have [deployed the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), you're ready to set up continuous integration.  First, prepare a publish profile within your application for use by the deployment process that executes within Azure Pipelines.  The publish profile should be configured to target the cluster that you've previously created.  Start Visual Studio and open an existing Service Fabric application project.  In **Solution Explorer**, right-click the application and select **Publish...**.
+Now that you [created an application](service-fabric-tutorial-create-dotnet-app.md) and [deployed the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), you're ready to set up continuous integration. First, prepare a publish profile within your application for use by the deployment process that executes within Azure Pipelines. The publish profile should be configured to target the cluster you previously created. Start Visual Studio and open an existing Service Fabric application project. In **Solution Explorer**, right-click the application and select **Publish...**.
 
-Choose a target profile within your application project to use for your continuous integration workflow, for example Cloud.  Specify the cluster connection endpoint.  Check the **Upgrade the Application** checkbox so that your application upgrades for each deployment in Azure DevOps.  Click the **Save** hyperlink to save the settings to the publish profile and then click **Cancel** to close the dialog box.
+Choose a target profile within your application project to use for your continuous integration workflow, for example Cloud. Specify the cluster connection endpoint. Check the **Upgrade the Application** checkbox so that your application upgrades for each deployment in Azure DevOps. Select the **Save** hyperlink to save the settings to the publish profile and then choose **Cancel** to close the dialog box.
 
 ![Push profile][publish-app-profile]
 
@@ -59,13 +59,13 @@ Choose a target profile within your application project to use for your continuo
 
 Share your application source files to a project in Azure DevOps so you can generate builds.
 
-Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) from VS 2022 IDE by selecting Git -> Create Git Repository from Git menu
+Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) from Visual Studio 2022 IDE by selecting Git -> Create Git Repository from Git menu
 
-Select your account in the drop-down and enter your repository name and click **Create and Push** button.
+Select your account in the drop-down and enter your repository name and select **Create and Push** button.
 
 ![Screenshot of creating new Git repository.][push-git-repo]
 
-Publishing the repo creates a new project in Azure DevOps account with the same name as the local repo. 
+Publishing the repo creates a new project in your Azure DevOps Services account with the same name as the local repo. 
 
 View the newly created repository by navigating to https://dev.azure.com/\<organizationname\>, hover mouse over the name of your project, and select the **Repos** icon.
 
@@ -79,7 +79,7 @@ An Azure Pipelines release pipeline describes a workflow that deploys an applica
 
 Open a web browser and navigate to your new project at: https://dev.azure.com/\<organizationname\>/VotingSample
 
-Select the **Pipelines** tab and click **Create Pipeline**.
+Select the **Pipelines** tab and select **Create Pipeline**.
 
 ![New Pipeline][new-pipeline]
 
@@ -87,15 +87,15 @@ Select **Use the classic editor** to create a pipeline without YAML.
 
 ![Classic Editor][classic-editor]
 
-Select **Azure Repos Git** as source, **VotingSample** Team project, **VotingApplication** Repository, and **master** Default branch for manual and scheduled builds. Then click **Continue**.
+Select **Azure Repos Git** as source, **VotingSample** Team project, **VotingApplication** Repository, and **master** Default branch for manual and scheduled builds. Then select **Continue**.
 
 ![Select Repo][select-repo]
 
-In **Select a template**, select the **Azure Service Fabric application** template and click **Apply**.
+In **Select a template**, select the **Azure Service Fabric application** template and select **Apply**.
 
 ![Choose build template][select-build-template]
 
-In **Tasks**, enter "Azure Pipelines" as the **Agent pool** and **windows-2022** as Agent Specification
+In **Tasks**, enter "Azure Pipelines" as the **Agent pool** and **windows-2022** as Agent Specification.
 
 ![Select tasks][save-and-queue]
 
@@ -103,11 +103,11 @@ Under **Triggers**, enable continuous integration by checking **Enable continuou
 
 ![Select triggers][save-and-queue-2]
 
-Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
+Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab. Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
 
 ### Create a release pipeline
 
-Select the **Pipelines** tab, then **Releases**, then **+ New pipeline**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
+Select the **Pipelines** tab, then **Releases**, then **+ New pipeline**. In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
 
 ![Choose release template][select-release-template]
 
@@ -115,25 +115,25 @@ Select **Tasks** and then **+New** to add a new cluster connection.
 
 ![Add cluster connection][add-cluster-connection]
 
-In the **New Service Fabric Connection** view select **Certificate Based** or **Microsoft Entra credential** authentication.  Specify cluster endpoint of tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to).
+In the **New Service Fabric Connection** view select **Certificate Based** or **Microsoft Entra credential** authentication. Specify cluster endpoint of tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you're deploying to).
 
-For certificate-based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster.  In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate.  You can use the cluster or server certificate if you don't have a separate client certificate.
+For certificate-based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster. In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate. You can use the cluster or server certificate if you don't have a separate client certificate.
 
 For Microsoft Entra credentials, add the **Server certificate thumbprint** of the server certificate used to create the cluster and the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
 
-Click **Save**.
+Select **Save**.
 
-Next, add a build artifact to the pipeline so the release pipeline can find the output from the build. Select **Pipeline** and **Artifacts**->**+Add**.  In **Source (Build definition)**, select the build pipeline you created previously.  Click **Add** to save the build artifact.
+Next, add a build artifact to the pipeline so the release pipeline can find the output from the build. Select **Pipeline** and **Artifacts**->**+Add**. In **Source (Build definition)**, select the build pipeline you created previously. Select **Add** to save the build artifact.
 
 ![Add artifact][add-artifact]
 
-Enable a continuous deployment trigger so that a release is automatically created when the build completes. Click the lightning icon in the artifact, enable the trigger, and click **Save** to save the release pipeline.
+Enable a continuous deployment trigger so that a release is automatically created when the build completes. Select the lightning icon in the artifact, enable the trigger, and choose **Save** to save the release pipeline.
 
 ![Enable trigger][enable-trigger]
 
 Select **Create Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/.  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and that the application is running in the cluster. Open a web browser and navigate to https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/. Note the application version. In this example, it's `1.0.0.20170616.3`.
 
 ## Commit and push changes, trigger a release
 
@@ -149,23 +149,23 @@ In the **Git Changes** window, select **Push** button (the up arrow) to update c
 
 ![Push changes][push]
 
-Pushing the changes to Azure Pipelines automatically triggers a build.  To check your build progress, switch to **Pipelines** tab in https://dev.azure.com/organizationname/VotingSample. 
+Pushing the changes to Azure Pipelines automatically triggers a build. To check your build progress, switch to **Pipelines** tab in https://dev.azure.com/organizationname/VotingSample. 
 
 When the build completes, a release is automatically created and starts upgrading the application on the cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
+Verify that the deployment succeeded and that the application is running in the cluster. Open a web browser and navigate to `https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`. Note the application version. In this example, it's `1.0.0.20170815.3`.
 
 ![Screenshot of the Voting app in Service Fabric Explorer running in a browser window. The app version "1.0.0.20170815.3" is highlighted.][sfx1]
 
 ## Update the application
 
-Make code changes in the application.  Save and commit the changes, following the previous steps.
+Make code changes in the application. Save and commit the changes, following the previous steps.
 
 Once the upgrade of the application begins, you can watch the upgrade progress in Service Fabric Explorer:
 
 ![Screenshot of the Voting app in Service Fabric Explorer. The Status message "Upgrading", and an "Upgrade in Progress" message are highlighted.][sfx2]
 
-The application upgrade may take several minutes. When the upgrade is complete, the application will be running the next version.  In this example "1.0.0.20170815.4".
+The application upgrade might take several minutes. When the upgrade is complete, the application will be running the next version. In this example `1.0.0.20170815.4`.
 
 ![Screenshot of the Voting app in Service Fabric Explorer running in a browser window. The updated app version "1.0.0.20170815.4" is highlighted.][sfx3]
 
