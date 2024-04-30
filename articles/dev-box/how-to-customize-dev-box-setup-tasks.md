@@ -199,9 +199,14 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token. 
 
 To configure your Key Vault secrets for use in your yaml configurations, follow these steps:
+
 1. Ensure that your dev center project’s managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault. 
-2. Add any user (or group) who should be able to consume that secret when creating a customized dev box to the Key Vault Secrets User role on that key vault. 
-3. Grant the Secrets User role to each user or user group who should be able to consume this secret during the customization of a dev box. 
+    1. Learn how to [Configure a managed identity for a dev center](../deployment-environments/how-to-configure-managed-identity.md#configure-a-managed-identity-for-a-dev-center).
+    1. Learn how to [Grant the managed identity access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret).
+
+1. Grant the Secrets User role to each user or user group who should be able to consume this secret during the customization of a dev box. 
+
+1. Grant the Secrets User role to your own user account. 
 
 You can reference the secret in your yaml configuration in this format, using the git-clone task as an example:
 
@@ -216,7 +221,7 @@ tasks:
          pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
 
-If you wish to clone a private Azure Repos repository, you don’t need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your Azure Repos repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
+If you wish to clone a private Azure DevOps repository (Azure Repos), you don’t need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 
 ```yml
 tasks:
