@@ -109,7 +109,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal.
 
-Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings refering to the examples in the following table. Leave all other settings with their default values.
+Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings referring to the examples in the following table. Leave all other settings with their default values.
 
 1. Basics tab:
 
