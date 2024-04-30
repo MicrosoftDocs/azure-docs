@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration 
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 04/30/2024
 ---
 
 # How to set up experiments (preview) in Azure App Configuration
@@ -18,8 +18,8 @@ Running A/B testing experiments can help you make informed decisions to improve 
 
 - An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. If you don’t have one, [create an App Configuration store](./quickstart-azure-app-configuration-create.md).
-- A Split Experimentation Workspace resource <!--Add link to Split Experimentation Workspace quickstart>
-- A variant feature flag with at least two variants. <!--Add link to feature flags quickstart > variant feature flags>
+- A Split Experimentation Workspace resource <!--Add link to Split Experimentation Workspace quickstart-->
+- A variant feature flag with at least two variants. <!--Add link to feature flags quickstart > variant feature flags-->
 
 ## Add an Application Insights resource to your App Configuration store
 
@@ -50,9 +50,8 @@ To run experiments in Azure App Configuration, we're going to use Split Experime
 
 Now that you’ve connected the Application Insights resource to the App Configuration store, set up an app to run your experiment.
 
-- If you don’t have an ASP.NET application to run an experiment on already, use this Quickstart to create a Quote of the day app. <!-- Add link to QOTD quickstart --> This guide walks you through the following steps: create an application, connect it to your App Configuration store, connect it to your Application Insights resource, publish the evaluation events from your application code to Application Insights using the Application Insights Telemetry Publisher, define an `ITargetingContextAccessor`, add `FeatureManagement` with Targeting and Telemetry Publisher, add Telemetry Initializer and Middleware, grab the variant and emit an event you’d like to track.
-
-- If you already have an ASP.NET application, the steps outlined in the quickstart describe the changes you must make to your existing code.
+- If you don’t have an ASP.NET application to run an experiment on already, use this Quickstart to create a Quote of the day app. <!-- Add link to QOTD quickstart -->
+- If you already have an ASP.NET application, the steps outlined in the quickstart help you understand the code changes required to set up experimentation for your application.
 
 ## Set up an experimentation in App Configuration
 
