@@ -128,7 +128,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following actions:
 
 - Use the template that's generated during the restore operation to customize settings, and trigger VM deployment. You edit the default template settings, and submit the template for VM deployment.
-- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
+- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.yml) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 

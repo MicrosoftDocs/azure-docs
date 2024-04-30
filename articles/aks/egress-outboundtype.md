@@ -144,7 +144,7 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNA
 * [Configure user-defined routing in an AKS cluster](egress-udr.md)
 * [NAT gateway documentation](./nat-gateway.md)
 * [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md)
-* [Manage route tables](../virtual-network/manage-route-table.md)
+* [Manage route tables](../virtual-network/manage-route-table.yml)
 
 <!-- LINKS - internal -->
 [az-feature-register]: /cli/azure/feature#az_feature_register

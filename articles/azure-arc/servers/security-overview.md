@@ -11,7 +11,7 @@ This article describes the security configuration and considerations you should 
 
 ## Identity and access control
 
-[Azure role-based access control](../../role-based-access-control/overview.md) is used to control which accounts can see and manage your Azure Arc-enabled server. From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
+[Azure role-based access control](../../role-based-access-control/overview.md) is used to control which accounts can see and manage your Azure Arc-enabled server. From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.yml) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc-enabled server access control" border="false" lightbox="./media/security-overview/access-control-page.png":::
 

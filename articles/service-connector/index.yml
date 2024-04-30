@@ -49,8 +49,6 @@ landingContent:
             url: quickstart-cli-app-service-connection.md
           - text: Create a connection in Azure Spring Apps
             url: quickstart-cli-spring-cloud-connection.md
-          - text: Create a connection in Azure Kubernetes Service (AKS)
-            url: quickstart-cli-aks-connection.md
           - text: Create a connection in Container Apps
             url: quickstart-cli-container-apps.md
   - title: Common tasks

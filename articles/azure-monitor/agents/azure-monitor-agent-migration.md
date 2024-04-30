@@ -12,12 +12,12 @@ ms.custom:
 
 # Migrate to Azure Monitor Agent from Log Analytics agent
 
-[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as Microsoft Monitor Agent (MMA) and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The agent introduces a simplified, flexible method of configuring data dollection using [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). This article provides guidance on how to implement a successful migration from the Log Analytics agent to Azure Monitor Agent.
+[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as Microsoft Monitor Agent (MMA) and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The agent introduces a simplified, flexible method of configuring data collection using [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). This article provides guidance on how to implement a successful migration from the Log Analytics agent to Azure Monitor Agent.
 
 If you're currently using the Log Analytics agent with Azure Monitor or [other supported features and services](#migrate-additional-services-and-features), start planning your migration to Azure Monitor Agent by using the information in this article. If you are using the Log Analytics Agent for SCOM, you need to [migrate to the SCOM Agent](../vm/scom-managed-instance-overview.md).
 
 The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
-> - **Data upload**: You can still upload data. At some point when major customer have finished migrating and data volumes significantly drop, upload will be suspended. You can expect this to take at least 6 to 9 months.  You will not receive a breaking change notification of the suspension. 
+> - **Data upload**: You can still upload data. At some point when major customers have finished migrating and data volumes significantly drop, upload will be suspended. You can expect this to take at least 6 to 9 months.  You will not receive a breaking change notification of the suspension. 
 > - **Install or reinstall**: You can still install and reinstall the legacy agents. You will not be able to get support for installing or reinstalling issues.
 > - **Customer Support**: You can expect support for MMA/OMS for security issues.
 
@@ -32,7 +32,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 ### Before you begin 
 
 > [!div class="checklist"]
-> - **Check the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent.**<br>To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). The Arc agent makes your on-premises servers visible as to Azure as a resource it can target. You won't incur any additional cost for installing the Azure Arc agent. 
+> - **Check the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent.**<br>To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). The Arc agent makes your on-premises servers visible to Azure as a resource it can target. You won't incur any additional cost for installing the Azure Arc agent. 
 > - **Understand your current needs.**<br>Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to see connected agents and discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
 > - **Verify that Azure Monitor Agent can address all of your needs.**<br>Azure Monitor Agent is General Availablity (GA) for data collection and is used for data collection by various Azure Monitor features and other Azure services. For details, see [Supported services and features](#migrate-additional-services-and-features). 
 > - **Consider installing Azure Monitor Agent together with a legacy agent for a transition period.**<br>Run Azure Monitor Agent alongside the legacy Log Analytics agent on the same machine to continue using existing functionality during evaluation or migration. Keep in mind that running two agents on the same machine doubles resource consumption, including but not limited to CPU, memory, storage space, and network bandwidth.<br>

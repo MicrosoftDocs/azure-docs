@@ -73,7 +73,7 @@ In this quickstart, use the following features to analyze and extract data and v
  4. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2
+    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2 @azure/identity
 
     ```
 
@@ -146,10 +146,11 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 :::moniker range="doc-intel-4.0.0"
 
 ```javascript
-    const { AzureKeyCredential, DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+    const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+    const  { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-    const key = "<your-key>";
+    const key = "<your-key";
     const endpoint = "<your-endpoint>";
 
     // sample document
@@ -311,7 +312,8 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const { AzureKeyCredential, DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
+const  { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Marketplace Store Charge API.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/22/2024
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,9 +26,9 @@ Endpoints to migrate off:
 | `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges` | • API method: GET <br><br> • Synchronous (non polling) <br><br>  • Data format: JSON |
 | `/v3/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | • API method: GET <br><br> • Synchronous (non polling) <br><br> • Data format: JSON |
 
-## Assign permissions to an SPN to call the API
+## Assign permissions to a service principal to call the API
 
-Before calling the API, you need to configure a service principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to ACM APIs](cost-management-api-permissions.md).
+Before calling the API, you need to configure a service principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 
 ### Call the Marketplaces API
 
@@ -51,16 +51,19 @@ For subscription, billing account, department, enrollment account, and managemen
 [List Marketplaces](/rest/api/consumption/marketplaces/list#marketplaceslistresult)
 
 ```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces?api-version=2023-05-01
 ```
 
 With optional parameters:
 
 ```http
-https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces?$filter={$filter}&$top={$top}&$skiptoken={$skiptoken}
+https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces?api-version=2023-05-01?&$filter={$filter}&$top={$top}&$skiptoken={$skiptoken}
 ```
 
 #### Response body changes
+
+>[!NOTE]
+> The new response is missing the `AccountId`, `AccountOwnerId`, and `DepartmentId` fields. For account and department information, use the `AccountName` and `DepartmentName` fields.
 
 Old response:
 

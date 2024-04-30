@@ -28,7 +28,7 @@ For example, you can use Azure RBAC to assign roles like:
 - Everybody in the Cloud Administrators group in Microsoft Entra ID has reader access to all resources in the resource group *ContosoStorage*.
 - The managed identity associated with an application is allowed to restart virtual machines within Contoso's subscription.
 
-The following shows an example of the properties in a role assignment when displayed using [Azure PowerShell](role-assignments-list-powershell.md):
+The following shows an example of the properties in a role assignment when displayed using [Azure PowerShell](role-assignments-list-powershell.yml):
 
 ```json
 {
@@ -48,7 +48,7 @@ The following shows an example of the properties in a role assignment when displ
 }
 ```
 
-The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.md), or the [REST API](role-assignments-list-rest.md):
+The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.yml), or the [REST API](role-assignments-list-rest.md):
 
 ```json
 {

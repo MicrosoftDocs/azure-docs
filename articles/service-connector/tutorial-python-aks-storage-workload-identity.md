@@ -21,6 +21,9 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 > * Deploy the application to a pod in AKS cluster and test the connection.
 > * Clean up resources.
 
+> [!IMPORTANT]
+> Service Connect within AKS is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -92,11 +95,9 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --name MyIdentity
     ```
 
-## Create service connection with Service Connector
+## Create service connection with Service Connector (preview)
 
-Create a service connection between an AKS cluster and an Azure storage account using the Azure portal or the Azure CLI.
-
-### [Portal](#tab/azure-portal)
+Create a service connection between an AKS cluster and an Azure storage account using the Azure portal.
 
 1. Open your **Kubernetes service** in the Azure portal and select **Service Connector** from the left menu.
 
@@ -123,23 +124,6 @@ Create a service connection between an AKS cluster and an Azure storage account 
 1. Once the connection has been created, the Service Connector page displays information about the new connection.
 
 :::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
-
-### [Azure CLI](#tab/azure-cli)
-
-Run the following Azure CLI command to create a service connection to the Azure storage account, providing the following information:
-
-```azurecli
-az aks connection create storage-blob \
-    --workload-identity <user-identity-resource-id>
-```
-
-Provide the following information as prompted:
-
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure storage account.
-* **Storage account name:** the Azure storage account that is connected.
-* **User-assigned identity resource ID:** the resource ID of the user-assigned identity used to create workload identity.
 
 ---
 

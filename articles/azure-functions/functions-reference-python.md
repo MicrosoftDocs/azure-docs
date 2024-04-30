@@ -216,7 +216,7 @@ When you deploy your project to a function app in Azure, the entire contents of 
 
 Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction.md) for many [use cases](../cosmos-db/use-cases.md), including IoT, ecommerce, gaming, etc.
 
-For example, for [event sourcing](https://learn.microsoft.com/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
+For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
 :::image type="content" source="../cosmos-db/media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
