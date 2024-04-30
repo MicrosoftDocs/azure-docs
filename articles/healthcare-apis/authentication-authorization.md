@@ -1,12 +1,12 @@
 ---
-title: Authentication and authorization
-description: This article provides an overview of the authentication and authorization of Azure Health Data Services.
+title: Authentication and authorization in Azure Health Data Services
+description: Learn how to manage access to Azure Health Data Services by using Microsoft Entra ID, assign application roles, and secure your data with OAuth 2.0 protocols and managed identities.
 services: healthcare-apis
-author: chachachachami
+author: EXPEkesheth
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 06/06/2022
-ms.author: chrupa
+ms.date: 04/30/2024
+ms.author: kesheth
 ---
 
 # Authentication and authorization for Azure Health Data Services
@@ -15,39 +15,37 @@ ms.author: chrupa
 
  Azure Health Data Services is a collection of secured managed services using [Microsoft Entra ID](../active-directory/index.yml), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
 
-For Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
-
-Azure Health Data Services doesn't support other identity providers. However, you can use their own identity provider to secure applications, and enable them to interact with the Health Data Services by managing client applications and user data access controls.
+For Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you need to enable the system managed identity and grant proper permissions to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 The client applications are registered in the Microsoft Entra ID and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
 
 ### Application roles
 
-Authenticated users and client applications of the Azure Health Data Services must be granted with proper application roles.
+Authenticated users and client applications of the Azure Health Data Services must be assigned to the proper application role.
 
-FHIR service of Azure Health Data Services provides the following roles:
+The FHIR&reg; service in Azure Health Data Services provides these roles:
 
-* **FHIR Data Reader**: Can read (and search) FHIR data.
-* **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
-* **FHIR Data Exporter**: Can read and export ($export operator) data.
-* **FHIR Data Importer**: Can read and import ($import operator) data.
-* **FHIR Data Contributor**: Can perform all data plane operations.
-* **FHIR Data Converter**: Can use the converter to perform data conversion.
-* **FHIR SMART User**: Role allows user to read and write FHIR data according to the [SMART IG V1.0.0 specifications](http://hl7.org/fhir/smart-app-launch/1.0.0/).
+* **FHIR Data Reader**: Read and search FHIR data.
+* **FHIR Data Writer**: Read, write, and soft delete FHIR data.
+* **FHIR Data Exporter**: Read and export ($export operator) data.
+* **FHIR Data Importer**: Read and import ($import operator) data.
+* **FHIR Data Contributor**: Perform all data plane operations.
+* **FHIR Data Converter**: Use the converter to perform data conversion.
+* **FHIR SMART User**: Allows user to read and write FHIR data according to [SMART IG V1.0.0 specifications](http://hl7.org/fhir/smart-app-launch/1.0.0/).
 
-DICOM service of Azure Health Data Services provides the following roles:
+The DICOM&reg; service in Azure Health Data Services provides the following roles:
 
-* **DICOM Data Owner**: Can read, write, and delete DICOM data.
-* **DICOM Data Read**: Can read DICOM data.
+* **DICOM Data Owner**: Read, write, and delete DICOM data.
+* **DICOM Data Read**: Read DICOM data.
 
-The MedTech service doesn't require application roles, but it does rely on the "Azure Event Hubs Data Receiver" to retrieve data stored in the event hub of the customer's subscription.
+The MedTech service doesn't require application roles, but it does rely on **Azure Event Hubs Data Receiver** to retrieve data stored in the event hub of your organization's subscription.
 
 ## Authorization
 
-After being granted with proper application roles, the authenticated users and client applications can access Azure Health Data Services by obtaining a **valid access token** issued by Microsoft Entra ID, and perform specific operations defined by the application roles.
+After being granted with proper application roles, the authenticated users and client applications can access Azure Health Data Services by obtaining a valid access token issued by Microsoft Entra ID, and perform specific operations defined by the application roles.
  
-* For FHIR service, the access token is specific to the service or resource.
-* For DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
+* For the FHIR service, the access token is specific to the service or resource.
+* For the DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
 * For MedTech service, the access token isn’t required because it isn’t exposed to the users or client applications.
 
 ### Steps for authorization
@@ -60,11 +58,11 @@ Here's how an access token for Azure Health Data Services is obtained using **au
 
 2. **The client application exchanges the authorization code for an access token at the Microsoft Entra token endpoint.** When the client application requests a token, the application might have to provide a client secret (which you can add during application registration).
  
-3. **The client makes a request to the Azure Health Data Services**, for example, a `GET` request to search all patients in the FHIR service. The request **includes the access token in an `HTTP` request header**, for example, **`Authorization: Bearer xxx`**.
+3. **The client makes a request to the Azure Health Data Services**, for example, a `GET` request to search all patients in the FHIR service. The request includes the access token in an `HTTP` request header, for example, `Authorization: Bearer xxx`.
 
 4. **Azure Health Data Services validates that the token contains appropriate claims (properties in the token).** If it’s valid, it completes the request and returns data to the client.
 
-In the **client credentials flow**, permissions are granted directly to the application itself. When the application presents a token to a resource, the resource enforces that the application itself has authorization to perform an action since there’s no user involved in the authentication. Therefore, it’s different from the **authorization code flow** in the following ways:
+In the **client credentials flow**, permissions are granted directly to the application itself. When the application presents a token to a resource, the resource enforces that the application itself has authorization to perform an action since there’s no user involved in the authentication. Therefore, it’s different from the authorization code flow in these ways:
 
 - The user or the client doesn’t need to sign in interactively.
 - The authorization code isn’t required.
@@ -81,9 +79,6 @@ Azure Health Data Services typically expects a [JSON Web Token](https://en.wikip
 * Signature, as shown in the image. For more information, see [Azure access tokens](../active-directory/develop/configurable-token-lifetimes.md).
 
 :::image type="content" source="media/azure-access-token.png" alt-text="Screenshot showing web token signature":::
-
-
-[JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
 
 Use online tools such as [https://jwt.ms](https://jwt.ms/) to view the token content. For example, you can view the claims details.
 
@@ -119,6 +114,8 @@ When you create a new service of Azure Health Data Services, your data is encryp
 
 ## Next steps
 
-[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
+[Deploy Azure Health Data Services workspace by using the Azure portal](healthcare-apis-quickstart.md)
+
+[Use Azure Active Directory B2C to grant access to the FHIR service](fhir/azure-ad-b2c-setup.md)
 
 [!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]
