@@ -121,4 +121,4 @@ When you create a new service of Azure Health Data Services, your data is encryp
 
 [Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
 
-[!INCLUDE [FHIR trademark statement](./includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]
