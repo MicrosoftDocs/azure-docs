@@ -66,7 +66,7 @@ az storage account update -g <resource-group> -n <storage-account> --enable-sftp
 
 ## Disable SFTP support
 
-This section shows you how to disable SFTP support for an existing storage account. Because SFTP support incurs an hourly cost, consider disabling SFTP support when clients are not actively using SFTP to transfer data. 
+This section shows you how to disable SFTP support for an existing storage account. Because SFTP support incurs an hourly cost, consider disabling SFTP support when clients aren't actively using SFTP to transfer data. 
 
 ### [Portal](#tab/azure-portal)
 

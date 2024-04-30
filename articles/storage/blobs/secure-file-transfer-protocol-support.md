@@ -44,9 +44,9 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 SFTP clients can't be authorized by using Microsoft Entra identities. Instead, SFTP utilizes a new form of identity management called _local users_.
 
-Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2000 local users for a storage account.
+Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2,000 local users for a storage account.
 
-To set up access permissions, you'll create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
+To set up access permissions, you create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
 
 > [!CAUTION]
 > Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users at the preview level.
@@ -61,7 +61,7 @@ You can authenticate local users connecting via SFTP by using a password or a Se
 
 #### Passwords
 
-You can't set custom passwords, rather Azure generates one for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.
+You can't set custom passwords, rather Azure generates one for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you have to generate a new one. For security reasons, you can't set the password yourself.
 
 #### SSH key pairs
 
@@ -108,7 +108,7 @@ The following table describes the properties of a local user that are used for A
 
 ### How ACL permissions are evaluated
 
-ACLs are evaluated only if the local user does not have the necessary container permissions to perform an operation. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by container-level permissions. That's because the system evaluates container permissions first, and if those permissions grant sufficient access permission, ACLs are ignored.
+ACLs are evaluated only if the local user doesn't have the necessary container permissions to perform an operation. Because of the way that access permissions are evaluated by the system, you can't use an ACL to restrict access that has already been granted by container-level permissions. That's because the system evaluates container permissions first, and if those permissions grant sufficient access permission, ACLs are ignored.
 
 > [!IMPORTANT]
 > To grant a local user read or write access to a file, you'll need to give that local user **Execute** permissions to the root folder of the container, and to each folder in the hierarchy of folders that lead to the file. If the local user is the owning user or owning group, then you can apply **Execute** permissions to either the owning user or owning group. Otherwise, you'll have to apply the **Execute** permission to all other users.
@@ -117,7 +117,7 @@ ACLs are evaluated only if the local user does not have the necessary container 
 
 While ACL permissions can be modified by using any supported Azure tool or SDK, local users can also modify them. To enable a local user to modify ACL permissions, you must first give the local user `Modify Permissions` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
-Local users can change the permission level of only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported.
+Local users can change the permission level of only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals are not yet supported.
 
 Local users can also change the ID of the owning user and the owning group. In fact, only local users can change the ID of the owning user or owning group to a local user ID. You can't yet reference a local user ID in an ACL by using an Azure tool or SDK. To change owning user or owning group of a directory or blob, the local user must be given `Modify Ownership` permission.
 
@@ -156,7 +156,7 @@ You can use many different SFTP clients to securely connect and then transfer fi
 | Public key |ssh-rsa <sup>2</sup><br>rsa-sha2-256<br>rsa-sha2-512<br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384<br>ecdsa-sha2-nistp521|
 
 <sup>1</sup>    Host keys are published [here](secure-file-transfer-protocol-host-keys.md).
-<sup>2</sup>    RSA keys must be minimum 2048 bits in length.
+<sup>2</sup>    RSA keys must be minimum 2,048 bits in length.
 
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize [Microsoft Security Development Lifecycle (SDL) approved algorithms](/security/sdl/cryptographic-recommendations) to securely access their data.
 
@@ -168,7 +168,7 @@ To get started, enable SFTP support, create a local user, and assign permissions
 
 ## Networking considerations
 
-SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured, then all requests will receive a disconnect from the service. When using SFTP, you may want to limit public access through configuration of a firewall, virtual network, or private endpoint. These settings are enforced at the application layer, which means they aren't specific to SFTP and will impact connectivity to all Azure Storage Endpoints. For more information on firewalls and network configuration, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
+SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access isn't configured, then all requests receive a disconnect from the service. When using SFTP, you may want to limit public access through configuration of a firewall, virtual network, or private endpoint. These settings are enforced at the application layer, which means they aren't specific to SFTP and will impact connectivity to all Azure Storage Endpoints. For more information on firewalls and network configuration, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 > [!NOTE]
 > Audit tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the storage account endpoint. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](../common/transport-layer-security-configure-minimum-version.md).

@@ -34,11 +34,11 @@ PS C:\Users\temp> sftp contoso4.contosouser@contoso4.blob.core.windows.net
 
 The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes "contoso4.contosouser". The blob service endpoint is "contoso4.blob.core.windows.net".
 
-To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you'll be prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
+To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you are prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
 ### Connect using a custom domain
 
-If you want to connect to the blob service endpoint by using a custom domain, then the connection string is `myaccount.myuser@customdomain.com`. If the home directory hasn't been specified for the user, then the connection string is `myaccount.mycontainer.myuser@customdomain.com`.
+If you want to connect to the blob service endpoint by using a custom domain, then the connection string is `myaccount.myuser@customdomain.com`. If the home directory isn't specified for the user, then the connection string is `myaccount.mycontainer.myuser@customdomain.com`.
 
 > [!IMPORTANT]
 > Ensure your DNS provider does not proxy requests as this might cause the connection attempt to time out.
@@ -47,7 +47,7 @@ To learn how to map a custom domain to a blob service endpoint, see [Map a custo
 
 ### Connect using a private endpoint
 
-If you want to connect to the blob service endpoint by using a private endpoint, then the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If the home directory hasn't been specified for the user, then it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
+If you want to connect to the blob service endpoint by using a private endpoint, then the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If the home directory isn't specified for the user, then it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
 
 > [!NOTE]
 > Ensure that you change the networking configuration to "Enabled from selected virtual networks and IP addresses", and then select your private endpoint. Otherwise, the blob service endpoint will still be publicly accessible.
@@ -79,9 +79,9 @@ You can modify the permission level of the owning user, owning group, and all ot
 
 #### Modify permissions
 
-To change the the permission level of the owning user, owning group, or all other users of an ACL, the local user must have been given `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+To change the permission level of the owning user, owning group, or all other users of an ACL, the local user must have `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
-The following example prints the ACL of a directory to the console. It then, sets the ACL to `777`. Each `7` is the numeric form of `rwx` (read, write, and execute). So `777` gives read, write, and execute permission to the owning user, owning group, and all other users. This example then prints the updated ACL to the console. To learn more about numeric and short forms of an ACL, see [Short forms for permissions](data-lake-storage-access-control.md#short-forms-for-permissions).
+The following example prints the ACL of a directory to the console. It then, uses the `chmod` command to set the ACL to `777`. Each `7` is the numeric form of `rwx` (read, write, and execute). So `777` gives read, write, and execute permission to the owning user, owning group, and all other users. This example then prints the updated ACL to the console. To learn more about numeric and short forms of an ACL, see [Short forms for permissions](data-lake-storage-access-control.md#short-forms-for-permissions).
 
 ```console
 sftp> ls -l
@@ -99,7 +99,7 @@ drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
 
 #### Change the owning user
 
-To change the owning user of a directory or blob, the local user must have been given `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+To change the owning user of a directory or blob, the local user must have `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
 The following example prints the ACL of a directory to the console. The ID of the owning user is `0`. This example uses the `chown` command to set the ID of the owning user to `1234` and prints the change to the console.
 
@@ -117,7 +117,7 @@ sftp>
 
 #### Change the owning group
 
-To change the owning group of a directory or blob, the local user must have been given `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+To change the owning group of a directory or blob, the local user must have `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
 The following example prints the ACL of a directory to the console. The ID of the owning group is `0`. This example uses the `chgrp` command to set the ID of the owning group to `5678` and prints the change to the console.
 
