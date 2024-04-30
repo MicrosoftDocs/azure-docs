@@ -103,19 +103,19 @@ Follow these steps to build and test the API Center portal locally.
     }
     ```
 
-1. Start the development server to test the portal locally.
+1. Install required packages.
+
+    ```bash
+    npm install
+    ```
+
+1. Start the development server. The following command will start the portal in development mode running locally:
 
     ```bash
     npm start
     ```
 
     Browse to the portal at `https://localhost:5173`.
-
-1. When you're ready to build the portal for production, run the following command.
-
-    ```bash
-    npm run build
-    ```
 
 ## Deploy to Azure
 
