@@ -102,16 +102,12 @@ The following limitations apply:
 ]
 ```
 
-## Code samples: transliterate text
-
 > [!NOTE]
 >
 > * Each sample runs on the `localhost` that you specified with the `docker run` command.
 > * While your container is running, `localhost` points to the container itself.
 > * You don't have to use `localhost:5000`. You can use any port that is not already in use in your host environment.
 > To specify a port, use the `-p` option.
-
-```
 
 ## Next Steps
 
