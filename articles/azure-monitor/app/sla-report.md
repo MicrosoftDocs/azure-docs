@@ -60,7 +60,7 @@ You can edit the report like any other [Azure Monitor workbook](../visualize/wor
 
 You can customize the queries or visualizations based on your team's needs.
 
-:::image type="content" source="./media/sla-report/customize-visualization-pie-chart.png" alt-text="Screenshot that shows changing the visualization to a pie chart.":::
+:::image type="content" source="./media/sla-report/customize-visualization-pie-chart.png" alt-text="Screenshot that shows changing the visualization to a pie chart." lightbox="./media/sla-report/customize-visualization-pie-chart.png":::
 
 ### Log Analytics
 
