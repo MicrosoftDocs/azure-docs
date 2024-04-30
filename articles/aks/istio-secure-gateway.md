@@ -3,9 +3,8 @@ title: Secure Gateway for Istio service mesh add-on for Azure Kubernetes Service
 description: Deploy secure gateway for Istio service mesh add-on for Azure Kubernetes Service.
 ms.topic: how-to
 ms.service: azure-kubernetes-service
-ms.subservice: aks-networking
 author: deveshdama
-ms.date: 04/19/2024
+ms.date: 04/30/2024
 ms.author: ddama
 ---
 
@@ -15,19 +14,17 @@ The [Deploy external or internal Istio Ingress][istio-deploy-ingress] article de
 
 ## Prerequisites
 
-Before proceeding, complete the following prerequisites:
 - Enable the Istio add-on on the cluster as per [documentation][istio-deploy-addon]
+  - [Set environment variables][istio-addon-env-vars]
+  - [Install Istio add-on][istio-deploy-existing-cluster]
+  - [Enable sidecar injection][enable-sidecar-injection]
+  - [Deploy sample application][deploy-sample-application]
+
 - Deploy an external Istio ingress gateway as per [documentation][istio-deploy-ingress]
+  - [Enable external ingress gateway][enable-external-ingress-gateway]
 
-### Summary of Previous Steps
-
-"Ensure that the following steps are complete:
-
-- [Set environment variables][istio-addon-env-vars]
-- [Install Istio add-on][istio-deploy-existing-cluster]
-- [Enable sidecar injection][enable-sidecar-injection]
-- [Deploy sample application][deploy-sample-application]
-- [Enable external ingress gateway][enable-external-ingress-gateway]
+> [!NOTE]
+> This article refers to the external ingress gateway for demonstration, same steps would apply for configuring mutual TLS for internal ingress gateway.
 
 ## Required client/server certificates and keys
 
@@ -143,7 +140,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Key Vault][ak
     spec:
       containers:
         - name: busybox
-          image: registry.k8s.io/e2e-test-images/busybox:1.29-4
+          image: mcr.microsoft.com/oss/busybox/busybox:1.33.1
           command:
             - "/bin/sleep"
             - "10"
