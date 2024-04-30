@@ -78,10 +78,6 @@ In your local compute, you can use the CLI (v2) to create a customized environme
 > - Make sure to meet the [prerequisites](../how-to-manage-environments-v2.md#prerequisites) for creating environment.
 > - Ensure you have [connected to your workspace](../how-to-manage-environments-v2.md?#connect-to-the-workspace).
 
-> [!IMPORTANT]
-> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
->
->Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
 ```shell
 az login # if not already authenticated
@@ -156,7 +152,7 @@ except Exception as ex:
 
 ml_client = MLClient.from_config(credential=credential)
 
-image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>') 
+image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>') 
 endpoints = [EndpointsSettings(published=8081, target=8080)]
 
 app = CustomApplications(name='promptflow-runtime',endpoints=endpoints,bind_mounts=[],image=image,environment_variables={}) 
