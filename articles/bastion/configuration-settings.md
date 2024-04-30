@@ -44,17 +44,10 @@ The Premium SKU is a new SKU that supports Bastion features such as Session Reco
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
-You can always [upgrade a SKU](upgrade-sku.md) to add more features.
+Azure Bastion offers multiple SKU tiers. The following table shows features and corresponding SKUs. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 > [!NOTE]
 > Downgrading a SKU is not supported. To downgrade, you must delete and recreate Azure Bastion.
->
-
-You can configure this setting using the following method:
-
-| Method | Value | Links |
-| --- | --- | --- |
-| Azure portal |Tier  | [How-to](upgrade-sku.md)|
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
