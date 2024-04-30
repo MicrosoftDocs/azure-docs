@@ -4,7 +4,7 @@ description: Add APIs to your Azure API center inventory from your API Managemen
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 04/30/2024
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to add APIs that are managed in my Azure API Management instance to my API center.
@@ -57,14 +57,14 @@ The following example command exports the API with identifier *my-api* in the *m
 #! /bin/bash
 az apim api export --api-id my-api --resource-group myResourceGroup \
     --service-name myAPIManagement --export-format OpenApiJsonFile \
-    --file-path /path/to/folder
+    --file-path "/path/to/folder"
 ```
 
 ```azurecli
 #! PowerShell syntax
 az apim api export --api-id my-api --resource-group myResourceGroup `
     --service-name myAPIManagement --export-format OpenApiJsonFile `
-    --file-path /path/to/folder
+    --file-path '/path/to/folder'
 ```
 ### Export API to a URL
 
@@ -91,7 +91,7 @@ You can register a new API in your API center from the exported definition by us
 The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *definitionFile.json*.
 
 ```azurecli
-az apic api register --resource-group myResourceGroup --service myAPICenter --api-location "/path/to/definitionFile.json
+az apic api register --resource-group myResourceGroup --service myAPICenter --api-location "/path/to/definitionFile.json"
 ```
 
 ### Import API definition to an existing API in your API center
@@ -104,8 +104,8 @@ This example assumes you have an API named *my-api* and an associated API versio
 #! /bin/bash
 az apic api definition import-specification \
     --resource-group myResourceGroup --service myAPICenter \
-    --api-name my-api --version-name v1-0-0 \
-    --definition-name openapi --format "link" --value '$link' \
+    --api-id my-api --version-id v1-0-0 \
+    --definition-id openapi --format "link" --value '$link' \
     --specification '{"name":"openapi","version":"3.0.2"}'
 ```
 
@@ -113,8 +113,8 @@ az apic api definition import-specification \
 # PowerShell syntax
 az apic api definition import-specification `
     --resource-group myResourceGroup --service myAPICenter `
-    --api-name my-api --version-name v1-0-0 `
-    --definition-name openapi --format "link" --value '$link' `
+    --api-id my-api --version-id v1-0-0 `
+    --definition-id openapi --format "link" --value '$link' `
     --specification '{"name":"openapi","version":"3.0.2"}'
 ```
 
@@ -131,7 +131,7 @@ When you add APIs from an API Management instance to your API center using `az a
 
 ### Add a managed identity in your API center
 
-For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. You can use either a system-assigned or user-assigned managed identity. If you haven't added a managed identity in your API center, you can add it in the Azure portal or by using the Azure CLI. 
+For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. Depending on your needs, use either a system-assigned or user-assigned managed identity. If you haven't added a managed identity in your API center, you can add it in the Azure portal or by using the Azure CLI. 
 
 #### Add a system-assigned identity
 
