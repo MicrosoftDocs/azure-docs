@@ -86,7 +86,7 @@ As part of this, and in a goal to reduce complexity, the following recommendatio
 
 ## Deprecation of fileless attack alerts
 
-**Announcement date: April 18, 2024**:
+**Announcement date: April 18, 2024**
 
 **Estimated date for change: May 2024**
 
