@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.date: 04/30/2024
 ms.author: cshoe
+ms.topic: how-to
 zone_pivot_groups: container-apps-portal-or-cli
 ---
 
