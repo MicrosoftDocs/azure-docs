@@ -11,11 +11,9 @@ ms.topic: conceptual
 
 # Azure Operator Nexus Network Fabric internal network BGP metrics
 
-## Understanding BGP neighbor monitoring
-
 Border Gateway Protocol (BGP) Neighbor Monitoring is a critical aspect of network management, ensuring the stability and reliability of communication between routers within internal networks. This concept document aims to provide an overview of BGP Neighbor Monitoring, its significance, and the key metrics involved.
 
-**Key concepts:**
+## Key concepts:
 
 * **BGP neighbor communication:**
    - BGP routers exchange various messages to establish and maintain communication, update routing information, and signal errors. Understanding these communication dynamics is crucial for effective BGP Neighbor Monitoring.
