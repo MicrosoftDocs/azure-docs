@@ -198,17 +198,18 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 
 You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token. 
 
-To configure your Key Vault secrets for use in your yaml configurations, follow these steps:
+To configure your Key Vault secrets for use in your yaml configurations, 
 
-1. Ensure that your dev center project’s managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault. 
-    1. Learn how to [Configure a managed identity for a dev center](../deployment-environments/how-to-configure-managed-identity.md#configure-a-managed-identity-for-a-dev-center).
-    1. Learn how to [Grant the managed identity access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret).
+1. Ensure that your dev center project’s managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
 
-1. Grant the Secrets User role to each user or user group who should be able to consume this secret during the customization of a dev box. 
+1. Grant the Secrets User role to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group includes the managed identity for the dev center, your own user account, and any user or group who need the secret during the customization of a dev box.
 
-1. Grant the Secrets User role to your own user account. 
+For more information, see:
+- Learn how to [Configure a managed identity for a dev center](../deployment-environments/how-to-configure-managed-identity.md#configure-a-managed-identity-for-a-dev-center).
+- Learn how to [Grant the managed identity access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret).
 
-You can reference the secret in your yaml configuration in this format, using the git-clone task as an example:
+
+You can reference the secret in your yaml configuration in the following format, using the git-clone task as an example:
 
 ```yml
 $schema: "1.0"
