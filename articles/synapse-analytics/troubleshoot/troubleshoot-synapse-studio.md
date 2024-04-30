@@ -22,7 +22,7 @@ In some cases, if your browser session has been inactive for an extended period,
 
 `ERROR: Unauthorized Inner error code: ExpiredAuthenticationToken Message: Token Authentication failed with SecurityTokenExpiredException - MISE12034: AuthenticationTicketProvider Name:AuthenticationTicketProvider, GetVersion:1.9.2.0.;`
 
-### Root Cause and mitigation:
+### Root cause and mitigation
 
 Handling token expiration in Synapse Studio requires careful consideration, especially when working in a live workspace without Git integration. Here’s how to manage your session to avoid losing work:
 - **With Git integration:**
