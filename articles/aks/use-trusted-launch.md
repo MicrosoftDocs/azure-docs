@@ -2,8 +2,9 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
+ms.custom: devx-track-azurecli
+ms.subservice: aks-security
 ms.date: 03/08/2024
-
 ---
 
 # Trusted launch (preview) for Azure Kubernetes Service (AKS)
@@ -141,7 +142,10 @@ Update a node pool with trusted launch enabled using the [az aks nodepool update
    * **--enable-vtpm**: Enables vTPM and performs attestation by measuring the entire boot chain of your VM.
 
 > [!NOTE]
-> The existing nodepool must be using a trusted launch image in order to enable on an existing node pool. By default, creating a node pool with a TL-compatible configuration and the feature flag registered results in a trusted launch image. Without specifying `--enable-vtpm` or `--enable-secure-boot` parameters, they are disabled by default and you can enable later using `az aks nodepool update` command.
+> The existing nodepool must be using a trusted launch image in order to enable on an existing node pool. Hence, for the nodepools created before registering the `TrustedLaunchPreview` feature, you cannot update them with trusted launch enabled.
+> 
+> By default, creating a node pool with a TL-compatible configuration and the feature flag registered results in a trusted launch image. Without specifying `--enable-vtpm` or `--enable-secure-boot` parameters, they are disabled by default and you can enable later using `az aks nodepool update` command.
+
 
 > [!NOTE]
 > Secure Boot requires signed boot loaders, OS kernels, and drivers. If after enabling Secure Boot your nodes don't start, you can verify which boot components are responsible for Secure Boot failures within an Azure Linux Virtual Machine. See [verify Secure Boot failures][verify-secure-boot-failures].

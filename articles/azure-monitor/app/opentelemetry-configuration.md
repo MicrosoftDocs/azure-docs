@@ -21,7 +21,7 @@ A connection string in Application Insights defines the target location for send
 
 Use one of the following three ways to configure the connection string:
 
-- Add `UseAzureMonitor()` to your application startup. This is in your `program.cs` class.
+- Add `UseAzureMonitor()` to your application startup, in your `program.cs` class.
 
     ```csharp
     // Create a new ASP.NET Core web application builder.    
@@ -40,13 +40,13 @@ Use one of the following three ways to configure the connection string:
     app.Run();
     ```
 
-- Set an environment variable:
+- Set an environment variable.
 
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
 
-- Add the following section to your `appsettings.json` config file:
+- Add the following section to your `appsettings.json` config file.
 
   ```json
   {
@@ -99,7 +99,7 @@ Use one of the following two ways to configure the connection string:
     });
     ```
 
-- Set an environment variable:
+- Set an environment variable.
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
@@ -117,13 +117,13 @@ To set the connection string, see [Connection string](java-standalone-config.md#
 
 Use one of the following two ways to configure the connection string:
 
-- Set an environment variable:
+- Set an environment variable.
 
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
 
-- Use configuration object:
+- Use a configuration object.
 
     ```typescript
    // Import the useAzureMonitor function and the AzureMonitorOpenTelemetryOptions class from the @azure/monitor-opentelemetry package.
@@ -144,13 +144,13 @@ Use one of the following two ways to configure the connection string:
 
 Use one of the following two ways to configure the connection string:
 
-- Set an environment variable:
+- Set an environment variable.
 
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
 
-- Pass into `configure_azure_monitor`:
+- Use the `configure_azure_monitor`function.
 
 ```python
 # Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
@@ -167,7 +167,7 @@ configure_azure_monitor(
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
-You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They appear on the Application Map as the name underneath a node.
+For [supported languages](opentelemetry-enable.md#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro), the Azure Monitor OpenTelemetry Distro automatically detects the resource context and provides default values for the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance properties of your component. However, you might want to override the default values to something that makes sense to your team. The cloud role name value appears on the Application Map as the name underneath a node.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -783,22 +783,18 @@ For more information about Java, see the [Java supplemental documentation](java-
     ```typescript
     // Import the useAzureMonitor function, the AzureMonitorOpenTelemetryOptions class, the trace module, the ProxyTracerProvider class, the BatchSpanProcessor class, the NodeTracerProvider class, and the OTLPTraceExporter class from the @azure/monitor-opentelemetry, @opentelemetry/api, @opentelemetry/sdk-trace-base, @opentelemetry/sdk-trace-node, and @opentelemetry/exporter-trace-otlp-http packages, respectively.
     const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
-    const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
     const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
-    const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
-
-    // Enable Azure Monitor integration.
-    useAzureMonitor();
 
     // Create a new OTLPTraceExporter object.
     const otlpExporter = new OTLPTraceExporter();
 
-    // Get the NodeTracerProvider instance.
-    const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
-
-    // Add a BatchSpanProcessor to the NodeTracerProvider instance.
-    tracerProvider.addSpanProcessor(new BatchSpanProcessor(otlpExporter));
+    // Enable Azure Monitor integration.
+    const options: AzureMonitorOpenTelemetryOptions = {
+        // Add the SpanEnrichingProcessor
+        spanProcessors: [new BatchSpanProcessor(otlpExporter)] 
+    }
+    useAzureMonitor(options);
     ```
 
 #### [Python](#tab/python)
@@ -849,7 +845,7 @@ The following OpenTelemetry configurations can be accessed through environment v
 | Environment variable       | Description                                        |
 | -------------------------- | -------------------------------------------------- |
 | `APPLICATIONINSIGHTS_CONNECTION_STRING` | Set it to the connection string for your Application Insights resource. |
-| `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` | Set it to `true` to opt-out of internal metrics collection. |
+| `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` | Set it to `true` to opt out of internal metrics collection. |
 | `OTEL_RESOURCE_ATTRIBUTES` | Key-value pairs to be used as resource attributes. For more information about resource attributes, see the [Resource SDK specification](https://github.com/open-telemetry/opentelemetry-specification/blob/v1.5.0/specification/resource/sdk.md#specifying-resource-information-via-an-environment-variable). |
 | `OTEL_SERVICE_NAME`        | Sets the value of the `service.name` resource attribute. If `service.name` is also provided in `OTEL_RESOURCE_ATTRIBUTES`, then `OTEL_SERVICE_NAME` takes precedence. |
 
@@ -858,7 +854,7 @@ The following OpenTelemetry configurations can be accessed through environment v
 | Environment variable       | Description                                        |
 | -------------------------- | -------------------------------------------------- |
 | `APPLICATIONINSIGHTS_CONNECTION_STRING` | Set it to the connection string for your Application Insights resource. |
-| `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` | Set it to `true` to opt-out of internal metrics collection. |
+| `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` | Set it to `true` to opt out of internal metrics collection. |
 | `OTEL_RESOURCE_ATTRIBUTES` | Key-value pairs to be used as resource attributes. For more information about resource attributes, see the [Resource SDK specification](https://github.com/open-telemetry/opentelemetry-specification/blob/v1.5.0/specification/resource/sdk.md#specifying-resource-information-via-an-environment-variable). |
 | `OTEL_SERVICE_NAME`        | Sets the value of the `service.name` resource attribute. If `service.name` is also provided in `OTEL_RESOURCE_ATTRIBUTES`, then `OTEL_SERVICE_NAME` takes precedence. |
 

@@ -106,7 +106,7 @@ grant_type=authorization_code
 &client_secret=2hMG2-_:y12n10vwH...
 ```
 
-If you want to test this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
+If you want to test this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview).
 
 A successful token response looks like this:
 

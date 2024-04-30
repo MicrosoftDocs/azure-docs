@@ -45,7 +45,7 @@ This quickstart describes how to create a payment HSM with the host and manageme
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 

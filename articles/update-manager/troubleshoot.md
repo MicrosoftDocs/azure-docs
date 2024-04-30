@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 02/27/2024
+ms.date: 04/03/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -51,6 +51,16 @@ To review the logs related to all actions performed by the extension, on Windows
 * `cmd_excution_<numeric>_stderr.txt`
 
 ---
+
+## Periodic assessment isn't getting set correctly when the periodic assessment policy is used during create for specialized, migrated, and restored VMs
+
+### Cause
+Periodic assessment isn't getting set correctly during create for specialized, migrated, and restored VMs because of the way the current modify policy is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
+
+### Resolution
+
+Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
+
 
 ## Policy remediation tasks are failing for gallery images and for images with encrypted disks
 

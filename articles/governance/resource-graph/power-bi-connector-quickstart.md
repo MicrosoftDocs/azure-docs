@@ -19,7 +19,7 @@ In this quickstart, you learn how to run queries with the Azure Resource Graph P
 
 - If you don't have an Azure account with an active subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Power BI Desktop](https://powerbi.microsoft.com/desktop/) or a [Power BI service](https://app.powerbi.com/) workspace in your organization's tenant.
-- Azure role-based access control rights with at least _Reader_ role assignment to resources. To learn more about role assignments, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Azure role-based access control rights with at least _Reader_ role assignment to resources. To learn more about role assignments, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Connect Azure Resource Graph with Power BI connector
 

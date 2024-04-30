@@ -4,6 +4,7 @@ description: How to connect a USB device using USB over IP to the Azure IoT Edge
 author: PatAltimore
 
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 07/25/2022

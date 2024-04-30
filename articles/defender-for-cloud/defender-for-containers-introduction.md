@@ -19,7 +19,7 @@ Defender for Containers assists you with four core domains of container security
 
 - [**Run-time threat protection**](#run-time-protection-for-kubernetes-nodes-and-clusters) - a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework for easy understanding of risk and relevant context, automated response, and SIEM/XDR integration.
 
-- **Deployment & monitoring**- Monitors your Kubernetes clusters for missing agents and provides frictionless at-scale deployment for agent-based capabilities, support for standard Kubernetes monitoring tools, and management of unmonitored resources.
+- **Deployment & monitoring**- Monitors your Kubernetes clusters for missing sensors and provides frictionless at-scale deployment for sensor-based capabilities, support for standard Kubernetes monitoring tools, and management of unmonitored resources.
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series: [Microsoft Defender for Containers](episode-three.md).
 
@@ -52,7 +52,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
   For details included with this capability, check out the [containers section](recommendations-reference.md#container-recommendations) of the recommendations reference table, and look for recommendations with type "Control plane"
 
-### Agent-based capabilities
+### Sensor-based capabilities
 
 **Kubernetes data plane hardening** - To protect the workloads of your Kubernetes containers with best practice recommendations, you can install the [Azure Policy for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md). Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -78,7 +78,7 @@ Learn more about:
 
 Defender for Containers provides real-time threat protection for [supported containerized environments](support-matrix-defender-for-containers.md) and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Threat protection is provided for Kubernetes at cluster level, node level, and workload level and includes both agent based coverage that requires the [Defender agent](defender-for-cloud-glossary.md#defender-agent) and agentless coverage that is based on analysis of the Kubernetes audit logs. Security alerts are only triggered for actions and deployments that occur after you enabled Defender for Containers on your subscription.
+Threat protection is provided for Kubernetes at cluster level, node level, and workload level and includes both sensor based coverage that requires the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) and agentless coverage that is based on analysis of the Kubernetes audit logs. Security alerts are only triggered for actions and deployments that occur after you enabled Defender for Containers on your subscription.
 
 Examples of security events that Microsoft Defenders for Containers monitors include:
 

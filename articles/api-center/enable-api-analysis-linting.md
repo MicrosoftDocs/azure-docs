@@ -3,10 +3,10 @@ title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 03/26/2024
 ms.author: danlep
 author: dlepow
-ms.custom:
+ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to lint the API definitions in my organization's API center and analyze whether my APIs comply with my organization's API style guide.
 ---
 
@@ -53,7 +53,7 @@ The following diagram shows the steps to enable linting and analysis in your API
 * The Event Grid resource provider registered in your subscription. If you need to register the Event Grid resource provider, see [Subscribe to events published by a partner with Azure Event Grid](../event-grid/subscribe-to-partner-events.md#register-the-event-grid-resource-provider).
 
 * For Azure CLI:
-    [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     > [!NOTE]
     > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
@@ -85,20 +85,16 @@ Follow these steps to deploy the Azure Functions app that runs the linting funct
 
 To enable the function app to access the API center, configure a managed identity for the function app. The following steps show how to enable and configure a system-assigned managed identity for the function app using the Azure portal or the Azure CLI.
 
-> [!NOTE]
-> In preview, this scenario requires the Contributor role to be assigned to the function app's managed identity.
-
-
 #### [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your function app and select **Identity** under the **Settings** section.
 1. On the **System assigned** tab, set the **Status** to **On** and then select **Save**.
 
-Now that the managed identity is enabled, assign it the Contributor role to access the API center.
+Now that the managed identity is enabled, assign it the Azure API Center Compliance Manager role to access the API center.
 
-1. In the Azure portal, navigate to your API center and select **Access control (IAM)**.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API center and select **Access control (IAM)**.
 1. Select **+ Add > Add role assignment**.
-1. Select **Privileged administrator roles** and then select **Contributor**. Select **Next**.
+1. Select **Job function roles** and then select **Azure API Center Compliance Manager**. Select **Next**.
 1. On the **Members** page, in **Assign access to**, select **Managed identity > + Select members**.
 1. On the **Select managed identities** page, search for and select the managed identity of the function app. Click **Select** and then **Next**.
 1. Review the role assignment, and select **Review + assign**.
@@ -136,12 +132,12 @@ Now that the managed identity is enabled, assign it the Contributor role to acce
         --query "id" --output tsv)
     ```
 
-1. Assign the function app's managed identity the Contributor role in the API center using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. 
+1. Assign the function app's managed identity the Azure API Center Compliance Manager role in the API center using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. 
 
     ```azurecli
     #! /bin/bash
     az role assignment create \
-        --role "Contributor" \
+        --role "Azure API Center Compliance Manager" \
         --assignee-object-id $principalID \
         --assignee-principal-type ServicePrincipal \
         --scope $apicID 
@@ -150,7 +146,7 @@ Now that the managed identity is enabled, assign it the Contributor role to acce
     ```azurecli
     # PowerShell syntax
     az role assignment create `
-        --role "Contributor" `
+        --role "Azure API Center Compliance Manager" `
         --assignee-object-id $principalID `
         --assignee-principal-type ServicePrincipal `
         --scope $apicID 
@@ -164,9 +160,8 @@ Now create an event subscription in your API center to trigger the function app 
 
 #### [Portal](#tab/portal)
 
-1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview). Currently for this scenario, you must access your API center in the portal at this feature flag.
-1. Navigate to your API center and select **Events**.
-1. Select **Azure Function**.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API center and select **Events**.
+1. On the **Get started** tab, select **Azure Function**.
 1. On the **Create Event Subscription** page, do the following:
     1. Enter a descriptive **Name** for the event subscription, and select **Event Grid Schema**.
     1. In **Topic details**, enter a **System topic name** of your choice.
@@ -251,7 +246,6 @@ To test the event subscription, try uploading or updating an API definition file
 
 To confirm that the event subscription was triggered:
 
-1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview). 
 1. Navigate to your API center, and select **Events** in the left menu.
 1. Select the **Event Subscriptions** tab and select the event subscription for your function app.
 1. Review the metrics to confirm that the event subscription was triggered and that linting was invoked successfully.
@@ -273,8 +267,7 @@ In the portal, you can also view a summary of analysis reports for all API defin
 
 To view the analysis report for an API definition in your API center:
 
-1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview).
-1. Navigate to the API version in your API center where you added or updated an API definition.
+1. In the portal, navigate to the API version in your API center where you added or updated an API definition.
 1. Select **Definitions**, and then select the API definition file that you uploaded or updated.
 1. Select the **Analysis** tab.
     :::image type="content" source="media/enable-api-analysis-linting/analyze-api-definition.png" alt-text="Screenshot of Analysis tab for API definition in the portal.":::
@@ -287,7 +280,7 @@ The **API Analysis Report** opens, and it displays the API definition and errors
 
 To view a summary of analysis reports for all API definitions in your API center:
 
-1. Sign in to the Azure portal at [https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview](https://portal.azure.com/?Microsoft_Azure_ApiManagement=apicenterpreview).
+1. In the portal, navigate to your API center.
 1. In the left-hand menu, under **Governance**, select **API Analysis**. The summary appears.
 
     :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal.":::
@@ -299,4 +292,3 @@ Learn more about Event Grid:
 * [System topics in Azure Event Grid](../event-grid/system-topics.md)
 * [Event Grid push delivery - concepts](../event-grid/concepts.md)
 * [Event Grid schema for API Center](../event-grid/event-schema-api-center.md)
-

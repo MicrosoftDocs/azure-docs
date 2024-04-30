@@ -3,7 +3,7 @@ title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 3/29/2024
 ms.custom: engagement-fy23
 ---
 
@@ -26,7 +26,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 > * Set the storage replication for a Recovery Services vault.
 > * Add storage to Azure Backup Server.
 
-## Supported VMware features
+## Supported VMware vSphere features
 
 - **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter Server or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware vCenter Server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
@@ -55,7 +55,8 @@ To set up Azure Backup Server for Azure VMware Solution, you must finish the fol
 
 Azure Backup Server is deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs.
 
-:::image type="content" source="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png" alt-text="Diagram showing the Azure Backup Server deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs." border="false":::
+:::image type="content" source="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png" alt-text="Diagram showing the Azure Backup Server deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs." border="false" lightbox="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png":::
+
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -88,7 +89,7 @@ Azure Backup Server requires disks for installation.
 | Azure Backup Server installation                | Installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL Server installation<br /><br />You need space for Azure Backup Server to copy the file catalog to a temporary installation location when you archive.      |
 | Disk for storage pool<br />(Uses basic volumes, can't be on a dynamic disk) | Two to three times the protected data size.<br />For detailed storage calculation, see [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
-To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md).
+To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.yml).
 
 > [!NOTE]
 > A single Azure Backup Server has a soft limit of 120 TB for the storage pool.

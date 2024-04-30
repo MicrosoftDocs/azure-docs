@@ -63,6 +63,18 @@ You can enable agentless scanning on
 
 1. Select **Save**.
 
+**To enable scanning of CMK encrypted disks in Azure (preview)**:
+
+For agentless scanning to cover Azure VMs with CMK encrypted disks, you need to grant Defender for Cloud additional permissions to create a secure copy of these disks. To do so, additional permissions are needed on Key Vaults used for CMK encryption for your VMs.
+
+To manually assign the permissions, follow the below instructions according to your Key Vault type:
+- For Key Vaults using non-RBAC permissions, assign "Microsoft Defender for Cloud Servers Scanner Resource Provider" (`0c7668b5-3260-4ad0-9f53-34ed54fa19b2`) these permissions: Key Get, Key Wrap, Key Unwrap.
+- For Key Vaults using RBAC permissions, assign "Microsoft Defender for Cloud Servers Scanner Resource Provider” (`0c7668b5-3260-4ad0-9f53-34ed54fa19b2`) the [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide?preserve-view=true&tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) built-in role.
+
+To assign these permissions at scale, you can also use [this script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Agentless%20Scanning%20CMK%20support).
+
+For more information, see [agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-).
+
 ### Agentless vulnerability assessment on AWS
 
 1. From Defender for Cloud's menu, open **Environment settings**.

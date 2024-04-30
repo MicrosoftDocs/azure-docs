@@ -36,10 +36,11 @@ The `cardinality` field is a nested field that has these subfields:
 
 - `frontend`: This subfield defines the settings for the frontend pods, such as:
   - `replicas`: The number of frontend pods to deploy. This subfield is required if the `mode` field is set to `distributed`.
+  - `workers`: The number of workers to deploy per frontend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
   - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
   - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 
 ## Configure memory profile
 

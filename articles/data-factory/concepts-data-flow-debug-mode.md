@@ -80,6 +80,9 @@ When running in Debug Mode in Data Flow, your data won't be written to the Sink 
 
 Data Preview is a snapshot of your transformed data using row limits and data sampling from data frames in Spark memory. Therefore, the sink drivers aren't utilized or tested in this scenario.
 
+> [!NOTE]
+> Data Preview displays time as per the browser's locale setting.
+
 ### Testing join conditions
 
 When unit testing Joins, Exists, or Lookup transformations, make sure that you use a small set of known data for your test. You can use the Debug Settings option described previously to set a temporary file to use for your testing. This is needed because when limiting or sampling rows from a large dataset, you can't predict which rows and which keys are read into the flow for testing. The result is nondeterministic, meaning that your join conditions might fail.

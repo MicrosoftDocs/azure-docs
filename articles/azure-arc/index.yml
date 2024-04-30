@@ -169,3 +169,7 @@ additionalContent:
         - title: Azure IoT Operations Preview – enabled by Azure Arc
           summary: Azure IoT Operations is a unified data plane for the edge that helps organizations deploy the industrial metaverse.
           url: /azure/iot-operations/
+        # Card
+        - title: Azure Arc site manager (preview)
+          summary: Use Arc sites to represent your on-premises environments and see centralized monitoring information across your edge infrastructure.
+          url: /azure/azure-arc/site-manager/

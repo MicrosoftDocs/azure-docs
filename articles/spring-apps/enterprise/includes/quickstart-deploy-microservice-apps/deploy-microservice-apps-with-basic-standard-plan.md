@@ -106,7 +106,7 @@ Use the following steps to create the service instance:
 
 1. On the **Config Server** page, for **URI**, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* and then select **Validate**.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 

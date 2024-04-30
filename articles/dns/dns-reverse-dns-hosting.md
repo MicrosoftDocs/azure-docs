@@ -6,7 +6,7 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 

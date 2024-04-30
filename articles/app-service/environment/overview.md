@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 03/06/2024
+ms.date: 03/21/2024
 ms.author: madsd
 ms.custom: "UpdateFrequency3, references_regions"
 ---
@@ -86,8 +86,32 @@ A few features that were available in earlier versions of App Service Environmen
 With App Service Environment v3, the pricing model varies depending on the type of App Service Environment deployment you have. The three pricing models are:
 
 - **App Service Environment v3**: If the App Service Environment is empty, there's a charge as though you have one instance of Windows I1v2. The one instance charge isn't an additive charge but is applied only if the App Service Environment is empty.
-- **Zone redundant App Service Environment v3**: There's a minimum charge of nine instances. There's no added charge for availability zone support if you have nine or more App Service plan instances. If you have fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
+- **Zone redundant App Service Environment v3**: There's a minimum charge of 18 cores. There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as additional Windows I1v2 instances.
 - **Dedicated host App Service Environment v3**: With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a specialized Isolated v2 rate per vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
+
+> [!NOTE]
+> Sample calculations for zone redundant App Service Environment v3 pricing:
+> 
+> 1. Your zone redundant App Service Environment v3 has 3 Linux I1v2 instances in a single App Service plan.  
+> - An I1v2 instance has 2 cores.  
+> - In total, across your instances, you have 6 cores.  
+> - 18 cores - 6 cores = 12 cores  
+> - 12 cores is equivalent to 6 I1v2 instances.  
+> - You'll be charged for your 3 Linux I1v2 instances plus 6 additional Windows I1v2 instances.  
+>
+> 2. Your zone redundant App Service Environment v3 has 3 Linux I2v2 instances in a single App Service plan.  
+> - An I2v2 instance has 4 cores.  
+> - In total, across your instances, you have 12 cores.  
+> - 18 cores - 12 cores = 6 cores  
+> - 6 cores is equivalent to 3 I1v2 instances.  
+> - You'll be charged for your 3 Linux I2v2 instances plus 3 additional Windows I1v2 instances.  
+>
+> 3. Your zone redundant App Service Environment v3 has 4 Linux I3v2 instances in a single App Service plan.  
+> - An I3v2 instance has 8 cores.  
+> - In total, across your instances, you have 32 cores.  
+> - 32 cores is greater than 18 cores  
+> - You won't be charged for any additional cores.  
+>
 
 Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). The pricing, along with Reserved Instance pricing, is available at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) under the Isolated v2 plan.
 

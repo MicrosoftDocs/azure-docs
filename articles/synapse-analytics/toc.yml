@@ -165,8 +165,10 @@ items:
     items:
     - name: Manage and Monitor
       items:
-      - name: Azure Monitor metrics, alerts, and logs
-        href: monitoring/how-to-monitor-using-azure-monitor.md
+      - name: Monitor
+        href: monitor-synapse-analytics.md
+      - name: Monitoring data reference
+        href: monitor-synapse-analytics-reference.md
     - name: Secure
       items:
       - name: Manage access control 
@@ -732,7 +734,7 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.4 runtime (Public Preview)
+        - name: Azure Synapse Apache Spark 3.4 runtime (GA)
           href: ./spark/apache-spark-34-runtime.md
         - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md

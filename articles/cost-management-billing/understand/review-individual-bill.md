@@ -6,7 +6,7 @@ ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 

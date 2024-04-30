@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.author: cshoe
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
 
 # Manage secrets in Azure Container Apps

@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/18/2024
 ---
 # Troubleshooting OData collection filters in Azure AI Search
 
-To [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure AI Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. A lambda expression is a sub-filter that is applied to each element of a collection.
+To [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure AI Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. A lambda expression is a subfilter that is applied to each element of a collection.
 
 Not every feature of filter expressions is available inside a lambda expression. Which features are available differs depending on the data type of the collection field that you want to filter. This can result in an error if you try to use a feature in a lambda expression that isn't supported in that context. If you're encountering such errors while trying to write a complex filter over collection fields, this article will help you troubleshoot the problem.
 
@@ -23,11 +23,11 @@ The following table lists errors that you might encounter when trying to execute
 
 | Error message | Situation | Details|
 | --- | --- | --- |
-| The function 'ismatch' has no parameters bound to the range variable 's'. Only bound field references are supported inside lambda expressions ('any' or 'all'). However, you can change your filter so that the 'ismatch' function is outside the lambda expression and try again. | Using `search.ismatch` or `search.ismatchscoring` inside a lambda expression | [Rules for filtering complex collections](#bkmk_complex) |
+| The function `ismatch` has no parameters bound to the range variable 's'. Only bound field references are supported inside lambda expressions ('any' or 'all'). However, you can change your filter so that the `ismatch` function is outside the lambda expression and try again. | Using `search.ismatch` or `search.ismatchscoring` inside a lambda expression | [Rules for filtering complex collections](#bkmk_complex) |
 | Invalid lambda expression. Found a test for equality or inequality where the opposite was expected in a lambda expression that iterates over a field of type Collection(Edm.String). For 'any', use expressions of the form 'x eq y' or 'search.in(...)'. For 'all', use expressions of the form 'x ne y', 'not (x eq y)', or 'not search.in(...)'. | Filtering on a field of type `Collection(Edm.String)` | [Rules for filtering string collections](#bkmk_strings) |
-| Invalid lambda expression. Found an unsupported form of complex Boolean expression. For 'any', use expressions that are 'ORs of ANDs', also known as Disjunctive Normal Form. For example: `(a and b) or (c and d)` where a, b, c, and d are comparison or equality sub-expressions. For 'all', use expressions that are 'ANDs of ORs', also known as Conjunctive Normal Form. For example: `(a or b) and (c or d)` where a, b, c, and d are comparison or inequality sub-expressions. Examples of comparison expressions: 'x gt 5', 'x le 2'. Example of an equality expression: 'x eq 5'. Example of an inequality expression: 'x ne 5'. | Filtering on fields of type `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`, or `Collection(Edm.Int64)` | [Rules for filtering comparable collections](#bkmk_comparables) |
+| Invalid lambda expression. Found an unsupported form of complex Boolean expression. For 'any', use expressions that are 'ORs of ANDs', also known as Disjunctive Normal Form. For example: `(a and b) or (c and d)` where a, b, c, and d are comparison or equality subexpressions. For 'all', use expressions that are 'ANDs of ORs', also known as Conjunctive Normal Form. For example: `(a or b) and (c or d)` where a, b, c, and d are comparison or inequality subexpressions. Examples of comparison expressions: 'x gt 5', 'x le 2'. Example of an equality expression: 'x eq 5'. Example of an inequality expression: 'x ne 5'. | Filtering on fields of type `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`, or `Collection(Edm.Int64)` | [Rules for filtering comparable collections](#bkmk_comparables) |
 | Invalid lambda expression. Found an unsupported use of geo.distance() or geo.intersects() in a lambda expression that iterates over a field of type Collection(Edm.GeographyPoint). For 'any', make sure you compare geo.distance() using the 'lt' or 'le' operators and make sure that any usage of geo.intersects() isn't negated. For 'all', make sure you compare geo.distance() using the 'gt' or 'ge' operators and make sure that any usage of geo.intersects() is negated. | Filtering on a field of type `Collection(Edm.GeographyPoint)` | [Rules for filtering GeographyPoint collections](#bkmk_geopoints) |
-| Invalid lambda expression. Complex Boolean expressions aren't supported in lambda expressions that iterate over fields of type Collection(Edm.GeographyPoint). For 'any', join sub-expressions with 'or'; 'and' isn't supported. For 'all', oin sub-expressions with 'and'; 'or' isn't supported. | Filtering on fields of type `Collection(Edm.String)` or `Collection(Edm.GeographyPoint)` | [Rules for filtering string collections](#bkmk_strings) <br/><br/> [Rules for filtering GeographyPoint collections](#bkmk_geopoints) |
+| Invalid lambda expression. Complex Boolean expressions aren't supported in lambda expressions that iterate over fields of type Collection(Edm.GeographyPoint). For 'any', join subexpressions with 'or'; 'and' isn't supported. For 'all', join subexpressions with 'and'; 'or' isn't supported. | Filtering on fields of type `Collection(Edm.String)` or `Collection(Edm.GeographyPoint)` | [Rules for filtering string collections](#bkmk_strings) <br/><br/> [Rules for filtering GeographyPoint collections](#bkmk_geopoints) |
 | Invalid lambda expression. Found a comparison operator (one of 'lt', 'le', 'gt', or 'ge'). Only equality operators are allowed in lambda expressions that iterate over fields of type Collection(Edm.String). For 'any', se expressions of the form 'x eq y'. For 'all', use expressions of the form 'x ne y' or 'not (x eq y)'. | Filtering on a field of type `Collection(Edm.String)` | [Rules for filtering string collections](#bkmk_strings) |
 
 <a name="bkmk_examples"></a>
@@ -65,7 +65,7 @@ For example, these expressions are allowed:
 - `tags/any(t: t eq 'books' or t eq 'games')`
 - `tags/all(t: t ne 'books' and not (t eq 'games'))`
 
-while these expressions aren't allowed:
+While these expressions aren't allowed:
 
 - `tags/any(t: t ne 'books')`
 - `tags/any(t: not search.in(t, 'books, games, toys'))`
@@ -102,11 +102,11 @@ Expressions such as the following aren't allowed for Boolean collections:
 
 ## Rules for filtering GeographyPoint collections
 
-Values of type `Edm.GeographyPoint` in a collection can’t be compared directly to each other. Instead, they must be used as parameters to the `geo.distance` and `geo.intersects` functions. The `geo.distance` function in turn must be compared to a distance value using one of the comparison operators `lt`, `le`, `gt`, or `ge`. These rules also apply to non-collection Edm.GeographyPoint fields.
+Values of type `Edm.GeographyPoint` in a collection can’t be compared directly to each other. Instead, they must be used as parameters to the `geo.distance` and `geo.intersects` functions. The `geo.distance` function in turn must be compared to a distance value using one of the comparison operators `lt`, `le`, `gt`, or `ge`. These rules also apply to noncollection Edm.GeographyPoint fields.
 
 Like string collections, `Edm.GeographyPoint` collections have some rules for how the geo-spatial functions can be used and combined in the different types of lambda expressions:
 
-- Which comparison operators you can use with the `geo.distance` function depends on the type of lambda expression. For `any`, you can use only `lt` or `le`. For `all`, you can use only `gt` or `ge`. You can negate expressions involving `geo.distance`, but you'll have to change the comparison operator (`geo.distance(...) lt x` becomes `not (geo.distance(...) ge x)` and `geo.distance(...) le x` becomes `not (geo.distance(...) gt x)`).
+- Which comparison operators you can use with the `geo.distance` function depends on the type of lambda expression. For `any`, you can use only `lt` or `le`. For `all`, you can use only `gt` or `ge`. You can negate expressions involving `geo.distance`, but you have to change the comparison operator (`geo.distance(...) lt x` becomes `not (geo.distance(...) ge x)` and `geo.distance(...) le x` becomes `not (geo.distance(...) gt x)`).
 - In the body of an `all`, the `geo.intersects` function must be negated. Conversely, in the body of an `any`, the `geo.intersects` function must not be negated.
 - In the body of an `any`, geo-spatial expressions can be combined using `or`. In the body of an `all`, such expressions can be combined using `and`.
 
@@ -189,7 +189,7 @@ Second, referencing fields that aren't *bound* to the range variable (so-called 
 1. `stores/any(s: s/amenities/any(a: a eq 'parking')) and details/margin gt 0.5`
 1. `stores/any(s: s/amenities/any(a: a eq 'parking' and details/margin gt 0.5))`
 
-The first expression will be allowed, while the second form will be rejected because `details/margin` isn't bound to the range variable `s`.
+The first expression is allowed, while the second form is rejected because `details/margin` isn't bound to the range variable `s`.
 
 This rule also extends to expressions that have variables bound in an outer scope. Such variables are free with respect to the scope in which they appear. For example, the first expression is allowed, while the second equivalent expression isn't allowed because `s/name` is free with respect to the scope of the range variable `a`:
 

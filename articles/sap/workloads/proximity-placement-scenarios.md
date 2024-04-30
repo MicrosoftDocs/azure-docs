@@ -1,17 +1,17 @@
 ---
-title: Configuration options for optimal network latency with SAP applications | Microsoft Docs
-description: Describes SAP deployment scenarios to achieve optimal network latency
+title: Configuration options to minimize network latency with SAP applications | Microsoft Docs
+description: Describes SAP deployment scenarios to minimize network latency
 author: msjuergent
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: devx-track-azurepowershell
 ms.topic: article
-ms.date: 03/15/2024
+ms.date: 04/24/2024
 ms.author: juergent
 ---
 
-# Configuration options for optimal network latency with SAP applications
+# Configuration options to minimize network latency with SAP applications
 
 > [!IMPORTANT]
 > In November 2021 we made significant changes in the way how proximity placement groups should be used with SAP workload in zonal deployments.
@@ -69,7 +69,7 @@ For more information and deployment examples of proximity placement groups, see 
 
 ### Proximity placement groups with zonal deployments
 
-It's important to provide a reasonably low network latency between the SAP application tier and the DBMS tier. In most situations, a zonal deployment alone fulfills this requirement. To place VMs as close as possible and enable such a reasonably low network latency for a limited set of scenarios, an Azure proximity placement group can be defined for such an SAP system.
+It's important to provide a reasonably low network latency between the SAP application tier and the DBMS tier. In most situations a zonal deployment alone fulfills this requirement. For a limited set of scenarios, a zonal deployment alone might not meet the application latency requirements. Such situations require VM placement as close as possible and enable reasonably low network latency, an Azure proximity placement group can be defined for such an SAP system.
 
 Avoid bundling several SAP production or nonproduction systems into a single proximity placement group. Avoid bundles of SAP systems because the more systems you group in a proximity placement group, the higher the chances:
 

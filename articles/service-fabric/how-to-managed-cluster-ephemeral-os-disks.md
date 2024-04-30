@@ -59,7 +59,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
    * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
 
-      :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-Ephemeral%2Fazuredeploy.json":::
+      :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-Ephemeral%2Fazuredeploy.json":::
 
 
    * ARM PowerShell cmdlets: [New-AzResourceGroupDeployment (Az.Resources)](/powershell/module/az.resources/new-azresourcegroupdeployment). Store the paths of your ARM template and parameter files in variables, then deploy the template.

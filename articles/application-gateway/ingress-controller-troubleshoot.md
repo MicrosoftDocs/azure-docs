@@ -4,7 +4,7 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/31/2024
 ms.author: greglin
@@ -15,7 +15,7 @@ ms.author: greglin
 [Azure Cloud Shell](https://shell.azure.com/) is the most convenient way to troubleshoot any problems with your AKS
 and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by selecting the link:
 
-:::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 > [!TIP]
 > Also see [What is Application Gateway for Containers](for-containers/overview.md).

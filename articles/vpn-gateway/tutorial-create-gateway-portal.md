@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 03/12/2024
+ms.date: 04/17/2024
 
 ---
 
@@ -71,7 +71,7 @@ Create a virtual network gateway by using the following values:
 * **Public IP address**: Create new
 * **Public IP address name**: VNet1GWpip
 
-For this exercise, you won't select a zone-redundant SKU. If you want to learn about zone-redundant SKUs, see [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md).
+For this exercise, you won't select a zone-redundant SKU. If you want to learn about zone-redundant SKUs, see [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md). Additionally, these steps aren't intended to configure an active-active gateway. For more information, see [Configure active-active gateways](active-active-portal.md).
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]

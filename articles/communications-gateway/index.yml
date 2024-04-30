@@ -34,6 +34,8 @@ landingContent:
             url: connectivity.md
           - text: Reliability
             url: reliability-communications-gateway.md
+          - text: Provisioning
+            url: provisioning-platform.md
           - text: Security
             url: security.md
 
@@ -124,6 +126,8 @@ landingContent:
         links:
           - text: Monitoring Azure Communications Gateway
             url: monitor-azure-communications-gateway.md
+          - text: Maintenance notifications
+            url: maintenance-notifications.md
       - linkListType: how-to-guide
         links:
           - text: Get support or request changes

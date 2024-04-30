@@ -156,7 +156,9 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
-        - name: Java with Spring Data
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
           href: tutorial-java-quarkus-postgresql-app.md            
@@ -371,6 +373,8 @@
       href: deploy-container-github-action.md
     - name: End-to-end tutorials
       items:
+        - name: Configure a sidecar container
+          href: tutorial-custom-container-sidecar.md
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions

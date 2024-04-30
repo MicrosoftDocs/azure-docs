@@ -8,7 +8,7 @@ ms.collection: windows
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: jushiman
-ms.custom: devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurepowershell
 ---
 
 # PowerShell: How to use Packer to create virtual machine images in Azure

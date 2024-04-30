@@ -5,10 +5,10 @@ description: Blob storage now supports the Network File System (NFS) 3.0 protoco
 author: normesta
 
 ms.service: azure-blob-storage
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 08/18/2023
 ms.author: normesta
-
 ---
 
 # Network File System (NFS) 3.0 protocol support for Azure Blob Storage

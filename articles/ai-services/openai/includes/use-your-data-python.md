@@ -30,6 +30,8 @@ pip install python-dotenv
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```console
 pip install openai==0.28.1
 pip install python-dotenv
@@ -55,9 +57,9 @@ api_key = os.environ.get("AZURE_OPENAI_API_KEY")
 deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT_ID")
 
 client = openai.AzureOpenAI(
-    base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
+    azure_endpoint=endpoint,
     api_key=api_key,
-    api_version="2023-08-01-preview",
+    api_version="2024-02-01",
 )
 
 completion = client.chat.completions.create(
@@ -69,16 +71,19 @@ completion = client.chat.completions.create(
         },
     ],
     extra_body={
-        "dataSources": [
+        "data_sources":[
             {
-                "type": "AzureCognitiveSearch",
+                "type": "azure_search",
                 "parameters": {
                     "endpoint": os.environ["AZURE_AI_SEARCH_ENDPOINT"],
-                    "key": os.environ["AZURE_AI_SEARCH_API_KEY"],
-                    "indexName": os.environ["AZURE_AI_SEARCH_INDEX"]
+                    "index_name": os.environ["AZURE_AI_SEARCH_INDEX"],
+                    "authentication": {
+                        "type": "api_key",
+                        "key": os.environ["AZURE_AI_SEARCH_API_KEY"],
+                    }
                 }
             }
-        ]
+        ],
     }
 )
 

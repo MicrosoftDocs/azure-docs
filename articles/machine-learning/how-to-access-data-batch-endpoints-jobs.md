@@ -9,7 +9,7 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 5/01/2023
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom:
   - devplatv2
   - devx-track-azurecli
@@ -42,22 +42,22 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
-    ml_client = MLClient.from_config(DefaultAzureCredentials())
+    ml_client = MLClient.from_config(DefaultAzureCredential())
     ```
     
     If running outside of Azure Machine Learning compute, you need to specify the workspace where the endpoint is deployed:
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
     subscription_id = "<subscription>"
     resource_group = "<resource-group>"
     workspace = "<workspace>"
     
-    ml_client = MLClient(DefaultAzureCredentials(), subscription_id, resource_group, workspace)
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
        
     # [REST](#tab/rest)
@@ -276,7 +276,7 @@ The following table summarizes the inputs and outputs for batch deployments:
 
 | Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
-| [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
+| [Model deployment](concept-endpoints-batch.md#model-deployment) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
 | [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 > [!TIP]

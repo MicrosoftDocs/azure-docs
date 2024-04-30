@@ -3,6 +3,9 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using an AR
 description: Learn how to quickly deploy a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
 ms.date: 01/12/2024
+author: tamram
+ms.author: tamram
+
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -33,7 +36,7 @@ After you deploy the cluster from the template, you can use either Azure CLI or 
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed there.
 
@@ -86,7 +89,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
 1. Select **Deploy to Azure** to sign in and open a template.
 
-    :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json":::
 
 1. On the **Basics** page, leave the default values for the *OS Disk Size GB*, *Agent Count*, *Agent VM Size*, and *OS Type*, and configure the following template parameters:
 
@@ -513,3 +516,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+

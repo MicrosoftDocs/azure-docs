@@ -10,6 +10,8 @@ ms.author: danlep
 ---
 # Import SOAP API to API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import a WSDL specification, which is a standard XML representation of a SOAP API. The article also shows how to test the API in API Management.
 
 In this article, you learn how to:
@@ -25,7 +27,7 @@ In this article, you learn how to:
 * An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 * Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 * Azure PowerShell

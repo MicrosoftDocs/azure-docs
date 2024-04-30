@@ -11,7 +11,7 @@ ms.custom:
   - ignite-2023
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 03/18/2024
 ---
 
 # Tutorial: Index and enrich encrypted blobs for full-text search in Azure AI Search
@@ -20,7 +20,7 @@ This tutorial shows you how to use [Azure AI Search](search-what-is-azure-search
 
 Normally, an indexer can't extract content from encrypted files because it doesn't have access to the customer-managed encryption key in [Azure Key Vault](../key-vault/general/overview.md). However, by leveraging the [DecryptBlobFile custom skill](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile), followed by the [Document Extraction skill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then extract content from them. This unlocks the ability to index and enrich these documents without compromising the encryption status of your stored documents.
 
-Starting with previously encrypted whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, this tutorial uses Postman and the Search REST APIs to perform the following tasks:
+Starting with previously encrypted whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, this tutorial uses a REST client and the Search REST APIs to perform the following tasks:
 
 > [!div class="checklist"]
 > + Define a pipeline that decrypts the documents and extracts text from them.
@@ -39,8 +39,6 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 + Blobs encrypted with a customer-managed key. See [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) if you need to create sample data.
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure AI Search. The key vault must have **soft-delete** and **purge protection** enabled.
-
-+ [Postman app](https://www.postman.com/downloads/)
 
 Custom skill deployment creates an Azure Function app and an Azure Storage account. Since these resources are created for you, they aren't listed as a prerequisite. When you're finished with this tutorial, remember to clean up the resources so that you aren't billed for services you're not using.
 
@@ -63,7 +61,7 @@ Operationally, the DecryptBlobFile skill takes the URL and SAS token for each bl
 
 1. Select **Review + create**, make sure you agree to the terms, and then select **Create** to deploy the Azure Function.
 
-    :::image type="content" source="media/indexing-encrypted-blob-files/arm-template.png" alt-text="Screenshot of the arm template page in Azure portal." border="true":::
+    :::image type="content" source="media/indexing-encrypted-blob-files/arm-template.png" alt-text="Screenshot of the ARM template page in Azure portal." border="true":::
 
 1. Wait for the deployment to finish.
 
@@ -109,45 +107,27 @@ You should have an Azure Function app that contains the decryption logic and an 
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 2 - Set up Postman
+## Set up a REST client
 
-Install and set up Postman.
+Create variables for endpoints and keys:
 
-### Download and install Postman
-
-1. Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-rest-samples/blob/main/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
-
-1. Select **File** > **Import** to import the source code into Postman.
-
-1. Select the **Collections** tab, and then select the **...** (ellipsis) button.
-
-1. Select **Edit**. 
-
-   ![Postman app showing navigation](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Go to the Edit menu in Postman")
-
-1. In the **Edit** dialog box, select the **Variables** tab. 
-
-   ![Postman app variables tab](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Postman's variables window")
-
-1. On the **Variables** tab, provide the values that you've collected in the previous steps. Postman swaps in a value every time it encounters a specific variable inside double braces. For example, Postman replaces the symbol `{{admin-key}}` with the current value that you set for the search service admin API key.
-
-    | Variable    | Where to get it |
-    |-------------|-----------------|
-    | `admin-key` | On the **Keys** page of the Azure AI Search service.  |
-    | `search-service-name` | The name of the Azure AI Search service. The URL is `https://{{search-service-name}}.search.windows.net`. |
-    | `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. |
-    | `storage-container-name` | The name of the blob container that has the encrypted files to be indexed. |
-    | `function-uri` |  In the Azure Function under **Essentials** on the main page. |
-    | `function-code` | In the Azure Function, by navigating to **App keys**, clicking to show the **default** key, and copying the value. |
-    | `api-version` | Leave as **2020-06-30**. |
-    | `datasource-name` | Leave as **encrypted-blobs-ds**. |
-    | `index-name` | Leave as **encrypted-blobs-idx**. |
-    | `skillset-name` | Leave as **encrypted-blobs-ss**. |
-    | `indexer-name` | Leave as **encrypted-blobs-ixr**. |
+| Variable    | Where to get it |
+|-------------|-----------------|
+| `admin-key` | On the **Keys** page of the Azure AI Search service.  |
+| `search-service-name` | The name of the Azure AI Search service. The URL is `https://{{search-service-name}}.search.windows.net`. |
+| `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. |
+| `storage-container-name` | The name of the blob container that has the encrypted files to be indexed. |
+| `function-uri` |  In the Azure Function under **Essentials** on the main page. |
+| `function-code` | In the Azure Function, by navigating to **App keys**, clicking to show the **default** key, and copying the value. |
+| `api-version` | Leave as **2020-06-30**. |
+| `datasource-name` | Leave as **encrypted-blobs-ds**. |
+| `index-name` | Leave as **encrypted-blobs-idx**. |
+| `skillset-name` | Leave as **encrypted-blobs-ss**. |
+| `indexer-name` | Leave as **encrypted-blobs-ixr**. |
 
 ### Review and run each request
 
-In this section, you'll issue four HTTP requests:
+Use HTTP requests to create the objects of an enrichment pipeline:
 
 + **PUT request to create the index**: This search index holds the data that Azure AI Search uses and returns.
 
@@ -157,15 +137,13 @@ In this section, you'll issue four HTTP requests:
 
 + **PUT request to create the indexer**: Running the indexer retrieves the blobs, applies the skillset, and indexes and stores the results. You must run this request last. The custom skill in the skillset invokes the decryption logic.
 
-To issue the requests, in Postman, select the tab for the requests and select **Send** for each of them.
+## Monitor indexing
 
-## 3 - Monitor indexing
-
-Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on how many documents are in your storage account, indexing can take a while. To find out whether the indexer is still running, use the **Get Indexer Status** request provided as part of the Postman collection and review the response to learn whether the indexer is running, or to view error and warning information.  
+Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on how many documents are in your storage account, indexing can take a while. To find out whether the indexer is still running, send a **Get Indexer Status** request and review the response to learn whether the indexer is running, or to view error and warning information.  
 
 If you are using the Free tier, the following message is expected: `"Could not extract content or metadata from your document. Truncated extracted text to '32768' characters"`. This message appears because blob indexing on the Free tier has a [32K limit on character extraction](search-limits-quotas-capacity.md#indexer-limits). You won't see this message for this data set on higher tiers. 
 
-## 4 - Search
+## Search your content
 
 After indexer execution is finished, you can run some queries to verify that the data has been successfully decrypted and indexed. Navigate to your Azure AI Search service in the portal, and use the [search explorer](search-explorer.md) to run queries over the indexed data.
 

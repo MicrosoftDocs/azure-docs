@@ -125,7 +125,7 @@ The service provides users access to several different models. Each model provid
 
 The DALL-E models (some in preview; see [models](./concepts/models.md#dall-e)) generate images from text prompts that the user provides.
 
-The Whisper models, currently in preview, can be used to transcribe and translate speech to text.
+The Whisper models can be used to transcribe and translate speech to text.
 
 The text to speech models, currently in preview, can be used to synthesize text to speech.
 

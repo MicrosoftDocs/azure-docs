@@ -2,7 +2,7 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 

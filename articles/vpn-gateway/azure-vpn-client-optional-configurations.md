@@ -5,7 +5,7 @@ description: Learn how to configure optional configuration settings for the Azur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 03/18/2024
 ms.author: cherylmc
 
 ---
@@ -50,6 +50,9 @@ The steps in this article require you to modify and import the Azure VPN Client 
 ## DNS
 
 ### Add DNS suffixes
+
+> [!NOTE]
+> At this time, additional DNS suffixes for the Azure VPN Client aren't generated in a format that can be properly used by macOS. The specified values for DNS suffixes don't persist for macOS.
 
 To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
 

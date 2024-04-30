@@ -2,10 +2,10 @@
 title: Azure Communication Services Voice Calling and Video Calling logs 
 titleSuffix: An Azure Communication Services concept article
 description: Learn about logging for Azure Communication Services Voice Calling and Video Calling.
-author:  timmitchell
+author:  mkhribech
 services: azure-communication-services
 
-ms.author: timmitchell
+ms.author: mkhribech
 ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: azure-communication-services

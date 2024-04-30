@@ -6,14 +6,14 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 04/15/2024
 ---
 
 # High availability in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-High availability (HA) avoids database downtime by maintaining standby replicas
+High availability (HA) minimizes database downtime by maintaining standby replicas
 of every node in a cluster. If a node goes down, Azure Cosmos DB for PostgreSQL
 switches incoming connections from the failed node to its standby. Failover
 happens within a few minutes, and promoted nodes always have fresh data through

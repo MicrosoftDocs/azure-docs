@@ -88,7 +88,7 @@ The following table provides a summary of the old fields available in the soluti
 | cost | CostInBillingCurrency |     |
 | costCenter | CostCenter |     |
 | date | Date | The format in the old field was yyyy-mm-dd, while the new field is in the format mm/dd/yyyy. |
-| departmentId | InvoiceSectionId |     |
+| departmentId | InvoiceSectionId |  The field is currently empty. Use `DepartmentName` to get the department information.   |
 | departmentName | InvoiceSectionName |     |
 | extendedCost | CostInBillingCurrency |     |
 | instanceId | ResourceId |     |

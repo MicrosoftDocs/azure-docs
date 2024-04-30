@@ -32,6 +32,10 @@ This feature is in preview. [!INCLUDE [Legalese](../../includes/defender-for-clo
     - To create a rule, you need permissions to edit policies in Azure Policy. [Learn more](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 - You can create exemptions for recommendations included in Defender for Cloud's default [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) standard, or any of the supplied regulatory standards.
+>
+> [!NOTE]
+> The Defender for Cloud exemption relies on Microsoft Cloud Security Benchmark (MCSB) initiative to evaluate and retrieve resources compliance state on the Defender for Cloud portal. If the MCSB is missing, the portal will partially work and some resources may not appear.
+   
 - Some recommendations included in Microsoft cloud security benchmark do not support exemptions, a list of those recommendations can be found [here](faq-general.yml)
 
 - Recommendations included in multiple policy initiatives must [all be exempted](faq-general.yml)

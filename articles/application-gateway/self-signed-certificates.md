@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/17/2024
 ms.author: greglin
-ms.custom: devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurepowershell
 ---
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA

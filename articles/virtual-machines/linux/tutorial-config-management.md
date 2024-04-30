@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: magoedte
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Linux virtual machines.
 ---
 # Tutorial: Monitor changes and update a Linux virtual machine in Azure
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Manage Linux updates
 > * Monitor changes and inventory
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

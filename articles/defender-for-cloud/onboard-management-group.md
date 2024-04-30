@@ -2,7 +2,7 @@
 title: Onboard a management group
 description: Learn how to use a supplied Azure Policy definition to enable Microsoft Defender for Cloud for all the subscriptions in a management group.
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 03/20/2024
 ---
 
 # Enable Defender for Cloud on all subscriptions in a management group
@@ -78,11 +78,9 @@ There are various ways you might choose to modify the Azure Policy definition:
 
     ```json
     "existenceCondition": {
-          {
             "field": "microsoft.security/pricings/pricingTier",
             "equals": "standard"
           },
-    },
     ```
 
 - **Define some Microsoft Defender plans to apply when enabling Defender for Cloud** - The supplied policy enables Defender for Cloud without any of the optional enhanced security features. You might choose to enable one or more of the Microsoft Defender plans.

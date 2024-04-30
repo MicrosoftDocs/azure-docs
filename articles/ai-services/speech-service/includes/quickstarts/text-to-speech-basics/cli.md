@@ -21,7 +21,7 @@ ms.author: eur
 Run the following command for speech synthesis to the default speaker output. You can modify the voice and the text to be synthesized.
 
 ```console
-spx synthesize --text "I'm excited to try text to speech" --voice "en-US-AvaNeural"
+spx synthesize --text "I'm excited to try text to speech" --voice "en-US-AvaMultilingualNeural"
 ```
 
 If you don't set a voice name, the default voice for `en-US` speaks.
@@ -42,7 +42,7 @@ You can have finer control over voice styles, prosody, and other settings by usi
 
 ### OpenAI text to speech voices in Azure AI Speech
 
-OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
+OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 

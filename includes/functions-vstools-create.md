@@ -29,6 +29,8 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     # [In-process model](#tab/in-process) 
 
+    [!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |

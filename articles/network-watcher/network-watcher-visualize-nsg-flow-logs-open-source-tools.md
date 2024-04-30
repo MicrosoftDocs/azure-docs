@@ -14,7 +14,7 @@ ms.custom: engagement-fy23, linux-related-content
 # Visualize Azure Network Watcher NSG flow logs using open source tools
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Network Security Group flow logs provide information that can be used understand ingress and egress IP traffic on Network Security Groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
@@ -30,7 +30,7 @@ In this article, we set up a solution that allows you to visualize Network Secur
 
 ### Enable Network Security Group flow logging
 
-For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 ### Set up the Elastic Stack
 

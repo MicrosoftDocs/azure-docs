@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 03/10/2022
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, linux-related-content
 tags: azure-resource-manager, bicep
 ---
 

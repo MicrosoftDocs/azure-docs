@@ -16,7 +16,7 @@ ms.date: 04/19/2023
 # Upgrade your Data Science Virtual Machine to Ubuntu 20.04
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 If you have a Data Science Virtual Machine running an older release such as Ubuntu 18.04 or CentOS, you should migrate your DSVM to Ubuntu 20.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS.
 
@@ -161,7 +161,7 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
 
 4. Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
 
-For more information, see [Use the portal to attach a data disk to a Linux VM](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+For more information, see [Use the portal to attach a data disk to a Linux VM](../../virtual-machines/linux/attach-disk-portal.yml#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## Connect and confirm version upgrade
 

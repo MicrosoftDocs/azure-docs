@@ -4,6 +4,7 @@ description: How to configure Secrets Store CSI Driver to enable NGINX Ingress C
 author: nickomang
 ms.author: nickoman
 ms.topic: how-to
+ms.subservice: aks-security
 ms.date: 06/05/2023
 ms.custom: template-how-to
 ---
@@ -508,3 +509,4 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
+

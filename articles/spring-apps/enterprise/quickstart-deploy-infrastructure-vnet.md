@@ -73,11 +73,11 @@ First, select the following image to sign in to Azure and open a template. The t
 
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
 
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
 
 ---
 

@@ -7,7 +7,7 @@ author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,31 +16,31 @@ ms.custom: devx-track-azurepowershell
 
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
-* Azure Storage account
-* Log Analytics workspace
-* Azure Event Hubs
+- Azure Storage account
+- Log Analytics workspace
+- Azure Event Hubs
 
-This feature is available on CDN endpoints for all pricing tiers. 
+This feature is available on content delivery network endpoints for all pricing tiers.
 
-Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
+Diagnostics logs allow you to export basic usage metrics from your content delivery network endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
 
-* Export data to blob storage, export to CSV, and generate graphs in Excel.
-* Export data to Event Hubs and correlate with data from other Azure services.
-* Export data to Azure Monitor logs and view data in your own Log Analytics workspace
+- Export data to blob storage, export to CSV, and generate graphs in Excel.
+- Export data to Event Hubs and correlate with data from other Azure services.
+- Export data to Azure Monitor logs and view data in your own Log Analytics workspace
 
-An Azure CDN profile is required for the following steps. Refer to [create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
+An Azure Content Delivery Network profile is required for the following steps. Refer to [Create an Azure Content Delivery Network profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
 ## Enable logging with the Azure portal
 
-Follow these steps enable logging for your Azure CDN endpoint:
+Follow these steps enable logging for your Azure Content Delivery Network endpoint:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, navigate to **All resources** > **your-cdn-profile**.
 
-2. Select the CDN endpoint for which you want to enable diagnostics logs:
+2. Select the content delivery network endpoint for which you want to enable diagnostics logs:
 
-    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Select CDN endpoint." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Screenshot of select content delivery network endpoint." border="true":::
 
 3. Select **Diagnostics logs** in the **Monitoring** section:
 
@@ -50,14 +50,14 @@ Follow these steps enable logging for your Azure CDN endpoint:
 
 To use a storage account to store the logs, follow these steps:
 
- >[!NOTE] 
- >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
-	
-1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
- 
-2. Select **Archive to a storage account**, then select **CoreAnalytics**. 
+ >[!NOTE]
+ > A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 
-3. For **Retention (days)**, choose the number of retention days. A retention of zero days stores the logs indefinitely. 
+1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
+
+2. Select **Archive to a storage account**, then select **CoreAnalytics**.
+
+3. For **Retention (days)**, choose the number of retention days. A retention of zero days stores the logs indefinitely.
 
 4. Select the subscription and storage account for the logs.
 
@@ -69,12 +69,12 @@ To use a storage account to store the logs, follow these steps:
 
 To use Log Analytics for the logs, follow these steps:
 
->[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
-	
+>[!NOTE]
+> A Log Analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
+
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
-2. Select **Send to Log Analytics**, then select **CoreAnalytics**. 
+2. Select **Send to Log Analytics**, then select **CoreAnalytics**.
 
 3. Select the subscription and Log Analytics workspace for the logs.
 
@@ -86,19 +86,18 @@ To use Log Analytics for the logs, follow these steps:
 
 To use an event hub for the logs, follow these steps:
 
->[!NOTE] 
->An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)** for more information.
-	
+>[!NOTE]
+> An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)** for more information.
+
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
-2. Select **Stream to an event hub**, then select **CoreAnalytics**. 
+2. Select **Stream to an event hub**, then select **CoreAnalytics**.
 
 3. Select the subscription and event hub namespace for the logs.
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Diagnostics logs - Event hub." border="true":::
 
 4. Select **Save**.
-
 
 ## Enable logging with PowerShell
 
@@ -137,6 +136,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
     ```azurepowershell-interactive
     Connect-AzAccount 
     ```
+
 2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
@@ -152,6 +152,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 
     Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
     ```
+
 ### Enable diagnostics logs for event hub namespace
 
 1. Sign in to Azure PowerShell:
@@ -159,6 +160,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
     ```azurepowershell-interactive
     Connect-AzAccount 
     ```
+
 2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
@@ -174,18 +176,20 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
     ```
 
 ## Consuming diagnostics logs from Azure Storage
-This section describes the schema of CDN core analytics, organization in an Azure storage account, and provides sample code to download the logs in a CSV file.
+
+This section describes the schema of content delivery network core analytics, organization in an Azure Storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
-To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
-1.	Open **Microsoft Azure Storage Explorer**
-2.	Locate the storage account
-3.	Expand the **Blob Containers** node under this storage account.
-4.	Select the container named *insights-logs-coreanalytics*.
-5.	Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. For an explanation of the path, see [Blob path format](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
-7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
+To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure Storage account that was configured as a destination to the content delivery network Diagnostics Logs.
+
+1. Open **Microsoft Azure Storage Explorer**
+2. Locate the storage account
+3. Expand the **Blob Containers** node under this storage account.
+4. Select the container named *insights-logs-coreanalytics*.
+5. Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. For an explanation of the path, see [Blob path format](cdn-azure-diagnostic-logs.md#blob-path-format).
+6. Each blob *PT1H.json* file represents the analytics logs for one hour for a specific content delivery network endpoint or its custom domain.
+7. The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
 #### Blob path format
 
@@ -197,14 +201,14 @@ Core analytics logs are generated every hour and the data is collected and store
 
 |Value|Description|
 |-------|---------|
-|Subscription ID	|ID of the Azure subscription in Guid format.|
-|Resource Group Name |Name of the resource group to which the CDN resources belong.|
-|Profile Name |Name of the CDN Profile|
-|Endpoint Name |Name of the CDN Endpoint|
-|Year|	Four-digit representation of the year, for example, 2017|
-|Month|	Two-digit representation of the month number. 01=January ... 12=December|
-|Day|	Two-digit representation of the day of the month|
-|PT1H.json|	Actual JSON file where the analytics data is stored|
+|Subscription ID	|ID of the Azure subscription in globally unique identifier (GUID) format.|
+|Resource Group Name |Name of the resource group to which the content delivery network resources belong.|
+|Profile Name |Name of the content delivery network Profile|
+|Endpoint Name |Name of the content delivery network Endpoint|
+|Year| Four-digit representation of the year, for example, 2017|
+|Month| Two-digit representation of the month number. 01=January ... 12=December|
+|Day| Two-digit representation of the day of the month|
+|PT1H.json| Actual JSON file where the analytics data is stored|
 
 ### Exporting the core analytics data to a CSV file
 
@@ -212,11 +216,11 @@ To access core analytics, sample code for a tool is provided. This tool allows d
 
 Here's how you can use the tool:
 
-1.	Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
-2.	Download the code.
-3.	Follow the instructions to compile and configure.
-4.	Run the tool.
-5.	The resulting CSV file shows the analytics data in a simple flat hierarchy.
+1. Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+2. Download the code.
+3. Follow the instructions to compile and configure.
+4. Run the tool.
+5. The resulting CSV file shows the analytics data in a simple flat hierarchy.
 
 ## Log data delays
 
@@ -226,18 +230,20 @@ The following table shows log data delays for **Azure CDN Standard from Microsof
 | --- | --- |
 | Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. |
 
-## Diagnostic log types for CDN core analytics
+<a name='diagnostic-log-types-for-cdn-core-analytics'></a>
 
-Microsoft currently offers core analytics logs only, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
+## Diagnostic log types for content delivery network core analytics
+
+Microsoft currently offers core analytics logs only, which contain metrics showing HTTP response statistics and egress statistics as seen from the content delivery network POPs/edges.
 
 ### Core analytics metrics details
+
 The following table shows a list of metrics available in the core analytics logs for:
 
-* **Azure CDN Standard from Microsoft**
-* **Azure CDN Standard/Premium from Edgio**
+- **Azure CDN Standard from Microsoft**
+- **Azure CDN Standard/Premium from Edgio**
 
-Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
-
+Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those content delivery network endpoints that have traffic on them.
 
 | Metric | Description | Microsoft | Edgio |
 |--|--|--|--|
@@ -263,16 +269,15 @@ Not all metrics are available from all providers, although such differences are 
 | EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB. | Yes | Yes |
 | EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB. | Yes | Yes |
 | EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB. | Yes | Yes |
-| EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes |
+| EgressCacheHit | Outbound data transfer for responses that were delivered directly from the content delivery network cache on the content delivery network POPs/Edges. | Yes | Yes |
 | EgressCacheMiss. | Outbound data transfer for responses that weren't found on the nearest POP server, and retrieved from the origin server. | Yes | Yes |
 | EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached because of a user configuration on the edge. | Yes | Yes |
 | EgressCacheUncacheable | Outbound data transfer for assets that are prevented from getting cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes |
 | EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes |
 
-*Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
+*Outbound data transfer refers to traffic delivered from content delivery network POP servers to the client.
 
-
-### Schema of the core analytics logs 
+### Schema of the core analytics logs
 
 All logs are stored in JSON format and each entry has string fields according to the following schema:
 
@@ -319,7 +324,7 @@ All logs are stored in JSON format and each entry has string fields according to
 }
 ```
 
-Where *time* represents the start time of the hour boundary for which the statistics is reported. A metric unsupported by a CDN provider, instead of a double or integer value, results in a null value. This null value indicates the absence of a metric, and is different from a value of 0. One set of these metrics per domain is configured on the endpoint.
+Where *time* represents the start time of the hour boundary for which the statistics is reported. A metric unsupported by a content delivery network provider, instead of a double or integer value, results in a null value. This null value indicates the absence of a metric, and is different from a value of 0. One set of these metrics per domain is configured on the endpoint.
 
 Example properties:
 
@@ -359,7 +364,7 @@ Example properties:
 
 ## More resources
 
-* [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
-* [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
-* [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
-* [Azure Log Analytics REST API](/rest/api/loganalytics)
+- [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
+- [Core analytics via Azure Content Delivery Network supplemental portal](./cdn-analyze-usage-patterns.md)
+- [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+- [Azure Log Analytics REST API](/rest/api/loganalytics)

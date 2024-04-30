@@ -7,6 +7,7 @@ ms.author: patricka
 ms.date: 02/05/2024
 ms.topic: tutorial
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 zone_pivot_groups: iotedge-dev
 content_well_notification: 

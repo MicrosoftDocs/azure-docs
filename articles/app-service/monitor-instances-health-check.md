@@ -20,9 +20,9 @@ Note that _/api/health_ is just an example added for illustration purposes. We d
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive) after 10 requests, App Service determines it's unhealthy and removes it from the load balancer for this Web App. The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of two requests.
+- If a web app that's running on a given instance doesn't respond with a status code between 200-299 (inclusive) after 10 requests, App Service determines it's unhealthy and removes it from the load balancer for this Web App. The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of two requests.
 - After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299), then the instance is returned to the load balancer.
-- If an instance remains unhealthy for one hour, it's replaced with a new instance.
+- If the web app that's running on an instance remains unhealthy for one hour, the instance is replaced with a new one.
 - When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]

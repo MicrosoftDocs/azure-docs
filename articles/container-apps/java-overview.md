@@ -4,6 +4,7 @@ description: Learn about the tools and resources needed to run Java applications
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 03/04/2024
 ms.author: cshoe

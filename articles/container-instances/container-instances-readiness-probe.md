@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: linux-related-content
+ms.custom:
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -17,9 +17,6 @@ For containerized applications that serve traffic, you might want to verify that
 This article explains how to deploy a container group that includes a readiness probe, so that a container only receives traffic when the probe succeeds.
 
 Azure Container Instances also supports [liveness probes](container-instances-liveness-probe.md), which you can configure to cause an unhealthy container to automatically restart.
-
-> [!NOTE]
-> Currently you cannot use a readiness probe in a container group deployed to a virtual network.
 
 ## YAML configuration
 

@@ -19,7 +19,7 @@ This article provides steps for establishing a trusted connection between an IoT
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (child) devices can authenticate and send or receive messages through their gateway (parent) device.
 
-There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, any device that doesn't have a parent device but connects directly to IoT Hub is considered to be in the top layer. This device is responsible for handling requests from all the devices below it. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
+There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, any device that doesn't have a parent device but connects directly to IoT Hub is considered to be in the top layer. This device is responsible for handling requests from all the devices below it. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices might be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
 
 Some network architectures require that only the top IoT Edge device in a hierarchy can connect to the cloud. In this configuration, all IoT Edge devices in lower layers of a hierarchy can only communicate with their gateway (parent) device and any downstream (child) devices.
 
@@ -36,7 +36,7 @@ All the steps in this article build on [Configure an IoT Edge device to act as a
 * At least two **IoT Edge devices**, one to be the top layer device and one or more lower layer devices. If you don't have IoT Edge devices available, you can [Run Azure IoT Edge on Ubuntu virtual machines](how-to-install-iot-edge-ubuntuvm.md).
 * If you use the [Azure CLI](/cli/azure/install-azure-cli) to create and manage devices, install the [Azure IoT extension](https://github.com/Azure/azure-iot-cli-extension).
 
-> [TIP]
+> [!TIP]
 > This article provides detailed steps and options to help you create the right gateway hierarchy for your scenario. For a guided tutorial, see [Create a hierarchy of IoT Edge devices using gateways](tutorial-nested-iot-edge.md).
 
 ## Create a gateway hierarchy
@@ -216,7 +216,6 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
     total 16
     drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
     drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
-    -rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
     -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-gateway.key.pem
     ```
     
@@ -273,7 +272,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child
     device, it needs both parameters.
 
-    The *hostname* and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
+    The *hostname* and *trust_bundle_cert* parameters must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
 
     Use a hostname shorter than 64 characters, which is the character limit for a server certificate
     common name.

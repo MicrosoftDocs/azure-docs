@@ -13,6 +13,8 @@ ms.devlang: azurecli
 ---
 # Tutorial: Create and publish a product
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can [subscribe](api-management-subscriptions.md) to the product and begin to use the product's APIs.  
 
 In this tutorial, you learn how to:
@@ -64,7 +66,7 @@ In this tutorial, you learn how to:
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To create a product, run the [az apim product create](/cli/azure/apim/product#az-apim-product-create) command:
 

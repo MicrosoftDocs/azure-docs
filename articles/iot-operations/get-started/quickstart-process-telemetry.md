@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: data-processor
 ms.custom:
   - ignite-2023
-ms.date: 10/11/2023
+ms.date: 03/21/2024
 
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
 ---
@@ -202,8 +202,8 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Input path        | Output path       | Expiration time    |
     | ----------------- | ----------------- | ------------------ |
-    | `.payload.payload["temperature"]` | `.payload.payload.temperature_lkv` | `01h` |
-    | `.payload.payload["Tag 10"]` | `.payload.payload.tag1_lkv` | `01h` |
+    | `.payload.Payload["temperature"]` | `.payload.Payload.temperature_lkv` | `01h` |
+    | `.payload.Payload["Tag 10"]` | `.payload.Payload.tag1_lkv` | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
 
@@ -229,16 +229,16 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     ```jq
     .payload = {
-        assetName: .payload.dataSetWriterName,
-        Timestamp: .payload.timestamp,
+        assetName: .payload.DataSetWriterName,
+        Timestamp: .payload.Timestamp,
         Customer: .payload.enrich?.customer,
         Batch: .payload.enrich?.batch,
         Equipment: .payload.enrich?.equipment,
         IsSpare: .payload.enrich?.isSpare,
         Location: .payload.enrich?.location,
-        CurrentTemperature : .payload.payload."temperature"?.Value,
-        LastKnownTemperature: .payload.payload."temperature_lkv"?.Value,
-        Pressure: (if .payload.payload | has("Tag 10") then .payload.payload."Tag 10"?.Value else .payload.payload."tag1_lkv"?.Value end)
+        CurrentTemperature : .payload.Payload."temperature"?.Value,
+        LastKnownTemperature: .payload.Payload."temperature_lkv"?.Value,
+        Pressure: (if .payload.Payload | has("Tag 10") then .payload.Payload."Tag 10"?.Value else .payload.Payload."tag1_lkv"?.Value end)
     }
     ```
 

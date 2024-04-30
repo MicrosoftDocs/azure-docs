@@ -25,10 +25,10 @@ For more information, see [Frequently asked questions about Application Gateway]
 
 A public IP address isn't required for an internal endpoint that's not exposed to the internet. A private frontend configuration is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multitier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or TLS termination.
 
-Only one public IP address and one private IP address are supported. You choose the frontend IP when you create the application gateway.
+Only one public IP address and one private IP address are supported per IP protocol (IPv4/IPv6). You choose the frontend IP when you create the application gateway.
 
 > [!NOTE]
-> The Application Gateway front end supports dual-stack IP addresses (public preview). You can create up to four frontend IPs. Two are IPv4 addresses (public and private) and two are IPv6 addresses (public and private).
+> The Application Gateway front end supports dual-stack IP addresses. You can create up to four frontend IPs. Two are IPv4 addresses (public and private) and two are IPv6 addresses (public and private).
 
 - For a public IP address, you can create a new public IP address or use an existing public IP in the same location as the application gateway. For more information, see [Static versus dynamic public IP address](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 

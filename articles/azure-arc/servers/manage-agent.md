@@ -10,7 +10,7 @@ ms.custom:
 # Managing and maintaining the Connected Machine agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. These routine maintenance tasks can be done manually or through automation (which reduces both operational error and expenses). This article describes the operational aspects of the agent. See the [azcmagent CLI documentation](azcmagent.md) for command line reference information.
 
@@ -398,7 +398,7 @@ Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure 
 | `AAD` | `login.windows.net`</br>`login.microsoftonline.com`</br> `pas.windows.net` |
 | `ARM` | `management.azure.com` |
 | `Arc` | `his.arc.azure.com`</br>`guestconfiguration.azure.com` |
-| `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com` |
+| `ArcData` <sup>1</sup> | `*.<region>.arcdataservices.com`|
 
 <sup>1</sup> The proxy bypass value `ArcData` is available starting with Azure Connected Machine agent version 1.36 and Azure Extension for SQL Server version 1.1.2504.99. Earlier versions include the SQL Server enabled by Azure Arc endpoints in the "Arc" proxy bypass value.
 

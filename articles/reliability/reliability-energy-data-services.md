@@ -18,18 +18,18 @@ This article describes reliability support in [Azure Data Manager for Energy](/a
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Data Manager for Energy supports zone-redundant instance by default and there's no additional configuration required.
+Azure Data Manager for Energy supports zone-redundant instances by default and there's no additional configuration required.
 
 ## Prerequisites
 
 The Azure Data Manager for Energy supports availability zones in the following regions:
 
-
-| Americas            | Europe               | Asia Pacific   |
+| Americas             | Europe               | Asia Pacific   |
 |----------------------|----------------------|----------------
-| South Central US         | North Europe       | Australia East
-| East US   | West Europe |   |                    |  |
-| Brazil South       |           |       |           
+| South Central US     | North Europe         | Australia East |
+| East US              | West Europe          |                | 
+| Brazil South         |                      |                |           
+
 ### Zone down experience
 During a zone-wide outage, no action is required during zone recovery. There may be a brief degradation of performance until the service self-heals and rebalances underlying capacity to adjust to healthy zones. During this period, you may experience 5xx errors and you may have to retry API calls until the service is restored.
 

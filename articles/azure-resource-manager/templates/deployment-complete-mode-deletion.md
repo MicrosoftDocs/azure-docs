@@ -3,7 +3,7 @@ title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 10/20/2022
+ms.date: 03/20/2024
 ---
 
 # Deletion of Azure resources for complete mode deployments

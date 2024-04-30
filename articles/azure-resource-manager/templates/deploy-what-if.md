@@ -2,7 +2,7 @@
 title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---

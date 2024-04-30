@@ -43,7 +43,7 @@ Migration and modernization | N/A | Migrate [VMware VMs](tutorial-migrate-vmware
 [DMA](/sql/dma/dma-overview) | Assess SQL Server databases. | N/A
 [DMS](../dms/dms-overview.md) | N/A | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | N/A
-[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
+[Movere](/movere/overview) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/A | Migrate VMware VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical servers, and other cloud workloads
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers and other cloud workloads, and SQL Server databases. | N/A

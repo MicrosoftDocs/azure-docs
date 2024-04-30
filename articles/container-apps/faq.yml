@@ -51,18 +51,7 @@ sections:
       - question: |
           How can I request a quota increase?
         answer: |
-          To request quota increase, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/) with the following fields:
-
-          | Property | Value |
-          |--|--|
-          | Issue Type | Technical |
-          | Subscription | Your subscription |
-          | Service | My Services |
-          | Service Type | Container Apps |
-          | Resource | maxoutquotas |
-          | Summary | An explanation for your request, including:<br>• What quotas you want increased<br>• How much of an increase you would like<br>• Business reasons for the increase |
-          | Problem Type | Configuration and Management |
-          | Problem Subtype | Scaling |
+          [Request a quota increase in the Azure portal](https://learn.microsoft.com/azure/quotas/quickstart-increase-quota-portal) with **Azure Container Apps** selected as the provider.
 
           Keep in mind the following when it comes to quota increase requests: 
 

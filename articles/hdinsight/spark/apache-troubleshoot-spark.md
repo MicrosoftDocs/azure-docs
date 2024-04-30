@@ -3,7 +3,7 @@ title: Troubleshoot Apache Spark in Azure HDInsight
 description: Get answers to common questions about working with Apache Spark and Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 03/20/2023
+ms.date: 04/11/2024
 ---
 
 # Troubleshoot Apache Spark by using Azure HDInsight

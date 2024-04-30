@@ -2,16 +2,16 @@
 title: VM Insights Dependency Agent
 description: This article describes how to upgrade the VM insights Dependency agent using command-line, setup wizard, and other methods.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
 ms.date: 09/28/2023
-
 ---
 
 # Dependency Agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Dependency Agent updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade Dependency Agent manually or through automation.
 
