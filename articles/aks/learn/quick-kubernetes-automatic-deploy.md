@@ -71,7 +71,6 @@ az feature register --namespace Microsoft.ContainerService --name NRGLockdownPre
 az feature register --namespace Microsoft.ContainerService --name SafeguardsPreview
 az feature register --namespace Microsoft.ContainerService --name NodeAutoProvisioningPreview
 az feature register --namespace Microsoft.ContainerService --name DisableSSHPreview
-az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview
 az feature register --namespace Microsoft.ContainerService --name AutomaticSKUPreview
 ```
 
