@@ -52,7 +52,7 @@ The following architecture diagram illustrates the components that make up this 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub Account. If you don't already have one, sign up for [free](https://github.com/join).
 
-[!INCLUDE [container-apps-setup-cli-steps.md](../../includes/container-apps-setup-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 [!INCLUDE [container-apps-set-environment-variables.md](../../includes/container-apps-set-environment-variables.md)]
 

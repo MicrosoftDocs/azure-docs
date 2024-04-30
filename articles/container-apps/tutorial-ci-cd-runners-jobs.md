@@ -68,7 +68,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 Refer to [jobs restrictions](jobs.md#jobs-restrictions) for a list of limitations.
 
-[!INCLUDE [container-apps-setup-cli-steps.md](../../includes/container-apps-setup-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 ## Create environment variables
 

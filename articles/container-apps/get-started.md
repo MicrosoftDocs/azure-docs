@@ -23,7 +23,7 @@ In this quickstart, you create and deploy your first container app using the `az
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [container-apps-setup-cli-steps.md](../../includes/container-apps-setup-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 ## Create a resource group
 

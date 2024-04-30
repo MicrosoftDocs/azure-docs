@@ -34,7 +34,7 @@ To complete this project, you need the following items:
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
-[!INCLUDE [container-apps-setup-cli-steps.md](../../includes/container-apps-setup-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 ## Create environment variables
 

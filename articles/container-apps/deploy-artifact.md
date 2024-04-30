@@ -29,7 +29,7 @@ The following screenshot shows the output from the album API service you deploy.
 | Java | Install the [JDK](/java/openjdk/install), recommend 17, or later|
 | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
 
-[!INCLUDE [container-apps-setup-cli-steps.md](../../includes/container-apps-setup-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 ## Create environment variables
 
