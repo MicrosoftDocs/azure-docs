@@ -46,7 +46,7 @@ If you don't have a secure workspace configuration, you can create it using the 
 
 ## Limitations
 
-If you are using an Azure Machine Learning registry with network isolation, you can view *model* assets in Azure Machine Learning studio. You won't be able to view other types of assets. You won't be able to perform any operations on Azure Machine Learning registry or assets under it using Studio. Please use the Azure Machine Learning CLI or SDK instead.
+If you are using an Azure Machine Learning registry with network isolation, you can view *model* assets in Azure Machine Learning studio. You won't be able to view other types of assets. You won't be able to perform any operations on Azure Machine Learning registry or assets under it using studio. Please use the Azure Machine Learning CLI or SDK instead.
 
 ## Scenario: workspace configuration is secure and Azure Machine Learning registry is public
 
