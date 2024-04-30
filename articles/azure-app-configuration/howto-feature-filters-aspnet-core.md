@@ -77,7 +77,7 @@ You've added a custom feature filter named **Random** with a **Percentage** para
 
 ## Feature filter in action
 
-Relaunch the application and refresh the browser a few times. Without manually toggling the feature flag, you will see that the *Beta* menu sometimes appears and sometimes doesn't.
+Relaunch the application and refresh the browser a few times. Without manually toggling the feature flag, you will see that the **Beta** menu sometimes appears and sometimes doesn't.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of browser with Beta menu hidden.](./media/quickstarts/aspnet-core-feature-flag-local-before.png)

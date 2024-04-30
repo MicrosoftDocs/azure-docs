@@ -18,11 +18,11 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 - The groups are up to your application to define. For example, when targeting user accounts, you can use Microsoft Entra groups or groups denoting user locations. When targeting machines, you can group them based on rollout stages. Groups can be any common attributes based on which you want to categorize your audience.
 
-The targeting filter is designed for this usage. This feature filter provides the capability to enable a feature for targeted audience. For more information about feature filter, please see this [article](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters).
+[Feature filters](./howto-feature-filters.md#what-is-a-feature-filter) allow a feature flag to be enabled or disabled conditionally. The targeting filter is one of the feature management library's built-in feature filters. It allows you to turn on or off a feature for targeted audiences.
 
-In this article, you will learn how to add and configure a targeting feature filter for your feature flags.
+In this article, you will learn how to add and configure a targeting filter for your feature flags.
 
-## Add a time window filter to a feature flag
+## Add a targeting filter to a feature flag
 
 1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
@@ -31,7 +31,7 @@ In this article, you will learn how to add and configure a targeting feature fil
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select the **Targeting filter** in the filter type dropdown.
+1. The pane **Create a new filter** opens. Under **Filter type**, select the **Targeting filter** in the dropdown.
 
 1. Select the **Override by Groups** and **Override by Users** checkbox.
 
@@ -56,12 +56,12 @@ In this article, you will learn how to add and configure a targeting feature fil
     - The feature flag is enabled for 50% of users in the _contoso.com_ group, because _contoso.com_ is listed in the _Include Groups_ section with a _Percentage_ of _50_.
     - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
 
-    > [!TIP]
-    > For a given user, the targeting filter will be evaluated as below:
-    >
+    The targeting filter is evaluated for a given user as in the following diagram.
+    
+    > [!div class="mx-imgBorder"]
     > ![Targeting evaluation flow.](./media/feature-filters/targeting-evaluation-flow.png)
 
-1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
+1. Select **Add** to save the configuration of the targeting filter and return to the **Edit feature flag** screen.
 
 1. The targeting feature filter is now listed in the feature flag details. Select **Apply** to save the feature flag.
 
@@ -77,7 +77,7 @@ In this tutorial, you learned the concept of the targeting filter and added it t
 To learn how to use the feature flag with a targeting filter in your application, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [ASP.NET](./howto-targetingfilter-aspnet-core.md)
+> [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
 
 To learn more about the feature filters, continue to the following tutorials:
 

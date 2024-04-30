@@ -16,7 +16,11 @@ ms.date: 03/21/2024
 
 Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
 
-In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ are rules for determining the state of the feature flag each time it's evaluated. Potential feature filters include user groups, device or browser types, geographic locations, and time windows.
+In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. 
+
+## What is a feature filter?
+
+_Feature filters_ are rules for determining the state of the feature flag each time it's evaluated.
 
 The Microsoft feature management libraries include the following built-in feature filters configurable from the Azure App Configuration portal.
 

@@ -12,7 +12,7 @@ ms.date: 03/26/2024
 
 # Tutorial: Enable features on a schedule
 
-[Feature filters](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled conditionally. The time window filter is one of the feature management library's built-in feature filters. For example, when you have a new product announcement, you can use it to unveil a feature automatically at a scheduled time. You can also use it to discontinue a planned promotion when a marketing campaign has ended.
+[Feature filters](./howto-feature-filters.md#what-is-a-feature-filter) allow a feature flag to be enabled or disabled conditionally. The time window filter is one of the feature management library's built-in feature filters. It allows you to turn on or off a feature on a schedule. For example, when you have a new product announcement, you can use it to unveil a feature automatically at a planned time. You can also use it to discontinue a promotional discount as scheduled after the marketing campaign ends.
 
 In this article, you will learn how to add and configure a time window filter for your feature flags.
 
@@ -25,12 +25,12 @@ In this article, you will learn how to add and configure a time window filter fo
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select the **Time window filter** in the filter type dropdown.
+1. The pane **Create a new filter** opens. Under **Filter type**, select the **Time window filter** in the dropdown.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, creating a new time window filter.](./media/feature-filters/add-timewindow-filter.png)
 
-1.A time window filter includes two parameters: start and expiry date. Set the **Start date** to Custom and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**. In this example, you schedule the **Beta** feature to be enabled automatically at a future time, and it will never be disabled once enabled.
+1. A time window filter includes two parameters: start and expiry date. Set the **Start date** to **Custom** and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**. In this example, you schedule the *Beta* feature to be enabled automatically at a future time, and it will never be disabled once enabled.
 
 1. Select **Add** to save the configuration of the time window filter and return to the **Edit feature flag** screen.
 
@@ -48,7 +48,7 @@ In this tutorial, you learned the concept of the time window filter and added it
 To learn how to use the feature flag with a time window filter in your application, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [ASP.NET](./howto-timewindow-filter-aspnet-core.md)
+> [ASP.NET Core](./howto-timewindow-filter-aspnet-core.md)
 
 To learn more about the feature filters, continue to the following tutorials:
 

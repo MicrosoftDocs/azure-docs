@@ -21,7 +21,7 @@ In this tutorial, you'll use the targeting filter to roll out a feature to targe
 
 ## Create a web application with authentication and feature flags
 
-In this section, you will create a web application that allows users to sign in and use the **Beta** feature flag you created before. Most of the steps are very similar to what you have done in [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+In this section, you will create a web application that allows users to sign in and use the *Beta* feature flag you created before. Most of the steps are very similar to what you have done in [Quickstart](./quickstart-feature-flag-aspnet-core.md).
 
 1. Create a web application that authenticates against a local database using the following command.
 
@@ -203,15 +203,15 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     > [!NOTE]
     > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
-1. Follow the instructions in [Roll out features to targeted audiences](./howto-targetingfilter.md) to add a targeting filter with a set of targeting rules for the **Beta** feature flag.
+1. Follow the instructions in [Roll out features to targeted audiences](./howto-targetingfilter.md) to add a targeting filter with a set of targeting rules for the *Beta* feature flag.
 
-## TargetingFilter in action
+## Targeting filter in action
 
-To see the effects of added targeting filter to the feature flag, build and run the application again. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
+To see the effects of added targeting filter to the feature flag, build and run the application again. Initially, the **Beta** item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 
-Now sign in as `test@contoso.com`, using the password you set when registering. The *Beta* item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
+Now sign in as `test@contoso.com`, using the password you set when registering. The **Beta** item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
-Now sign in as `testuser@contoso.com`, using the password you set when registering. The *Beta* item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
+Now sign in as `testuser@contoso.com`, using the password you set when registering. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
 
 The following video shows this behavior in action.
 
@@ -220,12 +220,14 @@ The following video shows this behavior in action.
 
 You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
 
-Users with `contoso-xyz.com` email addresses won't see the *Beta* item. While 50% of users with `@contoso.com` email addresses will see the *Beta* item, the other 50% won't see the *Beta* item.
+Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
 
 ## Next steps
 
+To learn more about the feature filters, continue to the following tutorials.
+
 > [!div class="nextstepaction"]
-> [Feature management overview](./concept-feature-management.md)
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter-aspnet-core.md)
