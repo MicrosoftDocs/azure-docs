@@ -28,6 +28,7 @@ The following architecture diagram shows how communications flow through private
 
 > [!NOTE]
 > This article focuses on network isolation using the workspace's managed virtual network. For a description of the legacy method for network isolation, in which Azure Machine Learning creates a managed virtual network for each deployment in an endpoint, see the [Appendix](#appendix).
+> Each deployment is isolated from other deployments, regardless of inbound and outbound communication discussed in this article. In other words, even with endpoints/deployments that allow internet inbound/outbound, there's a network isolation between deployments, which blocks any deployment from directly connecting to other deployments. 
 
 ## Limitations
 
