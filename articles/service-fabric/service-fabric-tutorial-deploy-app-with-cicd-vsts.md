@@ -101,7 +101,7 @@ In **Tasks**, enter "Azure Pipelines" as the **Agent pool** and **windows-2022**
 
 Under **Triggers**, enable continuous integration by checking **Enable continuous integration**. Within **Branch filters**, the **Branch specification** defaults to **master**. Select **Save and queue** to manually start a build.
 
-![Select triggers][save-and-queue2]
+![Select triggers][save-and-queue-2]
 
 Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
 
@@ -188,11 +188,11 @@ Advance to the next tutorial:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/publish-app-profile.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/new-pipeline.png
-[classic-editor]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/ClassicEditor.png
+[classic-editor]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/classic-editor.png
 [select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-repo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-build-template.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue.png
-[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue2.png
+[save-and-queue-2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue-2.png
 [select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-release-template.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/add-cluster-connection.png
