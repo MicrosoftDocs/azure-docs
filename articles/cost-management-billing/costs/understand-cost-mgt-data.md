@@ -15,7 +15,7 @@ ms.reviewer: micflan
 
 This article helps you better understand Azure cost and usage data included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
-Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products.
+Cost Management includes all usage and purchases, including commitment discounts (i.e., reservations and savings plans) and third-party offerings, for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Microsoft Online Services Agreement (MOSA) accounts only include usage from Azure and Marketplace services with applicable commitment discounts applied but do not include Marketplace or commitment discounts purchases. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure.
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -89,15 +89,15 @@ The following table shows included and not included data in Cost Management. All
 | Azure service usage (including deleted resources)⁴ | Unbilled services (for example, free tier resources) |
 | Marketplace offering usage⁵ | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
 | Marketplace purchases⁵      | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Amortization of reservation purchases⁶      |  |
+| Commitment discount purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Amortization of commitment discount purchases⁶      |  |
 | New Commerce non-Azure products (Microsoft 365 and Dynamics 365) ⁷ | |
 
-_⁴ Azure service usage is based on reservation and negotiated prices._
+_⁴ Azure service usage is based on commitment discounts and negotiated prices._
 
 _⁵ Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
 
-_⁶ Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
+_⁶ Commitment discount purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
 _⁷ Only available for specific offers._
 
