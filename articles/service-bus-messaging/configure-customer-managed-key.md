@@ -2,7 +2,7 @@
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 04/29/2024
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest
@@ -61,23 +61,23 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 
     > [!IMPORTANT]
-    > If you are looking to use Customer managed key along with Geo disaster recovery, please review this section. 
+    > If you are looking to use Customer managed key along with [Geo-Disaster Recovery](service-bus-geo-dr.md), please review this section. 
     >
     > To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/security-features.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
     >
     > Due to this:
     > 
-    >   * If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
+    >   * If [Geo-Disaster Recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
     >     * Break the pairing
     >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for both the primary and secondary namespaces to the key vault.
     >     * Set up encryption on the primary namespace.
     >     * Re-pair the primary and secondary namespaces.
     > 
-    >   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already set up, then -
+    >   * If you are looking to enable Geo-Disaster Recovery on a Service Bus namespace where customer managed key is already set up, then -
     >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     >     * Pair the primary and secondary namespaces.
     >    
-    >   * Once paired, the secondary namespace will use the key vault configured for the primary namespace. If the key vault for both namespaces is different before Geo-DR pairing, the user must delegate an access policy or RBAC role for the managed identity of the secondary namespace in the key vault associated with primary namespace.
+    >   * Once paired, the secondary namespace will use the key vault configured for the primary namespace. If the key vault for both namespaces is different before Geo-Disaster Recovery pairing, the user must delegate an access policy or RBAC role for the managed identity of the secondary namespace in the key vault associated with primary namespace.
 
 ## Managed identities
 There are two types of managed identities that you can assign to a Service Bus namespace.
@@ -591,29 +591,29 @@ Here are more details:
     - If a key has been revoked, the key is removed from the record.
     - If all keys have been revoked, the namespace’s encryption status is set to **Revoked**. The data can't be accessed from the Service Bus namespace. 
 
-## Considerations when using geo-disaster recovery
+## Considerations when using Geo-Disaster Recovery
 
-### Geo-disaster recovery - encryption with system-assigned identities
+### Geo-Disaster Recovery - encryption with system-assigned identities
 To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
 
 
-- If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
+- If [Geo-Disaster Recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
     - Break the pairing.
     - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
     - Set up encryption on the primary namespace.
     - Re-pair the primary and secondary namespaces.
-- If you're looking to enable Geo-DR on a Service Bus namespace where customer-managed key is already set up, then follow these steps: 
+- If you're looking to enable Geo-Disaster Recovery on a Service Bus namespace where customer-managed key is already set up, then follow these steps: 
     - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     - Pair the primary and secondary namespaces.
 
-### Geo-disaster recovery - encryption with user-assigned identities
+### Geo-Disaster Recovery - encryption with user-assigned identities
 Here are a few recommendations: 
 
 1.	Create managed identity and assign Key Vault permissions to your managed identity. 
 2.	Add the identity as a user assigned identity, and enable encryption with the identity on both namespaces. 
 3.	Pair namespaces together 
 
-Conditions for enabling Geo-DR and Encryption with User-Assigned Identities:
+Conditions for enabling Geo-Disaster Recovery and Encryption with User-Assigned Identities:
 
 1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it's to be paired with a primary namespace that has Encryption enabled. 
 2.	It isn't possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
