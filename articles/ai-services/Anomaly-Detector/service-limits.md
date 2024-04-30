@@ -9,7 +9,6 @@ ms.service: azure-ai-anomaly-detector
 ms.topic: conceptual
 ms.date: 01/18/2024
 ms.author: jingruhan
-ms.custom: 
 ---
 
 # Anomaly Detector service quotas and limits

@@ -5,7 +5,7 @@ services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 03/19/2024
 ms.author: jaysoni
 ---
 
@@ -21,10 +21,7 @@ The TLS/SSL certificates on application gateway are stored in local certificate 
 
 Here is a sample application gateway configuration. The SSLCertificates property includes certificate object “contoso-agw-cert" linked to a key vault. The “listener1” references that certificate object.
 
-## Understanding the portal section (Preview)
-
-> [!IMPORTANT]
-> The **TLS certificate for Listeners** (TLS termination/End-to-end TLS) is a **Generally available** feature. Only its Portal management experience ([released in March 2023](https://azure.microsoft.com/updates/public-preview-listener-tls-certificates-management-available-in-the-azure-portal/)) is referred to as Preview.
+## Understanding the portal section
 
 ### Listener SSL certificates 
 

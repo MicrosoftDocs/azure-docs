@@ -5,7 +5,7 @@ description: Learn how to train models with Azure Machine Learning. Explore the 
 services: machine-learning
 ms.service: machine-learning
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 ms.subservice: training
 ms.topic: conceptual
@@ -13,8 +13,6 @@ ms.date: 06/7/2023
 ms.custom:
   - devx-track-python
   - devx-track-azurecli
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - ignite-2023
 ms.devlang: azurecli

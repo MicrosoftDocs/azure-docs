@@ -2,7 +2,6 @@
 title: Azure API Management policy expressions | Microsoft Docs
 description: Learn about policy expressions in Azure API Management. See examples and view other available resources.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -12,6 +11,9 @@ ms.date: 03/07/2023
 ms.author: danlep
 ---
 # API Management policy expressions
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article discusses policy expressions syntax in C# 7. Each expression has access to:
 * The implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable.
 * An allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.

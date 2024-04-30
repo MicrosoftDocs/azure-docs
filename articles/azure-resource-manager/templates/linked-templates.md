@@ -647,7 +647,7 @@ Make sure there is no leading "?" in QueryString. The deployment adds one when a
 
 ## Template specs
 
-Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
+Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec.
 
 For more information, see:
 

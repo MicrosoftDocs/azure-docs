@@ -5,15 +5,18 @@ ms.topic: reference
 ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+ms.custom: linux-related-content
 author: Farha-Bano
 ms.author: v-farhabano
 manager: jsuri
-
 # Customer intent: As a VI admin, I want to understand the troubleshooting process for guest management issues.
 ---
 # Troubleshoot Guest Management for Linux VMs
 
-This article provides information on how to troubleshoot and resolve the issues that can occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.  
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+This article provides information on how to troubleshoot and resolve the issues that can occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.
 
 ## Troubleshoot issues while enabling Guest Management on a domain-joined Linux VM
 
@@ -51,7 +54,7 @@ Default: The default set of PAM service names includes:
 
 ## Troubleshoot issues while enabling Guest Management on RHEL-based Linux VMs
 
-Applies to: 
+Applies to:
 
 - RedHat Linux
 - CentOS
@@ -71,7 +74,7 @@ Before you enable the guest agent, follow these steps on the VM:
 
 1. Create file `vmtools_unconfined_rpm_script_kcs5347781.te` using the following:
 
-     `policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0) 
+     `policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
      gen_require(`
      type vmtools_unconfined_t;
      ')

@@ -1,14 +1,14 @@
 ---
-title: Convert notebook code into Python scripts 
+title: Convert notebook code into Python scripts
 titleSuffix: Azure Machine Learning
-description: Turn your machine learning experimental notebooks into production-ready code using the MLOpsPython code template. You can then test, deploy, and automate that code. 
+description: Turn your machine learning experimental notebooks into production-ready code using the MLOpsPython code template. You can then test, deploy, and automate that code.
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1
 ---
 
 # Convert ML experiments to production Python code

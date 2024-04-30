@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 06/29/2023
 ms.author: msangapu
 ms.devlang: csharp
-ms.custom: seodec18, devx-track-dotnet
+ms.custom: devx-track-dotnet
 ---
 # At-scale assessment of .NET web apps
 

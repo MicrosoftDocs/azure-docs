@@ -33,8 +33,6 @@
       items:
       - name: Create a rule
         href: core/tutorial-create-telemetry-rules.md
-      - name: Explore an Azure IoT Central industrial scenario
-        href: core/tutorial-industrial-end-to-end.md
       - name: Explore the IoT Central APIs
         href: core/tutorial-use-rest-api.md
     - name: Create industry specific demo apps
@@ -78,10 +76,10 @@
 
 - name: Concepts
   items:
+    - name: FAQ
+      href: core/howto-faq.yml
     - name: Architecture
       href: core/concepts-architecture.md
-    - name: Industrial IoT patterns
-      href: core/concepts-iiot-architecture.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
@@ -104,17 +102,11 @@
       href: core/overview-iot-central-security.md
     - name: Network security using private endpoints
       href: core/concepts-private-endpoints.md
-    - name: FAQ
-      href: core/howto-faq.yml
-      items:
-      - name: How do I extend IoT Central?
-        href: core/concepts-faq-extend.md
-      - name: How does IoT Central scale and enable HADR?
-        href: core/concepts-faq-scalability-availability.md
-      - name: What are IoT Central's scale limits?
-        href: core/concepts-quotas-limits.md
-      - name: How do I move between aPaaS and PaaS solutions?
-        href: core/concepts-faq-apaas-paas.md
+    - name: How does IoT Central scale and enable HADR?
+      href: core/concepts-faq-scalability-availability.md
+    - name: What are IoT Central's scale limits?
+      href: core/concepts-quotas-limits.md
+
 - name: How-to guides
   items:
     - name: Create an application
@@ -135,18 +127,8 @@
           href: core/howto-manage-deployment-manifests.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
-        - name: Prepare and connect an IoT Edge for Linux on Windows device 
-          href: core/howto-connect-eflow.md
-        - name: Prepare and connect an Azure Sphere DevKit
-          href: /azure-sphere/app-development/setup-iot-central
-        - name: Prepare and connect a RuuviTag device
-          href: core/howto-connect-ruuvi.md
-        - name: Prepare and connect a Rigado Cascade 500
-          href: core/howto-connect-rigado-cascade-500.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
-        - name: Troubleshoot device connections
-          href: core/troubleshoot-connection.md
     - name: View and analyze device data
       items:
         - name: Build analytics queries
@@ -169,8 +151,6 @@
       items:
         - name: Configure rules
           href: core/howto-configure-rules.md
-        - name: Create custom rules
-          href: core/howto-create-custom-rules.md
         - name: Use rules and workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
         - name: Export data to cloud destinations
@@ -187,10 +167,6 @@
               href: core/howto-export-to-webhook.md
             - name: Transform data internally for export
               href: core/howto-transform-data-internally.md
-            - name: Troubleshoot data export
-              href: core/troubleshoot-data-export.md
-        - name: Export data and visualize with Databricks
-          href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
           href: core/howto-map-data.md
         - name: Transform data externally
@@ -222,8 +198,6 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
-        - name: Manage dashboards  
-          href: core/howto-manage-dashboards-with-rest-api.md
         - name: File upload
           href: core/howto-upload-file-rest-api.md
           
@@ -244,16 +218,16 @@
           href: core/howto-customize-ui.md
         - name: Integrate with DevOps
           href: core/howto-integrate-with-devops.md
-        - name: Manage and monitor in the Azure portal
-          href: core/howto-manage-iot-central-from-portal.md
-        - name: Manage from command line
-          href: core/howto-manage-iot-central-from-cli.md
+        - name: Manage and monitor applications
+          href: core/howto-manage-and-monitor-iot-central.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
         - name: Create a private endpoint for devices
           href: core/howto-create-private-endpoint.md
         - name: Export to a secure VNET
           href: core/howto-connect-secure-vnet.md
+    - name: Troubleshooting
+      href: core/troubleshooting.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -281,8 +255,6 @@
       href: https://devices.cloudrail.com/documentation?service=AzureIoTCentral#azureiotcentral1
     - name: Ignition
       href: https://docs.chariot.io/display/CLD80/Publishing+Data+to+Azure+IoT+Central
-    - name: Omnio
-      href: https://www.omnio.net/contact
 
   - name: Azure IoT services
     items:
@@ -296,8 +268,6 @@
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
-  - name: IoT device developer
-    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

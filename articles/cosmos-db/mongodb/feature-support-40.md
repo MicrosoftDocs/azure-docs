@@ -1,5 +1,5 @@
 ---
-title: 4.0 server version supported features and syntax in Azure Cosmos DB for MongoDB 
+title: 4.0 server version supported features and syntax in Azure Cosmos DB for MongoDB
 description: Learn about Azure Cosmos DB for MongoDB 4.0 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
 author: seesharprun
 ms.author: sidandrews
@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 10/12/2022
-ms.custom: ignite-2022
 ---
 
 # Azure Cosmos DB for MongoDB (4.0 server version): supported features and syntax

@@ -1,8 +1,8 @@
 ---
 title: Add Azure Kinect library to your Visual Studio project
 description: Learn how to add the Azure Kinect NuGet package to your Visual Studio Project.
-author: wes-b
-ms.author: wesbarc
+author: jaygullapalli
+ms.author: jagullap
 ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual

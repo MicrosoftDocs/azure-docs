@@ -4,7 +4,6 @@ description: In this tutorial, you learn how to secure your virtual network with
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 09/26/2023
 ms.author: victorh

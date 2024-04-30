@@ -7,7 +7,6 @@ ms.date: 09/19/2023
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-tags: azure-synapse
 ---
 # Column-level security
 

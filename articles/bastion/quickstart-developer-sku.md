@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 01/11/2024
+ms.date: 01/31/2024
 ms.author: cherylmc
 ms.custom: references_regions
 ---
@@ -12,6 +12,10 @@ ms.custom: references_regions
 # Quickstart: Deploy Azure Bastion - Developer SKU (Preview)
 
 In this quickstart, you'll learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+
+The following diagram shows the architecture for Azure Bastion and the Developer SKU.
+
+:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
 
 > [!IMPORTANT]
 > During Preview, Bastion Developer SKU is free of charge. Pricing details will be released at GA for a usage-based pricing model.

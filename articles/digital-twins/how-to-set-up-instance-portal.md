@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q2, subject-rbac-steps, engagement-fy23
+ms.custom: subject-rbac-steps, engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -105,7 +105,7 @@ You can also assign the **Azure Digital Twins Data Owner** role using the access
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the **Azure Digital Twins Data Owner** role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the **Azure Digital Twins Data Owner** role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |

@@ -2,8 +2,12 @@
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with a Microsoft Entra Workload ID.
 ms.topic: article
-ms.custom: devx-track-azurecli, linux-related-content
-ms.date: 09/27/2023
+ms.subservice: aks-security
+ms.custom: devx-track-azurecli
+ms.date: 02/22/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -23,10 +27,13 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
 
-## Export environmental variables
+> [!NOTE]
+> Instead of configuring all steps manually, there is another implementation called _Service Connector_ which will help you configure some steps automatically and achieve the same outcome. See also: [Tutorial: Connect to Azure storage account in Azure Kubernetes Service (AKS) with Service Connector using workload identity][tutorial-python-aks-storage-workload-identity].
+
+## Export environment variables
 
 To help simplify steps to configure the identities required, the steps below define
-environmental variables for reference on the cluster.
+environment variables for reference on the cluster.
 
 Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.
 
@@ -142,7 +149,7 @@ metadata:
   name: your-pod
   namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
   labels:
-    azure.workload.identity/use: "true"
+    azure.workload.identity/use: "true"  # Required, only the pods with this label can use workload identity
 spec:
   serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
   containers:
@@ -264,6 +271,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-keyvault-list]: /cli/azure/keyvault#az-keyvault-list
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
+[tutorial-python-aks-storage-workload-identity]: ../service-connector/tutorial-python-aks-storage-workload-identity.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az aks update]: /cli/azure/aks#az-aks-update
 [aks-two-resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
@@ -273,3 +281,4 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [workload-identity-migration]: workload-identity-migrate-from-pod-identity.md
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
+

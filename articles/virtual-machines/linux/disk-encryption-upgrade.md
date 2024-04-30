@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 05/27/2021
-ms.custom: seodec18, linux-related-content
+ms.custom: linux-related-content
 ---
 
 # Upgrading the Azure Disk Encryption version

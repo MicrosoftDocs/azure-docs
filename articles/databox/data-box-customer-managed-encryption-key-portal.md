@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 01/13/2022
 ms.author: shaas
 ms.subservice: pod
-ms.custom: contperf-fy22q3
 ---
 
 # Use customer-managed keys in Azure Key Vault for Azure Data Box

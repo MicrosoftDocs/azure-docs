@@ -1,5 +1,5 @@
 ---
-author: xiaofanzhou
+author: xfz11
 ms.service: service-connector
 ms.topic: include
 ms.date: 10/20/2023
@@ -95,7 +95,7 @@ For more information, see the following resources:
      
     # Uncomment the following lines according to the authentication type.
     # For system-assigned identity.
-    # credential = DefaultAzureCredential()
+    # cred = DefaultAzureCredential()
 
     # For user-assigned identity.
     # managed_identity_client_id = os.getenv('AZURE_POSTGRESQL_CLIENTID')

@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Firewall known issues and limitations
 
-This article list the known issues for [Azure Firewall](overview.md). It is updated as issues are resolved.
+This article lists the known issues for [Azure Firewall](overview.md). It is updated as issues are resolved.
 
 For Azure Firewall limitations, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
@@ -51,7 +51,6 @@ Azure Firewall Standard has the following known issues:
 |Adding a DNAT rule to a secured virtual hub with a security provider isn't supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
 | Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
-|Can't upgrade to Premium with Availability Zones in the Southeast Asia region|You can't currently upgrade to Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy a new Premium firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|
 |Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
 |Azure private DNS zone isn't supported with Azure Firewall|Azure private DNS zone doesn't work with Azure Firewall regardless of Azure Firewall DNS settings.|To achieve the desire state of using a private DNS server, use Azure Firewall DNS proxy instead of an Azure private DNS zone.|
 |Physical zone 2 in Japan East is unavailable for firewall deployments.|You can’t deploy a new firewall with physical zone 2. Additionally, if you stop an existing firewall which is deployed in physical zone 2, it cannot be restarted. For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones).|For new firewalls, deploy with the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment).

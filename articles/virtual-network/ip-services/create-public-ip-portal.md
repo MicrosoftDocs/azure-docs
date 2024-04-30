@@ -7,13 +7,15 @@ ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 04/16/2024
 ms.custom: template-quickstart, mode-ui
 ---
 
 # Quickstart: Create a public IP address using the Azure portal
 
 In this quickstart, you learn how to create Azure public IP addresses, which you use for public connections to Azure resources. Public IP addresses are available in two SKUs: Basic and Standard. Two tiers of public IP addresses are available: regional and global. You can also set the routing preference of a public IP address when you create it: Microsoft network or Internet.
+
+:::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
 
 ## Prerequisites
 
@@ -51,6 +53,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
    - **Routing preference**: Select **Microsoft network**.
    - **Idle timeout (minutes)**: Keep the default of **4**.
    - **DNS name label**: Leave the value blank.
+   - **Domain name label scope (preview)**: Leave the value blank.
 
    :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standard SKU.":::
 
@@ -84,11 +87,11 @@ Follow these steps to create a public IPv4 address with a Basic SKU named myBasi
    - **SKU**: Select **Basic**.
    - **IP address assignment**: Select **Static**.
    - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
+   - **Domain name label scope (preview)**: Leave the value blank.
 
    :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Basic SKU.":::
 
-1. Select **Review + create**. After validation succeeds, select **Create**.
+2. Select **Review + create**. After validation succeeds, select **Create**.
 
 # [**Routing preference**](#tab/option-1-create-public-ip-routing-preference)
 
@@ -128,6 +131,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
    - **Routing preference**: Select **Internet**.
    - **Idle timeout (minutes)**: Keep the default of **4**.
    - **DNS name label**: Leave the value blank.
+   - **Domain name label scope (preview)**: Leave the value blank.
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
@@ -164,6 +168,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
    - **Routing preference**: Select **Microsoft network**.
    - **Idle timeout (minutes)**: Keep the default of **4**.
    - **DNS name label**: Leave the value blank.
+   - **Domain name label scope (preview)**: Leave the value blank.
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 

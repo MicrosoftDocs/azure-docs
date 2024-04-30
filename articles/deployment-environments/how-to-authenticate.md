@@ -2,7 +2,7 @@
 title: Authenticate to Azure Deployment Environments REST APIs
 description: Learn how to authenticate to Azure Deployment Environments REST APIs by using Microsoft Entra ID.
 ms.service: deployment-environments
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.topic: conceptual
 ms.author: chrismiller
 author: chrismiller

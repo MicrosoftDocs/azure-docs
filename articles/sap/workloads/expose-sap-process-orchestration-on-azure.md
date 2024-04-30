@@ -6,10 +6,8 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 07/19/2022
 ms.author: mapankra
-
 ---
 # Expose SAP legacy middleware securely with Azure PaaS
 

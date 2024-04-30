@@ -73,3 +73,37 @@ To disable Background Blur Video Effect:
 ```swift
 localVideoEffectsFeature.disable(effect: backgroundBlurVideoEffect)
 ```
+
+### Background Replacement
+Background Replacement is a Video Effect that allows a person to set their own custom background. In order to use Background Replacement Effect, you need to obtain a `LocalVideoEffectsFeature` feature from a valid `LocalVideoStream`.
+
+- Create a new Background Replacement Video Effect object:
+
+```swift
+@State var backgroundReplacementVideoEffect: BackgroundReplacementEffect?
+```
+
+- Set a custom background by passing in the image through a buffer.
+
+```swift
+let image = UIImage(named:"image.png")
+guard let imageData = image?.jpegData(compressionQuality: 1.0) else {
+return
+}
+backgroundReplacementVideoEffect.buffer = imageData
+```
+
+- Check if `BackgroundReplacementEffect` is supported and call `Enable` on the `videoEffectsFeature` object:
+
+```swift
+if((localVideoEffectsFeature.isSupported(effect: backgroundReplacementVideoEffect)) != nil)
+{
+    localVideoEffectsFeature.enable(effect: backgroundReplacementVideoEffect)
+}
+```
+
+To disable Background Replacement Video Effect:
+
+```swift
+localVideoEffectsFeature.disable(effect: backgroundReplacementVideoEffect)
+```

@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
-ms.date: 09/18/2023
+ms.date: 04/19/2024
 ---
 
 # About Vector Embeddings and Vector Search in Azure Cache for Redis
@@ -20,7 +20,7 @@ For a tutorial on how to use Azure Cache for Redis and Azure OpenAI to perform v
 |--------- |:------------------:|:----------:|:---------:|:---------:|
 |Available | No          | No       |  Yes  | Yes (preview) |
 
-Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/about/about-stack/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](./cache-redis-modules.md).
+Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](./cache-redis-modules.md).
 
 ## What are vector embeddings?
 
@@ -76,7 +76,7 @@ Redis has a wide range of vector search capabilities through the [RediSearch mod
 - Support for both KNN (using `FLAT`) and ANN (using `HNSW`) indexing methods.
 - Vector storage in hash or JSON data structures
 - Top K queries
-- [Vector range queries](https://redis.io/docs/interact/search-and-query/search/vectors/#creating-a-vss-range-query) (i.e., find all items within a specific vector distance)
+- [Vector range queries](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/#range-queries) (that is, find all items within a specific vector distance)
 - Hybrid search with [powerful query features](https://redis.io/docs/interact/search-and-query/) such as:
   - Geospatial filtering
   - Numeric and text filters

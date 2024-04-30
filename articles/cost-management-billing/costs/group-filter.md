@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use group and filter options.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/10/2023
+ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -27,10 +27,10 @@ Some filters are only available to specific offers. For example, a billing profi
 
 | Property | When to use | Notes |
 | --- | --- | --- |
-| **Availability zones** | Break down AWS costs by availability zone. | Applicable only to AWS scopes and management groups. Azure data doesn't include availability zone and will show as **No availability zone**. |
+| **Availability zones** | Break down AWS¹ costs by availability zone. | Applicable only to AWS scopes and management groups. Azure data doesn't include availability zone and will show as **No availability zone**. |
 | **Billing period** | Break down PAYG costs by the month that they were, or will be, invoiced. | Use **Billing period** to get a precise representation of invoiced PAYG charges. Include two extra days before and after the billing period if filtering down to a custom date range. Limiting to the exact billing period dates won't match the invoice. Will show costs from all invoices in the billing period. Use **Invoice ID** to filter down to a specific invoice. Applicable only to PAYG subscriptions because EA and MCA are billed by calendar months. EA/MCA accounts can use calendar months in the date picker or monthly granularity to accomplish the same goal. |
-| **BillingProfileId** | The ID of the billing profile that is billed for the subscription's charges. | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| **BillingProfileName** | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| **BillingProfileId** | The ID of the billing profile that is billed for the subscription's charges. | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS¹ consolidated account.|
+| **BillingProfileName** | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS¹ consolidated account. | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
 | **Charge type** | Break down usage, purchase, refund, and unused reservation and savings plan costs. | Reservation purchases, savings plan purchases, and refunds are available only when using actual costs and not when using amortized costs. Unused reservation and savings plan costs are available only when looking at amortized costs. |
 | **Department** | Break down costs by EA department. | Available only for EA and management groups. PAYG subscriptions don't have a department and will show as **No department** or **unassigned**. |
 | **Enrollment account** | Break down costs by EA account owner. | Available only for EA billing accounts, departments, and  management groups. PAYG subscriptions don't have EA enrollment accounts and will show as **No enrollment account** or **unassigned**. |
@@ -39,19 +39,19 @@ Some filters are only available to specific offers. For example, a billing profi
 | **InvoiceSectionId**| Unique identifier for the MCA invoice section. | Unique identifier for the EA department or MCA invoice section. |
 | **InvoiceSectionName**| Name of the invoice section. | Name of the EA department or MCA invoice section. |
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
-| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
-| **Operation** | Break down AWS costs by operation. | Applicable only to AWS scopes and management groups. Azure data doesn't include operation and will show as **No operation** - use **Meter** instead. |
+| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage might show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
+| **Operation** | Break down AWS¹ costs by operation. | Applicable only to AWS scopes and management groups. Azure data doesn't include operation and will show as **No operation** - use **Meter** instead. |
 | **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases.
 | **PartNumber** | The identifier used to get specific meter pricing. | |
 | **Product** | Name of the product. | |
 | **ProductOrderId** | Unique identifier for the product order | |
 | **ProductOrderName** | Unique name for the product order. | |
-| **Provider** | Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS, and so on. | Identifier for product and line of business. |
-| **Publisher type** | Break down Microsoft, Azure, AWS, and Marketplace costs. | Values are **Microsoft** for MCA accounts and **Azure** for EA and pay-as-you-go accounts. |
-| **Reservation** | Break down costs by reservation. | Any usage or purchases that aren't associated with a reservation will show as **No reservation** or **No values**. Group by **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
+| **Provider** | Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS¹, and so on. | Identifier for product and line of business. |
+| **Publisher type** | Break down Microsoft, Azure, AWS¹, and Marketplace costs. | Values are **Microsoft** for MCA accounts and **Azure** for EA and pay-as-you-go accounts. |
+| **Reservation** | Break down costs by reservation. | Any usage or purchases that aren't associated with a reservation will show as **No reservation** or **No values**. Group by **Publisher type** to identify other Azure, AWS¹, or Marketplace purchases. |
 | **ReservationId**| Unique identifier for the purchased reservation instance.  | In actual costs, use ReservationID to know which reservation the charge is for. |
 | **ReservationName**| Name of the purchased reservation instance. | In actual costs, use ReservationName to know which reservation the charge is for. |
-| **Resource** | Break down costs by resource. | Marketplace purchases show as **Other Marketplace purchases** and Azure purchases, like Reservations and Support charges, show as **Other Azure purchases**. Group by or filter on **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
+| **Resource** | Break down costs by resource. | Marketplace purchases show as **Other Marketplace purchases** and Azure purchases, like Reservations and Support charges, show as **Other Azure purchases**. Group by or filter on **Publisher type** to identify other Azure, AWS¹, or Marketplace purchases. |
 | **Resource group** | Break down costs by resource group. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources don't have a resource group and will show as **Other Marketplace purchases**, **Other Azure purchases**, **Other tenant resources**, **Other subscription resources**, **$system**, or **Other charges**. |
 | **ResourceId**| Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. | |
 | **Resource type** | Break down costs by resource type. | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null or empty, **Others**, or **Not applicable**. For example, purchases and classic services will show as **others**, **classic services**, or **No resource type**. |
@@ -59,9 +59,11 @@ Some filters are only available to specific offers. For example, a billing profi
 | **ServiceName**| Name of the Azure service. | Name of the classification category for the meter. For example, Cloud services and Networking. |
 | **Service name** or **Meter category** | Break down cost by Azure service. | Purchases and Marketplace usage will show as **No service name** or **unassigned**. |
 | **Service tier** or **Meter subcategory** | Break down cost by Azure usage meter subclassification. | Purchases and Marketplace usage will be empty or show as **unassigned**. |
-| **Subscription** | Break down costs by Azure subscription and AWS linked account. | Purchases and tenant resources may show as **No subscription**. |
+| **Subscription** | Break down costs by Azure subscription and AWS¹ linked account. | Purchases and tenant resources may show as **No subscription**. |
 | **Tag** | Break down costs by tag values for a specific tag key. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources cannot be tagged and will show as **Tags not supported**. Services that don't include tags in usage data will show as **Tags not available**. Any remaining cases where tags aren't specified on a resource will show as **Untagged**. Learn more about [tags support for each resource type](../../azure-resource-manager/management/tag-support.md). |
 | **UnitOfMeasure**| The billing unit of measure for the service. For example, compute services are billed per hour. | |
+
+¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
 

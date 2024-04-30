@@ -6,7 +6,7 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Retiring the S1, S2, and S3 performance levels
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]

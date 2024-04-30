@@ -29,7 +29,7 @@
   - name: Develop
     items:
     - name: Create PHP web and worker roles
-      href: ../cloud-services-php-create-web-role.md
+      href: cloud-services-php-create-web-role.md
     - name: Build and deploy a Node.js application
       href: cloud-services-nodejs-develop-deploy-app.md
     - name: Build a Node.js web application using Express

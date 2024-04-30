@@ -7,10 +7,14 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
+<<<<<<< HEAD
 ms.date: 01/19/2024
+=======
+ms.date: 02/07/2024
+>>>>>>> b0251d6c901d3996167ff0157be8b302a49725a1
 ms.author: shaas
 ms.subservice: storage-common-concepts
-ms.custom: engagement-fy23, references_regions
+ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
 ---
 
 <!--
@@ -26,12 +30,11 @@ This article describes the process of changing replication settings for an exist
 
 ## Options for changing the replication type
 
-Four aspects of the redundancy configuration of a storage account determine how your data is replicated and accessible:
+When deciding which redundancy configuration is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy configuration you should choose include:
 
-- **Local redundancy** - your data is always replicated three times within the local or primary region (LRS)
-- **Zone redundancy** - whether your data is replicated between different zones within the primary region (LRS vs. ZRS)
-- **Geo-redundancy** - replication within a single "local" region or between a primary and a secondary region (LRS vs. GRS)
-- **Read access (RA)** - read access to the secondary region when geo-redundancy is used (GRS vs. RA-GRS)
+- **How your data is replicated within the primary region.** Data in the primary region can be replicated locally using [locally redundant storage (LRS)](storage-redundancy.md#locally-redundant-storage), or across Azure availability zones using [zone-redundant storage (ZRS)](storage-redundancy.md#zone-redundant-storage).
+- **Whether your data is geo-replicated.** Geo-replication provides protection against regional disasters by replicating your data to a second region that is geographically distant to the primary region. Geo-replicated configurations include [geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) and [geo-zone-redundant storage (GZRS)](storage-redundancy.md#geo-zone-redundant-storage).
+- **Whether your application requires read access to the replicated data in the secondary region.** You can configure your storage account to allow read access to data replicated to the secondary region if the primary region becomes unavailable for any reason. Configurations that provide [read access to data in the secondary region](storage-redundancy.md#read-access-to-data-in-the-secondary-region) include read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS).
 
 For a detailed overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -39,13 +42,13 @@ You can change your storage account's redundancy configurations as needed, thoug
 
 There are three ways to change the replication settings:
 
-- [Add or remove geo-replication or read access](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to the secondary region.
+- [Add or remove geo-replication or read access](#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) to the secondary region.
 - [Add or remove zone-redundancy](#perform-a-conversion) by performing a conversion.
 - [Perform a manual migration](#manual-migration) in scenarios where the first two options aren't supported, or to ensure the change is completed within a specific timeframe.
 
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
-### Replication change table
+### Changing redundancy configuration
 
 The following table provides an overview of how to switch between replication types.
 
@@ -54,10 +57,10 @@ The following table provides an overview of how to switch between replication ty
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>2,6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1,2</sup> | [Perform a conversion](#perform-a-conversion)<sup>2,3,4,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1</sup>, then [perform a conversion](#perform-a-conversion) to GZRS/RA-GZRS <sup>3,4,5</sup> |
-| **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then [perform a conversion](#perform-a-conversion) to ZRS <sup>3,5</sup> | [Perform a conversion](#perform-a-conversion)<sup>3,5</sup> |
-| **…from ZRS** | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1</sup>, then [perform a conversion](#perform-a-conversion) to GRS/RA-GRS<sup>3</sup> | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1</sup> |
-| **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then [perform a conversion](#perform-a-conversion) to LRS <sup>3</sup> | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
+| **…from LRS** | **N/A** | Use [Azure portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) <sup>1,2</sup> | [Perform a conversion](#perform-a-conversion)<sup>2,3,4,5</sup> | First, use the [Portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) to switch to GRS/RA-GRS <sup>1</sup>, then [perform a conversion](#perform-a-conversion) to GZRS/RA-GZRS <sup>3,4,5</sup> |
+| **…from GRS/RA-GRS** | Use [Azure portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) | **N/A** | First, use the [Portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) to switch to LRS, then [perform a conversion](#perform-a-conversion) to ZRS <sup>3,5</sup> | [Perform a conversion](#perform-a-conversion)<sup>3,5</sup> |
+| **…from ZRS** | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | First, use the [Portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) to switch to GZRS/RA-GZRS, then [perform a conversion](#perform-a-conversion) to GRS/RA-GRS<sup>3</sup> | **N/A** | Use [Azure portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) <sup>1</sup> |
+| **…from GZRS/RA-GZRS** | First, use the [Portal](redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), [PowerShell](redundancy-migration.md?tabs=powershell#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli), or [CLI](redundancy-migration.md?tabs=azure-cli#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) to switch to ZRS, then [perform a conversion](#perform-a-conversion) to LRS <sup>3</sup> | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli)| **N/A** |
 
 <sup>1</sup> [Adding geo-redundancy incurs a one-time egress charge](#costs-associated-with-changing-how-data-is-replicated).<br />
 <sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
@@ -68,9 +71,9 @@ The following table provides an overview of how to switch between replication ty
 
 ## Change the replication setting
 
-Depending on your scenario from the [replication change table](#replication-change-table), use one of the following methods to change your replication settings.
+Depending on your scenario from the [changing redundancy configuration](#changing-redundancy-configuration) section, use one of the following methods to change your replication settings.
 
-### Change the replication setting using the portal, PowerShell, or the CLI
+### Change the redundancy configuration using Azure portal, PowerShell, or Azure CLI
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account.
 
@@ -160,41 +163,72 @@ During a conversion, there's [no data loss or application downtime required](#do
 There are two ways to initiate a conversion:
 
 - [Customer-initiated](#customer-initiated-conversion)
-- [Support-requested](#support-requested-conversion)
+- [Support-initiated](#support-initiated-conversion)
 
 > [!TIP]
-> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the progress of the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
+> Microsoft recommends using a customer-initiated conversion instead of support-initiated conversion whenever possible. A customer-initiated conversion allows you to initiate the conversion and monitor its progress directly from within the Azure portal. Because the conversion is initiated by the customer, there is no need to create and manage a support request.
 
 #### Customer-initiated conversion
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually **begin**, but potential delays related to opening and managing a support request are eliminated.
+Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, see the [region limitations](#region) article.
+
+Customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. After initiation, the conversion could still take up to 72 hours to begin.
 
 > [!IMPORTANT]
-> A customer-initiated conversion could take up to 72 hours to actually **begin** after you initiate it.
+> There is no SLA for completion of a conversion. 
 >
-> There is no SLA for completion of a customer-initiated conversion.
+> If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
 
-Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+# [Portal](#tab/portal)
 
-Customer-initiated conversion isn't available in all regions. For more information, see the [region limitations](#region) article.
+To add or modify a storage account's zonal-redundancy within the Azure portal, perform these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Data management** select **Redundancy**.
+1. Update the **Redundancy** setting.
+1. Select **Save**.
+
+    :::image type="content" source="media/redundancy-migration/change-replication-zone-option-sml.png" alt-text="Screenshot showing how to change the zonal-replication option in portal." lightbox="media/redundancy-migration/change-replication-zone-option.png":::
+
+# [PowerShell](#tab/powershell)
+
+To change between locally redundant and zone-redundant storage with PowerShell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
+
+```powershell
+Start-AzStorageAccountMigration
+    -AccountName <String>
+    -ResourceGroupName <String>
+    -TargetSku <String>
+    -AsJob
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To change between locally redundant and zone-redundant storage with Azure CLI, call the [az storage account migration start](/cli/azure/storage/account/migration#az-storage-account-migration-start) command and specify the `--sku` parameter:
+
+```azurecli-interactive
+az storage account migration start  \
+    -- account-name <string> \
+    -- g <string> \
+    --sku <string> \
+    --no-wait
+```
+
+---
 
 ##### Monitoring customer-initiated conversion progress
-
-The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
-
-:::image type="content" source="media/redundancy-migration/change-replication-status-sml.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
 
 As the conversion request is evaluated and processed, the status should progress through the list shown in the following table:
 
 | Status                                         | Explanation                                                                          |
 |------------------------------------------------|--------------------------------------------------------------------------------------|
 | Submitted for conversion                       | The conversion request was successfully submitted for processing.                    |
-| In Progress<sup>1</sup>                        | The actual conversion is in progress.                                                |
+| In Progress<sup>1</sup>                        | The conversion is in progress.                                                |
 | Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion is completed successfully.<br>**- or -**</br>The conversion failed.                 |
 
-<sup>1</sup> Once initiated, the conversion could take up to 72 hours to actually **begin**. If the conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
+<sup>1</sup> Once initiated, the conversion could take up to 72 hours to begin. If the conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
 <sup>2</sup> If the conversion fails, submit a support request to Microsoft to determine the reason for the failure.<br />
 
 > [!NOTE]
@@ -202,7 +236,35 @@ As the conversion request is evaluated and processed, the status should progress
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
-#### Support-requested conversion
+# [Portal](#tab/portal)
+
+The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
+
+:::image type="content" source="media/redundancy-migration/change-replication-status-sml.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
+
+# [PowerShell](#tab/powershell)
+
+To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+
+```powershell
+Get-AzStorageAccountMigration
+   -AccountName <String>
+   -ResourceGroupName <String>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+
+```powershell
+Get-AzStorageAccountMigration
+   -AccountName <String>
+   -ResourceGroupName <String>
+```
+
+---
+
+#### Support-initiated conversion
 
 Customers can still request a conversion by opening a support request with Microsoft.
 
@@ -261,6 +323,9 @@ For more detailed guidance on how to perform a manual migration, see [Move an Az
 
 ## Limitations for changing replication types
 
+> [!IMPORTANT]
+> Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM).
+
 Limitations apply to some replication change scenarios depending on:
 
 - [Region](#region)
@@ -308,9 +373,10 @@ The following table provides an overview of redundancy options available for sto
 | Premium page blob           | &#x2705;     |              |                         |                           |                           |
 | Managed disks<sup>2</sup>   | &#x2705;     | &#x2705;     | &#x2705;                |                           | &#x2705;                  |
 | Standard general purpose v1 | &#x2705;     |              |    <sup>3</sup>         |                           | &#x2705;                  |
-| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |
+| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
-<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion](#customer-initiated-conversion) isn't currently supported.<br />
+
+<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-initiated-conversion); [Customer-initiated conversion](#customer-initiated-conversion) isn't currently supported.<br />
 <sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](../../virtual-machines/disks-redundancy.md#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](../../virtual-machines/disks-convert-types.md). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
@@ -389,7 +455,7 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to actually **begin**. It could take longer to start if you [request a conversion by opening a support request](#support-requested-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
 > There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.

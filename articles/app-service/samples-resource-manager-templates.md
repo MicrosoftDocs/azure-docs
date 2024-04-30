@@ -19,6 +19,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |-|-|
 | [App Service plan and basic Linux app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
 | [App Service plan and basic Windows app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-windows) | Deploys an App Service app that is configured for Windows. |
+| [App Service plan and basic Windows container app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-docs-windows-container) | Deploys an App Service app that is configured for a Windows container. |
 | [App linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-github-deploy)| Deploys an App Service app that pulls code from GitHub. |
 | [App with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-custom-deployment-slots)| Deploys an App Service app with custom deployment slots/environments. |
 | [App with Private Endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/private-endpoint-webapp)| Deploys an App Service app with a Private Endpoint. |

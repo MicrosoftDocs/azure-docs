@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: managed-grafana
 ms.topic: conceptual
 ms.date: 03/23/2023
-ms.custom: concept, ignite-2022, engagement-fy23
+ms.custom: concept, engagement-fy23
 ---
 
 # Encryption in Azure Managed Grafana

@@ -18,7 +18,7 @@ Virtual Machine Scale Sets are created with five fault domains by default in Azu
 You can also consider aligning the number of scale set fault domains with the number of Managed Disks fault domains. This alignment can help prevent loss of quorum if an entire Managed Disks fault domain goes down. The FD count can be set to less than or equal to the number of Managed Disks fault domains available in each of the regions. Refer to this [document](../virtual-machines/availability-set-overview.md) to learn about the number of Managed Disks fault domains by region.
 
 ## REST API
-You can set the property `properties.platformFaultDomainCount` to 1, 2, or 3 (default of 3 if not specified). Refer to the documentation for REST API [here](/rest/api/compute/virtualmachinescalesets/createorupdate).
+You can set the property `properties.platformFaultDomainCount` to 1, 2, or 3 (default of 1 if not specified). Refer to the documentation for REST API [here](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## Azure CLI
 

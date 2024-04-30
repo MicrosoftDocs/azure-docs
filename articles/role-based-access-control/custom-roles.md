@@ -1,13 +1,11 @@
 ---
 title: Azure custom roles - Azure RBAC
 description: Learn how to create Azure custom roles with Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 11/15/2023
+ms.date: 02/22/2024
 ms.author: rolyon
 ---
 
@@ -192,11 +190,14 @@ Before you can delete a custom role, you must remove any role assignments that u
 
 Here are steps to help find the role assignments before deleting a custom role:
 
-- List the [custom role definition](role-definitions-list.md).
+- List the [custom role definition](role-definitions-list.yml).
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
-- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.md).
-- [Remove the role assignments](role-assignments-remove.md) that use the custom role.
+- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.yml).
+- [Remove the role assignments](role-assignments-remove.yml) that use the custom role.
+- If you are using [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
+
+For information about how to find unused custom roles, see [Symptom - No more role definitions can be created](troubleshoot-limits.md#symptom---no-more-role-definitions-can-be-created).
 
 ## Custom role limits
 

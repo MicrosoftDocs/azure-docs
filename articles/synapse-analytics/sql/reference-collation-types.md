@@ -1,16 +1,16 @@
 ---
 title: Collation support
-description: Collation types support for Synapse SQL in Azure Synapse Analytics
+description: Collation types support for Synapse SQL in Azure Synapse Analytics.
 author: filippopovic
-ms.service: synapse-analytics 
-ms.topic: reference
-ms.subservice: sql
-ms.date: 02/15/2023
 ms.author: fipopovi
 ms.reviewer: wiassaf, kecona
+ms.date: 01/30/2024
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: reference
 ---
 
-# Database collation support for Synapse SQL in Azure Synapse Analytics 
+# Database collation support for Synapse SQL in Azure Synapse Analytics
 
 Collations provide the locale, code page, sort order, and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
@@ -27,6 +27,9 @@ You can specify the default serverless SQL pool database collation at creation t
 
 To change the default collation for dedicated SQL pool database, update to the **Collation** field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would change the collation from `SQL_Latin1_General_CP1_CI_AS` to `SQL_Latin1_General_CP1_CS_AS`. 
 
+> [!NOTE]
+> Collation cannot be changed on an existing dedicated SQL pool database. If you need to have a different collation at the dedicated SQL pool level, create a new dedicated SQL pool with the required collation.
+
 To change the default collation for a serverless SQL pool database, you can use ALTER DATABASE statement.
 
 ## Collation support
@@ -37,10 +40,10 @@ The following table shows which collation types are supported by which service.
 |:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
 | Non-UTF-8 Collations                      | Yes                 | Yes                     | Yes                | Yes                |
 | UTF-8                                     | Yes                 | Yes                     | No                 | No                 |
-| Japanese_Bushu_Kakusu_140_*               | Yes                 | Yes                     | No                 | No                 |
-| Japanese_XJIS_140_*                       | Yes                 | Yes                     | No                 | No                 |
-| SQL_EBCDIC1141_CP1_CS_AS                  | No                  | No                      | No                 | No                 |
-| SQL_EBCDIC277_2_CP1_CS_AS                 | No                  | No                      | No                 | No                 |
+| `Japanese_Bushu_Kakusu_140_*`               | Yes                 | Yes                     | No                 | No                 |
+| `Japanese_XJIS_140_*`                       | Yes                 | Yes                     | No                 | No                 |
+| `SQL_EBCDIC1141_CP1_CS_AS`                  | No                  | No                      | No                 | No                 |
+| `SQL_EBCDIC277_2_CP1_CS_AS`                 | No                  | No                      | No                 | No                 |
 
 
 ## Check the current collation
@@ -53,9 +56,21 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 
 When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. For more information, see [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-## Next steps
+## Check supported collation
+
+To check the list of supported collations in your dedicated SQL pool:
+
+```sql
+USE master
+GO
+SELECT * FROM sys.fn_helpcollations();
+```
+
+Run the [sys.fn_helpcollations](/sql/relational-databases/system-functions/sys-fn-helpcollations-transact-sql?view=azure-sqldw-latest&preserve-view=true) function from the `master` database.
+
+## Related content
 
 Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
 
-- [Best practices for dedicated SQL pool](./best-practices-dedicated-sql-pool.md)
-- [Best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md)
+- [Best practices for dedicated SQL pools in Azure Synapse Analytics](best-practices-dedicated-sql-pool.md)
+- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)

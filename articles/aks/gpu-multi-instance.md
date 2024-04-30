@@ -4,6 +4,7 @@ description: Learn how to create a multi-instance GPU node pool in Azure Kuberne
 ms.topic: article
 ms.date: 08/30/2023
 ms.author: juda
+ms.subservice: aks-nodes
 ---
 
 # Create a multi-instance GPU node pool in Azure Kubernetes Service (AKS)
@@ -120,7 +121,7 @@ Before you install the Nvidia plugins, you need to specify which multi-instance 
 
     ```azurecli-interactive
     helm install \
-    --version=0.7.0 \
+    --version=0.14.0 \
     --generate-name \
     --set migStrategy=${MIG_STRATEGY} \
     nvdp/nvidia-device-plugin

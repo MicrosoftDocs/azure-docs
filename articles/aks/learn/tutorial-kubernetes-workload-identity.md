@@ -2,7 +2,7 @@
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ms.date: 05/24/2023
 ---
 
@@ -56,9 +56,9 @@ The following example creates a resource group named *myResourceGroup* in the *e
     }
     ```
 
-## Export environmental variables
+## Export environment variables
 
-To help simplify steps to configure the identities required, the steps below define environmental variables for reference on the cluster.
+To help simplify steps to configure the identities required, the steps below define environment variables for reference on the cluster.
 
 * Create these variables using the following commands. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.
 

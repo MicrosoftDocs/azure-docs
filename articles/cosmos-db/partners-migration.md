@@ -7,7 +7,6 @@ ms.reviewer: mjbrown
 ms.date: 07/20/2023
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.custom: ignite-2022
 ---
 
 # Azure Cosmos DB NoSQL migration and application development partners

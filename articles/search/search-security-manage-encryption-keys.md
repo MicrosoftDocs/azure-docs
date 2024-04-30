@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/20/2024
+ms.date: 04/03/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -22,7 +22,7 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption is enacted on individual objects. If you require CMK across your search service, [set an enforcement policy](#encryption-enforcement-policy).
 
-+ CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
++ CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys. Azure Key Vault must be in the same subscription and tenant as Azure AI Search. Azure AI Search retrieves your managed key by connecting through a system or user-managed identity. This behavior requires both services to share the same tenant.
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
 
@@ -69,10 +69,10 @@ The following tools and services are used in this scenario.
 
 + [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-You should have a search client that can create the encrypted object. Into this code, you reference a key vault key and Active Directory registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
+You should have a search client that can create the encrypted object. Into this code, you reference a key vault key and application registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> You can use [Postman](search-get-started-rest.md) or [Azure PowerShell](search-get-started-powershell.md) to call REST APIs that create indexes and synonym maps that include an encryption key parameter. You can also use Azure SDKs. Portal support for adding a key to indexes or synonym maps isn't supported.
+> You can use a [REST client](search-get-started-rest.md) or [Azure PowerShell](search-get-started-powershell.md) to create indexes and synonym maps that include an encryption key parameter. You can also use Azure SDKs. Portal support for adding a key to indexes or synonym maps isn't supported.
 
 ## Key Vault tips
 
@@ -170,7 +170,7 @@ A managed identity enables your search service to authenticate to Azure Key Vaul
 
 Conditions that prevent you from adopting this approach include:
 
-+ You can't directly grant your search service access permissions to the key vault (for example, if the search service is in a different Active Directory tenant than the Azure Key Vault).
++ You can't directly grant your search service access permissions to the key vault (for example, if the search service is in a different Microsoft Entra ID tenant than the Azure Key Vault).
 
 + A single search service is required to host multiple encrypted indexes or synonym maps, each using a different key from a different key vault, where each key vault must use **a different identity** for authentication. Because a search service can only have one managed identity, a requirement for multiple identities rules out the simplified approach for your scenario.  
 
@@ -223,7 +223,7 @@ Conditions that prevent you from adopting this approach include:
     } 
     ```
 
-1. Use a simplified construction of the "encryptionKey" that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-01-preview REST API version.
+1. Update the `"encryptionKey"` section to use an identity property. Make sure to use the 2021-04-01-preview REST API version when sending this request to your search service.
 
     ```json
     {
@@ -265,7 +265,7 @@ Conditions that prevent you from adopting this approach include:
 
 ## 4 - Grant permissions
 
-In this step, you create an access policy in Key Vault. This policy gives the application you registered with Active Directory permission to use your customer-managed key.
+In this step, you create an access policy in Key Vault. This policy gives the application you registered with Microsoft Entra ID permission to use your customer-managed key.
 
 Access permissions could be revoked at any given time. Once revoked, any search service index or synonym map that uses that key vault become unusable. Restoring key vault access permissions at a later time restores index and synonym map access. For more information, see [Secure access to a key vault](../key-vault/general/security-features.md).
 

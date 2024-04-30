@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2, moe-wsvnet
-ms.date: 09/27/2023
+ms.date: 02/29/2024
 ---
 
 # Network isolation with managed online endpoints
@@ -108,6 +108,10 @@ To learn more about configurations for the workspace managed virtual network, se
 
 ## Scenarios for network isolation configuration
 
+Your Azure Machine Learning workspace and managed online endpoint each have a `public_network_access` flag that you can use to configure their inbound communication. On the other hand, outbound communication from a deployment depends on the workspace's managed virtual network.
+
+#### Communication with the managed online endpoint
+
 Suppose a managed online endpoint has a deployment that uses an AI model, and you want to use an app to send scoring requests to the endpoint. You can decide what network isolation configuration to use for the managed online endpoint as follows:
 
 **For inbound communication**:
@@ -123,6 +127,19 @@ Suppose your deployment needs to access private Azure resources (such as the Azu
 However, if you want your deployment to access the internet, you can use the workspace's managed virtual network with the **allow internet outbound** isolation mode. Apart from being able to access the internet, you'll be able to use the private endpoints of the managed virtual network to access private Azure resources that you need.
 
 Finally, if your deployment doesn't need to access private Azure resources and you don't need to control access to the internet, then you don't need to use a workspace managed virtual network.
+
+#### Inbound communication to the Azure Machine Learning workspace
+
+You can use the `public_network_access` flag of your Azure Machine Learning workspace to enable or disable inbound workspace access. 
+Typically, if you secure inbound communication to your workspace (by disabling the workspace's `public_network_access` flag) you also want to secure inbound communication to your managed online endpoint.
+
+The following chart shows a typical workflow for securing inbound communication to your Azure Machine Learning workspace and your managed online endpoint. For best security, we recommend that you disable the `public_network_access` flags for the workspace and the managed online endpoint to ensure that both can't be accessed via the public internet. If the workspace doesn't have a private endpoint, you can create one, making sure to include proper DNS resolution. You can then access the managed online endpoint by using the workspace's private endpoint.
+
+:::image type="content" source="media/concept-secure-online-endpoint/network-isolation-flowchart.png" alt-text="A screenshot showing a typical workflow for securing inbound communication to your workspace and managed online endpoint." lightbox="media/concept-secure-online-endpoint/network-isolation-flowchart.png":::
+
+[!INCLUDE [machine-learning-add-dns-records](includes/machine-learning-add-dns-records.md)]
+
+For more information on DNS resolution for your workspace and private endpoint, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md).
 
 ## Appendix
 

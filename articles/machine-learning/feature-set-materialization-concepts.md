@@ -9,7 +9,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 12/06/2023
-ms.custom: template-concept, update-code
+ms.custom: template-concept, update-code2
 ---
 
 # Feature set materialization concepts

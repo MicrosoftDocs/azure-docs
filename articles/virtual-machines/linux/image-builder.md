@@ -135,8 +135,10 @@ az sig image-definition create \
    --gallery-image-definition $imageDefName \
    --publisher myIbPublisher \
    --offer myOffer \
-   --sku 18.04-LTS \
-   --os-type Linux
+   --sku 20_04-lts-gen2 \
+   --os-type Linux \
+   --hyper-v-generation V2 \
+   --features SecurityType=TrustedLaunchSupported
 ```
 
 ## Download and configure the JSON file
@@ -193,6 +195,7 @@ az vm create \
   --admin-username aibuser \
   --location $location \
   --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
+  --security-type TrustedLaunch \
   --generate-ssh-keys
 ```
 

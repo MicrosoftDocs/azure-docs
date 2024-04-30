@@ -163,7 +163,7 @@ To first identify the full resource ID of your Log Analytics workspace that's re
             }
          }
       ]
-   }
+    }
     ```
 
 1. Save this file as **containerSolution.json** to a local folder.

@@ -7,7 +7,7 @@ ms.author: duau
 ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/02/2024
-#customer intent: As a network engineer, I want to establish a private connection from my on-premises network to my Azure virtual network using ExpressRoute.
+# Customer intent: As a network engineer, I want to establish a private connection from my on-premises network to my Azure virtual network using ExpressRoute.
 ---
 
 # Tutorial: Establish a private connection from on-premises to an Azure virtual network using ExpressRoute

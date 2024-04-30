@@ -2,15 +2,8 @@
 title: Linux NFS read-ahead best practices for Azure NetApp Files - Session slots and slot table entries | Microsoft Docs
 description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/29/2022
@@ -105,7 +98,7 @@ To persistently set read-ahead for NFS mounts, `udev` rules can be written as fo
 
 1. Create and test `/etc/udev/rules.d/99-nfs.rules`:
 
-    ```config
+   ```config
        SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="<absolute_path>/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"
    ```
 

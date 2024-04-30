@@ -1,16 +1,16 @@
 ---
 title: High-frequency trading using Azure Stream Analytics
-description: How to perform linear regression model training and scoring in an Azure Stream Analytics job. 
-author: enkrumah
-ms.author: ebnkruma
+description: How to perform linear regression model training and scoring in an Azure Stream Analytics job.
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2021
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # High-frequency trading simulation with Stream Analytics
-The combination of SQL language and JavaScript user-defined functions (UDFs) and user-defined aggregates (UDAs) in Azure Stream Analytics enables users to perform advanced analytics. Advanced analytics might include online machine learning training and scoring, as well as stateful process simulation. This article describes how to perform linear regression in an Azure Stream Analytics job that does continuous training and scoring in a high-frequency trading scenario.
+The combination of SQL language and JavaScript user-defined functions (UDFs) and user-defined aggregates (UDAs) in Azure Stream Analytics enables users to perform advanced analytics. Advanced analytics might include online machine learning training and scoring, and stateful process simulation. This article describes how to perform linear regression in an Azure Stream Analytics job that does continuous training and scoring in a high-frequency trading scenario.
 
 ## High-frequency trading
 The logical flow of high-frequency trading is about:
@@ -24,7 +24,7 @@ As a result, we need:
 * A trading simulation that demonstrates the profit or loss of the trading algorithm.
 
 ### Real-time quote feed
-IEX offers free [real-time bid and ask quotes](https://iextrading.com/developer/docs/#websockets) by using socket.io. A simple console program can be written to receive real-time quotes and push to Azure Event Hubs as a data source. The following code is a skeleton of the program. The code omits error handling for brevity. You also need to include SocketIoClientDotNet and WindowsAzure.ServiceBus NuGet packages in your project.
+Investors Exchange (IEX) offers free [real-time bid and ask quotes](https://iextrading.com/developer/docs/#websockets) by using socket.io. A simple console program can be written to receive real-time quotes and push to Azure Event Hubs as a data source. The following code is a skeleton of the program. The code omits error handling for brevity. You also need to include SocketIoClientDotNet and WindowsAzure.ServiceBus NuGet packages in your project.
 
 ```csharp
 using Quobject.SocketIoClientDotNet.Client;
@@ -58,9 +58,9 @@ Here are some generated sample events:
 >The time stamp of the event is **lastUpdated**, in epoch time.
 
 ### Predictive model for high-frequency trading
-For the purpose of demonstration, we use a linear model described by Darryl Shen in [his paper](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
+For this demonstration, we use a linear model described in [this paper](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
-Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained by using previous day's data with linear regression. 
+Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past five VOI values and the price change in the next 10 ticks. The model is trained by using previous day's data with linear regression. 
 
 The trained model is then used to make price change predictions on quotes in the current trading day in real time. When a large enough price change is predicted, a trade is executed. Depending on the threshold setting, thousands of trades can be expected for a single stock during a trading day.
 
@@ -68,7 +68,7 @@ The trained model is then used to make price change predictions on quotes in the
 
 Now, let's express the training and prediction operations in an Azure Stream Analytics job.
 
-First, the inputs are cleaned up. Epoch time is converted to datetime via **DATEADD**. **TRY_CAST** is used to coerce data types without failing the query. It's always a good practice to cast input fields to the expected data types, so there is no unexpected behavior in manipulation or comparison of the fields.
+First, the inputs are cleaned up. Epoch time is converted to datetime via **DATEADD**. **TRY_CAST** is used to coerce data types without failing the query. It's always a good practice to cast input fields to the expected data types, so there's no unexpected behavior in manipulation or comparison of the fields.
 
 ```SQL
 WITH
@@ -321,7 +321,7 @@ tradeSignal AS (
 ### Trading simulation
 After we have the trading signals, we want to test how effective the trading strategy is, without trading for real. 
 
-We achieve this test by using a UDA, with a hopping window, hopping every one minute. The additional grouping on date and the having clause allow the window only accounts for events that belong to the same day. For a hopping window across two days, the **GROUP BY** date separates the grouping into previous day and current day. The **HAVING** clause filters out the windows that are ending on the current day but grouping on the previous day.
+We achieve this test by using a UDA, with a hopping window, hopping every one minute. The grouping on date and the having clause allow the window only accounts for events that belong to the same day. For a hopping window across two days, the **GROUP BY** date separates the grouping into previous day and current day. The **HAVING** clause filters out the windows that are ending on the current day but grouping on the previous day.
 
 ```SQL
 simulation AS
@@ -340,11 +340,11 @@ simulation AS
 
 The JavaScript UDA initializes all accumulators in the `init` function, computes the state transition with every event added to the window, and returns the simulation results at the end of the window. The general trading process is to:
 
-- Buy stock when a buy signal is received and there is no stocking holding.
-- Sell stock when a sell signal is received and there is stock holding.
-- Short if there is no stock holding. 
+- Buy stock when a buy signal is received and there's no stocking holding.
+- Sell stock when a sell signal is received and there's stock holding.
+- Short if there's no stock holding. 
 
-If there's a short position, and a buy signal is received, we buy to cover. We hold or short 10 shares of a stock in this simulation. The transaction cost is a flat $8.
+If there's a short position, and a buy signal is received, we buy to cover. We hold or short 10 shares of a stock in this simulation. The transaction cost is a flat `$8`.
 
 ```javascript
 function main() {
@@ -454,6 +454,6 @@ We can implement a realistic high-frequency trading model with a moderately comp
 
 It's worth noting that most of the query, other than the JavaScript UDA, can be tested and debugged in Visual Studio through [Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md). After the initial query was written, the author spent less than 30 minutes testing and debugging the query in Visual Studio. 
 
-Currently, the UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, note that the fields reaching the UDA have lowercase names. This was not an obvious behavior during query testing. But with Azure Stream Analytics compatibility level 1.1, we preserve the field name casing so the behavior is more natural.
+Currently, the UDA can't be debugged in Visual Studio. We're working on enabling that with the ability to step through JavaScript code. In addition, the fields reaching the UDA have lowercase names. It wasn't an obvious behavior during query testing. But with Azure Stream Analytics compatibility level 1.1, we preserve the field name casing so the behavior is more natural.
 
 I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Let us know any feedback you have to make it easier to implement queries for advanced analytics scenarios.

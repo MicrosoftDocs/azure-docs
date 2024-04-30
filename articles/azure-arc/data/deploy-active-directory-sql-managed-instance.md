@@ -1,6 +1,6 @@
 ---
-title: Deploy Active Directory-integrated SQL Server Managed Instance enabled by Azure Arc
-description: Learn how to deploy SQL Server Managed Instance enabled by Azure Arc with Active Directory authentication.
+title: Deploy Active Directory-integrated SQL Managed Instance enabled by Azure Arc
+description: Learn how to deploy SQL Managed Instance enabled by Azure Arc with Active Directory authentication.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,7 +11,7 @@ ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Deploy Active Directory-integrated SQL Server Managed Instance enabled by Azure Arc
+# Deploy Active Directory-integrated SQL Managed Instance enabled by Azure Arc
 
 In this article, learn how to deploy Azure Arc-enabled Azure SQL Managed Instance with Active Directory authentication.
 

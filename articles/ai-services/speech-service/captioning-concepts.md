@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: conceptual
-ms.date: 1/18/2024
+ms.date: 2/16/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---

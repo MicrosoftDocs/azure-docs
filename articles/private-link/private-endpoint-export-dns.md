@@ -2,8 +2,8 @@
 title: Export DNS records for a private endpoint - Azure portal
 titleSuffix: Azure Private Link
 description: In this tutorial, learn how to export DNS records for a private endpoint in the Azure portal. 
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 07/25/2021

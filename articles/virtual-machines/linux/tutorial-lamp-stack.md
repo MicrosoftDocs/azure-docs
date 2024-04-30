@@ -4,7 +4,6 @@ description: In this tutorial, you learn how to install the LAMP stack, and Word
 author: ju-shim
 ms.collection: linux
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.devlang: azurecli
 ms.custom: linux-related-content
 ms.topic: tutorial

@@ -126,13 +126,13 @@ The following steps are the sequential events that take place during the Hive Re
 
 Incremental replication follows the same process, and it requires the last replicated event ID as input. This leads to an incremental copy since the last replication event. Incremental replications are normally automated with a pre-determined frequency to achieve required recovery point objectives (RPO).
 
-:::image type="content" source="media/apache-hive-replication/hive-replication-diagram.png" alt-text="Hive replication diagram":::
+:::image type="content" source="media/apache-hive-replication/hive-replication-diagram.png" alt-text="Hive replication diagram.":::
 
 ## Replication patterns  
 
 Replication is normally configured in a unidirectional way between the primary and secondary, where the primary caters to read and write requests. The secondary cluster caters to read requests only. Writes are allowed on the secondary if there is a disaster, but reverse replication needs to be configured back to the primary.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive replication pattern":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive replication pattern.":::
 
 There are many patterns suitable for Hive replication including Primary – Secondary, Hub and Spoke, and Relay.
 

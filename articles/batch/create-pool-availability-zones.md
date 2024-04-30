@@ -4,7 +4,7 @@ description: Learn how to create a Batch pool with zonal policy to help protect 
 ms.topic: how-to
 ms.date: 05/25/2023
 ms.devlang: csharp
-ms.custom: linux-related-content
+ms.custom:
 ---
 
 # Create an Azure Batch pool across Availability Zones

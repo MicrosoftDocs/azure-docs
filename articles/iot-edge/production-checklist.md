@@ -303,6 +303,7 @@ The following table describes image garbage collection parameters. All parameter
   * Review outbound/inbound configuration
   * Allow connections from IoT Edge devices
   * Configure communication through a proxy
+  * Set DNS server in container engine settings
 
 ### Review outbound/inbound configuration
 
@@ -361,6 +362,19 @@ The [IoT Identity Service](https://azure.github.io/iot-identity-service/) provid
 ### Configure communication through a proxy
 
 If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+
+### Set DNS server in container engine settings
+
+Specify the DNS server for your environment in the container engine settings. The DNS server setting applies to all container modules started by the engine.
+
+1. In the `/etc/docker` directory on your device, edit the `daemon.json` file. Create the file if it doesn't exists. 
+1. Add the **dns** key and set the DNS server address to a publicly accessible DNS service. If your edge device can't access a public DNS server, use an accessible DNS server address in your network. For example:
+
+    ```json
+    {
+        "dns": ["1.1.1.1"]
+    }
+    ```
 
 ## Solution management
 

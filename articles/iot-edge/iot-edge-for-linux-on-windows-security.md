@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Edge for Linux on Windows security | Microsoft Docs 
 description: Security framework - Azure IoT Edge for Linux on Windows 
-keywords: 
 author: PatAltimore
 ms.author: fcabrera
 ms.date: 08/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 

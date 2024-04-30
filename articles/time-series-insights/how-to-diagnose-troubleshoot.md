@@ -5,12 +5,9 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.custom: seodec18
 ---
 
 # Diagnose and troubleshoot an Azure Time Series Insights Gen2 environment

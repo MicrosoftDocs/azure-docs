@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/27/2023
-ms.custom: seo-nov-2020, cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Request Units in Azure Cosmos DB

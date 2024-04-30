@@ -1,11 +1,10 @@
 ---
 title: Migrate data from Cassandra to Azure Cosmos DB for Apache Cassandra using Arcion
-description: Learn how to migrate data from Apache Cassandra database to Azure Cosmos DB for Apache Cassandra using Arcion. 
+description: Learn how to migrate data from Apache Cassandra database to Azure Cosmos DB for Apache Cassandra using Arcion.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.reviewer: mjbrown

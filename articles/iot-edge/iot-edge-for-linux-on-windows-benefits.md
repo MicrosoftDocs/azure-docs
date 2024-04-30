@@ -1,12 +1,12 @@
 ---
 title: Why use Azure IoT Edge for Linux on Windows? | Microsoft Docs 
 description: Benefits - Azure IoT Edge for Linux on Windows 
-keywords: 
 author: PatAltimore
 ms.author: fcabrera
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 

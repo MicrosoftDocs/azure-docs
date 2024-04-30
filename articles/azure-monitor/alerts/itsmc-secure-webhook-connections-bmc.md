@@ -6,7 +6,6 @@ ms.date: 06/19/2023
 ms.reviewer: nolavime
 author: AbbyMSFT
 ms.author: abbyweisberg
-
 ---
 
 # Connect BMC Helix to Azure Monitor

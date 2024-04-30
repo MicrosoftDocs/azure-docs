@@ -1,5 +1,5 @@
 ---
-title: Migrate one-to-few relational data 
+title: Migrate one-to-few relational data
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to perform a complex data migration for one-to-few relationships from a relational database into Azure Cosmos DB for NoSQL.
 ms.author: thvankra
@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.devlang: python
 # ms.devlang: python, scala
 ms.date: 02/27/2023
-ms.custom: ignite-2022
 ---
 
 # Migrate one-to-few relational data into an Azure Cosmos DB for NoSQL account

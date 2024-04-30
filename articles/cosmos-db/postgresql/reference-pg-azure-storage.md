@@ -52,7 +52,7 @@ Azure blob storage (ABS) account contains all of your ABS objects: blobs, files,
 The function allows adding access for a role to a storage account.
 
 ```postgresql
-azure_storage.account_add
+azure_storage.account_user_add
         ( account_name_p text
         , user_p regrole);
 ```
@@ -71,7 +71,7 @@ Role created by user visible on the cluster.
 The function allows removing access for a role to a storage account.
 
 ```postgresql
-azure_storage.account_remove
+azure_storage.account_user_remove
         (account_name_p text
         ,user_p regrole);
 ```

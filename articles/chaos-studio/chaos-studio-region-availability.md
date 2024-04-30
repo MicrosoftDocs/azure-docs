@@ -2,7 +2,8 @@
 title: Regional availability of Azure Chaos Studio
 description: Understand how Azure Chaos Studio makes chaos experiments and chaos targets available in Azure regions.
 author: prasha-microsoft 
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 4/29/2022
@@ -41,7 +42,7 @@ Any target or capability metadata is deleted when a target is deleted.
 
 ## High availability with Chaos Studio
 
-Chaos Studio is a regional, zone-redundant service (in regions that support availability zones). If there's an availability zone outage, any chaos operation might fail, but experiment metadata, history, and details should remain available and the service shouldn't see a full outage.
+For information on high availability with Chaos Studio, see [Reliability in Chaos Studio](../reliability/reliability-chaos-studio.md).
 
 ## Data Residency
 Azure Chaos Studio doesn't store customer data outside the region the customer deploys the service instance in.

@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 4/13/2023
+ms.date: 1/25/2024
 ---
 
 # How to optimize costs in Azure Database for PostgreSQL - Flexible Server

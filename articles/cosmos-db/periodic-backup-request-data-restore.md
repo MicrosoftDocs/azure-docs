@@ -8,7 +8,6 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/21/2023
-ms.custom: ignite-2022
 ---
 
 # Request data restoration from an Azure Cosmos DB backup

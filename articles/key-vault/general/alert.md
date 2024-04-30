@@ -3,12 +3,11 @@ title: Configure Azure Key Vault alerts
 description: Learn how to create alerts to monitor the health of your key vault.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 01/30/2024
 ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults.
 ---
@@ -80,10 +79,14 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows how you can select a vault.](../media/alert-12.png)
 
-4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds: 
+4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs: 
 
     + Key Vault availability drops below 100 percent (static threshold)
-    + Key Vault latency is greater than 1000 ms (static threshold) 
+    > [!IMPORTANT]
+    > This alert currently incorrectly includes long-running operations and reports them as the service being unavailable. You can monitor Key Vault logs to see if operations are failing due to the service being unavailable instead
+    + Key Vault latency is greater than 1000 ms (static threshold)
+    > [!NOTE]
+    > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
     + Overall vault saturation is greater than 75 percent (static threshold) 
     + Overall vault saturation exceeds average (dynamic threshold)
     + Total error codes are higher than average (dynamic threshold) 
@@ -156,9 +159,55 @@ If you followed all of the preceding steps, you'll receive email alerts when you
 > [!div class="mx-imgBorder"]
 > ![Screenshot that highlights the information needed to configure an email alert.](../media/alert-20.png)
 
+
+### Example: Log query alert for near expiry certificates
+
+You can set an alert to notify you about certificates which are about to expire. 
+> [!NOTE]
+> Near expiry events for certificates are logged 30 days before expiration.
+
+1. Go to **Logs** and paste below query in query window
+ 
+   ```json
+   AzureDiagnostics
+   | where OperationName =~ 'CertificateNearExpiryEventGridNotification'
+   | extend CertExpire = unixtime_seconds_todatetime(eventGridEventProperties_data_EXP_d)
+   | extend DaysTillExpire = datetime_diff("Day", CertExpire, now())
+   | project ResourceId, CertName = eventGridEventProperties_subject_s, DaysTillExpire, CertExpire
+
+1. Select **New alert rule**
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot that shows query window with selected new alert rule.](../media/alert-21.png)
+
+1. In **Condition** tab use following configuration:
+    + In **Measurement** set **Aggregation granularity** to **1 day**
+    + In **Split by dimensions** set **Resource ID column** to **ResourceId**. 
+    + Set **CertName** and **DayTillExpire** as dimensions.
+    + In **Alert logic** set **Threshold value** to **0** and **Frequency of evaluation** to **1 day**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot that shows alert condition configuration.](../media/alert-22.png)
+   
+1. In **Actions** tab configure alert to send an email
+    1. Select **create action group** 
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to create action group.](../media/alert-23.png)
+    1. Configure **Create action group** 
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure action group.](../media/alert-24.png)
+    1. Configure **Notifications** to send an email
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure notification.](../media/alert-25.png)
+    1. Configure **Details** to trigger **Warning** alert
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure notification details.](../media/alert-26.png)
+    1. Select **Review + create**
+    
 ## Next steps
 
 Use the tools that you set up in this article to actively monitor the health of your key vault:
 
 - [Monitor Key Vault](monitor-key-vault.md)
 - [Monitoring Key Vault data reference](monitor-key-vault-reference.md)
+- [Create a log query alert for an Azure resource](../../azure-monitor//alerts/tutorial-log-alert.md)

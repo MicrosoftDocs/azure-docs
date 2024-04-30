@@ -3,7 +3,6 @@ title: Past due balance email from Azure
 description: Describes how to make payment if your Azure subscription has a past due balance.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
@@ -90,7 +89,7 @@ If your financial institution declines your credit card charge, contact your fin
 
 ## Not getting billing email notifications?
 
-If you're the Account Administrator, [check what email address is used for notifications](change-azure-account-profile.md). We recommend that you use an email address that you check regularly. If the email is right, check your spam folder.
+If you're the Account Administrator, [check what email address is used for notifications](change-azure-account-profile.yml). We recommend that you use an email address that you check regularly. If the email is right, check your spam folder.
 
 ## If I forget to pay, what happens?
 

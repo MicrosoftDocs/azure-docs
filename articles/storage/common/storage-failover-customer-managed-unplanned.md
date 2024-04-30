@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 04/29/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
-ms.custom: 
 ---
 
 <!--

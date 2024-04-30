@@ -56,6 +56,12 @@ To increase rate limits and resource limits, you can submit a support request. H
     - How much resources limit do you want to increase? 
     - How many Face resources do you currently have? Did you attempt to integrate your application with fewer Face resources? 
 
+We evaluate TPS increase requests on a case-by-case basis, and our decision is based on the following criteria:
+- Region capacity/availability.
+- Certain scenarios require approval through the gating process.
+- You must currently be receiving `429` errors often.
+
+
 ## Other limits
 
 **Quota of PersonDirectory**

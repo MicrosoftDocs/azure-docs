@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 03/17/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.custom: 
 ---
 
 # Create virtual machines in an availability zone using the Azure portal

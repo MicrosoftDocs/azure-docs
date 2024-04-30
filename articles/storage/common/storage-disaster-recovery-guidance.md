@@ -197,7 +197,11 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 
 The following features and services aren't supported for account failover:
 
+<<<<<<< HEAD
 - Azure File Sync doesn't support storage account failover. Storage accounts containing Azure file shares and being used as cloud endpoints in Azure File Sync shouldn't be failed over. Doing so causes sync to stop working and can also result in the unexpected data loss of any newly tiered files.
+=======
+- Azure File Sync doesn't support customer initiated storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync shouldn't be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. For more information, see [Best practices for disaster recovery with Azure File Sync](../file-sync/file-sync-disaster-recovery-best-practices.md#geo-redundancy) for details.
+>>>>>>> b0251d6c901d3996167ff0157be8b302a49725a1
 - A storage account containing premium block blobs can't be failed over. Storage accounts that support premium block blobs don't currently support geo-redundancy.
 - Customer-managed failover isn't supported for either the source or the destination account in an [object replication policy](../blobs/object-replication-overview.md).
 - An account with SSH File Transfer Protocol (SFTP) enabled can't be failed over. To fail over an SFTP-enabled account, you must first [disable SFTP for the account](../blobs/secure-file-transfer-protocol-support-how-to.md#disable-sftp-support). You can [re-enable sftp](../blobs/secure-file-transfer-protocol-support-how-to.md#enable-sftp-support) if you want to resume using it after the failover is complete.

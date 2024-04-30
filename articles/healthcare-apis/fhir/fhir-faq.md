@@ -1,4 +1,4 @@
---- 
+---
 title: FAQ about FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
@@ -37,7 +37,7 @@ We support Microsoft Entra ID as the identity provider.
 
 ### Can I use Azure AD B2C with the FHIR service?
 
-No, we don't support B2C in the FHIR service. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
+Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md).
 
 ### What FHIR version do you support?
 
@@ -55,8 +55,6 @@ Azure API for FHIR was our initial generally available product and is being reti
 
 By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4TB.
 To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
-> [!NOTE]
-> Due to issue in billing metrics for storage. Customers opting for more than 4TB storage capacity will not be billed for storage till the issue is addressed.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 

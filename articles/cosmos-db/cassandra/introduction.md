@@ -9,7 +9,6 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: overview
 ms.date: 02/28/2023
-ms.custom: ignite-2022
 ---
 
 # What is Azure Cosmos DB for Apache Cassandra?

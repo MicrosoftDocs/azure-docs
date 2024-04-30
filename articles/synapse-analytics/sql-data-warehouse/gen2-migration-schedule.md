@@ -9,7 +9,6 @@ ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: article
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 # Upgrade your dedicated SQL pool (formerly SQL DW) to Gen2

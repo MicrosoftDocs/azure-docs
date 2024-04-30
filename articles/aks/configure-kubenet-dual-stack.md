@@ -7,7 +7,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 12/07/2023
-ms.custom: devx-track-azurecli, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, build-2023
 ---
 
 # Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
@@ -298,10 +298,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 ## Expose the workload via a `LoadBalancer` type service
 
 > [!IMPORTANT]
-> There are currently **two limitations** pertaining to IPv6 services in AKS.
->
-> 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
-> 2. Starting from AKS v1.27, you can directly create a dualstack service. However, for older versions, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
+> Starting in AKS v1.27, you can create a dual-stack LoadBalancer service which will be provisioned with 1 IPv4 public IP and 1 IPv6 public IP. However, in older versions, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
 
 # [kubectl](#tab/kubectl)
 
@@ -542,3 +539,4 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

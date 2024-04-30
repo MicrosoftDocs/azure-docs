@@ -1,13 +1,14 @@
 ---
-title: Create and provision IoT Edge devices at scale using X.509 certificates on Linux - Azure IoT Edge | Microsoft Docs 
+title: Create IoT Edge devices at scale using X.509 certificates on Linux
+titleSuffix: Azure IoT Edge
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/17/2022
-ms.topic: conceptual
+ms.date: 02/27/2024
+ms.topic: how-to
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
-ms.custom: contperf-fy21q2
 ---
 
 # Create and provision IoT Edge devices at scale on Linux using X.509 certificates
@@ -59,7 +60,7 @@ To create test certificates, follow the steps in [Create demo certificates to te
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
-You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
+You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
 <!-- Create a DPS enrollment using X.509 certificates H2 and content -->
 [!INCLUDE [iot-edge-create-dps-enrollment-x509.md](includes/iot-edge-create-dps-enrollment-x509.md)]
@@ -77,17 +78,35 @@ Have the following information ready:
 * The device identity certificate chain file on the device.
 * The device identity key file on the device.
 
-1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
-   ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   ```
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Open the configuration file on the IoT Edge device.
+```bash
+sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+```
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
-   ```
+Open the configuration file on the IoT Edge device.
+
+```bash
+sudo nano /etc/aziot/config.toml
+```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+If using a snap installation of IoT Edge, the template file is located at `/snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
+
+```bash
+cp /snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template ~/config.toml
+```
+
+Open the configuration file in your home directory on the IoT Edge device.
+
+```bash
+nano ~/config.toml
+```
+
+---
 
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
 
@@ -114,7 +133,7 @@ Have the following information ready:
 
 1. Update the value of `id_scope` with the scope ID you copied from your instance of DPS.
 
-1. Provide a `registration_id` for the device, which is the ID that the device will have in IoT Hub. The registration ID must match the common name (CN) of the identity certificate.
+1. Provide a `registration_id` for the device, which is the ID that the device has in IoT Hub. The registration ID must match the common name (CN) of the identity certificate.
 
 1. Update the values of `identity_cert` and `identity_pk` with your certificate and key information.
 
@@ -124,17 +143,30 @@ Have the following information ready:
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
-1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+   For more information about certificates, see [Manage IoT Edge certificates](how-to-manage-device-certificates.md).
 
-1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+   For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
+
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemons to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file is [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
 1. Save and close the file.
 
-1. Apply the configuration changes that you made to IoT Edge.
+Apply the configuration changes that you made to IoT Edge.
 
-   ```bash
-   sudo iotedge config apply
-   ```
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+```bash
+sudo iotedge config apply
+```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+```bash
+sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+```
+
+---
 
 ## Verify successful installation
 

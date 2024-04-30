@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ A constant, also known as a literal or a scalar value, is a symbol that represen
 
 ## Syntax
 
-```sql
+```nosql
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   

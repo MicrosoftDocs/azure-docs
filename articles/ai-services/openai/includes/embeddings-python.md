@@ -13,7 +13,7 @@ ms.author: mbullwin
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
-* <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+* <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 * The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, pandas, tiktoken.
 * [Jupyter Notebooks](https://jupyter.org/)
 
@@ -23,16 +23,18 @@ ms.author: mbullwin
 
 If you haven't already, you need to install the following libraries:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```cmd
-pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```cmd
+pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken
 ```
 
 ---
@@ -86,13 +88,29 @@ source /etc/environment
 
 ---
 
-After setting the environment variables, you may need to close and reopen Jupyter notebooks or whatever IDE you're using in order for the environment variables to be accessible. While we strongly recommend using Jupyter Notebooks, if for some reason you cannot you'll need to modify any code that is returning a pandas dataframe by using `print(dataframe_name)` rather than just calling the `dataframe_name` directly as is often done at the end of a code block.
+After setting the environment variables, you might need to close and reopen Jupyter notebooks or whatever IDE you're using in order for the environment variables to be accessible. While we strongly recommend using Jupyter Notebooks, if for some reason you can't you'll need to modify any code that is returning a pandas dataframe by using `print(dataframe_name)` rather than just calling the `dataframe_name` directly as is often done at the end of a code block.
 
 Run the following code in your preferred Python IDE:
 
 <!--If you wish to view the Jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb).-->
 
 ## Import libraries
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+import re
+import requests
+import sys
+from num2words import num2words
+import os
+import pandas as pd
+import numpy as np
+import tiktoken
+from openai import AzureOpenAI
+```
+
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -181,21 +199,6 @@ print(r.text)
 ```
 
 The output of this command will vary based on the number and type of models you've deployed. In this case, we need to confirm that we have an entry for **text-embedding-ada-002**. If you find that you're missing this model, you'll need to [deploy the model](../how-to/create-resource.md#deploy-a-model) to your resource before proceeding.
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-import os
-import re
-import requests
-import sys
-from num2words import num2words
-import os
-import pandas as pd
-import numpy as np
-import tiktoken
-from openai import AzureOpenAI
-```
 
 ---
 
@@ -338,22 +341,16 @@ len(decode)
 1466
 ```
 
-Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an [Azure Database to support Vector Search](../../../cosmos-db/mongodb/vcore/vector-search.md). As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
+Now that we understand more about how tokenization works we can move on to embedding. It's important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an [Azure Database to support Vector Search](../../../cosmos-db/mongodb/vcore/vector-search.md). As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
 
-In the example below we are calling the embedding model once per every item that we want to embed. When working with large embedding projects you can alternatively pass the model an array of inputs to embed rather than one input at a time. When you pass the model an array of inputs the max number of input items per call to the embedding endpoint is 2048.
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
-```
+In the example below we're calling the embedding model once per every item that we want to embed. When working with large embedding projects you can alternatively pass the model an array of inputs to embed rather than one input at a time. When you pass the model an array of inputs the max number of input items per call to the embedding endpoint is 2048.
 
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
@@ -361,6 +358,12 @@ def generate_embeddings(text, model="text-embedding-ada-002"): # model = "deploy
     return client.embeddings.create(input = [text], model=model).data[0].embedding
 
 df_bills['ada_v2'] = df_bills["text"].apply(lambda x : generate_embeddings (x, model = 'text-embedding-ada-002')) # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
 ```
 
 ---
@@ -375,14 +378,19 @@ df_bills
 
 As we run the search code block below, we'll embed the search query *"Can I get information on cable company tax revenue?"* with the same **text-embedding-ada-002 (Version 2)** model. Next we'll find the closest bill embedding to the newly embedded text from our query ranked by [cosine similarity](../concepts/understand-embeddings.md).
 
-# [OpenAI Python 0.28.1](#tab/python)
+# [OpenAI Python 1.x](#tab/python-new)
 
 ```python
-# search through the reviews for a specific product
-def search_docs(df, user_query, top_n=3, to_print=True):
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+def get_embedding(text, model="text-embedding-ada-002"): # model = "deployment_name"
+    return client.embeddings.create(input = [text], model=model).data[0].embedding
+
+def search_docs(df, user_query, top_n=4, to_print=True):
     embedding = get_embedding(
         user_query,
-        engine="text-embedding-ada-002" # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+        model="text-embedding-ada-002" # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
     )
     df["similarities"] = df.ada_v2.apply(lambda x: cosine_similarity(x, embedding))
 
@@ -398,19 +406,14 @@ def search_docs(df, user_query, top_n=3, to_print=True):
 res = search_docs(df_bills, "Can I get information on cable company tax revenue?", top_n=4)
 ```
 
-# [OpenAI Python 1.x](#tab/python-new)
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-def cosine_similarity(a, b):
-    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
-
-def get_embedding(text, model="text-embedding-ada-002"): # model = "deployment_name"
-    return client.embeddings.create(input = [text], model=model).data[0].embedding
-
-def search_docs(df, user_query, top_n=4, to_print=True):
+# search through the reviews for a specific product
+def search_docs(df, user_query, top_n=3, to_print=True):
     embedding = get_embedding(
         user_query,
-        model="text-embedding-ada-002" # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+        engine="text-embedding-ada-002" # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
     )
     df["similarities"] = df.ada_v2.apply(lambda x: cosine_similarity(x, embedding))
 

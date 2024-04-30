@@ -1,7 +1,7 @@
 ---
-title: Smart URL refresh - question answering
+title: Smart URL refresh - custom question answering
 titleSuffix: Azure AI services
-description: Use the question answering smart URL refresh feature to keep your project up to date.
+description: Use the custom question answering smart URL refresh feature to keep your project up to date.
 ms.service: azure-ai-language
 author: PatrickFarley
 ms.author: pafarley
@@ -86,5 +86,5 @@ If these two QnA pairs have individual prompts attached to them (for example, Q1
 
 ## Next steps
 
-* [Question answering quickstart](../quickstart/sdk.md?pivots=studio)
+* [Custom question answering quickstart](../quickstart/sdk.md?pivots=studio)
 * [Update Sources API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources)

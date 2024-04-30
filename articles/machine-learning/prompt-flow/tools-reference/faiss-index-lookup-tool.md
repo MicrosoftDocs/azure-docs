@@ -11,17 +11,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 03/21/2024
 ---
 
 # Faiss Index Lookup tool
+
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-based vector store. In combination with our large language model (LLM) tool, it empowers you to extract contextually relevant information from a domain knowledge base.
 
 ## Prerequisites
 
 - Prepare an accessible path on Azure Blob Storage. If a new storage account needs to be created, see [Azure Storage account](../../../storage/common/storage-account-create.md).
-- Create related Faiss-based index files on Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files. You can prepare it by either employing the promptflow-vectordb SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). For steps on building an index by using the promptflow-vectordb SDK, see the [sample notebook for creating a Faiss index](https://aka.ms/pf-sample-build-faiss-index).
+- Create related Faiss-based index files on Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files. You can prepare it by either employing the promptflow-vectordb SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/). For steps on building an index by using the promptflow-vectordb SDK, see the [sample notebook for creating a Faiss index](https://aka.ms/pf-sample-build-faiss-index).
 - Based on where you put your own index files, the identity used by the promptflow runtime should be granted with certain roles. For more information, see [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md).
 
     | Location | Role |

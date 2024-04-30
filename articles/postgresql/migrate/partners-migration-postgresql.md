@@ -67,7 +67,6 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 <!--Datasheet Links-->
 <!--Marketplace Links -->
 [credativ_marketplace]:https://azuremarketplace.microsoft.com/de-de/marketplace/apps?search=credativ&page=1
-[newt_marketplace]:https://azuremarketplace.microsoft.com/en-in/marketplace/apps/newtglobalconsultingllc1581492268566.dmap_db_container_offer?tab=Overview
 [improving_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/prosourcesolutionsllc1594761633057.azure_database_for_postgresql_migration?tab=Overview&filters=country-unitedstates
 [quadrant_marketplace_implementation]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/quadrantresourcellc.quadrant_database_migration_to_oss_implementation?tab=Overview
 [quadrant_marketplace_assessment]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/quadrantresourcellc.qmigrator_db_migration_tool?tab=Overview

@@ -6,7 +6,6 @@ ms.service: api-center
 ms.topic: tutorial
 ms.date: 11/07/2023
 ms.author: danlep 
-ms.custom: 
 ---
 
 # Tutorial: Register APIs in your API inventory
@@ -121,7 +120,7 @@ To add an API definition to your version:
         | **Description** | Optionally enter a description. | Description of the API definition. |
         | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
         | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
-        |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
+        |**Document**        | Browse to a definition file for the Demo Conference API, or enter a URL.      |  API definition file.     |
 
         :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png" :::
 
@@ -131,6 +130,8 @@ In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]    
 > * Register one or more APIs
 > * Add an API version with an API definition
+
+As you build out your API inventory, take advantage of other tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](use-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
 
 ## Next steps
 

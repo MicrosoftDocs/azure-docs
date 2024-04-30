@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: overview
-ms.custom: mvc, event-tier1-build-2022
+ms.custom: mvc
 ms.date: 05/10/2022
 ---
 

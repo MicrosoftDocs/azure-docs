@@ -4,9 +4,9 @@ description: This is a how-to article on managing data partitions using the Micr
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 07/05/2022
-ms.custom: template-how-to, ignite-2022
+ms.custom: template-how-to
 ---
 
 # How to manage data partitions?

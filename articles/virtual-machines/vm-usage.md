@@ -1,15 +1,13 @@
 ---
-title: Understanding Azure virtual machine usage 
+title: Understanding Azure virtual machine usage
 description: Understand virtual machine usage details
 services: virtual-machines
-documentationcenter: ''
 author: mimckitt
 ms.author: mimckitt
 ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
-ms.workload: infrastructure-services
 ms.date: 05/01/2023
 ---
 

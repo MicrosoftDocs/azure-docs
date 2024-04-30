@@ -3,12 +3,12 @@ title: Versioning introduction - Azure HDInsight
 description: Learn how versioning works in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 04/11/2024
 ---
 
 # How versioning works in HDInsight
 
-HDInsight service has two main components: a Resource provider and open-source software (OSS) componentscomponents that are deployed on a cluster. 
+HDInsight service has two main components: a Resource provider and open-source software (OSS) components that are deployed on a cluster. 
 
 ## HDInsight Resource provider
 

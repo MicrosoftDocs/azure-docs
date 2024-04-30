@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service.
 
 In this tutorial, you learn how to:

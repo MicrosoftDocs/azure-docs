@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 06/19/2021
 ms.author: helohr
-manager: femila
 ---
 # Management issues
 

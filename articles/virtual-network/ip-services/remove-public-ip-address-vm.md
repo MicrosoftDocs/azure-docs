@@ -9,7 +9,6 @@ ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 

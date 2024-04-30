@@ -5,7 +5,6 @@ author: videlalvaro
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: alvidela
-ms.custom: contperf-fy22q2
 ---
 
 # How to integrate Service Bus with RabbitMQ

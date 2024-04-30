@@ -1,11 +1,11 @@
 ---
 title: Resource Manager template samples for metric alerts
 description: This article provides sample Resource Manager templates used to create metric alerts in Azure Monitor.
-author: bwren
-ms.author: bwren
+author: AbbyMSFT
 services: azure-monitor
+ms.author: abbyweisberg
 ms.topic: sample
-ms.date: 10/31/2022
+ms.date: 02/16/2024
 ms.custom: references_regions
 ms.reviewer: harelbr
 ---
@@ -1970,7 +1970,8 @@ This section will describe Azure Resource Manager templates for three scenarios 
 
 > [!NOTE]
 >
-> In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> - In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> - If you are creating a metric alert for a single resource, the template uses the `ResourceId` of the target resource. If you are creating a metric alert for multiple resources, the template uses the `scope`, `TargetResourceType`, and `TargetResourceRegion` for the target resources.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 

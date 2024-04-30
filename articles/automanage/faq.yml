@@ -4,7 +4,6 @@ metadata:
   description: Answers to frequently asked questions about Azure Automanage for virtual machines.
   author: mmccrory
   ms.service: automanage
-  ms.workload: infrastructure
   ms.topic: faq
   ms.date: 12/10/2021
   ms.author: memccror

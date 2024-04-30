@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 07/05/2022
 ms.author: daknappe
 ms.reviewer: v-cawood; clemr
-manager: femila
 ---
 # Use Microsoft Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts
 

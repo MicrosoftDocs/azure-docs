@@ -4,7 +4,6 @@ description: Learn how to connect to a Linux VM in Azure.
 author: mattmcinnes
 ms.collection: linux
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.topic: article
 ms.date: 04/06/2023

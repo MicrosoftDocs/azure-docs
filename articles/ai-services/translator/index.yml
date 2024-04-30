@@ -6,12 +6,11 @@ metadata:
   title: Azure AI Translator documentation - quickstarts, tutorials, API reference
   titleSuffix: Azure AI services
   description: Azure AI Translator is a cloud-based machine translation service you can use to translate text through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
-  #services: cognitive-services
   author: laujan
   manager: nitinme
   ms.service: azure-ai-translator
   ms.topic: landing-page
-  ms.date: 01/16/2024
+  ms.date: 02/09/2024
   ms.author: lajanuar
 
 
@@ -53,7 +52,7 @@ landingContent:
           - text: Text Translation quickstart
             url: quickstart-text-rest-api.md
           - text: Document Translation quickstart
-            url: document-translation/quickstarts/document-translation-rest-api.md
+            url: document-translation/quickstarts/asynchronous-rest-api.md
           - text: Custom Translator quickstart
             url: custom-translator/quickstart.md
             
@@ -84,7 +83,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-         - text: Client-library SDKs
+         - text: Client-libraries
            url: document-translation/document-sdk-overview.md
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md
@@ -110,7 +109,7 @@ landingContent:
         links:
           - text: Custom Translation for beginners
             url: custom-translator/beginners-guide.md
-          - text: Create a manage a workspace
+          - text: Create and manage a workspace
             url: custom-translator/how-to/create-manage-workspace.md
           - text: Create and manage a project
             url: custom-translator/how-to/create-manage-project.md

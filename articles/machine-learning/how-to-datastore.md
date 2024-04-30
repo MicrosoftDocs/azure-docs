@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 10/25/2023
-ms.custom: contperf-fy21q1, data4ml, ignite-2023, devx-track-azurecli
+ms.date: 02/20/2024
+ms.custom: data4ml, ignite-2023, devx-track-azurecli
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
@@ -29,7 +29,7 @@ In this article, learn how to connect to Azure data storage services with Azure 
 - An Azure Machine Learning workspace.
 
 > [!NOTE]
-> Azure Machine Learning datastores do **not** create the underlying storage account resources. Instead, they link an **existing** storage account for Azure Machine Learning use. Azure Machine Learning datastores are not required for this. If you have access to the underlying data, you can use storage URIs directly.
+> Azure Machine Learning datastores do **not** create the underlying storage account resources. Instead, they link an **existing** storage account for Azure Machine Learning use. This does not require Azure Machine Learning datastores. If you have access to the underlying data, you can use storage URIs directly.
 
 ## Create an Azure Blob datastore
 
@@ -97,7 +97,7 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-identity-based-access)
-Create the following YAML file (be sure to update the appropriate values):
+Create the following YAML file (make sure you update the appropriate values):
 
 ```yaml
 # my_blob_datastore.yml
@@ -116,7 +116,7 @@ az ml datastore create --file my_blob_datastore.yml
 ```
 
 # [CLI: Account key](#tab/cli-account-key)
-Create the following YAML file (be sure to update the appropriate values):
+Create this YAML file (make sure you update the appropriate values):
 
 ```yaml
 # my_blob_datastore.yml
@@ -137,7 +137,7 @@ az ml datastore create --file my_blob_datastore.yml
 ```
 
 # [CLI: SAS](#tab/cli-sas)
-Create the following YAML file (be sure to update the appropriate values):
+Create this YAML file (make sure you update the appropriate values):
 
 ```yaml
 # my_blob_datastore.yml
@@ -204,7 +204,7 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-adls-identity-based-access)
-Create the following YAML file (updating the values):
+Create this YAML file (updating the values):
 
 ```yaml
 # my_adls_datastore.yml
@@ -223,7 +223,7 @@ az ml datastore create --file my_adls_datastore.yml
 ```
 
 # [CLI: Service principal](#tab/cli-adls-sp)
-Create the following YAML file (updating the values):
+Create this YAML file (updating the values):
 
 ```yaml
 # my_adls_datastore.yml
@@ -293,7 +293,7 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Account key](#tab/cli-azfiles-account-key)
-Create the following YAML file (updating the values):
+Create this YAML file (updating the values):
 
 ```yaml
 # my_files_datastore.yml
@@ -314,7 +314,7 @@ az ml datastore create --file my_files_datastore.yml
 ```
 
 # [CLI: SAS](#tab/cli-azfiles-sas)
-Create the following YAML file (updating the values):
+Create this YAML file (updating the values):
 
 ```yaml
 # my_files_datastore.yml
@@ -378,7 +378,7 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-adlsgen1-identity-based-access)
-Create the following YAML file (updating the values):
+Create this YAML file (updating the values):
 
 ```yaml
 # my_adls_datastore.yml
@@ -396,7 +396,7 @@ az ml datastore create --file my_adls_datastore.yml
 ```
 
 # [CLI: Service principal](#tab/cli-adlsgen1-sp)
-Create the following YAML file (updating the values):
+Create this YAML file (updating the values):
 
 ```yaml
 # my_adls_datastore.yml
@@ -422,9 +422,9 @@ az ml datastore create --file my_adls_datastore.yml
 
 ## Create a OneLake (Microsoft Fabric) datastore (preview)
 
-This section describes the creation of a OneLake datastore using various options. The OneLake datastore is part of Microsoft Fabric. At this time, Azure Machine Learning supports connecting to Microsoft Fabric Lakehouse artifacts that includes folders/ files and Amazon S3 shortcuts. For more information about Lakehouse, see [What is a lakehouse in Microsoft Fabric](/fabric/data-engineering/lakehouse-overview).
+This section describes various options to create a OneLake datastore. The OneLake datastore is part of Microsoft Fabric. At this time, Azure Machine Learning supports connection to Microsoft Fabric Lakehouse artifacts that include folders / files and Amazon S3 shortcuts. For more information about Lakehouse, visit [What is a lakehouse in Microsoft Fabric](/fabric/data-engineering/lakehouse-overview).
 
-To create a OneLake datastore, you need
+OneLake datastore creation requires
 
 - Endpoint
 - Fabric workspace name or GUID
@@ -438,12 +438,12 @@ In your Microsoft Fabric instance, you can find the workspace information as sho
 :::image type="content" source="media/how-to-datastore/fabric-workspace.png" alt-text="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-workspace.png":::
 
 #### OneLake endpoint
-In your Microsoft Fabric instance, you can find the endpoint information as shown in this screenshot:
+This screenshot shows how you can find endpoint information in your Microsoft Fabric instance:
 
 :::image type="content" source="media/how-to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-endpoint.png":::
 
 #### OneLake artifact name
-In your Microsoft Fabric instance, you can find the artifact information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore, as shown in this screenshot:
+This screenshot shows how you can find the artifact information in your Microsoft Fabric instance. The screenshot also shows how you can either use a GUID value or a "friendly name" to create an Azure Machine Learning OneLake datastore:
 
 :::image type="content" source="media/how-to-datastore/fabric-lakehouse.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-lakehouse.png":::
 

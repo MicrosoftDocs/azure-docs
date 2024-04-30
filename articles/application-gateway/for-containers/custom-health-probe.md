@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 12/21/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
@@ -17,6 +17,7 @@ Application Gateway for Containers monitors the health of all backend targets by
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. This article discusses both default and custom health probes.
 
 The order and logic of health probing is as follows:
+
 1. Use definition of HealthCheckPolicy Custom Resource (CR).
 2. If there's no HealthCheckPolicy CR, then use [Readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes)
 3. If there's no Readiness probe defined, use the [default health probe](#default-health-probe)
@@ -34,9 +35,10 @@ The following properties make up custom health probes:
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
 
-[ ![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png) ](./media/custom-health-probe/custom-health-probe.png#lightbox)
+[![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png)](./media/custom-health-probe/custom-health-probe.png#lightbox)
 
 ## Default health probe
+
 Application Gateway for Containers automatically configures a default health probe when you don't define a custom probe configuration or configure a readiness probe. The monitoring behavior works by making an HTTP GET request to the IP addresses of configured backend targets. For default probes, if the backend target is configured for HTTPS, the probe uses HTTPS to test health of the backend targets.
 
 For more implementation details, see [HealthCheckPolicyConfig](api-specification-kubernetes.md#alb.networking.azure.io/v1.HealthCheckPolicyConfig) in the API specification.

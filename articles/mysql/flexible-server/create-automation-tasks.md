@@ -51,7 +51,7 @@ Creating an automation task doesn't immediately incur charges. The automation ta
    |||
 
 ## Stop server task
-Here's an example to configure stop tasks for a Azure Database for MySQL flexible server instance.
+Here's an example to configure stop tasks for an Azure Database for MySQL flexible server instance.
 
 1. Select  **Stop MySQL Flexible server** task. 
 

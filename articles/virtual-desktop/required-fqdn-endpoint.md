@@ -4,7 +4,7 @@ description: A list of FQDNs and endpoints you must allow, ensuring your Azure V
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/21/2023
+ms.date: 03/01/2024
 ---
 
 # Required FQDNs and endpoints for Azure Virtual Desktop
@@ -52,6 +52,7 @@ The following table lists optional FQDNs and endpoints that your session host vi
 | `*.digicert.com` | TCP | 80 | Certificate revocation check |
 | `*.azure-dns.com` | TCP | 443 | Azure DNS resolution |
 | `*.azure-dns.net` | TCP | 443 | Azure DNS resolution |
+| `*eh.servicebus.windows.net` | TCP | 443 | Diagnostic settings |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -79,6 +80,7 @@ The following table lists optional FQDNs and endpoints that your session host vi
 | `*.digicert.com` | TCP | 80 | Certificate revocation check |
 | `*.azure-dns.com` | TCP | 443 | Azure DNS resolution |
 | `*.azure-dns.net` | TCP | 443 | Azure DNS resolution |
+| `*eh.servicebus.windows.net` | TCP | 443 | Diagnostic settings |
 
 ---
 

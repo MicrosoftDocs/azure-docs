@@ -377,7 +377,7 @@
       - name: Deploy - PowerShell
         displayName: deployment
         href: deploy-powershell.md
-      - name: Python
+      - name: Deploy - Python
         displayName: deployment
         href: deploy-python.md
       - name: Deploy - REST API
@@ -415,7 +415,7 @@
     - name: Create parameter file
       href: parameter-files.md
     - name: Pass sensitive values
-      displayname: key vault
+      displayName: key vault
       href: key-vault-parameter.md
   - name: Export templates
     items:

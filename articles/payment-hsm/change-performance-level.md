@@ -5,21 +5,21 @@ services: payment-hsm
 author: msmbaldwin
 ms.service: payment-hsm
 ms.topic: overview
-ms.date: 09/12/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
 # How to change the performance level of a payment HSM
 
-Azure Payment HSM supports several SKUs; for a list, see [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus). The performance license level of your payment HSM is initially determined by the SKU you specify during the creation process.
+Azure Payment HSM supports several SKUs; for a list, see [Azure Payment HSM overview: supported SKUs](support-guide.md#supported-skus). The SKU you specify during the creation process initially determines the performance license level of your payment HSM.
 
-You can change performance level of an existing payment HSM by changing its SKU. There will be no interruption in your production payment HSMs while performance level is being updated.
+You can change performance level of an existing payment HSM by changing its SKU. There is no interruption in your production payment HSMs while performance level is being updated.
 
 The SKU of a payment HSM can be updated through ARMClient and PowerShell.
 
 ## Updating the SKU via ARMClient
 
-You can update the SKU of your payment HSM using the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient), which is a simple command line tool that calls the Azure Resource Manager API.  Installation instructions are at <https://github.com/projectkudu/ARMClient>.
+You can update the SKU of your payment HSM using the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient), which is a simple command line tool that calls the Azure Resource Manager API. Installation instructions are at <https://github.com/projectkudu/ARMClient>.
 
 Once installed, you can use the following command:
 

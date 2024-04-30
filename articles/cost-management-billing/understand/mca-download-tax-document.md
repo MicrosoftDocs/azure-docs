@@ -3,10 +3,9 @@ title: View tax documents for your Azure invoice
 description: Learn how to view and download tax receipts for your billing profile.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.subservice: billing
 ms.author: banders
 ---

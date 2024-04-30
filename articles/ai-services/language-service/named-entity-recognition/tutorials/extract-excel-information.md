@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: tutorial
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021, cogserv-non-critical-language
+ms.custom: language-service-ner, cogserv-non-critical-language
 ---
 
 # Extract information in Excel using Named Entity Recognition(NER) and Power Automate 
@@ -201,5 +201,3 @@ The Excel file will get updated in your OneDrive account. It will look like the 
 :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Test the workflow and view the output" lightbox="../media/tutorials/excel/updated-excel-sheet.png":::
 
 ## Next steps
-
-

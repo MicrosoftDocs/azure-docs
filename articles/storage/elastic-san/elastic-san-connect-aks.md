@@ -1,16 +1,16 @@
 ---
-title: Connect an Azure Elastic SAN Preview volume to an AKS cluster.
-description: Learn how to connect to an Azure Elastic SAN Preview volume an Azure Kubernetes Service cluster.
+title: Connect Azure Elastic SAN to Azure Kubernetes over iSCSI
+description: Use the Kubernetes iSCSI CSI driver to use Azure Elastic SAN as backing storage for Azure Kubernetes Service clusters.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster
+# Connect Azure Elastic SAN volumes to an Azure Kubernetes Service cluster
 
-This article explains how to connect an Azure Elastic storage area network (SAN) Preview volume from an Azure Kubernetes Service (AKS) cluster. To make this connection, enable the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) on your cluster. With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster, and then attaching the Elastic SAN volumes to the persistent volumes. 
+This article explains how to connect an Azure Elastic storage area network (SAN) volume from an Azure Kubernetes Service (AKS) cluster. To make this connection, enable the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) on your cluster. With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster, and then attaching the Elastic SAN volumes to the persistent volumes. 
 
 ## About the driver
 
@@ -30,7 +30,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
-- [Deploy an Elastic SAN Preview](elastic-san-create.md)
+- [Deploy an Elastic SAN](elastic-san-create.md)
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
@@ -81,7 +81,7 @@ Use the following example to create a storageclass.yml file. This file defines y
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: sanVolume
+  name: san-volume
 provisioner: manual
 ```
 
@@ -98,7 +98,7 @@ metadata:
   labels:
     name: data-iscsiplugin
 spec:
-  storageClassName: sanVolume
+  storageClassName: san-volume
   accessModes:
     - ReadWriteOnce
   capacity:
@@ -137,7 +137,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: sanVolume
+  storageClassName: san-volume
   selector:
     matchExpressions:
       - key: name
@@ -198,7 +198,7 @@ You've now successfully connected an Elastic SAN volume to your AKS cluster.
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN](elastic-san-planning.md)
 
 <!-- LINKS - internal -->
-[Configure Elastic SAN networking Preview]: elastic-san-networking.md
+[Configure Elastic SAN networking]: elastic-san-networking.md

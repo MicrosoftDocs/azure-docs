@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 01/20/2024
 ms.author: pafarley
 ---
 

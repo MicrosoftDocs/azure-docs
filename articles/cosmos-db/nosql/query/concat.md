@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a string that is the result of concatenating two or more string values.
 
 ## Syntax
 
-```sql
+```nosql
 CONCAT(<string_expr_1>, <string_expr_2> [, <string_expr_N>])  
 ```  
 
@@ -43,7 +44,7 @@ Returns a string expression.
 
 This first example returns the concatenated string of two string expressions.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/concat/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/concat/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/concat/result.json":::
 
@@ -53,7 +54,7 @@ This next example uses an existing item in a container with various relevant fie
 
 This example uses the function to select two expressions from the item.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/concat-fields/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/concat-fields/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/concat-fields/result.json":::
 

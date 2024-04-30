@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Extracts the integer identifier corresponding to a specific item within a physic
 
 ## Syntax
 
-```sql
+```nosql
 DOCUMENTID(<root_specifier>)
 ```
 
@@ -40,7 +41,7 @@ This example illustrates using this function to extract and return the integer i
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/seed.novalidate.json" highlight="3":::
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid/query.novalidate.sql" highlight="4":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/documentid/query.novalidate.sql" highlight="4":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/result.novalidate.json":::
 
@@ -48,7 +49,7 @@ This function can also be used as a filter.
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/seed.novalidate.json" highlight="3":::
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/query.novalidate.sql" highlight="3,7-8":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/query.novalidate.sql" highlight="3,7-8":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/result.novalidate.json":::
 

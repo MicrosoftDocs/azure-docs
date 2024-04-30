@@ -9,7 +9,6 @@ ms.author: rogarana
 ms.custom:
   - references_regions
   - devx-track-azurepowershell
-  - ignite-fall-2021
   - ignite-2023
 ---
 

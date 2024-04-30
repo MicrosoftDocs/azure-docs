@@ -585,7 +585,7 @@ Name: Secret Point Motel
 Name: Twin Dome Motel
 ```
 
-In the second query, use a filter to select room with a nightly rate of less than $100. Return only the hotel ID and description in the results:
+In the second query, use a filter to select rooms with a nightly rate of less than $100. Return only the hotel ID and description in the results:
 
 ```csharp
 options = new SearchOptions()

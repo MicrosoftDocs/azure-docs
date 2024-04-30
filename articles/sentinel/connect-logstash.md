@@ -3,7 +3,7 @@ title: Use Logstash to stream logs with HTTP Data Collection API (legacy)
 description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel using the HTTP Data Collection API.
 author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
 ---
@@ -93,8 +93,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key => "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }
@@ -113,8 +113,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key =>  "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }

@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 11/07/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 This quickstart will create a single Azure Cosmos DB account using the API for NoSQL.

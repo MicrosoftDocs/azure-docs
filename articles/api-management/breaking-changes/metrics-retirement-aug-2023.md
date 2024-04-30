@@ -2,7 +2,6 @@
 title: Azure API Management - Metrics retirement (August 2023)
 description: Azure API Management is retiring five legacy metrics as of August 2023. If you monitor your API Management instance using these metrics, you must update your monitoring settings and alert rules to use the Requests metric.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
@@ -11,6 +10,8 @@ ms.author: danlep
 ---
 
 # Metrics retirements (August 2023)
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 Azure API Management integrates natively with Azure Monitor and emits metrics every minute, giving customers visibility into the state and health of their APIs. The following five legacy metrics have been deprecated since May 2019 and will no longer be available after 31 August 2023:
 

@@ -127,6 +127,18 @@ The following are means for your application to obtain credentials for authentic
 A. During your applications build/packing job, you can pull a certificate into your SF app's data package, and use this to authenticate to Key Vault.
 B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), and then [retrieve your secrets from Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
+### Can I transfer my subscription to a different Microsoft Entra tenant?
+No. At this time you would need to create a new Service Fabric cluster resource after the subscription has been transferred to a different Microsoft Entra tenant.
+
+### Can I move/migrate my cluster between Microsoft Entra tenants?
+No. At this time you would need to create a new Service Fabric cluster resource under the new tenant.
+
+### Can I move/migrate my cluster between subscriptions?
+No. At this time you would need to create a new Service Fabric cluster resource under the new subscription.
+
+### Can I move/migrate my cluster or cluster resources to other resource groups or rename them?
+No. At this time you would need to create a new Service Fabric cluster resource under the new resource group/name.
+
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?

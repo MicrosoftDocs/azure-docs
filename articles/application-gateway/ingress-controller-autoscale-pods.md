@@ -4,7 +4,7 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 10/26/2023
 ms.author: greglin

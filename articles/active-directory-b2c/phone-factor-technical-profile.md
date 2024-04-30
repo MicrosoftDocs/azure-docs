@@ -10,6 +10,7 @@ ms.service: active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
+
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -98,6 +99,7 @@ The **CryptographicKeys** element is not used.
 | setting.authenticationMode | No | The method to validate the phone number. Possible values: `sms`, `phone`, or `mixed` (default).|
 | setting.autodial| No| Specify whether the technical profile should auto dial or auto send an SMS. Possible values: `true`, or `false` (default). Auto dial requires the `setting.authenticationMode` metadata be set to `sms`, or `phone`. The input claims collection must have a single phone number. |
 | setting.autosubmit | No | Specifies whether the technical profile should auto submit the one-time password entry form. Possible values are `true` (default), or `false`. When auto-submit is turned off, the user needs to select a button to progress the journey. |
+| setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed in an MFA flow. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the display claims of the phone factor technical profile. [CAPTCHA feature](add-captcha.md) is in **public preview**.|
 
 ### UI elements
 

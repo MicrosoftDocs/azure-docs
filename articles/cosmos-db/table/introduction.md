@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.topic: overview
 ms.date: 02/28/2023
-ms.custom: ignite-2022
 ---
 
 # What is Azure Cosmos DB for Table?

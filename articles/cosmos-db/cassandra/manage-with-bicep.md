@@ -4,7 +4,7 @@ description: Use Bicep to create and configure Azure Cosmos DB for Apache Cassan
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022, devx-track-bicep
+ms.custom: devx-track-bicep
 ms.topic: how-to
 ms.date: 9/13/2021
 ms.author: sidandrews

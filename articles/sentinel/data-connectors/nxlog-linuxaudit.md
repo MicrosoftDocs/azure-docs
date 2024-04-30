@@ -5,6 +5,7 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 06/22/2023
 ms.service: microsoft-sentinel
+ms.custom: linux-related-content
 ms.author: cwatson
 ---
 
@@ -18,7 +19,7 @@ The [NXLog LinuxAudit](https://docs.nxlog.co/refman/current/im/linuxaudit.html) 
 | --- | --- |
 | **Log Analytics table(s)** | LinuxAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/getting-started-with-nxlog-support-service-desk) |
 
 ## Query samples
 

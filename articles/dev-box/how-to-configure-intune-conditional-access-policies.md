@@ -9,7 +9,7 @@ ms.author: rosemalcolm
 ms.date: 12/20/2023
 ms.topic: how-to
 
-#customer intent: As a platform engineer, I want to configure conditional access policies in Microsoft Intune so that I can control access to dev boxes.
+# Customer intent: As a platform engineer, I want to configure conditional access policies in Microsoft Intune so that I can control access to dev boxes.
 
 ---
 

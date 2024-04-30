@@ -20,7 +20,7 @@ ms.date: 08/28/2023
 Azure Cosmos DB for MongoDB vCore provides automatic backups that enable point-in-time recovery (PITR) without any action required from users. Backups allow customers to restore a server to any point in time within the retention period.
 
 > [!NOTE]
-> The backup and restore feature is designed to protect against data loss, but it doesn't provide a complete disaster recovery solution. You should ensure that alaredy have your own disaster recovery plan in place to protect against larger scale outages.
+> The backup and restore feature is designed to protect against data loss, but it doesn't provide a complete disaster recovery solution. You should ensure that you already have your own disaster recovery plan in place to protect against larger scale outages.
 
 ## Prerequisites
 

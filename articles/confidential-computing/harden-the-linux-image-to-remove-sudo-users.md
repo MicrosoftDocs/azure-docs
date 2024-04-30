@@ -5,10 +5,9 @@ author: vvenug
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 7/21/2023
 ms.author: vvenugopal
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Harden a Linux image to remove sudo users

@@ -29,7 +29,7 @@ The server restart will be blocked if the service is busy. For example, the serv
 To complete this how-to guide:
 - Create an [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

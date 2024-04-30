@@ -5,6 +5,7 @@ ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: devx-track-terraform
 ms.topic: conceptual
 ms.date: 01/02/2024
 ---

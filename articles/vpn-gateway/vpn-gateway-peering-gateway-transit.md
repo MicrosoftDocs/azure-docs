@@ -5,25 +5,24 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 02/15/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Configure VPN gateway transit for virtual network peering
 
-This article helps you configure gateway transit for virtual network peering. [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) seamlessly connects two Azure virtual networks, merging the two virtual networks into one for connectivity purposes. [Gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) is a peering property that lets one virtual network use the VPN gateway in the peered virtual network for cross-premises or VNet-to-VNet connectivity. The following diagram shows how gateway transit works with virtual network peering.
+This article helps you configure gateway transit for virtual network peering. [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) seamlessly connects two Azure virtual networks, merging the two virtual networks into one for connectivity purposes. [Gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) is a peering property that lets one virtual network use the VPN gateway in the peered virtual network for cross-premises or VNet-to-VNet connectivity. 
+
+The following diagram shows how gateway transit works with virtual network peering. In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. 
 
 :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png" alt-text="Diagram of Gateway transit." lightbox="./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png":::
 
-In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. 
-
-The transit option is available for peering between the same, or different deployment models. If you're configuring transit between different deployment models, the hub virtual network and virtual network gateway must be in the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), not the legacy classic deployment model.
->
+The transit option is available for peering between the same, or different deployment models and can be used with all VPN Gateway SKUs except the Basic SKU. If you're configuring transit between different deployment models, the hub virtual network and virtual network gateway must be in the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), not the legacy classic deployment model.
 
 In hub-and-spoke network architecture, gateway transit allows spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. Routes to the gateway-connected virtual networks or on-premises networks propagate to the routing tables for the peered virtual networks using gateway transit. 
 
-You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.md).
+You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.yml).
 
 There are two scenarios in this article. Select the scenario that applies to your environment. Most people use the **Same deployment model** scenario. If you aren't working with a classic deployment model VNet (legacy VNet) that already exists in your environment, you won't need to work with the **Different deployment models** scenario.
 

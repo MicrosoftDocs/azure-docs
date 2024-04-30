@@ -6,7 +6,7 @@ author: jonels-msft
 recommendations: false
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: mvc, mode-ui, ignite-2022
+ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 01/30/2023
 ---

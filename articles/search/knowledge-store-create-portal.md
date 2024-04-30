@@ -7,7 +7,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/29/2023
+ms.date: 03/18/2024
 ms.custom:
   - mode-ui
   - ignite-2023
@@ -178,4 +178,4 @@ If you're using a free service, remember that you're limited to three indexes, i
 Now that you've been introduced to a knowledge store, take a closer look at each step by switching over to the REST API walkthrough. Tasks that the wizard handled internally are explained in the REST walkthrough.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md)
+> [Create a knowledge store using REST](knowledge-store-create-rest.md)

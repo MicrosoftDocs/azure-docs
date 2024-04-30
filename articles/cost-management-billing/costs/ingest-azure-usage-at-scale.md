@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you regularly export large amounts of data with exports from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

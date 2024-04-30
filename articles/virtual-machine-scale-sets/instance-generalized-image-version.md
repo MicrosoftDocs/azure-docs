@@ -5,7 +5,6 @@ author: sandeepraichura
 ms.author: saraic
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/22/2022

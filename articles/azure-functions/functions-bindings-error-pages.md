@@ -65,11 +65,11 @@ The following table indicates which triggers support retries and where the retry
 
 ### Retry policies
 
-Starting with version 3.x of the Azure Functions runtime, you can define retry policies for Timer, Kafka, and Event Hubs triggers that are enforced by the Functions runtime.
+Starting with version 3.x of the Azure Functions runtime, you can define retry policies for Timer, Kafka, Event Hubs, and Azure Cosmos DB triggers that are enforced by the Functions runtime.
 
 The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.
 
-A retry policy is evaluated when a Timer, Kafka, or Event Hubs-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry.
+A retry policy is evaluated when a Timer, Kafka, Event Hubs, or Azure Cosmos DB-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry.
 
 > [!IMPORTANT]
 > Event Hubs checkpoints won't be written until the retry policy for the execution has finished. Because of this behavior, progress on the specific partition is paused until the current batch has finished.

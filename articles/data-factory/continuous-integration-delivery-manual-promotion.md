@@ -31,7 +31,7 @@ Use the steps below to promote a Resource Manager template to each environment f
 
    :::image type="content" source="media/continuous-integration-delivery/custom-deployment-edit-template.png" alt-text="Edit template":::
 
-1. In the settings section, enter the configuration values, like linked service credentials, required for the deployment. When you're done, select **Review + create** to deploy the Resource Manager template.
+1. In the **Custom deployment** section, enter the target subscription, region, and other details required for the deployment. When you're done, select **Review + create** to deploy the Resource Manager template.
 
    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image5.png" alt-text="Settings section":::
 

@@ -1,0 +1,40 @@
+- name: Azure Programmable Connectivity documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Programmable Connectivity?
+    href: azure-programmable-connectivity-overview.md
+  - name: Security overview for Azure Programmable Connectivity
+    href: azure-programmable-connectivity-security-overview.md
+  - name: Features
+    expanded: true
+    items:
+    - name: Aggregation
+      href: azure-programmable-connectivity-aggregation.md
+    - name: Abstraction
+      href: azure-programmable-connectivity-abstraction.md
+    - name: Consolidated billing
+      href: azure-programmable-connectivity-billing.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Network APIs
+    href: azure-programmable-connectivity-network-apis.md
+  - name: Locations and partners
+    href: azure-programmable-connectivity-locations-partners.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an APC Gateway
+    href: azure-programmable-connectivity-create-gateway.md
+  - name: Using network APIs
+    href: azure-programmable-connectivity-using-network-apis.md
+- name: Resources
+  items:
+  - name: Azure Marketplace
+    href: https://azuremarketplace.microsoft.com/marketplace/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/azure-for-operators-blog/azure-programmable-connectivity-empowering-the-next-generation/ba-p/4063967 

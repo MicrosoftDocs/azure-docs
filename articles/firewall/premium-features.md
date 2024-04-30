@@ -56,6 +56,10 @@ The following use case is supported by [Azure Web Application Firewall on Azure 
 
    To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Application Gateway provides end-to-end encryption.
 
+   For related information, see:
+
+   - [Azure Firewall Premium and name resolution](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+   - [Application Gateway before Firewall](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
 > [!TIP]
 > TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
@@ -68,7 +72,7 @@ To learn more about TLS inspection, see [Building a POC for TLS inspection in Az
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network-level traffic (Layers 3-7). They're fully managed and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic. Spoke-to-spoke (East-West) includes traffic that goes from/to an on-premises network. You can configure your IDPS private IP address ranges using the **Private IP ranges** preview feature. For more information, see [IDPS Private IP ranges](#idps-private-ip-ranges).
+Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network-level traffic (Layers 3-7). They're fully managed and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic. Spoke-to-spoke (East-West) includes traffic that goes from/to an on-premises network. You can configure your IDPS private IP address ranges using the **Private IP ranges** feature. For more information, see [IDPS Private IP ranges](#idps-private-ip-ranges).
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
@@ -156,7 +160,7 @@ You can identify what category a given FQDN or URL is by using the **Web Categor
 :::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="Firewall category search dialog":::
 
 > [!IMPORTANT]
-> To use **Web Category Check** feature, user must have an access of Microsoft.Network/azureWebCategories/getwebcategory/action for **subscription** level, not resource group level.
+> To use the **Web Category Check** feature, the user must have an access of Microsoft.Network/azureWebCategories/* for **subscription** level, not resource group level.
 
 ### Category change
 
