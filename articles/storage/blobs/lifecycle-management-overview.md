@@ -272,7 +272,7 @@ If last access time tracking is enabled, lifecycle management uses `LastAccessTi
 - The value of the `LastAccessTime` property of the blob is a null value.
 
   > [!NOTE]
-  > The `LastAccessTime` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
+  > The `lastAccessedOn` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
 
 - Last access time tracking is not enabled. 
 

@@ -3,7 +3,7 @@ title: Trusted Signing certificate management
 description: Learn about the certificates used in Trusted Signing, including the two unique certificate attributes, the zero-touch certificate lifecycle management process, and most effective ways to manage the certificates.
 author: ianjmcm
 ms.author: ianmcm
-ms.service: azure-code-signing
+ms.service: trusted-signing
 ms.topic: concept-article
 ms.date: 04/03/2024
 ms.custom: template-concept
@@ -28,7 +28,7 @@ In addition to the standard features, the certificates also include the followin
 
 To help reduce the impact of signing misuse and abuse, Trusted Signing certificates are renewed daily and are only valid for 72 hours. These short-lived certificates enable revocation actions to be as acute as a single day or as broad as needed, to cover any incidents of misuse and abuse.
 
-For example, if it's determined that a subscriber signed code that was malware or PUA (Potentially Unwanted Application) as defined by [How Microsoft identifies malware and potentially unwanted applications](https://learn.microsoft.com/microsoft-365/security/defender/criteria), the revocation actions can be isolated to only revoking the certificate that signed the malware or PUA. Thus, the revocation only impacts the code that was signed with that certificate, on the day it was issued, and not any of the code signed prior to or after that day.
+For example, if it's determined that a subscriber signed code that was malware or PUA (Potentially Unwanted Application) as defined by [How Microsoft identifies malware and potentially unwanted applications](/microsoft-365/security/defender/criteria), the revocation actions can be isolated to only revoking the certificate that signed the malware or PUA. Thus, the revocation only impacts the code that was signed with that certificate, on the day it was issued, and not any of the code signed prior to or after that day.
 
 ### Subscriber Identity Validation Extended Key Usage (EKU)
 
@@ -43,7 +43,7 @@ A `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` value indicates a
 A  `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` value indicates a Trusted Signing subscriber using Private-Trust Identity Validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is Trusted Signing's Private-Trust code signing type and the `29433.35007.34545.16815.37291.11644.53265.56135` is unique to the subscriber's Identity Validation for Private Trust. Because Private-Trust Identity Validations can be used for WDAC CI Policy signing, there's also a slightly different EKU prefix: `1.3.6.1.4.1.311.97.1.4.1.`. However, the suffix values match the durable identity value for the subscriber's Identity Validation for Private Trust.  
 
 > [!NOTE]
-> The durable identity EKUs can be used in WDAC CI Policy settings to pin trust to an identity in Trusted Signing accordingly. Refer to [Use signed policies to protect Windows Defender Application Control against tampering](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering) and [Windows Defender Application Control Wizard](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-wizard) for WDAC Policy creation.
+> The durable identity EKUs can be used in WDAC CI Policy settings to pin trust to an identity in Trusted Signing accordingly. Refer to [Use signed policies to protect Windows Defender Application Control against tampering](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering) and [Windows Defender Application Control Wizard](/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-wizard) for WDAC Policy creation.
 
 All Trusted Signing Public Trust certificates also contain the `1.3.6.1.4.1.311.97.1.0` EKU to be easily identified as a publicly trusted certificate from Trusted Signing. All EKUs are in addition to the Code Signing EKU (`1.3.6.1.5.5.7.3.3`) to identify the specific usage type for certificate consumers. The only exception is certificates from CI Policy Certificate Profile types, where no Code Signing EKU is present.
 
@@ -65,7 +65,7 @@ The standard practice in signing is to countersign all signatures with an RFC316
 
 The countersignature provides a reliable date and time of when the signing occurred, so if the time stamp countersign is inside the signing certificate's validity period (and the Time Stamp Authority certificate's validity period) the signature is valid even long after the signing (and Time Stamp Authority) certificates have expired (unless either are revoked).
 
-Trusted Signing provides a generally available Time Stamp Authority endpoint at `http://acs.timestamp.microsoft.com`. We recommend that all Trusted Signing subscribers leverage this Time Stamp Authority endpoint for countersigning any signatures they're producing.
+Trusted Signing provides a generally available Time Stamp Authority endpoint at `http://timestamp.acs.microsoft.com`. We recommend that all Trusted Signing subscribers leverage this Time Stamp Authority endpoint for countersigning any signatures they're producing.
 
 ### Active monitoring
 

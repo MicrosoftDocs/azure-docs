@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 01/01/2024
+  ms.date: 04/24/2024
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -43,7 +43,7 @@ sections:
       - question: |
           Does Azure OpenAI support VNETs and Private Endpoints?
         answer: | 
-          Yes, as part of Azure AI services, Azure OpenAI supports VNETs and Private Endpoints. To learn more, consult the [Azure AI services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context) 
+          Yes, as part of Azure AI services, Azure OpenAI supports VNETs and Private Endpoints. To learn more, consult the [Azure AI services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context). 
       - question: |
           Do the GPT-4 models currently support image input?
         answer: | 
@@ -55,7 +55,7 @@ sections:
       - question: |
           I'm trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 16." How do I fix this?
         answer: | 
-          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI only supports arrays of embeddings with multiple inputs for the `text-embedding-ada-002` Version 2 model. This model version supports an array consisting of up to 16 inputs per API request. The array can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI only supports arrays of embeddings with multiple inputs for the `text-embedding-ada-002` Version 2 model. This model version supports an array consisting of up to 16 inputs per API request. The array can be up to 8,191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
       - question: |
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
@@ -109,7 +109,10 @@ sections:
           Where do I access pricing information for legacy models, which are no longer available for new deployments? 
         answer: | 
           Legacy pricing information is available via a [downloadable PDF file](https://download.microsoft.com/download/a/b/5/ab542db1-f1a7-4f92-b615-2e2eaccb64ea/Azure-OpenAI-Legacy-Pricing.pdf). For all other models, consult the [official pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/). 
-
+      - question: |
+          How do I fix InternalServerError - 500 - Failed to create completion as the model generated invalid Unicode output?
+        answer:
+          You can minimize the occurrence of these errors by reducing the temperature of your prompts to less than 1 and ensuring you're using a client with retry logic. Reattempting the request often results in a successful response.
           
   - name: Getting access to Azure OpenAI Service
     questions:
@@ -134,8 +137,8 @@ sections:
       - question: |
           Where can I post questions and see answers to other common questions? 
         answer: |  
-          - We recommend posting questions on [Microsoft Q&A](/answers/tags/387/azure-openai)
-          - Alternatively, you can post questions on [Stack Overflow](https://stackoverflow.com/search?q=azure+openai)
+          - We recommend posting questions on [Microsoft Q&A](/answers/tags/387/azure-openai).
+          - Alternatively, you can post questions on [Stack Overflow](https://stackoverflow.com/search?q=azure+openai).
       - question: |
           Where do I go for Azure OpenAI customer support?
         answer: |  
@@ -195,7 +198,7 @@ sections:
       - question: |
           Is there a limit to the size of the image I can upload?
         answer: |
-          Yes, we restrict image uploads to 20MB per image.
+          Yes, we restrict image uploads to 20 MB per image.
       - question: |
           Can I delete an image I uploaded?
         answer: |

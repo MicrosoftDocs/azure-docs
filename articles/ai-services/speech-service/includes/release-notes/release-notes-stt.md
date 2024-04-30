@@ -14,6 +14,12 @@ Real-time speech to text with diariazation is now generally available.
 
 Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
 
+#### Speech to Text model Update
+
+[Real-time Speech to Text](../../how-to-recognize-speech.md) has released new models with bilingual capabilities. The `en-IN` model now support both English and Hindi bilingual scenarios and offers improved accuracy. Arabic locales (`ar-AE`, `ar-BH`, `ar-DZ`, `ar-IL`, `ar-IQ`, `ar-KW`, `ar-LB`, `ar-LY`, `ar-MA`, `ar-OM`, `ar-PS`, `ar-QA`, `ar-SA`, `ar-SY`, `ar-TN`, `ar-YE`) are now equipped with bilingual support for English, enhanced accuracy and call center support. 
+
+[Batch transcription](../../batch-transcription.md) has launched models with new architecture for `es-ES`, `es-MX`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN`. These models significantly enhance readability and entity recognition. 
+
 ### March 2024 release
 
 #### Whisper general availability (GA)

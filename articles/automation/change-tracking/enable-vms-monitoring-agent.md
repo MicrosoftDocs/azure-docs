@@ -96,7 +96,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    **Windows**
 
    ```azurecli
-   az connectedmachine extension create  --name ChangeTracking-windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
+   az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
 --- 
 

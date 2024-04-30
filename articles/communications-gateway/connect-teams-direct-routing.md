@@ -12,9 +12,9 @@ ms.custom:
 
 # Connect Azure Communications Gateway to Microsoft Teams Direct Routing
 
-After you deploy Azure Communications Gateway and connect it to your core network, you need to connect it to Microsoft Phone System.
+After you deploy Azure Communications Gateway and connect it to your core network, you need to connect it to Microsoft Teams Direct Routing by following the steps in this article.
 
-This article describes how to start connecting Azure Communications Gateway to Microsoft Teams Direct Routing. After you finish the steps in this article, you can set up test users for test calls and prepare for live traffic.
+After you finish the steps in this article, you can set up test users for test calls and prepare for live traffic.
 
 This article provides detailed guidance equivalent to the following steps in the [Microsoft Teams documentation for configuring an SBC for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants).
 
@@ -25,9 +25,9 @@ This article provides detailed guidance equivalent to the following steps in the
 
 You must [deploy Azure Communications Gateway](deploy.md).
 
-Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). If you didn't configure the Provisioning API in the Azure portal as part of deploying, you also need to know:
-- The IP addresses or address ranges (in CIDR format) in your network that should be allowed to connect to the Provisioning API, as a comma-separated list.
-- (Optional) The name of any custom SIP header that Azure Communications Gateway should add to messages entering your network.
+Using Azure Communications Gateway for Microsoft Teams Direct Routing requires provisioning the details of your customers and the numbers that you assign to them on Azure Communications Gateway. You can do this with Azure Communications Gateway's Provisioning API (preview) or its Number Management Portal (preview). If you're planning to use the Provisioning API:
+- Your organization must [integrate with the API](integrate-with-provisioning-api.md)
+- You must know the IP addresses or address ranges (in CIDR format) in your network that should be allowed to connect to the Provisioning API
 
 You must have **Reader** access to the subscription into which Azure Communications Gateway is deployed.
 
@@ -71,11 +71,6 @@ Microsoft Teams only sends traffic to domains that you confirm that you own. You
 
 You need to register the base domain for Azure Communications Gateway in your tenant and verify it. Registering and verifying the base domain proves that you control the domain.
 
-> [!TIP]
-> If the base domain name is a subdomain of a domain already registered and verified in this tenant:
-> - You must register Azure Communications Gateway's base domain name.
-> - Microsoft 365 automatically verifies the base domain name.
-
 Follow the instructions [to add a domain to your tenant](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-base-domain-to-the-tenant-and-verify-it). Use the base domain name that you found in [Find your Azure Communication Gateway's domain names for connecting to Microsoft Teams Direct Routing](#find-your-azure-communication-gateways-domain-names-for-connecting-to-microsoft-teams-direct-routing).
 
 If Microsoft 365 prompts you to verify the domain name:
@@ -96,9 +91,6 @@ Before your onboarding team can finish onboarding you to the Microsoft Teams Dir
 If you don't already have an onboarding team, contact azcog-enablement@microsoft.com, providing your Azure subscription ID and contact details.
 
 ## Finish verifying the base domain name in Microsoft 365
-
-> [!NOTE]
-> If Microsoft 365 did not prompt you to verify the domain in [Register the base domain name in your tenant](#register-the-base-domain-name-in-your-tenant), skip this step.
 
 After your onboarding team confirms that the DNS records have been set up, finish verifying the base domain name in the Microsoft 365 admin center.
 
