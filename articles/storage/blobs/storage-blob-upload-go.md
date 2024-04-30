@@ -41,19 +41,19 @@ To perform the upload, the client library may use either [Put Blob](/rest/api/st
 
 ## Upload a block blob from a local file path
 
-The following example uploads a file to a block blob using a `BlobClient` object:
+The following example uploads a local file to a block blob:
 
 :::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_file":::
 
 ## Upload a block blob from a stream
 
-The following example creates random bytes of data and uploads a `BytesIO` object to a block blob using a `BlobClient` object:
+The following example creates a `Reader` instance and reads from a string as if it were a stream of bytes. The stream is then uploaded to a block blob:
 
 :::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_stream":::
 
 ## Upload binary data to a block blob
 
-The following example uploads binary data to a block blob using a `BlobClient` object:
+The following example uploads binary data to a block blob:
 
 :::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_buffer":::
 
