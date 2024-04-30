@@ -5,7 +5,7 @@ author: dlepow
 ms.service: api-center
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/12/2024
+ms.date: 04/30/2024
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
@@ -38,11 +38,9 @@ The following example creates an API named *Petstore API* in the *myResourceGrou
 
 ```azurecli-interactive
 az apic api create  --resource-group myResourceGroup \
-    --service myAPICenter --name petstore-api \
-    --title "Petstore API" --kind "rest"
+    --service myAPICenter --api-id petstore-api \
+    --title "Petstore API" --type "rest"
 ```
-
-By default, the command sets the API's **Lifecycle stage** to *design*.
 
 > [!NOTE]
 > After creating an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update) command.
@@ -52,12 +50,12 @@ By default, the command sets the API's **Lifecycle stage** to *design*.
 
 Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_version_create) command to create a version for your API. 
 
-The following example creates an API version named *v1-0-0* for the *petstore-api* API that you created in the previous section. 
+The following example creates an API version named *v1-0-0* for the *petstore-api* API that you created in the previous section. The version is set to the *testing* lifecycle stage.
 
 ```azurecli-interactive
 az apic api version create --resource-group myResourceGroup \
-    --service myAPICenter --api-name petstore-api \
-    --version v1-0-0 --title "v1-0-0"
+    --service myAPICenter --api-id petstore-api \
+    --version-id v1-0-0 --title "v1-0-0" --lifecycle-stage "testing"
 ```
 
 ### Create API definition and add specification file 
@@ -70,8 +68,8 @@ The following example uses the [az apic api definition create](/cli/azure/apic/a
 
 ```azurecli-interactive
 az apic api definition create --resource-group myResourceGroup \
-    --service myAPICenter --api-name petstore-api \
-    --version v1-0-0 --name "openapi" --title "OpenAPI"
+    --service myAPICenter --api-id petstore-api \
+    --version-id v1-0-0 --definition-id openapi --title "OpenAPI"
 ```
 
 #### Import a specification file
@@ -84,8 +82,8 @@ The following example imports an OpenAPI specification file from a publicly acce
 ```azurecli-interactive
 az apic api definition import-specification \
     --resource-group myResourceGroup --service myAPICenter \
-    --api-name petstore-api --version-name v1-0-0 \
-    --definition-name openapi --format "link" \
+    --api-id petstore-api --version-id v1-0-0 \
+    --definition-id openapi --format "link" \
     --value 'https://petstore3.swagger.io/api/v3/openapi.json' \
     --specification '{"name":"openapi","version":"3.0.2"}'
 ```
@@ -102,8 +100,8 @@ The following example exports the specification file from the *openapi* definiti
 ```azurecli-interactive
 az apic api definition export-specification \
     --resource-group myResourceGroup --service myAPICenter \
-    --api-name petstore-api --version-name v1-0-0 \
-    --definition-name openapi --file-name "/Path/to/specificationFile.json"
+    --api-id petstore-api --version-id v1-0-0 \
+    --definition-id openapi --file-name "/Path/to/specificationFile.json"
 ```
 
 ## Register API from a specification file - single step
@@ -131,7 +129,7 @@ Use the [az apic api delete](/cli/azure/apic/api#az_apic_api_delete) command to 
 ```azurecli-interactive
 az apic api delete \
     --resource-group myResoureGroup --service myAPICenter \
-    --name petstore-api
+    --api-id petstore-api
 ```
 
 To delete individual API versions and definitions, use [az apic api version delete](/cli/azure/apic/api/version#az-apic-api-version-delete) and [az apic api definition delete](/cli/azure/apic/api/definition#az-apic-api-definition-delete), respectively.
