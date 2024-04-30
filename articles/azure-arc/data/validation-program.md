@@ -129,7 +129,7 @@ The conformance tests run as part of the Azure Arc-enabled Data services validat
 
 These tests verify that the product is compliant with the requirements of running and operating data services. This process helps assess if the product is enterprise ready for deployments.
 
-The tests for data services cover the following in indirectly connected mode
+The tests for data services cover the following in indirectly connected mode (learn more about [connectivity modes](/azure/azure-arc/data/connectivity))
 
 1. Deploy data controller in indirect mode
 2. Deploy [SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)
