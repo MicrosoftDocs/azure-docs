@@ -34,7 +34,7 @@ To query Java component logs in Azure, begin by accessing your Azure Log Analyti
 
 Focus your query on the Java component logs by utilizing the **ContainerAppSystemlogs_CL** table, which is found under the **CustomLogs** category in **Tables** tab.
 
-:::image type="content" source="media/java-component-logs/java-component-logs.png" alt-text="Screenshot of the Log Analytics Java component logs.":::
+:::image type="content" source="media/java-components-logs/java-component-logs.png" alt-text="Screenshot of the Log Analytics Java component logs.":::
 
 The following Kusto query displays the log entries of Eureka Server for Spring component logs.
 
@@ -80,7 +80,7 @@ To query Java components in Azure using Azure Monitor, with Log Analytics worksp
 
 Focus your query on the Java component logs by utilizing the **ContainerAppSystemLogs** table, which is found under the **Container Apps** category in **Tables** tab.
 
-:::image type="content" source="media/java-component-logs/java-component-logs.png" alt-text="Screenshot of the Log Analytics Java component logs portal location.":::
+:::image type="content" source="media/java-components-logs/java-component-logs.png" alt-text="Screenshot of the Log Analytics Java component logs portal location.":::
 
 The following Kusto query displays the log entries of Eureka Server for Spring component logs.
 
