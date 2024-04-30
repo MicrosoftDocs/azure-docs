@@ -14,11 +14,13 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2024
+
+* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
+
+    The Azure NetApp Files support for one Active Directory (AD) connection per NetApp account feature now allows each NetApp account to connect to its own AD Forest and Domain, providing the ability to manage more than one AD connections within a single region under a subscription. This enhancement enables distinct AD connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. AD connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to AD connections in the NetApp account, the management of AD environments becomes more scalable, streamlined and efficient. This feature is in preview.
+
 ## April 2024 
-
-* [Support for Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
-
-    The Azure NetApp Files support for Active Directory connection per NetApp account feature now allows each NetApp account to connect to its own Active Directory Forest and Domain, providing the ability to manage more than one Active Directory connections within a single region under a subscription. This enhancement enables distinct Active Directory connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. Active Directory connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to these Active Directory connections in the NetApp account, the management of Active Directory environments becomes more scalable, streamlined and efficient. This feature is now in public preview.
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
 
