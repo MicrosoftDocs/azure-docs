@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/04/2023
+ms.date: 04/29/2024
 ms.custom: engagement-fy23
 
 ---
@@ -84,24 +84,23 @@ The number and type of exceptions depends on where the request is in the code pa
 
 Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
-### Can I be notified in advance of planned maintenance?
+### Can I be notified in advance of maintenance?
 
 Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
 
 > [!NOTE]
-> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability. `AzureRedisEvents` is only available for Basic, Standard, and Premium tiers.
+> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming server maintenance events that might affect server availability. `AzureRedisEvents` is only available for Basic, Standard, and Premium tiers.
 
-### What are the updates included under planned maintenance?
+### What are the updates included under maintenance?
 
-Planned maintenance includes these updates or patches:
+Maintenance includes these updates:
 
-- Redis Server updates or patches: Any update or patch of the Redis server binaries.
-- Host updates or patches: Any upgrade of the virtual machine hosting the Redis service.
-- Host OS updates or patches: An upgrade of the operating system of the virtual machine that is hosting the cache.
+- Redis Server updates: Any update or patch of the Redis server binaries.
+- Virtual machine (VM) updates: Any updates of the virtual machine hosting the Redis service. VM updates include patching software components in the hosting environment to upgrading networking components or decommissioning.
 
-### Does planned maintenance appear in the service health in the Azure portal before a patch?
+### Does maintenance appear in the service health in the Azure portal before a patch?
 
-No, planned maintenance does not appear anywhere under the service health in the portal or any other place.
+No, maintenance does not appear anywhere under the [service health](/azure/service-health/) in the portal or any other place.
 
 ### How much time can I get the notification before the planned maintenance?
 
