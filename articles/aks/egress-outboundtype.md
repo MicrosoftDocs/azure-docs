@@ -6,7 +6,7 @@ ms.subservice: aks-networking
 ms.custom:
 ms.author: allensu
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 04/29/2024
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
@@ -72,10 +72,10 @@ The following tables show the supported migration paths between outbound types f
 
 ### Supported Migration Paths for Managed VNet
 
-| Managed VNet           |loadBalancer   | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
+| Managed VNet           | loadBalancer  | managedNATGateway | userAssignedNATGateway | userDefinedRouting |
 |------------------------|---------------|-------------------|------------------------|--------------------|
-| loadBalancer           | N/A           | Supported         | Not Supported          | Supported          |
-| managedNATGateway      | Supported     | N/A               | Not Supported          | Supported          |
+| loadBalancer           | N/A           | Supported         | Not Supported          | Not Supported      |
+| managedNATGateway      | Supported     | N/A               | Not Supported          | Not Supported      |
 | userAssignedNATGateway | Not Supported | Not Supported     | N/A                    | Not Supported      |
 | userDefinedRouting     | Supported     | Supported         | Not Supported          | N/A                |
 
