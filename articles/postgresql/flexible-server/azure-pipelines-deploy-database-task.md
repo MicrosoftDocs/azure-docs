@@ -35,6 +35,7 @@ The following example illustrates how to pass database arguments and run `execut
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `
@@ -57,6 +58,7 @@ The following example illustrates how to run an inline SQL script using `execute
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `
