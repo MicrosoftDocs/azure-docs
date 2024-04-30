@@ -133,6 +133,8 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
 
 The Semantic Kernel code interpreter plugin is included in `Microsoft.SemanticKernel` version `1.??.?` or later.
 
+1. TODO: See if user needs a specific role to call Azure OpenAI with DefaultAzureCredential.
+
 1. Get the Azure Container Apps session pool's management endpoint:
 
     ```bash
@@ -211,6 +213,8 @@ You then need to configure managed identity for the app and assign the identity 
     ```
 
     Replace `<principalId>` and `<resourceId>` with the values you retrieved in the previous step.
+
+1. TODO: Give the managed identity the proper role to call Azure OpenAI.
 
 1. Open the browser to `https://<fqdn>/chat?input=What is the current date and time?` to test the deployed app.
 
