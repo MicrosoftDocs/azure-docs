@@ -223,7 +223,7 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Look for resources of the **Azure Compute Gallery** type.
 
 
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
@@ -231,7 +231,7 @@ To list all the Azure Compute Gallery resources, across subscriptions that you h
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-#### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure PowerShell:
 
@@ -304,7 +304,7 @@ There are two ways you can specify the number of image version replicas to be cr
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count isn't specified. 
 
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
@@ -312,7 +312,7 @@ If regional replica count isn't specified with each location, then the default n
 
 To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
 
-#### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
 
