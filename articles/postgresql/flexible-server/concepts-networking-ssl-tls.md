@@ -4,12 +4,12 @@ description: Learn about secure connectivity with Flexible Server using SSL and 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/05/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Secure connectivity with TLS and SSL in Azure Database for PostgreSQL - Flexible Server

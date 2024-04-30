@@ -1,13 +1,13 @@
 ---
 title: How to enable and use pg_partman - Azure Database for PostgreSQL - Flexible Server
 description: How to enable and use pg_partman on Azure Database for PostgreSQL - Flexible Server
-ms.author: gapaderla
 author: GayathriPaderla
-ms.reviewer: sbalijepalli
+ms.author: gapaderla
+ms.reviewer: sbalijepalli, maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 03/14/2024
 ---
 
 # How to enable and use `pg_partman` on Azure Database for PostgreSQL - Flexible Server

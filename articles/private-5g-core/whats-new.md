@@ -37,19 +37,9 @@ TCP session initial setup messages that include a Maximum Segment Size (MSS) val
 
 ### Improved Packet Core Scaling 
 
-In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario. 
-The following table lists the new maximum supported limits.
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario.
 
-| Element                | Maximum supported |
-|------------------------|-------------------|
-| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
-| Bandwidth              | Over 25 Gbps per ASE |
-| RAN nodes (eNB/gNB)    | 200 per packet core |
-| Active UEs             | 10,000 per deployment (all sites) |
-| SIMs                   | 20,000 per ASE |
-| SIM provisioning       | 10,000 per JSON file via Azure portal, 4 MB per REST API call  |
-
-For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
+For details, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
 
 ## March 2024
 
