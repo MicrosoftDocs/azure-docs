@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/15/2024
+ms.date: 04/23/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
@@ -45,7 +45,7 @@ You can use the data lake connector to send data from Azure IoT MQ Preview broke
 
 - An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
-## Configure the data lake connector to send data to Microsoft Fabric OneLake using managed identity
+## Configure to send data to Microsoft Fabric OneLake using managed identity
 
 Configure a data lake connector to connect to Microsoft Fabric OneLake using managed identity.
 
@@ -90,7 +90,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
       protocol: v5
       image:
         repository: mcr.microsoft.com/azureiotoperations/datalake
-        tag: 0.1.0-preview
+        tag: 0.4.0-preview
         pullPolicy: IfNotPresent
       instances: 2
       logLevel: info
@@ -139,7 +139,7 @@ If your data shows in the *Unidentified* table:
 
 The cause might be unsupported characters in the table name. The table name must be a valid Azure Storage container name that means it can contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
 
-## Configure the data lake connector to send data to Azure Data Lake Storage Gen2 using SAS token
+## Configure to send data to Azure Data Lake Storage Gen2 using SAS token
 
 Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS Gen2) account using a shared access signature (SAS) token.
 
@@ -176,7 +176,7 @@ Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (A
       protocol: v5
       image:
         repository: mcr.microsoft.com/azureiotoperations/datalake
-        tag: 0.1.0-preview
+        tag: 0.4.0-preview
         pullPolicy: IfNotPresent
       instances: 2
       logLevel: "debug"
@@ -219,6 +219,159 @@ authentication:
     audience: https://my-account.blob.core.windows.net
 ```
 
+## Configure to send data to Azure Data Explorer using managed identity
+
+Configure the data lake connector to send data to an Azure Data Explorer endpoint using managed identity.
+
+### Deploy an Azure Data Explorer cluster
+
+1. To deploy an Azure Data Explorer cluster, follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal).
+
+1. After the cluster is created, create a database to store your data. 
+
+1. You can create a table for given data via the Azure portal and create columns manually, or you can use [KQL](/azure/data-explorer/kusto/management/create-table-command) in the query tab.
+
+    For example:
+    
+    ```kql
+    .create table thermostat (
+        externalAssetId: string,
+        assetName: string,
+        currentTemperature: real,
+        pressure: real,
+        mqttTopic: string,
+        timestamp: datetime
+    )
+    ```
+    
+### Enable streaming ingestion
+
+Enable streaming ingestion on your table and database. In the query tab, run the following command, substituting `<TABLE_NAME>` and `<DATABASE_NAME>` with your table and database names:
+
+```kql
+.alter table <TABLE_NAME> policy streamingingestion enable
+.alter database <DATABASE_NAME> policy streamingingestion enable
+```
+
+For example:
+
+```kql
+.alter table thermostat policy streamingingestion enable
+.alter database TestDatabase policy streamingingestion enable
+```
+### Deploy ARC extension
+
+Deploy the broker as an ARC extension so that you get managed identity support. Follow the steps outlined in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+
+### Add the managed identity to the Azure Data Explorer cluster
+
+In order for the connector to authenticate to Azure Data Explorer, you must add the managed identity to the Azure Data Explorer cluster. 
+
+1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for the name of your MQ extension. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*. The MQ extension name is the same as the MQ managed identity name.
+1. In your Azure Data Explorer database, select **Permissions** > **Add** > **Ingestor**. Search for the MQ managed identity name and add it.
+
+For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
+
+Now, you're ready to deploy the connector and send data to Azure Data Explorer.
+
+### Example deployment file
+
+Example deployment file for the Azure Data Explorer connector. Comments that beginning with `TODO` require you to replace placeholder settings with your information.
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: DataLakeConnector
+metadata:
+  name: my-datalake-connector
+  namespace: mq
+spec:
+  protocol: v5
+  image:
+    repository: edgebuilds.azurecr.io/datalake
+    tag: edge
+    pullPolicy: Always
+  instances: 1
+  logLevel: "debug"
+  databaseFormat: "adx"
+  target:
+    adx:
+      # TODO: insert the ADX cluster endpoint formatted as <cluster>.<region>.kusto.windows.net
+      endpoint: "<endpoint>"
+      authentication:
+        systemAssignedManagedIdentity:
+          audience: "https://api.kusto.windows.net"
+---
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: DataLakeConnectorTopicMap
+metadata:
+  name: datalake-topicmap
+  namespace: azure-iot-operations
+spec:
+  dataLakeConnectorRef: "my-datalake-connector"
+  mapping:
+    allowedLatencySecs: 1
+    messagePayloadType: "json"
+    maxMessagesPerBatch: 10
+    clientId: id
+    mqttSourceTopic: "dlc"
+    qos: 1
+    table:
+      # TODO: add db and table name
+      tablePath: "<db>"
+      tableName: "thermostat"
+      schema:
+      - name: "externalAssetId"
+        format: utf8
+        optional: false
+        mapping: "data.externalAssetId"
+      - name: "assetName"
+        format: utf8
+        optional: false
+        mapping: "data.assetName"
+      - name: "currentTemperature"
+        format: float32
+        optional: false
+        mapping: "$data.currentTemperature"
+      - name: "pressure"
+        format: float32
+        optional: false
+        mapping: "$data.pressure"
+      - name: "mqttTopic"
+        format: utf8
+        optional: false
+        mapping: "$topic"
+      - name: "timestamp"
+        format: timestamp
+        optional: false
+        mapping: "$received_time"
+```
+
+This example accepts data from the `dlc` topic with messages in JSON format such as the following:
+
+```json
+{
+  "data": {
+    "externalAssetID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "assetName": "thermostat-de",
+    "currentTemperature": 5506,
+    "pressure": 5506,
+    "mqttTopic": "dlc",
+    "timestamp": "2024-04-02T22:36:03.1827681Z"
+  }
+}
+```
+
+Example command to send data to Azure Data Explorer:
+
+```bash
+mosquitto_pub -t dlc -q 1 -r -V 5 -d -i "orderClient" \
+  -h 10.0.0.4 \
+  -m '{"data": {"externalAssetID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", "assetName": "thermostat-de", "currentTemperature": 5506, "pressure": 5506}}' \
+  --repeat 10 \
+  --repeat-delay 0 \
+  -c
+```
+
 ## DataLakeConnector
 
 A *DataLakeConnector* is a Kubernetes custom resource that defines the configuration and properties of a data lake connector instance. A data lake connector ingests data from MQTT topics into Delta tables in a Data Lake Storage account.
@@ -233,7 +386,7 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
 - `instances`: The number of replicas of the data lake connector to run.
 - `logLevel`: The log level for the data lake connector module. It can be one of `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
 - `databaseFormat`: The format of the data to ingest into the Data Lake Storage. It can be one of `delta` or `parquet`.
-- `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, or `localStorage`.
+- `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, `adx`, or `localStorage`.
     - `datalakeStorage`: Specifies the configuration and properties of the local storage Storage account. It has the following subfields:
         - `endpoint`: The URL of the Data Lake Storage account endpoint. Don't include any trailing slash `/`.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Data Lake Storage account. It can be one of the following.
@@ -276,7 +429,9 @@ The specification field of a DataLakeConnectorTopicMap resource contains the fol
             - `name`: The name of the column in the Delta table.
             - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, aren't fully supported, and are treated as signed types if specified here.
             - `optional`: A boolean value that indicates whether the column is optional or required. This field is optional and defaults to false.
-            - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
+            - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, `$properties`, `$topicSegment`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
+                Use $properties for MQTT user properties. For example, $properties.assetId represents the value of the assetId property from the MQTT message.
+                Use $topicSegment to identify the segment of the topic that you want to extract. For example, if the topic is `devices/+/messages/events`, you can do $topicSegment.1 to get the first segment. The segment index is 1-based.
 
 Here's an example of a *DataLakeConnectorTopicMap* resource:
 
@@ -345,7 +500,7 @@ Which maps to:
 
 | externalAssetId                      | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
 | ------------------------------------ | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
-| 59ad3b8b-c840-43b5-b79d-7804c6f42172 | thermostat-de   | 5506               | 5506     | dlc                           | 2024-04-02T22:36:03.1827681Z   |
+| xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | thermostat-de   | 5506               | 5506     | dlc                           | 2024-04-02T22:36:03.1827681Z   |
 
 > [!IMPORTANT]
 > If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.
