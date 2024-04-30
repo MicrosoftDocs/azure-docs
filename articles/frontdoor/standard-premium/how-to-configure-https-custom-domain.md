@@ -4,8 +4,8 @@ description: In this article, you learn how to configure HTTPS on an Azure Front
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.date: 10/31/2023
+ms.topic: how-to
+ms.date: 04/29/2024
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
