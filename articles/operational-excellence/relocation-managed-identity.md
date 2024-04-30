@@ -31,6 +31,12 @@ Managed identities for Azure resources is a feature of Azure Entra ID. Each of t
 - Permissions to assign a new user-assigned identity to the Azure resources.
 - Permissions to edit Group membership, if your user-assigned managed identity is a member of one or more groups.
 
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+
 ## Prepare and move
 
 1. Copy user-assigned managed identity assigned permissions. You can list [Azure role assignments](/azure/role-based-access-control/role-assignments-list-powershell) but that may not be enough depending on how permissions were granted to the user-assigned managed identity. You should confirm that your solution doesn't depend on permissions granted using a service specific option.

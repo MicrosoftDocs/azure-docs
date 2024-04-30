@@ -260,7 +260,7 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
+[kubernetes-service]: ../concepts-network-services.md
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

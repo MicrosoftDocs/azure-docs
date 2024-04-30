@@ -64,7 +64,7 @@ Vaulted backup for Azure Files (preview) is available in West Central US, Southe
 
 | File  share type                                   | Support   |
 | -------------------------------------------------- | --------- |
-| Standard                                           | Supported |
+| Standard (with large file shares enabled)                                   | Supported |
 | Large                                              | Supported |
 | Premium                                            | Supported |
 | File shares connected with Azure File Sync service | Supported |

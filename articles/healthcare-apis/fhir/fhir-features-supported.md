@@ -57,6 +57,7 @@ All the operations that are supported that extend the REST API.
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
 | [$purge-history](purge-history.md)         | Yes       | Yes       |         |
 | [$import](import-data.md) |No |Yes | |
+| [$bulk-delete](fhir-bulk-delete.md)|Yes   |Yes   |   |
 
 ## Role-based access control
 

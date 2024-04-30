@@ -134,7 +134,7 @@ The switch is now created. Next, you'll set up the DNS.
 1. Assign the **NAT** and **gateway IP** addresses you created in the earlier section to the DHCP server, and restart the server to load the configuration. The first command should produce no output, but restarting the DHCP server should output the same warning messages that you received when you did so in the third step of this section.
 
     ```powershell
-    Set-DhcpServerV4OptionValue -ScopeID {natIp} -Router {gatewayIp}
+    Set-DhcpServerV4OptionValue -ScopeID {startIp} -Router {gatewayIp}
     Restart-service dhcpserver
     ```
 

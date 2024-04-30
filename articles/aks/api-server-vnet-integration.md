@@ -207,7 +207,7 @@ az group create -l <location> -n <resource-group>
 
 ## Convert an existing AKS cluster to API Server VNet Integration
 
-You can convert existing public/private AKS clusters to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements listed earlier. These requirements include: in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, and size of at least */28*. Converting your cluster is a one-way migration. Clusters can't have API Server VNet Integration disabled after it's been enabled.
+You can convert existing public/private AKS clusters to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements listed earlier. These requirements include: in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, not used by other resources like private endpoint, and size of at least */28*. Converting your cluster is a one-way migration. Clusters can't have API Server VNet Integration disabled after it's been enabled.
 
 This upgrade performs a node-image version upgrade on all node pools and restarts all workloads while they undergo a rolling image upgrade.
 

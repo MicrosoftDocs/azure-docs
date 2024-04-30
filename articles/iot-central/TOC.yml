@@ -106,8 +106,6 @@
       href: core/concepts-faq-scalability-availability.md
     - name: What are IoT Central's scale limits?
       href: core/concepts-quotas-limits.md
-    - name: Industrial IoT patterns
-      href: core/concepts-iiot-architecture.md
 
 - name: How-to guides
   items:
@@ -169,8 +167,6 @@
               href: core/howto-export-to-webhook.md
             - name: Transform data internally for export
               href: core/howto-transform-data-internally.md
-        - name: Export data and visualize with Databricks
-          href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
           href: core/howto-map-data.md
         - name: Transform data externally
@@ -222,10 +218,8 @@
           href: core/howto-customize-ui.md
         - name: Integrate with DevOps
           href: core/howto-integrate-with-devops.md
-        - name: Manage and monitor in the Azure portal
-          href: core/howto-manage-iot-central-from-portal.md
-        - name: Manage from command line
-          href: core/howto-manage-iot-central-from-cli.md
+        - name: Manage and monitor applications
+          href: core/howto-manage-and-monitor-iot-central.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
         - name: Create a private endpoint for devices
@@ -274,8 +268,6 @@
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
-  - name: IoT device developer
-    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

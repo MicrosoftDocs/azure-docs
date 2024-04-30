@@ -4,7 +4,7 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 04/08/2024
 ms.author: kendownie
 ---
 
@@ -16,7 +16,7 @@ This article provides guidance on selecting and adjusting cloud tiering policies
 
 - Cloud tiering isn't supported on the Windows system volume.
 
-- You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting.
+- If you're using File Server Resource Manager (FSRM) for quota management on server endpoints, we recommend applying the quotas at the folder level and not at the volume level. You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting. However, when a hard quota is present on a volume root, the actual free space on the volume and the quota restricted space on the volume might not be the same. This could cause endless tiering if Azure File Sync thinks there isn't enough volume free space on the server endpoint.
 
 ### Minimum file size for a file to tier
 

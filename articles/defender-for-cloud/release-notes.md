@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 04/02/2024
+ms.date: 04/15/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,12 +24,21 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| April 15 | [Defender for Containers is now generally available (GA) for AWS and GCP](#defender-for-containers-is-now-generally-available-ga-for-aws-and-gcp) |
 | April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
 | April 3 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
 | April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
 | April 2 | [Update to recommendations to align with Azure AI Services resources](#update-to-recommendations-to-align-with-azure-ai-services-resources) |
 | April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
 | April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
+
+### Defender for Containers is now generally available (GA) for AWS and GCP
+
+April 15, 2024
+
+Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers are now Generally Available (GA). For more information, see [Containers support matrix in Defender for Cloud](support-matrix-defender-for-containers.md).
+
+In addition, there is a new authentication capability in AWS which simplifies provisioning. For more information, see [Configure Microsoft Defender for Containers components](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-269845&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks#deploying-the-defender-sensor).
 
 ### Risk prioritization is now the default experience in Defender for Cloud
 
@@ -45,17 +54,17 @@ April 3, 2024
 
 To support the new [risk-based prioritization](risk-prioritization.md) experience for recommendations, we've created new recommendations for container vulnerability assessments in Azure, AWS, and GCP. They report on container images for registry and container workloads for runtime:
 
-- [[Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)](recommendations-reference.md#container-images-in-azure-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey33422d8f-ab1e-42be-bc9a-38685bb567b9)
-- [[Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)](recommendations-reference.md#containers-running-in-azure-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeye9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)
-- [[Container images in AWS registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2a139383-ec7e-462a-90ac-b1b60e87d576)](recommendations-reference-aws.md#container-images-in-aws-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey2a139383-ec7e-462a-90ac-b1b60e87d576)
-- [[Containers running in AWS should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d5d1e526-363a-4223-b860-f4b6e710859f)](recommendations-reference-aws.md#containers-running-in-aws-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyd5d1e526-363a-4223-b860-f4b6e710859f)
-- [[Container images in GCP registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)](recommendations-reference-gcp.md#container-images-in-gcp-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)
-- [[Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)](recommendations-reference-gcp.md#containers-running-in-gcp-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc7c1d31d-a604-4b86-96df-63448618e165)
+- [Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)
+- [Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)
+- [Container images in AWS registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2a139383-ec7e-462a-90ac-b1b60e87d576)
+- [Containers running in AWS should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d5d1e526-363a-4223-b860-f4b6e710859f)
+- [Container images in GCP registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)
+- [Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)
 
 The previous container vulnerability assessment recommendations are on a retirement path and will be removed when the new recommendations are generally available.
 
-- [[Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5)](recommendations-reference.md#azure-registry-container-images-should-have-vulnerabilities-resolved-powered-by-microsoft-defender-vulnerability-managementhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc0b7cfc6-3172-465a-b378-53c7ff2cc0d5)
-- [[Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)](recommendations-reference.md#azure-running-container-images-should-have-vulnerabilities-resolved-powered-by-microsoft-defender-vulnerability-managementhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)
+- [Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5)
+- [Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)
 - [AWS registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/AwsContainerRegistryRecommendationDetailsBlade/assessmentKey/c27441ae-775c-45be-8ffa-655de37362ce)
 - [AWS running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/AwsContainersRuntimeRecommendationDetailsBlade/assessmentKey/682b2595-d045-4cff-b5aa-46624eb2dd8f)
 - [GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/GcpContainerRegistryRecommendationDetailsBlade/assessmentKey/5cc3a2c1-8397-456f-8792-fe9d0d4c9145)
@@ -257,11 +266,11 @@ March 6, 2024
 
 Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
-Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
 
 We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
 
-Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
+Learn how to [assign a security standard](update-regulatory-compliance-packages.yml).
 
 ### Deprecation of two recommendations related to PCI
 
@@ -297,7 +306,7 @@ February 28, 2024
 
 The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes:
 
-- Managing [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud across Azure, AWS, and GCP environments.
+- Managing [regulatory compliance standards](update-regulatory-compliance-packages.yml) in Defender for Cloud across Azure, AWS, and GCP environments.
 - Same cross cloud interface experience for creating and managing [Microsoft Cloud Security Benchmark(MCSB) custom recommendations](manage-mcsb.md).
 - The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md).
 

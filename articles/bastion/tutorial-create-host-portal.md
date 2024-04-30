@@ -102,7 +102,7 @@ This section helps you deploy Bastion to your virtual network. After Bastion is 
 
    * **Region**: The Azure public region in which the resource will be created. Choose the region where your virtual network resides.
 
-   * **Availability zone**: Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see the [What are availability zones?](https://learn.microsoft.com/azure/reliability/availability-zones-overview?tabs=azure-cli) article.
+   * **Availability zone**: Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see the [What are availability zones?](../reliability/availability-zones-overview.md?tabs=azure-cli) article.
 
    * **Tier**: The SKU. For this tutorial, select **Standard**. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus).
 

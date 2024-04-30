@@ -25,14 +25,17 @@ Check out the [pricing page](https://azure.microsoft.com/pricing/details/defende
 Defender for open-source relational database is supported on PaaS environments and not on Azure Arc-enabled machines.
 
 **Protected versions of PostgreSQL include**:
-- Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md). 
+
+- Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md).
 - Flexible Server - all pricing tiers.
 
 **Protected versions of MySQL include**:
+
 - Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).
 - Flexible Server - all pricing tiers.
 
 **Protected versions of MariaDB include**:
+
 - General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).
 
 View [cloud availability](support-matrix-cloud-environment.md#cloud-support) for Defender for open-source relational databases

@@ -36,6 +36,8 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Load balance **[internal](./quickstart-load-balancer-standard-internal-portal.md)** and **[external](./quickstart-load-balancer-standard-public-portal.md)** traffic to Azure virtual machines.
 
+- Pass-through load balancing which results in ultra-low latnecy. 
+
 - Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./quickstart-load-balancer-standard-public-portal.md)** zones.
 
 - Configure **[outbound connectivity](./load-balancer-outbound-connections.md)** for Azure virtual machines.

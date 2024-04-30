@@ -26,11 +26,17 @@ try {
      console.log(`Microsoft Teams Meeting Conference Id: ${details.phoneConferenceId}`);
      details.phoneNumbers.forEach(dialInPhoneNumber => {
         if (dialInPhoneNumber.tollPhoneNumber) { 
-             console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
+            console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
         }
         else if (dialInPhoneNumber.tollFreePhoneNumber) { 
             console.log(`Dial-In TollFree PhoneNumber: ${dialInPhoneNumber.tollFreePhoneNumber.phoneNumber}`);
         } 
+        else if (dialInPhoneNumber.countryName) {
+            console.log(`Dial-In Country Name: ${dialInPhoneNumber.countryName}`);
+        }
+        else if (dialInPhoneNumber.cityName) {
+            console.log(`Dial-In City Name: ${dialInPhoneNumber.cityName}`);
+        }
     })
 } catch (e) {
     console.error(e);

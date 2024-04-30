@@ -64,7 +64,9 @@ If you didn't use a watchlist template to create your file,
    |Number of lines before row with headings     |  Enter the number of lines before the header row that's in your data file.       |
    |Upload file   |  Either drag and drop your data file, or select **Browse for files** and select the file to upload.      |
    |SearchKey  |  Enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.    |
-   
+
+   >[!NOTE]
+   > If your CSV file is greater than 3.8 MB, you need to use the instructions for [Create a large watchlist from file in Azure Storage](#create-a-large-watchlist-from-file-in-azure-storage-preview).
 
 1. Select **Next: Review and Create**.
 
