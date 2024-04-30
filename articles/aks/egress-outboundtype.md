@@ -21,7 +21,7 @@ This article covers the various types of outbound connectivity that are availabl
 
 ## Limitations
 
-* Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
+- Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
 
 ## Outbound types in AKS
 
@@ -36,9 +36,9 @@ The load balancer is used for egress through an AKS-assigned public IP. An outbo
 
 If `loadBalancer` is set, AKS automatically completes the following configuration:
 
-* A public IP address is provisioned for cluster egress.
-* The public IP address is assigned to the load balancer resource.
-* Backend pools for the load balancer are set up for agent nodes in the cluster.
+- A public IP address is provisioned for cluster egress.
+- The public IP address is assigned to the load balancer resource.
+- Backend pools for the load balancer are set up for agent nodes in the cluster.
 
 ![Diagram shows ingress I P and egress I P, where the ingress I P directs traffic to a load balancer, which directs traffic to and from an internal cluster and other traffic to the egress I P, which directs traffic to the Internet, M C R, Azure required services, and the A K S Control Plane.](media/egress-outboundtype/outboundtype-lb.png)
 
@@ -48,8 +48,8 @@ For more information, see [using a standard load balancer in AKS](load-balancer-
 
 If `managedNatGateway` or `userAssignedNatGateway` are selected for `outboundType`, AKS relies on [Azure Networking NAT gateway](../virtual-network/nat-gateway/manage-nat-gateway.md) for cluster egress.
 
-* Select `managedNatGateway` when using managed virtual networks. AKS will provision a NAT gateway and attach it to the cluster subnet.
-* Select `userAssignedNatGateway` when using bring-your-own virtual networking. This option requires that you have provisioned a NAT gateway before cluster creation.
+- Select `managedNatGateway` when using managed virtual networks. AKS will provision a NAT gateway and attach it to the cluster subnet.
+- Select `userAssignedNatGateway` when using bring-your-own virtual networking. This option requires that you have provisioned a NAT gateway before cluster creation.
 
 For more information, see [using NAT gateway with AKS](nat-gateway.md).
 
@@ -139,16 +139,13 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNA
 
 ## Next steps
 
-* [Configure standard load balancing in an AKS cluster](load-balancer-standard.md)
-* [Configure NAT gateway in an AKS cluster](nat-gateway.md)
-* [Configure user-defined routing in an AKS cluster](egress-udr.md)
-* [NAT gateway documentation](./nat-gateway.md)
-* [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md)
-* [Manage route tables](../virtual-network/manage-route-table.yml)
+- [Configure standard load balancing in an AKS cluster](load-balancer-standard.md)
+- [Configure NAT gateway in an AKS cluster](nat-gateway.md)
+- [Configure user-defined routing in an AKS cluster](egress-udr.md)
+- [NAT gateway documentation](./nat-gateway.md)
+- [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md)
+- [Manage route tables](../virtual-network/manage-route-table.yml)
 
 <!-- LINKS - internal -->
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-show]: /cli/azure/feature#az_feature_show
-[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az_aks_update
 
