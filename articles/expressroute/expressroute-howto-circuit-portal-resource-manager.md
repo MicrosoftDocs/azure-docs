@@ -239,7 +239,11 @@ To modify an ExpressRoute circuit, select **Configuration**.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Screenshot of modifying circuit.":::
 
-## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
+## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit 
+
+> [!IMPORTANT]
+> Deprovisioning and deleting an ExpressRoute circuit is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. On the Azure portal menu, navigate to the ExpressRoute circuit you wish to deprovision.
 
