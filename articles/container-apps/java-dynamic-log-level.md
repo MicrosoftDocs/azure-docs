@@ -59,7 +59,7 @@ Currently most of those popular Java logging frameworks are supported: [Log4j2](
 
 Different logging frameworks have different log levels supported. In JVM diagnostics platform, some of them are supported as well but others are not yet. If you are using a specific logging framework and you want to use dynamic log level change, you need to make sure those log levels you are using are supported by both framework and platform.
 
-|               | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
+| Framework     | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
 |---------------|-------|-------|-------|------|------|-------|-------|-----|
 | Log4j2        | YES   | YES   | YES   | YES  | YES  | YES   | YES   | YES |
 | SLF4J         | YES   | YES   | YES   | YES  | YES  | YES   | YES   | YES |
@@ -68,7 +68,7 @@ Different logging frameworks have different log levels supported. In JVM diagnos
 
 ### General visibility of log levels
 
-|           | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
+| Log Level | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
 |-----------|-------|-------|------|------|-------|-------|-----|
 | **OFF**   |       |       |      |      |       |       |     |
 | **FATAL** | YES   |       |      |      |       |       |     |
