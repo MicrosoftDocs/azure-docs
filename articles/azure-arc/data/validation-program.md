@@ -46,7 +46,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Hitachi Virtual Storage Software Block software-defined storage (VSSB)|1.24.12 |1.20.0_2023-06-13 |16.0.5100.7242 |14.5 (Ubuntu 20.04)|
 |Hitachi Virtual Storage Platform (VSP) |1.24.12 |1.19.0_2023-05-09 |16.0.937.6221 |14.5 (Ubuntu 20.04)|
 
-*: The solution was validated in indirect mode only.
+*: The solution was validated in indirect mode only (learn more about [the different connectivity modes](../data/connectivity.md)).
 
 ### HPE
 
