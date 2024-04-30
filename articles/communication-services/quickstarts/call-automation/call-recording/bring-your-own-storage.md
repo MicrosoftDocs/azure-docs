@@ -101,6 +101,18 @@ Refer to this example of the event schema.
     "eventTime": "string" // ISO 8601 date time for when the event was created
 }
 ```
+### Folder Structure for Call Recording
+
+Recordings are stored in the following format as shown in the diagram.
+        /YYYYMMDD/
+            callId/
+            8+ recordingId(guid)/
+                                0-acsmetadata.documentId.json
+                                0- audiomp3.documentId.mp3
+                                1-acsmetadata.documentId.json
+                                1-audiomp3.documentId.mp3
+                                
+![Diagram showing a Call Recording Folder structure](../media/call-recording-folder.png)
 
 ## Next steps
 
