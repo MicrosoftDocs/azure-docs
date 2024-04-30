@@ -55,7 +55,7 @@ The following example creates random bytes of data and uploads a `BytesIO` objec
 
 The following example uploads binary data to a block blob using a `BlobClient` object:
 
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_data":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_buffer":::
 
 ## Upload a block blob with index tags
 
