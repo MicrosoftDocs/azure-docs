@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 04/30/2023
 ms.custom: references_regions
 ms.author: normesta
 
@@ -24,11 +24,11 @@ Azure allows secure data transfer to Blob Storage accounts using Azure Blob serv
 
 Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you would have to either purchase a third party product or orchestrate your own solution. For custom solutions, you would have to create virtual machines (VMs) in Azure to host an SFTP server, and then update, patch, manage, scale, and maintain a complex architecture.
 
-Now, with SFTP support for Azure Blob Storage, you can enable an SFTP support for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22.
+Now, with SFTP support for Azure Blob Storage, you can enable SFTP support for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22.
 
 This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
-> [!Note]
+> [!NOTE]
 > SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service.
 
 ## SFTP and the hierarchical namespace
@@ -80,7 +80,7 @@ For container-level permissions, you can choose which containers you want to gra
 | List | l | <li>List content within container</li><li>List content within directory</li> |
 | Delete | d | <li>Delete file/directory</li> |
 | Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if directory doesn't exist</li> |
-| Modify Ownership | o | <li>Change the owning user or owning group of file or directory</li> |
+| Modify Ownership | o | <li>Change the owning user or owning group of a file or directory</li> |
 | Modify Permissions | p | <li>Change the ACL of a file or directory</li> |
 
 When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
@@ -91,41 +91,37 @@ When performing write operations on blobs in sub directories, Read permission is
 > This capability is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates an identity with an access level. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
-While an ACL can define the permission level for many different types of identities, only the owning user, owning group, and all other users identities can be used to authorize a local user. Named users and named groups are not yet supported for local user authorization.
+> [!NOTE]
+> While an ACL can define the permission level for many different types of identities, only the owning user, owning group, and all other users identities can be used to authorize a local user. Named users and named groups are not yet supported for local user authorization.
 
-### How ACL permissions are evaluated
-
-ACLs are evaluated only if the local user does not have the necessary container permissions to perform an operation. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by container-level permissions. That's because the system evaluates container permissions first, and if those permissions grant sufficient access permission, ACLs are ignored.
-
-### Modifying ACLs with an SFTP client
-
-While an ACL can be modified by using any supported Azure tool or SDK, local users can also modify them. To enable a local user to modify ACLs, you must first give the local user `Modify Permissions` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
-
-Local users can change the permission level of the only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported.
-
-Local users can also change the ID of the owning user and the owning group. To change owning user or owning group of a directory or blob, the local user must be given `Modify Ownership` permission.
-
-Most SFTP clients expose commands for changing these properties. To view examples, see [Modify the ACL of a file or directory](secure-file-transfer-protocol-support-connect.md#modify-the-acl-of-a-file-or-directory).
-
-The following table describes common commands in more detail.
-
-| Command | Required Container Permission | Description |
-|---|---|---|
-| chown | o | <li>Change owning user for file/directory</li><li>Must specify numeric ID</li> |
-| chgrp | o | <li>Change owning group for file/directory</li><li>Must specify numeric ID</li> |
-| chmod | p | <li>Change permissions/mode for file/directory</li><li>Must specify POSIX style octal permissions</li> |
-
-The IDs required for changing owning user and owning group are part of new properties for local users. The following table describes each new Local User property in more detail.
+The following table describes the properties of a local user that are used for ACL authorization.
 
 | Property | Description |
 |---|---|
 | UserId | <li>Unique identifier for the local user within the storage account</li><li>Generated by default when the Local User is created</li><li>Used for setting owning user on file/directory</li> |
 | GroupId | <li>Identifer for a group of local users</li><li>Used for setting owning group on file/directory</li> |
 | AllowAclAuthorization | <li>Allow authorizing this Local User's requests with ACLs</li> |
+
+### How ACL permissions are evaluated
+
+ACLs are evaluated only if the local user does not have the necessary container permissions to perform an operation. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by container-level permissions. That's because the system evaluates container permissions first, and if those permissions grant sufficient access permission, ACLs are ignored.
+
+> [!IMPORTANT]
+> To grant a local user read or write access to a file, you'll need to give that local user **Execute** permissions to the root folder of the container, and to each folder in the hierarchy of folders that lead to the file. If the local user is the owning user or owning group, then you can apply **Execute** permissions to either the owning user or owning group. Otherwise, you'll have to apply the **Execute** permission to all other users.
+
+### Modifying ACLs with an SFTP client
+
+While ACL permissions can be modified by using any supported Azure tool or SDK, local users can also modify them. To enable a local user to modify ACL permissions, you must first give the local user `Modify Permissions` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+
+Local users can change the permission level of only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported.
+
+Local users can also change the ID of the owning user and the owning group. In fact, only local users can change the ID of the owning user or owning group to a local user ID. You can't yet reference a local user ID in an ACL by using an Azure tool or SDK. To change owning user or owning group of a directory or blob, the local user must be given `Modify Ownership` permission.
+
+To view examples, see [Modify the ACL of a file or directory](secure-file-transfer-protocol-support-connect.md#modify-the-acl-of-a-file-or-directory).
 
 ## Home directory
 

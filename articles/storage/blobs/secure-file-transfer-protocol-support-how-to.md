@@ -6,7 +6,7 @@ author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 04/30/2024
 ms.author: normesta
 ---
 

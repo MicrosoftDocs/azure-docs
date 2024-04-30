@@ -1,18 +1,18 @@
 ---
-title: Authorize access to Azure Blob Storage from an SFTP client
+title: Authorize access to Azure Blob Storage for an SFTP client
 titleSuffix: Azure Storage
-description: Learn how to authorize access to Azure Blob Storage from an SSH File Transfer Protocol (SFTP) client.
+description: Learn how to authorize access to Azure Blob Storage for an SSH File Transfer Protocol (SFTP) client.
 author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 04/30/2024
 ms.author: normesta
 ---
 
-# Authorize access to Azure Blob Storage from an SSH File Transfer Protocol (SFTP) client 
+# Authorize access to Azure Blob Storage for an SSH File Transfer Protocol (SFTP) client
 
-This article shows you how to authorize access to SFTP clients so that can securely connect to the Blob Storage endpoint of your Azure Storage account by using an SFTP client. 
+This article shows you how to authorize access to SFTP clients so that can securely connect to the Blob Storage endpoint of your Azure Storage account by using an SFTP client.
 
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
@@ -33,7 +33,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
 ### Choose an authentication method
 
-You can authenticate local users connecting from SFTP clients by using a password or a Secure Shell (SSH) public-private keypair.
+You can authenticate local users connecting from SFTP clients by using a password or a Secure Shell (SSH) public-private key pair.
 
 > [!IMPORTANT]
 > While you can enable both forms of authentication, SFTP clients can connect by using only one of them. Multifactor authentication, whereby both a valid password and a valid public and private key pair are required for successful authentication is not supported.
@@ -64,7 +64,7 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
    | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen). |
 
-4. Select **Next** to open the **Container permissions** tab of the configuration pane.
+4. Select **Next** to open the **Permissions** tab of the configuration pane.
 
 #### [PowerShell](#tab/powershell)
 
@@ -80,7 +80,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
    - Use existing public key that is stored outside of Azure.
 
-      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format
+      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
 2. Create a public key object by using the [New-AzStorageLocalUserSshPublicKey](/powershell/module/az.storage/new-azstoragelocalusersshpublickey) command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
 
@@ -89,7 +89,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
    $sshkey = New-AzStorageLocalUserSshPublicKey -Key $sshkey -Description "description for ssh public key"
    ```
 
-3. Create a local user by using the [Set-AzStorageLocalUser](/powershell/module/az.storage/set-azstoragelocaluser) command. If you're using an SSH key, then set the `SshAuthorization` parameter to the public key object that you created in the previous step.
+3. Create a local user by using the [Set-AzStorageLocalUser](/powershell/module/az.storage/set-azstoragelocaluser) command. If you're using an SSH key, then set the `SshAuthorizedKey` parameter to the public key object that you created in the previous step.
 
    The following example creates a local user and then prints the key to the console.
 
@@ -141,7 +141,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
    - Use existing public key that is stored outside of Azure.
 
-      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format
+      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
 2. To create a local user that is authenticated by using an SSH key, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-key` parameter to a string that contains the key type and public key.
 
@@ -179,26 +179,29 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
 ### Give permission to containers
 
-Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. You can set ACLs only in the Azure portal. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support.md#container-permissions).
+Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support.md#container-permissions).
 
 If you want to authorize access at the file and directory level, you can enable ACL authorization. This capability is in preview and can be enabled only by using the Azure portal.
 
 #### [Portal](#tab/azure-portal)
 
-1. In the **Container permissions** tab, select the containers that you want to make available to this local user. Then, select which types of operations you want to enable this local user to perform.
+1. In the **Permissions** tab, select the containers that you want to make available to this local user. Then, select which types of operations you want to enable this local user to perform.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Container permissions tab.](./media/secure-file-transfer-protocol-support-authorize-access/container-perm-tab.png)
+   > ![Screenshot of the Permissions tab.](./media/secure-file-transfer-protocol-support-authorize-access/container-perm-tab.png)
 
    > [!IMPORTANT]
-   > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
+   > The local user must have at least one container permission or ACL permission to the home directory of that container. Otherwise a connection attempt to that container will fail.
 
-2. If you want to authorize access by using the access control lists (acls) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
+2. If you want to authorize access by using the access control lists (ACLs) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
 
    You can also add this local user to a group by assigning that user to a group ID. That ID can be any number or number scheme that you want. Grouping users allow you to add and remove users without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users from the group.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the group ID and ACL authorization checkbox.](./media/secure-file-transfer-protocol-support-authorize-access/container-perm-tab-acl-authorization.png)
+
+   > [!NOTE]
+   > A user ID for the local user is automatically generated. You can't modify this ID, but you can see the ID after you create the local user by reopening that user in the **Edit local user** pane.
 
 3. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this local user (For example: `mycontainer/mydirectory`).
 
@@ -218,7 +221,7 @@ If you want to authorize access at the file and directory level, you can enable 
 
 #### [PowerShell](#tab/powershell)
 
-1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
+1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), Create (c), Modify Ownership(o), Modify Permissions(p).
   
    The following example set creates a permission scope object that gives read and write permission to the `mycontainer` container.  
 
@@ -243,7 +246,7 @@ If you want to authorize access at the file and directory level, you can enable 
 
 #### [Azure CLI](#tab/azure-cli)
 
-To update a local user with permission to a container, use the [az storage account local-user update](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `permission-scope` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
+To update a local user with permission to a container, use the [az storage account local-user update](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `permission-scope` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), Create (c), Modify Ownership(o), Modify Permissions(p).
 
 The following example gives a local user name `contosouser` read and write access to a container named `contosocontainer`.
   

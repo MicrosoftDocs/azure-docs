@@ -6,7 +6,7 @@ author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 04/30/2024
 ms.author: normesta
 ---
 
@@ -119,7 +119,7 @@ sftp>
 
 To change the owning group of a directory or blob, the local user must have been given `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
-The following example prints the ACL of a directory to the console. The ID of the owning group is `0`. This example uses the `chgrp` command to set the ID of the owning group to `1234` and prints the change to the console.
+The following example prints the ACL of a directory to the console. The ID of the owning group is `0`. This example uses the `chgrp` command to set the ID of the owning group to `5678` and prints the change to the console.
 
 ```console
 sftp> ls -l
