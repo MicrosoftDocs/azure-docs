@@ -3,13 +3,11 @@ title: How to enable and use pg_partman
 description: How to enable and use pg_partman on Azure Database for PostgreSQL - Flexible Server to optimize database performance and improve query speed.
 ms.author: gapaderla
 author: GayathriPaderla
-ms.author: gapaderla
 ms.reviewer: sbalijepalli, maghan
 ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 04/24/2024
 #customer intent: As a developer, I want to learn how to enable and use pg_partman on Azure Database for PostgreSQL - Flexible Server so that I can optimize my database performance.
 ---
 
