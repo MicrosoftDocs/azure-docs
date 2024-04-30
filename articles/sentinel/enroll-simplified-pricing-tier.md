@@ -138,7 +138,7 @@ With simplified pricing tiers, the same Commitment tier and billing mode used by
 ### Dedicated cluster billing examples
 Compare the following cluster scenarios to better understand simplified pricing when adding Microsoft Sentinel enabled workspaces to a dedicated cluster.
 
-:::image type="content" source="media/enroll-simplified-pricing-tier/cluster.svg" alt-text="Image showing a color coded cluster with three workspaces. One of the workspaces is labeled Microsoft Sentinel.":::
+:::image type="content" source="media/enroll-simplified-pricing-tier/cluster.svg" alt-text="A block diagram showing a color coded cluster with three workspaces. One of the workspaces is labeled Microsoft Sentinel.":::
 
 **Example 1:** A dedicated cluster ingesting *more* data than the Commitment tier level, but under the next highest tier (ideal).
 :::image type="content" source="media/enroll-simplified-pricing-tier/example-1.png" alt-text="Spreadsheet showing Commitment tier over usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-1.png":::
@@ -165,7 +165,7 @@ It's possible your Microsoft account team negotiated a discounted price for Log 
 ## Learn more
 
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
