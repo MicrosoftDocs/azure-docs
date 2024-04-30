@@ -21,7 +21,7 @@ az group create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Location $Location -Name $ResourceGroup
+New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 ```
 
 ---
