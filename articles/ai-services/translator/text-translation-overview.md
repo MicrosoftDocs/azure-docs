@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 04/29/2024
 ms.author: lajanuar
 ---
 
@@ -74,9 +74,27 @@ Text Translation data residency depends on the Azure region where your Translato
 | Service endpoint | Request processing data center |
 |------------------|--------------------------|
 |**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
-|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US &bull; South Central US &bull; West Central US &bull; West US 2|
-|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|North Europe &bull; West Europe|
-| **Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Korea South &bull; Japan East &bull; Southeast Asia &bull; Australia East|
+|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
+|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
+|**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
+|**Switzerland:**</br> *see [Switzerland service endpoint](#switzerland-service-endpoint).|Switzerland North &bull; Switzerland West|
+
+#### Switzerland service endpoint
+
+Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the `Resource region` `Switzerland North` or `Switzerland West`, then use the resource's custom endpoint in your API requests.
+
+For example: If you create a Translator resource in Azure portal with `Resource region` as `Switzerland North` and your resource name is `my-swiss-n`, then your custom endpoint is `https&#8203;://my-swiss-n.cognitiveservices.azure.com`. And a sample request to translate is:
+
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+
+Custom Translator isn't currently available in Switzerland.
 
 ## Get started with Text Translation
 

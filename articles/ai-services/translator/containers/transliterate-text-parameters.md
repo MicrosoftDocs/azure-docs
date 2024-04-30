@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 04/08/2024
+ms.date: 04/29/2024
 ms.author: lajanuar
 ---
 
@@ -21,7 +21,7 @@ Convert characters or letters of a source language to the corresponding characte
 `POST` request:
 
 ```HTTP
- POST {Endpoint}/transliterate?api-version=3.0&language={language}&fromScript={fromScript}&toScript={toScript}
+ POST http://localhost:5000/transliterate?api-version=3.0&language={language}&fromScript={fromScript}&toScript={toScript}
 
 ```
 
@@ -66,8 +66,8 @@ A successful response is a JSON array with one result for each element in the in
 
 ### Sample request
 
-```http
-https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn
+```bash
+curl -X POST "http://localhost:5000/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn"
 ```
 
 ### Sample request body
@@ -113,16 +113,10 @@ The following limitations apply:
 
 ### Transliterate with REST API
 
-```rest
+```bash
 
-  POST https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn HTTP/1.1
-  Ocp-Apim-Subscription-Key: ba6c4278a6c0412da1d8015ef9930d44
-  Content-Type:  application/json
+  curl -X POST "http://localhost:5000/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "Content-Type: application/json" -d "[{'Text':'こんにちは'},{'Text':'さようなら'}]"
 
-  [
-      {"Text":"こんにちは"},
-      {"Text":"さようなら"}
-  ]
 ```
 
 ## Next Steps

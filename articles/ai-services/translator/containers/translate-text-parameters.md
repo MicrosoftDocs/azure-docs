@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 04/08/2024
+ms.date: 04/29/2024
 ms.author: lajanuar
 ---
 
@@ -20,19 +20,14 @@ ms.author: lajanuar
 Send a `POST` request to:
 
 ```HTTP
-POST {Endpoint}/translate?api-version=3.0&&from={from}&to={to}
+POST http://localhost:5000/translate?api-version=3.0&&from={from}&to={to}
 ```
 
 ***Example request***
 
-```rest
-POST https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=es
-
-[
-  {
-    "Text": "I would really like to drive your car."
-  }
-]
+```bash
+curl -x POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=es" -H "Content-Type: application/json" -d "[{
+'Text': 'I would really like to drive your car.'}]"
 
 ```
 
@@ -50,7 +45,6 @@ POST https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&fro
   }
 ]
 ```
-
 
 ## Request parameters
 
