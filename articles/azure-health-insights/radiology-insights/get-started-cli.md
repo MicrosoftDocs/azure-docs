@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create and deploy a HealthInsights resource using cli"
-description: "This document explains how to create and deploy a HealthInsights resource using cli"
+title: "Quickstart: Create and deploy a HealthInsights resource using CLI"
+description: "This document explains how to create and deploy a HealthInsights resource using CLI"
 author: hvanhoe
 ms.author: henkvanhoe
 ms.service: azure-health-insights
@@ -8,7 +8,7 @@ ms.topic: quickstart  #Don't change
 ms.date: 04/09/2024
 ---
 
-# Quickstart: Create and deploy an Azure HealthInsights resource (cli)
+# Quickstart: Create and deploy an Azure HealthInsights resource (CLI)
 
 This quickstart provides step-by-step instructions to create a resource and deploy a model. You can create resources in Azure in several different ways:
 
