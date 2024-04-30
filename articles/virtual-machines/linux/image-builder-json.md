@@ -1357,7 +1357,7 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 ```json
 "source": {
   "type": "SharedImageVersion",
-  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
+  "imageVersionId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
 }
 ```
 
