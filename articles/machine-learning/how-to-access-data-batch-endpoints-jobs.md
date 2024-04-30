@@ -890,7 +890,7 @@ The following example shows how to change the location where an output named `sc
 
     ```python
     data_path = "batch-jobs/my-unique-path"
-    output = Output(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
+    output = Output(type=AssetTypes.URI_FILE, path=f"{default_ds.id}/paths/{data_path})
     ```
 
     For completeness, let's also create a data input:
