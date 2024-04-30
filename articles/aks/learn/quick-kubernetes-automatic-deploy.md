@@ -169,11 +169,11 @@ Create Automatic Kubernetes Cluster
 
 2. On the **Basic** tab, all the mandatory fields required to get started : 
 
- :::image type="content" source="./media/placeholder.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
+ :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
 3. On the ** Monitoring Tab**, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
 
-:::image type="content" source="./media/placeholder.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
+:::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
 
 3. Get started with deploying your first application directly from your source control. 
 
