@@ -291,15 +291,17 @@ DELETE https://management.azure.com/providers/Microsoft.Insights/monitoredObject
 ```PowerShell
 $TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
 $SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
-$ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
+$ResourceGroup = "rg-yourResourceGroup" #Your resourcegroup
 
-Connect-AzAccount -Tenant $TenantID
+#If cmdlet below produces an error stating 'Interactive authentication is not supported in this session, please run cmdlet 'Connect-AzAccount -UseDeviceAuthentication
+#uncomment next to -UseDeviceAuthentication below
+Connect-AzAccount -Tenant $TenantID #-UseDeviceAuthentication
 
 #Select the subscription
 Select-AzSubscription -SubscriptionId $SubscriptionID
 
 #Grant Access to User at root scope "/"
-$user = Get-AzADUser -UserPrincipalName (Get-AzContext).Account
+$user = Get-AzADUser -SignedIn
 
 New-AzRoleAssignment -Scope '/' -RoleDefinitionName 'Owner' -ObjectId $user.Id
 
@@ -336,7 +338,7 @@ Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -B
 #2. Create a monitored object
 
 # "location" property value under the "body" section should be the Azure region where the MO object would be stored. It should be the "same region" where you created the Data Collection Rule. This is the location of the region from where agent communications would happen.
-$Location = "eastus" #Use your own loacation
+$Location = "eastus" #Use your own location
 $requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
 $body = @"
 {
@@ -368,8 +370,9 @@ $body = @"
 
 Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
 
-#(Optional example). Associate another DCR to monitored object
+#(Optional example). Associate another DCR to monitored object. Remove comments around text below to use.
 #See reference documentation https://learn.microsoft.com/en-us/rest/api/monitor/data-collection-rule-associations/create?tabs=HTTP
+<#
 $associationName = "assoc02" #You must change the association name to a unique name, if you want to associate multiple DCR to monitored object
 $DCRName = "dcr-PAW-WindowsClientOS" #Your Data collection rule name
 
@@ -388,7 +391,7 @@ Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -B
 #4. (Optional) Get all the associatation.
 $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations?api-version=2021-09-01-preview"
 (Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method get).value
-
+#>
 
 ```
 ## Verify successful setup
