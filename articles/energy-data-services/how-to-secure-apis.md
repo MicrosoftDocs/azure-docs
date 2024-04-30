@@ -153,7 +153,7 @@ Use the following steps to import, configure, and publish Azure Data Manager for
 
 1. Select the newly created **Schema** API facade from the list of APIs and select on **All operations** on the operations list. On the **Inbound processing** pane, select the **</>** icon to edit the policy document.
 
-    [![Screenshot of the Create from OpenAPI specification screen.](media/how-to-secure-apis/how-to-secure-apis-9-api-config.png)](media/how-to-secure-apis/how-to-secure-apis-9-api-config.png#lightbox)
+    [![Screenshot of the API policy screen.](media/how-to-secure-apis/how-to-secure-apis-9-api-config.png)](media/how-to-secure-apis/how-to-secure-apis-9-api-config.png#lightbox)
 
 1. To configure the API, add two sets of policies:
     - **Set Backend Service** to route requests to the Azure Data Manager for Energy instance
@@ -219,8 +219,8 @@ A certificate for the domain is a prerequisite. However, Azure API Management su
 
 ## Related content
 
-- [Azure security baseline for API Management](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/api-management-security-baseline)
+- [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
 
-- [Azure security baseline for Azure Data Manager for Energy](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-data-manager-for-energy-security-baseline)
+- [Azure security baseline for Azure Data Manager for Energy](/security/benchmark/azure/baselines/azure-data-manager-for-energy-security-baseline)
 
 - [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
