@@ -1,10 +1,10 @@
 ---
-title: Use Visual Studio Code extension - Azure API Center
-description: Build, discover, try, and consume APIs from your Azure API center using the API Center extension for Visual Studio Code (preview)
+title: Interact with API inventory using VS Code extension
+description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code (preview)
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 04/23/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use my Visual Studio Code environment to build, discover, try, and consume APIs in my organization's API center.

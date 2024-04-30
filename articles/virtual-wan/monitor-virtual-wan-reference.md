@@ -28,34 +28,7 @@ The following metric is available for virtual hub router within a virtual hub:
 
 > [!NOTE]
 > As of March 28, 2024, the backend functionality for the Routing Infrastructure Units and Spoke VM Utilization metrics are still rolling out. As a result, even if you see these metrics displayed in Portal, the actual values of these metrics might appear as 0. The backend functionality of these metrics is aimed to finish rolling out within the next several weeks, which will ensure the proper values are emitted. 
->
-
-#### PowerShell steps
-
-To query, use the following example PowerShell commands. The necessary fields are explained below the example.
-
-**Step 1:**
-
-```azurepowershell-interactive
-$MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Sum
-```
-
-**Step 2:**
-
-```azurepowershell-interactive
-$MetricInformation.Data
-```
-
-* **Resource ID** - Your virtual hub's Resource ID can be found on the Azure portal. Navigate to the virtual hub page within vWAN and select **JSON View** under Essentials.  
-
-* **Metric Name** - Refers to the name of the metric you're querying, which in this case is called 'VirtualHubDataProcessed'. This metric shows all the data that the virtual hub router has processed in the selected time period of the hub.  
-
-* **Time Grain** - Refers to the frequency at which you want to see the aggregation. In the current command, you'll see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
-
-* **Start Time and End Time** - This time is based on UTC. Ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
-
-* **Sum Aggregation Type** - The **sum** aggregation type shows you the total number of bytes that traversed the virtual hub router during a selected time period. For example, if you set the Time granularity to 5 minutes, each data point will correspond to the number of bytes sent in that 5 minute interval. To convert this to Gbps, you can divide this number by 37500000000. Based on the virtual hub's [capacity](hub-settings.md#capacity), the hub router can support between 3 Gbps and 50 Gbps. The **Max** and **Min** aggregation types aren't meaningful at this time. 
- 
+> 
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
 

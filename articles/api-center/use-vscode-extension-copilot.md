@@ -1,10 +1,10 @@
 ---
-title: GitHub Copilot with VS Code extension - Azure API Center
+title: GitHub Copilot with VS Code extension to discover APIs
 description: Discover APIs and API definitions from your Azure API center using GitHub Copilot Chat and the Azure API Center extension for Visual Studio Code (preview)
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 04/23/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use GitHub Copilot Chat in my Visual Studio Code environment to discover and consume APIs in my organization's API centers.

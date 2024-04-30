@@ -1,11 +1,12 @@
 ---
-title: Tutorial - Define custom metadata 
+title: Tutorial - Define custom metadata for API governance
 description: In this tutorial, define custom metadata in your API center. Use custom and built-in metadata to organize and govern your APIs.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
 ms.date: 04/19/2024
 ms.author: danlep 
+#customer intent: As the owner of an Azure API center, I want a step by step introduction to configure custom metadata properties to govern my APIs.
 ---
 
 # Tutorial: Define custom metadata

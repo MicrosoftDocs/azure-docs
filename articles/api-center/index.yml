@@ -49,6 +49,8 @@ landingContent:
             url: manage-apis-azure-cli.md
           - text: Import APIs from API Management
             url: import-api-management-apis.md
+          - text: Build and register APIs - VS Code extension
+            url: use-vscode-extension.md
 # Card
   - title: Govern APIs
     linkLists:
@@ -56,12 +58,16 @@ landingContent:
         links:
           - text: Analyze APIs using linting rules
             url: enable-api-analysis-linting.md
+      - linkListType: concept
+        links:
+          - text: Use metadata for governance
+            url: metadata.md
   # Card
   - title: Discover APIs
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use VS Code extension
-            url: use-vscode-extension.md
+          - text: Enable Azure API Center portal
+            url: enable-api-center-portal.md
           - text: Discover APIs with GitHub Copilot Chat
             url: use-vscode-extension-copilot.md

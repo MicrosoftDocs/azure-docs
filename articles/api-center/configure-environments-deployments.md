@@ -6,6 +6,7 @@ ms.service: api-center
 ms.topic: tutorial
 ms.date: 04/22/2024
 ms.author: danlep 
+#customer intent: As the owner of an Azure API center, I want a step by step introduction to adding API environments and deployments to my inventory.
 ---
 
 

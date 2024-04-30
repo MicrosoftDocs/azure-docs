@@ -73,5 +73,5 @@ Contoso's API ecosystem includes the following:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up your API center](set-up-api-center.md)
+> [Set up your API center - portal](set-up-api-center.md)
 
