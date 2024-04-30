@@ -21,7 +21,7 @@ By default, the following users can view and manage savings plans:
 - Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 - Users with elevated access to manage all Azure subscriptions and management groups.
 - A savings plan administrator for savings plans in their Microsoft Entra tenant (directory)
-- A savings plan reader has read-only access to savings plans in their Microsoft Entra tenant (directory)
+- A savings plan reader has read-only access to savings plans in their Microsoft Entra tenant (directory).
 
 The savings plan lifecycle is independent of an Azure subscription, so the savings plan isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure role-based access control (RBAC) permission separate from subscriptions. Savings plans don't inherit permissions from subscriptions after the purchase.
 
@@ -70,12 +70,10 @@ To allow other people to manage savings plans, you have two options:
 
 - Delegate access management for an individual savings plan order by assigning the owner role to a user at the resource scope of the savings plan order. If you want to give limited access, select a different role. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 - Add a user as a billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
-  - For an Enterprise Agreement, add users with the Enterprise administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Users with the Enterprise administrator (read-only) role can only view the savings plan. Department admins and account owners can't view savings plans unless they're explicitly added to them by using access control. For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
-  - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made by using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+  - **Enterprise Agreement**: Add users with the Enterprise administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Users with the Enterprise administrator (read-only) role can only view the savings plan. Department admins and account owners can't view savings plans unless they're explicitly added to them by using access control. For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
+  - **Microsoft Customer Agreement**: Users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made by using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
       _Enterprise administrators can take ownership of a savings plan order and they can add other users to a savings plan by using access control._
-
-  - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made by using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Grant access with PowerShell
 
@@ -110,20 +108,20 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 
 ### Parameters
 
-**-ObjectId**: Microsoft Entra object ID of the user, group, or service principal.
-- **Type**: String
-- **Aliases**: Id, PrincipalId
-- **Position**:	Named
-- **Default value**: None
-- **Accept pipeline input**: True
-- **Accept wildcard characters**:	False
+- **ObjectId**: Microsoft Entra object ID of the user, group, or service principal
+   - **Type**: String
+   - **Aliases**: Id, PrincipalId
+   - **Position**: Named
+   - **Default value**: None
+   - **Accept pipeline input**: True
+   - **Accept wildcard characters**: False
 
-**-TenantId**: Tenant unique identifier.
-- **Type**:	String
-- **Position**:	5
-- **Default value**: None
-- **Accept pipeline input**: False
-- **Accept wildcard characters**: False
+- **TenantId**: Tenant unique identifier
+   - **Type**: String
+   - **Position**: 5
+   - **Default value**: None
+   - **Accept pipeline input**: False
+   - **Accept wildcard characters**: False
 
 ## Tenant-level access
 
@@ -151,20 +149,20 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId 
 
 #### Parameters
 
-**-ObjectId**: Microsoft Entra object ID of the user, group, or service principal.
-- **Type**:	String
-- **Aliases**: Id, PrincipalId
-- **Position**:	Named
-- **Default value**: None
-- **Accept pipeline input**: True
-- **Accept wildcard characters**: False
+- **ObjectId**: Microsoft Entra object ID of the user, group, or service principal
+   - **Type**: String
+   - **Aliases**: Id, PrincipalId
+   - **Position**: Named
+   - **Default value**: None
+   - **Accept pipeline input**: True
+   - **Accept wildcard characters**: False
 
-**-TenantId**: Tenant unique identifier.
-- **Type**:	String
-- **Position**:	5
-- **Default value**: None
-- **Accept pipeline input**: False
-- **Accept wildcard characters**: False
+- **TenantId**: Tenant unique identifier
+   - **Type**: String
+   - **Position**: 5
+   - **Default value**: None
+   - **Accept pipeline input**: False
+   - **Accept wildcard characters**: False
 
 ### Assign a savings plan reader role at the tenant level by using Azure PowerShell script
 
@@ -182,20 +180,20 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId 
 
 #### Parameters
 
-**-ObjectId**: Microsoft Entra object ID of the user, group, or service principal.
-- **Type**:	String
-- **Aliases**: Id, PrincipalId
-- **Position**:	Named
-- **Default value**: None
-- **Accept pipeline input**: True
-- **Accept wildcard characters**: False
+- **ObjectId**: Microsoft Entra object ID of the user, group, or service principal
+   - **Type**: String
+   - **Aliases**: Id, PrincipalId
+   - **Position**: Named
+   - **Default value**: None
+   - **Accept pipeline input**: True
+   - **Accept wildcard characters**: False
 
-**-TenantId**: Tenant unique identifier.
-- **Type**:	String
-- **Position**:	5
-- **Default value**: None
-- **Accept pipeline input**: False
-- **Accept wildcard characters**: False
+- **TenantId**: Tenant unique identifier
+   - **Type**: String
+   - **Position**: 5
+   - **Default value**: None
+   - **Accept pipeline input**: False
+   - **Accept wildcard characters**: False
 
 ## Next steps
 

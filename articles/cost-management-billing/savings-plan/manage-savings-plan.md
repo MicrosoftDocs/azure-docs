@@ -108,7 +108,7 @@ To delegate the purchaser role to a specific subscription:
 To delegate the administrator, contributor, or reader roles to a specific savings plan:
 
 1. Go to **Home** > **Savings plans**.
-1. Select the desired plan you want.
+1. Select the savings plan you want.
 1. Select **Access control (IAM)** on the leftmost pane.
 1. Select **Add**, and then select **Add role assignment** from the top navigation bar.
 
