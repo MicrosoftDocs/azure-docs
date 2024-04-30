@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use GPT-4 Turbo with Vision on your images and videos with the Azure Open AI REST API'
+title: 'Quickstart: Use GPT-4 Turbo with Vision on your images and videos with the Azure OpenAI REST API'
 titleSuffix: Azure OpenAI
 description: Get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 Turbo with Vision model.
 services: cognitive-services
