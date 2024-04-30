@@ -27,7 +27,7 @@ The API Center portal reference implementation provides:
 
 * A framework for publishing and maintaining a customer-managed API portal using GitHub Actions
 * A portal platform that customers can modify or extend to meet their needs
-* Flexibility to host on different infrastructures, including deployment to service such as Azure Static Web Apps.  
+* Flexibility to host on different infrastructures, including deployment to serviceS such as Azure Static Web Apps.  
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ Follow these steps to build and test the API Center portal locally.
     ```bash
     git checkout main
     ```  
-1. To configure the service, edit the `public/config.json` file to point to your service.Update the values in the following code snippet as follows:
+1. To configure the service, edit the `public/config.json` file to point to your service. Update the values in the file as follows:
     * Replace `<service name>` and `<region>` with the name of your API center and the region where it's deployed
     * Replace `<client ID>` and `<tenant ID>` with the **Application (client) ID** and **Directory (tenant) ID** of the app registration you created in the previous section.
     * Update the value of `title` to a name that you want to appear on the portal.
