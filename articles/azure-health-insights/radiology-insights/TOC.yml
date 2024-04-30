@@ -26,8 +26,10 @@ items:
   items:
       - name: Use the Radiology Insights model (platform)
         href: get-started.md
-      - name: Use the Radiology Insights model (CLI)
-        href: get-started-CLI.md
+      - name: Use the Radiology Insights model (cli)
+        href: get-started-cli.md
+      - name: Use the Radiology Insights model (powershell)
+        href: get-started-powershell.md
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights
