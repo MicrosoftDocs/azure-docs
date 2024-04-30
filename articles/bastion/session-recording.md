@@ -1,18 +1,18 @@
 ---
-title: 'Record sessions using Bastion'
+title: 'Record Bastion sessions'
 titleSuffix: Azure Bastion
 description: Learn how to configure and record Bastion sessions.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 04/30/2024
 ms.author: cherylmc
 
 ---
 
 # Configure Bastion session recording (Preview)
 
-This article helps you configure Bastion session recording. When the Azure Bastion **Session recording** feature is enabled, you can record the graphical sessions for connections made to virtual machines (RDP and SSH) via the bastion host. After the session is closed or disconnected, recorded sessions are stored in a blob container within your storage account (via SAS URL). When a session is disconnected, you can access and view your recorded sessions in the Azure portal via the Session Recording page. Session recording requires the Bastion Premium SKU.
+This article helps you configure Bastion session recording. [!INCLUDE [Session recording](../../includes/bastion-session-recording-description.md)]
 
 ## Before you begin
 
