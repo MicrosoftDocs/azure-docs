@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
-ms.date: 04/11/2024
+ms.date: 04/30/2024
 ---
 
 # What's new in Microsoft Sentinel
