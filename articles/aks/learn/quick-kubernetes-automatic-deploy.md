@@ -165,21 +165,19 @@ aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
 :::zone target="docs" pivot="azure-portal"
 
 Create Automatic Kubernetes Cluster
-1. To create an AKS Automatic cluster, select 'Automatic Kubernetes Cluster' from the drop-down menu.
+1. To create an AKS Automatic cluster, select **Automatic Kubernetes Cluster** from the drop-down menu.
 
-The following snippet displays all the mandatory fields required to get started : 
+2. On the **Basic** tab, all the mandatory fields required to get started : 
 
--- Create Snippet
+ :::image type="content" source="./media/placeholder.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
-Choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
+3. On the ** Monitoring Tab**, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
 
--- Monitor Snippet
+:::image type="content" source="./media/placeholder.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
 
+3. Get started with deploying your first application directly from your source control. 
 
-
-After creation, begin deploying your first application, either with or without connecting to a source control. 
-
--- picture
+:::image type="content" source="./media/placeholder.png" alt-text="The screenshot of the Get Started Tab after creating an AKS Automatic cluster in the Azure portal.":::
 
 :::zone-end
 
