@@ -183,7 +183,7 @@ You can use [Docker Compose][docker-compose] to automate building container imag
 
 ### Docker
 
-1. Create the container image, download the Redis image, and start the application using the `docker compose` command:
+1. Create the container image, download the RabbitMQ image, and start the application using the `docker compose` command:
 
     ```console
     docker compose -f docker-compose-quickstart.yml up -d
