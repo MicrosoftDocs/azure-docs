@@ -22,11 +22,11 @@ You must be a member of the owning organization of both entities to use this fea
 
 ## Joining the meeting chat 
 
-Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the Calling SDK. Joining the call adds them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
+Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the Calling SDK. Joining the call adds them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user doesn't have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
 
 ## Add Chat to the Teams calling app
 
-In your module level `build.gradle`, add the dependency on the chat sdk.
+In your module level `build.gradle`, add the dependency on the chat SDK.
 
 > [!IMPORTANT]
 > Known issue: When using Android Chat and Calling SDK together in the same application, the Chat SDK's real-time notifications feature won't work. You'll get a dependency resolution issue. While we're working on a solution, you can turn off the real-time notifications feature by adding the following exclusions to the Chat SDK dependency in the app's `build.gradle` file:
@@ -382,11 +382,11 @@ Finally, we add the method for querying all accessible messages on the thread, p
     }
 ```
 
-Display names of the chat thread participants are not set by the Teams client. The names are returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object.
+Display names of the chat thread participants aren't set by the Teams client. The names are returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object.
 
 ## Get a Teams meeting chat thread for a Communication Services user
 
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 
 With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response has a `chatInfo` object that contains the `threadID`.
 
@@ -396,7 +396,7 @@ The app can now be launched using the "Run App" button on the toolbar (Shift+F10
 
 To join the Teams meeting and chat, enter your Team's meeting link and the thread ID in the UI.
 
-After joining the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you are able to send and receive messages.
+After joining the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you're able to send and receive messages.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-android.png" alt-text="Screenshot of the completed Android Application.":::
 
