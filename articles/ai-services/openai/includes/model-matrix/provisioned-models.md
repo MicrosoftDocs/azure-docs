@@ -30,5 +30,5 @@ ms.date: 04/29/2024
 | switzerlandnorth   | ✅                | ✅                        | ✅                              | -                          | ✅                       | ✅                       | ✅                       |
 | switzerlandwest    | -                 | -                          | -                               | -                          | -                         | -                      | ✅                       |
 | uksouth            | ✅                | ✅                        | ✅                              | -                          | ✅                       | ✅                       | ✅                       |
-| westus             | ✅                | ✅                        | ✅                              | ✅                             | ✅                       | ✅                       | ✅                       |
+| westus             | ✅                | ✅                        | ✅                              | -                             | ✅                       | ✅                       | ✅                       |
 | westus3            | ✅                | ✅                        | ✅                              | -                           | ✅                       | ✅                       | ✅                       |
