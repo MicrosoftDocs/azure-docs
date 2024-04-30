@@ -50,6 +50,8 @@ Oracle Database@Azure is available in the following locations. Oracle Database@A
 |------------|
 |Germany West Central (Frankfurt)|
 
+### United Kingdom
+
 |Azure region|
 |------------|
 |UK South (London)
