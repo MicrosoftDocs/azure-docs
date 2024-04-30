@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/22/2024
+ms.date: 05/01/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -74,7 +74,7 @@ If a storage account is configured to enable blob versioning, deleting a blob ca
 
 The following code example identifies a version of a deleted blob, and restores that version by copying it to the base blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go" id="snippet_restore_blob_version":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete_blob/delete_blob.go" id="snippet_restore_blob_version":::
 
 ## Resources
 

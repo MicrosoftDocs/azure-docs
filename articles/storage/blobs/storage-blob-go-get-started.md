@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 05/01/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 ---
