@@ -5,7 +5,7 @@ description: Get started learning about Azure Monitor metrics and alerts availab
 author: asudbring
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/29/2024
 ms.author: allensu
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ---
@@ -19,7 +19,7 @@ Azure NAT Gateway provides the following diagnostic capabilities:
 
 - Network Insights: Azure Monitor Insights provides you with visual tools to view, monitor, and assist you in diagnosing issues with your NAT gateway resource. Insights provide you with a topological map of your Azure setup and metrics dashboards. 
 
-:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway uses all IP addresses for a public IP prefix. The NAT gateway directs traffic between subnets of VMs and a virtual machine scale set":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
 
 *Figure: Azure NAT Gateway for outbound to Internet*
 
