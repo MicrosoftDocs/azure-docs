@@ -82,4 +82,4 @@ If you're using a custom DNS server and the Azure DNS IP `168.63.129.16` isn't c
 
 ## Next steps
 
-- [Customer Responsibilities for Running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
+- [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md)
