@@ -380,9 +380,9 @@ For a complete code sample, see [language identification](../../../language-iden
 
 ## Multi-lingual speech translation without source language candidates 
 
-Multi-lingual speech translation implements a new level of speech translation technology that unlocks various capabilities, including having no specified input language, handling language switches within the same session, and supporting live streaming translations into English. These features enable a new level of speech translation powers that can be implemented into your products.
+Multi-lingual speech translation implements a new level of speech translation technology that unlocks various capabilities, including having no specified input language, and handling language switches within the same session. These features enable a new level of speech translation powers that can be implemented into your products.
 
-Currently when you use Language ID with speech translation, you must create the `SpeechTranslationConfig` object from the v2 endpoint. Replace the string "YourServiceRegion" with your Speech resource region (such as "westus").
+Currently when you use Language ID with speech translation, you must create the `SpeechTranslationConfig` object from the v2 endpoint. Replace the string "YourServiceRegion" with your Speech resource region (such as "westus"). Replace "YourSubscriptionKey" with your Speech resource key.
 
 ```csharp
 var v2EndpointInString = String.Format("wss://{0}.stt.speech.microsoft.com/speech/universal/v2", "YourServiceRegion");

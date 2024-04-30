@@ -43,8 +43,8 @@ As a supplement to the above feature, the Speech service also offers the option 
 
 Multi-lingual speech translation implements a new level of speech translation technology that unlocks various capabilities, including having no specified input language, handling language switches within the same session, and supporting live streaming translations into English. These features enable a new level of speech translation powers that can be implemented into your products. 
 
-- Unspecified Input Language. Multi-lingual speech translation can receive audio in a wide range of languages, and there's no need to specify what the expected input language is. 
-- Language Switching. Multi-lingual speech translation allows for multiple languages to be spoken during the same session, and have them all translated into the same target language. There's no need to restart a session when the input language changes or any other actions by you. 
+- Unspecified input language. Multi-lingual speech translation can receive audio in a wide range of languages, and there's no need to specify what the expected input language is. 
+- Language switching. Multi-lingual speech translation allows for multiple languages to be spoken during the same session, and have them all translated into the same target language. There's no need to restart a session when the input language changes or any other actions by you. 
 - Transcription. The service outputs a transcription in the specified target language. Source language transcription isn't available yet. 
 
 Some use cases for multi-lingual speech translation include:
