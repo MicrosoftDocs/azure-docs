@@ -25,6 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
+| [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | May 2024 |
 | [Deprecation of fileless attack alerts](#deprecation-of-fileless-attack-alerts) | April 18, 2024 | May 2024 |
 | [Change in CIEM assessment IDs](#change-in-ciem-assessment-ids) | April 16.2024 | May 2024 |
 | [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation) | April 3, 2024 | May 2024 |
@@ -47,9 +49,44 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Deprecation of system update recommendations
+
+**Announcement date: May 1, 2024**
+
+**Estimated date for change: May 2024**
+
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is phased out in Defender for Servers, the following recommendations that rely on those agents are set for deprecation:
+
+- System updates should be installed on your machines
+- System updates on virtual machine scale sets should be installed
+
+The new recommendations based on Azure Update Manager integration [are Generally Available](release-notes-archive.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga) and have no agent dependencies.
+
+## Deprecation of MMA related recommendations
+
+**Announcement date: May 1, 2024**
+
+**Estimated date for change: May 2024**
+
+As part of the MMA deprecation and the Defender for Servers updated deployment strategy, all Defender for Servers security features will be provided via a single agent (MDE), or via agentless scanning capabilities, and without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA).
+
+As part of this, and in a goal to reduce complexity, the following recommendations are going to be deprecated:
+
+| Display name                                             | Related feature |
+| ------------------------------------------------------------ | ------------------- |
+| Log Analytics agent should be installed on Windows-based Azure Arc-enabled machines | MMA enablement      |
+| Log Analytics agent should be installed on virtual machine scale sets | MMA enablement      |
+| Auto provisioning of the Log Analytics agent should be enabled on subscriptions | MMA enablement      |
+| Log Analytics agent should be installed on virtual machines  | MMA enablement      |
+| Log Analytics agent should be installed on Linux-based Azure Arc-enabled machines | MMA enablement      |
+| Guest Configuration extension should be installed on machines | GC  enablement      |
+| Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity | GC  enablement      |
+| Adaptive application controls for defining safe applications should be enabled on your machines | AAC                 |
+| Adaptive application controls for defining safe applications should be enabled on your machines | AAC  |
+
 ## Deprecation of fileless attack alerts
 
-**Announcement date: April 18, 2024**
+**Announcement date: April 18, 2024**:
 
 **Estimated date for change: May 2024**
 
