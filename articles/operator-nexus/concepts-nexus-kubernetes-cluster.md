@@ -63,7 +63,7 @@ Addons are installed once and only updated or upgraded when the customer upgrade
 
 Nexus has established a golden configuration that delineates distinct Zones for various hardware racks. For instance, in a configuration of 400G with 8 racks, 8 Zones will be configured. 
 Each Zone comprises a pair of management servers with redundancy and a collection of compute servers that function as a resource pool. Fully redundant Top-of-Rack (ToR) switches are implemented to ensure transport layer resilience. 
-Different zone works as independant group of resource in case of software upgrade or failover, to provide better availability, that's the reason we call it Available zone.
+Different zone works as independant group of resource in case of software upgrade or failover, to provide better availability, that's the reason we call it Available Zone.
 
 ## Nexus Agent pool and scalability
 
