@@ -22,7 +22,7 @@ appliesto:
 
 Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high.
 
-SOC optimization surfaces ways you can optimize your security controls, gaining more and more value from Microsoft security services as time goes on.
+SOC optimization surfaces ways you can optimize your security controls, gaining more value from Microsoft security services as time goes on.
 
 SOC optimizations are high-fidelity and actionable recommendations to help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing. SOC optimizations are tailored to your environment and based on your current coverage and threat landscape.
 
@@ -32,7 +32,7 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 ## Prerequisites
 
-- SOC optimimization uses standard Microsoft Sentinel roles and permissions. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
+- SOC optimization uses standard Microsoft Sentinel roles and permissions. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 
 - To use SOC optimization in the Microsoft Defender portal, you must have Microsoft Sentinel integrated with Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
@@ -64,7 +64,7 @@ Supported metrics at the top of the **Overview** tab include:
 
 |Title  |Description |
 |---------|---------|
-| **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last 3 months. |
+| **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
 Select **See all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.
@@ -86,7 +86,7 @@ Select **See all threat scenarios** to view the full list of relevant threats, a
 
 ### [Azure portal](#tab/azure-portal)
 
-In the Azure protal, SOC optimization recommendations are listed on the **SOC optimization > Overview** tab. 
+In the Azure portal, SOC optimization recommendations are listed on the **SOC optimization > Overview** tab. 
 
 For example:
 
@@ -105,7 +105,7 @@ Each optimization card includes the status, title, the date it was created, a hi
 
 ### Filter optimizations
 
-Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the right. Optimization types include:
+Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
 - **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
 
@@ -113,12 +113,12 @@ Filter the optimizations based on optimization type, or search for a specific op
 
 ### View optimization details and take action
 
-In each optimization card, select **View full details** to see a full description of the observation that led to the recommendation, and the value you'll see in your environment when that recommendation is implemented.
+In each optimization card, select **View full details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
 
 Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
 
 - If an optimization includes recommendations to add analytics rules, select **Got to Content Hub**.
-- If an optimization incldues recommendations to move a table to basic logs, select **Change plan**.
+- If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
 
 ### Manage optimizations
 
@@ -129,14 +129,14 @@ Either select the options menu or select **View full details** to take one of th
 <!--what's the diff btwn in prog or active? is this up to the customer discretion?-->
 |Action |Description  |
 |---------|---------|
-|**Complete**     | Complete an optimization when you've completed each recommended action. <br><br>If a change in your environment is detected that makes the recommendation irrelevant, the optimization is automatically completed and moved to the **Completed** tab. <br><br>For example, you might have an optimization related to a previously unused table. If your table is now used in a new analytics rule, the optimization recommendation is now irrelevant. <br><br>In such cases, a banner shows in the **Overview** tab with the number of automatically completed optimizations since your last visit.        |
-| **Mark as in progress** / **Mark as active**| Mark an optimization as in progress or active to notify other team members that you're actively working on it. <br><br>Use these two statuses flexibly, but consistantly, as needed for your organization. |
+|**Complete**     | Complete an optimization when you completed each recommended action. <br><br>If a change in your environment is detected that makes the recommendation irrelevant, the optimization is automatically completed and moved to the **Completed** tab. <br><br>For example, you might have an optimization related to a previously unused table. If your table is now used in a new analytics rule, the optimization recommendation is now irrelevant. <br><br>In such cases, a banner shows in the **Overview** tab with the number of automatically completed optimizations since your last visit.        |
+| **Mark as in progress** / **Mark as active**| Mark an optimization as in progress or active to notify other team members that you're actively working on it. <br><br>Use these two statuses flexibly, but consistently, as needed for your organization. |
 |**Dismiss**     |  Dismiss an optimization if you're not planning to take the recommended action and no longer want to see it in the list.       |
 |**Provide feedback**     | We invite you to share your thoughts on the recommended actions with the Microsoft team! <br><br>When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).      |
 
 ## View completed and dismissed optimizations
 
-If you've marked a specific optimization as *Completed* or *Dismissed*, or if an optimization was automatically completed, it's listed on the **Completed** and **Dismissed** tabs, respectively.
+If you marked a specific optimization as *Completed* or *Dismissed*, or if an optimization was automatically completed, it's listed on the **Completed** and **Dismissed** tabs, respectively.
 
 From here, either select the options menu or select **View full details** to take one of the following actions:
 
