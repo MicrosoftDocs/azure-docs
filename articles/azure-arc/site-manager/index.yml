@@ -7,9 +7,10 @@ metadata:
   title: Azure Arc site manager (preview)
   description: Organize your Arc-connected resources.
   ms.service: azure-arc
+  ms.subservice: azure-arc-site-manager
   ms.topic: landing-page
-  author: kgremban
-  ms.author: kgremban
+  author: torreymicrosoft
+  ms.author: torreyt
   ms.date: 04/17/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
