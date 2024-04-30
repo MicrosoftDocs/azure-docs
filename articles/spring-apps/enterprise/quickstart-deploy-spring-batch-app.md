@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.date: 04/26/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
 ms.author: xiada
-zone_pivot_groups: spring-apps-plan-selection
 ---
 
 # Quickstart: Deploy your first spring batch application to Azure Spring Apps
@@ -20,7 +19,7 @@ zone_pivot_groups: spring-apps-plan-selection
 
 This quickstart shows how to deploy a Spring Batch application to Azure Spring Apps. The sample project is derived from Spring Batch sample [Football Job](https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It is a statistics loading job. Instead of triggering by unit test in original sample, it is initiated by the main method of FootballJobApplication.
 
-::: zone pivot="sc-enterprise"
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
 The following diagram shows the architecture of the system:
 
@@ -43,7 +42,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.55.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.55.0 or higher. Use the following commands to install the Azure Spring Apps extension: `az extension add --name spring`.
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ---
@@ -180,7 +179,6 @@ See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-an
 
     ```azurecli
     az spring job create \
-        --resource-group ${RESOURCE_GROUP} \
         --service ${SPRING_APPS_SERVICE} \
         --name football
     ```
@@ -190,7 +188,6 @@ See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-an
 
    ```azurecli
    az spring job deploy \
-       --resource-group ${RESOURCE_GROUP} \
        --service ${SPRING_APPS_SERVICE} \
        --name football \
        --source-path . \
@@ -200,7 +197,7 @@ See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-an
 1. Use the following command to start job and set execution name to the variable **EXECUTION_NAME**.
 
     ```azurecli
-    export EXECUTION_NAME=$(az spring job start --resource-group ${RESOURCE_GROUP} \
+    export EXECUTION_NAME=$(az spring job start \
         --service ${SPRING_APPS_SERVICE} \
         --name football --query name -o tsv)
     ```
@@ -229,10 +226,19 @@ Use the following steps to validate:
 
     ```azurecli
     az spring job execution show \
-        --resource-group ${RESOURCE_GROUP} \
         --service ${SPRING_APPS_SERVICE} \
-        --job-name football \
-        --job-execution-name ${EXECUTION_NAME}
+        --job football \
+        --execution ${EXECUTION_NAME}
+
+[//]: # (    az spring job execution show \)
+
+[//]: # (        --resource-group ${RESOURCE_GROUP} \)
+
+[//]: # (        --service ${SPRING_APPS_SERVICE} \)
+
+[//]: # (        --job football \)
+
+[//]: # (        --execution ${EXECUTION_NAME})
     ```
 
 1. Fetch resource id of the log analytics workspace. The script below assumes the first
@@ -241,12 +247,10 @@ Use the following steps to validate:
 
     ```azurecli
     export SPRING_APPS_RESOURCE_ID=$(az spring show \
-        --resource-group ${RESOURCE_GROUP} \
         --name ${SPRING_APPS_SERVICE} \
         --query id -o tsv)
 
     export WORKSPACE_ID=$(az monitor diagnostic-settings list \
-        --resource-group ${RESOURCE_GROUP} \
         --resource ${SPRING_APPS_SERVICE} \
         --resource-type Microsoft.AppPlatform/Spring \
         --query [0].workspaceId -o tsv)
@@ -260,8 +264,7 @@ Use the following steps to validate:
         --query customerId -o tsv)
 
    az monitor log-analytics query -w ${CUSTOMER_ID} \
-        --analytics-query "AppPlatformLogsforSpring | where AppName ==
-        '${EXECUTION_NAME}' | order by TimeGenerated asc" \
+        --analytics-query "AppPlatformLogsforSpring | where AppName == 'football' and InstanceName startswith '${EXECUTION_NAME}' | order by TimeGenerated asc" \
         --query '[].{Time:TimeGenerated, Log:Log}' \
         --output table
    ```
@@ -312,8 +315,6 @@ az group delete --name ${RESOURCE_GROUP}
 
 > [!div class="nextstepaction"]
 > [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
-
-::: zone-end
 
 For more information, see the following articles:
 
