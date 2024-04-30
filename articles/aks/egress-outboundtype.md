@@ -1,6 +1,6 @@
 ---
 title: Customize cluster egress with outbound types in Azure Kubernetes Service (AKS)
-description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
+description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS).
 author: asudbring
 ms.subservice: aks-networking
 ms.custom:
@@ -12,7 +12,7 @@ ms.date: 04/29/2024
 
 # Customize cluster egress with outbound types in Azure Kubernetes Service (AKS)
 
-You can customize egress for an AKS cluster to fit specific scenarios. By default, AKS will provision a standard SKU load balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
+You can customize egress for an AKS cluster to fit specific scenarios. By default, AKS provisions a standard SKU load balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or extra hops are required for egress.
 
 This article covers the various types of outbound connectivity that are available in AKS clusters.
  
@@ -48,7 +48,7 @@ For more information, see [using a standard load balancer in AKS](load-balancer-
 
 If `managedNatGateway` or `userAssignedNatGateway` are selected for `outboundType`, AKS relies on [Azure Networking NAT gateway](../virtual-network/nat-gateway/manage-nat-gateway.md) for cluster egress.
 
-- Select `managedNatGateway` when using managed virtual networks. AKS will provision a NAT gateway and attach it to the cluster subnet.
+- Select `managedNatGateway` when using managed virtual networks. AKS provisions a NAT gateway and attach it to the cluster subnet.
 - Select `userAssignedNatGateway` when using bring-your-own virtual networking. This option requires that you have provisioned a NAT gateway before cluster creation.
 
 For more information, see [using NAT gateway with AKS](nat-gateway.md).
@@ -131,7 +131,7 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type userDefinedRou
 
 ### Update cluster from loadbalancer to userAssignedNATGateway in BYO vnet scenario
 
-- Associate nat gateway with subnet where the workload is associated with. Please refer to [Create a managed or user-assigned NAT gateway](nat-gateway.md)
+- Associate nat gateway with subnet where the workload is associated with. Refer to [Create a managed or user-assigned NAT gateway](nat-gateway.md)
 
 ```azurecli-interactive
 az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNATGateway
