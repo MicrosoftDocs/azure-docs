@@ -16,6 +16,10 @@ items:
     items:
     - name: Introduction to Blob storage
       href: storage-blobs-introduction.md
+  - name: Architecture
+    items:
+    - name: Well-architected considerations
+      href: /azure/well-architected/service-guides/azure-blob-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Quickstarts
     items:
     - name: Azure portal
