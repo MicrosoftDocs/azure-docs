@@ -16,10 +16,9 @@ This functionality is facilitated through the integration of [Azure App Configur
 ## Experimentation in Azure App Configuration
 
 This new feature experimentation in Azure App Configuration is built by integrating App Configuration with Application Insights and Split. As you go about setting up your first experiment, the key steps include creating and configuring the Azure resource setup for the experimentation flow.  
+<!--The below diagram depicts the Azure resources for experimentation and the high-level data flow for experiments.
 
-The below diagram depicts the Azure resources for experimentation and the high-level data flow for experiments.
-
-   :::image type="content" source="media/overview/diagram.png" alt-text="Diagram that shows how Split Experimentation Workspace interact with other Azure resources.":::
+   :::image type="content" source="media/overview/diagram.png" alt-text="Diagram that shows how Split Experimentation Workspace interact with other Azure resources.":::-->
 
 To get started, follow the quickstart for creating a Split Experimentation Workspace,<!-- Add link--> which contains instructions on setting up an App Configuration store, Application Insights resource, Azure storage account, Microsoft Entra ID for authentication, and how to set up an experiment.
 
