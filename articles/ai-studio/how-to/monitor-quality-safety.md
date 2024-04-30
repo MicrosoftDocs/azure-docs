@@ -1,7 +1,7 @@
 ---
-title: Monitor quality and safety of deployed prompt flow applications 
+title: Monitor quality and token usage of deployed prompt flow applications
 titleSuffix: Azure AI Studio
-description: Learn how to monitor quality and safety of deployed prompt flow applications with Azure AI Studio.
+description: Learn how to monitor quality and token usage of deployed prompt flow applications with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
@@ -15,17 +15,19 @@ author: msakande
 
 ---
 
-# Monitor quality and safety of deployed prompt flow applications 
+# Monitor quality and token usage of deployed prompt flow applications 
 
-Monitoring models that are deployed in production is an essential part of the generative AI application lifecycle. Changes in data and consumer behavior can influence your application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputation risks. 
+Monitoring applications that are deployed to production is an essential part of the generative AI application lifecycle. Changes in data and consumer behavior can influence your application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputation risks. 
 
-Azure AI model monitoring for generative AI applications makes it easier for you to monitor your applications in production for safety and quality on a cadence to ensure it's delivering maximum business value. 
+Azure AI monitoring for generative AI applications enables you to monitor your applications in production for token usage, generation quality, and operational metrics.
 
 Capabilities and integrations for monitoring a prompt flow deployment include: 
-- Collect production data using the model data collector.
-- Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, relevance, and similarity, which are interoperable with prompt flow evaluation metrics. 
+- Collect production inference data using the [data collector](https://learn.microsoft.com/en-us/azure/machine-learning/concept-data-collection?view=azureml-api-2).
+- Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, and relevance, which are interoperable with prompt flow evaluation metrics.
+- Monitor prompt, completion, and total token usage across each model deployment in your prompt flow.
+- Monitor operational metrics, such as request count, latency, and error rate.
 - Preconfigured alerts and defaults to run monitoring on a recurring basis.
-- Consume result and configure advanced behavior in Azure AI Studio.
+- Consume data visualizations and configure advanced behavior in Azure AI Studio.
 
 ## screenshots
 
@@ -121,7 +123,6 @@ The following metrics are supported for monitoring:
 | Relevance    | Measures the extent to which the model's generated responses are pertinent and directly related to the given questions. |
 | Coherence    | Measures the extent to which the model's generated responses are logically consistent and connected. |
 | Fluency      | Measures the grammatical proficiency of a generative AI's predicted answer. |
-| Similarity   | Measures the similarity between a source data (ground truth) sentence and the generated response by an AI model. |
 
 ## Flow and metric configuration requirements 
 
@@ -132,7 +133,6 @@ When creating your flow, you need to ensure your column names are mapped. The fo
 | Prompt text | The original prompt given (also known as "inputs" or "question") | Required |
 | Completion text | The final completion from the API call that is returned (also known as "outputs" or "answer") | Required |
 | Context text | Any context data that is sent to the API call, together with original prompt. For example, if you hope to get search results only from certain certified information sources/website, you can define in the evaluation steps. | Optional |
-| Ground truth text | The user-defined text as the "source of truth" | Optional |
 
 What parameters are configured in your data asset dictates what metrics you can produce, according to this table: 
 
@@ -142,7 +142,6 @@ What parameters are configured in your data asset dictates what metrics you can 
 | Fluency      | Required | Required   | -       | -            |
 | Groundedness | Required | Required   | Required| -            |
 | Relevance    | Required | Required   | Required| -            |
-| Similarity   | Required | Required   | -       | Required     |
 
 For more information, see [question answering metric requirements](evaluate-generative-ai-app.md#question-answering-metric-requirements).
 
