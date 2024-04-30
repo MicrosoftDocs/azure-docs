@@ -54,7 +54,7 @@ az communication email domain update --domain-name "TestCustomDomain.net" --emai
 az communication email domain update --domain-name "TestCustomDomain.net" --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>" --tags newTag="newVal1" --user-engmnt-tracking Disabled --subscription "<subscriptionId>"
 ```
 
-To configure sender authentication for your domains, please refer [Configure sender authentication for custom domain](../includes/create-custommanaged-domain-resource-azp.md) section.
+To configure sender authentication for your domains, please refer Configure sender authentication for custom domain section from the azure portal tab.
 
 To Initiate domain verification, run the below command:
 

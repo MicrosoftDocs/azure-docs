@@ -137,7 +137,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
 #### Initiate Domain Verification
 
-To configure sender authentication for your domains, refer [Configure sender authentication for custom domain](../includes/create-custommanaged-domain-resource-azp.md) section.
+To configure sender authentication for your domains, please refer Configure sender authentication for custom domain section from the azure portal tab.
 
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure

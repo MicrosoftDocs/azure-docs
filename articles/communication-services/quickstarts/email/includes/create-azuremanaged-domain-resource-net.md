@@ -68,11 +68,11 @@ Now that you're authenticated.
 
 For each of the following examples, we'll be assigning our Domain resources to an existing Email communication service.
 
-If you need to create a Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md).
+If you need to create an Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md).
 
 #### Create a Domain resource
 
-When creating a Domain resource, you'll specify the resource group name, Email Communication Service name, resource name and DomainManagement. Note: The `Location` property is always `global`.
+When creating a Domain resource, you have to specify the resource group name, Email Communication Service name, resource name and DomainManagement. Note: The `Location` property is always `global`.
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure

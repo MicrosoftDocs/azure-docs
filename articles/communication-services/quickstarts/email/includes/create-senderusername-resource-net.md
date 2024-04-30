@@ -23,7 +23,7 @@ using Azure.ResourceManager.Communication;
 
 ## Subscription ID
 
-You'll need to know the ID of your Azure subscription. This can be acquired from the portal:
+You need to know the ID of your Azure subscription. This can be acquired from the portal:
 
 1.  Login into your Azure account
 2.  Select Subscriptions in the left sidebar
