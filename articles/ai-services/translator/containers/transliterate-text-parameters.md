@@ -102,8 +102,6 @@ The following limitations apply:
 ]
 ```
 
-## Code samples: transliterate text
-
 > [!NOTE]
 >
 > * Each sample runs on the `localhost` that you specified with the `docker run` command.
