@@ -137,7 +137,7 @@ The following sections list considerations for what is and isn't supported in Az
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. You need to create firewall rules separately for the new server.
 - Restore to a different subscription isn't supported. As a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.
 
-## Related content
+## Next steps
 
 - Understand [what’s available for compute options](concepts-compute.md)
 - Understand [what’s available for Storage options](concepts-storage.md)
