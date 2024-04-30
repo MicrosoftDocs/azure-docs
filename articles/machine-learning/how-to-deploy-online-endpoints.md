@@ -619,7 +619,7 @@ Next, deploy your online endpoint to Azure. As a best practice for production, w
 
 ### Register your model and environment
 
-Before you deploy your model to Azure, you are advised to register the model and environment in advance and specify their registered names and versions during deployment. This allows you to reuse registered assets without uploading them every time you create deployments, and to increase reproducibility and traceability.
+We recommend that you register your model and environment before deployment to Azure so that you can specify their registered names and versions during deployment. Registering your assets allows you to reuse them without the need to upload them every time you create deployments, thereby increasing reproducibility and traceability.
 
 > [!NOTE]
 > Unlike deployment to Azure, local deployment doesn't support using registered models and environments. Rather, local deployment uses local model files and uses environments with local files only.
