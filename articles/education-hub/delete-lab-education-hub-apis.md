@@ -16,7 +16,7 @@ This article walks you through how to delete a lab in the Azure Education Hub by
 ## Prerequisites
 
 - Know your billing account ID, billing profile ID, and invoice section ID.
-- Have an .edu approved Azure account.
+- Have an education-approved Azure account.
 - Have a lab already created in the Education Hub.
 
 ## Delete students from a lab

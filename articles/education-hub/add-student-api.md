@@ -16,7 +16,7 @@ This article walks through how to add students to a lab in the Azure Education H
 ## Prerequisites
 
 - Know your billing account ID, billing profile ID, and invoice section ID.
-- Have an .edu approved Azure account.
+- Have an education-approved Azure account.
 - Have a lab already created in the Education Hub.
 
 ## Add each student to the lab

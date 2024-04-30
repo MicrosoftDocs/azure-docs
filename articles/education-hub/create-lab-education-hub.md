@@ -16,7 +16,7 @@ This article walks you through how to create a lab and verify that it's created 
 ## Prerequisites
 
 - Know your billing account ID, billing profile ID, and invoice section ID.
-- Have an .edu approved Azure account.
+- Have an education-approved Azure account.
 
 ## Create a lab
 
