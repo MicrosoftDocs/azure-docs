@@ -34,7 +34,7 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
 
    ```bash
     az upgrade
-    az extension add --name containerapps --upgrade --allow-preview
+    az extension add --name containerapp --upgrade --allow-preview
     ```
 
 1. Sign in to Azure:
@@ -81,7 +81,7 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
 1. Create a code interpreter session pool:
 
     ```bash
-    az containerapps sessionpool create \
+    az containerapp sessionpool create \
         --name $SESSION_POOL_NAME --resource-group $RESOURCE_GROUP_NAME \
         --location $SESSION_POOL_LOCATION \
         --max-concurrent-sessions 100 \
@@ -138,7 +138,7 @@ The Semantic Kernel code interpreter plugin is included in `Microsoft.SemanticKe
 1. Get the Azure Container Apps session pool's management endpoint:
 
     ```bash
-    az containerapps sessionpool show --name $SESSION_POOL_NAME --resource-group $RESOURCE_GROUP_NAME \
+    az containerapp sessionpool show --name $SESSION_POOL_NAME --resource-group $RESOURCE_GROUP_NAME \
         --query properties.poolManagementEndpoint
     ```
 
