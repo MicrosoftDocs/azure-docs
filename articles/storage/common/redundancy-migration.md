@@ -15,14 +15,14 @@ ms.custom: engagement-fy23, references_regions
 
 <!--
 Initial: 81 (3717/68)
-Current: 98 (3765/4)
+Current: 98 (3761/0)
 -->
 
 # Change how a storage account is replicated
 
 Azure Storage always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and massive natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/), even in the face of failures.
 
-This article describes the process of changing replication setting(s) for an existing storage account.
+This article describes the process of changing replication settings for an existing storage account.
 
 ## Options for changing the replication type
 
@@ -224,12 +224,12 @@ Follow these steps to request a conversion from Microsoft:
 
     :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal-sml.png" alt-text="Screenshot showing how to request a conversion - Problem description tab." lightbox="media/redundancy-migration/request-live-migration-problem-desc-portal.png":::
 
-1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
+1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage accounts for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal-sml.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal-sml.png" alt-text="Screenshot showing how to check the eligibility of your storage accounts for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
 
 1. Take the appropriate action if the results indicate your storage account isn't eligible for conversion. Otherwise, select **Return to support request**.
 
@@ -254,8 +254,8 @@ You must perform a manual migration if:
 
 With a manual migration, you copy the data from your existing storage account to a new storage account. To perform a manual migration, you can use one of the following options:
 
-- Copy data by using an existing tool such as AzCopy, one of the Azure Storage client libraries, or a reliable non-Microsoft tool.
-- If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
+- Copy data by using an existing tool such as `AzCopy`, one of the Azure Storage client libraries, or a reliable non-Microsoft tool.
+- If you're familiar with `Hadoop` or `HDInsight`, you can attach both the source storage account and destination storage account to your cluster. Then, parallelize the data copy process with a tool like `DistCp`.
 
 For more detailed guidance on how to perform a manual migration, see [Move an Azure Storage account to another region](storage-account-move.md).
 
@@ -361,7 +361,7 @@ If you want to migrate your data into a zone-redundant storage account located i
 
 ### Access tier
 
-Make sure the desired redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts don't support the archive tier. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, first move the archived blobs to a storage account that supports blobs in the archive tier. Then convert the source account to ZRS, GZRS and RA-GZRS.
+Make sure the desired redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts don't support the archive tier. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, first move the archived blobs to a storage account that supports blobs in the archive tier. Then convert the source account to ZRS, GZRS, and RA-GZRS.
 
 An LRS storage account containing blobs in the archive tier can be switched to GRS or RA-GRS after rehydrating all archived blobs to the Hot or Cool tier. You can also perform a [manual migration](#manual-migration).
 
@@ -370,7 +370,7 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if either of the following cases are true:
+You can't convert storage accounts to zone-redundancy (ZRS, GZRS, or RA-GZRS) if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
 - The storage account contains Azure Files NFSv4.1 shares
@@ -379,7 +379,7 @@ You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if 
 
 After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](storage-initiate-account-failover.md#initiate-the-failover).
 
-If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
+If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS, or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
 
 ## Downtime requirements
 
