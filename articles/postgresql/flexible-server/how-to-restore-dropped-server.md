@@ -1,13 +1,13 @@
 ---
 title: Restore a dropped server
 description: This article describes how to restore a dropped server in Azure Database for  PostgreSQL - Flexible Server using the Azure portal.
-ms.service: postgresql
-ms.subservice: flexible-server
-ms.topic: how-to
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: how-to
 ---
 
 # Restore a dropped Azure Database for PostgreSQL - Flexible Server instance
@@ -106,7 +106,7 @@ To restore a dropped Azure Database for PostgreSQL flexible server instance, you
   }
 }
  ```
-## Commom Errors
+## Common Errors
 
 1. If you utilize the incorrect API version, you may experience restore failures or timeouts. Please use 2023-03-01-preview API to avoid such issues.
 2. To avoid potential DNS errors, it is recommended to use a different name when initiating the restore process, as some restore operations may fail with the same name.

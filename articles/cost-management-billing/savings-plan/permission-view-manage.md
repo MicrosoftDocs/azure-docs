@@ -12,19 +12,7 @@ ms.author: banders
 ---
 
 # Permissions to view and manage Azure savings plans
-
 This article explains how savings plan permissions work and how users can view and manage Azure savings plans in the Azure portal.
-After you buy an Azure savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
-- Change who has access to, and manage, a savings plan
-- Update savings plan name
-- Update savings plan scope
-- Change autorenewal settings
-
-Except for autorenewal, none of the changes cause a new commercial transaction or change the end date of the savings plan.
-You can't make the following types of changes after purchase:
-- Hourly commitment
-- Term length
-- Billing frequency
 
 ## Who can manage a savings plan by default
 By default, the following users can view and manage savings plans:

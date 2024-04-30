@@ -213,6 +213,15 @@
         href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
+      - name: Secrets protection
+        items:
+        - name: Overview
+          href: secrets-scanning.md
+        - name: Protecting VM secrets
+          href: secrets-scanning-servers.md
+        - name: Protecting cloud deployment secrets
+          href: secrets-scanning-cloud-deployment.md
+          
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -320,6 +329,12 @@
         - name: Attack path analysis and enhanced risk-hunting for containers
           displayName: attack paths, paths, security explorer, test
           href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
+    - name: Secrets security posture
+      items: 
+      - name: Remediate issues with VM secrets
+        href: remediate-server-secrets.md
+      - name: Remediate cloud deployment secrets
+        href: remediate-cloud-deployment-secrets.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
@@ -528,9 +543,13 @@
       - name: Agentless machine scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
-      - name: Manage secrets with agentless secret scanning
+      - name: Protect secrets
         displayName: secrets, secret scanning, agentless
-        href: secret-scanning.md
+        items: 
+        - name: Overview
+          href: secrets-scanning-servers.md
+        - name: Remediate VM secrets
+          href: remediate-server-secrets.md
       - name: Protect servers with agentless malware scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, Microsoft Defender Antivirus
         href: agentless-malware-scanning.md

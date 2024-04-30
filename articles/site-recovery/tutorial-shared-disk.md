@@ -3,7 +3,7 @@ title: Shared disks in Azure Site Recovery (preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 04/04/2024
+ms.date: 04/24/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -25,7 +25,7 @@ Using shared disk, you can:
 - Change recovery point and reprotect the cluster after failover with a single click. 
 - Failback the cluster to the primary region with minimal data loss and downtime.
 
-Follow these steps to use shared disks in Azure site recovery:
+Follow these steps to use shared disks in Azure Site Recovery:
 
 ## Sign in to Azure
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 **Before you start, ensure you have:**
 
 - A recovery services vault. If you don't have one, [create recovery services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault). 
-- A virtual machine as a part of the [Windows Server Failover Cluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16). 
+- A virtual machine as a part of the [Windows Server Failover Cluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16&preserve-view=true). 
 
 
 ## Enable replication for shared disks
@@ -220,6 +220,8 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
 
 ## Commonly asked questions
 
+#### Does Azure Site Recovery support Linux VMs with shared disks?
+No, Azure Site Recovery does not support Linux VMs with shared disks. Only VMs with WSFC-based shared disks are supported.
 
 #### Is PowerShell supported for Azure Site Recovery with shared disks?
 No, PowerShell support for shared disks will be available as part of General Availability.
