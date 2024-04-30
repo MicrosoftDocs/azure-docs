@@ -91,7 +91,7 @@ For a full list of Entitlement API endpoints, see [OSDU entitlement service](htt
 > [!NOTE]
 > The OSDU documentation refers to v1 endpoints, but the scripts noted in this documentation refer to v2 endpoints, which work and have been successfully validated.
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 
