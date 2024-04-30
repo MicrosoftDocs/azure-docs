@@ -564,13 +564,12 @@
                 items:
                     - name: Azure Disks CSI driver
                       href: azure-disk-csi.md
-                      items:
-                          - name: Use Azure Premium SSD v2 disks
-                            href: use-premium-v2-disks.md
-                          - name: Use Azure Ultra Disks
-                            href: use-ultra-disks.md
-                          - name: Bring your own keys for disks
-                            href: azure-disk-customer-managed-keys.md
+                    - name: Use Azure Premium SSD v2 disks
+                      href: use-premium-v2-disks.md
+                    - name: Use Azure ultra disks
+                      href: use-ultra-disks.md
+                    - name: Bring your own keys for disks
+                      href: azure-disk-customer-managed-keys.md
                     - name: Use Azure Container Storage with Azure Disks
                       href: ../storage/container-storage/use-container-storage-with-managed-disks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
               - name: Azure Elastic SAN
