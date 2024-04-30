@@ -102,8 +102,8 @@ Instead of using the session pool management API directly, the following LLM fra
 | Framework | Package | Quickstart |
 |-----------|---------|------------|
 | LangChain | Python: `langchain-azure-container-apps`<br>Node.js: `@langchain/azure-container-apps` | [Quickstart](./sessions-get-started-langchain.md) |
-| LlamaIndex | Python: `llamaindex-azure-container-apps`<br>Node.js: `@llamaindex/azure-container-apps` | [Quickstart](./sessions-get-started-llamaindex.md) |
-| Semantic Kernel | Python: `semantic-kernel-azure-container-apps`<br>.NET: `tbd`<br>Java: `tbd` | [Quickstart](./sessions-get-started-semantic-kernel.md) |
+| LlamaIndex | Python: `llamaindex-azure-container-apps` | [Quickstart](./sessions-get-started-llamaindex.md) |
+| Semantic Kernel | Python: `semantic-kernel` (0.??.? or later)<br>.NET: `Microsoft.SemanticKernel` (1.??.? or later)<br>Java: `tbd` | [Quickstart](./sessions-get-started-semantic-kernel.md) |
 
 ### Management API endpoints
 
