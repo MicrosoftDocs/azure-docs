@@ -59,7 +59,7 @@ PS C:\> Update-AzEmailServiceDomain -Name TestCustomdomain.net -EmailServiceName
 PS C:\> Update-AzEmailServiceDomain -Name TestCustomdomain.net -EmailServiceName ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1 -Tag @{ExampleKey1="ExampleValue1"} -UserEngagementTracking 0 -SubscriptionId SubscriptionID
 ```
 
-To configure sender authentication for your domains, please refer Configure sender authentication for custom domain section from the azure portal tab.
+To configure sender authentication for your domains, refer Configure sender authentication for custom domain section from the Azure portal tab.
 
 To Invoke domain verification, run the below command:
 
