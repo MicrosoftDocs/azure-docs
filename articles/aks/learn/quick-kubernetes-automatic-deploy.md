@@ -37,7 +37,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 :::zone-end
 
-:::zone target="docs" pivot="portal"
+:::zone target="docs" pivot="azure-portal"
 
 Register preview flag on Azure Portal
 
@@ -121,8 +121,6 @@ The following sample output resembles successful creation of the resource group:
 
 ## Create an AKS Automatic cluster with integrated monitoring
 
-:::zone target="docs" pivot="CLI"
-
 To create an AKS Automatic cluster, use the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSAutomaticCluster* with Managed Prometheus and Container Insights integration enabled.
 
 ```azurecli
@@ -177,7 +175,7 @@ Create Automatic Kubernetes Cluster
 
 3. Get started with deploying your first application directly from your source control. 
 
-:::image type="content" source="./media/placeholder.png" alt-text="The screenshot of the Get Started Tab after creating an AKS Automatic cluster in the Azure portal.":::
+:::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Get Started Tab after creating an AKS Automatic cluster in the Azure portal.":::
 
 :::zone-end
 
