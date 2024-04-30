@@ -112,7 +112,7 @@ networks:
 
 
 ```
-   
+---  
 ## Interacting with Emulator
 Ensure to copy the connection string
 
