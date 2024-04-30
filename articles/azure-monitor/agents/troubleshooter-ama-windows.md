@@ -56,7 +56,7 @@ If the directory exists, the Test-Path cmdlet returns `True`.
 To verify the Agent Troubleshooter is present, copy the following command and run in Command Prompt as administrator:
 
 > [!Note]
-> Note: If you have customized the AMAInstallPath, you'll need to adjust the below path to your custom path.
+> If you have customized the AMAInstallPath, you'll need to adjust the below path to your custom path.
 
 ```command
 cd "C:\Program Files\Azure Monitor Agent\Troubleshooter"
@@ -125,7 +125,7 @@ It runs a series of activities that could take up to 15 minutes to complete. Be 
 To start the Agent Troubleshooter, copy the following command and run in Command Prompt as administrator:
 
 > [!Note]
-> Note: If you have customized the AMAInstallPath, you'll need to adjust the below path to your custom path.
+> If you have customized the AMAInstallPath, you'll need to adjust the below path to your custom path.
 
 ```command
 cd "C:\Program Files\Azure Monitor Agent\Troubleshooter"
