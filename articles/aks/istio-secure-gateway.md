@@ -233,7 +233,7 @@ EOF
 ```
 
 > [!NOTE]
-> In the gateway definition, `credentialName` must match the `secretName` in SecretProviderClass resource and `selector` must refer to the external ingress gateway by its label, in which the key of the label is `istio` and the value is `aks-istio-ingressgateway-external`.
+> In the gateway definition, `credentialName` must match the `secretName` in SecretProviderClass resource and `selector` must refer to the external ingress gateway by its label, in which the key of the label is `istio` and the value is `aks-istio-ingressgateway-external`. For internal ingress gateway label is `istio` and the value is `aks-istio-ingressgateway-internal`.
 
 Set environment variables for external ingress host and ports:
     
