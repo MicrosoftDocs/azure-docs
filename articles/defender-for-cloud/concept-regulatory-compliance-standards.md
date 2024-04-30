@@ -1,6 +1,6 @@
 ---
 title: Regulatory compliance in Defender for Cloud
-description: Learn about regulatory compliance standards and certification in Microsoft Defender for Cloud, and how it helps ensure compliance with industry regulations.
+description: Learn about regulatory compliance in Microsoft Defender for Cloud, and how it helps ensure compliance with industry, regional, and global standards.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
@@ -64,9 +64,9 @@ By default, when you enable Defender for Cloud, the following standards are enab
 - For **AWS**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and [AWS Foundational Security Best Practices standard](https://docs.aws.amazon.com/securityhub/latest/userguide/fsbp-standard.html).
 - For **GCP**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and **GCP Default**.
 
-## Available regulatory standards
+## Available compliance standards
 
-The following regulatory standards are available in Defender for Cloud:
+The following standards are available in Defender for Cloud:
 
 | Standards for Azure subscriptions | Standards for AWS accounts | Standards for GCP projects |
 |--|--|--|
@@ -94,4 +94,5 @@ The following regulatory standards are available in Defender for Cloud:
 
 ## Related content
 
-- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
+- [Assign regulatory compliance standards](update-regulatory-compliance-packages.yml)
+- [Improve regulatory compliance](regulatory-compliance-dashboard.md)

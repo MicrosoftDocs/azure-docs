@@ -216,6 +216,15 @@
         href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
+      - name: Secrets protection
+        items:
+        - name: Overview
+          href: secrets-scanning.md
+        - name: Protecting VM secrets
+          href: secrets-scanning-servers.md
+        - name: Protecting cloud deployment secrets
+          href: secrets-scanning-cloud-deployment.md
+          
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -323,10 +332,16 @@
         - name: Attack path analysis and enhanced risk-hunting for containers
           displayName: attack paths, paths, security explorer, test
           href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
+    - name: Secrets security posture
+      items: 
+      - name: Remediate issues with VM secrets
+        href: remediate-server-secrets.md
+      - name: Remediate cloud deployment secrets
+        href: remediate-cloud-deployment-secrets.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
-        href: update-regulatory-compliance-packages.md
+        href: update-regulatory-compliance-packages.yml
       - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
@@ -353,7 +368,7 @@
           href: governance-rules.md
         - name: Automate remediation responses
           displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
+          href: workflow-automation.yml
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
@@ -411,7 +426,7 @@
       items:
         - name: Manage and respond to security alerts
           displayName: security alerts, alerts
-          href: managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.yml
         - name: Create and manage alerts suppression rules
           displayName: alert suppression, alert suppression, create, suppressions rules,
             rules
@@ -455,11 +470,11 @@
           displayName: threat intelligence reports
           href: threat-intelligence-reports.md
         - name: Validate your alert configuration
-          displayname: eicar, Kubernetes, Linux
+          displayName: eicar, Kubernetes, Linux
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
-          href: workflow-automation.md
+          href: workflow-automation.yml
 
 - name: Protect your workloads
   items:
@@ -531,9 +546,13 @@
       - name: Agentless machine scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
-      - name: Manage secrets with agentless secret scanning
+      - name: Protect secrets
         displayName: secrets, secret scanning, agentless
-        href: secret-scanning.md
+        items: 
+        - name: Overview
+          href: secrets-scanning-servers.md
+        - name: Remediate VM secrets
+          href: remediate-server-secrets.md
       - name: Protect servers with agentless malware scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, Microsoft Defender Antivirus
         href: agentless-malware-scanning.md
@@ -553,7 +572,7 @@
         href: auto-deploy-vulnerability-assessment.md
       - name: Transition to Microsoft Defender Vulnerability Management for servers
         displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
-        href: how-to-transition-to-built-in.md
+        href: how-to-transition-to-built-in.yml
       - name: Common questions 
         displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
         href: faq-scanner-detection.yml
@@ -578,7 +597,7 @@
         href: just-in-time-access-overview.md
       - name: Enable just-in-time access on VMs
         displayName: jit, management, ports
-        href: just-in-time-access-usage.md
+        href: just-in-time-access-usage.yml
     - name: Endpoint detection and response
       items:
       - name: Understand endpoint detection and response
@@ -876,7 +895,7 @@
           - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
-            href: azure-devops-extension.md
+            href: azure-devops-extension.yml
           - name: Configure the Microsoft Security DevOps GitHub action
             href: github-action.md
           - name: Configure pull request annotations
@@ -1010,7 +1029,13 @@
         - name: Unified insights from Microsoft Entra permissions management
           href: episode-forty-three.md
         - name: Agentless malware detection
-          href: episode-forty-four.md   
+          href: episode-forty-four.md
+        - name: Risk prioritization
+          href: episode-forty-five.md
+        - name: DevOps Security Capabilities in Defender CSPM
+          href: episode-forty-six.md
+        - name: Vulnerability management in Defender CSPM
+          href: episode-forty-seven.md
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation

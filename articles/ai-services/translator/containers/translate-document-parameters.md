@@ -12,7 +12,12 @@ ms.date: 04/08/2024
 ms.author: lajanuar
 ---
 
-# Container: Translate Documents
+# Container: Translate Documents (preview)
+
+> [!IMPORTANT]
+>
+> * Azure AI Translator public preview releases provide early access to features that are in active development.
+> * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
 **Translate document with source language specified**.
 

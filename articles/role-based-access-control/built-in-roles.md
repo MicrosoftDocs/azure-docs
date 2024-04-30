@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -284,6 +284,10 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='api-management-workspace-reader'></a>[API Management Workspace Reader](./built-in-roles/integration.md#api-management-workspace-reader) | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope. | ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2 |
 > | <a name='app-configuration-data-owner'></a>[App Configuration Data Owner](./built-in-roles/integration.md#app-configuration-data-owner) | Allows full access to App Configuration data. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
 > | <a name='app-configuration-data-reader'></a>[App Configuration Data Reader](./built-in-roles/integration.md#app-configuration-data-reader) | Allows read access to App Configuration data. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | <a name='azure-api-center-compliance-manager'></a>[Azure API Center Compliance Manager](./built-in-roles/integration.md#azure-api-center-compliance-manager) | Allows managing API compliance in Azure API Center service. | ede9aaa3-4627-494e-be13-4aa7c256148d |
+> | <a name='azure-api-center-data-reader'></a>[Azure API Center Data Reader](./built-in-roles/integration.md#azure-api-center-data-reader) | Allows for access to Azure API Center data plane read operations. | c7244dfb-f447-457d-b2ba-3999044d1706 |
+> | <a name='azure-api-center-service-contributor'></a>[Azure API Center Service Contributor](./built-in-roles/integration.md#azure-api-center-service-contributor) | Allows managing Azure API Center service. | dd24193f-ef65-44e5-8a7e-6fa6e03f7713 |
+> | <a name='azure-api-center-service-reader'></a>[Azure API Center Service Reader](./built-in-roles/integration.md#azure-api-center-service-reader) | Allows read-only access to Azure API Center service. | 6cba8790-29c5-48e5-bab1-c7541b01cb04 |
 > | <a name='azure-relay-listener'></a>[Azure Relay Listener](./built-in-roles/integration.md#azure-relay-listener) | Allows for listen access to Azure Relay resources. | 26e0b698-aa6d-4085-9386-aadae190014d |
 > | <a name='azure-relay-owner'></a>[Azure Relay Owner](./built-in-roles/integration.md#azure-relay-owner) | Allows for full access to Azure Relay resources. | 2787bf04-f1f5-4bfe-8383-c8a24483ee38 |
 > | <a name='azure-relay-sender'></a>[Azure Relay Sender](./built-in-roles/integration.md#azure-relay-sender) | Allows for send access to Azure Relay resources. | 26baccc8-eea7-41f1-98f4-1762cc7f685d |
@@ -307,7 +311,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='logic-app-operator'></a>[Logic App Operator](./built-in-roles/integration.md#logic-app-operator) | Lets you read, enable, and disable logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | <a name='logic-apps-standard-contributor-preview'></a>[Logic Apps Standard Contributor (Preview)](./built-in-roles/integration.md#logic-apps-standard-contributor-preview) | You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. | ad710c24-b039-4e85-a019-deb4a06e8570 |
 > | <a name='logic-apps-standard-developer-preview'></a>[Logic Apps Standard Developer (Preview)](./built-in-roles/integration.md#logic-apps-standard-developer-preview) | You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. | 523776ba-4eb2-4600-a3c8-f2dc93da4bdb |
-> | <a name='logic-apps-standard-operator-preview'></a>[Logic Apps Standard Operator (Preview)](./built-in-roles/integration.md#logic-apps-standard-operator-preview) | You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
+> | <a name='logic-apps-standard-operator-preview'></a>[Logic Apps Standard Operator (Preview)](./built-in-roles/integration.md#logic-apps-standard-operator-preview) | You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
 > | <a name='logic-apps-standard-reader-preview'></a>[Logic Apps Standard Reader (Preview)](./built-in-roles/integration.md#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. | 4accf36b-2c05-432f-91c8-5c532dff4c73 |
 > | <a name='scheduler-job-collections-contributor'></a>[Scheduler Job Collections Contributor](./built-in-roles/integration.md#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | <a name='services-hub-operator'></a>[Services Hub Operator](./built-in-roles/integration.md#services-hub-operator) | Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors. | 82200a5b-e217-47a5-b665-6d8765ee745b |

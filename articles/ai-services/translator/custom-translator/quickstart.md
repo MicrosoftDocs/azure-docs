@@ -25,7 +25,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
     :::image type="content" source="../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-For more information, *see* [how to create a Translator resource](../create-translator-resource.md).
+For more information, *see* [how to create a Translator resource](../create-translator-resource.yml).
 
 ## Custom Translator portal
 

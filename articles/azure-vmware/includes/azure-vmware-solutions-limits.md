@@ -3,7 +3,7 @@ title: Azure VMware Solution limits
 description: Azure VMware Solution limits.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 1/03/2024
+ms.date: 4/12/2024
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
@@ -26,6 +26,7 @@ The following table describes the maximum limits for Azure VMware Solution.
 | Maximum Azure VMware Solution ExpressRoute port speed | 10 Gbps (use Ultra Performance Gateway SKU with FastPath enabled)<br />The virtual network gateway used determines the actual bandwidth. For more information, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
 | Maximum number of Azure Public IPv4 addresses assigned to NSX-T Data Center | 2,000 |
 | Maximum number of Azure VMware Solution Interconnects per private cloud | 10 |
+| Maximum number of Azure ExpressRoute Global Reach connections per Azure VMware Solution private cloud | 8 |
 | vSAN capacity limits | 75% of total usable (keep 25% available for SLA)  |
 | VMware Site Recovery Manager - Maximum number of protected Virtual Machines  | 3,000  |
 | VMware Site Recovery Manager - Maximum number of Virtual Machines per recovery plan  | 2,000  |

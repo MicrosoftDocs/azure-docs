@@ -361,7 +361,7 @@ The following example shows a request body that creates a scheduled job.
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }
@@ -388,7 +388,7 @@ The response to this request looks like the following example:
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }
@@ -426,7 +426,7 @@ The response to this request looks like the following example:
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }
@@ -462,7 +462,7 @@ The response to this request looks like the following example:
             "data": [
                 {
                     "type": "cloudProperty",
-                    "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+                    "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
                     "path": "Company",
                     "value": "Contoso"
                 }
@@ -529,7 +529,7 @@ The response to this request looks like the following example:
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }

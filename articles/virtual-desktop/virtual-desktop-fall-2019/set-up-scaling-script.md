@@ -60,7 +60,7 @@ Before you start setting up the scaling tool, make sure you have the following t
 
 - A [Azure Virtual Desktop tenant and host pool](create-host-pools-arm-template.md)
 - Session host pool VMs configured and registered with the Azure Virtual Desktop service
-- A user with [Contributor access](../../role-based-access-control/role-assignments-portal.md) on Azure subscription
+- A user with [Contributor access](../../role-based-access-control/role-assignments-portal.yml) on Azure subscription
 
 The machine you use to deploy the tool must have:
 
