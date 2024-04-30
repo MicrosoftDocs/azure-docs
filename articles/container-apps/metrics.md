@@ -56,9 +56,9 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page.  To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page. To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
-1. Create a chart by selecting **Metric**.  You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
+1. Create a chart by selecting **Metric**. You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::
 
 ### Add filters
@@ -79,7 +79,7 @@ To create a filter:
 When your chart contains a single metric, you can choose to split the metric information by revision or replica with the exceptions:
 
 * The *Replica count* metric can only split by revision.
-* The *Requests* metric can also be split by status code and status code category.
+* The *Requests* metric can also be split on the status code and status code category.
 
 To split by revision or replica:
 
@@ -87,9 +87,9 @@ To split by revision or replica:
 
 1. From the **Values** drop-down list, select **Revision** or **Replica**.
 
-1. You can set the limit of the number of revisions or replicas to display in the chart.  The default is 10.
+1. You can set the limit of the number of revisions or replicas to display in the chart. The default value is 10.
 
-1. You can set sort order to **Ascending** or **Descending**.  The default value is *Descending*.
+1. You can set sort order to **Ascending** or **Descending**. The default value is *Descending*.
 
 :::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of metrics splitting options.":::
 
