@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 04/18/2024
+ms.date: 04/30/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -43,7 +43,7 @@ The v2 SKU includes the following enhancements:
 ## SKU types
 
 Application Gateway v2 is available under two SKUs: 
-- **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced auto scale and traffic management features. 
+- **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. 
 - **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It also includes auto scale that can automatically adjust the number of instances to match your traffic needs. 
 
 The following table displays a comparison between Basic and Standard_v2.
@@ -106,7 +106,8 @@ The following table compares the features available with each SKU.
 | HTTP/2 support                                    | &#x2713; | &#x2713; |
 | Connection draining                               | &#x2713; | &#x2713; |
 | Proxy NTLM authentication                         | &#x2713; |          |
-
+| Path based rule encoding                          | &#x2713; |          |
+| DHE Ciphers                                       | &#x2713; |          |
 > [!NOTE]
 > The autoscaling v2 SKU now supports [default health probes](application-gateway-probe-overview.md#default-health-probe) to automatically monitor the health of all resources in its backend pool and highlight those backend members that are considered unhealthy. The default health probe is automatically configured for backends that don't have any custom probe configuration. To learn more, see [health probes in application gateway](application-gateway-probe-overview.md).
 
@@ -122,6 +123,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
+|Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 treats `/abc%2Fdef` the same as `/abc/def`. |
+|Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
+|Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that the cookie can't be used by client for the subdomains.|
 |Microsoft Defender for Cloud integration|Not yet available.
 
 ## Next steps

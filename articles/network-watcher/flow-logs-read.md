@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 04/24/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 # Read flow logs
 
-In this article, you learn how to selectively read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes.
+In this article, you learn how to selectively read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. Using the script provided in this article, you can read the latest data from the flow logs without having to download the entire log.
 
 The concepts discussed in this article aren't limited to the PowerShell and are applicable to all languages supported by the Azure Storage APIs.
 
@@ -22,17 +22,17 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- PowerShell. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
+- PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-- Flow logs in a region or more. For more information, see [Create NSG flow logs](nsg-flow-logs-portal.md#create-a-flow-log) or [Create VNet flow logs](vnet-flow-logs-portal.md#create-a-flow-log).
+- Flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log) or [Create virtual network flow logs](vnet-flow-logs-portal.md#create-a-flow-log).
 
 - Necessary RBAC permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
 
 ## Retrieve the blocklist
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
-The following PowerShell script sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -48,16 +48,16 @@ function Get-NSGFlowLogCloudBlockBlob {
     )
 
     process {
-        # Retrieve the primary storage account key to access the NSG logs
+        # Retrieve the primary storage account key to access the network security group logs
         $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
         # Setup a new storage context to be used to query the logs
         $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-        # Container name used by NSG flow logs
+        # Container name used by network security group flow logs
         $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-        # Name of the blob that contains the NSG flow log
+        # Name of the blob that contains the network security group flow log
         $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
         # Gets the storage blog
@@ -91,9 +91,9 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
-The following PowerShell script sets up the variables needed to query the VNet flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the virtual network flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 function Get-VNetFlowLogCloudBlockBlob {
@@ -109,16 +109,16 @@ function Get-VNetFlowLogCloudBlockBlob {
     )
 
     process {
-        # Retrieve the primary storage account key to access the VNet flow logs
+        # Retrieve the primary storage account key to access the virtual network flow logs
         $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
         # Setup a new storage context to be used to query the logs
         $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $StorageAccountKey
 
-        # Container name used by VNet flow logs
+        # Container name used by virtual network flow logs
         $ContainerName = "insights-logs-flowlogflowevent"
 
-        # Name of the blob that contains the VNet flow log
+        # Name of the blob that contains the virtual network flow log
         $BlobName = "flowLogResourceID=/$($subscriptionId.ToUpper())_NETWORKWATCHERRG/NETWORKWATCHER_$($region.ToUpper())_$($VNetFlowLogName.ToUpper())/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
         # Gets the storage blog
@@ -172,9 +172,9 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## Read the block blob
 
-Next, you read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and store them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
+In this section, you read the `$blocklist` variable to retrieve the data. In the following example, we iterate through the blocklist to read the bytes from each block and store them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -218,7 +218,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
 ```powershell
 function Get-VNetFlowLogReadBlock  {
@@ -272,7 +272,7 @@ The `$valuearray` array contains now the string value of each block. To verify t
 
 The results of this value are shown in the following example:
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
 ```json
 {
@@ -333,7 +333,7 @@ The results of this value are shown in the following example:
 }
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
 ```json
 {

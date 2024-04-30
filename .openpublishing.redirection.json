@@ -3851,7 +3851,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/cluster-configuration.md",
-            "redirect_url": "/azure/aks/concepts-clusters-workloads.md",
+            "redirect_url": "/azure/aks/concepts-clusters-workloads",
             "redirect_document_id": false
         },
         {
@@ -3987,7 +3987,7 @@
         },
         {
             "source_path_from_root":"/articles/trusted-signing/concept.md",
-            "redirect_url":"/azure/trusted-signing/concept-trustedsigning-resources-roles",
+            "redirect_url":"/azure/trusted-signing/concept-trusted-signing-resources-roles",
             "redirect_document_id":false 
         },
         {

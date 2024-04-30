@@ -182,7 +182,7 @@ Use the following sections to manage your MCA.
 
 ### Step 11 – Configure your invoice
 
-It's important to ensure that your billing account information is accurate and up-to-date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.md).
+It's important to ensure that your billing account information is accurate and up-to-date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.yml).
 
 ### Step 12 – Manage payment methods
 
@@ -336,7 +336,7 @@ Use the following steps to manage your MCA.
 
 ### Step 11 - Configure your invoice
 
-It's important to ensure that your billing account information is accurate and up to date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.md).
+It's important to ensure that your billing account information is accurate and up to date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.yml).
 
 ### Step 12 - Manage payment methods
 

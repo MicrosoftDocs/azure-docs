@@ -1,8 +1,8 @@
 ---
 title: Use Dapr to develop distributed applications
 description: Develop distributed applications that talk with Azure IoT MQ using Dapr.
-author: timlt
-ms.author: timlt
+author: PatAltimore 
+ms.author: patricka 
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
