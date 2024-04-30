@@ -2,23 +2,42 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 3/13/2024
+ms.date: 4/22/2024
 ms.author: eur
 ---
 
 ### April 2024 release
 
+#### Automatic multi-lingual speech translation (Preview)
+
+Automatic multi-lingual speech translation is available in public preview. This innovative feature revolutionizes the way language barriers are overcome, offering unparalleled capabilities for seamless communication across diverse linguistic landscapes.
+
+##### Key Highlights
+
+- Unspecified input language: Multi-lingual speech translation can receive audio in a wide range of languages, and there's no need to specify what the expected input language is. It makes it an invaluable feature to understand and collaborate across global contexts without the need for presetting.
+- Language switching: Multi-lingual speech translation allows for multiple languages to be spoken during the same session, and have them all translated into the same target language. There's no need to restart a session when the input language changes or any other actions by you.
+
+##### How it works
+
+- Travel interpreter: multi-lingual speech translation can enhance the experience of tourists visiting foreign destinations by providing them with information and assistance in their preferred language. Hotel concierge services, guided tours, and visitor centers can utilize this technology to cater to diverse linguistic needs.
+- International conferences: multi-lingual speech translation can facilitate communication among participants from different regions who might speak various languages using live translated caption. Attendees can speak in their native languages without needing to specify them, ensuring seamless understanding and collaboration.
+- Educational meetings: In multi-cultural classrooms or online learning environments, multi-lingual speech translation can support language diversity among students and teachers. It allows for seamless communication and participation without the need to specify each student's or instructor's language.
+
+##### How to access
+
+For a detailed introduction, visit [Speech translation overview](../../speech-translation.md). Additionally, you can refer to the code samples at [how to translate speech](../../how-to-translate-speech.md). This new feature is fully supported by all SDK versions from 1.37.0 onwards.
+
 #### Real-time speech to text with diariazation (GA)
 
 Real-time speech to text with diariazation is now generally available.
 
-Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
+You can create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation. For more information about real-time diarization, Check out the [real-time diarization quickstart](../../get-started-stt-diarization.md).
 
-#### Speech to Text model Update
+#### Speech to text model Update
 
-[Real-time Speech to Text](../../how-to-recognize-speech.md) has released new models with bilingual capabilities. The `en-IN` model now support both English and Hindi bilingual scenarios and offers improved accuracy. Arabic locales (`ar-AE`, `ar-BH`, `ar-DZ`, `ar-IL`, `ar-IQ`, `ar-KW`, `ar-LB`, `ar-LY`, `ar-MA`, `ar-OM`, `ar-PS`, `ar-QA`, `ar-SA`, `ar-SY`, `ar-TN`, `ar-YE`) are now equipped with bilingual support for English, enhanced accuracy and call center support. 
+[Real-time speech to text](../../how-to-recognize-speech.md) has released new models with bilingual capabilities. The `en-IN` model now supports both English and Hindi bilingual scenarios and offers improved accuracy. Arabic locales (`ar-AE`, `ar-BH`, `ar-DZ`, `ar-IL`, `ar-IQ`, `ar-KW`, `ar-LB`, `ar-LY`, `ar-MA`, `ar-OM`, `ar-PS`, `ar-QA`, `ar-SA`, `ar-SY`, `ar-TN`, `ar-YE`) are now equipped with bilingual support for English, enhanced accuracy and call center support. 
 
-[Batch transcription](../../batch-transcription.md) has launched models with new architecture for `es-ES`, `es-MX`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN`. These models significantly enhance readability and entity recognition. 
+[Batch transcription](../../batch-transcription.md) provides models with new architecture for these locales: `es-ES`, `es-MX`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, and `zh-CN`. These models significantly enhance readability and entity recognition. 
 
 ### March 2024 release
 
@@ -82,7 +101,7 @@ How to Use:
 
 Choose es-US (Spanish and English) or fr-CA (French and English) when you call the Speech Service API or try it out on Speech Studio. Feel free to speak either language or mix them together—the model is designed to adapt dynamically, providing accurate and context-aware responses in both languages.
 
-It's time to elevate your communication game with our latest feature release—seamless, multilingual communication at your fingertips!
+It's time to elevate your communication game with our latest feature release—seamless, multi-lingual communication at your fingertips!
 
 #### Speech To text models update
 
