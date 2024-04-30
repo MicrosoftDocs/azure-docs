@@ -44,7 +44,7 @@ Unlimited virtualization allows you to license the physical cores on the host an
 
 By applying existing SQL Server Enterprise and/or Windows Server Datacenter licenses to cover the physical cores of any host you can achieve unlimited virtualization of that host. Each host is required to have licenses applied to all the physical cores.  
 
-While Standard SQL Server and Windows licenses can't be used for unlimited virtualization, they can be applied to license an individual VM discussed in the next section.
+While Standard licenses for SQL Server and Windows Server can't be used for unlimited virtualization, they can be applied to license an individual VM discussed in the next section.
 
 ## License a Virtual Machine virtual cores
 You need to license each machine individually applying licenses based on the number of virtual cores (v-Core) associated with the VM. 
