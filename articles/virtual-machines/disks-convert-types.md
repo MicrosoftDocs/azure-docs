@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 04/15/2024
 ms.author: rogarana
 ---
 
@@ -279,7 +279,7 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 # Create the snapshot
 snapshot=$(az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true)
 
-az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location --zone $zone --sku $storageType
+az disk create -g $resourceGroupName -n $newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location --zone $zone --sku $storageType
 
 ```
 

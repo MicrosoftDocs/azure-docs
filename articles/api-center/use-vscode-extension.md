@@ -14,7 +14,7 @@ ms.custom:
 
 To build, discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
 
-* **Build APIs** - Make APIs you're building discoverable to others by registering them in your API center. Shift-left API design conformance checks into Visual Studio Code with integrated linting support, powered by Spectral.
+* **Build APIs** - Make APIs you're building discoverable to others by registering them in your API center. Shift-left API design conformance checks into Visual Studio Code with integrated linting support. Ensure that new API versions don't break API consumers with breaking change detection.
 
 * **Discover APIs** - Browse the APIs in your API center, and view their details and documentation.
 
@@ -42,6 +42,7 @@ The following Visual Studio Code extensions are optional and needed only for cer
 * [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to send HTTP requests and view the responses in Visual Studio Code directly
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 * [Spectral extension](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral) - to run shift-left API design conformance checks in Visual Studio Code
+* [Optic CLI](https://github.com/opticdev/optic) - to detect breaking changes between API specification documents
     
 ## Setup
 
@@ -73,11 +74,25 @@ Once an active API style guide is set, opening any OpenAPI or AsyncAPI-based spe
 
 :::image type="content" source="media/use-vscode-extension/local-linting.png" alt-text="Screenshot of local-linting in Visual Studio Code." lightbox="media/use-vscode-extension/local-linting.png":::
 
+## Breaking change detection
+
+When introducing new versions of your API, it's important to ensure that changes introduced do not break API consumers on previous versions of your API. The Azure API Center extension for Visual Studio Code makes this easy with breaking change detection for OpenAPI specification documents powered by Optic.
+
+1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Detect Breaking Change** and hit **Enter**.
+2. Select the first API specification document to compare. Valid options include API specifications found in your API center, a local file, or the active editor in Visual Studio Code.
+3. Select the second API specification document to compare. Valid options include API specifications found in your API center, a local file, or the active editor in Visual Studio Code.
+
+Visual Studio Code will open a diff view between the two API specifications. Any breaking changes are displayed both inline in the editor, as well as in the Problems window (**View** > **Problems** or **Ctrl+Shift+M**).
+
+:::image type="content" source="media/use-vscode-extension/breaking-changes.png" alt-text="Screenshot of breaking changes detected in Visual Studio Code." lightbox="media/use-vscode-extension/breaking-changes.png":::
+
 ## Discover APIs
 
 Your API center resources appear in the tree view on the left-hand side. Expand an API center resource to see APIs, versions, definitions, environments, and deployments.
 
 :::image type="content" source="media/use-vscode-extension/explore-api-centers.png" alt-text="Screenshot of API Center tree view in Visual Studio Code." lightbox="media/use-vscode-extension/explore-api-centers.png":::
+
+Search for APIs within an API Center by using the search icon shown in the **Apis** tree view item.
 
 ## View API documentation
 

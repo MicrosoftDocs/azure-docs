@@ -13,8 +13,6 @@ ms.subservice: chat
 
 # Enable inline image using UI Library in Teams Interoperability Chat
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 In a Teams Interoperability Chat ("Interop Chat"), we can enable Azure Communication Service end users to receive inline images sent by Teams users. Currently, the Azure Communication Service end user is able to only receive inline images from the Teams user. Refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 >[!IMPORTANT]
@@ -33,7 +31,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- Using the UI library version [1.7.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.7.0-beta.1) or the latest.
+- Using the UI library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest.
 - Have a Teams meeting created and the meeting link ready.
 - Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
 
@@ -75,10 +73,7 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`.
-
-
-And this is all you need! And there's no other setup needed to enable inline image specifically. 
+This is all you need - and there's no other setup needed to enable inline image specifically. 
 
 
 ## Run the code

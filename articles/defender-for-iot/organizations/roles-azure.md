@@ -20,7 +20,6 @@ This article provides a reference of Defender for IoT actions available for each
 
 Permissions are applied to user roles across an entire Azure subscription, or in some cases, across individual Defender for IoT sites. For more information, see [Zero Trust and your OT networks](concept-zero-trust.md) and [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview).
 
-
 | Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
 | **[Grant permissions to others](manage-users-portal.md)**<br>Apply per subscription or site | -       |  -       |   -      | ✔ |
@@ -43,6 +42,8 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 | **[Manage Azure workbooks](workbooks.md) (write access)**  <br>Apply per subscription or site |  - | ✔ |✔ | ✔ |
 | **[View Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | ✔ | ✔ |✔ | ✔ |
 | **[Configure Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | - | ✔ |✔ | ✔ |
+
+For an overview on creating new Azure custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles). To set up a role, you need to add permissions from the actions listed in the [Internet of Things security permissions table](/azure/role-based-access-control/permissions/internet-of-things#microsoftiotsecurity).
 
 ## Next steps
 

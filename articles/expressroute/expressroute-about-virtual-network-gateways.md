@@ -162,8 +162,7 @@ ErGwScale is available in preview in the following regions:
 * East US
 * East Asia
 * France Central
-* Germany Central
-* Germany West
+* Germany West Central
 * India Central
 * Italy North
 * North Europe

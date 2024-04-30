@@ -564,7 +564,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Leidos](https://www.leidos.com/)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
-|[NeoSustems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
+|[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
 |[Novetta](https://www.novetta.com)|

@@ -129,8 +129,8 @@ To request an exception from the Azure Machine Learning product team, use the st
 
 | **Resource**&nbsp;&nbsp; | **Limit <sup>1</sup>** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Allows exception** | **Applies to** |
 | --- | ---- | --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> <li> For Kubernetes endpoint, the endpoint name plus deployment name must be 3-62 characters in total length | - | All types of endpoints <sup>3</sup> |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> <li> For Kubernetes endpoint, the endpoint name plus deployment name must be 3-62 characters in total length | - | All types of endpoints <sup>3</sup> |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> <li> For Kubernetes endpoint, the endpoint name plus deployment name must be 6-62 characters in total length | - | All types of endpoints <sup>3</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> <li> For Kubernetes endpoint, the endpoint name plus deployment name must be 6-62 characters in total length | - | All types of endpoints <sup>3</sup> |
 | Number of endpoints per subscription | 100 | Yes | All types of endpoints <sup>3</sup> |
 | Number of endpoints per cluster | 60 | - | Kubernetes online endpoint |
 | Number of deployments per subscription | 500 | Yes | All types of endpoints <sup>3</sup>|
@@ -167,13 +167,6 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Steps in a pipeline | 30,000 |
 | Workspaces per resource group | 800 |
 
-
-### Azure Machine Learning job schedules
-[Azure Machine Learning job schedules](how-to-schedule-pipeline-job.md) have the following limits.
-
-| **Resource** | **Limit** |
-| --- | --- |
-| Schedules per region | 100 |
 
 ### Azure Machine Learning integration with Synapse
 

@@ -14,7 +14,7 @@ ms.date: 09/12/2023
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-[Azure Cosmos DB](../introduction.md) is a fully managed NoSQL, relational, and vector database for modern app development.
+Azure Cosmos DB is a fully managed NoSQL, relational, and vector database for modern app development. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. It is the database that ChatGPT relies on to [dynamically scale](../introduction.md) with high reliability and low maintenance.
 
 Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB.
 
@@ -71,4 +71,5 @@ Cosmos DB for MongoDB implements the wire protocol for MongoDB. This implementat
 ## Next steps
 
 - Read the [FAQ](faq.yml)
-- [Connect an existing MongoDB application to Azure Cosmos DB for MongoDB RU](connect-account.md)
+- [Connect an existing MongoDB application to Azure Cosmos DB for MongoDB RU](connect-account.yml)
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md)

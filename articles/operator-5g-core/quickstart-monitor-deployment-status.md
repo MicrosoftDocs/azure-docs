@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is.
-ms.date: 03/07/2024
+ms.date: 04/23/2024
 ---
 
 # Quickstart: Monitor the  status of your Azure Operator 5G Core Preview deployment
@@ -15,6 +15,7 @@ Azure Operator 5G Core Preview provides network function health check informatio
 ## View health check information
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for the Azure *operator 5G core* resource.
 1. Navigate to the Network Functions Inventory & Health Checks screen. This screen lists all resources, along with the resource group, cluster, resource type and deployment status.
 
 :::image type="content" source="media/how-to-monitor-deployment-status/monitor-deployments.png" alt-text="screenshot displaying the Azure Operator 5G Core health check and network functions inventory. A column listing deployment status indicates the status of each resource deployed.":::

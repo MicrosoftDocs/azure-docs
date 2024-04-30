@@ -48,6 +48,10 @@ items:
       href: storage-quickstart-blobs-go.md
     - name: Terraform
       href: storage-quickstart-static-website-terraform.md
+    - name: TypeScript
+      items: 
+      - name: TypeScript for Node.js
+        href: storage-quickstart-blobs-nodejs-typescript.md
   - name: Storage accounts
     items:
     - name: Storage accounts overview
@@ -148,6 +152,8 @@ items:
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Performance benchmark
+        href: network-file-system-protocol-performance-benchmark.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
       - name: Limitations and known issues
@@ -190,7 +196,7 @@ items:
       - name: Enable blob inventory reports
         href: blob-inventory-how-to.md
       - name: Calculate blob count and total size
-        href: calculate-blob-count-size.md
+        href: calculate-blob-count-size.yml
       - name: 'Tutorial: Analyze blob inventory reports'
         href: storage-blob-inventory-report-analytics.md
       - name: 'Tutorial: Calculate container statistics'
@@ -384,7 +390,7 @@ items:
       - name: Enable blob soft delete
         href: soft-delete-blob-enable.md
       - name: Manage and restore soft-deleted blobs
-        href: soft-delete-blob-manage.md
+        href: soft-delete-blob-manage.yml
     - name: Versioning
       href: versioning-overview.md
       items:
@@ -1029,6 +1035,8 @@ items:
       items:
       - name: Configuration settings
         href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Error codes
+        href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: azcopy
         href: ../common/storage-ref-azcopy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: azcopy bench
