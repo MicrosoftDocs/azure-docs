@@ -92,7 +92,7 @@ Follow these steps to build and test the API Center portal locally.
 
     ```json
     {
-      "dataApiHostName": "<service name>.data.<region>.azure-apicenter.ms",
+      "dataApiHostName": "<service name>.data.<region>.azure-apicenter.ms/workspaces/default",
       "title": "API portal",
       "authentication": {
           "clientId": "<client ID>",
