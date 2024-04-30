@@ -2,7 +2,7 @@
 title: Data model for Azure Backup diagnostics events
 description: This data model is in reference to the Resource Specific Mode of sending diagnostic events to Log Analytics (LA). 
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 04/30/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -16,7 +16,7 @@ ms.author: v-abhmallick
 
 Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults. 
 
-- One of the main reasons for this difference is that for Backup vaults, Azure Backup service does a 'flattening' of schemas to reduce the number of joins needed in queries, hence improving query performance. For example, if you are looking to write a query that lists all Backup vault jobs along with the friendly name of the datasource, and friendly name of the vault, you can get all of this information fro the AddonAzureBackupJobs table (without needing to do a join with CoreAzureBackup to get the datasource and vault names). Flattened schemas are currently supported only for Backup vaults and not yet for Recovery Services vaults.
+- One of the main reasons for this difference is that for Backup vaults, Azure Backup service does a 'flattening' of schemas to reduce the number of joins needed in queries, hence improving query performance. For example, if you are looking to write a query that lists all Backup vault jobs along with the friendly name of the datasource, and friendly name of the vault, you can get all of this information for the AddonAzureBackupJobs table (without needing to do a join with CoreAzureBackup to get the datasource and vault names). Flattened schemas are currently supported only for Backup vaults and not yet for Recovery Services vaults.
 - Apart from the above, there are also certain scenarios that are currently applicable for Recovery Services vaults only (for example, fields related to DPM workloads). This also leads to some differences in the schema between Backup vaults and Recovery Services vaults.
 
 To understand which fields are specific to a particular vault type, and which fields are common across vault types, refer to the **Applicable Resource Types** column provided in the below sections. For more information on how to write queries on these tables for Recovery Services vaults and Backup vaults, see the [sample queries](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries).
@@ -300,6 +300,26 @@ This table provides details about storage-related fields.
 | VolumeFriendlyName             | Text          | Recovery Services vault | Friendly name of the storage volume                          |
 | SourceSystem                   | Text          | Recovery Services vault | Source system of the current data - Azure                    |
 
+## AzureBackupOperations
+
+This table lists operations such as adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-prem agent.
+
+| **Field**     | **Data Type**   |	**Applicable Resource Types** | **Description**      |
+| ------------------------------- | ------------- | -------------|---------------------- |
+| TimeGenerated  | DateTime       | Recovery Services vault | The timestamp (UTC) when the log was generated.          |
+| Category       | Text           | Recovery Services vault | Category of the log, for example, AzureBackupOperations. |
+| OperationName  | Text           | Recovery Services vault | High-level name of the action that is logged to this table, for example, DataOperations.  |
+| OperationStartTime   | DateTime  | Recovery Services vault | The start time of the operation. |
+| ExtendedProperties   | Dynamic   | Recovery Services vault | Additional properties applicable to the operation, for example, the associated backup item or server.  |
+| BackupManagementType | Text      | Recovery Services vault | Type of workload associated with the operation, for example, DPM, Azure Backup Server, Azure Backup Agent (MAB). |
+| OperationType | Text | Recovery Services vault |Type of the azure backup operation being executed, for example, changing passphrase.     |
+| SchemaVersion | Text | Recovery Services vault | Version of the schema. For example, **V2**. |
+| SourceSystem  | Text | Recovery Services vault | Source system of the current data - Azure.  |
+| Type          | Text | Recovery Services vault | The name of the table.                      |
+| ResourceId    | Text   | Recovery Services vault | A unique identifier for the resource that the record is associated with.     |
+| SubscriptionId  | Text | Recovery Services vault | A unique identifier for the subscription that the record is associated with. |
+
+
 ## Valid Operation Names for each table
 
 Each record in the above tables has an associated **Operation Name**. An Operation Name describes the type of record (and also indicates which fields in the table are populated for that record). Each table (category) supports one or more distinct Operation Names. Below is a summary of the supported Operation Names for each of the above tables.
@@ -323,7 +343,8 @@ Each record in the above tables has an associated **Operation Name**. An Operati
 | AddonAzureBackupStorage | StorageAssociation | Represents a mapping between a backup item and the total cloud storage consumed by the backup item. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Represents a record containing the protected instance count for each container or backup item. For Azure VM backup, the protected instance count is available at the backup item level, for other workloads it is available at the protected container level. |
 | AddonAzureBackupPolicy | Policy |  Represents a record containing all details of a backup and retention policy. For example, ID, name, retention settings, etc. |
-| AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. |   
+| AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. | 
+| AzureBackupOperations | Job | Represents a record containing a operations like adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-prem agent. |
 
 # [Backup vaults](#tab/backup-vaults)
 
