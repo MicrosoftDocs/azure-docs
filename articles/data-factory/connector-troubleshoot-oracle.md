@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 04/30/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -17,9 +17,7 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Oracle connector in Azure Data Factory and Azure Synapse.
 
-## Oracle
-
-### Error code: ArgumentOutOfRangeException
+## Error code: ArgumentOutOfRangeException
 
 - **Message**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
@@ -31,6 +29,28 @@ This article provides suggestions to troubleshoot common problems with the Oracl
 
     To learn the byte sequence in the result, see [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
+
+## Add secure algorithms when using the self-hosted integration runtime version 5.36.8726.3 or higher
+
+- **Symptoms**: When you use the self-hosted integration runtime version 5.36.8726.3 or higher, you meet this error message: `[Oracle]ORA-12650: No common encryption or data integrity algorithm`.
+
+- **Cause**: The secure algorithm is not added to your Oracle server. 
+
+- **Recommendation**: Update your Oracle server settings to add these secure algorithms:
+
+    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) encryption.
+        - AES256 
+        - AES192 
+        - 3DES168 
+        - AES128 
+        - 3DES112 
+        - DES
+        
+    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity.
+        - SHA256 
+        - SHA384 
+        - SHA512
+    
 ## Related content
 
 For more troubleshooting help, try these resources:
