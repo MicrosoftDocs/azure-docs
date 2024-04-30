@@ -28,7 +28,7 @@ available in the `py38_pytorch` environment.
 
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed.
 
-To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. You can configure various available[command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line). Browse to the Flow web UI to `http://localhost:54321` to get started. SJupyterHub offers sample notebooks.
+To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. You can configure various available[command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line). Browse to the Flow web UI to `http://localhost:54321` to get started. JupyterHub offers sample notebooks.
 
 ### TensorFlow
 
