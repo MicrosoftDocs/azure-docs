@@ -77,9 +77,9 @@ Text Translation data residency depends on the Azure region where your Translato
 |**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
 |**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
 |**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
-|**Switzerland:**</br> *see [Switzerland service endpoint](#switzerland-service-endpoint).|Switzerland North &bull; Switzerland West|
+|**Switzerland:**</br> For more information, *see* [Switzerland service endpoints](#switzerland-service-endpoints).|Switzerland North &bull; Switzerland West|
 
-#### Switzerland service endpoint
+#### Switzerland service endpoints
 
 Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the `Resource region` `Switzerland North` or `Switzerland West`, then use the resource's custom endpoint in your API requests.
 
