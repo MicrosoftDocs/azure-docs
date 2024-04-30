@@ -32,12 +32,12 @@ highlightedContent:
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Define an Azure network topology
+    - title: Design a hybrid network architecture on Azure
+      itemType: learn
+      url: /training/modules/design-a-hybrid-network-architecture/
+    - title: Network Architecture Design
       itemType: architecture
-      url: /azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology
-    - title: Azure Network Watcher
-      itemType: overview
-      url: ../network-watcher/network-watcher-overview.md
+      url: /azure/architecture/networking
     - title: Apply Zero Trust principles to encrypting Azure-based network communications
       itemType: architecture
       url: /security/zero-trust/azure-networking-encryption

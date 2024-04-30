@@ -89,6 +89,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
         ```
 
         > [!TIP]
+        > Please make sure user have permission to `Assign User Assigned Identity` or `Managed Identity Operator` role on the user assigned identity resource.
         > The following [Azure RBAC role assignments](../../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
         
         |Resource|Permission|
@@ -347,7 +348,7 @@ environment:
 
 ### Update a compute instance runtime on a runtime page
 
-We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) if possible.
+We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list) if possible.
 
 Every time you open the page for runtime details, we check whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
 

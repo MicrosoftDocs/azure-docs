@@ -24,7 +24,7 @@ Many times, establishing a network connection between two peers isn't straightfo
 - Peers sitting behind a private network.
 - Computers running in a network address translation (NAT) environment.
 
-To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. Session Traversal Utilities for NAT (STUN) and TURN servers are the relay servers here. To learn more about how Azure Communication Services mitigates network challenges by using STUN and TURN, see [Network traversal concepts](../../concepts/network-traversal.md).
+To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. Session Traversal Utilities for NAT (STUN) and TURN servers are the relay servers.
 
 ### Provide your TURN server details with the SDK
 To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Android SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-android) for the quickstart on how to set up voice and video.

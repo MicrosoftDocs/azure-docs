@@ -36,7 +36,7 @@ Azure supports up to **4000** role assignments per subscription. This limit incl
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
 
-To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
+To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.yml#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"
@@ -104,7 +104,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     For information about how to add principals in bulk, see [Bulk add group members in Microsoft Entra ID](../active-directory/enterprise-users/groups-bulk-import-members.md).
 
-1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
     Now you can find and remove the principal-based role assignments.
 
@@ -126,7 +126,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     :::image type="content" source="media/troubleshoot-limits/role-assignments-filter-remove.png" alt-text="Screenshot of Access control (IAM) page that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/role-assignments-filter-remove.png":::
 
-1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 2 - Remove redundant role assignments
 
@@ -200,7 +200,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Find the principal.
 
-1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
 
@@ -247,7 +247,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Use **AllRD** to see the built-in roles that can potentially be combined into a custom role.
 
-1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.md) or [Azure built-in roles](./built-in-roles.md)
+1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.yml) or [Azure built-in roles](./built-in-roles.md)
 
 1. Create a custom role that includes all the actions and data actions as the built-in roles. To make it easier to create the custom role, you can start by cloning one of the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
 
@@ -259,7 +259,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 
-1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
     Now you can remove the built-in role assignments.
 
@@ -267,7 +267,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Find the principal and built-in role assignments.
 
-1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 4 - Make role assignments eligible
 
@@ -348,5 +348,5 @@ Follow these steps to find and delete unused Azure custom roles.
 
 ## Next steps
 
-- [Remove Azure role assignments](./role-assignments-remove.md)
+- [Remove Azure role assignments](./role-assignments-remove.yml)
 - [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md)

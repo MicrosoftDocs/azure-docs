@@ -2346,7 +2346,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/create-translator-resource.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/create-translator-resource.yml",
       "redirect_url": "/azure/ai-services/translator/create-translator-resource",
       "redirect_document_id": true
     },
@@ -3301,7 +3301,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/openai/how-to/switching-endpoints.md",
+      "source_path_from_root": "/articles/cognitive-services/openai/how-to/switching-endpoints.yml",
       "redirect_url": "/azure/ai-services/openai/how-to/switching-endpoints",
       "redirect_document_id": true
     },

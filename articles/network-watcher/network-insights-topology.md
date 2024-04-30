@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/19/2024
+ms.date: 04/21/2024
 ms.custom: subject-monitoring
 
 #CustomerIntent: As an Azure administrator, I want to see my resources across multiple resource groups, regions, and subscriptions so that I can easily manage resource inventory and have connectivity and traffic insights.
@@ -13,9 +13,9 @@ ms.custom: subject-monitoring
 
 # Topology (preview)
 
-Topology provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, regions, and resource groups to . It helps you manage and monitor your cloud network infrastructure with interactive graphical interface that provides you contextual access to insights from Azure Network Watcher [connection monitor](connection-monitor-overview.md) and [traffic analytics](traffic-analytics.md). Topology helps you .
+Topology provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, regions, and resource groups. It helps you manage and monitor your cloud network infrastructure with interactive graphical interface that provides you with insights from Azure Network Watcher [connection monitor](connection-monitor-overview.md) and [traffic analytics](traffic-analytics.md). Topology helps you diagnose and troubleshoot network issues by providing contextual access to Network Watcher diagnostic tools such as [connection troubleshoot](connection-troubleshoot-overview.md), [packet capture](packet-capture-overview.md), and [next hop](next-hop-overview.md).
 
-In this article, you learn how to use topology to visualize virtual networks and connected resources. 
+In this article, you learn how to use topology to visualize virtual networks and connected resources.
 
 ## Prerequisites
 
@@ -26,18 +26,33 @@ In this article, you learn how to use topology to visualize virtual networks and
 
 Topology supports the following resource types:
 
-- Application gateways
+- Application Gateways
 - Azure Bastion hosts
+- Azure DDoS Protection plans
+- Azure DNS zones
+- Azure Firewalls
 - Azure Front Door profiles
+- Azure NAT Gateways
+- Connections
+- DNS Private Resolvers
+- ExpressRoute circuits
 - Load balancers
+- Local network gateways
 - Network interfaces
 - Network security groups
+- Private DNS zones
 - Private endpoints
 - Private Link services
-- Virtual machines
+- Public IP addresses
+- Service endpoints
+- Traffic Manager profiles
+- Virtual hubs
 - Virtual machine scale sets
-- Virtual network gateways
+- Virtual machines
+- Virtual network gateways (VPN and ExpressRoute)
 - Virtual networks
+- Virtual WANs
+- Web Application Firewall policies
 
 ## Get started with topology
 

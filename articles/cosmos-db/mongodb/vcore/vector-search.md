@@ -1,5 +1,5 @@
 ---
-title: Vector store integration
+title: Vector store
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use vector store in Azure Cosmos DB for MongoDB vCore to enhance AI-based applications.
 author: gahl-levy

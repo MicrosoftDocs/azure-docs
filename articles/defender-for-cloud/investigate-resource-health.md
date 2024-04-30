@@ -89,7 +89,7 @@ To ensure your resource is hardened according to the policies applied to your su
 
 1. From the right pane, select an alert.
 
-1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.md#respond-to-a-security-alert).
+1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.yml).
 
 ## Next steps
 
@@ -97,5 +97,5 @@ In this tutorial, you learned about using Defender for Cloud’s resource health
 
 To learn more, see these related pages:
 
-- [Respond to security alerts](managing-and-responding-alerts.md#respond-to-a-security-alert)
+- [Respond to security alerts](managing-and-responding-alerts.yml#respond-to-a-security-alert)
 - [Review your security recommendations](review-security-recommendations.md)

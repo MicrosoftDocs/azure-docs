@@ -33,6 +33,8 @@ Managed private endpoints work with Azure services that support private link. Us
 - Azure SQL managed instance
 - Azure SQL server
 - Private link services
+- Azure Databricks
+- Azure Database for PostgreSQL flexible servers
 
 ## Prerequisites
 
