@@ -147,7 +147,7 @@ $vm1 = @{
     Location = "EastUS"
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-1"
-    ImageName = "Win2022Datacenter"
+    ImageName = "Win2019Datacenter"
     Name = "vm-1"
 }
 New-AzVm @vm1 -AsJob
@@ -161,7 +161,7 @@ $vm2 = @{
     Location = "EastUS"
     VirtualNetworkName = "vnet-2"
     SubnetName = "subnet-1"
-    ImageName = "Win2022Datacenter"
+    ImageName = "Win2019Datacenter"
     Name = "vm-2"
 }
 New-AzVm @vm2
