@@ -62,14 +62,9 @@ Add Text Translation to your projects and applications using the following resou
 
 Text Translation data residency depends on the Azure region where your Translator resource was created:
 
-* Translator resources **created** in any region in Europe are **processed** at data center in West Europe and North Europe.
-* Translator resources **created** in any region in Asia or Australia are **processed** at data center in Southeast Asia and Australia East.
-* Translator resource **created** in all other regions including Global, North America and South America are **processed** at data center in East US and West US 2.
-
 ### Text Translation data residency
 
 ✔️ Feature: **Translator Text** </br>
-✔️ Region where resource created: **Any**
 
 | Service endpoint | Request processing data center |
 |------------------|--------------------------|

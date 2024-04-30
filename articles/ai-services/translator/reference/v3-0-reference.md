@@ -29,6 +29,8 @@ Requests to Translator are, in most cases, handled by the datacenter that is clo
 
 To force the request to be handled within a specific geography, use the desired geographical endpoint. All requests are processed among the datacenters within the geography.
 
+✔️ Feature: **Translator Text** </br>
+
 | Service endpoint | Request processing data center |
 |------------------|--------------------------|
 |**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|

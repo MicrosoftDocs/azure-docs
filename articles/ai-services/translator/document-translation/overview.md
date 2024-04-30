@@ -146,11 +146,6 @@ Document Translation data residency depends on the Azure region where your Trans
 ✔️ Feature: **Document Translation**</br>
 ✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
 
-* Translator resources **created** in any region in Europe (except Switzerland) are **processed** at data center in France Central and West Europe.
-* Translator resources **created** in any region in Switzerland are **processed** at data center in Switzerland North and Switzerland West.
-* Translator resources **created** in any region in Asia Pacific or Australia are **processed** at data center in Japan East and Southeast Asia.
-* Translator resource **created** in all other regions including Global, North America, and South America are **processed** at data center in East US 2 and West US 2.
-
 |Resource region| Request processing data center |
 |----------------------------------|-----------------------|
 |**Any region within Europe (except Switzerland)**| Europe: France Central &bull; West Europe|

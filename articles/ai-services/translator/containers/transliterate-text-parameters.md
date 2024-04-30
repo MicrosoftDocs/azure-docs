@@ -21,7 +21,7 @@ Convert characters or letters of a source language to the corresponding characte
 `POST` request:
 
 ```HTTP
- POST http://localhost:5000/transliterate?api-version=3.0&language={language}&fromScript={fromScript}&toScript={toScript}
+ POST http://localhost:{port}/transliterate?api-version=3.0&language={language}&fromScript={fromScript}&toScript={toScript}
 
 ```
 
@@ -107,7 +107,6 @@ The following limitations apply:
 > * Each sample runs on the `localhost` that you specified with the `docker run` command.
 > * While your container is running, `localhost` points to the container itself.
 > * You don't have to use `localhost:5000`. You can use any port that is not already in use in your host environment.
-> To specify a port, use the `-p` option.
 
 ### Transliterate with REST API
 
