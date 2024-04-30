@@ -34,8 +34,9 @@ GPT-4 Turbo is a large multimodal model (accepting text or image inputs and gene
 
 ## GPT-4
 
-GPT-4 is the predecessor to GPT-4 Turbo. Both the GPT-4 and GPT-4 Turbo models have a base model name of `gpt-4`. You can distinguish between legacy GPT-4 and Turbo by examining the model version. 
+GPT-4 is the predecessor to GPT-4 Turbo. Both the GPT-4 and GPT-4 Turbo models have a base model name of `gpt-4`. You can distinguish between legacy GPT-4 and Turbo by examining the model version.
 
+- `gpt-4` **Version** `0314`
 - `gpt-4` **Version** `0613`
 - `gpt-4-32k` **Version** `0613`
 
@@ -140,6 +141,13 @@ This table doesn't include fine-tuning regional availability, consult the dedica
 ### Provisioned deployment model availability
 
 [!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
+
+> [!NOTE]
+> The provisioned version of `gpt-4` **Version:** `turbo-2024-04-09` is currently limited to text only.
+
+### How do I get access to Provisioned?
+
+You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
 
 For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
 

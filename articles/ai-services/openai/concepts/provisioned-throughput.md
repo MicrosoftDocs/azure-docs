@@ -44,6 +44,9 @@ You need to speak with your Microsoft sales/account team to acquire provisioned 
 
 [!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
 
+> [!NOTE]
+> The provisioned version of `gpt-4` **Version:** `turbo-2024-04-09` is currently limited to text only.
+
 ## Key concepts
 
 ### Provisioned throughput units
