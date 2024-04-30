@@ -266,7 +266,7 @@ The following table includes parameters you can use to define a PersistentVolume
 |--- | **Following parameters are only for SMB protocol** | --- | --- | --- |
 |volumeAttributes.secretName | Specify a secret name that stores storage account name and key. | | No |
 |volumeAttributes.secretNamespace | Specify a secret namespace. | `default`,`kube-system`, etc. | No | PVC namespace (`csi.storage.k8s.io/pvc/namespace`) |
-|nodeStageSecretRef.name | Specify a secret name that stores storage account name and key. | Existing secret name. if nodeStageSecretRef.name is not provided in PV config, azure file driver uses kubelet identity to get account key. |  No  ||
+|nodeStageSecretRef.name | Specify a secret name that stores storage account name and key. | Existing secret name. If nodeStageSecretRef.name is not provided in PV config, azure file driver uses kubelet identity to get account key. |  No  ||
 |nodeStageSecretRef.namespace | Specify a secret namespace. | Kubernetes namespace  |  No  ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.fsGroupChangePolicy | Indicates how the driver changes a volume's ownership. Pod `securityContext.fsGroupChangePolicy` is ignored.  | `OnRootMismatch` (default), `Always`, `None` | No | `OnRootMismatch` |
