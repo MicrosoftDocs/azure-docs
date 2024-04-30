@@ -71,7 +71,7 @@ If you need to create a resource group, you can do so by using the [Azure portal
 
 #### Create an Email Services resource
 
-When creating a Email Services resource, you'll specify the resource group name and resource name. Note that the `Location` property will always be `global`, and during public preview the `DataLocation` value must be `UnitedStates`.
+When creating an Email Services resource, you'll specify the resource group name and resource name. Note: The `Location` property is always `global`, and during public preview the `DataLocation` value must be `UnitedStates`.
 
 ```csharp
 // this example assumes you already have this ResourceGroupResource created on azure
@@ -178,7 +178,7 @@ await foreach (EmailServiceResource item in subscriptionResource.GetEmailService
 Console.WriteLine($"Succeeded");
 ```
 
-#### Delete a Email Services resource
+#### Delete an Email Services resource
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure

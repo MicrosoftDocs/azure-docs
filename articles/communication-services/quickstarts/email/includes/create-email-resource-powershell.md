@@ -25,13 +25,13 @@ First, make sure to install the Azure Communication Services module ```Az.Commun
 PS C:\> Install-Module Az.Communication
 ```
 
-Run the following command to create the resource:
+To create the resource, run the following command:
 
 ```PowerShell
 PS C:\> New-AzEmailService -ResourceGroupName ContosoResourceProvider1 -Name ContosoEmailServiceResource1 -DataLocation UnitedStates
 ```
 
-If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
+If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```PowerShell
 PS C:\> New-AzEmailService -ResourceGroupName ContosoResourceProvider1 -Name ContosoEmailServiceResource1 -DataLocation UnitedStates -SubscriptionId SubscriptionID
 ```
@@ -54,19 +54,19 @@ PS C:\> Update-AzEmailService -Name ContosoEmailServiceResource1 -ResourceGroupN
 PS C:\> Update-AzEmailService -Name ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1 -Tag @{ExampleKey1="ExampleValue1"} -SubscriptionId SubscriptionID
 ```
 
-To list all of your Email Communication Services Resources in a given subscription use the following command:
+To list all of your Email Communication Service resources in a given subscription, use the following command:
 
 ```PowerShell
 PS C:\> Get-AzEmailService -SubscriptionId SubscriptionID
 ```
 
-To list all the information on a given resource use the following command:
+To list all the information on a given resource, use the following command:
 
 ```PowerShell
 PS C:\> Get-AzEmailService -Name ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1
 ```
 
-If you want to clean up and remove a Email Communication Services, You can delete your Email communication resource by running the command below.
+If you want to clean up and remove a Email Communication Services, You can delete your Email communication resource by running the following command:
 
 ```PowerShell
 PS C:\> Remove-AzEmailService -Name ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1

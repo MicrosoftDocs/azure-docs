@@ -23,7 +23,7 @@ using Azure.ResourceManager.Communication;
 
 ## Subscription ID
 
-You'll need to know the ID of your Azure subscription. This can be acquired from the portal:
+You need to know the ID of your Azure subscription. This can be acquired from the portal:
 
 1.  Login into your Azure account
 2.  Select Subscriptions in the left sidebar
@@ -68,11 +68,11 @@ Now that you're authenticated.
 
 For each of the following examples, we'll be assigning our Domain resources to an existing Email communication service.
 
-If you need to create a Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md) 
+If you need to create a Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md).
 
 #### Create a Domain resource
 
-When creating a Domain resource, you'll specify the resource group name, Email Communication Service name, resource name and DomainManagement. Note that the `Location` property will always be `global`.
+When creating a Domain resource, you'll specify the resource group name, Email Communication Service name, resource name and DomainManagement. Note: The `Location` property is always `global`.
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure

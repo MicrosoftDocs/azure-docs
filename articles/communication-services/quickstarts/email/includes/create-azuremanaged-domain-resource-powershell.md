@@ -37,11 +37,11 @@ You can configure your Domain resource with the following options:
 * The [resource group](../../../../azure-resource-manager/management/manage-resource-groups-powershell.md)
 * The name of the Email Communication Services resource.
 * The name of the Domain resource:
-	* For Azure domains, the name should be 'AzureManagedDomain'.
+	* For Azure domains, the name should be - AzureManagedDomain.
 * The name of the Domain management.
-	* For Azure domains, the name should be 'AzureManaged'.
+	* For Azure domains, the name should be - AzureManaged.
 
-In the next step, you can assign tags to the domain resource. Tags can be used to organize your Domain resources. See the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md) for more information about tags.
+In the next step, you can assign tags to the domain resource. Tags can be used to organize your Domain resources. For more information about tags, see the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md).
 
 ## Manage your Domain resource
 
@@ -53,19 +53,19 @@ PS C:\> Update-AzEmailServiceDomain -Name AzureManagedDomain -EmailServiceName C
 PS C:\> Update-AzEmailServiceDomain -Name AzureManagedDomain -EmailServiceName ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1 -Tag @{ExampleKey1="ExampleValue1"} -SubscriptionId SubscriptionID
 ```
 
-To list all of your Domain Resources in a given Email Communication Service use the following command:
+To list all of your Domain Resources in a given Email Communication Service, use the following command:
 
 ```PowerShell
 PS C:\> Get-AzEmailServiceDomain -EmailServiceName ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1
 ```
 
-To list all the information on a given domain resource use the following command:
+To list all the information on a given domain resource, use the following command:
 
 ```PowerShell
 PS C:\> Get-AzEmailServiceDomain -Name AzureManagedDomain -EmailServiceName ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1
 ```
 
-If you want to clean up and remove a Domain resource, You can delete your Domain resource by running the command below.
+If you want to clean up and remove a Domain resource, You can delete your Domain resource by running the following command:
 
 ```PowerShell
 PS C:\> Remove-AzEmailServiceDomain -Name AzureManagedDomain -EmailServiceName ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1

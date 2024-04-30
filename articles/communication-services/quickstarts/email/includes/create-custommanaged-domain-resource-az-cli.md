@@ -22,7 +22,7 @@ To provision a custom domain, you need to:
 
 ## Create Domain resource
 
-To create a Domain resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. Run the following command to create the resource:
+To create a Domain resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. To create the resource, run the following command:
 
 ```azurepowershell-interactive
 az communication email domain create --domain-name "TestCustomDomain.net" --email-service-name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>" --domain-management CustomerManaged
@@ -40,9 +40,9 @@ You can configure your Domain resource with the following options:
 * The geography the resource will be associated with.
 * The name of the Domain resource.
 * The name of the Domain management.
-	* For Custom domains, the name should be 'CustomerManaged'.
+	* For Custom domains, the name should be - CustomerManaged.
 
-In the next step, you can assign tags or update user engagement tracking to the domain resource. Tags can be used to organize your Domain resources. See the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md) for more information about tags.
+In the next step, you can assign tags or update user engagement tracking to the domain resource. Tags can be used to organize your Domain resources. For more information about tags, see the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md).
 
 ## Manage your Domain resource
 
@@ -54,7 +54,7 @@ az communication email domain update --domain-name "TestCustomDomain.net" --emai
 az communication email domain update --domain-name "TestCustomDomain.net" --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>" --tags newTag="newVal1" --user-engmnt-tracking Disabled --subscription "<subscriptionId>"
 ```
 
-To configure sender authentication for your domains, please refer [Configure sender authentication for custom domain](./create-custommanaged-domain-resource-azp.md) section.
+To configure sender authentication for your domains, please refer [Configure sender authentication for custom domain](../includes/create-custommanaged-domain-resource-azp.md) section.
 
 To Initiate domain verification, run the below command:
 
@@ -68,7 +68,7 @@ To Cancel domain verification, run the below command:
 az communication email domain cancel-verification --domain-name "TestCustomDomain.net" --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>" --verification-type Domain
 ```
 
-To list all of your Domain Resources in a given Email Communication Service use the following command:
+To list all of your Domain Resources in a given Email Communication Service, use the following command:
 
 ```azurepowershell-interactive
 az communication email domain list --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>"
@@ -81,7 +81,7 @@ az communication email domain show --domain-name "TestCustomDomain.net" --email-
 
 #### Delete Domain resource
 
-If you want to clean up and remove an Domain resource, You can delete by running the following command.
+If you want to clean up and remove a Domain resource, You can delete by running the following command.
 
 ```azurepowershell-interactive
 az communication email domain delete --domain-name "TestCustomDomain.net" --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>"

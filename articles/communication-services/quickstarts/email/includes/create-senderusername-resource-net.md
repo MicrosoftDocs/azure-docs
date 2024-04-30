@@ -68,11 +68,11 @@ Now that you're authenticated.
 
 For each of the following examples, we'll be assigning our Sender Username resources to an existing Domain resource.
 
-If you need to create a Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md) and to create a Domain resource, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/add-custom-verified-domains.md)
+If you need to create an Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md) and to create a Domain resource, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/add-custom-verified-domains.md).
 
 #### Create a Sender Username resource
 
-When creating a Sender Username resource, you'll specify the resource group name, Email Communication Service name, Domain name and resource name.
+When creating a Sender Username resource, you have to specify the resource group name, Email Communication Service name, Domain name and resource name.
 
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure

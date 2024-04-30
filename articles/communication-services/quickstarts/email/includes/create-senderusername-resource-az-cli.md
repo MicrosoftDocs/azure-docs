@@ -68,4 +68,4 @@ If you want to clean up and remove a Sender Username resource, you can delete yo
 az communication email sender-username delete –-email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>" --domain-name "test.net" --sender-username "test"
 ```
 
-For information on other commands, see [Sender Username CLI](/cli/azure/communication/email/domain/senderusername).
+For information on other commands, see [Sender Username CLI](/cli/azure/communication/email/domain/sender-username).
