@@ -38,13 +38,13 @@ Azure AI Search breaks backward compatibility as a last resort. Upgrade is neces
 
 ## Breaking change for client code that reads connection information
 
-Effective March 29, 2024 and applies to all [supported REST APIs](rest/api/searchservice/search-service-api-versions): 
+Effective March 29, 2024 and applies to all [supported REST APIs](/rest/api/searchservice/search-service-api-versions): 
 
 + [GET Skillset](/rest/api/searchservice/skillsets/get), [GET Index](/rest/api/searchservice/indexes/get), and [GET Indexer](/rest/api/searchservice/indexers/get) no longer return keys or connection properties in a response. This is a breaking change if you have downstream code that reads keys or connections (sensitive data) from a GET response.
 
-+ If you need to retrieve admin or query API keys for your search service, use the [Management REST APIs](search-security-api-keys.md?tabs=rest-use%2Crest-find%2Cportal-query#use-api-keys-on-connections).
++ If you need to retrieve admin or query API keys for your search service, use the [Management REST APIs](search-security-api-keys.md?tabs=rest-find#find-existing-keys).
 
-+ If you need to retrieve connection strings of an Azure resource, use the APIs of that resource and published guidance to obtain the information.
++ If you need to retrieve connection strings of another Azure resource such as Azure Storage or Azure Cosmos DB, use the APIs of that resource and published guidance to obtain the information.
 
 ## Upgrade to 2023-10-01-preview
 
