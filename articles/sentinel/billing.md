@@ -133,9 +133,9 @@ If you're billed at the classic Commitment tier rate, this table shows how Micro
 | Microsoft Sentinel Commitment tier overage | `Sentinel` |**Classic Analysis**|
 | Log Analytics over the Commitment tier| `Log Analytics` |**Data Ingestion**|
 
-# [Pay-As-You-Go](#tab/pay-as-you-go/simplified)
+# [Pay-as-you-go](#tab/pay-as-you-go/simplified)
 
-If you're billed at the simplified Pay-As-You-Go rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the simplified pay-as-you-go rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
 | Cost description | Service name | Meter |
 |--|--|--|
@@ -143,9 +143,9 @@ If you're billed at the simplified Pay-As-You-Go rate, this table shows how Micr
 | Basic logs data analysis| `Sentinel` |**Basic Logs Analysis**|
 
 
-# [Pay-As-You-Go](#tab/pay-as-you-go/classic)
+# [Pay-as-you-go](#tab/pay-as-you-go/classic)
 
-If you're billed at classic Pay-As-You-Go rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at classic pay-as-you-go rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
 | Cost description | Service name | Meter |
 |--|--|--|
