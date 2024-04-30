@@ -75,6 +75,8 @@ Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps y
 
 ### Components and APIs
 
+You can use all Dapr components and APIs via the Dapr extension, including those in [alpha and beta status][dapr-alpha-beta]. However, Microsoft only provides support to a subset of APIs and components, following the [defined issue handling policies](#issue-handling).
+
 #### Stable Dapr APIs
 
 The Dapr extension supports stable versions of Dapr APIs (building blocks). 
