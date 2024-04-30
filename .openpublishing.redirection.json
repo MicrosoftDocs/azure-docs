@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/germany/index.yml",
+      "redirect_url": "/previous-versions/azure/germany/index",
+      "redirect_document_id": false
+    },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
