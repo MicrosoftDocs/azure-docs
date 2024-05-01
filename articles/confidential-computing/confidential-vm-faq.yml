@@ -30,7 +30,7 @@ sections:
           Why should I use confidential VMs?
         answer: |
           Confidential VMs address customer concerns about moving sensitive workloads off-premise into the cloud. 
-          Confidential VMs provide significantly elevated protections for customer data from the underlying infrastructure and cloud operators. 
+          Confidential VMs provide elevated protections for customer data from the underlying infrastructure and cloud operators. 
           Unlike other approaches and solutions, you don't have to adapt your existing workloads to fit the platform's technical needs.
 
       - question: |
@@ -56,15 +56,15 @@ sections:
           How do Azure confidential VMs offer better protection against threats originating from both within and outside Azure cloud infrastructure? 
         answer: |
           Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
-          Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP and Intel TDX to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
-          This means neither host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
+          Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which apply AMD’s SEV-SNP and Intel TDX to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
+          This means no host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
           Moreover, with full attestation capability, full OS disk encryption and hardware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor the contents of your memory are ever exposed to the hosting environment.
 
       - question: |
           Are the virtual disks attached to confidential VMs automatically protected?
         answer: |
           Currently OS disks for confidential VMs can be encrypted and secured. 
-          For additional security, you can enable guest level encryption (such as BitLocker or dm-crypt) for all data drives.
+          For extra security, you can enable guest level encryption (such as BitLocker or dm-crypt) for all data drives.
         
       - question: |
           Does memory written to the Windows swap file (pagefile.sys) get protected by the TEE?
@@ -75,7 +75,7 @@ sections:
       - question: | 
           Can I generate a memory dump from within my confidential VM?
         answer: | 
-          No, this capability does not exist for confidential VMs.
+          No, this capability doesn't exist for confidential VMs.
                   
       - question: |
           How can I deploy Azure confidential VMs?
@@ -88,14 +88,14 @@ sections:
       - question: |
           Can I perform attestation for my AMD-based confidential VMs?
         answer: |
-          Azure confidential VMs on AMD SEV-SNP undergo attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
+          Azure confidential VMs on AMD SEV-SNP undergo attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system with the Microsoft Azure Attestation and Azure Key Vault services.
           Confidential VMs also allow users to perform independent attestation for their confidential VMs. 
           This attestation happens using new tooling called [Azure confidential VM Guest Attestation](https://aka.ms/CVMattestation). Guest attestation allows customers to attest that their confidential VMs are running on AMD processors with SEV-SNP enabled.
       
       - question: |
           Can I perform attestation for my Intel-based confidential VMs?
         answer: |
-          Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
+          Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system with the Microsoft Azure Attestation and Azure Key Vault services.
           Support for in-guest [attestation](guest-attestation-confidential-vms.md) will be available via the vTPM. You can use this to validate the entire stack from the hardware platform to the guest application layer. The functionality exists on AMD SEV-SNP today and will soon be released for Intel TDX. Today, only in-guest platform attestation is available for Intel TDX. This allows you to verify that your VM is running on Intel TDX hardware. To access this preview feature, visit our [preview branch](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/tdx-preview).
           Additionally, we support [Intel® Trust Authority](https://www.intel.com/content/www/us/en/security/trust-authority.html) for enterprises seeking operator independent attestation.
 
@@ -104,7 +104,7 @@ sections:
         answer: |
           To run on a confidential VM, OS images must meet certain security and compatibility requirements. 
           This allows confidential VMs to be securely mounted, attested to, and isolated from the underlying cloud infrastructure. 
-          In the future we plan to provide guidance on how to take a custom Linux build and apply a set of open-source patches to qualify it as a confidential VM image.
+          In the future, we plan to provide guidance on how to take a custom Linux build and apply a set of open-source patches to qualify it as a confidential VM image.
           
       - question: |
           Can I customize one of the available confidential VM images?
@@ -122,8 +122,8 @@ sections:
       - question: |
           Since Azure confidential VMs support virtual TPM, can I seal secrets/keys to my confidential VM virtual TPM?
         answer: | 
-          Each Azure confidential VM has its own virtual TPM, where customers can seal their secrets/keys. It is recommended for customers to verify vTPM status (via TPM.msc for Windows VMs).
-          If status is not ready for use, we recommend that you reboot your VMs before sealing secrets/keys to vTPM.
+          Each Azure confidential VM has its own virtual TPM, where customers can seal their secrets/keys. It's recommended for customers to verify vTPM status (via TPM.msc for Windows VMs).
+          If status isn't ready for use, we recommend that you reboot your VMs before sealing secrets/keys to vTPM.
      
       - question: |
           Can I enable or disable the new full-disk encryption scheme after VM creation?
@@ -147,8 +147,8 @@ sections:
           Can I convert a DCasv5/ECasv5 CVM into a DCesv5/ECesv5 CVM or a DCesv5/ECesv5 CVM into a DCasv5/ECasv5 CVM?
         answer: |
           Yes, converting from one confidential VM to another confidential VM is allowed on both DCasv5/ECasv5 and DCesv5/ECesv5 in the regions that they share.
-          If you are using a Windows image, please make sure you have all the most recent updates.
-          If you are using a Ubuntu Linux image, please make sure you are using the Ubuntu 22.04 LTS confidential image with the minimum kernel version `6.2.0-1011-azure`.
+          If you're using a Windows image, make sure you have all the most recent updates.
+          If you're using a Ubuntu Linux image, make sure you're using the Ubuntu 22.04 LTS confidential image with the minimum kernel version `6.2.0-1011-azure`.
 
       - question: |
           Why can't I find DCasv5/ECasv5 or DCesv5/ECesv5 VMs in the Azure portal size selector?
@@ -201,13 +201,13 @@ sections:
       - question: |
           What can I do if the time on my DCesv5/ECesv5-series VM differs from UTC?
         answer: |
-          Rarely some DCesv5/ECesv5-series VMs may experience a small time difference from UTC. A long term fix will be available for this soon. In the meantime here are the workarounds for Windows and Ubuntu Linux VMs:
+          Rarely some DCesv5/ECesv5-series VMs may experience a small time difference from UTC. A long term fix is available for this soon. In the meantime here are the workarounds for Windows and Ubuntu Linux VMs:
 
             ``` Windows
             sc config vmictimesync start=disabled
             sc stop vmictimesync
             ```
-          For Ubuntu Linux images please run the following script:
+          For Ubuntu Linux images, run the following script:
           
             ``` Ubuntu Linux
             #!/bin/bash
