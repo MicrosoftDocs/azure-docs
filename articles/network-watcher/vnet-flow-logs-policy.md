@@ -131,4 +131,4 @@ To assign the *deployIfNotExists* policy:
  ## Related content
 
 - [Virtual network flow logs](vnet-flow-logs-overview.md).
-- [Manage virtual network flow logs using the Azure portal](vnet-flow-logs-portal.md)
+- [Manage virtual network flow logs using the Azure portal](vnet-flow-logs-portal.md).
