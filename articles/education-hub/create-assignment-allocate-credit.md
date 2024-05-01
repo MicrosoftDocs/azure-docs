@@ -10,13 +10,13 @@ ms.service: azure-education
 
 # Create an assignment and allocate credit in the Azure Education Hub
 
-After you set up a course and create a classroom in the Azure Education Hub, you can create an assignment where you allocate credit and invite selected students to your course.
+After you set up a course in the Azure Education Hub, you can create an assignment where you allocate credit and invite selected students to your course.
 
 ## Prerequisites
 
 - An academic grant with an approved credit amount
-- A classroom created in the Education Hub
-- A work or school account and a subscription within the classroom that will access your Azure credit
+- A course created in the Education Hub
+- A work or school account and a subscription within the course that will access your Azure credit
 
 ### Accounts
 

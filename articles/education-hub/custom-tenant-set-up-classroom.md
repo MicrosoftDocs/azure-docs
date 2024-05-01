@@ -42,7 +42,7 @@ You must be signed up for Azure Classroom.
 
    :::image type="content" source="media/custom-tenant-set-up-classroom/add-user.png" alt-text="Screenshot of selections for inviting an existing user to a tenant." border="true":::
 1. Tell the educator to accept the invitation to this tenant.
-1. After the educator has joined the tenant, go to the tenant properties and select **Yes** under **Access management for Azure resources**.
+1. After the educator joins the tenant, go to the tenant properties and select **Yes** under **Access management for Azure resources**.
 
 ## Next step
 

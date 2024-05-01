@@ -194,7 +194,7 @@ Azure course credits cover usage only from the time that you activate the Azure 
 
 Only academic institutions that have purchased a Volume Licensing agreement with Microsoft can enroll in Azure Dev Tools for Teaching.
 
-If you're currently a Dev Tools for Teaching customer without a Volume Licensing agreement, you can continue to renew your subscription. For more information, see the [Volume Licensing information for academic institutions](https://aka.ms/ees).
+If you're currently an Azure Dev Tools for Teaching customer without a Volume Licensing agreement, you can continue to renew your subscription. For more information, see the [Volume Licensing information for academic institutions](https://aka.ms/ees).
 
 ### What products are included in the Azure Dev Tools for Teaching subscription?
 
@@ -283,7 +283,7 @@ If you renewed your subscription, your subscriber ID is in the renewal email tha
 
 Your subscriber ID is also in the Visual Studio subscription portal. After you sign in, go to the **My Account** page and look under **My Subscription**.
 
-If you need help finding your subscriber ID, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
+If you need help with finding your subscriber ID, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
 
 ### Am I automatically enrolled in Azure Dev Tools for Teaching if I receive it as part of an academic Volume Licensing agreement?
 

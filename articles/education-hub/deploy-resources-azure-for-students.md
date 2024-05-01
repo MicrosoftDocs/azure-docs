@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Deploy resources with Azure for Students
 
-Azure for Students give you access to all the services on the Azure platform. This article links to documentation for some popular services, so you can learn about them and deploy resources.
+Azure for Students gives you access to all the services on the Azure platform. This article links to documentation for some popular services, so you can learn about them and deploy resources.
 
 ## Prerequisites
 
