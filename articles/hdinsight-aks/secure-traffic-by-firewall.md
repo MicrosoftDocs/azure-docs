@@ -85,7 +85,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
     
   1. Create a route table.
     
-     Create a route table and associate it with the cluster pool. For more information, see [create a route table](../virtual-network/manage-route-table.md#create-a-route-table).
+     Create a route table and associate it with the cluster pool. For more information, see [create a route table](../virtual-network/manage-route-table.yml#create-a-route-table).
 
 ### Get AKS cluster details created behind the cluster pool
 
@@ -168,7 +168,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 ### Create route in the route table to redirect the traffic to firewall
 
-Create a route table to be associated to HDInsight on AKS cluster pool. For more information, see [create route table commands](../virtual-network/manage-route-table.md#create-route-table---commands).
+Create a route table to be associated to HDInsight on AKS cluster pool. For more information, see [create route table commands](../virtual-network/manage-route-table.yml#create-route-table---commands).
 
 ## Create cluster
  

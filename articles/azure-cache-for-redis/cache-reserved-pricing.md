@@ -18,7 +18,7 @@ You don't need to assign the reservation to specific Azure Cache for Redis insta
 
 You can buy a reservation in the [Azure portal](https://portal.azure.com/). To buy the reservations:
 
-- You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Cache for Redis reservations.
 

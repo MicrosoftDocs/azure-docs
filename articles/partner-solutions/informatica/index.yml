@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title:  Informatica Intelligent Data Management Cloud (Preview) – An Azure Native ISV Service
+summary: Informatica – An Azure Native ISV Service is part of Marketplace and combines the benefits of Informatica and the Azure cloud. You can learn how to create an Informatica organization, manage it, and get support for your organization.
+
+metadata:
+  title: Informatica 
+  description: Informatica integrates with Azure to combine the benefits of Informatica Intelligent Data Management Cloud and the Azure cloud.
+  ms.topic: landing-page
+  ms.date: 04/05/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Informatica IDMC (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Informatica IDMC?
+            url: informatica-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Informatica organization
+            url: informatica-manage.md
+          - text: Manage your advanced serverless runtime and Informatica IDMC organization
+            url: informatica-manage-serverless.md
+
+  # Card
+  - title: Create an Informatica organization
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Informatica IDMC organization
+            url: informatica-create.md
+          - text: Get started with an advanced serverless runtime and Informatica IDMC organization
+            url: informatica-create-advanced-serverless.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting an Informatica IDMC organization
+            url: informatica-troubleshoot.md
+
+  

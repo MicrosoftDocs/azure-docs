@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 04/19/2024
 ms.author: sudhirsneha
 ---
 
@@ -58,7 +58,9 @@ As a first step in MCM user's journey towards Azure Update Manager, you need to 
 
 ### Overview of current MCM setup
 
-If you have WSUS server configured as part of the initial setup as MCM client uses WSUS server to scan for first-party updates. Third party updates content is published to this WSUS server as well. Azure Update Manager has the capability to scan and install updates from WSUS and we recommend to leverage the WSUS server configured as part of MCM setup to make Azure Update Manager work along with MCM.
+MCM client uses WSUS server to scan for first-party updates, therefore you have WSUS server configured as part of the initial setup.  
+ 
+Third-party updates content is published to this WSUS server as well. Azure Update Manager has the capability of scanning & installing updates from WSUS, so we would leverage the WSUS server configured as part of MCM setup to make Azure Update Manager work along with MCM.
 
 ### First party updates
 
@@ -85,7 +87,7 @@ Third party updates should work as expected with Azure Update Manager provided y
 
 ### Patch machines
 
-After you set up configuration for assessment and patching, you can deploy/install either through [on-demand updates](deploy-updates.md) (One-time or manual update)or [schedule updates](scheduled-patching.md) (automatic update) only. You can also deploy updates using [Azure Update Manager's API](manage-vms-programmatically.md).
+After you set up configuration for assessment and patching, you can deploy/install either through [on-demand updates](deploy-updates.md) (One-time or manual update) or [schedule updates](scheduled-patching.md) (automatic update) only. You can also deploy updates using [Azure Update Manager's API](manage-vms-programmatically.md).
 
 ## Limitations in Azure Update Manager
 

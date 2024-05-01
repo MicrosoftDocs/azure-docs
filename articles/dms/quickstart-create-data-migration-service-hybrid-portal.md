@@ -113,7 +113,7 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 
 10. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Download and install the hybrid worker
 
