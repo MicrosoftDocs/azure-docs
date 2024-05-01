@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create and deploy a HealthInsights resource using PowerShell"
-description: "This document explains how to create and deploy a HealthInsights resource using PowerShell"
+title: "Quickstart: Create and deploy an Azure AI Health Insights resource using PowerShell"
+description: "This document explains how to create and deploy an Azure AI Health Insights resource using PowerShell"
 author: hvanhoe
 ms.author: henkvanhoe
 ms.service: azure-health-insights
@@ -8,7 +8,7 @@ ms.topic: quickstart  #Don't change
 ms.date: 04/09/2024
 ---
 
-# Quickstart: Create and deploy an Azure HealthInsights resource (PowerShell)
+# Quickstart: Create and deploy an Azure AI Health Insights resource (PowerShell)
 
 This quickstart provides step-by-step instructions to create a resource and deploy a model. You can create resources in Azure in several different ways:
 
@@ -25,7 +25,7 @@ In this article, you review examples for creating and deploying resources with P
 
 ## Sign in to the Azure PowerShell
 
-[Sign in](/powershell/azure/authenticate-azureps) to the Azure CLI or select **Open Cloudshell** in the following steps.
+[Sign in](/powershell/azure/authenticate-azureps) to the Azure CLI or select **Open Cloud Shell** in the following steps.
 
 ## Create an Azure resource group
 

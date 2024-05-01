@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Retrieve supporting evidence of Radiology Insights inferences (Health Insights)"
+title: "Tutorial: Retrieve supporting evidence of Radiology Insights inferences (Azure AI Health Insights)"
 description: "This tutorial page shows how supporting evidence of Radiology Insights inferences can be retrieved."
 author: hvanhoe
 ms.author: henkvanhoe
@@ -29,7 +29,7 @@ A complete working example of the code contained in this tutorial (with some ext
 
 ## Prerequisites
 
-To use the Radiology Insights (Preview) model, you must have an Azure Health Insights service created. If you have no Azure Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md) or [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md).
+To use the Radiology Insights (Preview) model, you must have an Azure AI Health Insights service created. If you have no Azure AI Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md) or [Deploy Azure AI Health Insights using CLI or PowerShell](get-started-CLI.md).
 
 See [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md) for an explanation on how to create a RadiologyInsightsClient, send a document to it, and retrieve a RadiologyInsightsInferenceResult.
 
@@ -153,7 +153,7 @@ The codes (in this example SNOMED) can be displayed using the displayCodes() met
 
 ## Clean up resources
 
-If you created a resource or resource group for this tutorial, these resources can be cleaned up as explained here: [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md).
+If you created a resource or resource group for this tutorial, these resources can be cleaned up as explained here: [Deploy Azure AI Health Insights using CLI or PowerShell](get-started-cli.md).
 
 ## Related content
 

@@ -1,5 +1,5 @@
 ---
-title: What is Radiology Insights (Preview)
+title: What is Radiology Insights
 titleSuffix: Azure AI Health Insights
 description: Enable healthcare organizations to process radiology documents and add various inferences.
 services: azure-health-insights
@@ -17,9 +17,14 @@ ms.author: janschietse
 Radiology Insights is a model that aims to provide quality checks as feedback on errors and inconsistencies (mismatches).
 The model ensures that critical findings are identified and communicated using the full context of the report. Follow-up recommendations and clinical findings with measurements (sizes) documented by the radiologist are also identified.
 
+
+
+[!INCLUDE [Disclaimer](../includes/ri-disclaimer.md)]
+
+
 > [!IMPORTANT]
 > Disclaimer  
-The Radiology insights service  
+The Radiology Insights service  
 (1) is not intended, designed, or made available as a medical device,  
 (2) is not designed, or intended to be used in the diagnosis, cure, mitigation, monitoring, treatment or prevention of a disease, condition or illness, and no license or right is granted by Microsoft to use the healthcare add-on or online services for such purposes, and  
 (3) is not designed, or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgment and should not be used to replace or as a substitute for professional medical advice, diagnosis, treatment, or judgment. Customer should not use the Radiology insights service as a medical device. Customer is solely responsible for any use that doesn’t conform to these restrictions and acknowledges that it would be the legal manufacturer in respect of any such use. Customer is solely responsible for displaying and/or obtaining appropriate consents, warnings, disclaimers, and acknowledgements to end users of customer’s implementation of the Radiology insights service. Customer is solely responsible for any use of the Radiology insights service to collate, store, transmit, process or present any data or information from any third-party products (including medical devices). 

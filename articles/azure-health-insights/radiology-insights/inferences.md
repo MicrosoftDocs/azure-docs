@@ -342,7 +342,7 @@ Explanation of the different fields:
 - follow-up Recommendation: sentences Next to the provided evidence for this inference, there can be an extension containing sentences.
 When the followupRecommendationOptions provideFocusedSentenceEvidence is on true, there can also be an extension with url "modality_sentences". This extension refers to the sentence containing the first word of the modality (that is, the procedure). The generation of such a sentence is switchable using the model configuration.
 
-Cfr [Model Configuration](model-configuration.md) for more info.
+Check [Model Configuration](model-configuration.md) for more info.
 
 
 recommendedProcedure: ProcedureRecommendation

@@ -1,7 +1,7 @@
 ---
 title: Use Radiology Insights (Preview) 
 titleSuffix: Azure AI Health Insights
-description: This article describes how to use the Radiology Insights model (Preview)
+description: This article describes how to use the Radiology Insights model, part of Azure AI Health Insights  
 services: azure-health-insights
 author: JanSchietse
 manager: JoeriVDV
@@ -12,21 +12,21 @@ ms.author: janschietse
 ---
 
 
-# Quickstart: Use the Radiology Insights (Preview)
+# Quickstart: Use the Radiology Insights model
 
 This quickstart provides an overview on how to use the Radiology Insights (Preview).
 
 ## Prerequisites
-To use the Radiology Insights (Preview) model, you must have an Azure Health Insights service created. 
+To use the Radiology Insights (Preview) model, you must have an Azure AI Health Insights service created. 
 
-If you have no Azure Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
+If you have no Azure AI Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
-Once deployment is complete, you use the Azure portal to navigate to the newly created Azure Health Insights service to see the details, including your Service URL. 
+Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI Health Insights service to see the details, including your Service URL. 
 The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com. 
 
 ## Example request and results
 
-To send an API request, you need the endpoint and key of your Azure Health Insights service. 
+To send an API request, you need the endpoint and key of your Azure AI Health Insights service. 
 
 
 You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
