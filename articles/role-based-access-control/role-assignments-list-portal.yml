@@ -94,12 +94,22 @@ procedureSection:
         Click the specific resource.
       - |
         Click **Access control (IAM)**.
+
+        The tabs you see depend on your license. If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, you will see a **Role assignments** tab. If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, you will see **Active assignments** and **Eligible assignments** tabs.
       - |
-        Click the **Role assignments** tab to view all the role assignments at this scope.
+        If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, click the **Role assignments** tab to view the role assignments at this scope.
 
-        ![Screenshot of Access control and Role assignments tab.](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
+        :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-role-assignments.png" alt-text="Screenshot of Access control and Role assignments tab." lightbox="./media/role-assignments-list-portal/rg-access-control-role-assignments.png":::
 
-        On the Role assignments tab, you can see who has access at this scope. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
+      - |
+        If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, click the **Active assignments** tab to view the active role assignments at this scope. Active assignments indicate principal can use role at any time.
+
+        :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-active-assignments.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/rg-access-control-active-assignments.png":::
+
+      - |
+        Click the **Eligible assignments** tab to view the eligible role assignments at this scope. Eligible assignments provide just-in-time access to a role. Principal must activate to use this role for a limited period of time.
+
+        Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 
   - title: |
       List role assignments for a user at a scope

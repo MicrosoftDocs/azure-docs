@@ -65,7 +65,7 @@ procedureSection:
   - title: | 
       Step 3: Select the appropriate role
     summary: |
-      Follow these steps: 
+      To select a role, follow these steps: 
     steps:
       - |
         On the **Role** tab, select a role that you want to use.
@@ -88,7 +88,7 @@ procedureSection:
   - title: |
       Step 4: Select who needs access
     summary: |
-      Follow these steps:  
+      To select who needs access, follow these steps:  
     steps: 
       - |
         On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Microsoft Entra users, groups, or service principals (applications).
@@ -133,10 +133,6 @@ procedureSection:
     
       ### Delegate condition
 
-      > [!IMPORTANT]
-      > Delegating Azure role assignment management with conditions is currently in PREVIEW.
-      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
       If you selected one of the following privileged roles, follow the steps in this section.
 
       - [Owner](built-in-roles.md#owner)
@@ -171,7 +167,24 @@ procedureSection:
         Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
 
   - title: |
-      Step 6: Assign role
+      Step 6: (Optional) Select assignment type
+    summary: |
+      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance licensed tenant, an **Assignment type** tab will appear. Use eligible assignments to provide just-in-time access to a role.
+
+      The **Assignment type** tab will look different depending on the role you selected.
+    steps:
+      - |
+        On the **Assignment type** tab, review the default assignment type, permanence, and start and end time (if applicable).
+
+      - |
+        (Optional) Use **Configure PIM Policy** to configure expiration options, role activation requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings.
+
+          :::image type="content" source="./media/role-assignments-portal/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-eligible.png":::
+      - |
+        Click **Next**.
+
+  - title: |
+      Step 7: Assign role
     summary: |
       Follow these steps:   
     steps:
