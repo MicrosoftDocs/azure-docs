@@ -239,7 +239,7 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 
 ## Next steps
 
-* [Secure gateway for Istio service mesh add-on][istio-secure-gateway]
+* [Secure ingress gateway for Istio service mesh add-on][istio-secure-gateway]
 
 [istio-deploy-addon]: istio-deploy-addon.md
 [istio-secure-gateway]: istio-secure-gateway.md
