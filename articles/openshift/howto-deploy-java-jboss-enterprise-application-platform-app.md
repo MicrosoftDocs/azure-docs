@@ -306,7 +306,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
 
-1. Open the shell or Azure Cloud Shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
+1. Open the shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
    ```azurecli
    az aro list-credentials --resource-group eaparo033123rg --name clusterf9e8b9
@@ -327,7 +327,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 Next, use the following steps to connect to the OpenShift cluster using the OpenShift CLI:
 
-1. In the shell or Azure Cloud Shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
+1. In the shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
 
    ```azurecli-interactive
    cd ~
@@ -338,7 +338,7 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
    echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
    ```
 
-1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell or Azure Cloud Shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
+1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
 
    ```azurecli-interactive
    oc login \
