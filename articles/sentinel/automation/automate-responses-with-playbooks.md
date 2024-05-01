@@ -9,14 +9,14 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-
+#customerIntent: As a SOC engineer, I want to understand how Microsoft Sentinel playbooks can help make my SOC team more efficient.
 ---
 
 # Automate threat response with playbooks in Microsoft Sentinel
 
-SOC analysts deal with numerous security alerts and incidents, and the sheer volume can overwhelm teams, leading to ignored alerts and uninvestigated incidents. Many alerts and incidents can be addressed by the same sets of defined remediation actions, which can be automated to make the SOC more efficient and free up analysts for deeper investigations.
+SOC analysts deal with numerous security alerts and incidents, and the sheer volume can overwhelm teams, leading to ignored alerts and uninvestigated incidents. Many alerts and incidents can be addressed by the same sets of predefined remediation actions, which can be automated to make the SOC more efficient and free up analysts for deeper investigations.
 
-Run pre-configured sets of remediation actions from Microsoft Sentinel playbooks to help [automate and orchestrate your threat response](tutorial-respond-threats-playbook.md). Run playbooks automatically, in response to specific alerts and incidents that trigger a configured [automation rule](../automate-incident-handling-with-automation-rules.md), or manually and on-demand for a particular entity or alert.
+Use Microsoft Sentinel playbooks to run preconfigured sets of remediation actions to help [automate and orchestrate your threat response](tutorial-respond-threats-playbook.md). Run playbooks automatically, in response to specific alerts and incidents that trigger a configured [automation rule](../automate-incident-handling-with-automation-rules.md), or manually and on-demand for a particular entity or alert.
 
 For example, if an account and machine are compromised, a playbook can automatically isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
@@ -27,7 +27,7 @@ For example, if an account and machine are compromised, a playbook can automatic
 
 ## Recommended use cases
 
-The following table lists use cases where we recommend using Microsoft playbooks to automate your threat response:
+The following table lists high-level use cases where we recommend using Microsoft Sentinel playbooks to automate your threat response:
 
 |Use case  |Description  |
 |---------|---------|
@@ -48,7 +48,7 @@ The following roles are required to use Azure Logic Apps to create and run playb
 
 [!INCLUDE [playbooks-service-account-permissions](../includes/playbooks-service-account-permissions.md)]
 
-## Playbook templates (Preview)
+## Playbook templates (preview)
 
 > [!IMPORTANT]
 > Playbook templates are currently in PREVIEW. See the **[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)** for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -59,9 +59,9 @@ Access playbook templates from the following sources:
 
 |Location  |Description  |
 |---------|---------|
-|**Microsoft Sentinel Automation page**     |  The **Playbook templates** tab lists all installed playbooks. Create one or more active playbooks using the same templates.  <br><br>When we publish a new version of a template, any active playbooks created from that template have an extra label added in the **Active playbooks** to indicate that an update is available.    |
-|**Microsoft Sentinel Content hub page**     |   Playbook templates are available as part of product solutions or standalone content installed from the **Content hub**.  <br><br>For more information, see [About Microsoft Sentinel content and solutions](../sentinel-solutions.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).|
-|**GitHub**     |    The [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates that. Select **Deploy to Azure** to deploy a template to your Azure subscription.|
+|**Microsoft Sentinel Automation page**     |  The **Playbook templates** tab lists all installed playbooks. Create one or more active playbooks using the same template.  <br><br>When we publish a new version of a template, any active playbooks created from that template have an extra label added in the **Active playbooks** tab to indicate that an update is available.    |
+|**Microsoft Sentinel Content hub page**     |   Playbook templates are available as part of product solutions or standalone content installed from the **Content hub**.  <br><br>For more information, see: <br> [About Microsoft Sentinel content and solutions](../sentinel-solutions.md) <br>[Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md)|
+|**GitHub**     |    The [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many other playbook templates. Select **Deploy to Azure** to deploy a template to your Azure subscription.|
 
 Technically, a playbook template is an [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/), which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved.
 
@@ -85,8 +85,7 @@ Use the following workflow to create and run Microsoft Sentinel playbooks:
 
 ## Related content
 
-- [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md)
+- [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md)
 - [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
 - [Respond to threats with Microsoft Sentinel playbooks](run-playbooks.md)
-- [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md)
-
+- [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md)

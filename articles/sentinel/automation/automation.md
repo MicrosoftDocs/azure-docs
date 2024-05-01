@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-
+#customerIntent: As a SOC engineer, I want to understand how automation in Microsoft Sentinel can help my SOC team be more efficient and remediate threats quicker.
 ---
 
 # Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)
@@ -18,20 +18,21 @@ Security information and event management (SIEM) and security operations center 
 
 Microsoft Sentinel, in addition to being a SIEM system, is also a platform for security orchestration, automation, and response (SOAR). One of its primary purposes is to automate any recurring and predictable enrichment, response, and remediation tasks that are the responsibility of your security operations center and personnel (SOC/SecOps), freeing up time and resources for more in-depth investigation of, and hunting for, advanced threats.
 
-This article describes Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities, and shows how using automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
+This article describes Microsoft Sentinel's SOAR capabilities, and shows how using automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Automation rules
 
-Automation rules allow users to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents and alerts, automation rules also allow you to:
+Microsoft Sentinel uses automation rules to allow users to manage incident handling automation from a central location. Use automation rules to:
 
-- Automate responses for multiple analytics rules at once
-- Automatically tag, assign, or close incidents without the need for playbooks
+- Assign more advanced automation to incidents and alerts, using [playbooks](#playbooks)
+- Automatically tag, assign, or close incidents without a playbook
+- Automate responses for multiple [analytics rules](../detect-threats-built-in.md) at once
 - Create lists of tasks for your analysts to perform when triaging, investigating, and remediating incidents
 - Control the order of actions that are executed
 
-Apply automations when incidents are created or updated, further streamlining automation use and simplifying complex workflows for your incident orchestration processes.
+We recommend that you apply automation rules when incidents are created or updated to further streamline the automation and simplify complex workflows for your incident orchestration processes.
 
 For more information, see [Automate threat response in Microsoft Sentinel with automation rules](../automate-incident-handling-with-automation-rules.md).
 
@@ -40,10 +41,10 @@ For more information, see [Automate threat response in Microsoft Sentinel with a
 A playbook is a collection of response and remediation actions and logic that can be run from Microsoft Sentinel as a routine. A playbook can:
 
 - Help automate and orchestrate your threat response
-- Integrate with other systems both internal and external
-- Set up to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively, or run manually on-demand, in response to alerts
+- Integrate with other systems, both internal and external
+- Be configured to run automatically in response to specific alerts or incidents, or run manually on-demand, such as in response to new alerts
 
-Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' integration and orchestration capabilities and easy-to-use design tools, and the scalability, reliability, and service level of a Tier 1 Azure service.
+In Microsoft Sentinel, playbooks are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' integration and orchestration capabilities and easy-to-use design tools, and the scalability, reliability, and service level of a Tier 1 Azure service.
 
 For more information, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 

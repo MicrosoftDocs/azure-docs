@@ -1087,18 +1087,18 @@
       displayName: playbook
     - name: Azure Logic Apps for Microsoft Sentinel playbooks
       href: automation/logic-apps-playbooks.md
+    - name: Recommended and sample playbooks
+      href: automation/playbook-recommendations.md
+    - name: Customize playbooks from templates
+      href: automation/use-playbook-templates.md
     - name: Create and manage playbooks
       href: automation/create-playbooks.md
     - name: Supported triggers and actions in playbooks
       href: automation/playbook-triggers-actions.md
-    - name: Automate and run playbooks
-      href: automation/run-playbooks.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: automation/authenticate-playbooks-to-sentinel.md
-    - name: Customize playbooks from templates
-      href: automation/use-playbook-templates.md
-    - name: Recommended and sample playbooks
-      href: automation/playbook-recommendations.md
+    - name: Automate and run playbooks
+      href: automation/run-playbooks.md
     - name: Advanced playbook scenarios
       items:
       - name: Migrate alert playbooks to automation rules

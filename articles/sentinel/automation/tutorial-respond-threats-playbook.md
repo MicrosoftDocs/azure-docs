@@ -4,18 +4,19 @@ description: Learn how to use Microsoft Sentinel playbooks and automation rules 
 ms.topic: concept
 author: batamig
 ms.author: bagol
-ms.date: 04/17/2024
+ms.date: 05/01/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+#customerIntent: As a SOC engineer, I'd like to understand a sample scenario of how I might use a playbook and automation rule to help make my SOC team more efficient.
 ---
 
 # Use a Microsoft Sentinel playbook to stop potentially compromised users
 
-This article describes a sample scenario of how to a playbook with an automation rule to automate incident response and remediate security threats. Automation rules help you triage incidents in Microsoft Sentinel, and are also used to run playbooks in response to incidents or alerts. For more information, see [Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)](automation.md).
+This article describes a sample scenario of how you can use a playbook and automation rule to automate incident response and remediate security threats. Automation rules help you triage incidents in Microsoft Sentinel, and are also used to run playbooks in response to incidents or alerts. For more information, see [Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)](automation.md).
 
-The sample scenario described in this article describes how to use an automation rule and playbook stop a potentially compromised users when an incident is created.
+The sample scenario described in this article describes how to use an automation rule and playbook to stop a potentially compromised user when an incident is created.
 
 > [!NOTE]
 > Because playbooks make use of Azure Logic Apps, additional charges may apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
@@ -48,13 +49,13 @@ SOC teams want to make sure that potentially compromised users can't move around
 
 1. The playbook waits until a response is received from the admins, then continues with its next steps.
 
-1. If the admins choose **Block**, it sends a command to Microsoft Entra ID to disable the user, and one to the firewall to block the IP address.
+    - If the admins choose **Block**, the playbook sends a command to Microsoft Entra ID to disable the user, and one to the firewall to block the IP address.
 
-1. If the admins choose **Ignore**, the playbook closes the incident in Microsoft Sentinel, and the ticket in ServiceNow.
+    - If the admins choose **Ignore**, the playbook closes the incident in Microsoft Sentinel, and the ticket in ServiceNow.
 
 The following screenshot shows the actions and conditions you would add in creating this sample playbook:
 
-:::image type="content" source="../media/tutorial-respond-threats-playbook/logic-app.png" alt-text="Screenshot of a Logic App showing this playbook's actions and conditions.":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/logic-app.png" alt-text="Screenshot of a Logic App showing this playbook's actions and conditions." lightbox="../media/tutorial-respond-threats-playbook/logic-app.png":::
 
 ## Related content
 
