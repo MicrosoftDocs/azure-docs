@@ -20,7 +20,7 @@ Microsoft Defender for Cloud detects anomalous activities in your AWS environmen
 
 To get alerts from the Microsoft Defender plan, you need to follow the instructions on this page to enable Defender for open-source relational databases on AWS.
 
-The Defender for open-source relational databases on AWS plan also includes the ability to discover sensitive data within your account and enrich the Defender for Cloud experience with the findings. This is feature is included with Defender CSPM.
+The Defender for open-source relational databases on AWS plan also includes the ability to discover sensitive data within your account and enrich the Defender for Cloud experience with the findings. This is feature is also included with Defender CSPM.
 
 Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
@@ -56,6 +56,8 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
     > Toggling the open-source relational databases to on will also enable sensitive data discovery to on, which is a shared feature with Defender CSPM's sensitive data discovery for relation database service (RDS).
     >
     > :::image type="content" source="media/enable-defender-for-databases-aws/cspm-shared.png" alt-text="Screenshot that shows the settings page for Defender CSPM and the sensitive data turned on with the protected resources." lightbox="media/enable-defender-for-databases-aws/cspm-shared.png":::
+    >
+    > Learn more about [sensitive data discovery in AWS RDS instances](concept-data-security-posture-prepare.md#discovering-aws-rds-instances).
 
 1. Select **Configure access**.
 
@@ -119,13 +121,15 @@ An option group is required for MySQL and MariaDB with the following options for
 | SERVER_AUDIT_EXCL_USER | If it exists, expand it to include rdsadmin. |
 | SERVER_AUDIT_INCL_USERS | If it exists with a value and rdsadmin is part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl is empty. |
 
+> [!IMPORTANT]
+> You may need to reboot your instances to apply the changes.
+>
+> If you are using the default parameter group, a new parameter group will be created that includes the required parameter changes with the prefix `defenderfordatabases*`.
+>
+> If a new parameter group was created or if static parameters were updated, they won't take effect until the instance is restarted.
+
 > [!NOTE]
->
-> - If a parameter group already exists it will be updated accordingly.
->
-> - If you are using the default parameter group, a new parameter group will be created that includes the required parameter changes with the prefix `defenderfordatabases*`.
->
-> - If a new parameter group was created or if static parameters were updated they won't take effect until the instance is restarted.
+> - If a parameter group already exists it will be updated accordingly. 
 >
 > - MARIADB_AUDIT_PLUGIN is supported in MariaDB 10.2 and higher, MySQL 8.0.25 and higher 8.0 versions and All MySQL 5.7 versions.
 >

@@ -30,7 +30,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 May 1, 2024
 
-We are announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relation Database Service (RDS) instance types.
+We are announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relational Database Service (RDS) instance types.
 
 Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
 

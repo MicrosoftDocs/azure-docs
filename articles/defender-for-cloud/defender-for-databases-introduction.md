@@ -1,7 +1,7 @@
 ---
 title: What is Defender for open-source databases
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
-ms.date: 04/09/2024
+ms.date: 05/01/2024
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
@@ -9,20 +9,6 @@ author: dcurwin
 ---
 
 # What is Microsoft Defender for open-source relational databases
-
-This plan brings threat protections for the following open-source relational databases on Azure:
-
-- [Azure Database for PostgreSQL](../postgresql/index.yml)
-- [Azure Database for MySQL](../mysql/index.yml)
-- [Azure Database for MariaDB](../mariadb/index.yml)
-
-and for RDS instances on AWS (Preview):
-
-- Aurora PostgreSQL
-- Aurora MySQL
-- PostgreSQL
-- MySQL
-- MariaDB
 
 Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. The plan makes it simple to address potential threats to databases without the need to be a security expert or manage advanced security monitoring systems.
 
@@ -32,19 +18,29 @@ Check out the [pricing page](https://azure.microsoft.com/pricing/details/defende
 
 Defender for open-source relational database is supported on PaaS environments for Azure and AWS and not on Azure Arc-enabled machines.
 
-**Protected versions of PostgreSQL include**:
+This plan brings threat protections for the following open-source relational databases on Azure:
+
+**Protected versions of [Azure Database for PostgreSQL](../postgresql/index.yml) include**:
 
 - Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md).
 - Flexible Server - all pricing tiers.
 
-**Protected versions of MySQL include**:
+**Protected versions of [Azure Database for MySQL](../mysql/index.yml) include**:
 
 - Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).
 - Flexible Server - all pricing tiers.
 
-**Protected versions of MariaDB include**:
+**Protected versions of [Azure Database for MariaDB](../mariadb/index.yml) include**:
 
 - General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).
+
+For RDS instances on AWS (Preview):
+
+- Aurora PostgreSQL
+- Aurora MySQL
+- PostgreSQL
+- MySQL
+- MariaDB
 
 View [cloud availability](support-matrix-cloud-environment.md#cloud-support) for Defender for open-source relational databases
 

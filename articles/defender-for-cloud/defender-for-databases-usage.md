@@ -1,7 +1,7 @@
 ---
 title: Respond to Defender open-source database alerts
 description: Configure Microsoft Defender for open-source relational databases to detect potential security threats.
-ms.date: 04/09/2024
+ms.date: 05/01/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -34,7 +34,7 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS account](quickstart-onboard-aws.md)
+- **AWS users only** - Connect your [AWS account](quickstart-onboard-aws.md).
 
 ## Respond to alerts in Defender for Cloud
 
