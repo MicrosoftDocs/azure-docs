@@ -25,7 +25,7 @@ In addition to the data they contain, blobs support system properties and user-d
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization), [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization), or [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization).
 
@@ -77,6 +77,8 @@ To retrieve metadata, call the [GetProperties](https://pkg.go.dev/github.com/Azu
 The following code example reads metadata on a blob and prints each key/value pair: 
 
 :::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go" id="snippet_get_blob_metadata":::
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 

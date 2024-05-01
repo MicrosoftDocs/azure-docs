@@ -10,8 +10,8 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-### Client library resources
+### Client module resources
 
-- [Client library reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme)
-- [Client library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob)
+- [Client module reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme)
+- [Client module source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob)
 - [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)

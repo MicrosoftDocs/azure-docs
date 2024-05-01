@@ -25,7 +25,7 @@ This article shows how to delete blobs using the [Azure Storage client module fo
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to delete a blob, or to restore a soft-deleted blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Blob](/rest/api/storageservices/delete-blob#authorization) and [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization).
 
@@ -43,7 +43,7 @@ If the blob has any associated snapshots, you must delete all of its snapshots t
 
 :::code language="go" source="~/blob-devguide-go/cmd/delete_blob/delete_blob.go" id="snippet_delete_blob_snapshots":::
 
-To delete *only* the snapshots and not the blob itself, you can pass the parameter `delete_snapshots="only"`.
+To delete *only* the snapshots and not the blob itself, you can pass the value `DeleteSnapshotsOptionTypeOnly` to the `DeleteSnapshots` parameter.
 
 ## Restore a deleted blob
 
@@ -75,6 +75,8 @@ If a storage account is configured to enable blob versioning, deleting a blob ca
 The following code example identifies a version of a deleted blob, and restores that version by copying it to the base blob:
 
 :::code language="go" source="~/blob-devguide-go/cmd/delete_blob/delete_blob.go" id="snippet_restore_blob_version":::
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 

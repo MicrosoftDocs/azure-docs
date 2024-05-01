@@ -31,13 +31,19 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 This section walks you through preparing a project to work with the Azure Blob Storage client module for Go.
 
-From your project directory, install packages for the Azure Blob Storage and Azure Identity client libraries using the `go get` command. The **azidentity** package is needed for passwordless connections to Azure services.
+From your GOPATH, install the [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/) module using the following command:
 
 ```console
-go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob github.com/Azure/azure-sdk-for-go/sdk/azidentity
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 ```
 
-Then open your code file and add the necessary import statements. In this example, we add the following to our *.go* file:
+To authenticate with Microsoft Entra ID (recommended), install the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
+
+```console
+go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+```
+
+Then open your code file and add the necessary import paths. In this example, we add the following to our *.go* file:
 
 ```go
 import (
@@ -46,7 +52,7 @@ import (
 )
 ```
 
-Blob client library information:
+Blob client module information:
 
 - [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section_documentation): Contains the methods that you can use to operate on the service, containers, and blobs.
 
@@ -57,7 +63,7 @@ To connect an application to Blob Storage, create a client object using [azblob.
 
 To learn more about creating and managing client objects, including best practices, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a client object using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
+You can authorize a client object using a Microsoft Entra authorization token (recommended), an account access key, or a shared access signature (SAS).
 
 <a name='azure-ad'></a>
 
@@ -81,12 +87,14 @@ To use a shared access signature (SAS) token, append the token to the account UR
 
 :::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_SAS":::
 
+> [!NOTE]
+> A user delegation SAS offers superior security to a SAS that is signed with the storage account key. Microsoft recommends using a user delegation SAS when possible. For more information, see [Grant limited access to data with shared access signatures (SAS)](../articles/storage/common/storage-sas-overview.md).
+
 ## [Account key](#tab/account-key)
 
 To use a storage account shared key, provide the key as a string and initialize a client object using [azblob.NewClientWithSharedKeyCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClientWithSharedKeyCredential).
 
 :::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_shared_key":::
-
 
 You can also create a client object using a connection string.
 
@@ -103,7 +111,7 @@ For information about how to obtain account keys and best practice guidelines fo
 
 As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for Go:
+The following guides show you how to work with data resources and perform specific actions using the Azure Blob Storage client module for Go:
 
 | Guide | Description |
 |--|---|
@@ -116,3 +124,5 @@ The following guides show you how to work with data resources and perform specif
 | [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
 | [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]

@@ -25,7 +25,7 @@ This article shows how to delete containers with the [Azure Storage client modul
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to delete or restore a container. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Container (REST API)](/rest/api/storageservices/delete-container#authorization) and [Restore Container (REST API)](/rest/api/storageservices/restore-container#authorization).
 
@@ -50,6 +50,8 @@ When container soft delete is enabled for a storage account, a deleted container
 The following example lists containers, including soft-deleted containers, and iterates over the list to restore the specified soft-deleted container:
 
 :::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go" id="snippet_restore_container":::
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 

@@ -25,7 +25,7 @@ When you list the containers in an Azure Storage account from your code, you can
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to list blob containers. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [List Containers](/rest/api/storageservices/list-containers2#authorization).
 
@@ -71,6 +71,8 @@ You can also specify a limit for the number of results per page. This example pa
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go" id="snippet_list_containers_pages":::
 
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
+
 ## Resources
 
 To learn more about listing containers using the Azure Blob Storage client module for Go, see the following resources.
@@ -78,7 +80,7 @@ To learn more about listing containers using the Azure Blob Storage client modul
 ### Code samples
 
 - View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/list-containers/list_containers.go) from this article (GitHub)
-- 
+
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for listing containers use the following REST API operation:

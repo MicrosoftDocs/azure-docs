@@ -12,7 +12,7 @@ ms.custom: include file
 
 This section shows how to set up your project to work with the Azure Blob Storage client module for Go. The steps include module installation, adding `import` paths, and creating an authorized client object. For details, see [Get started with Azure Blob Storage and Go](../../articles/storage/blobs/storage-blob-go-get-started.md).
 
-### Install modules
+#### Install modules
 
 Install the [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/) module using the following command:
 
@@ -25,7 +25,7 @@ To authenticate with Microsoft Entra ID (recommended), install the [`azidentity`
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-### Add import paths
+#### Add import paths
 
 In your code file, add the following import paths:
 
@@ -38,7 +38,7 @@ import (
 
 Some code examples in this article might require additional import paths. For specific details and example usage, see [Code samples](#code-samples).
 
-### Create a client object
+#### Create a client object
 
 To connect an app to Blob Storage, create a client object using [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient). The following example shows how to create a client object using `DefaultAzureCredential` for authorization:
 

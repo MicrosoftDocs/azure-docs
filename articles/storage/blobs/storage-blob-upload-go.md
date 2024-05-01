@@ -25,7 +25,7 @@ This article shows how to upload a blob using the [Azure Storage client module f
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Put Blob](/rest/api/storageservices/put-blob#authorization) and [Put Block](/rest/api/storageservices/put-block#authorization).
 
@@ -79,6 +79,8 @@ For more information on transfer size limits for Blob Storage, see [Scale target
 The following code example shows how to specify data transfer options using the [UploadFileOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#UploadFileOptions). The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_transfer_options":::
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 

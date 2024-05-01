@@ -25,7 +25,7 @@ Blob containers support system properties and user-defined metadata, in addition
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Get Container Properties](/rest/api/storageservices/get-container-properties#authorization), [Set Container Metadata](/rest/api/storageservices/set-container-metadata#authorization), or [Get Container Metadata](/rest/api/storageservices/get-container-metadata#authorization).
 
@@ -66,6 +66,8 @@ To retrieve metadata, call the following method from a container client object:
 Metadata is included in the response from `GetProperties`. The following example reads in metadata values and writes them to a console window: 
 
 :::code language="go" source="~/blob-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go" id="snippet_get_container_metadata":::
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 

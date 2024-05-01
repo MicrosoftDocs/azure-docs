@@ -17,7 +17,7 @@ ms.custom: devx-track-go, devguide-go
 
 [!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
 
-This article shows how to download a blob using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme). You can download blob data to various destinations, including a local file path, stream, or text string. You can also open a blob stream and read from it.
+This article shows how to download a blob using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme). You can download blob data to various destinations, including a local file path, stream, or text string.
 
 [!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
@@ -25,9 +25,9 @@ This article shows how to download a blob using the [Azure Storage client module
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
-The authorization mechanism must have the necessary permissions to perform a download operation. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Get Blob](/rest/api/storageservices/get-blob#authorization).
+The authorization mechanism must have the necessary permissions to perform a download operation. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [Get Blob](/rest/api/storageservices/get-blob#authorization).
 
 ## Download a blob
 
@@ -48,6 +48,8 @@ The following example downloads a blob to a file path:
 The following example downloads a blob to a stream, and reads from the stream by calling the [NewRetryReader](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#DownloadStreamResponse.NewRetryReader) method.
 
 :::code language="go" source="~/blob-devguide-go/cmd/download-blob/download_blob.go" id="snippet_download_blob_stream":::
+
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 

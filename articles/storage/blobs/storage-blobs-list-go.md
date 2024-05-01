@@ -25,7 +25,7 @@ This article shows how to list blobs using the [Azure Storage client module for 
 
 [!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
 
-### Authorization
+#### Authorization
 
 The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs](/rest/api/storageservices/list-blobs#authorization).
 
@@ -62,6 +62,9 @@ Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchi
 To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
 If you name your blobs using a delimiter, then you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
+
+> [!NOTE]
+> Blob snapshots cannot be listed in a hierarchical listing operation.
 
 ## Use a flat listing
 
@@ -124,8 +127,7 @@ Blob: folderA/folderB/file2.txt
 Blob: folderA/folderB/file3.txt
 ```
 
-> [!NOTE]
-> Blob snapshots cannot be listed in a hierarchical listing operation.
+[!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
 
