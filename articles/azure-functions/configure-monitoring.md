@@ -288,6 +288,11 @@ For a function app to send data to Application Insights, it needs to connect to 
 
 When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
+### Configure Entra Authentication ID-based authentication
+
+For setups where you need to use Entra Authentication ID-based authentication, you can add the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` application settings to configure the Azure Functions host. You need to provide the client ID of system-assigned or user-assigned managed identity that is authorized to publish telemetry to the Application Insights resource.
+The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` can be set as follows: `ClientId=<ManagedIdentityClientID>;Authorization=AAD`. For more information about how to configure Entra Authentication ID-based authentication, see [Microsoft Entra authentication for Application Insights](articles/azure-monitor/app/azure-ad-authentication.md).
+
 ### New function app in the portal
 
 To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or select a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
