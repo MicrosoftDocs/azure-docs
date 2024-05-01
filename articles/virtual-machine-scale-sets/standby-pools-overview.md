@@ -9,7 +9,7 @@ ms.date: 04/22/2024
 ms.reviewer: ju-shim
 ---
 
-# Standby pools for Virtual Machine Scale Sets
+# Standby pools for Virtual Machine Scale Sets (Preview)
 
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
@@ -35,7 +35,7 @@ When your scale set scales back down, the instances are deleted from your scale 
 
 If at any point in time your scale set needs to scale beyond the number of instances you have in your standby pool, the scale set defaults to standard scale-out methods and creates new instances directly in the Scale Set
 
-## Virtual Machine States
+## Virtual machine states
 
 The virtual machines in the standby pool can be kept in a running state or a deallocated state. 
 
@@ -49,11 +49,11 @@ The virtual machines in the standby pool can be kept in a running state or a dea
 
 ## Pricing
 
-There's no direct cost associated with using standby pools. Users are charged based on the resources deployed. For example, keeping virtual machines in a running state incurs compute, networking and storage costs. While keeping virtual machines in a deallocated state does not incur any compute costs but any persistent disks or networking configurations do incur cost. For more information on Virtual Machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md)
+There's no direct cost associated with using standby pools. Users are charged based on the resources deployed. For example, keeping virtual machines in a running state incurs compute, networking, and storage costs. While keeping virtual machines in a deallocated state does not incur any compute costs, but any persistent disks or networking configurations do incur cost. For more information on Virtual Machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
 
 | State | Description |
 |---|---|
-|**Deallocated virtual machine state:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. virtual machines in the deallocated state don't incur any compute costs, only the associated resources incur costs. |
+|**Deallocated virtual machine state:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. Virtual machines in the deallocated state don't incur any compute costs, only the associated resources incur costs. |
 | **Running virtual machine state:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
 
 ## Considerations
@@ -72,4 +72,4 @@ There's no direct cost associated with using standby pools. Users are charged ba
 
 ## Next steps
 
-Learn how to [create a standby pool](standby-pools-create.md)
+Learn how to [create a standby pool](standby-pools-create.md).

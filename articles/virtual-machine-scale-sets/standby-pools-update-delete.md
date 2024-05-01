@@ -10,7 +10,7 @@ ms.reviewer: ju-shim
 ---
 
 
-# Update or delete a standby pool
+# Update or delete a standby pool (Preview)
 
 
 > [!IMPORTANT]
@@ -19,7 +19,7 @@ ms.reviewer: ju-shim
 
 ## Update a standby pool
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal-1)
 1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
 2) Under **Availability + scale** select **Standby pool**. 
 3) Select **Manage pool**. 
@@ -28,7 +28,7 @@ ms.reviewer: ju-shim
 :::image type="content" source="media/standby-pools/managed-standby-pool-after-vmss-create.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-1)
 Update an existing standby pool using [az standby-vm-pool update](/cli/azure/standby-pool).
 
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az standby-vm-pool update \
    --max-ready-capacity 20 \
    --vm-state "Deallocated" \
 ```
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell-1)
 Update an existing standby pool using [Update-AzStandbyVMPool](/powershell/module/az.standbypool/update-azstandbyvmpool).
 
 ```azurepowershell-interactive
@@ -49,7 +49,7 @@ Update-AzStandbyVMPool `
    -VMState "Deallocated" `
 ```
 
-### [ARM template](#tab/template)
+### [ARM template](#tab/template-1)
 ```ARM
 {
  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -73,7 +73,7 @@ Update-AzStandbyVMPool `
 ```
 
 ### [REST](#tab/rest)
-Update an existing standby pool using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
+Update an existing standby pool using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update).
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
@@ -91,7 +91,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 }
 ```
 
-### [Bicep](#tab/bicep)
+### [Bicep](#tab/bicep-1)
 Update an existing standby pool deployment. Deploy the updated template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 ```bicep
@@ -124,7 +124,7 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 ## Delete a standby pool
 
-### [Portal](#tab/portal1)
+### [Portal](#tab/portal-2)
 
 1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
 2) Under **Availability + scale** select **Standby pool**. 
@@ -135,21 +135,21 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 
 
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli-2)
 Delete an existing standby pool using [az standbypool delete](/cli/azure/standby-pool).
 
 ```azurecli-interactive
 az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
 ```
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell-2)
 Delete an existing standby pool using [Remove-AzStandbyVMPool](/powershell/module/az.standbypool/remove-azstandbyvmpool).
 
 ```azurepowershell-interactive
 Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowait
 ```
 
-### [REST](#tab/rest1)
-Delete an existing standby pool using [Delete](/rest/api/standbypool/standby-virtual-machine-pools/delete)
+### [REST](#tab/rest-2)
+Delete an existing standby pool using [Delete](/rest/api/standbypool/standby-virtual-machine-pools/delete).
 
 ```HTTP
 DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
