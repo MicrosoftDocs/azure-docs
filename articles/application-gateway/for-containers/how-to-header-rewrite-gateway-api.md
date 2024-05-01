@@ -170,7 +170,7 @@ Once the gateway is created, create an HTTPRoute that listens for hostname conto
 
 In this example, we look for the user agent used by the Bing search engine and simplify the header to SearchEngine-BingBot for easier backend parsing. 
 
-This example also demonstrates addition of a new header called `Application Gateway for Containers-Header-Add` with a value of `Application Gateway for Containers-value` and removes a request header called `client-custom-header`.
+This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
 > For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
@@ -201,8 +201,8 @@ spec:
               - name: user-agent
                 value: SearchEngine-BingBot
             add:
-              - name: Application Gateway for Containers-Header-Add
-                value: Application Gateway for Containers-value
+              - name: AGC-Header-Add
+                value: AGC-value
             remove: ["client-custom-header"]
       backendRefs:
         - name: backend-v2

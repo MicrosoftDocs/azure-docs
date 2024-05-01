@@ -41,7 +41,7 @@ The following steps are depicted in the previous diagram:
 
 In managed cookie affinity type, Application Gateway uses predefined values when the cookie is offered to the client.
 
-- The name of the cookie is: `Application Gateway for ContainersAffinity`.
+- The name of the cookie is: `AGCAffinity`.
 - The duration (lifetime) of the cookie is 86,400 seconds (one day).
 - The `cookieName` and `cookieDuration` properties and values are discarded.
 
