@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 04/15/2024
+ms.date: 05/01/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,11 +24,11 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| May  7 | [Defender for open-source databases is now available for RDS instances on AWS (Preview)](#defender-for-open-source-databases-is-now-available-for-rds-instances-on-aws-preview) |
+| May  1 | [Defender for open-source databases is now available for RDS instances on AWS (Preview)](#defender-for-open-source-databases-is-now-available-for-rds-instances-on-aws-preview) |
 
 ### Defender for open-source databases is now available for RDS instances on AWS (Preview)
 
-May 7, 2024
+May 1, 2024
 
 We are announcing the availability of Defender for open-source databases for relation database service (RDS) instances on AWS.
 
