@@ -18,7 +18,7 @@ This is the replacement for the following preview models:
 - `gpt-4` **Version:** `0125-Preview`
 - `gpt-4` **Version:** `vision-preview`
 
-### Differences between OpenAI and Azure OpenAI GPT-4 Turbo GA models
+### Differences between OpenAI and Azure OpenAI GPT-4 Turbo with Vision GA model
 
 - OpenAI's version of the latest `0409` turbo model supports JSON mode and function calling for all inference requests.
 - Azure OpenAI's version of the latest `turbo-2024-04-09` currently doesn't support the use of JSON mode and function calling when making inference requests with image (vision) input. Text based input requests do support JSON mode and function calling.
