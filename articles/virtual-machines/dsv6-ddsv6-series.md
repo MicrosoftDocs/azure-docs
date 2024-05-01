@@ -1,8 +1,4 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title: Dsv6 and Ddsv6-series
 description: Specifications for Dsv6 and Ddsv6-series
 author:      misha-bansal # GitHub alias
@@ -29,11 +25,13 @@ The Dsv6-series and Ddsv6-series Virtual Machines run on the 5<sup>th</sup> Gene
 
 These new Intel based VMs have two variants: Dsv6 without local SSD and Ddsv6 with local SSD.
 
-**Dsv6-series** 
+## Dsv6-series
 
 Dsv6-series virtual machines run on the 5<sup>th</sup> Generation Intel® Xeon® Platinum 8473C (Emerald Rapids) processor reaching an all-core turbo clock speed of 3.0 GHz . These virtual machines offer up to 128 vCPU and 512 GiB of RAM. Dsv6-series virtual machines provide a better performance for most general-purpose workloads compared to the prior generation (for example, increased scalability, upgraded CPU, elevated memory bandwidth, faster remote storage access)
 
-Dsv6-series virtual machines do not have any temporary storage thus lowering the price of entry.  You can attach Standard SSDs, Standard HDDs, Premium SSDs, and Premium SSD V2 disk storage to these virtual machines. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [Premium Storage](https://learn.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance): Supported <br>[Premium Storage caching](https://learn.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance): Supported <br>Live Migration: Not Supported for Preview <br>Memory Preserving Updates: Supported <br>[VM Generation Support](https://learn.microsoft.com/en-us/azure/virtual-machines/generation-2): Generation 2 <br>[Accelerated Networking](https://learn.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disks](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks): Not Supported for Preview<br>[Nested Virtualization](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
+Dsv6-series virtual machines do not have any temporary storage thus lowering the price of entry.  You can attach Standard SSDs, Standard HDDs, Premium SSDs, and Premium SSD V2 disk storage to these virtual machines. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines.
+
+[Premium Storage](https://learn.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance): Supported <br>[Premium Storage caching](https://learn.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance): Supported <br>Live Migration: Not Supported for Preview <br>Memory Preserving Updates: Supported <br>[VM Generation Support](https://learn.microsoft.com/en-us/azure/virtual-machines/generation-2): Generation 2 <br>[Accelerated Networking](https://learn.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disks](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks): Not Supported for Preview<br>[Nested Virtualization](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
 
 | **Size** | **vCPU** | **Memory: GiB** | **Temp storage (SSD) GiB** | **Max data disks** | **Max temp storage throughput: IOPS/MBPS (RR)** | **Max temp storage throughput:  IOPS/MBPS (RW)** | **Max** **uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps** | **Max burst** **uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps** | **Max** **uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps** | **Max burst** **uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps** | **Max NICs** | **Network bandwidth** |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -47,7 +45,7 @@ Dsv6-series virtual machines do not have any temporary storage thus lowering the
 | **Standard_D96s_v6** | 96 | 384 | 0 | 64 | NA | NA | 153600/5088 | 153600/5088 | 200000/5953 | 200000/5953 | 8 | 41000 |
 | **Standard_D128s_v6** | 128 | 512 | 0 | 64 | NA | NA | 204800/6782 | 204800/6782 | 266667/7935 | 266667/7935 | 8 | 54000 |
 
-**Ddsv6-series**
+## Ddsv6-series
 
 Ddsv6-series virtual machines run on the 5<sup>th</sup> Generation Intel® Xeon® Platinum 8473C (Emerald Rapids) processor reaching an all- core turbo clock speed of 3.0 GHz. These virtual machines offer up to 128 vCPU and 512 GiB of RAM. Ddsv6-series virtual machines provide a better performance for most general-purpose workloads compared to the prior generation (for example, increased scalability, upgraded CPU, elevated memory bandwidth, faster NVMe local and remote storage access, larger local storage capacity)
 
@@ -67,7 +65,7 @@ Ddsv6-series virtual machines offer local storage disks. You can attach Standard
 | **Standard_D96ds_v6** | 96 | 384 | 6x880 | 64 | 1800000/8640 | 720000/4320 | 153600/5088 | 153600/5088 | 200000/5953 | 200000/5953 | 8 | 41000 |
 | **Standard_D128ds_v6** | 128 | 512 | 4x1760 | 64 | 2400000/11520 | 960000/5760 | 204800/6782 | 204800/6782 | 266667/7935 | 266667/7935 | 8 | 54000 |
 
-**Size table definitions**
+## Size table definitions
 
 Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 
