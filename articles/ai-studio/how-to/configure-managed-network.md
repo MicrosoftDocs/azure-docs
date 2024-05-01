@@ -325,11 +325,14 @@ The Azure AI hub managed VNet feature is free. However, you're charged for the f
 ## Limitations
 
 * Azure AI Studio currently doesn't support bring your own virtual network, it only supports managed VNet isolation.
-* Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
-* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
 * Once you enable managed VNet isolation of your Azure AI, you can't disable it.
 * Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed VNet is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
 * When using a compute instance with a managed network, you can't connect to the compute instance using SSH.
+
+### Connection limitations
+
+* Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
+* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
