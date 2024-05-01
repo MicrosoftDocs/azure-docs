@@ -236,6 +236,80 @@ Go to the [Playwright portal](https://aka.ms/mpt/portal) to view the test run me
 
 The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
+
+## View test results in the Playwright portal (invite only preview)
+
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it is an invite only feature. If you want to get access to it, please sign up here. 
+
+We will let you know when we are ready to onboard you. After recieving the confirmation:
+
+1.  Navigate to settings from the home page of the workspace
+  ![Select-settings](https://github.com/microsoft/mpt-reporter/assets/4140290/32f3a98e-ce03-4b2f-be97-2491ee447d91)
+
+2. Select **General** from settings and make sure reporting is **Enabled**
+   ![Enable-reporting](https://github.com/microsoft/mpt-reporter/assets/4140290/4c5e265e-3b41-4256-849d-44fefd41208e)
+
+3. Make sure the environment is set up correctly as mentioned in the steps above. 
+
+4. Install reporting package
+
+    Since the service is currently private, you need to perform a few extra steps to install the package. These will not be needed once the service becomes public.
+
+    1. Create a file with name `.npmrc` at the same location as your Playwight config file.
+
+    1. Add the following content to the file and save.
+        ```bash
+        @microsoft:registry=https://npm.pkg.github.com
+        ```
+    1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You will need to provide `read:packages` permissions to the token.
+
+    1. Run the following command in your terminal, at the location of your Playwright config file. Replace `GITHUB_PAT_TOKEN` with the token generated in the previous step.
+        ```bash
+            npm set //npm.pkg.github.com/:_authToken GITHUB_PAT_TOKEN
+        ```
+
+    1. Update package.json file with the package.
+        
+        ```json
+         "dependencies": {
+                    "@microsoft/mpt-reporter": "0.1.1-alpha-8839338250-1.0"
+            }
+        ```
+        
+
+    1. Run `npm install` to install the package.
+
+5.  Update Playwright.config file
+
+    Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
+
+    ```json
+        import { defineConfig } from '@playwright/test';
+    
+        export default defineConfig({
+            reporter: [
+            ['list'],
+            ['json', {  outputFile: 'test-results.json' }],
+            ['@microsoft/mpt-reporter'] // Microsoft Playwright Testing reporter
+            ],
+        });
+    ```
+    Make sure that the artifacts are enabled in the config for better troubleshooting.
+    ```json
+        use: {
+            // ...
+            trace: 'on-first-retry',
+            video:'retain-on-failure',
+            screenshot:'only-on-failure',
+          }
+    ```
+
+6.  Run Playwright tests
+
+You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal. 
+    > [!TIP]
+    > This feaure can be used independent of cloud-hosted browsers.
+
 ## Optimize parallel worker configuration
 
 Once your tests are running smoothly with the service, experiment with varying the number of parallel workers to determine the optimal configuration that minimizes test completion time.
