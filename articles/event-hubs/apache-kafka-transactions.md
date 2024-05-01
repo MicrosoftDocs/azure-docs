@@ -25,7 +25,8 @@ In cloud native environments, applications must be made resilient to network dis
 
 Apache Kafka provides a transactional API to ensure this level of processing guarantees across the same or different set of topic/partitions.
 
-Transactions apply to the below cases –
+Transactions apply to the below cases : 
+
 1.	Transactional producers.
 2.	Exactly once processing semantics.
 
@@ -57,7 +58,7 @@ The producer must then begin a transaction explicitly, perform send operations a
     producer.commitTransaction();
 ```
 
-In the event that the transaction needs to be aborted due to a fault or a timeout, then the producer can call the `abortTransaction()` method.
+If the transaction needs to be aborted due to a fault or a timeout, then the producer can call the `abortTransaction()` method.
 
 ```java
 	producer.abortTransaction();
@@ -66,9 +67,9 @@ In the event that the transaction needs to be aborted due to a fault or a timeou
 
 ### Exactly once semantics
 
-Exactly once semantics builds on the transactional producers discussed above by adding consumers in the transactional scope of the producers, so that each record is guaranteed to be read, processed and written **exactly once**.
+Exactly once semantics builds on the transactional producers by adding consumers in the transactional scope of the producers, so that each record is guaranteed to be read, processed, and written **exactly once**.
 
-First the transactional producer is instantiated as shown below - 
+First the transactional producer is instantiated - 
 
 ```java
 
@@ -80,7 +81,7 @@ First the transactional producer is instantiated as shown below -
 
 ```
 
-Then, the consumer must be configured to read only non-transactional messages, or committed transactional messages by setting the below property –
+Then, the consumer must be configured to read only nontransactional messages, or committed transactional messages by setting the below property –
 
 ```java
 	consumerProps.put(“isolation.level”, “read_committed”);
@@ -95,7 +96,7 @@ Once the consumer is instantiated, it can subscribe to the topic from where the 
 
 After the consumer polls the records from the input topic, the producer begins the transactional scope within which the record is processed and written to the output topic. Once the records are written, the updated map of offsets for all partitions is created. The producer then sends this updated offset map to the transaction before committing the transaction.
 
-In case of any exception, the transaction is aborted and the producer retries the processing once again atomically.
+In any exception, the transaction is aborted and the producer retries the processing once again atomically.
 
 ```java
 	while (true) {
