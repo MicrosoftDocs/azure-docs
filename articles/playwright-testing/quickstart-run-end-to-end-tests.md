@@ -244,14 +244,14 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
 We will let you know when we are ready to onboard you. After recieving the confirmation:
 
 1.  Navigate to settings from the home page of the workspace
-  ![Select-settings](https://github.com/microsoft/mpt-reporter/assets/4140290/32f3a98e-ce03-4b2f-be97-2491ee447d91)
+    ![Select-settings](https://github.com/vvs11/azure-docs-pr/assets/4140290/0703030e-82c7-4adc-9f47-4012013a22b3)
 
-2. Select **General** from settings and make sure reporting is **Enabled**
-   ![Enable-reporting](https://github.com/microsoft/mpt-reporter/assets/4140290/4c5e265e-3b41-4256-849d-44fefd41208e)
+3. Select **General** from settings and make sure reporting is **Enabled**
+   ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
 
-3. Make sure the environment is set up correctly as mentioned in the steps above. 
+4. Make sure the environment is set up correctly as mentioned in the steps above. 
 
-4. Install reporting package
+5. Install reporting package
 
     Since the service is currently private, you need to perform a few extra steps to install the package. These will not be needed once the service becomes public.
 
@@ -279,7 +279,7 @@ We will let you know when we are ready to onboard you. After recieving the confi
 
     1. Run `npm install` to install the package.
 
-5.  Update Playwright.config file
+6.  Update Playwright.config file
 
     Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
 
@@ -305,7 +305,7 @@ We will let you know when we are ready to onboard you. After recieving the confi
         }
     ```
 
-6.  Run Playwright tests
+7.  Run Playwright tests
 
     You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal. 
     
