@@ -15,7 +15,7 @@ ms.author: banders
 This article explains how savings plan permissions work and how users can view and manage Azure savings plans in the Azure portal.
 
 ## Who can manage a savings plan by default
-There are two different authorization methods that control an users ability to view, manage and delegate permissions to savings plans - billing admin roles and savings plan RBAC roles.
+There are two different authorization methods that control a user's ability to view, manage and delegate permissions to savings plans - billing admin roles and savings plan RBAC roles.
 
 ## Billing admin roles
 You can view, manage, and delegate permissions to savings plans using built-in billing admin roles. To learn more about MCA and EA billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md) and [Managing Azure Enterprise Agreement roles](../manage/understand-ea-roles.md), respectively.
