@@ -122,8 +122,8 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 
 - Between 3-24 alphanumeric characters.
 - Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Globally unique.
 - Case insensitive (“Abc” is the same as “abc”).
+- Account names beginning with "one" are rejected by ARM.
 
 # [Azure CLI](#tab/account-cli)
 
@@ -167,8 +167,8 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 - Between 3-24 alphanumeric characters.
 - Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Globally unique.
 - Case insensitive (“Abc” is the same as “abc”).
+- Account names beginning with "one" are rejected by ARM.
 
 **Helpful commands**:
 
@@ -211,6 +211,11 @@ Here are the steps to create an Identity Validation request:
 6. **Certificate subject preview**:  The preview provides a snapshot of the information displayed in the certificate.
 7. **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
 8. Select the **Create** button.
+9. Upon successful creation of the request, the Identity Validation request status changes to "In Progress".
+10. If Additional documents are required, an email is sent and the request status changes to "Action Required".
+11. Once the identity validation process is complete, the request status will change, and an email is sent with the updated status of the request.
+    a. "Completed": When process is completed successfully.
+    b. "Failed": When the process is not completed successfully. 
 
 :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot of trusted-signing-identityvalidation-public." lightbox="media/trusted-signing-identity-validation-public.png":::
 
