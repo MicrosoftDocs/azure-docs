@@ -40,7 +40,11 @@ The ability to invoke playbooks from analytics rules will be **deprecated effect
 
 ## Prerequisites
 
-You'll need the **Microsoft Sentinel Contributor** to attach a playbook to an automation rule.  
+You'll need the:
+
+- **Logic Apps Contributor** role to create and edit playbooks
+
+- **Microsoft Sentinel Contributor** role to attach a playbook to an automation rule
 
 For more information, see [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
 
