@@ -45,11 +45,11 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 
 **Interface In Pkts**
 
-	:::image type="content" source="media/metrics-interface-in-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart.":::
+    :::image type="content" source="media/metrics-interface-in-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart.":::
 	
 **Interface Out Pkts**
 	
-	:::image type="content" source="media/metrics-interface-out-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart.":::
+    :::image type="content" source="media/metrics-interface-out-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart.":::
 
 - The metric chart will display the packet rate over time, typically captured at 5-minute intervals.
 
