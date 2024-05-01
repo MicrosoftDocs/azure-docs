@@ -25,11 +25,7 @@ For the general deployment error code reference, see [Troubleshooting online end
 
 ### Error: Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI Services resources
 
-The full error message is as follows: 
-
-```
-Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI Services resources. This subscription or region doesn't have access to this model." 
-```
+The full error message states: "Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI Services resources. This subscription or region doesn't have access to this model."
 
 This error means that you might not have access to the particular Azure OpenAI model. For example, your subscription might not have access to the latest GPT model yet or this model isn't offered in the region you want to deploy to. You can learn more about it on [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
 
@@ -43,13 +39,9 @@ For more information about managing quota, see:
 
 ### Error: `ToolLoadError`
 
-After you deployed a prompt flow, you got the error message: 
+After you deployed a prompt flow, you got the error message: "Tool load failed in 'search_question_from_indexed_docs': (ToolLoadError) Failed to load package tool 'Vector Index Lookup': (HttpResponseError) (AuthorizationFailed)." 
 
-```
-Tool load failed in 'search_question_from_indexed_docs': (ToolLoadError) Failed to load package tool 'Vector Index Lookup': (HttpResponseError) (AuthorizationFailed)". 
-```
-
-To resolve this error, take the following steps to manually assign the ML Data scientist role to your endpoint. It might take several minutes for the new role to take effect.
+To fix this error, take the following steps to manually assign the ML Data scientist role to your endpoint. It might take several minutes for the new role to take effect.
 
 1. Go to your project in [Azure AI Studio](https://ai.azure.com) and select **Settings** from the left navigation menu to open the settings page.
 1. In the section for "Project properties", select the link to your resource group to open it in the Azure portal. 
@@ -66,13 +58,11 @@ To resolve this error, take the following steps to manually assign the ML Data s
 1. Select your deployment.
 1. Test the prompt flow deployment.
 
-### Error: Deployment failure.
+### Error: Deployment failure
 
 The full error message is as follows: 
 
-```
-ResourceNotFound: Deployment failed due to timeout while waiting for Environment Image to become available. Check Environment Build Log in ML Studio Workspace or Workspace storage for potential failures. Image build summary: [N/A]. Environment info: Name: CliV2AnonymousEnvironment, Version: 'Ver', you might be able to find the build log under the storage account 'NAME' in the container 'CONTAINER_NAME' at the Path 'PATH/PATH/image_build_aggregate_log.txt'.
-```
+"ResourceNotFound: Deployment failed due to timeout while waiting for Environment Image to become available. Check Environment Build Log in ML Studio Workspace or Workspace storage for potential failures. Image build summary: [N/A]. Environment info: Name: CliV2AnonymousEnvironment, Version: 'Ver', you might be able to find the build log under the storage account 'NAME' in the container 'CONTAINER_NAME' at the Path 'PATH/PATH/image_build_aggregate_log.txt'."
 
 You might have come across an `ImageBuildFailure` error: This error happens when the environment (docker image) is being built. For more information about the error, you can check the build log for your `<CONTAINER NAME>` environment. 
 
@@ -90,7 +80,7 @@ __Option 1: Find the build log for the Azure default blob storage.__
 __Option 2: Find the build log within Azure Machine Learning studio.__
 
 > [!NOTE]
-> This option to access the build log uses Azure Machine Learning studio, which is a different portal than Azure AI Studio.
+> This option to access the build log uses [Azure Machine Learning studio](https://ml.azure.com), which is a different portal than [Azure AI Studio](https://ai.azure.com).
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com).
 2. Select **Endpoints** from the left navigation menu.
@@ -100,11 +90,7 @@ __Option 2: Find the build log within Azure Machine Learning studio.__
 
 ### Error: `UserErrorFromQuotaService`
 
-The full error message is: 
-
-```
-"UserErrorFromQuotaService: Simultaneous count exceeded for subscription".
-```
+The full error message is: "UserErrorFromQuotaService: Simultaneous count exceeded for subscription."
 
 This error message means that the shared quota pool has reached the maximum number of requests it can handle. Try again at a later time when the shared quota is freed up for use.
 
