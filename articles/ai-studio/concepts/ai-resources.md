@@ -126,7 +126,15 @@ You can use [cost management](/azure/cost-management-billing/costs/quick-acm-cos
 In the Azure portal, you can find resources that correspond to your project in Azure AI Studio.
 
 > [!NOTE]
-> This section assumes that the hub and project are in the same resource group. 
+> This section assumes that the hub and project are in the same resource group.
+
+1. In [Azure AI Studio](https://ai.azure.com), go to **All hubs** and select your hub. From here, you can view your hub's projects and connected resources. There's also a link to view the corresponding hub resource in the [Azure portal](https://portal.azure.com).
+
+2. Select the project name to view your project's resources. There's a link to your hub in Azure AI Studio, and links to view the project resources in the [Azure portal](https://portal.azure.com).
+
+3. To view the keys and endpoints used to connect to Azure AI Services, select **Resources and keys**. You can use the **Filter** to limit the results to the resources you are interested in.
+
+----------------------
 
 1. In [Azure AI Studio](https://ai.azure.com), go to **Build** > **Project settings** to view your project resources such as connections and API keys. There's a link to your hub in Azure AI Studio and links to view the corresponding project resources in the [Azure portal](https://portal.azure.com).
 
