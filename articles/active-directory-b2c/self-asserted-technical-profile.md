@@ -176,7 +176,8 @@ The following example demonstrates the use of a self-asserted technical profile 
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
 ```
-
+> [!Note]
+> Password claim can only be written in the orchestration step its collected.
 ### Output claims sign-up or sign-in page
 
 In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element that specifies a `unifiedssp` or `unifiedssd` page type:
