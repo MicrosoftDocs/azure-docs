@@ -8,7 +8,7 @@ ms.date: 04/30/2024
 ms.author: ddama
 ---
 
-# Secure Gateway for Istio service mesh add-on for Azure Kubernetes Service
+# Secure ingress gateway for Istio service mesh add-on for Azure Kubernetes Service
 
 The [Deploy external or internal Istio Ingress][istio-deploy-ingress] article describes how to configure an ingress gateway to expose an HTTP service to external/internal traffic. This article shows how to expose a secure HTTPS service using either simple or mutual TLS.
 
