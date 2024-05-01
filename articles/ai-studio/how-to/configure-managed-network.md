@@ -43,6 +43,10 @@ There are three different configuration modes for outbound traffic from the mana
 <sup>1</sup> You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
 * Always use private endpoints to access Azure resources. 
+
+    > [!IMPORTANT]
+    > While you can create a private endpoint for Azure AI Services, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
+
 * You must add rules for each outbound connection you need to allow.
 * Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add might increase your risk.
@@ -59,6 +63,21 @@ The following diagram shows a managed VNet configured to __allow only approved o
 > In this configuration, the storage, key vault, and container registry used by the Azure AI hub are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
 
 :::image type="content" source="../media/how-to/network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="../media/how-to/network/only-approved-outbound.png":::
+
+## Limitations
+
+* Azure AI Studio currently doesn't support bring your own virtual network, it only supports managed VNet isolation.
+* Once you enable managed VNet isolation of your Azure AI, you can't disable it.
+* Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
+* The managed VNet is deleted when the Azure AI is deleted. 
+* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
+* Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* When using a compute instance with a managed network, you can't connect to the compute instance using SSH.
+
+### Connectivity to other services
+
+* Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
+* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
 
 ## Configure a managed virtual network to allow internet outbound
 
@@ -321,18 +340,3 @@ The Azure AI hub managed VNet feature is free. However, you're charged for the f
 
     > [!IMPORTANT]
     > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
-
-## Limitations
-
-* Azure AI Studio currently doesn't support bring your own virtual network, it only supports managed VNet isolation.
-* Once you enable managed VNet isolation of your Azure AI, you can't disable it.
-* Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
-* The managed VNet is deleted when the Azure AI is deleted. 
-* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
-* Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
-* When using a compute instance with a managed network, you can't connect to the compute instance using SSH.
-
-### Connection limitations
-
-* Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
-* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
