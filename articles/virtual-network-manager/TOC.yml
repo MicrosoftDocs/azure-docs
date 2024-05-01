@@ -66,7 +66,7 @@
     - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
       href: query-azure-resource-graph.md
   - name: User-defined routes (UDRs) management 
-    href: concept-user-defined-route-management.md
+    href: concept-user-defined-route.md
 - name: Samples
   items:
     - name: Resource Manager Templates
@@ -112,7 +112,7 @@
   - name: Define dynamic network group membership with Azure Policy
     href: how-to-define-network-group-membership-azure-policy.md
   - name: Create user-defined routes
-    href: how-to-create-user-defined-routes.md
+    href: how-to-create-user-defined-route.md
   - name: Common issues
     href: common-issues.md
 - name: Reference
