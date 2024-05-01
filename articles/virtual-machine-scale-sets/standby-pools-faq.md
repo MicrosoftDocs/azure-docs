@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions about standby pools for Virtual Machine Scale Sets
-description: Learn about frequently asked questions for standby pools on Virtual Machine Scale Sets.
+description: Get answers to frequently asked questions for standby pools on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
@@ -9,7 +9,7 @@ ms.date: 04/22/2024
 ms.reviewer: ju-shim
 ---
 
-# Standby pools FAQ
+# Standby pools FAQ (Preview)
 
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
@@ -38,7 +38,7 @@ The maximum number of virtual machines between a scale set and a standby pool is
 No. Virtual machines in the standby pool don't take any traffic from the Load Balancer associated with the scale set until they're moved from the standby pool into the scale set. 
 
 ### Can my standby pool span multiple Virtual Machine Scale Sets? 
-No. A standby pool resource can not span multiple scale sets. Each scale set has its own Standby Pool attached to it. Standby pool inherits the unique properties of the scale set such as networking, virtual machine profile, extensions, and more. 
+No. A standby pool resource can't span multiple scale sets. Each scale set has its own standby pool attached to it. A standby pool inherits the unique properties of the scale set such as networking, virtual machine profile, extensions, and more. 
 
 ### How is the configuration of my virtual machines in the standby pool for Virtual Machine Scale Sets determined? 
 Virtual machines in the standby pool inherit the same virtual machine profile as the virtual machines in the scale set. Some examples are:  

@@ -88,7 +88,7 @@
     href: virtual-machine-scale-sets-scaling-profile.md
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
-  - name: Standby Pools
+  - name: Standby pools (Preview)
     items: 
     - name: Overview
       href: standby-pools-overview.md

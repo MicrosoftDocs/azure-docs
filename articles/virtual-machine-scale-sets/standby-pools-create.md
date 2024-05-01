@@ -1,5 +1,5 @@
 ---
-title: Create a standby pool for Virtual Machine Scale Sets
+title: Create a standby pool for Virtual Machine Scale Sets (Preview)
 description: Learn how to create a standby pool to reduce scale-out latency with Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
@@ -10,7 +10,7 @@ ms.reviewer: ju-shim
 ---
 
 
-# Create a standby pool
+# Create a standby pool (Preview)
 This article steps through creating a standby pool for Virtual Machine Scale Sets with Flexible Orchestration.
 
 > [!IMPORTANT]
