@@ -61,11 +61,11 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - Azure Database for PostgreSQL flexible server with Premium SSD V2 disk can be deployed only in East US2, West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
 
-- During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Auto-grow features. These features will be supported soon on Premium SSD V2.
+- During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Auto-grow features.
 
 - During early preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
 
-- You can enable Premium SSD V2 only for newly created servers. Support for existing servers is coming soon.
+- You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported..
 
 The storage that you provision is the amount of storage capacity available to your Azure Database for PostgreSQL server. The storage is used for the database files, temporary files, transaction logs, and PostgreSQL server logs. The total amount of storage that you provision also defines the I/O capacity available to your server.
 
