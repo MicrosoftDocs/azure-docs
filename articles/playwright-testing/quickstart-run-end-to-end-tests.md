@@ -249,7 +249,7 @@ We will let you know when we are ready to onboard you. After recieving the confi
 3. Select **General** from settings and make sure reporting is **Enabled**
    ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
 
-4. Make sure the environment is set up correctly as mentioned in the steps above. 
+4. Make sure the environment is set up correctly as mentioned in the section **Set up your environment** above.
 
 5. Install reporting package
 
