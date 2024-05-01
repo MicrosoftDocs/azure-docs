@@ -22,7 +22,7 @@ The listed features were released in the last three months. For information abou
 
 - [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
 
-### Optimize your security operations with SOC optimizations (Preview)
+### Optimize your security operations with SOC optimizations (preview)
 
 Microsoft Sentinel now provides SOC optimizations, which are high-fidelity and actionable recommendations that help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing.
 

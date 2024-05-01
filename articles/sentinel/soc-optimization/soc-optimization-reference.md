@@ -1,5 +1,5 @@
 ---
-title: SOC optimization reference (Preview)
+title: SOC optimization reference (preview)
 description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
 ms.service: defender-xdr
 ms.pagetype: security
@@ -18,7 +18,7 @@ appliesto:
 #customerIntent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
 ---
 
-# SOC optimization reference of recommendations (Preview)
+# SOC optimization reference of recommendations (preview)
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 

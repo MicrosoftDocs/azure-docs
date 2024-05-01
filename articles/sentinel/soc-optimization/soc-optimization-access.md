@@ -1,5 +1,5 @@
 ---
-title: Optimize security operations (Preview)
+title: Optimize security operations (preview)
 description: Use SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.service: defender-xdr
 ms.pagetype: security
@@ -18,7 +18,7 @@ appliesto:
 #customerIntent: As a SOC admin or SOC engineer, I want to learn about about how to optimize my security operations center with SOC optimization recommendations.
 ---
 
-# Optimize your security operations (Preview)
+# Optimize your security operations (preview)
 
 Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high.
 
@@ -126,7 +126,6 @@ By default, optimization statuses are **Active**. Change their statuses as your 
 
 Either select the options menu or select **View full details** to take one of the following actions:
 
-<!--what's the diff btwn in prog or active? is this up to the customer discretion?-->
 |Action |Description  |
 |---------|---------|
 |**Complete**     | Complete an optimization when you completed each recommended action. <br><br>If a change in your environment is detected that makes the recommendation irrelevant, the optimization is automatically completed and moved to the **Completed** tab. <br><br>For example, you might have an optimization related to a previously unused table. If your table is now used in a new analytics rule, the optimization recommendation is now irrelevant. <br><br>In such cases, a banner shows in the **Overview** tab with the number of automatically completed optimizations since your last visit.        |
@@ -149,4 +148,4 @@ From here, either select the options menu or select **View full details** to tak
 
 ## Related content
 
-- [SOC optimization reference of recommendations (Preview)](soc-optimization-reference.md)
+- [SOC optimization reference of recommendations (preview)](soc-optimization-reference.md)
