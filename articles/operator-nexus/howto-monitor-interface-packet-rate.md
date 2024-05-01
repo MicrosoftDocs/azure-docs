@@ -59,11 +59,11 @@ In the domain of network management, monitoring the Interface In and Out Packet 
  
 **Understanding In and Out Packets:** 
 
- - **In packet rate:** This metric refers to the rate at which the network interface receives packets. Essentially, it measures the flow of incoming data packets to the device.
+ - **In packet rate:** This metric refers to the rate at which the network interface received packets. Essentially, it measures the flow of incoming data packets to the device.
 	
 	:::image type="content" source="media/metrics-interface-in-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart.":::
 
-- **Out packet rate:** Conversely, the network interface send packets at the rate measured by this metric. It indicates the flow of outgoing data packets from the device to other network destinations.
+- **Out packet rate:** Conversely, the network interface sent packets at the rate measured by this metric. It indicates the flow of outgoing data packets from the device to other network destinations.
   
    :::image type="content" source="media/metrics-interface-out-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart.":::
   
