@@ -179,7 +179,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-### [Windows] (#tab/windows)
+### [Windows](#tab/windows)
 
 .NET Framework
 
