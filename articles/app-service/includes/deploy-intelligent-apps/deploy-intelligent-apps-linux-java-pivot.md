@@ -141,7 +141,7 @@ import com.azure.core.credential.AzureKeyCredential;
 
 ### Setup prompt and call to OpenAI
 
-Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response.  Here's where we add our chat message prompt to the code to be passed to the chat completions method.  Use the following code to set up the chat completions method:
+Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response. Here's where we add our chat message prompt to the code to be passed to the chat completions method. Use the following code to set up the chat completions method:
 
 ```java
 List<ChatRequestMessage> chatMessages = new ArrayList<>();

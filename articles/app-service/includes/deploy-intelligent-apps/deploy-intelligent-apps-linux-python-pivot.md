@@ -7,12 +7,12 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps.  In the following tutorial,, we are adding an Azure OpenAI service using LangChain to a Python (Flask) application.
+You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps. In the following tutorial,, we are adding an Azure OpenAI service using LangChain to a Python (Flask) application.
 
 #### Prerequisites
 
 - An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Flask web application.  Create the sample app using our [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
+- A Flask web application. Create the sample app using our [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
 
 ### Setup flask web app
 
@@ -118,7 +118,7 @@ For OpenAI, use the following:
 |-|-|-|
 | `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
-Once your app settings are saved, you can [access the app settings](https://www.notion.so/Creating-Intelligent-App-on-App-Service-Python-757641ec4eda4dde88c9cad02d542170?pvs=21) in your code by referencing them in your application.  Add the following to the *[app.py](http://app.py) file:*
+Once your app settings are saved, you can [access the app settings](https://www.notion.so/Creating-Intelligent-App-on-App-Service-Python-757641ec4eda4dde88c9cad02d542170?pvs=21) in your code by referencing them in your application. Add the following to the *[app.py](http://app.py) file:*
 
 For Azure OpenAI:
 ```python
@@ -137,7 +137,7 @@ openai_api_key = os.environ['OPENAI_API_KEY']
 
 ### LangChain
 
-LangChain is a framework that enables easy development with OpenAI for your applications.  You can use LangChain with Azure OpenAI and OpenAI models.
+LangChain is a framework that enables easy development with OpenAI for your applications. You can use LangChain with Azure OpenAI and OpenAI models.
 
 To create the OpenAI client, we'll first start by installing the LangChain library.
 
@@ -147,7 +147,7 @@ To install LangChain, navigate to your application using Command Line or PowerSh
 pip install langchain-openai
 ```
 
-Once the package is installed, you can import and use LangChain.  Update the *[app.py](http://app.py)* file with the following code:
+Once the package is installed, you can import and use LangChain. Update the *[app.py](http://app.py)* file with the following code:
 
 ```python
 import os
@@ -160,7 +160,7 @@ from langchain_openai import AzureOpenAI~~
 
 ```
 
-After LangChain is imported into our file, you can add the code that will call to OpenAI with the LangChain invoke chat method.  Update *[app.py](http://app.py)* to include the following code:
+After LangChain is imported into our file, you can add the code that will call to OpenAI with the LangChain invoke chat method. Update *[app.py](http://app.py)* to include the following code:
 
 For Azure OpenAI, use the following code:
 
@@ -264,7 +264,7 @@ First, add the following package to your *requirements.txt* file:
 langchain-openai
 ```
 
-Then, go to the Azure portal and navigate to the Environment variables.  If you're using Visual Studio to deploy, this app setting enables the same build automation as Git deploy.  Add the following App setting to your web app:
+Then, go to the Azure portal and navigate to the Environment variables. If you're using Visual Studio to deploy, this app setting enables the same build automation as Git deploy. Add the following App setting to your web app:
 
 - `SCM_DO_BUILD_DURING_DEPLOYMENT` = true
 
