@@ -82,4 +82,21 @@ You can add the preview extension by adding or replacing the following code in y
 
 ## Next steps
 
-[Learn more about Dapr.](https://docs.dapr.io/)
+<!-- ## Create your Azure OpenAI Resource
+
+1. Follow the [Azure OpenAI create quickstart](/../ai-services/openai/how-to/create-resource) to create an Azure OpenAI resource.
+
+<!-- https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal -->
+
+<!-- 1. Provide the following information at the prompts:
+
+    |Prompt| Selection|
+    |--|--|
+    |**Resource group**|Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
+    |**Name**|Enter `mySampleOpenAI`.|
+  
+
+1. Once the creation has completed, navigate to the Azure OpenAI resource blade in the Azure portal, and, under **Essentials**, select **Click here to view endpoints**. Copy the **endpoint** url and the **keys**. Paste these values into a temporary document for later use.
+ -->
+
+<!-- [Learn more about Dapr.](https://docs.dapr.io/) -->
