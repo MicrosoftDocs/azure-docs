@@ -13,7 +13,7 @@ ms.date: 05/01/2024
 Log plans let you balance between how often you use the data in a table, the advanced analytics features you use, and cost savings.  
 Set up the tables in your Log Analytics workspace to meet all your logging needs, including: 
 
-- High-volume, verbose data that requires **cheap long-term storage for compliance**
+- High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
 - App and resource data for **troubleshooting** by developers
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated data trends for **advanced analytics and machine learning** 
