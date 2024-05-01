@@ -116,7 +116,9 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Open'
     deploymentValues: string(values)
-    roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']}}]
+    roleOverrideValues: [
+      '{"name":"Contoso-one","deployParametersMappingRuleProfile":{"helmMappingRuleProfile":{"options":{"installOptions":{"injectArtifactStoreDetails":"true", "atomic": "false"},"upgradeOptions":{"injectArtifactStoreDetails":"true","atomic": "false"}}}}}'
+    ]}}]
 ```
 
 ### Build the edited ARM Template and upload it to the Artifact Store
@@ -200,7 +202,11 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     allowSoftwareUpdate: true
     configurationType: 'Open'
     deploymentValues: string(values)
-    roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}},{"name": "Contoso-two", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}},{"name": "Contoso-three", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']}}]
+    roleOverrideValues: [
+      '{"name":"Contoso-one","deployParametersMappingRuleProfile":{"helmMappingRuleProfile":{"options":{"installOptions":{"injectArtifactStoreDetails":"true", "atomic": "false"},"upgradeOptions":{"injectArtifactStoreDetails":"true","atomic": "false"}}}}}'
+      '{"name":"Contoso-two","deployParametersMappingRuleProfile":{"helmMappingRuleProfile":{"options":{"installOptions":{"injectArtifactStoreDetails":"true", "atomic": "false"},"upgradeOptions":{"injectArtifactStoreDetails":"true","atomic": "false"}}}}}'
+      '{"name":"Contoso-three","deployParametersMappingRuleProfile":{"helmMappingRuleProfile":{"options":{"installOptions":{"injectArtifactStoreDetails":"true", "atomic": "false"},"upgradeOptions":{"injectArtifactStoreDetails":"true","atomic": "false"}}}}}'
+    ]}}]
 ```
 
 ## Next steps
