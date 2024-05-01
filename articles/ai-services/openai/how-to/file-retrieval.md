@@ -16,7 +16,7 @@ recommendations: false
 
 File Search augments the Assistant with knowledge from outside its model, such as proprietary product information or documents provided by your users. OpenAI automatically parses and chunks your documents, creates and stores the embeddings, and use both vector and keyword search to retrieve relevant content to answer user queries.
 
-## Code interpreter support
+## File retrieval support
 
 ### Supported models
 
