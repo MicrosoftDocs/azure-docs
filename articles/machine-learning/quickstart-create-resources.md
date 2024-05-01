@@ -122,7 +122,7 @@ But you could also create a new, empty notebook, then copy/paste code from a tut
 
 ## Clean up resources
 
-If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
+If you plan to continue now to other tutorials, skip to [Next step](#next-steps).
 
 ### Stop compute instance
 
