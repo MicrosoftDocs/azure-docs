@@ -722,7 +722,7 @@ The following steps show how to use the managed identity with a trigger or actio
 
         - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
         
-        :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity.png":::
+        :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity-standard.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity-standard.png":::
 
      1. From the **Managed Identity** list, select the identity that you want to use, for example:
 
@@ -769,7 +769,7 @@ The following steps show how to use the managed identity with a trigger or actio
 
           1. From the **Managed identity** list, select the identity that you want to use.
 
-             ![Screenshot shows Standard workflow, the action's Parameters pane, and list named Managed identity.](./media/authenticate-with-managed-identity/select-multi-identity-standard.png)
+             :::image type="content" source="media/authenticate-with-managed-identity/select-multi-identity-standard.png" alt-text="Screenshot shows Standard workflow, the action's Parameters pane, and list named Managed identity." lightbox="media/authenticate-with-managed-identity/select-multi-identity-standard.png":::
 
           1. When you're ready, select **Create New**.
 
