@@ -1523,12 +1523,12 @@ items:
       - name: With Apache Spark MLlib
         displayName: train model
         href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-      - name: With automated machine learning
+      - name: With automated machine learning (deprecated)
         items:
-        - name: Code-free
+        - name: Code-free (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./machine-learning/tutorial-automl.md
-        - name: In Python
+        - name: In Python (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       - name: With Horovod and Petastorm 
