@@ -53,11 +53,12 @@ Configuration assignment couldn't be removed or deleted from a particular mainte
 
 #### Resolution
 
-Use the following steps to mitigate this issue
-1. Delete the existing maintenance configuration in which you are encountering this issue.
-1. Create a new maintenance configuration and assign the require set of dynamic scope and VMs as attached in the deleted maintenance configuration
+Use the following steps to mitigate this issue:
 
-If you want to create the new maintenance configuration with the same name as the deleted maintenance configuration, you will have to wait 20 minutes for the cleanup to take place in the backend. The system won't allow the creation of maintenance configuration with the same name if cleanup is not performed in the backend. 
+1. Delete the existing maintenance configuration in which you are encountering this issue.
+1. Create a new maintenance configuration and assign the required set of dynamic scope and VMs as attached in the deleted maintenance configuration.
+
+If you want to create new maintenance configuration with the same name as the deleted maintenance configuration, you will have to wait 20 minutes for the cleanup to take place in the backend. The system won't allow the creation of maintenance configuration with the same name if cleanup is not performed in the backend. 
 
 ### Scheduled patching stops working after the resource is moved
 
