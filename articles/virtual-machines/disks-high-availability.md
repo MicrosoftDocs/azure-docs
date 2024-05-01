@@ -20,7 +20,7 @@ Azure offers several configuration options for ensuring high availability of Azu
 |     |Use zone-redundant storage (ZRS) disks.         |Access to your data even if an entire zone experiences an outage.         |
 |Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration mode or by deploying VMs across three availability zones.         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
 |     |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets with flexible orchestration mode or availability sets.         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
-|     |Use ZRS shared disks.         |         |
+|     |Use ZRS shared disks.         |Improves availability of data and reduces potential for failure.         |
 
 
 ## Intro
