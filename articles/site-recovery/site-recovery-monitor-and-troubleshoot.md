@@ -124,7 +124,7 @@ In **Jobs**, monitor the status of Site Recovery operations.
 
 Monitor jobs as follows:
 
-1. In the dashboard > **Jobs** section, you can see a summary of jobs that have completed, are in progress, or waiting for input, in the last 24 hours. You can select on any state to get more information about the relevant jobs.
+1. In the dashboard > **Jobs** section, you can see a summary of jobs that have completed, are in progress, or waiting for input, in the last 24 hours. You can select any state to get more information about the relevant jobs.
 2. Select **View all** to see all jobs in the last 24 hours.
 
     > [!NOTE]
@@ -247,7 +247,7 @@ Follow these steps to view the alerts generated for a particular vault via the B
     > [!NOTE]
     >  Security alerts can't be disabled.
 
-1. Update settings and select on **Update**.
+1. Update settings and select **Update**.
     
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/monitor-alerts.png" alt-text="Screenshot displays Monitoring settings." lightbox="./media/site-recovery-monitor-and-troubleshoot/monitor-alerts.png":::
 

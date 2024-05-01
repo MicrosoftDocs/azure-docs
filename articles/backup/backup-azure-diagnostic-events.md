@@ -72,7 +72,7 @@ After data flows into the Log Analytics workspace, dedicated tables for each of 
 >
 > For Backup vaults, since information on the frontend size and backup storage consumed are already included in the *CoreAzureBackup* and *AddonAzureBackupProtectedInstances* events (to aid query performance), the *AddonAzureBackupStorage event* isn't applicable for Backup vault, to avoid creation of redundant tables.
 
-## Legacy event for Recovery Services
+## Legacy event
 
 Traditionally, for Recovery Services vaults, all backup-related diagnostics data for a vault was contained in a single event called AzureBackupReport. The six events described here are, in essence, a decomposition of all the data contained in AzureBackupReport.
 

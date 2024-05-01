@@ -344,7 +344,7 @@ Each record in the above tables has an associated **Operation Name**. An Operati
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Represents a record containing the protected instance count for each container or backup item. For Azure VM backup, the protected instance count is available at the backup item level, for other workloads it is available at the protected container level. |
 | AddonAzureBackupPolicy | Policy |  Represents a record containing all details of a backup and retention policy. For example, ID, name, retention settings, etc. |
 | AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. | 
-| AzureBackupOperations | Job | Represents a record containing a operations like adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-prem agent. |
+| AzureBackupOperations | Job | Represents a record containing operations like adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-prem agent. |
 
 # [Backup vaults](#tab/backup-vaults)
 
