@@ -19,7 +19,7 @@ Running A/B testing experiments can help you make informed decisions to improve 
 - An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store with a variant feature flag having at least two variants.<!--Add link-->
 - A Split Experimentation Workspace resource<!--Add link-->
-- A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource) resource.
+- A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
 
 ## Add an Application Insights resource to your store
 
@@ -116,11 +116,11 @@ Now that you’ve connected the Application Insights resource to the App Configu
 
     This snippet performs the following actions.
 
-    - Adds an Application Insights Telemetry Client to the application.
+    - Adds an Application Insights telemetry client to the application.
     - Adds a telemetry initializer that appends targeting information to outgoing telemetry.
     - Disables adaptive sampling. <!-- Once doc is published, add Refer to [Troublehooting](./Troubleshooting.md#Sampling-in-Application-Insights) for more information on why adaptive sampling is disabled.-->
 
-1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This will create a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
+1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -382,25 +382,25 @@ Now that you’ve connected the Application Insights resource to the App Configu
 
 ### Build and run the app
 
-1. In the command prompt, in the *QuoteOfTheDay* folder, run: `dotnet build`
-1. Run: `dotnet run --launch-profile https`
+1. In the command prompt, in the *QuoteOfTheDay* folder, run: `dotnet build`.
+1. Run: `dotnet run --launch-profile https`.
 1. Look for a message in the format `Now listening on: https://localhost:{port}` in the output of the application. Navigate to the included link in your browser.
 1. Once viewing the running application, select **Register** at the top right to register a new user.
 
-    :::image type="content" source="media/set-up-experiments/register.png" alt-text="Screenshot of the Quote of the day app, showing the Register button.":::
+    :::image type="content" source="media/set-up-experiments/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
 
 1. Register a new user named *user@contoso.com*. The password must have at least six characters and contain a number and a special character.
 
 1. Select the link **Click here to validate email** after entering user information.
 
-1. Register a second user named *userb@contoso.com*, enter another password and validate this second email.
+1. Register a second user named *userb@contoso.com*, enter another password, and validate this second email.
 
     > [!NOTE]
     > It's important for the purpose of this quickstart to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
 
-1. Select the **Login** button at the top right to sign in as user b (userb@contoso.com).
+1. Select the **Login** at the top right to sign in as user b (userb@contoso.com).
 
-    :::image type="content" source="media/set-up-experiments/login.png" alt-text="Screenshot of the Quote of the day app, showing the **Login** button.":::
+    :::image type="content" source="media/set-up-experiments/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
 
 1. Once logged in, you should see that userb@contoso.com sees a special message when viewing the app.
 
@@ -408,7 +408,7 @@ Now that you’ve connected the Application Insights resource to the App Configu
 
     If you create a new user named *user@contoso.com*, the user won't see the special message.
 
-## Enable telemetry and create an experiments in your variant feature flag
+## Enable telemetry and create an experiment in your variant feature flag
 
 Enable telemetry and experiments in your variant feature flag by following the steps below:
 
@@ -418,7 +418,7 @@ Enable telemetry and experiments in your variant feature flag by following the s
     :::image type="content" source="./media/set-up-experiments/edit-variant-feature-flag.png" alt-text="Screenshot of the Azure portal, editing a variant feature flag.":::
 
 1. Go to the **Telemetry** tab and check the box **Enable Telemetry**.
-1. Go to the **Experiment** tab, check the box **Create Experiment** and give a name to your experiment.
+1. Go to the **Experiment** tab, check the box **Create Experiment**, and give a name to your experiment.
 1. **Select Review + update**, then **Update**.
 1. A notification indicates that the operation was successful. In **Feature manager**, the variant feature flag now has the word **Active** under **Experiment**.
 
@@ -443,7 +443,7 @@ The app we created only specifies one event, but you may have multiple events th
     | **Measure as**                      | **Count**           | The following options are available: <br><ul><li>**Count**: counts the number of times the event is triggered by your users.</li><li>**Average**: averages the value of the event for your users.</li><li>**Sum**: adds up the values of the event for your users. Shows the average summed value.</li><li>**Percent**: calculates the percentage of users that triggered the event.</li></ul> |
     | **Desired Impact**                  | **Increase**        | This setting represents the ultimate goal or purpose behind measuring your created metric. |
 
-    In the quickstart shared above, our hypothesis is that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code takes in this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote Button*, to be able to validate the given hypothesis. If there is a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
+    In the quickstart shared above, our hypothesis is that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code takes in this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote Button*, to be able to validate the given hypothesis. If there's a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
 
 1. Once created, the new metric is displayed in the portal. You can edit it or delete it by selecting the (**...**) context menu on the right side of the screen.
 
@@ -453,7 +453,7 @@ The app we created only specifies one event, but you may have multiple events th
 
 To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a 10 to 15 minutes.
 
-To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, select the **Active** link under the Experiment label in the grid view or click on **...** > **Experiment**.
+To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, select the **Active** link under the **Experiment** label in the grid view or click on **...** > **Experiment**.
 
 On the results page, a **Version** of the Experiment, a **Baseline** to compare the results against, and a **Comparison** variant are selected by default. Select **Apply** to view the result of your experiment.
 
@@ -461,7 +461,7 @@ On the results page, a **Version** of the Experiment, a **Baseline** to compare 
 
 The screenshot above shows that the experiment had the desired result, with the **On** variant for the **Heart Vote Button** resulting in 560.62% more events than the **Off** variant.
 
-Any edit to a variant feature flag will generate a new version of the experimentation, which you can select to view its results.
+Any edit to a variant feature flag generates a new version of the experimentation, which you can select to view its results.
 
 > [!NOTE]
 > To get experimentation results, you need at least 30 events per variant, but we suggest you have more that the minimum sampling size to make sure that your experimentation is producing reliable results.
