@@ -234,9 +234,9 @@ For the various page layouts, use the following page layout versions:
 
 |Page layout |Page layout version range |
 |---------|---------|
-| Selfasserted  | >=2.1.29 |
-| Unifiedssp  | >=2.1.17 |
-|  Multifactor  |    >=1.2.15  |
+| Selfasserted  | >=2.1.30 |
+| Unifiedssp  | >=2.1.18 |
+|  Multifactor  |    >=1.2.16  |
 
 **Example:**
 
