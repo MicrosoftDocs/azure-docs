@@ -28,14 +28,12 @@ Apache Kafka provides a transactional API to ensure this level of processing gua
 Transactions apply to the below cases –
 1.	Transactional producers.
 2.	Exactly once processing semantics.
-3.	Read-Process-Write operations.
-
 
 ### Transactional Producers
 
 Transactional producers ensure that data is written atomically to multiple partitions across different topics. Producers can initiate a transaction, write to multiple partitions on the same topic or across different topics, and then commit or abort the transaction.
 
-To ensure that a producer is transactional, the below properties must be set –
+To ensure that a producer is transactional, `enable.idempotence` should be set to true to ensure that the data is written exactly once, thus avoiding duplicates on the *send* side. Additionally, `transaction.id` should be set to uniquely identify the producer.
 
 ```java
     producerProps.put("enable.idempotence", "true");
@@ -66,52 +64,80 @@ In the event that the transaction needs to be aborted due to a fault or a timeou
 ```
 
 
-### Read-Process-Write
+### Exactly once semantics
 
-The read-process-write loop builds on the transactional producers discussed above by adding consumers in the transactional scope of the producers, so that each record is read, processed and written in an atomic fashion.
-The consumer must be configured to read only non-transactional messages, or committed transactional messages by setting the below property –
+Exactly once semantics builds on the transactional producers discussed above by adding consumers in the transactional scope of the producers, so that each record is guaranteed to be read, processed and written **exactly once**.
+
+First the transactional producer is instantiated as shown below - 
+
+```java
+
+    producerProps.put("enable.idempotence", "true");
+    producerProps.put("transactional.id", "transactional-producer-1");
+    KafkaProducer<K, V> producer = new KafkaProducer(producerProps);
+
+    producer.initTransactions();
+
+```
+
+Then, the consumer must be configured to read only non-transactional messages, or committed transactional messages by setting the below property –
 
 ```java
 	consumerProps.put(“isolation.level”, “read_committed”);
 	KafkaConsumer <K,V> consumer = new KafkaConsumer<>(consumerProps);
 ```
 
-Once the consumer is instantiated, it can be subscribe to the topic from where the records must be read –
+Once the consumer is instantiated, it can subscribe to the topic from where the records must be read –
+
 ```java
-    consumer.subscribe(“inputTopic”);
+    consumer.subscribe(singleton(“inputTopic”));
 ```
 
-After this, the read-process-write loop can be executed as shown below.
+After the consumer polls the records from the input topic, the producer begins the transactional scope within which the record is processed and written to the output topic. Once the records are written, the updated map of offsets for all partitions is created. The producer then sends this updated offset map to the transaction before committing the transaction.
+
+In case of any exception, the transaction is aborted and the producer retries the processing once again atomically.
 
 ```java
 	while (true) {
 		ConsumerRecords records = consumer.poll(Long.Max_VALUE);
 		producer.beginTransaction();
-		for (ConsumerRecord record : records) {
-			// process record
-    // Write to output topic
-	producer.send(producerRecord(“outputTopic”, record));
-		}
-		producer.sendOffsetsToTransaction(currentOffsets(consumer), group);
-		producer.commitTransaction();
+        try {
+    		for (ConsumerRecord record : records) {
+    			/*
+                    Process record as appropriate
+                */
+                // Write to output topic
+    	        producer.send(producerRecord(“outputTopic”, record));
+    		}
+    
+            /*
+                Generate the offset map to be committed.
+            */
+            Map <TopicPartition, OffsetAndMetadata> offsetsToCommit = new Hashap<>();
+            for (TopicPartition partition : records.partitions()) {
+                // Calculate the offset to commit and populate the map.
+                offsetsToCommit.put(partition, new OffsetAndMetadata(calculated_offset))
+            }
+            
+            // send offsets to transaction and then commit the transaction.
+    		producer.sendOffsetsToTransaction(offsetsToCommit, group);
+    		producer.commitTransaction();
+        } catch (Exception e)
+        {
+            producer.abortTransaction();
+        }
 	}
 ```
 
-### Exactly once semantics
-
-Exactly once semantics, as the name suggests, ensures that data is processed in an idempotent and atomic fashion. These guarantees are provided in the context of Kafka Streams only, by setting the below setting in the stream properties.
-
-```xml
-	processing.guarantee=exactly_once
-```
-
-We will cover this in [Kafka streams](apache-kafka-streams.md).
-
+> [!WARNING]
+>If the transaction is neither committed or aborted before the `max.transaction.timeout.ms`, the transaction will be aborted by Event Hubs automatically. The default `max.transaction.timeout.ms` is set to **15 minutes** by Event Hubs, but the producer can override it to a lower value by setting the `transaction.timeout.ms` property in the producer configuration properties.
 
 ## Migration Guide
+
 If you have existing Kafka applications that you’d like to use with Azure Event Hubs, please review the [Kafka migration guide for Azure Event Hubs](apache-kafka-migration-guide.md) to hit the ground running quickly.
 
 ## Next steps
+
 To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
 
 - [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
