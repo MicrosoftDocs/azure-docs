@@ -24,13 +24,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| May  1 | [Defender for open-source databases is now available for RDS instances on AWS (Preview)](#defender-for-open-source-databases-is-now-available-for-rds-instances-on-aws-preview) |
+| May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
 
-### Defender for open-source databases is now available for RDS instances on AWS (Preview)
+### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
 
 May 1, 2024
 
-We are announcing the availability of Defender for open-source databases for relation database service (RDS) instances on AWS.
+We are announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relation Database Service (RDS) instance types.
 
 Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
 

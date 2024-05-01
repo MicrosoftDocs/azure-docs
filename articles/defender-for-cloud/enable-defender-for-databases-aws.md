@@ -1,7 +1,7 @@
 ---
 title: Enable Defender for open-source relational databases on AWS
 description: Learn how to enable Microsoft Defender for open-source relational databases to detect potential security threats on AWS environments.
-ms.date: 04/09/2024
+ms.date: 05/01/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -20,7 +20,7 @@ Microsoft Defender for Cloud detects anomalous activities in your AWS environmen
 
 To get alerts from the Microsoft Defender plan, you need to follow the instructions on this page to enable Defender for open-source relational databases on AWS.
 
-The Defender for open-source relational databases on AWS plan also includes the ability to discover sensitive data within your account and enrich the Defender for Cloud experience with the findings. This is included with Defender CSPM.
+The Defender for open-source relational databases on AWS plan also includes the ability to discover sensitive data within your account and enrich the Defender for Cloud experience with the findings. This is feature is included with Defender CSPM.
 
 Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
