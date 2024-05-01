@@ -66,7 +66,7 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
 | Customer-managed planned failover      | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but a networking or compute outage in the primary region is preventing your workloads from functioning properly. | [No](#anticipate-data-loss-and-inconsistencies)  | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
-| Customer-managed failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
+| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
 | Microsoft-managed                      | Entire region or scale unit   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
 
 ### Customer-managed planned failover (preview)
@@ -161,8 +161,8 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|
-| **Customer-managed failover**         | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
-| **Customer-managed planned failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
+| **Customer-managed (unplanned) failover**         | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
+| **Customer-managed planned failover (preview)** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
 | **Microsoft-managed failover**        | All account types | General-purpose v2 accounts |
 
 #### Classic storage accounts
@@ -197,11 +197,7 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 
 The following features and services aren't supported for account failover:
 
-<<<<<<< HEAD
-- Azure File Sync doesn't support storage account failover. Storage accounts containing Azure file shares and being used as cloud endpoints in Azure File Sync shouldn't be failed over. Doing so causes sync to stop working and can also result in the unexpected data loss of any newly tiered files.
-=======
 - Azure File Sync doesn't support customer initiated storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync shouldn't be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. For more information, see [Best practices for disaster recovery with Azure File Sync](../file-sync/file-sync-disaster-recovery-best-practices.md#geo-redundancy) for details.
->>>>>>> b0251d6c901d3996167ff0157be8b302a49725a1
 - A storage account containing premium block blobs can't be failed over. Storage accounts that support premium block blobs don't currently support geo-redundancy.
 - Customer-managed failover isn't supported for either the source or the destination account in an [object replication policy](../blobs/object-replication-overview.md).
 - An account with SSH File Transfer Protocol (SFTP) enabled can't be failed over. To fail over an SFTP-enabled account, you must first [disable SFTP for the account](../blobs/secure-file-transfer-protocol-support-how-to.md#disable-sftp-support). You can [re-enable sftp](../blobs/secure-file-transfer-protocol-support-how-to.md#enable-sftp-support) if you want to resume using it after the failover is complete.

@@ -53,7 +53,7 @@ After failover, your storage account's new redundancy configuration temporarily 
 The failback process is essentially the same as the failover process, except Azure stores the original redundancy configuration of your storage account and restores it to its original state upon failback. So, if your storage account was originally configured as GZRS, the storage account will be GZRS after failback.
 
 > [!NOTE]
-> Unlike [customer-managed failover](storage-failover-customer-managed-unplanned.md), during planned failover, replication from the primary to secondary region is allowed to finish before the DNS entries for the endpoints are changed to the new secondary. Because of this, data loss is not expected during failover or failback as long as both the primary and secondary regions are available throughout the process.
+> Unlike [customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md), during planned failover, replication from the primary to secondary region is allowed to finish before the DNS entries for the endpoints are changed to the new secondary. Because of this, data loss is not expected during failover or failback as long as both the primary and secondary regions are available throughout the process.
 
 ## How to initiate a failover
 
