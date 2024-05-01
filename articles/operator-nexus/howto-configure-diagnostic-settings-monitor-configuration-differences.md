@@ -29,7 +29,7 @@ In this guide, we walk you through the process of setting up diagnostic settings
 
 - After accessing the diagnostic settings section, select "Add diagnostic setting".
 
-    :::image type="content" source="media/network-device-dignostics-settings.png" alt-text="Screenshot of diagnostics settings page for network device.":::
+    :::image type="content" source="media/network-device-diagnostics-settings.png" alt-text="Screenshot of diagnostics settings page for network device.":::
 
 - Within the diagnostic settings, provide a descriptive name for the diagnostic setting to easily identify its purpose.
 
@@ -57,6 +57,6 @@ In this guide, we walk you through the process of setting up diagnostic settings
 
 - Within the Log Analytics Workspace, access the query interface or log search functionality.
 
-    :::image type="content" source="media/network-device-config-difference.png" alt-text="Screenshot of comparison of configuration differences for a network device in a visual format.":::
+    :::image type="content" source="media/network-device-configuration-difference.png" alt-text="Screenshot of comparison of configuration differences for a network device in a visual format.":::
 
 - In the query interface, specify the event category as "MNFSystemSessionHistoryUpdates". This filters the logs to specifically show configuration updates and changes comprehensively.
