@@ -9,7 +9,7 @@ ms.author: jfggdl
 
 # Namespace topic push delivery event handlers
 
-An event handler is typically an application or Azure service to which events are sent by namespace topics' push delivery mechanism. Event handlers, or sometimes called destinations, receive events and usually take an action as a way to react to the event. For example, you can use any public endpoint (webhook) to handle events. The webhook doesn't need to be hosted on Azure.
+An event handler is typically an application or Azure service that receives events sent by namespace topics' push delivery mechanism. Event handlers, or sometimes called destinations, receive events and usually take an action as a way to react to the event. For example, you can use any public endpoint (webhook) to handle events. The webhook doesn't need to be hosted on Azure.
 
 ## Supported event handlers
 

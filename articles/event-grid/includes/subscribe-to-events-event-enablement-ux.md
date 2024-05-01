@@ -19,14 +19,14 @@ At this point, Microsoft Graph API events should be arriving on your activated p
 
 ### Deploy the Event viewer application
 
-To test your partner topic, deploy a the [Event Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer), which is a pre-built web app. The Event Viewer app displays all events delivered to it. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+To test your partner topic, deploy a the [Event Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer), which is a prebuilt web app. The Event Viewer app displays all events delivered to it. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-1. Select **Deploy to Azure** below to deploy the solution to your Azure subscription. In the Azure portal, provide values for the parameters.
+1. Select **Deploy to Azure** to deploy the solution to your Azure subscription. In the Azure portal, provide values for the parameters.
 
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json":::
 
 2. On the **Custom deployment** page, do the following steps: 
-    1. Select a **Resource group** where the application will be deployed.  
+    1. Select a **Resource group** where the application is deployed.  
     2. For **Site Name**, enter a name for the web app.
     3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
     5. Select **Review + create**. 
@@ -42,7 +42,7 @@ To test your partner topic, deploy a the [Event Viewer](https://github.com/Azure
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
     
     :::image type="content" source="./media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the App Service page with the link to the site highlighted.":::
-6. Confirm that you see the site but no events have been posted to it yet.
+6. Confirm that you see the site but no events are posted to it yet.
 
     :::image type="content" source="./media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
 
@@ -65,6 +65,6 @@ You subscribe to an Event Grid partner topic to tell Event Grid which events you
         :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Provide endpoint URL":::
     6. Back on the **Create Event Subscription** page, select **Create**.
 
-3. View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
+3. View your web app again, and you should see a new subscription validation event. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
     :::image type="content" source="./media/custom-event-quickstart-portal/view-subscription-event.png" alt-text="Screenshot of the Event Grid Viewer app with the Subscription Validated event.":::

@@ -60,16 +60,16 @@ After 5 minutes, Event Grid continues to retry every 5 minutes until the event i
 You can customize the retry policy by using the following two event subscription configuration properties. An event is dropped (no dead-letter configured) or dead-lettered if either property reaches its configured limit.
 
 - **Maximum delivery count** - The value must be an integer between 1 and 10. The default value is 10. For push delivery, this property defines the maximum delivery **attempts**.
-- **Retention** -  This property is also known as `event time to live`. The value must be an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#durations) value with minute precision. Starting from the time the event was published, this property defines the time span after which the message expires. The minimum value allowed is "`PT1M`" (1 minute). The maximum value allowed is 7 days or the underlying topic’s retention time, whichever is lower. Azure Portal provides a simple user experience where you specify the days, hours, and minutes as integers.
+- **Retention** -  This property is also known as `event time to live`. The value must be an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#durations) value with minute precision. Starting from the time the event was published, this property defines the time span after which the message expires. The minimum value allowed is "`PT1M`" (1 minute). The maximum value allowed is 7 days or the underlying topic’s retention time, whichever is lower. Azure portal provides a simple user experience where you specify the days, hours, and minutes as integers.
 
 > [!NOTE]
 > If you set both `Retention` and `Maximum delivery count`, Event Grid uses them to determine when to stop event delivery. Either one stops event delivery. For example, if you set 20 minutes as retention and 10 maximum delivery attempts, that means that when an event isn't delivered after 20 minutes or isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered. However, because of the [retry schedule](#retry-schedule), setting the maximum number of delivery attempts to 10 has no impact as events will be dead-lettered first after 20 minutes. This is due to the fact at minute 20, the delivery attempt #8 (0, 10s, 30s, 1m, 5m, 10m, 15m, 20m) occurs, but at that time the event is dead-lettered.
 
 ## Output batching
 
-When using **Webhooks** as destination endpoint type, Event Grid defaults to sending each event individually to subscribers. You can configure Event Grid to batch events for delivery for improved HTTP performance in high throughput scenarios. Batching is turned off by default and can be turned on per event subscription.
+When you use **Webhooks** as destination endpoint type, Event Grid defaults to sending each event individually to subscribers. You can configure Event Grid to batch events for delivery for improved HTTP performance in high throughput scenarios. Batching is turned off by default and can be turned on per event subscription.
 
-When using **Event Hubs** as detination endpoint type, Event Grid always batches events for maximum efficiency and performance. There are no batch policy configuration available as by default Event Grid handles the batching behavior when delivering to Azure Event Hubs.
+When using **Event Hubs** as destination endpoint type, Event Grid always batches events for maximum efficiency and performance. There's no batch policy configuration available as by default Event Grid handles the batching behavior when delivering to Azure Event Hubs.
 
 ### Batching policy
 
@@ -88,7 +88,7 @@ Batched delivery is configured on a per event subscription basis via the portal,
 
 * Optimistic batching
 
-  The batching policy settings aren't strict bounds on the batching behavior, and are respected on a best-effort basis. At low event rates, you'll often observe the batch size being less than the requested maximum events per batch.
+  The batching policy settings aren't strict bounds on the batching behavior, and are respected on a best-effort basis. At low event rates, you often observe the batch size being less than the requested maximum events per batch.
 
 * Default is set to OFF
 
@@ -106,7 +106,7 @@ You see these settings on the **Additional Features** tab of the **Event Subscri
 
 ## Dead-letter events
 
-When Event Grid can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Event Grid dead-letters an event when **one of the following** conditions is met.
+When Event Grid can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it sends the event to a storage account. This process is known as **dead-lettering**. Event Grid dead-letters an event when **one of the following** conditions is met.
 
 - Event isn't delivered within the **time-to-live** (retention defined in the event subscription) period.
 - The **number of tries** to deliver the event has exceeded the limit.

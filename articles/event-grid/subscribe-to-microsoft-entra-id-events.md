@@ -41,7 +41,7 @@ This article describes steps to subscribe to events published by Microsoft Entra
     1. For **Change type**, select the type of event notifications you want to flow to the partner topic.
     1. For **Expiration time**, specify a date and time.
     1. For **Client state**, specify a value to validate requests.
-    1. Select **Enable lifecycle events** if you want lifecycle events to be sent to your partner topic. This is recommended. Receiving lifecycle event allows you to know with anticipation when your Microsoft Graph API subscription is about to expire so that you can take actions for renewing it.
+    1. Select **Enable lifecycle events** if you want lifecycle events to be sent to your partner topic. Receiving lifecycle event allows you to know with anticipation when your Microsoft Graph API subscription is about to expire so that you can take actions for renewing it.
 1. Select **Next: Partner Configuration** at the bottom of the page.
 [!INCLUDE [authorize-verified-partner-to-create-topic-event-enablement-ux](includes/authorize-verified-partner-to-create-topic-event-enablement-ux.md)]
 
@@ -54,11 +54,11 @@ This article describes steps to subscribe to events published by Microsoft Entra
 
 ## Test the event flow
 
-You are now ready to test your Microsoft Graph API subscription, partner topic and its event subscription. According to the change type provided when you created the Microsoft Graph API susbcription, create, update, or delete the resource that you are tracking. You should see an event displayed on the Event Viewer application for every resource change you make.
+You're now ready to test your Microsoft Graph API subscription, partner topic and its event subscription. According to the change type provided when you created the Microsoft Graph API subscription, create, update, or delete the resource that you're tracking. You should see an event displayed on the Event Viewer application for every resource change you make.
 
 ## Next steps
 
 - Build your own partner event handler application
-  - Use the [sample applications](subscribe-to-graph-api-events.md#samples-with-detailed-instructions) as a way to expedite your development effort. After you have your application, you can update the event subscription endpoint with that of your application.
+  - Use the [sample applications](subscribe-to-graph-api-events.md#samples-with-detailed-instructions) as a way to expedite your development effort. After you have your application, you can update the event subscription endpoint with your application's endpoint.
   - For production purposes, you may want to automate the creation of the Microsoft Graph API subscription and hence the partner topic. To that end, the sample applications are also a good resource. You may want to consult the code snippets in section [How to create a Microsoft Graph API subscription](subscribe-to-graph-api-events.md#how-to-create-a-microsoft-graph-api-subscription) for quick reference.
-  - The sample applications also show your how to renew your Microsoft Graph API subscription, something you want to do before the subscription expires and the event flow stops. You should understand the concepts behind subscription renewal and the APIs called in section [How to renew a Microsoft Graph API subscription](subscribe-to-graph-api-events.md#how-to-renew-a-microsoft-graph-api-subscription)
+  - The sample applications also show you how to renew Microsoft Graph API subscriptions to ensure a continuous flow of events. You should understand the concepts behind subscription renewal and the APIs called in section [How to renew a Microsoft Graph API subscription](subscribe-to-graph-api-events.md#how-to-renew-a-microsoft-graph-api-subscription)

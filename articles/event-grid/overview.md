@@ -30,7 +30,7 @@ Azure Event Grid is used at different stages of data pipelines to achieve a dive
 - Your custom applications
 - External partner (SaaS) systems
 
-When using push delivery, Event Grid can send data to destinations that include your own application webhooks and Azure services.
+Event Grid's push delivery mechanism sends data to destinations that include your own application webhooks and Azure services.
 
 ## Capabilities
 
@@ -57,7 +57,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **Your own application events** - Use Event Grid to route, filter, and reliably deliver custom events from your app.
 - **Partner events** – Subscribe to your partner SaaS provider events and process them on Azure.
 - **Advanced filtering** – Filter on event type or other event attributes to make sure your event handlers or consumer apps receive only relevant events.
-- **Reliability** – Push delivery features a 24-hour retry mechanism with exponential backoff to make sure events are delivered. Using pull delivery, your application has full control over event consumption.
+- **Reliability** – Push delivery features a 24-hour retry mechanism with exponential backoff to make sure events are delivered. If you use pull delivery, your application has full control over event consumption.
 - **High throughput** - Build high-volume integrated solutions with Event Grid.
 
 ## Use cases
@@ -139,7 +139,7 @@ An event subscription is a generic configuration resource that allows you to def
 
 ### Pull delivery of discrete events
 
-Azure Event Grid features [pull CloudEvents delivery](pull-delivery-overview.md#push-and-pull-delivery). Using this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.
+Azure Event Grid features [pull CloudEvents delivery](pull-delivery-overview.md#push-and-pull-delivery). With this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.
 
 #### Receive events at your own pace
 :::image type="content" source="media/overview/pull-events-at-your-own-pace.png" alt-text="High-level diagram of a publisher and consumer application. The publisher sends events to Event Grid at a higher pace than the subscriber's event consumption rate." lightbox="media/overview/pull-events-at-your-own-pace-high-res.png" border="false":::
