@@ -1,7 +1,7 @@
 ---
 title: AI security posture management
 description: Learn about AI security posture management in Microsoft Defender for Cloud and how it protects resources from AI threats.
-ms.date: 04/18/2024
+ms.date: 05/01/2024
 ms.topic: concept-article
 ms.author: elkrieger
 author: Elazark
@@ -31,8 +31,6 @@ Defenders for Cloud automatically and continuously discover deployed AI workload
 In addition to discovering deployed AI workloads, Defender for Cloud can also discover vulnerabilities within generative AI library dependencies such as TensorFlow, PyTorch, and Langchain. By scanning source code for Infrastructure as Code (IaC) misconfigurations and container images for vulnerabilities.
 
 Regularly updating or patching these can prevent exploits, protecting generative AI applications and maintaining their integrity.
-
-Libraries such as TensorFlow, PyTorch, and Langchain. Regularly updating or patching these can prevent exploits, protecting generative AI applications and maintaining their integrity.
 
 With these features, Defender for Cloud provides full visibility of AI workloads from code to cloud.
 
@@ -68,8 +66,6 @@ Current IaC AI security checks include:
 - Restrict Azure AI Service Endpoints
 - Use Managed Identity for Azure AI Service Accounts
 - Use identity-based authentication for Azure AI Service Accounts
-
-:::image type="content" source="media/ai-security-posture/misconfigurations.png" alt-text="Screenshot that shows where the security checks can be found in the portal." lightbox="media/ai-security-posture/misconfigurations.png":::
 
 ## Related content
 

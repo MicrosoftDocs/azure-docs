@@ -1,7 +1,7 @@
 ---
 title: Overview - AI threat protection
 description: Learn about AI threat protection in Microsoft Defender for Cloud and how it protects your resources from AI threats.
-ms.date: 04/18/2024
+ms.date: 05/01/2024
 ms.topic: overview
 ms.author: elkrieger
 author: Elazark
@@ -17,12 +17,6 @@ The Defender for AI Workloads plan in Microsoft Defender for Cloud provides AI t
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Defender for Cloud's AI threat protection integrates with [Azure AI Content Safety Prompt Shields](../ai-services/content-safety/concepts/jailbreak-detection.md) and Microsoft's threat intelligence signals to deliver contextual and actionable security alerts associated with a range of threats such as sensitive data leakage, data poisoning, jailbreak and credentials theft.
-
-- **Sensitive data leak and data poisoning** - The inadvertent exposure or manipulation of sensitive organizational data, poses significant risks to confidentiality and compliance.
-
-- **Jailbreak** - When threat actors exploit vulnerabilities in generative AI applications to bypass safety mechanisms, provoke restricted behaviors, and compromise the integrity of AI applications.
-
-- **Credential threat** - Unauthorized attempts to obtain privileged information, such as usernames and passwords, from AI systems can lead to unauthorized access and data breaches.
 
 :::image type="content" source="media/ai-threat-protection/threat-protection-ai.png" alt-text="Conceptual image that shows how enabling, detection and response works for threat protection." lightbox="media/ai-threat-protection/threat-protection-ai.png":::
 
