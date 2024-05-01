@@ -65,7 +65,7 @@ The deployed proxy VM size is *Standard A1_v2*, in addition to the build VM. The
 
 | Setting | Description |
 |---------|---------|
-| `subnetId` | Resource id of a pre-existing subnet. |
+| `subnetId` | The resource id of a pre-existing subnet on which the build VM and validation VM will be deployed. |
 
 Private Link requires an IP from the specified virtual network and subnet. Currently, Azure doesn’t support network policies on these IPs. Hence, you must disable network policies on the subnet. For more information, see the [Private Link documentation](../../private-link/index.yml).
 
