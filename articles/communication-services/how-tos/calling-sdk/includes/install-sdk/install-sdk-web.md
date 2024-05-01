@@ -1,13 +1,13 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 04/30/2024
+ms.author: micahvivion
 ---
 ## Install the SDK
 
-Use the `npm install` command to install the Azure Communication Services Common and Calling SDKs for JavaScript:
+Use the `npm install` command to install the Azure Communication Services Common and Calling SDK for JavaScript:
 
 ```console
 npm install @azure/communication-common --save
@@ -44,11 +44,17 @@ const callAgent = await callClient.createCallAgent(tokenCredential, {displayName
 const deviceManager = await callClient.getDeviceManager()
 ```
 
-### Manage ACS SDK connectivity for incoming calls
+### How to best manage SDK connectivity to Microsoft infrastructure
 
-A `Call Agent` instance lets you start/join and manage incoming calls. Your `Call Agent` instance needs to be connected to ACS infrastructure to receive incoming calls. This connection is established when a `Call Agent` instance is created, but sometimes, for example when the network is unstable, the connection may not be set up, or it may break during the lifecycle of `Call Agent`. ACS SDK always tries to stay connected with ACS infrastructure. It keeps retrying to connect when the connection is lost.
+The `Call Agent` instance helps you manage calls (to join or start calls). In order to work your calling SDK needs to connect to Microsoft infrastructure to get notifications of incoming calls and coordinate other call details. Your `Call Agent` has two possible states:
 
-You can check if `Call Agent` is connected to ACS infra by looking at the current value of `connectionState` property and listening to `connectionStateChanged` event from `Call Agent`.
+**Connected** - A `Call Agent` connectionStatue value of `Connected` means the client SDK is connected and capable of receiving notifications from Microsoft infrastructure.
+
+**Disconnected** - A `Call Agent` connectionStatue value of `Disconnected` states there's an issue that is preventing the SDK it from properly connecting. `Call Agent` should be re-created.
+- `invalidToken`: If a token is expired or is invalid `Call Agent` instance disconnects with this error.
+- `connectionIssue`:  If there's an issue with the client connecting to Microsoft infrascture, after many retries `Call Agent` exposes the `connectionIssue` error.
+
+You can check if your local `Call Agent` is connected to Microsoft infrastructure by inspecting the current value of `connectionState` property. During an active call you can listen to the `connectionStateChanged` event to determine if `Call Agent` changes from **Connected** to **Disconnected** state.
 
 ```js
 const connectionState = callAgentInstance.connectionState;
@@ -61,8 +67,4 @@ const connectionStateCallback = (args) => {
 callAgentInstance.on('connectionStateChanged', connectionStateCallback);
 ```
 
-The above example illustrates how to manage connection state, whenever connection state is:
-- `Connected` - `Call Agent` instance is connected and capable of receiving notification from ACS infra. For example, receiving incoming call notifications.
-- `Disconnected` - `Call Agent` instance is disconnected. It is a terminal state. `Call Agent` should be re-created. Users should make sure it has no network problems.
--- reason `invalidToken` - if ACS token expired or it's invalid and application failed to provide new valid token. `Call Agent` instance will disconnect with this reason.
--- reason `connectionIssue` - if the network is down, and after many retries `Call Agent` fails to re-connect, it will disconnect with this reason. It usually indicates client network issues and can be re-stored as soon as the connectivity issue is resolved.
+
