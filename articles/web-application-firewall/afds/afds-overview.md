@@ -118,7 +118,7 @@ The WAF platform manages and dynamically updates bot signatures. You can set cus
 
 If bot protection is enabled, incoming requests that match bot rules are blocked, allowed, or logged based on the configured action. Bad bots are blocked, good bots are allowed, and unknown bots are logged by default. You can set custom actions to block, allow, log, or JS challenge for different types of bots. You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
 
-The Bot Manager 1.1 ruleset is available on Azure Front Door premium version.
+The Bot Manager 1.1 rule set is available on Azure Front Door premium version.
 
 ## Configuration
 

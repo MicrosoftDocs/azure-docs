@@ -175,6 +175,8 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 
 ### Bot Manager 1.0
 
+The Bot Manager 1.0 rule set provides protection against malicious bots and detection of good bots. The rules provide granular control over bots detected by WAF by categorizing bot traffic as Good, Bad, or Unknown bots. 
+
 |Rule group|Description|
 |---|---|
 |[BadBots](#bot100)|Protect against bad bots|
@@ -182,6 +184,8 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |[UnknownBots](#bot300)|Identify unknown bots|
 
 ### Bot Manager 1.1
+
+The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. They provide enhanced protection against malicious bots, and increases good bot detection.
 
 |Rule group|Description|
 |---|---|
@@ -1060,7 +1064,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 
 # [Bot Manager 1.0](#tab/bot)
 
-## <a name="bot"></a> Bot manager rule sets
+## <a name="bot"></a> 1.0 rule sets
 
 ### <a name="bot100"></a> Bad bots
 |RuleId|Description|
@@ -1091,7 +1095,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 
 # [Bot Manager 1.1](#tab/bot11)
 
-## <a name="bot"></a> Bot manager rule sets
+## <a name="bot11"></a> 1.1 rule sets
 
 ### <a name="bot11-100"></a> Bad bots
 |RuleId|Description|
