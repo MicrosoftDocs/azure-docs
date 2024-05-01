@@ -84,6 +84,10 @@ Create a lakehouse in your Microsoft Fabric workspace:
     curl -O https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/datalake-connector.yaml
     ```
 
+    The following snippet shows the YAML file that you applied:
+
+    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/datalake-connector.yaml":::
+
 1. Open the _datalake-connector.yaml_ file in a text editor and replace `<your-workspace-name>` with the name of your Microsoft Fabric workspace. You made a note of this value when you created the workspace.
 
 1. Save the file.
