@@ -1,6 +1,6 @@
 ---
 title: How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric
-description: Process of configure diagnostic settings and monitor configuration differences in Nexus Network Fabric
+description: Process of configuring diagnostic settings and monitor configuration differences in Nexus Network Fabric
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -45,9 +45,9 @@ In this guide, we walk you through the process of setting up diagnostic settings
 
     :::image type="content" source="media/network-device-log-analytics-workspace.png" alt-text="Screenshot of configuration page for selecting Log Analytics Workspace as the log destination for a network device.":::
 
->[!Note:]
->In our example, we'll push the logs to the Log Analytics Workspace.<br>
->To set up the Log Analytics Workspace, if you haven't done so already, you might need to create one. Simply follow the prompts to create a new workspace or select an existing one.
+> [!Note]
+> In our example, we'll push the logs to the Log Analytics Workspace.<br>
+> To set up the Log Analytics Workspace, if you haven't done so already, you might need to create one. Simply follow the prompts to create a new workspace or select an existing one.
 
 - Once the log destination is configured, confirm the settings and save.
 
@@ -59,4 +59,4 @@ In this guide, we walk you through the process of setting up diagnostic settings
 
     :::image type="content" source="media/network-device-configuration-difference.png" alt-text="Screenshot of comparison of configuration differences for a network device in a visual format.":::
 
-- In the query interface, specify the event category as "MNFSystemSessionHistoryUpdates". This filters the logs to specifically show configuration updates and changes comprehensively.
+- In the query interface, specify the event category as "MNFSystemSessionHistoryUpdates". This will filter the logs to specifically show configuration updates and changes comprehensively.
