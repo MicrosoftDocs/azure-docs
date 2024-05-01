@@ -69,18 +69,6 @@ What parameters are configured in your data asset dictates what metrics you can 
 
 For more information, see [question answering metric requirements](evaluate-generative-ai-app.md#question-answering-metric-requirements).
 
-## screenshots
-
-:::image type="content" source="../media/deploy-monitor/monitor/column-map-advanced-options.png" alt-text="Screenshot of advanced options when mapping columns for monitoring metrics." lightbox = "../media/deploy-monitor/monitor/column-map-advanced-options.png":::
-
-:::image type="content" source="../media/deploy-monitor/monitor/deployment-page.png" alt-text="Screenshot of the deployment page." lightbox = "../media/deploy-monitor/monitor/deployment-page.png":::
-
-:::image type="content" source="../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png" alt-text="Screenshot of the deployment page highlighting generation quality monitoring." lightbox = "../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png":::
-
-:::image type="content" source="../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png" alt-text="Screenshot of the review page when setting up the deployment with data collectin enabled." lightbox = "../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png":::
-
-:::image type="content" source="../media/deploy-monitor/monitor/trace-information.png" alt-text="Screenshot showing the trace information." lightbox = "../media/deploy-monitor/monitor/trace-information.png":::
-
 ## Set up monitoring for prompt flow 
 
 Follow these steps to set up monitoring for your prompt flow deployment:
@@ -118,15 +106,15 @@ Follow these steps to set up monitoring for your prompt flow deployment:
 
 1. Navigate to the **Deployments** tab and select the prompt flow deployment you just created after it has successfully been deployed. 
 
-    :::image type="content" source="../media/deploy-monitor/monitor/deployment-page.png" alt-text="Screenshot of the prompt flow deployment page" lightbox = "../media/deploy-monitor/monitor/enable-monitoring.png":::
+    :::image type="content" source="../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png" alt-text="Screenshot of the deployment page highlighting generation quality monitoring." lightbox = "../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png":::
 
 1. Ensure your columns are mapped from your flow as defined in the previous requirements. 
 
     :::image type="content" source="../media/deploy-monitor/monitor/column-map.png" alt-text="Screenshot of columns mapped for monitoring metrics." lightbox = "../media/deploy-monitor/monitor/column-map.png":::
 
-1. View your monitor in the **Monitor** tab.  
+   Select **Advanced settings** to adjust the sampling rate, 
 
-    :::image type="content" source="../media/deploy-monitor/monitor/monitor-metrics.png" alt-text="Screenshot of the monitoring result metrics." lightbox = "../media/deploy-monitor/monitor/monitor-metrics.png":::
+   :::image type="content" source="../media/deploy-monitor/monitor/column-map-advanced-options.png" alt-text="Screenshot of advanced options when mapping columns for monitoring metrics." lightbox = "../media/deploy-monitor/monitor/column-map-advanced-options.png":::
 
 By default, operational metrics such as requests per minute and request latency show up. The default safety and quality monitoring signal are configured with a 10% sample rate and run on your default workspace Azure OpenAI connection. 
 
@@ -162,7 +150,7 @@ Monitoring also provides a comprehensive table of all sampled requests (if 100 r
 
 :::image type="content" source="../media/deploy-monitor/monitor/generation-quality-tracing-information.png" alt-text="Screenshot showing the trace button for the generation quality." lightbox = "../media/deploy-monitor/monitor/generation-quality-tracing-information.png":::
 
-:::image type="content" source="../media/deploy-monitor/monitor/monitor-token-usage.png" alt-text="Screenshot showing the token usage on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/monitor-token-usage.png":::
+:::image type="content" source="../media/deploy-monitor/monitor/trace-information.png" alt-text="Screenshot showing the trace information." lightbox = "../media/deploy-monitor/monitor/trace-information.png":::
 
 You can also view the operational metrics for the deployment by navigating to the **Operational** tab. We support the following operational metrics:
 
