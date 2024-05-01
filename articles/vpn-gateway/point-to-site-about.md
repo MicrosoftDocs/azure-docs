@@ -35,7 +35,7 @@ Before Azure accepts a P2S VPN connection, the user has to be authenticated firs
 
 When using the native Azure certificate authentication, a client certificate that is present on the device is used to authenticate the connecting user. Client certificates are generated from a trusted root certificate and then installed on each client computer. You can use a root certificate that was generated using an Enterprise solution, or you can generate a self-signed certificate.
 
-The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
+The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure. Note that P2S VPN connection is supported only by route-based VPN Gateway. If have a policy-based VPN Gateway, you need to delete it and deploy a route-based VPN gateway instead.
 
 <a name='azure-active-directory-authentication'></a>
 
