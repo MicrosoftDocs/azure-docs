@@ -12,9 +12,7 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-t
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template
 
-In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer with associated resources.
-
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network. The template creates a virtual network, network interfaces, and an internal load balancer.
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
