@@ -51,9 +51,9 @@ You can enable the Defender for AI Workloads plan on an Azure subscription and A
 
 ### Remediate alerts
 
-After you have onboarded the Defender for AI Workloads plan, you can [manage and remediate the security alerts](managing-and-responding-alerts.md) that are generated for your AI workloads.
+After you have onboarded the Defender for AI Workloads plan, you can [manage and remediate the security alerts](managing-and-responding-alerts.yml) that are generated for your AI workloads.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage and respond to the security alerts](managing-and-responding-alerts.md)
+> [Manage and respond to the security alerts](managing-and-responding-alerts.yml)
