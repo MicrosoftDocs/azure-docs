@@ -20,7 +20,7 @@ On the Identity Validation pane, you can check the expiration date of your Ident
 1. In the [Azure portal](https://portal.azure.com/), go to your Trusted Signing account.
 1. Confirm that you are assigned the Trusted Signing Identity Verifier role.
 
-   - To learn more about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
+   - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
 1. On either the account Overview pane or the Objects pane, select **Identity Validation**.
 1. Select the Identity Validation request that needs to be renewed. On the menu bar, select **Renew**.
 

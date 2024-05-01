@@ -12,32 +12,39 @@ ms.custom: references_regions
 
 # Quickstart: Get started with using Trusted Signing
 
-Trusted Signing is a fully managed, end-to-end certificate signing service. In this quickstart, you create the following three Trusted Signing resources:
+Trusted Signing is an Azure fully managed, end-to-end certificate signing service. In this quickstart, you create the following three Trusted Signing resources:
 
 - A Trusted Signing account
-- An Identity Validation
+- An identity validation
 - A certificate profile
 
-Trusted Signing provides users with both an Azure portal and Azure CLI extension experience to create and manage their Trusted Signing resources.
+Trusted Signing gives you both an Azure portal and an Azure CLI extension experience to create and manage your Trusted Signing resources.
 
-*You can complete Identity Validation only in the Azure portal. You cannot complete Identity Validation by using the Azure CLI.*
+*You can complete identity validation only in the Azure portal. You cannot complete Identity Validation by using the Azure CLI.*
 
 ## Prerequisites
 
-An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin if you don’t already have.
+- A Microsoft Entra Tenant ID.
+
+   For more information, see [Create a Microsoft Entra tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization)
+
+- An Azure subscription.
+
+   If you don't already have one, see [Create an Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin.
 
 ## Register the Trusted Signing resource provider
 
-Before using Trusted Signing, you must first register the Trusted Signing resource provider.
+Before you use Trusted Signing, you must first register the Trusted Signing resource provider.
 
-**How to register**
-A resource provider is a service that supplies Azure resources. Use the Azure portal or Azure CLI az provider register command to register the Trusted Signing resource provider, 'Microsoft.CodeSigning'.
+To register a Trusted Signing resource provider:
+
+A resource provider is a service that supplies Azure resources. Use the Azure portal or the Azure CLI `az provider register` command to register the `Microsoft.CodeSigning` Trusted Signing resource provider.
 
 # [Azure portal](#tab/registerrp-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In either the Azure portal search box or under **All services**, select **Subscriptions**.
-1. Select the subscription where you intend to create Trusted Signing resources.
+1. In either the search box or under **All services**, select **Subscriptions**.
+1. Select the subscription where you want to create Trusted Signing resources.
 
    :::image type="content" source="media/trusted-signing-subscription-resource-provider.png" alt-text="Screenshot of trusted-signing-subscription-resource-provider." lightbox="media/trusted-signing-subscription-resource-provider.png":::
 
@@ -46,19 +53,19 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
    The status changes to **Registered**.
 
-   :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot of trusted-signing-resource-provider-registration." lightbox="media/trusted-signing-resource-provider-registration.png":::
+   :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource provider as registered." lightbox="media/trusted-signing-resource-provider-registration.png":::
 
 # [Azure CLI](#tab/registerrp-cli)
 
-1. If you're using a local installation, sign in to the Azure CLI by using the `az login` command.  
+1. If you're using a local installation of the Azure CLI, sign in to the Azure CLI by using the `az login` command.  
 
-1. To finish the authentication process, complete the steps that appear in your terminal. For other sign-in options, see [Sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
+1. To finish the authentication process, complete the steps that are described in your terminal. For other sign-in options, see [Sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-1. When you're prompted on first use, install the Azure CLI extension. For more information about using extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+1. When you're prompted on first use, install the Azure CLI extension. For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-1. To see the versions of the Azure CLI and dependent libraries that are installed, use the `az version` command.
+1. To see the versions of the Azure CLI and the dependent libraries that are installed, use the `az version` command.
 
-1. To upgrade to the latest version, use the following command:
+1. To upgrade to the latest versions, use the following code:
 
    ```bash
    az upgrade [--all {false, true}]
@@ -70,27 +77,27 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
 1. To register a Trusted Signing resource provider, use this command:
 
-    ```azurecli
-    az provider register --namespace "Microsoft.CodeSigning"
-    ```
+   ```azurecli
+   az provider register --namespace "Microsoft.CodeSigning"
+   ```
 
-1. You can verify that registration is complete with the command below: 
+1. You can verify that registration is complete by using this command:
 
-    ```azurecli
-    az provider show --namespace "Microsoft.CodeSigning"
-    ```
+   ```azurecli
+   az provider show --namespace "Microsoft.CodeSigning"
+   ```
 
-1. You can add the extension for Trusted Signing with the command below:
+1. To add the extension for Trusted Signing, use this command:
 
-    ```azurecli
-    az extension add --name trustedsigning
-    ```
+   ```azurecli
+   az extension add --name trustedsigning
+   ```
 
 ---
 
 ## Create a Trusted Signing account
 
-A Trusted Signing account is a logical container of identity validation and certificate profile resources.
+A Trusted Signing account is a logical container that holds identity validation and certificate profile resources.
 
 # [Azure portal](#tab/account-portal)
 
@@ -108,15 +115,17 @@ The resources must be created in an Azure region where Trusted Signing is curren
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On either the Azure portal menu or on the Home pane, select **Create a resource**.
 1. In the search box, enter and then select **Trusted Signing account**.
-1. On the Trusted Signing account pane, select **Create**.
+1. On the Trusted Signing account Overview pane, select **Create**.
 1. For **Subscription**, select your Azure subscription.
 1. For **Resource group**, select **Create new**, and then enter a resource group name.
-1. For **Account Name**, enter a unique account name. (See Certificate Profile naming constraints for naming requirements.)
-1. For **Region**, select an Azure region.
+1. For **Account Name**, enter a unique account name.
+
+   For naming requirements, see Certificate profile naming constraints for naming requirements.
+1. For **Region**, select an Azure region that supports Trusted Signing.
 1. For **Pricing**, select a pricing tier.
 1. Select the **Review + Create** button.
 
-    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-account-creation.png":::
+   :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-account-creation.png":::
 
 1. After you successfully create your Trusted Signing account, select **Go to resource**.  
 
@@ -129,7 +138,7 @@ The resources must be created in an Azure region where Trusted Signing is curren
 
 # [Azure CLI](#tab/account-cli)
 
-The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:
+You can create resources only in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:
 
 | Region                               | Region Class Fields  | Endpoint URI Value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
@@ -140,30 +149,30 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-
 Complete the following steps to create a Trusted Signing account with Azure CLI:
 
-1. Create a resource group using the following command (Skip this step if you plan to use an existing resource group):
+1. Create a resource group by using the following command. If you plan to use an existing resource group, skip this step.
 
-```
-az group create --name MyResourceGroup --location EastUS
-```
+   ```azurecli
+   az group create --name MyResourceGroup --location EastUS
+   ```
 
-2. Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.)
+1. Create a unique Trusted Signing account by using the following command. (See the below Certificate Profile naming constraints for naming requirements.)
 
-```
-trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
-```
+   ```azurecli
+   trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
+   ```
 
-Or
+   Or
 
-```
-trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
-```
-3. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+   ```azurecli
+   trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
+   ```
 
->[!Note]
->If you are using older version of CLI from Trusted Signing Private Preview, your account is defaulted to Basic SKU. To use Premium either upgrade CLI to latest version or use Azure portal to create account.
+1. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+
+   > [!NOTE]
+   > If you are using an earlier version of the Azure CLI from the Trusted Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
 
 **Helpful commands**:
 
@@ -174,44 +183,45 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 | `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Update tags                               |
 | `trustedsigning list -g MyResourceGroup`                                                 | To list accounts under the resource group |
 
-
 ---
 
-## Create an Identity Validation request
+## Create an identity validation request
 
-You can complete your own Identity Validation by filing out the request form with the information that should be included in the certificate.  Identity Validation can only be completed in the Azure portal – it can't be completed with Azure CLI.
+You can complete your own identity validation by filing out the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
-Here are the steps to create an Identity Validation request:
+Here are the steps to create an identity validation request:
 
-1. Navigate to your new Trusted Signing account in the Azure portal.
-2. Confirm you have the **Trusted Signing Identity Verifier role**.
-    - To learn more about Role Based Access management (RBAC) access management, see [Assigning roles in Trusted Signing](tutorial-assign-roles.md).
-3. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
-4. Select **New Identity Validation** > Public or Private.
-    - Public identity validation is applicable to certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
-    - Private identity validation is applicable to certificate profile types: Private Trust, Private Trust CI Policy.
-5. On the **New identity validation** screen, provide the following information:
+1. In the Azure portal, go to your new Trusted Signing accountl.
+1. Confirm you are assigned the Trusted Signing Identity Verifier role.
 
-| Input Fields       | Details     |
-| :------------------- | :------------------- |
-| **Organization Name**          | For Public Identity Validation, provide the Legal Business Entity to which the certificate will be issued. For Private Identity Validation, it defaults to your Azure Tenant Name.|
-| **(Private Identity Type only) Organizational Unit**          | Enter the relevant information|
-| **Website url**          | Enter the website that belongs to the Legal Business Entity.|
-| **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in seven days.  |
-| **Secondary Email**          | These email addresses must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
-| **Business Identifier**           |Enter a business identifier for the above Legal Business Entity.|
-| **Seller ID**          | Only applicable to Microsoft Store customers. Find your Seller ID on Partner Center portal.|
-| **Street, City, Country, State, Postal code**           | Enter the business address of the Legal Business Entity.|
+   - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
+1. On either the Trusted Signing account overview page or on Objects, select **Identity Validation**.
+1. Select **New Identity Validation**, and then select either **Public** or **Private**.
 
-6. **Certificate subject preview**:  The preview provides a snapshot of the information displayed in the certificate.
-7. **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
-8. Select the **Create** button.
+   - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
+   - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI Policy.
+1. On **New identity validation**, provide the following information:
+
+    | Input Fields       | Details     |
+    | :------------------- | :------------------- |
+    | **Organization Name**          | For Public Identity Validation, provide the Legal Business Entity to which the certificate will be issued. For Private Identity Validation, it defaults to your Azure Tenant Name.|
+    | **(Private Identity Type only) Organizational Unit**          | Enter the relevant information|
+    | **Website url**          | Enter the website that belongs to the Legal Business Entity.|
+    | **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in seven days.  |
+    | **Secondary Email**          | These email addresses must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
+    | **Business Identifier**           |Enter a business identifier for the above Legal Business Entity.|
+    | **Seller ID**          | Only applicable to Microsoft Store customers. Find your Seller ID on Partner Center portal.|
+    | **Street, City, Country, State, Postal code**           | Enter the business address of the Legal Business Entity.|
+
+1. **Certificate subject preview**:  The preview provides a snapshot of the information displayed in the certificate.
+1. **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
+1. Select the **Create** button.
 
 :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot of trusted-signing-identityvalidation-public." lightbox="media/trusted-signing-identity-validation-public.png":::
 
 :::image type="content" source="media/trusted-signing-identity-validation-private.png" alt-text="Screenshot of trusted-signing-identityvalidation-private." lightbox="media/trusted-signing-identity-validation-private.png":::
 
-### Important information for Public Identity Validation
+### Important information for public Identity Validation
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
@@ -226,76 +236,80 @@ Here are the steps to create an Identity Validation request:
 
 A certificate profile resource is the logical container of the certificates that will be issued to you for signing.
 
+### Certificate profile naming constraints
+
+Certificate profile names have some constraints.
+
+Certificate profile names must:
+
+- Be from 5 to 100 alphanumeric characters.
+- Begin with a letter, end with a letter or number, and not contain consecutive hyphens.
+- Be unique within the account.
+
+Certificate profile names are:
+
+- In the same Azure region as the account, by default inheritance.
+- Not case-sensitive (*ABC* is the same as *abc*).
+
 # [Azure portal](#tab/certificateprofile-portal)
 
- To create a certificate profile in the Azure portal, follow these steps:
+ To create a certificate profile in the Azure portal:
 
-1. In the Azure portal, go to your new trusted signing account.
-2. On the trusted signing account overview page or from Objects, select **Certificate Profile**.
-3. On the **Certificate Profiles**, choose the certificate profile type from the pull-down menu.
-    - Public identity validation is applicable to Public Trust, Public Trust Test.
-    - Private identity validation is applicable to Private Trust, Private Trust CI Policy.
-4. On the **Create certificate profile**, provide the following information:
+1. In the Azure portal, go to your new Trusted Signing account.
+1. On the Trusted Signing account Overview pane or on the Objects pane, select **Certificate Profile**.
+1. On **Certificate Profiles**, select the certificate profile type in the dropdown menu.
 
-   - **Certificate Profile Name**: A unique name is required. (See the below Certificate Profile naming constraints for naming requirements.)
-   - **Certificate Type**: This field is autopopulated based on your selection.
-   - In **Verified CN and O** pull-down menu, choose an identity validation that needs to be displayed on the certificate.
-   - Include **street address**, select the box if this field must be included in the certificate.
-   - Include **postal code**, select the box if this field must be included in the certificate.
-   - Generated **Certificate Subject Preview** shows the preview of the certificate issued.
-   - The values in remaining fields are autopopulated based on the selection in Verified CN and O.
-   - Select **Create**.
+    - Public identity validation is applicable to Public Trust and Public Trust Test.
+    - Private identity validation is applicable to Private Trust and Private Trust CI Policy.
+1. On **Create certificate profile**, provide the following information:
 
-:::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot of trusted-signing-certificateprofile-creation." lightbox="media/trusted-signing-certificate-profile-creation.png":::
+   1. For **Certificate Profile Name**, enter a unique name. For details, see [Certificate Profile naming constraints](#certificate-profile-naming-constraints).
 
-**Certificate Profile naming constraints**:
+      The value for **Certificate Type** is autopopulated based on your selection.
+   1. For **Verified CN and O**, select an identity validation that must be displayed on the certificate.
 
-- Between 5-100 alphanumeric characters.
-- Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Unique within the account.
-- Inherits region from the account.
-- Case insensitive (“Abc” is the same as “abc”).
+      - If the street address must be displayed on the certificate, select the **Include street address** checkbox.
+      - If the postal code must be displayed on the certificate, select the **Include postal code** checkbox.
+
+      The values for the remaining fields are autopopulated based on your selection for **Verified CN and O**.
+
+      A generated **Certificate Subject Preview** shows the preview of the certificate that will be issued.
+   1. Select **Create**.
+
+:::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/trusted-signing-certificate-profile-creation.png":::
 
 # [Azure CLI](#tab/certificateprofile-cli)
 
-To create a certificate profile with Azure CL:
+To create a certificate profile by using the Azure CL:
 
 1. Create a certificate profile by using the following command:
 
-   ```
+   ```azurecli
    trustedsigning certificate-profile create -g MyResourceGroup --a
    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    ```
 
-   - See the below Certificate Profile naming constraints for naming requirements.
+   For naming requirements, see [Certificate profile naming constraints](#certificate-profile-naming-constraints).
 
-2. Create a certificate profile that includes optional fields (street address or postal code) in subject name of certificate using the following command:
+1. Create a certificate profile that includes optional fields (street address or postal code) in subject name of certificate using the following command:
 
-```
-    trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
-```
+   ```azurecli
+   trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
+   ```
 
-3. Verify you successfully created a certificate profile by getting the Certificate Profile details using the following command:
+1. Verify you successfully created a certificate profile by getting the Certificate Profile details using the following command:
 
-```
-trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
-```
-
-**Certificate Profile naming constraints**:
-
-- Between 5-100 alphanumeric characters.
-- Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Unique within the account.
-- Inherits region from the account.
-- Case insensitive (“Abc” is the same as “abc”).
+   ```azurecli
+   trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
+   ```
 
 **Helpful commands**:
 
-| Command                               | Description  | 
+| Command                               | Description  |
 | :----------------------------------- | :------------------- |
-| `trustedsigning certificate-profile create -–help`                            | Show help for sample commands and detailed parameter descriptions              |
-| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            |List certificate profile under a Trusted Signing account          |
-| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Get details of a profile              |
+| `trustedsigning certificate-profile create -–help`                            | Show help for sample commands and show detailed parameter descriptions.              |
+| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            |List all certificate profiles that are associated with a Trusted Signing account.          |
+| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Get details for a profile.              |
 
 ---
 
@@ -303,54 +317,56 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 
 # [Azure portal](#tab/deleteresources-portal)
 
-Delete the Trusted Signing account:
+### Delete a certificate profile
+
+1. In the Azure portal, go to your Trusted Signing account.
+1. On the Trusted Signing account Overview pane or on the Objects pane, select **Certificate Profile**.
+1. On **Certificate Profiles**, select the certificate profile that you want to delete.
+1. Select **Delete**.
+
+> [!NOTE]
+> This action stops any signing that's associated with the corresponding certificate profiles.
+
+### Delete a Trusted Signing account
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the Search box, enter **Trusted Signing account**.
-3. From the results list, select **Trusted Signing account**.
-4. On the Trusted Signing account section, select the Trusted Signing account to be deleted.
-5. Select **Delete**.
+1. In the search box, enter and then select **Trusted Signing account**.
+1. In the Trusted Signing account section, select the Trusted Signing account that you want to delete.
+1. Select **Delete**.
 
 > [!NOTE]
-> This action removes all certificate profiles that are linked to this account, effectively halting the signing process associated with those specific certificate profiles.
-
-Delete the certificate profile:
-
-1. In the Azure portal, go to your trusted signing account.
-2. On the trusted signing account overview pane or on the Objects pane, select **Certificate Profile**.
-3. On the **Certificate Profiles**, choose the certificate profile to be deleted.
-4. Select **Delete**.
-
-> [!NOTE]
-> This action halts any signing associated with the corresponding certificate profiles.
+> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with those certificate profiles stops.
 
 # [Azure CLI](#tab/adeleteresources-cli)
 
-1. Delete the Trusted Signing account:
+### Delete a Trusted Signing account
 
-   ```
-   trustedsigning delete -n MyAccount -g MyResourceGroup
-   ```
+To delete a Trusted Signing account, run this command:
 
-   > [!NOTE]
-   > This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
+```azurecli
+trustedsigning delete -n MyAccount -g MyResourceGroup
+```
 
-1. Delete the certificate profile:
+> [!NOTE]
+> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with those certificate profiles stops.
 
-    ```
-   trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
-   ```
+### Delete a certificate profile
 
-   > [!NOTE]
-   > This action halts any signing associated with the corresponding certificate profiles.
+To delete a Trusted Signing account, run this command:
+
+```azurecli
+trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
+```
+
+> [!NOTE]
+> This action stops any signing that's associated with the corresponding certificate profiles.
 
 ---
 
-## Next steps
+## Related content
 
-In this Quickstart, you created a Trusted Signing account, an Identity Validation and a Certificate Profile. To delve deeper into Trusted Signing and kickstart your signing journey, explore the following articles:
+In this quickstart, you created a Trusted Signing account, an identity validation request, and a certificate profile. To learn more about Trusted Signing and to start your signing journey, explore the following articles:
 
-- [Learn more about the signing integrations.](how-to-signing-integrations.md)
-- [Learn more about different Trust Models supported in Trusted Signing](concept-trusted-signing-trust-models.md)
-- [Learn more about Certificate management](concept-trusted-signing-cert-management.md)
-
+- Learn more about [signing integrations](how-to-signing-integrations.md).
+- Learn more about the [trust models that Trusted Signing supports](concept-trusted-signing-trust-models.md).
+- Learn more about [certificate management](concept-trusted-signing-cert-management.md).
