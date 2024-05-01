@@ -1,5 +1,5 @@
 ---
-title: Move VM backup- standard to enhanced policy in Azure Backup
+title: Move VM backup - standard to enhanced policy in Azure Backup
 description: Learn how to trigger Azure VM backups migration from standard  policy to enhanced policy, and then monitor the configuration backup migration job.
 ms.topic: references
 ms.date: 05/02/2024
@@ -40,7 +40,7 @@ To do the policy migration, follow these steps:
 
    Select **View details**.
 
-   :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-item-details.png" alt-text="Screenshot shows how to view the backup item details.{alt-text}" lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-item-details.png":::
+   :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-item-details.png" alt-text="Screenshot shows how to view the backup item details." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-item-details.png":::
 
 5. On the **Change Backup Policy** blade, select **Policy subtype** as **Enhanced**, choose a *backup policy* to apply to the virtual machine, and then select **Change**.
 
@@ -50,9 +50,9 @@ To do the policy migration, follow these steps:
 
 To monitor the migration job on the **Backup Items** blade, select **View jobs**.
 
-:::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png" alt-text="{alt-text}" lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png":::
+:::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png" alt-text="Screenshot shows how to go to the Backup Jobs blade." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png":::
 
-The migration job is listed with Operation type Configure backup (Migrate policy)
+The migration job is listed with Operation type Configure backup (Migrate policy).
 
 :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/configure-backup-migrate-policy.png" alt-text="Screenshot shows the backup migration policy job listed." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/configure-backup-migrate-policy.png":::
 
