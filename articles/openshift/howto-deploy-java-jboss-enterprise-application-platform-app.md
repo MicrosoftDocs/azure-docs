@@ -176,7 +176,7 @@ The following sections show you how to set up Azure Database for MySQL - Flexibl
 
 ### Set environment variables in the command line shell
 
-The application is a Jakarta EE application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
+The sample is a Java application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
 
 Open a shell and set the following environment variables. Replace the substitutions as appropriate.
 
@@ -203,7 +203,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `ADMIN_PASSWORD`: The admin password of your MySQL database server. This article was tested using the password shown. Consult the database documentation for password rules.
 - `<red-hat-container-registry-service-account-username>` and `<red-hat-container-registry-service-account-password>`: The username and password of the Red Hat Container Registry service account you created before.
 
-It's a good idea to save the fully filled out name/value pairs in a text file, in case the shell exits or the Azure Cloud Shell times out before you're done executing the commands. That way, you can paste them into a new instance of the shell or Cloud Shell and easily continue.
+It's a good idea to save the fully filled out name/value pairs in a text file, in case the shell exits before you're done executing the commands. That way, you can paste them into a new instance of the shell and easily continue.
 
 These name/value pairs are essentially "secrets." For a production-ready way to secure Azure Red Hat OpenShift, including secret management, see [Security for the Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
 
