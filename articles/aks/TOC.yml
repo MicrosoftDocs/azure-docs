@@ -659,7 +659,7 @@
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
               href: istio-deploy-ingress.md
-            - name: Secure Istio ingress gateway
+            - name: Deploy secure Istio ingress gateway
               href: istio-secure-gateway.md
             - name: Plug-in CA certificates for Istio
               href: istio-plugin-ca.md
