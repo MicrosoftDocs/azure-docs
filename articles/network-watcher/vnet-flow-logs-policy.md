@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 05/01/2024
 ---
 
 # Manage virtual network flow logs using Azure Policy
