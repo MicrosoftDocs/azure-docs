@@ -25,9 +25,9 @@ For this Blazor web application, we are building off the Blazor [template](https
 @page "/openai"
 @rendermode InteractiveServer
 
-<PageTitle>Open AI</PageTitle>
+<PageTitle>OpenAI</PageTitle>
 
-<h3>Open AI Query</h3>
+<h3>OpenAI Query</h3>
 
 <input placeholder="Input query" @bind="newQuery" />
 <button class="btn btn-primary" @onclick="SemanticKernelClient">Send Request</button>
@@ -52,7 +52,7 @@ Next, we need to add the new page to the navigation so we can navigate to the se
 
 <div class="nav-item px-3">
     <NavLink class="nav-link" href="openai">
-        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Open AI
+        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> OpenAI
     </NavLink>
 </div>
 ```
@@ -61,9 +61,9 @@ After the Navigation is updated, we can start preparing to build the OpenAI clie
 
 ### API keys and endpoints
 
-In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application.  Retrieve and save the values for later use.
+In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application.  Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values.  For our application, you'll need the following values:
+For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values.  For our application, you need the following values:
 
 - `deploymentName`
 - `endpoint`
@@ -75,7 +75,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `modelId`
 
 Since we are deploying to App Service we can secure these secrets in **Azure Key Vault** for protection.  Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
-Next, we can use Key Vault references as app settings in our App Service resource to reference in our application.  Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
+Next, we can use Key Vault references as app settings in our App Service resource to reference in our application.  Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
 For Azure OpenAI, use the following settings:
@@ -319,4 +319,4 @@ If you have followed the steps above, you're ready to deploy to App Service.  If
 
 Although optional, it's highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service.  This can add a level of security with no other code.  Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
 
-Once deployed, browse to the web app and navigate to the Open AI tab.  Enter a query to the service and you should see a populated response from the server.  The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
+Once deployed, browse to the web app and navigate to the OpenAI tab.  Enter a query to the service and you should see a populated response from the server.  The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.

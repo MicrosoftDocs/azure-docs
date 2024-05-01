@@ -30,22 +30,22 @@ For this Spring Boot application, we'll be building off the [quickstart](https:/
 
 ### API Keys and Endpoints
 
-First, you'll need to grab the keys and endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
+First, you need to grab the keys and endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
 
-For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you'll need the following values:
+For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you need the following values:
 
 - `endpoint`
 - `apiKey`
 - `deploymentName`
 
-For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you'll need the following values:
+For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you need the following values:
 
 - `apiKey`
 - `modelName`
 
-Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we are deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
-Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
+Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
@@ -244,7 +244,7 @@ public class Application {
 
 ### Deploy to App Service
 
-If you completed the steps above you can deploy to App Service as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you've added in the portal.
+If you completed the steps above you can deploy to App Service as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
 
 Once deployed, you can visit your site URL and you will be greeted with the text that contains the response from your chat message prompt.  
 
@@ -253,4 +253,4 @@ Once deployed, you can visit your site URL and you will be greeted with the text
 
 Although optional, it's highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no other code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
 
-Once deployed, browse to the web app and navigate to the Open AI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
+Once deployed, browse to the web app and navigate to the OpenAI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
