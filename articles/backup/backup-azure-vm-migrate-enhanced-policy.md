@@ -21,7 +21,7 @@ Azure Backup now supports migration to the enhanced policy for Azure VM backups 
 - Migration is supported for Managed VMs only and isn’t supported for Classic or unmanaged VMs.
 - Once the migration is complete, you can’t change the backup policy back to standard policy.
 - Migration operations trigger a backup job as part of the migration process and might take up to several hours to complete for large VMs.
-- The change from standard policy to enhanced policy can result in additional costs. [Learn More](backup-instant-restore-capability#cost-impact.md).
+- The change from standard policy to enhanced policy can result in additional costs. [Learn More](backup-instant-restore-capability.md#cost-impact).
 
 
 ## Trigger the backup migration operation
