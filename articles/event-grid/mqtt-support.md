@@ -103,7 +103,7 @@ MQTT broker maintains a queue of messages for each active MQTT session that isn'
 
 ### Last Will and Testament (LWT) messages
 Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system’s performance and stability.
-To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic.
+To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the will delay interval to a value greater than zero. In that case, if the client disconnects abruptly but resotres the connection before the will delay interval expires, the will message isn't published.
 
 ### User properties 
 MQTT broker supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
@@ -136,7 +136,7 @@ MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to ali
 MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 - Shared Subscriptions aren't supported yet.
 - Retain flag isn't supported yet.
-- Will delay interval isn't supported yet.
+- Maximum will delay interval is 300.
 - Maximum QoS is 1.
 - Maximum Packet Size is 512 KiB
 - Message ordering isn't guaranteed.
