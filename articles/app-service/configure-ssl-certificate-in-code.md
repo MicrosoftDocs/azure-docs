@@ -181,7 +181,7 @@ var cert = new X509Certificate2(bytes);
 
 ### [Windows](#tab/windows)
 
-.NET Framework
+The following C# example shows how to load a public certificate in a .NET Framework app in a Windows Server Core Container.
 
 ```csharp
 using System;
@@ -213,7 +213,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.LocalMach
 }
 ```
 
-.NET Core
+The following C# example shows how to load a public certificate in a .NET Core app in a Windows Server Core or Windows Nano Server Container.
 
 ```csharp
 using System.Security.Cryptography.X509Certificates;
@@ -223,10 +223,12 @@ string Thumbprint = "C0CF730E216F5D690D1834446554DF5DC577A78B";
 using X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
 {
     store.Open(OpenFlags.ReadOnly);
-
+    
+    // Get the first cert with the thumbprint
     var certificate = store.Certificates.OfType<X509Certificate2>()
         .First(c => c.Thumbprint == Thumbprint) ?? throw new Exception($"Certificate with thumbprint {Thumbprint} was not found");
 
+    // Use certificate
     ViewData["certificateDetails"] = certificate.IssuerName.Name.ToString();
 }
 ```
