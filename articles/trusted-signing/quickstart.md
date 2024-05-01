@@ -52,7 +52,7 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
 2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
+3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview). Additional information for Trusted Signing CLI extension is available at [Trusted Signing Service](https://learn.microsoft.com/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest)
 
 4. To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command.
 •   To upgrade to the latest version, use the following command:
@@ -220,7 +220,7 @@ Here are the steps to create an Identity Validation request:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. |
+| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. For a quicker onboarding process ensure public records for the Legal Entity being validated are upto date. |
 | Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
 | Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
 | Failed email verification            | You are required to initiate a new Identity Validation request if email verification fails.|
