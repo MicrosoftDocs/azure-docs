@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Add audio effects suppression ability to your Android Apps
+title: Tutorial - Add audio effects suppression ability to your Android apps
 titleSuffix: An Azure Communication Services tutorial on how to enable audio effects
 description: Learn how to add audio effects in your calls using Azure Communication Services.
 author: zehangzheng
