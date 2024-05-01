@@ -40,7 +40,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 > Make sure your subscription has quota for 24 vCPUs of the [Standard_DS4_v2](/azure/virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](/azure/quotas/per-vm-quota-requests) through the Azure portal.
 
 :::zone target="docs" pivot="bicep"
-- To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+- To deploy a Bicep file, you need to write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 :::zone-end
 
 :::zone target="docs" pivot="azure-portal"
@@ -67,7 +67,7 @@ az extension update --name aks-preview
 
 ### Register the feature flags
 
-To use AKS Automatic in preview, you must register feature flags for additional required features. Register the following flags using the [az feature register][az-feature-register] command.
+To use AKS Automatic in preview, you must register feature flags for other required features. Register the following flags using the [az feature register][az-feature-register] command.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService --name EnableAPIServerVnetIntegrationPreview
@@ -167,12 +167,12 @@ Create Automatic Kubernetes Cluster
 
   :::image type="content" source="./media/quick-automatic-kubernetes-portal/Browse dropdown options.png" alt-text="The screenshot of the entry point for creating an AKS Automatic cluster in the Azure portal.":::
 
-2. On the **Basic** tab, fill in all the mandatory fields required to get started : 
+2. On the **Basics** tab, fill in all the mandatory fields required to get started: 
 Subscription, Resource Group, Cluster name, and Region
 
   :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
-3. On the **Monitoring Tab**, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
+3. On the **Monitoring** tab, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags (optional), and proceed to create the cluster. 
 
   :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
 
@@ -213,7 +213,7 @@ The following sample output resembles successful creation of the resource group:
 
 ## Review the Bicep file
 
-This Bicep file defines an AKS Automatic cluster. While in preview, you'll need to specify the *system nodepool* agent pool profile.
+This Bicep file defines an AKS Automatic cluster. While in preview, you need to specify the *system nodepool* agent pool profile.
 
 ```bicep
 @description('The name of the managed cluster resource.')
