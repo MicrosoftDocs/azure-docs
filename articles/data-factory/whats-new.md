@@ -24,6 +24,16 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## April 2024
+
+### Data flow
+
+We're updating Azure Data Factory Mapping Data Flows to use Spark 3.3.
+
+### Data movement
+
+Pipeline activity limit lifted to 80 activities. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-factory-increases-maximum-activities-per-pipeline-to-80/ba-p/4096418)
+
 ## March 2024
 
 ### Data movement
@@ -96,25 +106,6 @@ Added support for metadata driven pipelines for dynamic full and incremental pro
 ### Integration runtime
 
 Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring-preview)
-
-## July 2023
-
-### Change Data Capture
-
-Top-level CDC resource now supports schema evolution. [Learn more](how-to-change-data-capture-resource-with-schema-evolution.md)
-
-### Data flow
-
-Merge schema option in delta sink now supports schema evolution in Mapping Data Flows. [Learn more](format-delta.md#delta-sink-optimization-options)
-
-### Data movement
-
-- Comment Out Part of Pipeline with Deactivation. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/comment-out-part-of-pipeline/ba-p/3868069)
-- Pipeline return value is now generally available. [Learn more](tutorial-pipeline-return-value.md)
-
-### Developer productivity
-
-Documentation search now included in the Azure Data Factory search toolbar. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/documentation-search-now-embedded-in-azure-data-factory/ba-p/3873890)
 
 ## Related content
 

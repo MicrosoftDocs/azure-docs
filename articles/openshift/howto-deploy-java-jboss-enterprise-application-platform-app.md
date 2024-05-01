@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Ha
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 01/25/2024
+ms.date: 05/01/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
@@ -20,10 +20,15 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
-- A local developer command line with a UNIX command environment and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- A local developer command line with a UNIX-like command environment - for example, Ubuntu, macOS, or Windows Subsystem for Linux - and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-- The `mysql` CLI. For instructions see [How To Install MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04).
+- The `mysql` CLI. You can install the CLI by using the following commands:
 
+```azurecli-interactive
+sudo apt update
+sudo apt install mysql-server
+```
+  
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed.
 >
@@ -88,7 +93,7 @@ Use the following steps to deploy a service principal and get its Application (c
    1. Provide a description of the secret and a duration. When you're done, select **Add**.
    1. After the client secret is added, the value of the client secret is displayed. Copy this value because you can't retrieve it later. Be sure to copy the **Value** and not the **Secret ID**.
 
-You've created your Microsoft Entra application, service principal, and client secret.
+You created your Microsoft Entra application, service principal, and client secret.
 
 ## Create a Red Hat Container Registry service account
 
@@ -106,7 +111,7 @@ Use the following steps to create a Red Hat Container Registry service account a
    - Note down the **username**, including the prepended string (that is, `XXXXXXX|username`). Use this username when you sign in to `registry.redhat.io`.
    - Note down the **password**. Use this password when you sign in to `registry.redhat.io`.
 
-You've created your Red Hat Container Registry service account.
+You created your Red Hat Container Registry service account.
 
 ## Deploy JBoss EAP on Azure Red Hat OpenShift
 
@@ -171,9 +176,9 @@ The following sections show you how to set up Azure Database for MySQL - Flexibl
 
 ### Set environment variables in the command line shell
 
-The application is a Jakarta EE application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
+The sample is a Java application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
 
-Open a shell, or Cloud Shell, and set the following environment variables. Replace the substitutions as appropriate.
+Open a shell and set the following environment variables. Replace the substitutions as appropriate.
 
 ```azurecli-interactive
 RG_NAME=<resource-group-name>
@@ -198,7 +203,7 @@ Replace the placeholders with the following values, which are used throughout th
 - `ADMIN_PASSWORD`: The admin password of your MySQL database server. This article was tested using the password shown. Consult the database documentation for password rules.
 - `<red-hat-container-registry-service-account-username>` and `<red-hat-container-registry-service-account-password>`: The username and password of the Red Hat Container Registry service account you created before.
 
-It's a good idea to save the fully filled out name/value pairs in a text file, in case the shell exits or the Azure Cloud Shell times out before you're done executing the commands. That way, you can paste them into a new instance of the shell or Cloud Shell and easily continue.
+It's a good idea to save the fully filled out name/value pairs in a text file, in case the shell exits before you're done executing the commands. That way, you can paste them into a new instance of the shell and easily continue.
 
 These name/value pairs are essentially "secrets." For a production-ready way to secure Azure Red Hat OpenShift, including secret management, see [Security for the Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
 
@@ -301,7 +306,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
 
-1. Open the shell or Azure Cloud Shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
+1. Open the shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
    ```azurecli
    az aro list-credentials --resource-group eaparo033123rg --name clusterf9e8b9
@@ -322,7 +327,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 Next, use the following steps to connect to the OpenShift cluster using the OpenShift CLI:
 
-1. In the shell or Azure Cloud Shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
+1. In the shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux. If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
 
    ```azurecli-interactive
    cd ~
@@ -333,7 +338,7 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
    echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
    ```
 
-1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell or Azure Cloud Shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
+1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
 
    ```azurecli-interactive
    oc login \
@@ -372,7 +377,7 @@ The steps in this section show you how to deploy an app on the cluster.
 
 Use the following steps to deploy the app to the cluster. The app is hosted in the GitHub repo [rhel-jboss-templates/eap-coffee-app](https://github.com/Azure/rhel-jboss-templates/tree/main/eap-coffee-app).
 
-1. In the shell or Azure Cloud Shell, run the following commands. The commands create a project, apply a permission to enable S2I to work, image the pull secret, and link the secret to the relative service accounts in the project to enable the image pull. Disregard the git warning about "'detached HEAD' state."
+1. In the shell, run the following commands. The commands create a project, apply a permission to enable S2I to work, image the pull secret, and link the secret to the relative service accounts in the project to enable the image pull. Disregard the git warning about "'detached HEAD' state."
 
    ```azurecli-interactive
    git clone https://github.com/Azure/rhel-jboss-templates.git
@@ -482,7 +487,7 @@ Next, use the following steps to create a secret:
    EOF
    ```
 
-   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`.  If you don't see this output, troubleshoot and resolve the problem before proceeding.
+   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`. If you don't see this output, troubleshoot and resolve the problem before proceeding.
 
 1. Run `oc get pod -w | grep 1/1` to monitor whether all pods of the app are running. When you see output similar to the following example, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the monitoring:
 

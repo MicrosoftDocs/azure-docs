@@ -154,6 +154,8 @@
               href: howto-delete-access-control-list-network-to-network-interconnect.md
             - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
               href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
