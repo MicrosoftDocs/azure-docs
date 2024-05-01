@@ -239,12 +239,12 @@ The activity log lists for each test run the following details: the total test c
 
 ## View test results in the Playwright portal (invite only preview)
 
-Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it is an invite only feature. If you want to get access to it, please sign up here. 
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it is an invite only feature. If you want to get access to it, please sign up [here](https://aka.ms/mpt/reporting-signup). 
 
 We will let you know when we are ready to onboard you. After recieving the confirmation:
 
 1.  Navigate to settings from the home page of the workspace
-    ![Select-settings](https://github.com/vvs11/azure-docs-pr/assets/4140290/0703030e-82c7-4adc-9f47-4012013a22b3)
+    ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
 
 3. Select **General** from settings and make sure reporting is **Enabled**
    ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
