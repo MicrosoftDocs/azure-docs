@@ -28,7 +28,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Data flow
 
-We're updating Azure Data Factory Mapping Data Flows to use Spark 3.3. [Learn more]()
+We're updating Azure Data Factory Mapping Data Flows to use Spark 3.3.
 
 ### Data movement
 
