@@ -22,8 +22,13 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A local developer command line with a UNIX-like command environment (for example, Ubuntu, macOS, or Windows Subsystem for Linux) and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-- The `mysql` CLI. For instructions see [How To Install MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04).
+- The `mysql` CLI. The CLI can be installed with the following commands.
 
+```azurecli-interactive
+sudo apt update
+sudo apt install mysql-server
+```
+  
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed.
 >
@@ -173,7 +178,7 @@ The following sections show you how to set up Azure Database for MySQL - Flexibl
 
 The application is a Jakarta EE application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
 
-Open a shell, or Cloud Shell, and set the following environment variables. Replace the substitutions as appropriate.
+Open a shell and set the following environment variables. Replace the substitutions as appropriate.
 
 ```azurecli-interactive
 RG_NAME=<resource-group-name>
