@@ -82,11 +82,11 @@ Follow these steps to migrate using scripts.
     1. It ensures the new workspace resource ID is different from the one associated with the Change Tracking and Inventory using the LA version.
 
     1. It migrates the settings for the following data types:
-      - Windows Services
-      - Linux Files
-      - Windows Files
-      - Windows Registry
-      - Linux Daemons
+       - Windows Services
+       - Linux Files
+       - Windows Files
+       - Windows Registry
+       - Linux Daemons
       
     1. The script consists of the following **Parameters**  that require an input from you. 
 
