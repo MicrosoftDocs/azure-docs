@@ -255,13 +255,13 @@ az spring dev-tool create \
 
 ## Configure customized Spring Boot actuator
 
-Application Live View can automatically connect and monitor Spring boot apps with default actuator settings. The default HTTP port of the actuator endpoints are same as the app's HTTP port and all actuator endpoints are accessible by the default context path of the application that has the `/actuator` suffix.
+Application Live View can automatically connect and monitor Spring boot apps with default actuator settings. The default HTTP port of the actuator endpoints are same as the HTTP port of the application and all actuator endpoints are accessible by the default context path of the application that has the `/actuator` suffix.
 
-If the port (`management.server.port=`) or the context path (`management.endpoints.web.base-path=/`) were customized for an app, Application Live View stops connecting and monitoring the app and reports 404 for the app. To allow Application Live View to continue monitoring such apps, use the following steps to configure app deployment and customize actuator endpoints.
+If the port (`management.server.port=`) or the context path (`management.endpoints.web.base-path=/`) is customized for an app, Application Live View stops connecting and monitoring the app and reports 404 for the app. To allow Application Live View to continue monitoring such apps, use the following steps to configure app deployment and customize actuator endpoints.
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to configure the deployment on Azure portal:
+Use the following steps to configure the deployment using the Azure portal:
 
 1. Navigate to your service resource, and then go to the **Apps** page.
 
