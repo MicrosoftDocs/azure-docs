@@ -11,23 +11,25 @@ ms.custom: mode-other
 
 # Access the Azure Education Hub
 
-The email that you received to confirm your approval for an academic grant includes a [link to the Education Hub](https://aka.ms/startedu) and an approved credit amount. Most sponsored academic offers include a Developer tier of Azure support for free.
+The email that you received to confirm your approval for an academic grant includes a [link to the Azure Education Hub](https://aka.ms/startedu) and an approved credit amount. Most sponsored academic offers include a Developer tier of Azure support for free.
 
-To use your academic grant, you must create a course in the Education Hub and use subscriptions within the course that will access your Azure credit. Start by signing in to Azure so you can access the Education Hub.
+To use your academic grant, you must create a course in the Education Hub and use subscriptions within the course that will access your Azure credit. Start by signing in to the [Azure portal](https://portal.azure.com) so you can access the Education Hub.
 
 ## Authenticate through the Azure portal
 
 1. In a browser, open a private browsing tab such as Incognito in Google Chrome or InPrivate in Microsoft Edge.
 
-    :::image type="content" source="media/access-education-hub/browsing-in-private.png" alt-text="Screenshot that shows a private browsing tab in Microsoft Edge." border="false":::
+1. On the address bar, enter the URL for the Azure portal: `https://portal.azure.com`.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using your Microsoft credentials. Be sure to use a work or school account (one that uses an address like your institution's @*domain*.edu).
+   :::image type="content" source="media/access-education-hub/browsing-in-private.png" alt-text="Screenshot that shows a private browsing tab in Microsoft Edge." border="false":::
+
+1. Sign in by using your Microsoft credentials. Be sure to use a work or school account (one that uses an address like your institution's @*domain*.edu).
 
    :::image type="content" source="media/access-education-hub/modern-sign-in.png" alt-text="Screenshot of a sign-in dialog." border="false":::
 
-1. After you sign in, you're directed to the Azure portal. To find the Education Hub, enter **education** in the search box. Under **Services**, select **Education**.
+1. To find the Education Hub in the portal, enter **education** in the search box. Under **Services**, select **Education**.
 
-   The first time that you sign in, the **Get Started** page appears.
+   The first time that you access the Education Hub, the **Get Started** page appears.
 
 ## Related content
 

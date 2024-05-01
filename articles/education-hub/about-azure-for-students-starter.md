@@ -16,7 +16,7 @@ You don't need a credit card to join the program. The free services include Azur
 
 ## Prerequisites
 
-To access Azure for Students Starter, you must be a verified K-12 student. You might need to verify your student status.
+To access Azure for Students Starter, you must be a verified K-12 student.
 
 ## Related content
 

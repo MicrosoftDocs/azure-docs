@@ -27,7 +27,7 @@ The Education Hub accepts any email address in the standard format. It does *not
 
 When you add a work or school account (for example, *student*@*school*.edu) by using role-based access control (RBAC) in the Educator Sponsor Portal or the [Azure portal](https://portal.azure.com), Azure automatically sends email to the recipient. This email requires the user to accept the new account and Azure role before receiving access to the subscription.
 
-If you're a course teaching assistant or professor, be sure to inform students of this requirement so that their subscription appears in the Azure portal as expected. The email should look similar to this example:
+If you're a teaching assistant or a professor for a course, be sure to inform students of this requirement so that their subscription appears in the Azure portal as expected. The email should look similar to this example:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Screenshot of an email invitation to access applications in an organization." border="false":::
 
