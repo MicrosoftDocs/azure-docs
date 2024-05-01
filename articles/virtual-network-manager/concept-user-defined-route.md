@@ -27,8 +27,6 @@ Routing configurations create UDRs for you based on what the route rules specify
 
 :::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
 
-All routes are stored in a route table located inside a virtual network manager-managed resource group. This resource group is required. If you need to delete the resource group, deletion must happen before any new deployments are attempted for resources in the same subscription.
-
 ### Routing configurations
 
 Routing configurations are the building blocks of UDR management. They're used to describe the desired routing behavior for a network group. A routing configuration consists of the following settings:
