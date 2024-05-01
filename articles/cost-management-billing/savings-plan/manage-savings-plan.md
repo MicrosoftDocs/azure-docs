@@ -62,7 +62,7 @@ To update auto-renewal setting as a billing administrator:
 3. Select the desired savings plan.
 4. Select **Settings** > **Renewal**.
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned a one or more savings plan RBAC roles, use the following steps to update auto-renewal setting:
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to update auto-renewal setting:
 1. Sign in to the Azure portal.
 2. Select All Services > Savings plans to list savings plans that you have access to.
 3. Select the desired savings plan.
@@ -79,7 +79,7 @@ If you're a billing administrator, use following steps to view and manage all sa
 3. Select the desired savings plan.
 4. To rename the savings plan, click "Rename". To view payment history or upcoming payments, click the link to the right of "Billing frequency".
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned a one or more savings plan RBAC roles, use the following steps to view savings plan details and utilization:
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to view savings plan details and utilization:
 1. Sign in to the Azure portal.
 2. Select All Services > Savings plans to list savings plans that you have access to.
 3. Select the desired savings plan.
