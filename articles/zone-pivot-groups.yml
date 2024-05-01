@@ -2495,10 +2495,10 @@ groups:
   title: Interaction type
   prompt: Select how you want to interact with Azure
   pivots:
-  - id: azure-cli
-    title: Azure CLI
   - id: azure-portal
     title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
   - id: bicep
     title: Bicep
 # Owner: ruslany
