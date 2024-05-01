@@ -78,16 +78,17 @@ Follow these steps to migrate using scripts.
 #### Migration guidance
 
 1. Install the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) and run it to conduct migrations. The script does the following:
-    1. Ensure the new workspace resource ID is different from the one associated with the Change Tracking and Inventory using the LA version.
 
-    1. Migrate settings for the following data types:
+    1. It ensures the new workspace resource ID is different from the one associated with the Change Tracking and Inventory using the LA version.
+
+    1. It migrates the settings for the following data types:
       - Windows Services
       - Linux Files
       - Windows Files
       - Windows Registry
       - Linux Daemons
       
-1. **Parameters**  - ensure to provide input for the following parameters as listed in the script.
+    1. The script consists of the following **Parameters**  that require an input from you. 
 
       **Parameter** | **Required** | **Description** |
       --- | --- | --- |
@@ -97,11 +98,8 @@ Follow these steps to migrate using scripts.
       `OutputDCRLocation`| Yes | Azure location of the output workspace ID. |
       `OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. |
 
-1. Generate and associate a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
+1. A DCR template is generated when you run the above script and the template is available in `OutputDCRTemplateFolderPath`. You have to associate the new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
 
-   To generate the DCR, follow these steps:
-
-   1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
    1. Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
    1. Select the data collection rule that you have created in Step 1 from the listing page.
    1. In the data collection rule page, under **Configurations**, select **Resources** and then select **Add**.
@@ -121,6 +119,15 @@ Follow these steps to migrate using scripts.
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
 ---
+
+
+If the CT logs table schema does not exist, the script mentioned in Step 1 will fail. To troubleshoot, run the following script - 
+
+```azurepowershell-interactive
+   $psWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $laws
+ 	# Enabling CT solution on LA ws
+	New-AzMonitorLogAnalyticsSolution -Type ChangeTracking -ResourceGroupName $resourceGroup -Location $psWorkspace.Location -WorkspaceResourceId $psWorkspace.ResourceId
+```
 
 ### Compare data across Log analytics Agent and Azure Monitoring Agent version
 
