@@ -17,9 +17,9 @@ Running A/B testing experiments can help you make informed decisions to improve 
 ## Prerequisites
 
 - An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. If you don’t have one, [create an App Configuration store](./quickstart-azure-app-configuration-create.md).
-- A Split Experimentation Workspace resource <!--Add link to Split Experimentation Workspace quickstart-->
-- A variant feature flag with at least two variants. <!--Add link to feature flags quickstart > variant feature flags-->
+- An App Configuration store with a variant feature flag having at least two variants.
+- A Split Experimentation Workspace resource
+- An App Insights resource.
 
 ## Add an Application Insights resource to your App Configuration store
 
@@ -29,7 +29,7 @@ To run an experiment, you first need to connect a workspace-based Application In
 
     :::image type="content" source="./media/set-up-experiments/select-application-insights.png" alt-text="Screenshot of the Azure portal, adding an Application Insights to a store.":::
 
-1. Select the Application Insights resource you want to use as the data source for your experiment and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
+1. Select the Application Insights resource you want to use as the telemetry provider for your variant feature flags and application, and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
 1. A notification indicates that the Application Insights resource was updated successfully for the App Configuration store.
 
 ## Add a Split Experimentation Workspace to your App Configuration store
@@ -46,57 +46,50 @@ To run experiments in Azure App Configuration, we're going to use Split Experime
 
 1. A notification indicates that the operation was successful.
 
-## Make changes to application code or create a new application
+## Set up experiments for you application
 
-Now that you’ve connected the Application Insights resource to the App Configuration store, set up an app to run your experiment.
+Now that you’ve connected the Application Insights resource to the App Configuration store, set up an app to run your experiment. Go to the Quote of the Day quickstart to learn about the code changes required to set up experimentation for an ASP.Net application.
 
-- If you don’t have an ASP.NET application to run an experiment on already, use this Quickstart to create a Quote of the day app. <!-- Add link to QOTD quickstart -->
-- If you already have an ASP.NET application, the steps outlined in the quickstart help you understand the code changes required to set up experimentation for your application.
+## Enable telemetry and experiments in your variant feature flag
 
-## Set up an experimentation in App Configuration
+Enable telemetry and experiments in your variant feature flag by following the steps below:
 
-### Create experimentation metrics
+1. In your App Configuration store, go to **Operations** > **Feature manager**.
+1. Select the **...** context menu all the way to the right of your feature flag and select **Edit**.
 
-Metrics are quantitative measures that help evaluate the impact of feature flags on user behavior and outcomes. Metrics can be defined to count the occurrence of events, measure event values, or measure event properties. Metrics can be used to compare the performance of different treatments (variations) of a feature flag and assess the statistical significance of the results.
+    :::image type="content" source="./media/set-up-experiments/edit-variant-feature-flag.png" alt-text="Screenshot of the Azure portal, editing a variant feature flag.":::
 
-Navigate to your Split Experimentation Workspace resource. Under **Configuration** > **Experimentation Metrics**, select **Create**.  
+1. Go to the **Telemetry** tab and check the box **Enable Telemetry**.
+1. Go to the **Experiment** tab, check the box **Create Experiment** and give a name to your experiment.
+1. **Select Review + update**, then **Update**.
+1. A notification indicates that the operation was successful.
 
-:::image type="content" source="./media/set-up-experiments/create-metrics.png" alt-text="Screenshot of the Azure portal, select experimentation metrics.":::
+## Create metrics for your experiment
 
-### Events and measuring metrics
+A *metric* in Split Experimentation Workspace is a quantitative measure of an event sent to Application Insights. This metric  helps evaluate the impact of a feature flag on user behavior and outcomes.
 
-A *metric* in Split Experimentation Workspace measures an event sent to Application Insights. Earlier, you added `TrackEvent` to your application code, which is an event that represents user actions such as button selections.
+When updating your app earlier, you added `_telemetryClient.TrackEvent("<Event-Name>")` to your application code. `<Event-Name>` is a telemetry event that represents a user action, such as a button selection. This event is sent to the Application Insights resource, which you'll connect to the metric you're about to create.
+You may have multiple events that take in user actions, in which case you would create several metrics.
 
-In the Quote of the day app, the event we're tracking is when a user selects the heart-shaped like button, for which we entered `_telemetryClient.TrackEvent("Like")`. `Like` is the name of the telemetry event sent to Application Insights you'll connect to the metric you're about to create using the blade that appears when you select **Create**. The quickstart only specifies one event, but you may have multiple events that take in user actions.
+1. Navigate to your Split Experimentation Workspace resource. Under **Configuration** > **Experimentation Metrics**, select **Create**.
 
-The event allows you to measure how many users are clicking on that button as an action, and creating a metric for an experiment means you're interested in collecting data on how users are interacting with the given action being tracked as an event and be able to derive results from that data. At this step, creating a metric requires you to specify how you want to measure the user action (i.e the Application Insights event).
+1. Select or enter the following information under **Create an Experimentation Metric** and save with **Create**.
 
-If you're creating an application from scratch using the quickstart listed above, at this stage, create a metric with *Heart Vote Button* as the metric name and enter *Like* as the Application Insights event name to match the event specified in the QuickStart application code.
+    :::image type="content" source="./media/set-up-experiments/create-metric.png" alt-text="Screenshot of the Azure portal, creating a new experimentation metrics.":::
 
-> [!NOTE]
-> When filling out the **Create an Experimentation Metric** form, make sure the **Name** and **Application Insights Event Name** match the code added in your application for this event. In the Quickstart, we used *Heart Vote Button* and *Like*.
+    | Setting                             | Example value       | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+    |-------------------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Name**                            | *Heart Vote Button* | The name of the experimentation metric.                                                                                                                                                                                                                                                                                                                                                        |
+    | **Description**                     | Empty               | Optional description for the metric.                                                                                                                                                                                                                                                                                                                                                           |
+    | **Application Insights Event Name** | *Like*              | The name of the Application Insights event. This is the name specified in your code with `_telemetryClient.TrackEvent("<Event-Name>")`.                                                                                                                                                                                                                                                        |
+    | **Measure as**                      | **Count**           | The following options are available: <br><ul><li>**Count**: counts the number of times the event is triggered by your users.</li><li>**Average**: averages the value of the event for your users.</li><li>**Sum**: adds up the values of the event for your users. Shows the average summed value.</li><li>**Percent**: calculates the percentage of users that triggered the event.</li></ul> |
+    | **Desired Impact**                  | **Increase**        | This setting represents the ultimate goal or purpose behind measuring your created metric. |
 
-For this experiment, the tutorial is based on the hypothesis that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code takes in this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote Button*, to be able to validate the given hypothesis. If there is a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
+    In the quickstart shared above, our hypothesis is that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code takes in this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote Button*, to be able to validate the given hypothesis. If there is a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
 
-Fill out the **Create an Experimentation Metric** form and save with **Create**.
+1. Once created, the new metric is displayed in the portal. You can edit it or delete it by selecting the (**...**) context menu on the right side of the screen.
 
-:::image type="content" source="./media/set-up-experiments/create-metric.png" alt-text="Screenshot of the Azure portal, creating a new experimentation metrics.":::
-
-- **Name**: Enter a unique name for the new metric.
-- **Description**: optionally add a description for this metric.
-- **Application Insights Event Name**: Enter an event name to map the Application Insights event to the metric specified in your application code.
-- **Measure as**: Select **Count** to quantify this metric. The following options are available:
-  - **Count**: Counts the number of times the event is triggered by your users.
-  - **Average**: Averages the value of the event for your users.
-  - **Sum**: Adds up the values of the event for your users. Shows the average summed value.
-  - **Percent**: Calculates the percentage of users that triggered the event.
-
-  While the Quickstart uses **Count** as the measure, your application may have events with user actions that are too large to be measured as Count, for which you may opt for any of the above measurements instead.
-- **Desired Impact:** Select **Increase**. This allows results to be shown in context of positive and negative outcomes, as it represents the ultimate goal or purpose behind measuring your created metric.
-
-Once created, the new metric is displayed in the portal. You can edit it or delete it by selecting the ellipsis (**...**) button on the right side of the screen.
-
-:::image type="content" source="./media/set-up-experiments/created-metric.png" alt-text="Screenshot of the Azure portal showing an experimentation metric.":::
+    :::image type="content" source="./media/set-up-experiments/created-metric.png" alt-text="Screenshot of the Azure portal showing an experimentation metric.":::
 
 > [!NOTE]
 > Application Insights sampling is enabled by default and it may impact your experimentation results. For this tutorial, you are recommended to turn off sampling in Application Insights as directed in the quickstart application. Learn more about [Sampling in Application Insights](../azure-monitor/app/sampling-classic-api.md).
