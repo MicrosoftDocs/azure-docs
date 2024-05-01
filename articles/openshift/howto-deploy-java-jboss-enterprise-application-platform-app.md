@@ -20,9 +20,9 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
-- A local developer command line with a UNIX-like command environment (for example, Ubuntu, macOS, or Windows Subsystem for Linux) and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- A local developer command line with a UNIX-like command environment - for example, Ubuntu, macOS, or Windows Subsystem for Linux - and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-- The `mysql` CLI. The CLI can be installed with the following commands.
+- The `mysql` CLI. You can install the CLI by using the following commands:
 
 ```azurecli-interactive
 sudo apt update
