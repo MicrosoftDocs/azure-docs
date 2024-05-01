@@ -163,21 +163,22 @@ aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
 :::zone target="docs" pivot="azure-portal"
 
 Create Automatic Kubernetes Cluster
-1. To create an AKS Automatic cluster, search for "Kubernetes Services, and select **Automatic Kubernetes Cluster** from the drop-down menu.
+1. To create an AKS Automatic cluster, search for **Kubernetes Services**, and select **Automatic Kubernetes cluster** from the drop-down options.
 
-:::image type="content" source="./media/quick-automatic-kubernetes-portal/Browse dropdown options.png" alt-text="The screenshot of the entry point for creating an AKS Automatic cluster in the Azure portal.":::
+  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Browse dropdown options.png" alt-text="The screenshot of the entry point for creating an AKS Automatic cluster in the Azure portal.":::
 
-2. On the **Basic** tab, all the mandatory fields required to get started : 
+2. On the **Basic** tab, fill in all the mandatory fields required to get started : 
+Subscription, Resource Group, Cluster name, and Region
 
  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
-3. On the ** Monitoring Tab**, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
+3. On the **Monitoring Tab**, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
 
-:::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
+  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
 
-3. Get started with deploying your first application from your source control an configuring an automated deployment pipeline. 
+3. Get started with configuring your first application from GitHub and set up an automated deployment pipeline. 
 
-:::image type="content" source="./media/quick-automatic-kubernetes-portal/Automatic-Overview.png" alt-text="The screenshot of the Get Started Tab on Overview Blade after creating an AKS Automatic cluster in the Azure portal.":::
+  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Automatic-Overview.png" alt-text="The screenshot of the Get Started Tab on Overview Blade after creating an AKS Automatic cluster in the Azure portal.":::
 
 :::zone-end
 
