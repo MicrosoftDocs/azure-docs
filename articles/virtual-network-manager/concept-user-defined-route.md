@@ -21,11 +21,13 @@ Azure Virtual Network Manager (AVNM) allows you to describe your desired routing
 
 ## How does UDR management work
 
-In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. 
+In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you'll need to [deploy the configuration](./concept-deployment.md) for it to apply to your resources.
 
 Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, accesses the DNS service's address through a Firewall. Your network manager creates UDRs to make this routing behavior happen.
 
 :::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
+
+All routes are stored in a route table located inside a virtual network manager-managed resource group. This resource group is required, and should not be deleted. Should you required deletion of the resource group, it must be completed before any new deployments are attempted for resources in the same subscription.
 
 ### Routing configurations
 
@@ -123,6 +125,7 @@ The following are the limitations of UDR management with Azure Virtual Network M
 - When you create a route rule with the same destination as an existing route in the route table, the routing rule is ignored.
 - When a virtual network manager-created UDR is manually modified in the route table, the route isn't up when an empty commit is performed. Also, any update to the rule isn't reflected in the route with the same destination.
 - Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
+- Azure Virtual Network Manager requires a managed resource group to store the route table used by UDR. If you need to delete the resource group, it must be completed before any new deployments are attempted for resources in the same subscription.  
 
 ## Next step
 
