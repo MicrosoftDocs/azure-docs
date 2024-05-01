@@ -9,100 +9,87 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+#customerIntent: As a SOC engineer, I want to understand the sorts of use cases where playbooks are recommended, as well as recommended templates, and samples.
 ---
 
 # Recommended playbook use cases, templates, and examples
 
-This article lists sample use cases for Microsoft Sentinel playbooks, as well as example playbooks and recommended playbook templates.
+This article lists sample use cases for Microsoft Sentinel playbooks, as well as sample playbooks and recommended playbook templates.
 
 ## Recommended playbook use cases
 
-We recommend starting with Microsoft Sentinel playbooks for the following SOC scenarios, for which we provide ready-made [Create and customize Microsoft Sentinel playbooks from content templates](../use-playbook-templates.md) out of the box. For more information, see also [Recommended playbook templates](#recommended-playbook-templates).
+We recommend starting with Microsoft Sentinel playbooks for the following SOC scenarios, for which we provide ready-made [playbook tempaltes](../use-playbook-templates.md) out-of-the-box.
 
-### Enrichment
+### Enrichment: Collect and attach data to an incident to make smarter decisions
 
-**Collect data and attach it to the incident in order to make smarter decisions.**
+If your Microsoft Sentinel incident is created from an alert and analytics rule that generates IP address entities, configure the incident to trigger an automation rule to run a playbook and gather more information.
 
-For example:
+Configure your playbook with the following steps:
 
-A Microsoft Sentinel incident is created from an alert by an analytics rule that generates IP address entities.
+1. Start the playbook when the incident is created. The entities represented in the incident are stored in the incident trigger's dynamic fields.
 
-The incident triggers an automation rule, which runs a playbook with the following steps:
+1. For each IP address, configure the playbook to query an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
 
-1. Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers). The entities represented in the incident are stored in the incident trigger's dynamic fields.
+1. Add the returned data and insights as comments of the incident to enrich your investigation.
 
-1. For each IP address, query an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
+### Bi-directional sync for Microsoft Sentinel incidents with other ticketing systems
 
-1. Add the returned data and insights as comments of the incident.
+To sync your Microsoft Sentinel incident data with a ticketing system, such as ServiceNow:
 
-### Bi-directional sync
+1. Create an automation rule for all incident creation.
+1. Attach a playbook that's triggered when a new incident is created.
+1. Configure the playbook to create a new ticket in ServiceNow using the [ServiceNow connector](/connectors/service-now/).
 
-**Playbooks can be used to sync your Microsoft Sentinel incidents with other ticketing systems.**
+    Make sure that your teams can easily jump from the ServiceNow ticket back to your Microsoft Sentinel incident by configuring the playbook to include the incident name, important fields, and a URL to the Microsoft Sentinel incident in the ServiceNow ticket.
 
-For example:
+### Orchestration: Control the incidents queue from your SOC chat platform
 
-Create an automation rule for all incident creation, and attach a playbook that opens a ticket in ServiceNow:
+If your Microsoft Sentinel incident is created from an alert and analytics rule that generates username and IP address entities, configure the incident to trigger an automation rule to run a playbook and contact your team over your standard communications channels.
 
-- Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
+Configure your playbook with the following steps:
 
-- Create a new ticket in [ServiceNow](/connectors/service-now/).
+1. Start the playbook when the incident is created. The entities represented in the incident are stored in the incident trigger's dynamic fields.
 
-- Include in the ticket the incident name, important fields, and a URL to the Microsoft Sentinel incident for easy pivoting.
+1. Configure the playbook to send a message to your security operations communications channel, such as in [Microsoft Teams](/connectors/teams/) or [Slack](/connectors/slack/) to make sure your security analysts are aware of the incident.
 
-### Orchestration
+1. Configure the playbook to send all the information in the alert by email to your senior network admin and security admin. The email message includes **Block** and **Ignore** user option buttons.
 
-**Use the SOC chat platform to better control the incidents queue.**
+1. Configure the playbook to wait until a response is received from the admins, then continue to run.
 
-For example:
+1. If the admins select **Block**, configure the playbook to send a command to the firewall to block the IP address in the alert, and another to Microsoft Entra ID to disable the user.
 
-A Microsoft Sentinel incident is created from an alert by an analytics rule that generates username and IP address entities.
+### Response to threats immediately with minimal human dependencies
 
-The incident triggers an automation rule, which runs a playbook with the following steps:
+This section provides two examples, responding to threats of a compromised user and a compromised machine.
 
-- Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
+**In case of a compromised user**, such as discovered by [Microsoft Entra ID Protection](/azure/active-directory/identity-protection/overview-identity-protection):
 
-- Send a message to your security operations channel in [Microsoft Teams](/connectors/teams/) or [Slack](/connectors/slack/) to make sure your security analysts are aware of the incident.
+1. Start your playbook when a new Microsoft Sentinel incident is created.
 
-- Send all the information in the alert by email to your senior network admin and security admin. The email message includes **Block** and **Ignore** user option buttons.
-
-- Wait until a response is received from the admins, then continue to run.
-
-- If the admins select **Block**, send a command to the firewall to block the IP address in the alert, and another to Microsoft Entra ID to disable the user.
-
-### Response
-
-**Immediately respond to threats, with minimal human dependencies.**
-
-Two examples:
-
-**Example 1:** Respond to an analytics rule that indicates a compromised user, as discovered by [Microsoft Entra ID Protection](/azure/active-directory/identity-protection/overview-identity-protection):
-
-1. Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
-
-1. For each user entity in the incident suspected as compromised:
+1. For each user entity in the incident that's suspected as compromised, configure the playbook to:
 
     1. Send a Teams message to the user, requesting confirmation that the user took the suspicious action.
 
-    1. Check with Microsoft Entra ID Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised). Microsoft Entra ID Protection will label the user as **risky**, and apply any enforcement policy already configured - for example, to require the user to use MFA when next signing in.
+    1. Check with Microsoft Entra ID Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised). Microsoft Entra ID Protection labels the user as **risky**, and apply any enforcement policy already configured - for example, to require the user to use MFA when next signing in.
 
     > [!NOTE]
     > This particular Microsoft Entra action does not initiate any enforcement activity on the user, nor does it initiate any configuration of enforcement policy. It only tells Microsoft Entra ID Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Microsoft Entra ID Protection.
 
-**Example 2:** Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
+**In case of a comporimised machine**, such as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
-1. Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
+1. Start your playbook when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
-1. Use the **Entities - Get Hosts** action in Microsoft Sentinel to parse the suspicious machines that are included in the incident entities.
+1. Configure your playbook with the **Entities - Get Hosts** action to parse the suspicious machines that are included in the incident entities.
 
-1. Issue a command to Microsoft Defender for Endpoint to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
+1. Configure your playbook to issue a command to Microsoft Defender for Endpoint to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
-### Manual response during investigation or while hunting (Preview)
+### Respond manually duing an investigation or while hunting without leaving context
 
-**Respond to threats in the course of active investigative activity without pivoting out of context.**
+Use the entity trigger to take immediate action on individual threat actors you discover during an investigation, one at a time, right from within your investigation. This option is also available in the threat hunting context, unconnected to any particular incident. 
 
-Use the [entity trigger](/connectors/azuresentinel/#triggers) to take immediate action on individual threat actors you discover during an investigation, one at a time, right from within the investigation. This option is also available in the threat hunting context, unconnected to any particular incident. You can select an entity in context and perform actions on it right there, saving time and reducing complexity.
+Select an entity in context and perform actions on it right there, saving time and reducing complexity.
 
-The actions you can take on entities using this playbook type include:
+Playbooks with entity triggers support actions such as:
 
 - Blocking a compromised user.
 - Blocking traffic from a malicious IP address in your firewall.
@@ -110,52 +97,6 @@ The actions you can take on entities using this playbook type include:
 - Adding an IP address to a safe/unsafe address watchlist, or to your external configuration management database (CMDB).
 - Getting a file hash report from an external threat intelligence source and adding it to an incident as a comment.
 
-
-## Sample playbook configurations
-
-This section provides several sample playbook configurations.
-
-### Update an incident
-
-Configure your playbook to update an incident based on a new incident or alert. For example, the following screenshots show such a playbook configuration, triggered by a new incident and alert, respectively:
-
--  A playbook that updates an incident based on a new incident trigger:
-
-    ![Screenshot of an incident trigger simple update flow example](../media/playbook-triggers-actions/incident-simple-flow.png)
-
--  A playbook that updates an incident based on a new alert trigger:
-
-    ![Screenshot of an alert trigger simple update incident flow example](../media/playbook-triggers-actions/alert-update-flow.png)
-
-### Use incident details
-
-Configure your playbook to use incident details elsewhere in your flow. For example, the following screenshots show such a playbook configuration, triggered by a new incident and alert, respectively:
-
-- A playbook that sends incident details over mail, triggered by a new incident:
-
-    ![Screenshot of an incident trigger simple get flow example](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
-
--  A playbook that sends incident details over mail, triggered by a new alert:
-
-    ![Screenshot of an alert trigger simple get incident flow example](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
-
-### Add a comment to an incident
-
-Configure your playbook to add a comment to an incident. For example, the following screenshots show such a playbook configuration, triggered by a new incident and alert, respectively:
-
--  A playbook that adds a comment to an incident based on a new incident trigger:
-
-    ![Screenshot of an alert trigger simple add comment example](../media/playbook-triggers-actions/incident-comment.png)
-
--  A playbook that adds a comment to an incident based on a new alert trigger:
-
-    ![Screenshot of an alert trigger simple add comment example"](../media/playbook-triggers-actions/alert-comment.png)
-
-### Disable a user
-
-Configure your playbook to disable a user account. For example, the following screenshot shows such a playbook configuration, based on a Microsoft Sentinel entity trigger:
-
-:::image type="content" source="../media/playbook-triggers-actions/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
 
 ## Recommended playbook templates
 
@@ -186,3 +127,55 @@ The following recommended playbooks, and other similar playbooks are available t
     | **Create an incident using Microsoft Forms** | [CreateIncident-MicrosoftForms](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/CreateIncident-MicrosoftForms) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
     | **Relate alerts to incidents** | [relateAlertsToIncident-basedOnIP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/relateAlertsToIncident-basedOnIP) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
     | **Create a ServiceNow incident** | [Create-SNOW-record](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Servicenow/Playbooks/Create-SNOW-record) | [ServiceNow solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-servicenow?tab=Overview) |
+
+## Commonly used playbook configurations
+
+This section provides sample screenshots for commonly used playbook configurations, including updating an incident, using incident details, adding comments to an incident, or disabling a user.
+
+### Update an incident
+
+This section provides sample screenshots of how you might use a playbook to update an incident based on a new incident or alert.
+
+**Update an incident based on a new incident** (incident trigger):
+
+![Screenshot of an incident trigger simple update flow example](../media/playbook-triggers-actions/incident-simple-flow.png)
+
+**Update an incident based on a new alert** (alert trigger):
+
+![Screenshot of an alert trigger simple update incident flow example](../media/playbook-triggers-actions/alert-update-flow.png)
+
+### Use incident details in your flow
+
+This section provides sample screenshots of how you might use your playbook to use incident details elsewhere in your flow:
+
+**Send incident details by mail, using a playbook triggered by a new incident**: 
+
+![Screenshot of an incident trigger simple get flow example](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
+
+**Send incident details by mail, using a playbook triggered by a new alert**:
+
+![Screenshot of an alert trigger simple get incident flow example](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
+
+### Add a comment to an incident
+
+This section provides sample screenshots of how you might use your playbook to add comments to an incident:
+
+**Add a comment to an incident, using a playbook triggered by a new incident**:
+
+![Screenshot of an alert trigger simple add comment example](../media/playbook-triggers-actions/incident-comment.png)
+
+**Add a comment to an incident, using a playbook triggered by a new alert**:
+
+![Screenshot of an alert trigger simple add comment example"](../media/playbook-triggers-actions/alert-comment.png)
+
+### Disable a user
+
+The following screenshot shows an example of how you might use your playbook to disable a user account, based on a Microsoft Sentinel entity trigger:
+
+:::image type="content" source="../media/playbook-triggers-actions/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
+
+## Related content
+
+- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
+- [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md)
+- [Automate and run Microsoft Sentinel playbooks](run-playbooks.md)
