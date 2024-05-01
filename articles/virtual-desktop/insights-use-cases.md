@@ -32,8 +32,11 @@ To view round-trip time:
 1. From the drop-down lists, select one or more **subscriptions**, **resource groups**, **host pools**, and specify a **time range**, then select the **Connection Performance** tab.
 
 1. Review the section for **Round-trip time** and focus on the table for **RTT by gateway region** and the graph **RTT median and 95th percentile for all regions**. In the example below, most median latencies are under the ideal threshold of 100 ms, but several are higher. In many cases, the 95th percentile (p95) is substantially higher than the median, meaning that there are some users experiencing periods of higher latency.
-   
+
    :::image type="content" source="media/insights-use-cases/insights-connection-performance-latency-1.png" alt-text="A screenshot of a table and graph showing the round-trip time." lightbox="media/insights-use-cases/insights-connection-performance-latency-1.png":::
+
+   > [!TIP]
+   > You can find a list of the gateway region codes and their corresponding Azure region at [Gateway region codes](insights-glossary.md#gateway-region-codes).
    
 1. For the table **RTT by gateway region**, select **Median**, until the arrow next to it points down, to sort by the median latency in descending order. This order highlights gateways your users are reaching with the highest latency that could be having the most impact. Select a gateway to view the graph of its RTT median and 95th percentile, and filter the list of 20 top users by RTT median to the specific region.
    
