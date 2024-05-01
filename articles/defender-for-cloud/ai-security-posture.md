@@ -34,12 +34,6 @@ Regularly updating or patching these can prevent exploits, protecting generative
 
 With these features, Defender for Cloud provides full visibility of AI workloads from code to cloud.
 
-### How discovery works
-
-When the Defender Cloud Security Posture Management (CSPM) plan is enabled, Defender for Cloud discovers generative AI components by scanning code repositories for IaC misconfigurations and container images for vulnerabilities. 
-
-These vulnerabilities are presented as recommendations which you can use to analyze and remediate security issues.
-
 ## Reducing risks to generative AI apps
 
 Defender CSPM provides contextual insights into an organization's AI security posture. You can reduce risks within your AI workloads using security recommendations and attack path analysis.
@@ -48,13 +42,7 @@ Defender CSPM provides contextual insights into an organization's AI security po
 
 Defender for Cloud assesses AI workloads and issues recommendations around identity, data security, and internet exposure to identify and prioritize critical security issues in AI workloads.
 
-### Analyzing attack paths
-
-Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pre-trained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed. 
-
-By continuously monitoring AI workloads, attack path analysis can identify weaknesses and potential vulnerabilities and follow up with recommendations. Additionally, it extends to cases where the data and compute resources are distributed across Azure, AWS and GCP.
-
-### Detecting IaC misconfigurations
+#### Detecting IaC misconfigurations
 
 DevOps security, detects IaC misconfigurations, which can expose generative AI applications to security vulnerabilities, such as over-exposed access controls or inadvertent publicly exposed services. These misconfigurations could lead to data breaches or unauthorized access. Misconfigurations could lead to compliance issues, especially when handling strict data privacy regulations.
 
@@ -67,9 +55,15 @@ Current IaC AI security checks include:
 - Use Managed Identity for Azure AI Service Accounts
 - Use identity-based authentication for Azure AI Service Accounts
 
+### Explore risks with attack path analysis
+
+Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pre-trained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed. 
+
+By continuously monitoring AI workloads, attack path analysis can identify weaknesses and potential vulnerabilities and follow up with recommendations. Additionally, it extends to cases where the data and compute resources are distributed across Azure, AWS and GCP.
+
 ## Related content
 
-- [Explore risks to generative AI applications](explore-ai-risk.md)
+- [Explore risks to pre-deployed generative AI artifacts](explore-ai-risk.md)
 - [Review security recommendations](review-security-recommendations.md)
 - [Identify and remediate attack paths](how-to-manage-attack-path.md)
-- [Discover generative AI applications](identify-ai-workload-model.md)
+- [Discover generative AI workloads](identify-ai-workload-model.md)

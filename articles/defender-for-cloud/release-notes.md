@@ -24,10 +24,10 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date  | Update                                                            |
 | ----- | ----------------------------------------------------------------- |
-| May 6 | [AI security posture management](#ai-security-posture-management) |
-| May 6 | [Limited public preview of Defender for AI Workloads](#limited-public-preview-of-defender-for-ai-workloads) |
+| May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
+| May 6 | [Limited public preview of Defender for AI Workloads in Azure](#limited-public-preview-of-defender-for-ai-workloads-in-azure) |
 
-### AI security posture management
+### AI multicloud security posture management is publicly available for Azure and AWS
 
 May 6, 2024
 
@@ -35,7 +35,7 @@ We are announcing the inclusion of AI security posture management in Defender fo
 
 Learn more about [AI security posture management](ai-security-posture.md).
 
-### Limited public preview of Defender for AI Workloads
+### Limited public preview of Defender for AI Workloads in Azure
 
 May 6, 2024
 

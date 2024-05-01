@@ -321,10 +321,10 @@
           href: partner-integration.md
     - name: AI security posture
       items:
-        - name: Discover generative AI applications
-          displayName: AI, workloads, models, applications, apps
+        - name: Discover generative AI workloads
+          displayName: AI, workloads, models, applications, apps, AI BOM
           href: identify-ai-workload-model.md
-        - name: Explore risks to generative AI applications
+        - name: Explore risks to pre-deployed generative AI artifacts
           displayName: AI, risks, generative, applications, apps
           href: explore-ai-risk.md
     - name: Data-aware security posture

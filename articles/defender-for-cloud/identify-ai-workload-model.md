@@ -1,12 +1,12 @@
 ---
-title: Discover generative AI applications
+title: Discover generative AI workloads
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 05/01/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 
-# Discover generative AI applications
+# Discover generative AI workloads
 
 Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AI BOM). By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
@@ -49,4 +49,4 @@ The cloud security explorer can be used to identify generative AI workloads and 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Explore risks to generative AI applications](explore-ai-risk.md)
+> [Explore risks to pre-deployed generative AI artifacts](explore-ai-risk.md)
