@@ -10,16 +10,39 @@ ms.service: azure-disk-storage
 
 # Best practices for achieving Azure virtual machines and managed disks with high availability
 
-Azure offers several configuration options for ensuring high availability of Azure virtual machines (VMs) and Azure managed disks. This article provides recommendations on which of these configurations to use based on your application.
+Azure offers several configuration options for ensuring high availability of Azure virtual machines (VMs) and Azure managed disks. This article covers the resiliency, durability, and availability of these options, and provides recommendations on which of these configurations to use based on your application.
 
 ## At a glance
 
 |Configuration  |Recommendation  |Benefits  |
 |---------|---------|---------|
-|Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration mode or by deploying VMs across three availability zones.         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
-|    |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets with flexible orchestration mode or availability sets.         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
 |Applications running on a single VM     |Use Ultra Disks, Premium SSD v2, and Premium SSD disks.         |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime service level agreement (SLA), and these disk types offer the best performance.         |
 |     |Use zone-redundant storage (ZRS) disks.         |Access to your data even if an entire zone experiences an outage.         |
+|Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration mode or by deploying VMs across three availability zones.         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
+|     |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets with flexible orchestration mode or availability sets.         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
+|     |Use ZRS shared disks.         |         |
+
+
+## Intro
+
+Durability of data is critical for a persistent storage platform. You have important business applications that depend on the persistence of the data. 
+
+All managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and allows a high tolerance against failures. 
+
+Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helped Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero% [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate). 
+
+
+## Applications running on a single VM
+
+Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs in different fault domains or availability zones, but you can take steps to increase their availability.
+
+### Use Ultra Disks, Premium SSD v2, or Premium SSD
+
+Single VMs using only [Ultra Disks](disks-types.md#ultra-disks), [Premium SSD v2](disks-types.md#premium-ssd-v2), or [Premium SSD disks](disks-types.md#premium-ssds) have the [highest single VM uptime SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) and the best performance of all Azure disk types. But, [Ultra Disks](disks-enable-ultra-ssd.md#ga-scope-and-limitations) and [Premium SSD v2](disks-deploy-premium-v2.md#limitations) currently have limitations.
+
+### Use zone-redundant storage disks
+
+Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones in the region they're deployed in. With ZRS disks, your data is accessible even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
 
 ## Applications running on multiple VMs
 
@@ -63,17 +86,7 @@ Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premi
 
 Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a data center or region-wide outages.
 
-## Applications running on a single VM
-
-Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs in different fault domains or availability zones, but you can take steps to increase their availability.
-
-### Use Ultra Disks, Premium SSD v2, or Premium SSD
-
-Single VMs using only [Ultra Disks](disks-types.md#ultra-disks), [Premium SSD v2](disks-types.md#premium-ssd-v2), or [Premium SSD disks](disks-types.md#premium-ssds) have the [highest single VM uptime SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) and the best performance of all Azure disk types. But, [Ultra Disks](disks-enable-ultra-ssd.md#ga-scope-and-limitations) and [Premium SSD v2](disks-deploy-premium-v2.md#limitations) currently have limitations.
-
-### Use zone-redundant storage disks
-
-Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones in the region they're deployed in. With ZRS disks, your data is accessible even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
+#### Use ZRS disks when sharing disks
 
 ## Next steps
 
