@@ -11,7 +11,7 @@ metadata:
 title: Azure confidential virtual machines FAQ 
 summary: |
 
-  This article provides answers to some of the most common questions about [confidential VMs](confidential-vm-overview.md).
+  This article provides answers to some of the most common questions about [confidential virtual machines (VMs)](confidential-vm-overview.md).
 
 sections:
   - name: General
@@ -56,8 +56,8 @@ sections:
           How do Azure confidential VMs offer better protection against threats originating from both within and outside Azure cloud infrastructure? 
         answer: |
           Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
-          Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which apply AMD’s SEV-SNP and Intel TDX to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
-          This means no host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
+          Azure confidential VMs augment these protections by using hardware-based TEEs such as AMD SEV-SNP and Intel TDX to cryptographically isolate and protect your data confidentiality and integrity.
+          No host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
           Moreover, with full attestation capability, full OS disk encryption and hardware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor the contents of your memory are ever exposed to the hosting environment.
 
       - question: |
@@ -95,8 +95,8 @@ sections:
       - question: |
           Can I perform attestation for my Intel-based confidential VMs?
         answer: |
-          Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system with the Microsoft Azure Attestation and Azure Key Vault services.
-          Support for in-guest [attestation](guest-attestation-confidential-vms.md) will be available via the vTPM. You can use this to validate the entire stack from the hardware platform to the guest application layer. The functionality exists on AMD SEV-SNP today and will soon be released for Intel TDX. Today, only in-guest platform attestation is available for Intel TDX. This allows you to verify that your VM is running on Intel TDX hardware. To access this preview feature, visit our [preview branch](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/tdx-preview).
+          Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. The process is opaque to the user and takes place in the cloud operating system with the Microsoft Azure Attestation and Azure Key Vault services.
+          Support for in-guest [attestation](guest-attestation-confidential-vms.md) will be available via the vTPM. You can use to validate the entire stack from the hardware platform to the guest application layer. The functionality exists on AMD SEV-SNP today and will be released for Intel TDX. Today, only in-guest platform attestation is available for Intel TDX. This allows you to verify that your VM is running on Intel TDX hardware. To access the feature, visit our [preview branch](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/tdx-preview).
           Additionally, we support [Intel® Trust Authority](https://www.intel.com/content/www/us/en/security/trust-authority.html) for enterprises seeking operator independent attestation.
 
       - question: |
@@ -134,9 +134,9 @@ sections:
           Can I control more aspects of the Trusted Computing Base to enforce operator independent key management, attestation and disk encryption?
         answer: |
           Developers seeking further "separation of duties" for TCB services from the cloud service provider should use security type "NonPersistedTPM". 
-          - This experience is only available as part of the Intel TDX public preview. It has disclaimers in that, organizations that use it, or provide services with it are in control of the TCB and the responsibilities that come along with it. 
+          - This experience is only available as part of the Intel TDX public preview. Organizations that use it, or provide services with it are in control of the TCB and the responsibilities that come along with it. 
           - This experience bypasses the native Azure services, allowing you to bring your own disk encryption, key management and attestation solution. 
-          - Each VM still has a vTPM, which should be used to retrieve hardware evidence, however the vTPM state is not persisted through reboots, meaning this solution is excellent for ephemeral workloads and organizations seeking further decoupling from the cloud service provider.
+          - Each VM still has a vTPM, which should be used to retrieve hardware evidence, however the vTPM state is not persisted through reboots, meaning this solution is excellent for ephemeral workloads and organizations wanting decoupling from the cloud service provider.
 
       - question: |
           Can I convert a non-confidential VM into a confidential VM?
@@ -193,7 +193,7 @@ sections:
         answer: |
           Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. 
           Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
-          Also, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs.
+          Also, if you choose to enable the optional full-disk encryption, encrypted OS disks incur higher costs.
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.
