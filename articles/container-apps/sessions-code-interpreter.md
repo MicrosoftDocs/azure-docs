@@ -60,7 +60,7 @@ You can define the following settings when you create a session pool:
 |---------|-------------|
 | `--pool-type` | The type of code interpreter to use. The only currently supported value is `PythonLTS`. |
 | `--max-concurrent-sessions` | The maximum number of sessions that can be concurrently in use. During public preview, the maximum value is `400`. |
-| `--cooldown-period-in-seconds` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. Value must be between `???` and `????`. |
+| `--cooldown-period` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
 | `--egress-enabled` | Whether outbound network traffic is allowed from the session. Default `false`. |
 
 ### Get the pool management API endpoint with Azure CLI

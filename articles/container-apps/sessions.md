@@ -65,7 +65,9 @@ When you interact with sessions in a pool, you use a session identifier to refer
 
 The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 
-The identifier must be a string that is 1 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
+The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
+
+You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
 #### Authentication
 
@@ -88,6 +90,10 @@ Each session in a session pool has a lifecycle is automatically managed by the p
 * **Allocated**: When you send a request to a session and there's not a running session with the given identifier, the platform allocates a session from the pool and transitions it to the allocated state. Subsequent requests with the same session identifier are routed to the same allocated session.
 
 * **Deleting**: When a session hasn't received any requests for a period of time defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are completely and securely deleted.
+
+## Security
+
+Azure Container Apps dynamic sessions is built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session. You should only configure or upload sensitive data to a session if you trust the users of the session.
 
 ## Next steps
 

@@ -79,7 +79,7 @@ This command creates a session pool with the following settings:
 | `--cpu` | `1.0` | The required CPU in cores. |
 | `--memory` | `2.0Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
-| `--cooldown-period` | `300` | The period (in seconds) since the last request sent to the session, after which the session will be deleted. |
+| `--cooldown-period` | `300` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
 | `--egress-enabled` | `false` | Whether the session can make outbound network requests. |
 | `--max-concurrent-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
 | `--ready-session-instances` | `5` | The target number of sessions that will be ready in the session pool all the time. |

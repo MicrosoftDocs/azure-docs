@@ -26,6 +26,7 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Container Apps | Environment | Unlimited | n/a | |
 | Revisions | Container app | Up to 100 | No | |
 | Replicas | Revision | Unlimited | No | Maximum replicas configurable are 300 in Azure portal and 1000 in Azure CLI. There must also be enough cores quota available. |
+| Session pools | Global | Up to 6 | Yes | Maximum number of dynamic session pools per subscription. |
 
 ## Consumption plan
 
