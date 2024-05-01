@@ -9,15 +9,19 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+#customerIntent: As a SOC engineer who's using Standard-plan playbooks, I want to understand how to define an access restriction policy, ensure that only Microsoft Sentinel has access to my Standard logic app with my playbook workflows.
 ---
 
 # Define an access restriction policy for Standard-plan playbooks
 
-This article describes how to define an [access restriction policy](/azure/app-service/overview-access-restrictions) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. 
+This article describes how to define an [access restriction policy](/azure/app-service/overview-access-restrictions) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints.
 
 Define an access restriction policy to ensure that only Microsoft Sentinel has access to the Standard logic app containing your playbook workflows.
 
-For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) and [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types).
+For more information, see:
+
+- [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint)
+- [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types)
 
 > [!IMPORTANT]
 >
