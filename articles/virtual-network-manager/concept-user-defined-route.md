@@ -27,7 +27,7 @@ Routing configurations create UDRs for you based on what the route rules specify
 
 :::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
 
-All routes are stored in a route table located inside a virtual network manager-managed resource group. This resource group is required, and should not be deleted. Should you required deletion of the resource group, it must be completed before any new deployments are attempted for resources in the same subscription.
+All routes are stored in a route table located inside a virtual network manager-managed resource group. This resource group is required. If you need to delete the resource group, deletion must happen before any new deployments are attempted for resources in the same subscription.
 
 ### Routing configurations
 
@@ -125,7 +125,7 @@ The following are the limitations of UDR management with Azure Virtual Network M
 - When you create a route rule with the same destination as an existing route in the route table, the routing rule is ignored.
 - When a virtual network manager-created UDR is manually modified in the route table, the route isn't up when an empty commit is performed. Also, any update to the rule isn't reflected in the route with the same destination.
 - Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
-- Azure Virtual Network Manager requires a managed resource group to store the route table used by UDR. If you need to delete the resource group, it must be completed before any new deployments are attempted for resources in the same subscription.  
+- Azure Virtual Network Manager requires a managed resource group to store the route table used by UDR. If you need to delete the resource group, deletion must happen before any new deployments are attempted for resources in the same subscription.  
 
 ## Next step
 
