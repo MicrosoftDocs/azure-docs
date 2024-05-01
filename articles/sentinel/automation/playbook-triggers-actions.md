@@ -1,7 +1,7 @@
 ---
-title: Use triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
+title: Supported triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
 description: Learn in greater depth how to give your playbooks access to the information in your Microsoft Sentinel alerts and incidents and use that information to take remedial actions.
-ms.topic: how-to
+ms.topic: concept
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-
+#customerIntent: As a SOC engineer, I want to understand the types of triggers and actions available for use in Microsoft Sentinel playbooks.
 ---
 
 # Use triggers and actions in Microsoft Sentinel playbooks
@@ -76,7 +76,7 @@ The Microsoft Sentinel connector, and therefore Microsoft Sentinel playbooks, su
 >
 > Use the **Alert - Get Incident** action beforehand to get the **Incident ARM ID**.
 
-## Work with specific entity types
+## Supported entity types
 
 The **Entities** dynamic field is an array of JSON objects, each of which represents an entity. Each entity type has its own schema, depending on its unique properties.
 
@@ -107,84 +107,11 @@ For other entity types, similar functionality can be achieved using Logic Apps' 
 
 - Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action).
 
-### Use entity playbooks with no incident ID
-
-Playbooks created with the entity trigger often use the **Incident ARM ID** field, such as to update an incident after taking action on the entity.
-
-If such a playbook is triggered in a context unconnected to an incident, such as when threat hunting, there's no incident whose ID can populate this field. In this case, the field is populated with a null value.
-
-As a result, the playbook might fail to run to completion. To prevent this failure, we recommend that you create a condition that checks for a value in the incident ID field before taking any actions on it, and prescribe a different set of actions if the field has a null value - that is, if the playbook isn't being run from an incident.
-
-Do the following steps:
-
-1. Before the first action that refers to the **Incident ARM ID** field, add a step of type **Condition**.
-
-1. Select the **Choose a value** field and enter the **Add dynamic content** dialog.
-
-1. Select the **Expression** tab and the **length(collection)** function.
-
-1. Select the **Dynamic content** tab and the **Incident ARM ID** field.
-
-1. Verify the resulting expression is `length(triggerBody()?['IncidentArmID'])` and select **OK**. For example:
-
-    :::image type="content" source="../media/playbook-triggers-actions/condition-incident-id.png" alt-text="Screenshot of dynamic content dialog to select fields for a playbook condition.":::
-
-1. Set the **operator** and **value** in the condition to **is greater than** and **0**. For example:
-
-    :::image type="content" source="../media/playbook-triggers-actions/condition-length.png" alt-text="Screenshot of final definition of condition described in the previous screenshot.":::
-
-1. In the **True** frame, add the actions to be taken if the playbook is run from an incident context.
-
-    In the **False** frame, add the actions to be taken if the playbook is run from a nonincident context.
-
-## Work with custom details
-
-The **Alert custom details** dynamic field, available in the **incident trigger**, is an array of JSON objects, each of which represents a custom detail of an alert. [Custom details](../surface-custom-details-in-alerts.md) are key-value pairs that allow you to surface information from events in the alert so they can be represented, tracked, and analyzed as part of the incident.
-
-Since this field in the alert is customizable, its schema depends on the type of event being surfaced. Supply data from an instance of this event to generate the schema that determines how the custom details field is parsed.
-
-For example:
-
-:::image type="content" source="../media/playbook-triggers-actions/custom-details-values.png" alt-text="Screenshot of custom details defined in an analytics rule.":::
-
-In these key-value pairs:
-
-- The key, in the left column, represents the custom fields you create.
-- The value, in the right column, represents the fields from the event data that populate the custom fields.
-
-Supply the following JSON code to generate the schema. The code shows the key names as arrays, and the values as items in the arrays. Values are shown as the actual values, not the column that contains the values.
-
-```json
-{ "FirstCustomField": [ "1", "2" ], "SecondCustomField": [ "a", "b" ] }
-```
-
-To use custom fields for incident triggers:
-
-1. Add a new step using the **Parse JSON** built-in action. Enter 'parse json' in the **Search** field to find it if you need to.
-
-1. Find and select **Alert Custom Details** in the **Dynamic content** list, under the incident trigger. For example:
-
-    :::image type="content" source="../media/playbook-triggers-actions/custom-details-dynamic-field.png" alt-text="Screenshot of selecting Alert custom details from Dynamic content.":::
-
-    This creates a **For each** loop, since an incident contains an array of alerts.
-
-1. Select the **Use sample payload to generate schema** link. For example:
-
-    :::image type="content" source="../media/playbook-triggers-actions/generate-schema-link.png" alt-text="Screenshot of selecting the use sample payload to generate schema link from Dynamic content option.":::
-
-1. Supply a sample payload. You can find a sample payload by looking in Log Analytics for another instance of this alert, and copying the custom details object (under **Extended Properties**). Access Log Analytics data either in the **Logs** page in the Azure portal or the **Advanced hunting** page in the Defender portal. In the screenshot below, we used the JSON code shown above.
-
-    :::image type="content" source="../media/playbook-triggers-actions/sample-payload.png" alt-text="Screenshot of entering a sample JSON payload.":::
-
-The custom fields are ready to be used as dynamic fields of type **Array**. For example, the following screenshot shows an array and its items, both in the schema and in the list that appears under **Dynamic content**, that we described in this section:
-
-:::image type="content" source="../media/playbook-triggers-actions/fields-ready-to-use.png" alt-text="Screenshot of fields from the schema ready to use.":::
 
 ## Related content
 
 For more information, see:
 
-- [Automate threat response with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md)
+- [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
 - [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md)
 - [Authenticate playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md)
-- [Logic Apps Microsoft Sentinel connector documentation](/connectors/azuresentinel/)

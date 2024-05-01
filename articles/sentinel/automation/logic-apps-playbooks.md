@@ -58,8 +58,6 @@ For more information, see [Authenticate playbooks to Microsoft Sentinel](../auth
 
 ## Related content
 
-- [Automate threat response with Microsoft Sentinel playbooks](../automate-responses-with-playbooks.md)
 - [Resource type and host environment differences](/azure/logic-apps/logic-apps-overview#resource-environment-differences) in the Azure Logic Apps documentation
 - [Microsoft Sentinel Logic Apps connector](/connectors/azuresentinel/) in the Azure Logic Apps documentation
 - [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
-- [Respond to threats with Microsoft Sentinel playbooks](run-playbooks.md)

@@ -25,7 +25,17 @@ Many playbook templates are developed by the Microsoft Sentinel community, indep
 > **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
-<!--what abt prerequisites?-->
+
+## Prerequisites
+
+To create and manage playbooks, you need access to Microsoft Sentinel with one of the following Azure roles:
+
+- **Logic App Contributor**, to edit and manage logic apps
+- **Logic App operator**, to read, enable, and disable logic apps
+
+For more information, see [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
+
+We recommend that you read [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md) before creating your playbook.
 
 ## Access playbook templates
 
