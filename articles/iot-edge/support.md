@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/26/2024
+ms.date: 05/01/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -16,7 +16,7 @@ services: iot-edge
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 ::: moniker-end
 
-[!INCLUDE [iot-edge-version-1.4-or-1.5](includes/iot-edge-version-1.4-or-1.5.md)]
+[!INCLUDE [iot-edge-version-1.4-or-1.5](includes/iot-edge-version-1-4-or-1-5.md)]
 
 This article explains what operating system platforms, IoT Edge runtimes, container engines, and components are supported by IoT Edge whether generally available or in preview.
 
