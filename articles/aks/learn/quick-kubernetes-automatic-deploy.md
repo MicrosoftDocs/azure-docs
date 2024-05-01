@@ -2,7 +2,8 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) Automatic cluster (preview)'
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) Automatic (preview).
 ms.topic: quickstart
-ms.date: 04/04/2024
+ms.custom: build-2024
+ms.date: 05/21/2024
 author: sabbour
 ms.author: asabbour
 zone_pivot_groups: bicep-azure-cli-portal
@@ -13,7 +14,9 @@ zone_pivot_groups: bicep-azure-cli-portal
 
 **Applies to:** :heavy_check_mark: AKS Automatic (preview)
 
-Azure Kubernetes Service (AKS) Automatic (preview) provides the easiest managed Kubernetes experience for developers, DevOps, and platform engineers, ideal for modern and AI applications. It automates AKS cluster setup and operations, embedding best practice configurations, so that users of any skill level are ensured security, performance, and dependability for their applications. In this quickstart, you learn to:
+[Azure Kubernetes Service (AKS) Automatic (preview)][what-is-aks-automatic] provides the easiest managed Kubernetes experience for developers, DevOps engineers, and platform engineers. Ideal for modern and AI applications, AKS Automatic automates AKS cluster setup and operations and embeds best practice configurations. Users of any skill level can benefit from the security, performance, and dependability of AKS Automatic for their applications. 
+
+In this quickstart, you learn to:
 
 - Deploy an AKS Automatic cluster.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
@@ -23,15 +26,18 @@ Azure Kubernetes Service (AKS) Automatic (preview) provides the easiest managed 
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.57.0 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
-- This article requires the `aks-preview` Azure CLI extension version 3.0.0b3 or later.
-- Register the `AutomaticSKUPreview` feature in your Azure subscription.
-- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- This article requires the `aks-preview` Azure CLI extension version 3.0.0b9 or later.
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
+- Register the `AutomaticSKUPreview` feature in your Azure subscription.
+- The identity creating the cluster should also have the [following permissions on the subscription][Azure-Policy-RBAC-permissions]:
+
+    - `Microsoft.Authorization/policyAssignments/write`
+    - `Microsoft.Authorization/policyAssignments/read`
+> [!IMPORTANT]
+> Make sure your subscription has quota for 24 vCPUs of the [Standard_DS4_v2](/azure/virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](/azure/quotas/per-vm-quota-requests) through the Azure portal.
 
 :::zone target="docs" pivot="bicep"
 - To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
@@ -61,7 +67,7 @@ az extension update --name aks-preview
 
 ### Register the feature flags
 
-While in preview, AKS Automatic use other features that require their feature flags to be registered. Register the following flags using the [az feature register][az-feature-register] command.
+To use AKS Automatic in preview, you must register feature flags for additional required features. Register the following flags using the [az feature register][az-feature-register] command.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService --name EnableAPIServerVnetIntegrationPreview
@@ -69,16 +75,10 @@ az feature register --namespace Microsoft.ContainerService --name NRGLockdownPre
 az feature register --namespace Microsoft.ContainerService --name SafeguardsPreview
 az feature register --namespace Microsoft.ContainerService --name NodeAutoProvisioningPreview
 az feature register --namespace Microsoft.ContainerService --name DisableSSHPreview
-az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview
-```
-
-Register the `AutomaticSKUPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService --name AutomaticSKUPreview
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command, for example:
+Verify the registration status by using the [az feature show][az-feature-show] command. It takes a few minutes for the status to show *Registered*:
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.ContainerService --name AutomaticSKUPreview
@@ -94,7 +94,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Create a resource group
 
-An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -134,7 +134,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, call the [az aks install-cli][az-aks-install-cli] command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
@@ -170,7 +170,7 @@ Create Automatic Kubernetes Cluster
 2. On the **Basic** tab, fill in all the mandatory fields required to get started : 
 Subscription, Resource Group, Cluster name, and Region
 
- :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
+  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
 3. On the **Monitoring Tab**, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags( optional ), and proceed to create the cluster. 
 
@@ -213,13 +213,13 @@ The following sample output resembles successful creation of the resource group:
 
 ## Review the Bicep file
 
-This Bicep file defines an AKS Automatic cluster. While in preview, you'll need to specify the system nodepool agent pool profile.
+This Bicep file defines an AKS Automatic cluster. While in preview, you'll need to specify the *system nodepool* agent pool profile.
 
 ```bicep
-@description('The name of the Managed Cluster resource.')
+@description('The name of the managed cluster resource.')
 param clusterName string = 'myAKSAutomaticCluster'
 
-@description('The location of the Managed Cluster resource.')
+@description('The location of the managed cluster resource.')
 param location string = resourceGroup().location
 
 resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
@@ -245,50 +245,47 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
 }
 ```
 
-The resource defined in the Bicep file:
-
-* [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep)
+For more information about the resource defined in the Bicep file, see the [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep) reference.
 
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 
-> [!IMPORTANT]
-> The Bicep file sets the `clusterName` param to the string *myAKSAutomaticCluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
+    > [!IMPORTANT]
+    > The Bicep file sets the `clusterName` param to the string *myAKSAutomaticCluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
 
 1. Deploy the Bicep file using the Azure CLI.
 
-```azurecli
-az deployment group create --resource-group myResourceGroup --template-file main.bicep
-```
+      ```azurecli
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep
+    ```
 
-It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
+    It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, call the [az aks install-cli][az-aks-install-cli] command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```azurecli
-az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticCluster
-```
+    ```azurecli
+    az aks get-credentials --resource-group myResourceGroup --name 
 
 1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-```bash
-kubectl get nodes
-```
+    ```bash
+    kubectl get nodes
+    ```
 
-The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+    The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
-```output
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
-aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
-aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
-aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
-```
+    ```output
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
+    aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+    aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+    aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+    ```
 
 :::zone-end
 
@@ -313,7 +310,7 @@ To deploy the application, you use a manifest file to create all the objects req
     kubectl create ns aks-store-demo
     ```
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace. The YAML file defining the deployment is on [GitHub](https://github.com/Azure-Samples/aks-store-demo).
 
     ```bash
     kubectl apply -n aks-store-demo -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-ingress-quickstart.yaml
@@ -374,7 +371,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 :::zone target="docs" pivot="azure-cli"
 
-If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Call the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Run the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
   ```azurecli
   az group delete --name myResourceGroup --yes --no-wait
@@ -387,16 +384,16 @@ Delete
 
 :::zone-end
   > [!NOTE]
-  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
+  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity, so you don't need to manually remove it.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster using AKS Automatic and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+In this quickstart, you deployed a Kubernetes cluster using [AKS Automatic][what-is-aks-automatic] and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS Automatic, continue to the introduction.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
+> [Introduction to Azure Kubernetes Service (AKS) Automatic (preview)][what-is-aks-automatic]
 
 
 <!-- LINKS - external -->
@@ -419,3 +416,5 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[what-is-aks-automatic]: ../intro-aks-automatic.md
+[Azure-Policy-RBAC-permissions]: /azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
