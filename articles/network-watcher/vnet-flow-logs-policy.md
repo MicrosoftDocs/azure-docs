@@ -11,9 +11,9 @@ ms.date: 04/30/2024
 
 # Manage virtual network flow logs using Azure Policy
 
-Azure Policy helps you enforce organizational standards and assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
+Azure Policy helps you enforce organizational standards and assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify noncompliant resources](../governance/policy/assign-policy-portal.md).
 
-In this article, you learn how to use two built-in policies to manage your setup of virtual network flow logs. The first policy flags any virtual network that doesn't have flow logs enabled. The second policy automatically deploys virtual network flow logs that don't have flow logs enabled.
+In this article, you learn how to use two built-in policies to manage your setup of virtual network flow logs. The first policy flags any virtual network that doesn't have flow logging enabled. The second policy automatically deploys virtual network flow logs to virtual networks that don't have flow logging enabled.
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ In this article, you learn how to use two built-in policies to manage your setup
 
 ## Audit flow logs configuration for virtual networks using a built-in policy
 
-The **Audit flow logs configuration for every virtual network** policy audits all existing virtual networks  in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/virtualNetwork`. This policy then checks for linked flow logs via the flow logs property of the virtual network, and it flags any virtual network that doesn't have flow logs enabled.
+The **Audit flow logs configuration for every virtual network** policy audits all existing virtual networks  in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/virtualNetwork` for linked flow logs via the flow log property of the virtual network. It then flags any virtual network that doesn't have flow logging enabled.
 
-To audit your flow logs using the built-in policy:
+To audit your flow logs using the built-in policy, take the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -54,17 +54,17 @@ To audit your flow logs using the built-in policy:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/assign-audit-policy.png" alt-text="Screenshot that shows the Basics tab of assigning an audit policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/assign-audit-policy.png":::
 
-1. Select **Compliance** and change the **Compliance state** filter to **Non-compliant** to list all non-compliant policies. Search for the name of your audit policy that you created, and then select it.
+1. Select **Compliance** and change the **Compliance state** filter to **Non-compliant** to list all noncompliant policies. Search for the name of your audit policy that you created, and then select it.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/audit-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists non-compliant policies." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/audit-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists noncompliant policies." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
 
-1. In the policy compliance page, change the **Compliance state** filter to **Non-compliant** to list all non-compliant virtual networks. In this example, there are three non-compliant virtual networks out of four.
+1. In the policy compliance page, change the **Compliance state** filter to **Non-compliant** to list all noncompliant virtual networks. In this example, there are three noncompliant virtual networks out of four.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/audit-policy-compliance-details.png" alt-text="Screenshot that shows the non-compliant virtual networks based on the audit policy." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance-details.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/audit-policy-compliance-details.png" alt-text="Screenshot that shows the noncompliant virtual networks based on the audit policy." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance-details.png":::
 
 ## Deploy and configure virtual network flow logs using a built-in policy
 
-The **Deploy a flow log resource with target virtual network** policy checks all existing virtual networks in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/networkSecurityGroups`. It then checks for linked flow logs via the flow logs property of the virtual network. If the property doesn't exist, the policy deploys a flow log.
+The **Deploy a flow log resource with target virtual network** policy checks all existing virtual networks in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/networkSecurityGroups`. It then checks for linked flow logs via the flow log property of the virtual network. If the property doesn't exist, the policy deploys a flow log.
 
 To assign the *deployIfNotExists* policy:
 
@@ -84,7 +84,7 @@ To assign the *deployIfNotExists* policy:
 
 1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter ***flow log*** in the search box, and then select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target virtual network**, and then select **Add**.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy.png" alt-text="Screenshot that shows how to select the deploy policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/deploy-policy.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy.png" alt-text="Screenshot that shows how to select the deployment policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/deploy-policy.png":::
 
 1. Enter a name in **Assignment name** or use the default name, and then enter your name in **Assigned by**.
 
@@ -118,15 +118,15 @@ To assign the *deployIfNotExists* policy:
 
 1. Select **Review + create**, and then select **Create**.
 
-1. Select **Compliance** and change the **Compliance state** filter to **Non-compliant** to list all non-compliant policies. Search for the name of your deploy policy that you created, and then select it.
+1. Select **Compliance** and change the **Compliance state** filter to **Non-compliant** to list all noncompliant policies. Search for the name of your deploy policy that you created, and then select it.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists non-compliant policies." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists noncompliant policies." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
 
-1. In the policy compliance page, change the **Compliance state** filter to **Non-compliant** to list all non-compliant virtual networks. In this example, there are three non-compliant virtual networks out of four.
+1. In the policy compliance page, change the **Compliance state** filter to **Non-compliant** to list all noncompliant virtual networks. In this example, there are three noncompliant virtual networks out of four.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png" alt-text="Screenshot that shows the non-compliant virtual networks based on the deploy policy." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png" alt-text="Screenshot that shows the noncompliant virtual networks based on the deploy policy." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png":::
 
-1. Leave the policy run to evaluate and deploy flow logs for all non-compliant virtual networks. It will deploy flow logs for all non-compliant virtual networks in the specified scope.
+1. Leave the policy run to evaluate and deploy flow logs for all noncompliant virtual networks. It will deploy flow logs for all noncompliant virtual networks in the specified scope.
 
  ## Related content
 
