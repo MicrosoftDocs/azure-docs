@@ -67,9 +67,9 @@ The patch installation date for a given VM may vary month-to-month, as a specifi
 ### Which patches are installed?
 The patches installed depend on the rollout stage for the VM. Every month, a new global rollout is started where all security and critical patches assessed for an individual VM are installed for that VM. The rollout is orchestrated across all Azure regions in batches (described in the availability-first patching section above).
 
-The exact set of patches to be installed vary based on the VM configuration, including OS type, and assessment timing. It is possible for two identical VMs in different regions to get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
+The exact set of patches to be installed vary based on the VM configuration, including OS type, and assessment timing. It's possible for two identical VMs in different regions to get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
 
-As the Automatic VM Guest Patching does not configure the patch source, two similar VMs configured to different patch sources, such as public repository vs private repository, may also see a difference in the exact set of patches installed.
+As the Automatic VM Guest Patching doesn't configure the patch source, two similar VMs configured to different patch sources, such as public repository vs private repository, may also see a difference in the exact set of patches installed.
 
 For OS types that release patches on a fixed cadence, VMs configured to the public repository for the OS can expect to receive the same set of patches across the different rollout phases in a month. For example, Windows VMs configured to the public Windows Update repository.
 
@@ -153,7 +153,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByOS:**
 - This mode is supported only for Windows VMs.
 - This mode enables Automatic Updates on the Windows virtual machine, and patches are installed on the VM through Automatic Updates.
-- This mode does not support availability-first patching.
+- This mode doesn't support availability-first patching.
 - This mode is set by default if no other patch mode is specified for a Windows VM.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in the VM template.
 - Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 0
@@ -161,14 +161,14 @@ VMs on Azure now support the following patch orchestration modes:
 **Manual:**
 - This mode is supported only for Windows VMs.
 - This mode disables Automatic Updates on the Windows virtual machine. When deploying a VM using CLI or PowerShell, setting `--enable-auto-updates` to `false` will also set `patchMode` to `manual` and will disable Automatic Updates.
-- This mode does not support availability-first patching.
+- This mode doesn't support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
 - Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 1
 
 **ImageDefault:**
 - This mode is supported only for Linux VMs.
-- This mode does not support availability-first patching.
+- This mode doesn't support availability-first patching.
 - This mode honors the default patching configuration in the image used to create the VM.
 - This mode is set by default if no other patch mode is specified for a Linux VM.
 - To use this mode on Linux VMs, set the property `osProfile.linuxConfiguration.patchSettings.patchMode=ImageDefault` in the VM template.
