@@ -253,7 +253,7 @@ We will let you know when we are ready to onboard you. After recieving the confi
 
 5. Install reporting package
 
-    Since the service is currently private, you need to perform a few extra steps to install the package. These will not be needed once the service becomes public.
+    Since the feature is currently not public, you need to perform a few extra steps to install the package. These will not be needed once the feature becomes public.
 
     1. Create a file with name `.npmrc` at the same location as your Playwight config file.
 
