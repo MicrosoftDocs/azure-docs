@@ -214,8 +214,8 @@ Here are the steps to create an Identity Validation request:
 9. Upon successful creation of the request, the Identity Validation request status changes to "In Progress".
 10. If Additional documents are required, an email is sent and the request status changes to "Action Required".
 11. Once the identity validation process is complete, the request status will change, and an email is sent with the updated status of the request.
-    a. "Completed": When process is completed successfully.
-    b. "Failed": When the process is not completed successfully. 
+    1. "Completed": When process is completed successfully.
+    1. "Failed": When the process is not completed successfully. 
 
 :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot of trusted-signing-identityvalidation-public." lightbox="media/trusted-signing-identity-validation-public.png":::
 
