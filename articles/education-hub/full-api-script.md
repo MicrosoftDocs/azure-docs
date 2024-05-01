@@ -113,7 +113,7 @@ $response = Invoke-RestMethod -Uri $subInviteUri -Method PUT -Headers $authHeade
 ConvertTo-Json $response
 ```
 
-## Next steps
+## Related content
 
 - [Manage your academic grant by using the Overview page](hub-overview-page.md)
 - [Learn about support options](educator-service-desk.md)

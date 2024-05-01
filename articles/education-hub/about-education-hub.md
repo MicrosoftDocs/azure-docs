@@ -20,7 +20,7 @@ You can easily adjust the amount of allocated credit within each subscription or
 
 To access the Education Hub, you must first receive an email notification that confirms your approval for an academic grant and contains your approved credit amount.
 
-## Next steps
+## Related content
 
 - [Access the Education Hub](access-education-hub.md)
 - [Learn about support options](educator-service-desk.md)

@@ -44,7 +44,7 @@ You must be signed up for Azure Classroom.
 1. Tell the educator to accept the invitation to this tenant.
 1. After the educator has joined the tenant, go to the tenant properties and select **Yes** under **Access management for Azure resources**.
 
-## Next steps
+## Next step
 
 Now that you've created a custom tenant, you can go to the Azure Education Hub and begin distributing credit to educators to use in labs.
 

@@ -134,7 +134,7 @@ The API response shows the details:
 }
 ```
 
-## Next steps
+## Related content
 
 - [Add students to a lab](add-student-api.md)
 - [Manage your academic grant using the Overview page](hub-overview-page.md)

@@ -1,6 +1,6 @@
 ---
-title: Allocate credits to educators in the Azure Education Hub
-description: This article shows IT administrators at a university how to assign credits to educators to use in Education Hub labs.
+title: "Quickstart: Allocate credits to educators"
+description: This article shows IT administrators at a university how to assign credits to educators to use in Azure Education Hub labs.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education

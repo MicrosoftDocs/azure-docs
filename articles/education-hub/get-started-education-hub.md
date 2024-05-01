@@ -17,8 +17,7 @@ The first time you open the Azure Education Hub (such as by selecting the **Get 
 
 At subsequent sign-ins, the **Overview** page appears by default.
 
-## Next steps
+## Related content
 
 - [Manage your Academic Grant using the Overview page](hub-overview-page.md)
-
 - [Support options](educator-service-desk.md)

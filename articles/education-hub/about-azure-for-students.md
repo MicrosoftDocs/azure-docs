@@ -31,7 +31,7 @@ For detailed terms of use, see the [Azure for Students offer page](https://azure
 
 You need to verify yourself as an active student to become eligible for the offer. This verification process is part of the signup flow for Azure for Students.
 
-## Next steps
+## Related content
 
 - [Access the Azure Education Hub](access-education-hub.md)
 - [Deploy resources](deploy-resources-azure-for-students.md)

@@ -27,7 +27,7 @@ With your Azure for Students subscription, you can:
 - Convert speech to text by using [Azure AI Speech](/azure/ai-services/speech-service/index-speech-to-text).
 - Customize image recognition by using [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/).
 
-## Next steps
+## Related content
 
 - [Learn about the Azure Education Hub](about-education-hub.md)
 - [Learn about support options](educator-service-desk.md)

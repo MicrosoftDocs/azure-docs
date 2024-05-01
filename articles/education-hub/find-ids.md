@@ -1,6 +1,6 @@
 ---
-title: Find IDs for Azure Education Hub APIs
-description: Learn how to find all the IDs that you need to call the APIs in Azure Education Hub.
+title: Find IDs for calling Azure Education Hub APIs
+description: Learn how to find all the IDs that you need to call the APIs in the Azure Education Hub.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -9,7 +9,7 @@ ms.date: 12/21/2021
 ms.custom: template-how-to
 ---
 
-# Find IDs for Azure Education Hub APIs
+# Find IDs for calling Azure Education Hub APIs
 
 This article helps you gather the IDs that you need to call the Azure Education Hub APIs. If you go through the Education Hub UI, these IDs are gathered for you. To call the APIs publicly, you must have a billing account ID, billing profile ID, and invoice section ID.
 
@@ -62,7 +62,7 @@ You must have an Azure account linked with the Education Hub.
 
    The billing account ID also appears on this pane, under **Billing account**.
 
-## Next steps
+## Related content
 
 - [Manage your academic grant by using the Overview page](hub-overview-page.md)
 - [Learn about support options](educator-service-desk.md)

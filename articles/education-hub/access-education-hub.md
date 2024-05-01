@@ -29,7 +29,7 @@ To use your academic grant, you must create a classroom in the Education Hub and
 
    The first time that you sign in, the **Get Started** page appears.
 
-## Next steps
+## Related content
 
 - [Get started with the Azure Education Hub](get-started-education-hub.md)  
 - [Learn about support options](educator-service-desk.md)

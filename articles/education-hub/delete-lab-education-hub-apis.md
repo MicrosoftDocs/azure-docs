@@ -94,7 +94,7 @@ The API responds that the lab was deleted:
 Lab deleted
 ```
 
-## Next steps
+## Related content
 
 - [Create a lab by using REST APIs](create-lab-education-hub.md)
 - [Learn about support options](educator-service-desk.md)

@@ -39,6 +39,6 @@ If you're a course teaching assistant or professor, be sure to inform students o
 1. Optionally, you can remove existing students by selecting **Remove** next to each student's name.
 1. When you finish, select the **Close** button. The additional permissions appear on the **Sponsor Credit Management** page.
 
-## Next steps
+## Related content
 
 - [Learn about support options](educator-service-desk.md)

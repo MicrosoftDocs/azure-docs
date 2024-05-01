@@ -23,6 +23,7 @@ Your main landing page in the Azure Education Hub is the **Overview** page. This
 1. **Start Learning** links to free Azure learning paths and modules.
 1. **Azure Quickstart Templates** includes Azure templates to help speed up and simplify deployment for common tasks.
 
-## Next steps
+## Next step
 
-- [Set up a course, allocate credit, and invite students](create-assignment-allocate-credit.md)
+> [!div class="nextstepaction"]
+> [Set up a course, allocate credit, and invite students](create-assignment-allocate-credit.md)
