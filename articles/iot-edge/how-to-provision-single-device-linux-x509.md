@@ -13,7 +13,7 @@ ms.author: patricka
 
 # Create and provision an IoT Edge device on Linux using X.509 certificates
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
@@ -239,9 +239,6 @@ Use the steps in this section if you want to install a specific version of the A
 If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
-
->[!NOTE]
->If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to latest release](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 

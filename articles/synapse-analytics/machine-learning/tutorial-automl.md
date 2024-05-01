@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Train a model by using automated machine learning'
-description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics.
+title: 'Tutorial: Train a model by using automated machine learning (deprecated)'
+description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics (deprecated).
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -10,7 +10,7 @@ author: midesa
 ms.author: midesa
 ---
 
-# Tutorial: Train a machine learning model without code
+# Tutorial: Train a machine learning model without code (deprecated)
 
 You can enrich your data in Spark tables with new machine learning models that you train by using [automated machine learning](../../machine-learning/concept-automated-ml.md). In Azure Synapse Analytics, you can select a Spark table in the workspace to use as a training dataset for building machine learning models, and you can do this in a code-free experience.
 
