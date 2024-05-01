@@ -169,6 +169,26 @@ Expected output:
 }
 ```
 
+## Update Network Fabric Controller 
+
+The PATCH feature in the Network Fabric Controller provide users the ability to effortlessly add or replace additional Express Routes circuits. This functionality is particularly useful during periods of failure or potential migration events. In such cases, the Network Operator has the flexibility to modify an active Network Fabric Controller by adding or removing Express Routes and Keys, all while ensuring the operation remains unaffected. 
+
+> [!NOTE]
+> When initiating an update command, it's crucial to supply all the parameters provided during the creation process. This is because the update command will overwrite the existing content, necessitating the inclusion of all relevant parameters to ensure comprehensive and accurate modifications.
+
+```Azure CLI
+az networkfabric controller update \ 
+  --resource-group "NFCResourceGroupName" \ 
+  --location "eastus"  \ 
+  --resource-name "nfcname" \ 
+  --ipv4-address-space "10.0.0.0/19" \ 
+  --infra-er-connections '[{"expressRouteCircuitId":"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]' 
+  --workload-er-connections '[{"expressRouteCircuitId":"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]' 
+```
+
+> [!NOTE]
+> Run az networkfabric controller show to retrieve information about a network fabric controller.
+
 ## Delete Network Fabric Controller
 
 You should delete an NFC only after deleting all associated network fabrics.
