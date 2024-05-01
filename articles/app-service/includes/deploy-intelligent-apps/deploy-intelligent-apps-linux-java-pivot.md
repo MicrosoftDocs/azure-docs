@@ -7,7 +7,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications using Azure OpenAI and OpenAI.  In the following tutorial we'll be adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
+You can use Azure App Service to create applications using Azure OpenAI and OpenAI.  In the following tutorial, we are adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
 
 #### Prerequisites
 
@@ -16,7 +16,7 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 ### Setup web app
 
-For this Spring Boot application, we'll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an additional feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
+For this Spring Boot application, we are building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
 
 ```bash
   @RequestMapping("/")
@@ -43,7 +43,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `apiKey`
 - `modelName`
 
-Since we are deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
@@ -106,11 +106,11 @@ Before you can create the client, you first need to add the Azure SDK dependency
 </dependency>
 ```
 
-Once the package is created we can start working on the client that will make our calls.
+Once the package is created, we can start working on the client that will make our calls.
 
 ### Create OpenAI client
 
-Once the package and environment variables are setup, we can create the client that will enable chat completion calls.
+Once the package and environment variables are set up, we can create the client that enables chat completion calls.
 
 Add the following code to create the OpenAI client: 
 
@@ -131,7 +131,7 @@ OpenAIClient client = new OpenAIClientBuilder()
     .buildClient();
 ```
 
-Once added, you'll see the following imports will be added to the [Application.java](http://Application.java) file:
+Once added, you see the following imports are added to the [Application.java](http://Application.java) file:
 
 ```java
 import com.azure.ai.openai.OpenAIClient;
@@ -141,7 +141,7 @@ import com.azure.core.credential.AzureKeyCredential;
 
 ### Setup prompt and call to OpenAI
 
-Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response.  Here's wHere we'll add our chat message prompt to the code to be passed to the chat completions method.  Use the following code to setup the chat completions method:
+Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response.  Here's where we add our chat message prompt to the code to be passed to the chat completions method.  Use the following code to set up the chat completions method:
 
 ```java
 List<ChatRequestMessage> chatMessages = new ArrayList<>();
@@ -246,7 +246,7 @@ public class Application {
 
 If you completed the steps above you can deploy to App Service as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
 
-Once deployed, you can visit your site URL and you will be greeted with the text that contains the response from your chat message prompt.  
+Once deployed, you can visit your site URL and you are greeted with the text that contains the response from your chat message prompt.  
 
 
 ### Authentication

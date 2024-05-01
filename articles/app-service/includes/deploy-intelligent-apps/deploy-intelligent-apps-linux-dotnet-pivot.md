@@ -7,7 +7,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps.  In the following tutorial we are adding an Azure OpenAI service using Semantic Kernel to a .NET 8 Blazor web application.  
+You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps.  In the following tutorial, we are adding an Azure OpenAI service using Semantic Kernel to a .NET 8 Blazor web application.  
 
 #### Prerequisites
 
@@ -74,7 +74,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `apiKey`
 - `modelId`
 
-Since we are deploying to App Service we can secure these secrets in **Azure Key Vault** for protection.  Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we are dep we can secure these secrets in **Azure Key Vault** for protection.  Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application.  Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
