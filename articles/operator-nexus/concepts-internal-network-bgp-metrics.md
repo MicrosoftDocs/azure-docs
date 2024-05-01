@@ -46,16 +46,19 @@ In the realm of BGP (Border Gateway Protocol), monitoring prefixes within a BGP 
 ### Monitored BGP prefixes
 
 a. **AFI-SAFI prefixes installed:**
-   - These prefixes are learned from a neighbor and installed in the router's routing table. Monitoring these prefixes ensures the routing table is up-to-date and accurate, including IPv4/IPv6 prefixes, paths, and next hops.
+
+   These prefixes are learned from a neighbor and installed in the router's routing table. Monitoring these prefixes ensures the routing table is up-to-date and accurate, including IPv4/IPv6 prefixes, paths, and next hops.
 
    :::image type="content" source="media/afi-safi-prefixes-installed.png" alt-text="Screenshot of installed AFI-SAFI Prefixes.":::
 
 b. **AFI-SAFI prefixes received:**
-   - These prefixes are advertised by a neighbor in its update messages. Monitoring them helps detect inconsistencies between advertised and installed prefixes in the routing table.
+
+   These prefixes are advertised by a neighbor in its update messages. Monitoring them helps detect inconsistencies between advertised and installed prefixes in the routing table.
 
    :::image type="content" source="media/afi-safi-prefixes-received.png" alt-text="Screenshot of received AFI-SAFI Prefixes.":::
 
 c. **AFI-SAFI Prefixes Sent:**
-   - These prefixes are the ones that a router communicates to its neighbor in its update messages. Monitoring these prefixes provides insight into the network destinations that the router actively announces to other nodes in the network. Understanding these announcements is essential for comprehending the router's routing decisions and its impact on network reachability.
+
+   These prefixes are the ones that a router communicates to its neighbor in its update messages. Monitoring these prefixes provides insight into the network destinations that the router actively announces to other nodes in the network. Understanding these announcements is essential for comprehending the router's routing decisions and its impact on network reachability.
 
 :::image type="content" source="media/afi-safi-prefixes-sent.png" alt-text="Screenshot of sent AFI-SAFI Prefixes.":::
