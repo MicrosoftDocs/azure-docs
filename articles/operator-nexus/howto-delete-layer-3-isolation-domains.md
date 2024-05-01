@@ -44,7 +44,7 @@ az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resourc
 
 3. **Delete L3 isolation domains**
 
-After disabling the L3 isolation domain and disassociating its associated resources, it can be safely deleted using the following command. 
+After disabling the L3 isolation domain and disassociating its associated resources, you can safely delete it using the following command. 
 
 ```Azure CLI
 az nf l3domain delete --resource-group "ResourceGroupName" --resource-name "example-l3domain"
@@ -59,4 +59,4 @@ This table outlines the parameters required for executing the `az nf l3domain de
 
 3. Validation:
 
-After executing the deletion command, use either of the provided commands to validate that the isolation domain has been successfully deleted.
+After executing the deletion command, use either the `show` or `list` commands to validate that the isolation domain has been successfully deleted.
