@@ -17,46 +17,24 @@ This article explains how savings plan permissions work and how users can view a
 ## Who can manage a savings plan by default
 There are two different authorization methods that control an users ability to view, manage and delegate permissions to savings plans - billing admin roles and savings plan RBAC roles.
 
-### Billing admin roles
+## Billing admin roles
 You can view, manage, and delegate permissions to savings plans using built-in billing admin roles. To learn more about MCA and EA billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md) and [Managing Azure Enterprise Agreement roles](../manage/understand-ea-roles.md), respectively.
+
+### Billing admin roles required for savings plan actions
 - View savings plans
-    - MCA: Users with _**Billing profile reader**_ or above
-    - EA: Users with _**Enterprise Administrator (read only)**_ or above
+    - MCA: Users with Billing profile reader or above
+    - EA: Users with Enterprise Administrator (read only) or above
     - MPA: Not supported
 - Manage savings plans (achieved by delegating permissions for the full billing profile/enrollment)
-    - MCA: Users with _**Billing profile contributor**_ or above
-    - EA: Users with _**EA Administrator**_ or above
+    - MCA: Users with Billing profile contributor or above
+    - EA: Users with EA Administrator or above
     - MPA: Not supported
 - Delegate savings plan permissions
-    - MCA: Users with _**Billing profile contributor**_ or above
-    - EA: Users with _**EA purchaser**_ or above
+    - MCA: Users with Billing profile contributor or above
+    - EA: Users with EA purchaser or above
     - MPA: Not supported
 
-### Savings plans RBAC roles
-The savings plan lifecycle is independent of an Azure subscription. Savings plans don't inherit permissions from subscriptions after the purchase. Savings plans are a tenant-level resource with their own Azure RBAC permissions. There are four savings plan-specific RBAC roles:
-- Savings plan administrator – allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](../../role-based-access-control/role-assignments-portal.yml) to other users.
-- Savings plan purchaser – allows purchase of savings plans with a specified subscription.
-    - Allows savings plans purchase or [Reservation trade-in](reservation-trade-in.md) by non-billing admins and non-subscription owners.
-    - Savings plan purchasing by non-billing admins must be enabled. Learn more [here](buy-savings-plan.md#who-can-buy-a-savings-plan).
-- Savings plan contributor – allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
-- Savings plan reader – allows read-only access to one or more savings plans in a tenant.
-
-RBAC roles can be scoped to either a specific resource entity (e.g. subscription or savings plan) or the Microsoft Entra tenant (directory). To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). 
-
-- View savings plans:
-    - Tenant-scope: Users with _**Savings plan reader**_ or above.
-    - Savings plan-scope: Built-in _**Reader**_ or above.
-- Manage savings plans:
-    - Tenant-scope: Users with _**Savings plan contributor**_ or above.
-    - Savings plan-scope: Built-in _**Contributor**_ or _**Owner**_ roles, or _**Savings plan contributor**_ or above.
-- Delegate savings plan permissions:
-    - Tenant-scope: [User Access Administrator](../../role-based-access-control/built-in-roles.md#general) rights are required to grant RBAC roles to all savings plans in the tenant. To gain these rights, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
-    - Savings plan-scope: **_Savings plan administrator_** or **_User access administrator_**.
-
-In addition, users who held the _**Subscription owner**_ role when the subscription was used to purchase a savings plan, can also view, manage and delegate permissions for the purchased savings plan.
-
-## View and manage savings plans as a billing admin
-
+### View and manage savings plans as a billing admin
 If you're a billing role user, use following steps to view and manage all savings plans and savings plan transactions in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
@@ -67,7 +45,6 @@ If you're a billing role user, use following steps to view and manage all saving
 1. Billing role users can take ownership of a savings plan with the [Savings Plan Order - Elevate REST API](/rest/api/billingbenefits/savings-plan-order/elevate) to give themselves Azure RBAC roles.
 
 ### Adding billing administrators
-
 Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement in the Azure portal.
 
 - For an Enterprise Agreement, add users with the Enterprise Administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Enterprise administrators can view and manage savings plan in **Cost Management + Billing**.
@@ -77,38 +54,43 @@ Add a user as billing administrator to an Enterprise Agreement or a Microsoft Cu
     - Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 
-## View savings plans with Azure RBAC access
+## Savings plan RBAC roles
+The savings plan lifecycle is independent of an Azure subscription. Savings plans don't inherit permissions from subscriptions after the purchase. Savings plans are a tenant-level resource with their own Azure RBAC permissions. 
+
+### Overview
+There are four savings plan-specific RBAC roles:
+- Savings plan administrator – allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](../../role-based-access-control/role-assignments-portal.yml) to other users.
+- Savings plan purchaser – allows purchase of savings plans with a specified subscription.
+    - Allows savings plans purchase or [Reservation trade-in](reservation-trade-in.md) by non-billing admins and non-subscription owners.
+    - Savings plan purchasing by non-billing admins must be enabled. Learn more [here](buy-savings-plan.md#who-can-buy-a-savings-plan).
+- Savings plan contributor – allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
+- Savings plan reader – allows read-only access to one or more savings plans in a tenant.
+
+These roles can be scoped to either a specific resource entity (e.g. subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). 
+
+### Savings plan RBAC roles required for savings plan actions
+- View savings plans:
+    - Tenant-scope: Users with Savings plan reader or above.
+    - Savings plan-scope: Built-in Reader or above.
+- Manage savings plans:
+    - Tenant-scope: Users with Savings plan contributor or above.
+    - Savings plan-scope: Built-in Contributor or Owner roles, or Savings plan contributor or above.
+- Delegate savings plan permissions:
+    - Tenant-scope: [User Access Administrator](../../role-based-access-control/built-in-roles.md#general) rights are required to grant RBAC roles to all savings plans in the tenant. To gain these rights, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
+    - Savings plan-scope: Savings plan administrator or User access administrator.
+
+In addition, users who held the Subscription owner role when the subscription was used to purchase a savings plan, can also view, manage and delegate permissions for the purchased savings plan.
+
+
+### View savings plans with RBAC access
 
 If you have savings plan-specific RBAC roles (Savings plan administrator, purchaser, contributor or reader), purchased savings plans, or been added as an owner to savings plans, use the following steps to view and manage savings plans in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Home** > **Savings plans** to list savings plans that you have access to.
 
-## Manage resource entities (including savings plans) with elevated access
-
-You can [elevate a user's access to manage all Azure resource entities](../../role-based-access-control/elevate-access-global-admin.md).
-
-After you have elevated access:
-
-1. Navigate to **Home** > **Savings plans** to see all savings plans that are in the tenant.
-2. To make modifications to the savings plan, add yourself as an owner of the savings plan order using Access control (IAM).
-
-## Grant access to individual savings plans
-
-Users who have owner access on the savings plan and billing administrators can delegate access management for an individual savings plan order in the Azure portal.
-
-To allow other people to manage savings plans, you have two options:
-
-- Delegate access management for an individual savings plan order by assigning the savings plan owner or savings plan administrator role to a user at the resource scope of the savings plan order. If you want to give limited access, select a different role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
-
-- Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
-  - For an Enterprise Agreement, add users with the Enterprise Administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Users with the Enterprise Administrator (read only) role can only view the savings plan. Department admins and account owners can't view savings plans unless they're explicitly added to them using Access control (IAM). For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
-  - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-      _Enterprise Administrators can take ownership of a savings plan order and they can add other users to a savings plan using Access control (IAM)._
-
-  - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
-
+### Adding RBAC roles to users and groups
+To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles)
 
 
 ## Grant access with PowerShell
@@ -117,12 +99,10 @@ Users that have owner access for savings plan orders, users with elevated access
 
 Access granted using PowerShell isn't shown in the Azure portal. Instead, you use the `get-AzRoleAssignment` command in the following section to view assigned roles.
 
-## Assign the owner role for all savings plan
-
+### Assign the owner role for all savings plan
 Use the following Azure PowerShell script to give a user Azure RBAC access to all savings plan orders in their Microsoft Entra tenant (directory).
 
 ```azurepowershell
-
 Import-Module Az.Accounts
 Import-Module Az.Resources
 
@@ -137,12 +117,11 @@ foreach ($savingsPlan in $savingsPlanObjects)
   Write-Host "Assigning Owner role assignment to "$savingsPlanOrderId
   New-AzRoleAssignment -Scope $savingsPlanOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
 }
-
 ```
 
 When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned.
 
-### Parameters
+#### Parameters
 
 **-ObjectId**  Microsoft Entra ObjectId of the user, group, or service principal.
 - Type: String
@@ -159,21 +138,8 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-## Tenant-level access
-
-[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Savings plan Administrator and Savings plan Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
-
-### Add a Savings plan Administrator role or Savings plan Reader role at the tenant level
-You can assign these roles from the [Azure portal](https://portal.azure.com).
-
-1. Sign in to the Azure portal and navigate to **Savings plan**.
-1. Select a savings plan that you have access to.
-1. At the top of the page, select **Role Assignment**.
-1. Select the **Roles** tab.
-1. To make modifications, add a user as a Savings plan Administrator or Savings plan Reader using Access control.
 
 ### Add a Savings plan Administrator role at the tenant level using Azure PowerShell script
-
 Use the following Azure PowerShell script to add a Savings plan Administrator role at the tenant level with PowerShell.
 
 ```azurepowershell
@@ -184,7 +150,6 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId 
 ```
 
 #### Parameters
-
 **-ObjectId** Microsoft Entra ObjectId of the user, group, or service principal.
 - Type:	String
 - Aliases: Id, PrincipalId
@@ -200,22 +165,44 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId 
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-### Assign a Savings plan Reader role at the tenant level using Azure PowerShell script
+### Assign a Savings plan Contributor role at the tenant level using Azure PowerShell script
+Use the following Azure PowerShell script to assign the Savings plan Contributor role at the tenant level with PowerShell.
 
+```azurepowershell
+Import-Module Az.Accounts
+Import-Module Az.Resources
+Connect-AzAccount -Tenant <TenantId>
+New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Contributor"
+```
+
+#### Parameters
+**-ObjectId** Microsoft Entra ObjectId of the user, group, or service principal.
+- Type:	String
+- Aliases: Id, PrincipalId
+- Position:	Named
+- Default value: None
+- Accept pipeline input: True
+- Accept wildcard characters: False
+
+**-TenantId** Tenant unique identifier.
+- Type:	String
+- Position:	5
+- Default value: None
+- Accept pipeline input: False
+- Accept wildcard characters: False
+
+
+### Assign a Savings plan Reader role at the tenant level using Azure PowerShell script
 Use the following Azure PowerShell script to assign the Savings plan Reader role at the tenant level with PowerShell.
 
 ```azurepowershell
-
 Import-Module Az.Accounts
 Import-Module Az.Resources
-
 Connect-AzAccount -Tenant <TenantId>
-
 New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Reader"
 ```
 
 #### Parameters
-
 **-ObjectId** Microsoft Entra ObjectId of the user, group, or service principal.
 - Type:	String
 - Aliases: Id, PrincipalId
