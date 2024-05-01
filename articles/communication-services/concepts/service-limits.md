@@ -162,7 +162,7 @@ This sandbox setup is to help developers start building the application. Once yo
 ### Chat storage
 Azure Communication Services stores chat messages according to your [data retention policy](/purview/create-retention-policies).
 
-[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
+[!INCLUDE [public-preview-notice.md](../includes/public-preview-include-document.md)]
 
 You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread).
 Alternatively, you can choose not to set a retention policy on a chat thread.
