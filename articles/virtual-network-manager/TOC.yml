@@ -107,14 +107,14 @@
       href: how-to-configure-event-logs.md
     - name: Monitor security admin rules with Virtual Network Flow Logs
       href: concept-virtual-network-flow-logs.md
-  - name: View applied configurations
-    href: how-to-view-applied-configurations.md
-  - name: Define dynamic network group membership with Azure Policy
-    href: how-to-define-network-group-membership-azure-policy.md
-  - name: Create user-defined routes (UDRs)
-    href: how-to-create-user-defined-route.md
-  - name: Common issues
-    href: common-issues.md
+    - name: View applied configurations
+      href: how-to-view-applied-configurations.md
+    - name: Define dynamic network group membership with Azure Policy
+      href: how-to-define-network-group-membership-azure-policy.md
+    - name: Create user-defined routes (UDRs)
+      href: how-to-create-user-defined-route.md
+    - name: Common issues
+      href: common-issues.md
 - name: Reference
   items:
   - name: Code samples
