@@ -21,7 +21,7 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 >- Backups for VMs having [data access authentication enabled disks](../virtual-machines/windows/download-vhd.md?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
 >- If you're protecting a VM with an enhanced policy, it incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
 >- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to *Standard*.
->- >- Azure Backup now supports the migration of Azure VM backups using standard policy to enhanced policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 

@@ -51,7 +51,7 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 >[!NOTE]
 >- [SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
->- Azure Backup now supports the migration of Azure VM backups using standard policy to enhanced policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Azure Backup resource group for Virtual Machines
 

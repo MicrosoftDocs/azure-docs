@@ -90,7 +90,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Migration of Azure VM backups from standard to enhanced policy (preview)
 
-Azure Backup now supports the migration of Azure VM backups using standard policy to enhanced policy. The migration of VM backups to enhanced policy enables you to trigger multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points created using enhanced policy is zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to trigger multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points created using enhanced policy is zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
 
 For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
 
