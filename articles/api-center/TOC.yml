@@ -44,7 +44,7 @@
         href: enable-api-analysis-linting.md
 - name: API discovery and consumption
   items:
-      - name: Enable Azure API Center portal
+      - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
       - name: Discover APIs with GitHub Copilot Chat
         href: use-vscode-extension-copilot.md

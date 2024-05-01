@@ -3,11 +3,14 @@ title: CLI  release notes
 description: Azure CLI release notes for Azure Database for PostgreSQL - Flexible Server.
 author: gennadNY
 ms.author: gennadyk
-ms.custom: references_regions, build-2023
+ms.reviewer: maghan
+ms.date: 5/1/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 02/05/2024
+ms.custom:
+  - references_regions
+  - build-2023
 ---
 # Azure CLI release notes - Azure Database for PostgreSQL - Flexible Server
 
@@ -16,6 +19,12 @@ ms.date: 02/05/2024
 This page provides latest news and updates regarding the Azure Database for PostgreSQL Flexible Server additions for Azure CLI.  
 
 ## Azure CLI Releases
+
+### April 30, 2024 - Version 2.60.0
+|Additions and Changes              |Comments                                               |
+|-----------------------------------|-------------------------------------------------------|
+|az postgres flexible-server upgrade|Add capability to perform major version upgrade to PG16|
+
 
 ### January 09 2024 - version 2.56.0
 

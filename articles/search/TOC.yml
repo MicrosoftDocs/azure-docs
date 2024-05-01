@@ -188,7 +188,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Plan capacity
+    - name: Plan and manage capacity
       href: search-capacity-planning.md
     - name: Plan and manage costs
       href: search-sku-manage-costs.md
@@ -346,7 +346,7 @@
       href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
-    - name: Quety examples (simple syntax)
+    - name: Query examples (simple syntax)
       href: search-query-simple-examples.md
     - name: Add spell check
       href: speller-how-to-add.md

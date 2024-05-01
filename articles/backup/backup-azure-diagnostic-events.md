@@ -1,14 +1,17 @@
 ---
-title: Use diagnostics settings for Recovery Services vaults
-description: 'This article describes how to use the old and new diagnostics events for Azure Backup.'
+title: Use diagnostics settings for Recovery Services vaults and Backup vault in Azure Backup
+description: This article describes how to use the old and new diagnostics events for Azure Backup.
+ms,service: backup
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 04/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.custom: engagement-fy23
+ms.custom: engagement-fy2
 ---
 
-# Use diagnostics settings for Recovery Services vaults
+# Use diagnostics settings for Recovery Services vaults and Backup vaults
+
+This article describes how to use diagnostics settings for Recovery Services vaults and Backup vaults for Azure Backup.
 
 Azure Backup sends diagnostics events that can be collected and used for the purposes of analysis, alerting, and reporting.
 

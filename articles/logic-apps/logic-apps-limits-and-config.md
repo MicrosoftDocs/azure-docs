@@ -1,21 +1,24 @@
 ---
 title: Limits and configuration reference guide
-description: Reference guide to limits and configuration information for Azure Logic Apps.
+description: Reference guide about the limits and configuration settings for logic app resources and workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 03/22/2024
+ms.date: 04/26/2024
 ---
 
 # Limits and configuration reference for Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
 This reference guide describes the limits and configuration information for Azure Logic Apps and related resources. Based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows, you choose whether to create a Consumption logic app workflow that runs in *multitenant* Azure Logic Apps or an integration service environment (ISE). Or, create a Standard logic app workflow that runs in *single-tenant* Azure Logic Apps or an App Service Environment (v3 - Windows plans only).
 
 > [!NOTE]
-> Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist. 
+>
+> Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist.
 
 The following table briefly summarizes differences between a Consumption logic app and a Standard logic app. You'll also learn how single-tenant Azure Logic Apps compares to multitenant Azure Logic Apps and an ISE for deploying, hosting, and running your logic app workflows.
 
@@ -29,7 +32,7 @@ The following tables list the values for a single workflow definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app is limited to 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows ||
+| Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app always has only 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows | For optimal performance guidelines around Standard logic app workflows, see [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations). |
 | Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 32 characters ||
 | Triggers per workflow | - Consumption (designer): 1 trigger <br>- Consumption (JSON): 10 triggers <br><br>- Standard: 1 trigger | - Consumption:  Multiple triggers are possible only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. <br><br>- Standard: Only one trigger is possible, whether in the designer, code view, or an Azure Resource Manager (ARM) template. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
@@ -39,9 +42,9 @@ The following tables list the values for a single workflow definition:
 | Single action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Expression character limit | 8,192 characters ||
 | `description` - Maximum length | 256 characters ||
-| `parameters` - Maximum number of items | 50 parameters ||
-| `outputs` - Maximum number items | 10 outputs ||
-| `trackedProperties` - Maximum size | 8,000 characters ||
+| `parameters` - Maximum number of parameters per workflow | - Consumption: 50 parameters <br><br>- Standard: 500 parameters ||
+| `outputs` - Maximum number of outputs | 10 outputs ||
+| `trackedProperties` - Maximum number of characters | 8,000 characters ||
 
 <a name="run-duration-retention-limits"></a>
 
