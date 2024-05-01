@@ -259,7 +259,7 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.
 >- For hourly backups, the last backup of the day is transferred to vault. If backup fails, the first backup of the next day is transferred to vault.
->- Migration tp enhamced policy for Azure VMs protected with standard policy is now supported and available in preview.
+>- Migration to enhanced policy for Azure VMs protected with standard policy is now supported and available in preview.
 >- Backup an Azure VM with disks that have public network access disabled is now supported and available in preview.
 
 ## Enable selective disk backup and restore
