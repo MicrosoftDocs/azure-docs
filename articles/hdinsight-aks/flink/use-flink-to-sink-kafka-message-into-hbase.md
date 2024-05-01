@@ -16,7 +16,7 @@ In this article, learn how to write messages to HBase with Apache Flink DataStre
 
 Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table.
 
-In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there's a  real time streaming IOT application, the information can be gathered, transformed, and optimized. 
+In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka article and write it to HBase table. If there's a  real time streaming IOT application, the information can be gathered, transformed, and optimized. 
 
 
 ## Prerequisites
@@ -350,11 +350,11 @@ public class KafkaSinkToHbase {
 
 1. Upload the job Jar to Storage Account associated with the Cluster.
 
-    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jar.png" alt-text="Screenshot showing how to upload jar." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jsr.png":::
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jar.png" alt-text="Screenshot showing how to upload jar." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jar.png":::
 
 1. Add job details in Application Mode tab.
 
-    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/application-mode.png" alt-text="Screenshot showing application mode." lightbox="./media/application-mode.png"::: 
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/application-mode.png" alt-text="Screenshot showing application mode." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/application-mode.png"::: 
 
     > [!NOTE]
     > Make sure to add `Hadoop.class.enable` and `classloader.resolve-order` setting.
