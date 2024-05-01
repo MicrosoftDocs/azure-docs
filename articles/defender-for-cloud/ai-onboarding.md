@@ -10,7 +10,7 @@ ms.date: 04/17/2024
 To get started you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) for and onboard the plan. The Defender for AI Wokloads plan in Defender for Cloud provides threat protection for AI workloads in your Azure environment. 
 
 > [!IMPORTANT]
-> The Defender for Workloads AI plan is currently in PREVIEW.
+> The Defender for AI Workloads plan is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
