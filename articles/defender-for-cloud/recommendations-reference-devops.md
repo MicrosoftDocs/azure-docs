@@ -84,6 +84,12 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: Medium
 
+### [(Preview) Azure DevOps repositories should have API security testing findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/d42301a5-4d23-4457-97c8-f2f2e9eb979e)
+
+**Description**: API security vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+
+**Severity**: Medium
+
 ### GitHub recommendations
 
 ### [GitHub repositories should have secret scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b6ad173c-0cc6-4d44-b954-8217c8837a8e/showSecurityCenterCommandBar~/false)
