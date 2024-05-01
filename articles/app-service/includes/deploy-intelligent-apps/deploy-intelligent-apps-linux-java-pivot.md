@@ -7,7 +7,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications using Azure OpenAI and OpenAI.  In the following tutorial, we are adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
+You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we are adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
 
 #### Prerequisites
 
@@ -16,7 +16,7 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 ### Setup web app
 
-For this Spring Boot application, we are building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
+For this Spring Boot application, we are building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
 
 ```bash
   @RequestMapping("/")
@@ -49,7 +49,7 @@ Next, we can use Key Vault references as app settings in our App Service resourc
 
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
-For Azure OpenAI, use the following:
+For Azure OpenAI, use the following settings:
 
 | Setting name| Value |
 |-|-|-|
@@ -58,14 +58,14 @@ For Azure OpenAI, use the following:
 | `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
 
-For OpenAI, use the following:
+For OpenAI, use the following settings:
 
 | Setting name| Value |
 |-|-|-|
 | `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `OPENAI_MODEL_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
-Once your app settings are saved, you can access the app settings in your code by referencing them in your application.  Add the following code in the *[Application.java](http://Application.java)* file:
+Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following code in the *[Application.java](http://Application.java)* file:
 
 For Azure OpenAI:
 
@@ -96,7 +96,7 @@ For OpenAI:
 
 ### Add the package
 
-Before you can create the client, you first need to add the Azure SDK dependency.  Add the following Azure OpenAI package to the *pom.xl* file and run the **mvn package** command to build the package.
+Before you can create the client, you first need to add the Azure SDK dependency. Add the following Azure OpenAI package to the *pom.xl* file and run the **mvn package** command to build the package.
 
 ```python
 <dependency>
@@ -156,7 +156,7 @@ ChatCompletions chatCompletions = client.getChatCompletions(modelName,
     new ChatCompletionsOptions(chatMessages));
 ```
 
-Here's the example in its completed from.  In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
+Here's the example in its completed from. In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
 
 ```java
 
