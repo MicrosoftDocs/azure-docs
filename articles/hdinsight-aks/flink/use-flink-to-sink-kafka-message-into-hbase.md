@@ -10,7 +10,7 @@ ms.date: 05/01/2024
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-In this article, learn how to write messages to HBase with Apache Flink DataStream API
+In this article, learn how to write messages to HBase with Apache Flink DataStream API.
 
 ## Overview
 
@@ -346,18 +346,28 @@ public class KafkaSinkToHbase {
 }
 
 ```
+## Submit job
 
-### Submit job on Secure Shell
+1. Upload the job Jar to Storage Account associated with the Cluster.
 
-We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs.
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jar.png" alt-text="Screenshot showing how to upload jar." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/upload-jsr.png":::
 
-:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png":::
+1. Add job details in Application Mode tab.
 
-### Monitor job on Flink UI
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/application-mode.png" alt-text="Screenshot showing application mode." lightbox="./media/application-mode.png"::: 
 
-We can monitor the jobs on Flink Web UI.
+    > [!NOTE]
+    > Make sure to add `Hadoop.class.enable` and `classloader.resolve-order` setting.
 
-:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png":::
+1. Select **Job Log Aggregation** to store logs in ABFS.
+
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/deployment-type.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/deployment-type.png":::
+
+1. Submit the job.
+
+1. You should be able to see the job submitted status here.
+
+    :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/job-status.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/job-status.png":::
 
 ## Validate HBase table data
 
