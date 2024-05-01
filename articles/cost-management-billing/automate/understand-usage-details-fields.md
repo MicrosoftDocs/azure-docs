@@ -24,8 +24,7 @@ If you're using an older cost details solution and want to migrate to Exports or
 - [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md)
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
-> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md).
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 ## List of fields and descriptions
 
