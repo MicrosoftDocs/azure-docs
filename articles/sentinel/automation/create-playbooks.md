@@ -185,8 +185,8 @@ In every one of these steps, clicking on any field displays a panel with the fol
 
 - **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](../map-data-fields-to-entities.md) and [custom details](../surface-custom-details-in-alerts.md) contained in the alert or incident. For examples of using dynamic content, see:
 
-    - [Use entity playbooks with no incident ID](#use-entity-playbooks-with-no-incident-id)
-    - [Work with custom details](#work-with-custom-details)
+    - [Use entity playbooks with no incident ID](#dynamic-content-use-entity-playbooks-with-no-incident-id)
+    - [Work with custom details](#dynamic-content-work-with-custom-details)
 
 - **Expression**: Choose from a large library of functions to add more logic to your steps.
 

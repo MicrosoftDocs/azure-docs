@@ -18,7 +18,7 @@ We recommend that you migrate existing playbooks built on alert triggers and mig
 
 - If you're migrating a playbook that's used by only one analytics rule, follow the instructions under [Create an automation rule from an analytics rule](#create-an-automation-rule-from-an-analytics-rule).
 
-- If you’re migrating a playbook that's used by multiple analytics rules, follow the instructions under [Create a new automation rule from the Automation portal](#create-a-new-automation-rule-from-the-automation-portal).
+- If you’re migrating a playbook that's used by multiple analytics rules, follow the instructions under [Create a new automation rule from the Automation page](#create-a-new-automation-rule-from-the-automation-page).
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
