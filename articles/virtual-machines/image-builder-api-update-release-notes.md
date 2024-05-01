@@ -18,6 +18,37 @@ This article contains all major API changes and feature updates for the Azure VM
 
 ## Updates
 
+### May 2024
+#### Breaking Change: Case Sensitivity
+
+Starting from the AIB API version 2024-02-01 and beyond, all fields in our API will be case-sensitive. This means that the capitalization of letters in your API requests must match exactly with the expected format. Previously, our API was more forgiving in terms of case, but moving forward, precision is crucial. When making API calls, ensure that you use the correct capitalization for field names, parameters, and values. For example, if a field is named “vmBoot,” you must use “vmBoot” (not “VMBoot” or “vmboot”).
+
+If you send an API request with incorrect case or unrecognized fields, our system will reject it. You will receive an error response indicating that the request is invalid. The error will look something like this:
+
+`Unmarshalling entity encountered error: unmarshalling type *v2024_02_01.ImageTemplate: struct field Properties: unmarshalling type *v2024_02_01.ImageTemplateProperties: struct field Optimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize, unknown field \"vmboot\". There is an issue with the syntax with the JSON template you are submitting. Please check the JSON template for syntax and grammar. For more information on the syntax and grammar of the JSON template, visit http://aka.ms/azvmimagebuildertmplref.`
+
+The error will call out an "unknown field" and point you to our official documentation: [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md). This documentation will guide you on the proper syntax and grammar for constructing valid API calls.
+
+We have updated our documentation to include the proper capitalization and field names ahead of the API release. Below is a list of the documentation changes we made to match the field names in API version 2024-02-01:
+
+In the [Create an Azure Image Builder Bicep or ARM template JSON template](../linux/image-builder-json.md) documentation:
+
+**Fields Updated:**
+
+- Replaced several mentions of `vmboot` with `vmBoot`
+- Replaced one mention of `imageVersionID` with `imageVersionId`
+
+**Field Removed:**
+
+- `apiVersion`: We recommend avoiding the inclusion of this field in your requests because it is not explicitly specified in our API, so it _may_ lead to errors if you add it to your requests.
+
+In the [Azure VM Image Builder networking options](../linux/image-builder-networking.md) documentation:
+
+**Fields Removed:**
+
+- `subnetName` in the `vnetConfig` property – this field is deprecated and the new field is `subnetId`
+- `resourceGroupName` in the `vnetConfig` property – this field is deprecated and the new field is `subnetId`
+
 ### November 2023
 Azure Image Builder is enabling Isolated Image Builds using Azure Container Instances in a phased manner. The rollout is expected to be completed by early 2024. Your existing image templates will continue to work and there is no change in the way you create or build new image templates. 
 
