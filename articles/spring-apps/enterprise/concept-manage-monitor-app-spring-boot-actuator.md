@@ -64,15 +64,15 @@ To view all the endpoints built-in and related configurations, see the [Exposing
 
 ### Secure actuator endpoint
 
-When you open the app to the public, these actuator endpoints are exposed to the public as well. We recommend that you hide all endpoints by setting `management.endpoints.web.exposure.exclude=*`, because the `exclude` property takes precedence over the `include` property. Be aware that this action blocks Application Live View in the Enterprise plan and other apps or tools that rely on the actuator HTTP endpoint.
+When you open the app to the public, these actuator endpoints are exposed to the public as well. We recommend that you hide all endpoints by setting `management.endpoints.web.exposure.exclude=*`, because the `exclude` property takes precedence over the `include` property. This action blocks Application Live View in the Enterprise plan and other apps or tools that rely on the actuator HTTP endpoint.
 
 In the Enterprise plan, there are two ways to secure the access:
 
-1. You can disable the public endpoint of apps and configure a routing rule in VMware Spring Cloud Gateway to disable actuator access from the public. For more information, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md). 
+- You can disable the public endpoint of apps and configure a routing rule in VMware Spring Cloud Gateway to disable actuator access from the public. For more information, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
-2. You can configure the actuator to listen on a different HTTP port from the main application. In a standalone application, the Actuator HTTP port defaults to the same as the main HTTP port. To make the application listen on a different port, set the property `management.server.port`. Be aware that the Application Live View won't automatically detect this port change, you also need to configure the property on an Azure Spring Apps deployment. Then the actuator won't be accessed from the public, but the Application Live View can read from the actuator endpoint via another port. For more information, see [Use Application Live View](./how-to-use-application-live-view.md).
+- You can configure the actuator to listen on a different HTTP port from the main application. In a standalone application, the actuator HTTP port defaults to the same as the main HTTP port. For the application to listen on a different port, set the property `management.server.port`. The Application Live View is unable to automatically detect this port change, you also need to configure the property on an Azure Spring Apps deployment. This way, you're unable to access the actuator from the public, but the Application Live View can read from the actuator endpoint via another port. For more information, see [Use Application Live View with the Azure Spring Apps Enterprise plan](./how-to-use-application-live-view.md).
 
 ## Next steps
 
-* [Metrics for Azure Spring Apps](./concept-metrics.md)
-* [App status in Azure Spring Apps](./concept-app-status.md)
+- [Metrics for Azure Spring Apps](./concept-metrics.md)
+- [App status in Azure Spring Apps](./concept-app-status.md)
