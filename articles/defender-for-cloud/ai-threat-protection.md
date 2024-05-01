@@ -13,10 +13,10 @@ author: Elazark
 The Defender for AI Workloads plan in Microsoft Defender for Cloud provides AI threat protection capabilities that can help you identify and respond in real time to  security issues in your generative AI applications.
 
 > [!IMPORTANT]
-> The Defender for Workloads AI plan is currently in PREVIEW.
+> The Defender for AI Workloads plan is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Defender for Cloud's AI threat protection integrates with [Azure AI Content Safety Prompt Shields](../ai-services/content-safety/concepts/jailbreak-detection.md) and Microsoft's threat intelligence signals to deliver contextual and actionable security alerts associated with a range of threats including:
+Defender for Cloud's AI threat protection integrates with [Azure AI Content Safety Prompt Shields](../ai-services/content-safety/concepts/jailbreak-detection.md) and Microsoft's threat intelligence signals to deliver contextual and actionable security alerts associated with a range of threats such as sensitive data leakage, data poisoning, jailbreak and credentials theft.
 
 - **Sensitive data leak and data poisoning** - The inadvertent exposure or manipulation of sensitive organizational data, poses significant risks to confidentiality and compliance.
 
@@ -31,13 +31,13 @@ Defender for Cloud's AI threat protection integrates with [Azure AI Content Safe
 
 ## Defender XDR integration
 
-Defender for Cloud AI workload security alerts are integrated into the [Defender for Cloud's alerts and incidents that are integrated with Defender XDR](concept-integration-365.md), enabling security teams to centralize alerts on AI workloads within the Defender XRD portal.
+Defender for Cloud AI workloads security alerts are integrated into [Defender XDR](concept-integration-365.md), enabling security teams to centralize alerts on AI workloads within the Defender XDR portal.
 
-Security teams can handle AI Workloads alerts on within the Defender portal. Security teams can correlate alerts and incidents, and gain an understanding of the full scope of an attack, including malicious activities associated with their generative AI applications from the XDR dashboard.
+Security teams can correlate AI workloads alerts and incidents within the Defender XDR portal, and gain an understanding of the full scope of an attack, including malicious activities associated with their generative AI applications from the XDR dashboard.
 
 ## Signing up for the limited public preview
 
-To use the Defender for Workloads AI plan, you must enroll in the limited public preview program by filling out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
+To use the Defender for AI Workloads plan, you must enroll in the limited public preview program by filling out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
 After you fill out the registration form and are accepted into the preview program, you can [onboard your Azure subscription to the preview program](ai-onboarding.md#enable-the-defender-for-ai-workloads-plan).
 

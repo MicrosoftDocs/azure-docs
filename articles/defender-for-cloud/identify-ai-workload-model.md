@@ -8,7 +8,7 @@ ms.date: 04/18/2024
 
 # Discover generative AI applications
 
-Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AIBOM). By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AI BOM). By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -16,15 +16,15 @@ Defender for Cloud provides a comprehensive view of your organization's AI bill 
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-- [Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
+-Enable [Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
-- Have at least one AI supported workload (Azure Open AI, AWS account).
+- Have at least one environment with  AI supported workloads (Azure Open AI, AWS account).
 
 ## Discover AI workloads and models in use
 
-You can use the cloud security explorer to identify generative AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
+The cloud security explorer can be used to identify generative AI workloads and models running in your environment, 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -44,7 +44,7 @@ You can use the cloud security explorer to identify generative AI workloads and 
 
     :::image type="content" source="media/identify-ai-workload-model/additional-resource-details.png" alt-text="Screenshot of the results with a different resource selected and its results are displayed." lightbox="media/identify-ai-workload-model/additional-resource-details.png":::
 
-    The findings show the deployed models and specific model versions that are running on your resources.
+    The findings show the deployed models that are running on your resources and specific model metadata regarding those deployments.
 
 ## Next step
 

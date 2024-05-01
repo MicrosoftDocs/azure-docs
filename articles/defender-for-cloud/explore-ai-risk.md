@@ -8,7 +8,7 @@ ms.date: 04/18/2024
 
 # Explore risks to generative AI applications
 
-The Defender CSPM plan in Microsoft Defender for Cloud helps you to improve the security posture of generative AI apps by identifying vulnerable dependencies in libraries. This article explains how to explore, identify, and remediate security risks for those apps.
+The Defender CSPM plan in Microsoft Defender for Cloud helps you to improve the security posture of generative AI apps, by identifying vulnerable dependencies in libraries. This article explains how to explore, identify, and remediate security risks for those apps.
 
 ## Prerequisites
 
@@ -16,13 +16,13 @@ The Defender CSPM plan in Microsoft Defender for Cloud helps you to improve the 
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-- [Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
+- Enable [Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
 
-## Identify containers running on vulnerable genrative AI container images
+## Identify containers running on vulnerable generative AI container images
 
 The cloud security explorer can be used to identify containers that are running generative AI container images with known vulnerabilities.
 
@@ -52,7 +52,7 @@ The cloud security explorer can be used to identify containers that are running 
 
 ## Identify vulnerable generative AI code repositories
 
-The cloud security explorer can be used to identify generative AI code repositories, that provision Azure OpenAI, with known vulnerabilities. 
+The cloud security explorer can be used to identify vulnerable generative AI code repositories, that provision Azure OpenAI. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

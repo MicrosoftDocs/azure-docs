@@ -25,7 +25,7 @@ To get started you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) for a
 
 ## Enroll in the limited public preview
 
-Before you can start to use the Defender for Workloads AI plan, you must enroll in the limited public preview program.
+Before you can start to use the Defender for AI Workloads plan, you must enroll in the limited public preview program.
 
 1. Fill out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
@@ -51,7 +51,7 @@ You can enable the Defender for AI Workloads plan on an Azure subscription and A
 
 ### Remediate alerts
 
-After you have onboarded the Defender for AI Workloads plan, you can [manage and remediate the security alerts](managing-and-responding-alerts.md) that are generated for your AI applications.
+After you have onboarded the Defender for AI Workloads plan, you can [manage and remediate the security alerts](managing-and-responding-alerts.md) that are generated for your AI workloads.
 
 ## Next step
 
