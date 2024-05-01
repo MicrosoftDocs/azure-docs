@@ -897,22 +897,22 @@
           href: /azure/developer/jenkins/deploy-from-github-to-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use Ansible to create AKS clusters
           href: /azure/developer/ansible/aks-configure-clusters?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-    - name: AKS for EKS professionals
+    - name: AKS for Amazon EKS professionals
       items:
       - name: Migrate EKS event-driven workloads
         items:
         - name: Overview
-          href: eks-scale-overview.md
+          href: eks-edw-overview.md
         - name: Understand platform differences
-          href: eks-scale-understand.md
+          href: eks-edw-understand.md
         - name: Rearchitect for Azure
-          href: eks-scale-rearchitect.md
+          href: eks-edw-rearchitect.md
         - name: Refactor app
-          href: eks-scale-refactor.md
+          href: eks-edw-refactor.md
         - name: Prepare for deployment
-          href: eks-scale-prepare.md
+          href: eks-edw-prepare.md
         - name: Deploy to Azure
-          href: eks-scale-deploy.md
+          href: eks-edw-deploy.md
 - name: Reference
   items:
     - name: Azure CLI
