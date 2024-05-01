@@ -283,30 +283,32 @@ We will let you know when we are ready to onboard you. After recieving the confi
 
     Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
 
-    ```json
-        import { defineConfig } from '@playwright/test';
-    
-        export default defineConfig({
-            reporter: [
-            ['list'],
-            ['json', {  outputFile: 'test-results.json' }],
-            ['@microsoft/mpt-reporter'] // Microsoft Playwright Testing reporter
-            ],
-        });
+    ```typescript
+    import { defineConfig } from '@playwright/test';
+
+    export default defineConfig({
+        reporter: [
+        ['list'],
+        ['json', {  outputFile: 'test-results.json' }],
+        ['@microsoft/mpt-reporter'] // Microsoft Playwright Testing reporter
+        ],
+    });
     ```
     Make sure that the artifacts are enabled in the config for better troubleshooting.
-    ```json
-        use: {
-            // ...
-            trace: 'on-first-retry',
-            video:'retain-on-failure',
-            screenshot:'only-on-failure',
-          }
+    
+    ```typescript
+    use: {
+        // ...
+        trace: 'on-first-retry',
+        video:'retain-on-failure',
+        screenshot:'only-on-failure',
+        }
     ```
 
 6.  Run Playwright tests
 
-You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal. 
+    You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal. 
+    
     > [!TIP]
     > This feaure can be used independent of cloud-hosted browsers.
 
