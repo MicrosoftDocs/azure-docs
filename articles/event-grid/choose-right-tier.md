@@ -3,8 +3,8 @@ title: Choose the right Event Grid tier for your solution
 description: Describes how to choose the right tier based on resource features and use cases.
 ms.topic: overview
 ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+  - build-2024
+ms.date: 05/08/2024
 ---
 
 # Choose the right Event Grid tier for your solution
@@ -32,14 +32,14 @@ For more information, see quotas and limits for [namespaces](quotas-limits.md#ev
 
 ## Event Grid basic tier
 
-Event Grid basic tier supports push delivery using Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics.
+Event Grid basic tier supports push delivery using custom topics, system topics, partner topics, and domains.
 
 Use this tier if any of these statements is true:
 
 * You want to build a solution to trigger actions based on custom application events, Azure system events, partner events.
 * You want to publish events to thousands of topics using Event Grid domains.
 * You don't have any future needs to support rates greater than 5 MB/s for ingress or egress.
-* You don't require event retention greater than 1 day. For example, an event handler logic is able to be patched in less than 1 day. Otherwise, you're fine with the extra cost and overhead of reading events from a blob dead-letter destination once they have stayed for more than 1 day in Event Grid.
+* You don't require event retention greater than 1 day. For example, an event handler logic is able to be patched in less than 1 day in case a bug in its logic. Otherwise, you don't have concerns with the extra cost and overhead of reading events from a blob dead-letter destination.
 
 For more information, see quotas and limits for [custom topics, system topics and partner topics](quotas-limits.md#custom-topic-system-topic-and-partner-topic-resource-limits) and [domains](quotas-limits.md#domain-resource-limits).
 
@@ -60,9 +60,10 @@ The basic tier is focused on providing push delivery support to trigger actions 
 | MQTT v5 and v3.1.1                                                                                                                 | Yes                                                |                                        |
 | Pull delivery                                                                                                                      | Yes                                                |                                        |
 | Publish and subscribe to custom events                                                                                             | Yes                                                | Yes                                    |
+| Push delivery to Webhooks  |Yes  | Yes
 | Push delivery to Event Hubs                                                                                                        | Yes                                                | Yes                                    |
+| Push delivery to Azure services (Functions, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
 | Maximum message retention  | 7 days on namespace topics  | 1 day
-| Push delivery to Azure services (Functions, Webhooks, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
 | Subscribe to Azure system events                                                                                                   |                                                    | Yes                                    |
 | Subscribe to partner events                                                                                                        |                                                    | Yes                                    |
 | Domain scope subscriptions                                                                                                         |                                                    | Yes                                    |
