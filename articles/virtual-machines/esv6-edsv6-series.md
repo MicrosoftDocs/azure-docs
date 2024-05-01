@@ -1,8 +1,4 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title: Esv6 and Edsv6-series
 description: Specifications for Esv6 and Edsv6-series
 author:      misha-bansal # GitHub alias
@@ -24,7 +20,7 @@ The Esv6 and Edsv6-series Virtual Machines run on the 5th Generation Intel® Xeo
 
 These new Intel based VMs have two variants: Esv6 without local SSD and Edsv6 with local SSD.
 
-**Esv6-series (Preview)**
+## Esv6-series
 
 Esv6-series virtual machines run on the 5th Generation Intel® Xeon® Platinum 8473C (Emerald Rapids) processor reaching an all- core turbo clock speed of up to 3.0 GHz. These virtual machines offer up to 128 vCPU and 1024 GiB of RAM. Esv6-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
@@ -43,7 +39,7 @@ Esv6-series virtual machines run on the 5th Generation Intel® Xeon® Platinum 8
 | **Standard_E96s_v6** | 96 | 768 | 0 | 64 | NA | NA | 153600/5088 | 153600/5088 | 200000/5953 | 200000/5953 | 8 | 41000 |
 | **Standard_E128s_v6** | 128 | 1024 | 0 | 64 | NA | NA | 204800/6782 | 204800/6782 | 266667/7935 | 266667/7935 | 8 | 54000 |
 
-**Edsv6-series (Preview)**
+## Edsv6-series
 
 Edsv6-series virtual machines run on the 5th Generation Intel® Xeon® Platinum 8473C (Emerald Rapids) processor reaching an all core turbo clock speed of up to 3.0 GHz. These virtual machines offer up to 192 vCPU and 1832 GiB of RAM and fast, local SSD storage up to 6x1760 GiB. Edsv6-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
@@ -64,7 +60,7 @@ Edsv6-series virtual machines support Standard SSD and Standard HDD disk types. 
 | **Standard_E96ds_v6** | 96 | 768 | 6x880 | 64 | 1800000/8640 | 720000/4320 | 153600/5088 | 153600/5088 | 200000/5953 | 200000/5953 | 8 | 41000 |
 | **Standard_E128ds_v6** | 128 | 1024 | 4x1760 | 64 | 2400000/11520 | 960000/5760 | 204800/6782 | 204800/6782 | 266667/7935 | 266667/7935 | 8 | 54000 |
 
-**Size table definitions**
+## Size table definitions
 
 Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 
