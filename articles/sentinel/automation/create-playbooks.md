@@ -58,7 +58,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
         - **Playbook with alert trigger**
         - **Playbook with entity trigger**
 
-    For more information, see [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types) and [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
+    For more information, see [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types) and [Supported triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
 
 ## Prepare your playbook's Logic App
 
@@ -197,7 +197,7 @@ For more information, see [Supported triggers and actions in Microsoft Sentinel 
 When you choose a trigger, or any subsequent action, you're prompted to authenticate to whichever resource provider you are interacting with. In this case, the provider is Microsoft Sentinel, and there are a few authentication options. For more information, see:
 
 - [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md)
-- [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
+- [**Supported triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
 ### Dynamic content: Use entity playbooks with no incident ID
 

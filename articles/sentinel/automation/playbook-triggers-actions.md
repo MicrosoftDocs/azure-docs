@@ -12,7 +12,7 @@ ms.collection: usx-security
 #customerIntent: As a SOC engineer, I want to understand the types of triggers and actions available for use in Microsoft Sentinel playbooks.
 ---
 
-# Use triggers and actions in Microsoft Sentinel playbooks
+# Supported triggers and actions in Microsoft Sentinel playbooks
 
 This article describes the triggers and actions supported by the [Logic Apps Microsoft Sentinel connector](/connectors/azuresentinel/). Use the listed triggers and actions in Microsoft Sentinel playbooks to interact with your Microsoft Sentinel data.
 

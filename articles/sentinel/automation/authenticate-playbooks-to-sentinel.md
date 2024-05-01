@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-
+#customerIntent: As a SOC engineer, I want to understand my options when authenticating from playbooks to Microsoft Sentinel.
 ---
 
 # Authenticate playbooks to Microsoft Sentinel
@@ -27,21 +27,26 @@ We recommend that you read the following articles before this one:
 - [Automate threat response with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md)
 - [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
 - [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md)
+- [Supported triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md)
 
-For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
+
+To give a managed identity access to other resources, like your Microsoft Sentinel workspace, your signed-in user must have a role with permissions to write role assignments, such as **Owner** or **User Access Administrator** of the Microsoft Sentinel workspace.
 
 ## Authentication
 
 The Microsoft Sentinel connector in Logic Apps, and its component triggers and actions, can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:
 
-- [Managed identity (Preview)](#authenticate-with-a-managed-identity)
-- [Service principal (Microsoft Entra application)](#authenticate-as-a-service-principal-azure-ad-application)
+- [Managed identity (Preview)](#authenticate-with-a-managed-identity). For example, use this method to lower the number of identities you need to manage.
+- [Service principal (Microsoft Entra application)](#authenticate-as-a-service-principal-azure-ad-application). Registered applications provide an enhanced ability to control permissions, manage credentials, and enable certain limitations on the use of the connector.
 - [Microsoft Entra user](#authenticate-as-an-azure-ad-user)
 
 ### Permissions required
-The following table lists the permissions required by the authenticated identity to use various components of the Microsoft Sentinel connector:
 
-| Roles | Triggers | "Read" actions | "Write" actions,<br>such as updating incidents or adding a comment |
+Regardless of the authentication method, the following permissions are required by the authenticated identity to use various components of the Microsoft Sentinel connector. "Write" actions include actions like such as updating incidents or adding a comment.
+
+<!--use links for all roles-->
+
+| Roles | Use triggers | Use "Read" actions | Use "Write" actions|
 | ------------- | :-----------: | :------------: | :-----------: |
 | **[Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader)** | &#10003; | &#10003; | **-** |
 | **Microsoft Sentinel [Responder](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder)/[Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
@@ -55,18 +60,13 @@ For more information, see [Roles and permissions in Microsoft Sentinel](../roles
 
 Authenticating as a managed identity allows you to give permissions directly to the playbook, which is a Logic App workflow resource. Microsoft Sentinel connector actions taken by the playbook then operate on the playbook's behalf, as if it were an independent object with its own permissions on Microsoft Sentinel.
 
-Use this method to lower the number of identities you need to manage.
-
-> [!NOTE]
-> To give a managed identity access to other resources, like your Microsoft Sentinel workspace, your signed-in user must have a role with permissions to write role assignments, such as **Owner** or **User Access Administrator** of the Microsoft Sentinel workspace.
-
 **To authenticate with a managed identity**:
 
 1. Enable managed identity on the Logic Apps workflow resource. For more information, see [Enable system assigned identity in the Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal).
 
     Your logic app can now use the system-assigned identity, which is registered with Microsoft Entra ID and is represented by an object ID.
 
-1. Give that identity access to the Microsoft Sentinel workspace:
+1. Use the following steps to grant that identity with access to your Microsoft Sentinel workspace:
 
     1. From the Microsoft Sentinel menu, select **Settings**.
     1. Select the **Workspace settings** tab. From the workspace menu, select **Access control (IAM)**.
@@ -107,7 +107,7 @@ Use this method to lower the number of identities you need to manage.
 
 ## Authenticate as a service principal (Microsoft Entra application)
 
-Create a service principal by registering a Microsoft Entra application. We recommend that you use a registered application as the connector's identity instead of a user account. Registered applications provide an enhanced ability to control permissions, manage credentials, and enable certain limitations on the use of the connector.
+Create a service principal by registering a Microsoft Entra application. We recommend that you use a registered application as the connector's identity instead of a user account. 
 
 **To use your own application with the Microsoft Sentinel connector**:
 
@@ -124,7 +124,7 @@ Create a service principal by registering a Microsoft Entra application. We reco
 
     1. Select **Add role assignment**, and then select the role you wish to assign to the application. 
 
-        For example, to allow the application to perform actions to make changes in the Microsoft Sentinel workspace, like updating an incident, select the **Microsoft Sentinel Contributor** role. For actions that only read data, the **Microsoft Sentinel Reader** role is sufficient.
+        For example, to allow the application to perform actions that make changes in the Microsoft Sentinel workspace, like updating an incident, select the **Microsoft Sentinel Contributor** role. For actions that only read data, the **Microsoft Sentinel Reader** role is sufficient.
 
     1. Find the required application and save your changes.
 
@@ -142,7 +142,7 @@ Create a service principal by registering a Microsoft Entra application. We reco
 
         ![Screenshot of the Service principal option selected.](../media/authenticate-playbooks-to-sentinel/auth-methods-spn-choice.png)
 
-    1. Enter the required parameters values, which are available in the registered application's details page:
+    1. Enter the required parameter values, which are available in the registered application's details page:
 
         - **Tenant**: under **Overview**
         - **Client ID**: under **Overview**
@@ -174,17 +174,20 @@ API connections are used to connect Azure Logic Apps to other services, includin
 
 **To view API connections**, do one of the following:
 
-- Enter *API connections* in the Azure portal search box. Locate the API connection for your playbook using the following data:
+- In the Azure portal, search for *API connections*. Locate the API connection for your playbook using the following data:
 
     - **Display name**: The friendly name you give the connection every time you create one. 
     - **Status**: The API connection's status.
     - **Resource group**: API connections for Microsoft playbooks are created in the playbook (Azure Logic Apps) resource's resource group.
 
-- In the Azure portal, via all resources and filter the view by **Type** = **API connector**. This method allows you to select, tag, and delete multiple connections at once.
+- In the Azure portal, view all resources and filter the view by **Type** = **API connector**. This method allows you to select, tag, and delete multiple connections at once.
 
 **To change the authorization of an existing connection**, enter the connection resource, and select **Edit API connection**.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Use triggers and actions in playbooks](playbook-triggers-actions.md)
+For more information, see:
+
+- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
+- [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
+- [Automate and run Microsoft Sentinel playbooks](run-playbooks.md)
