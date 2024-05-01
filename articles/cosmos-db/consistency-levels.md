@@ -39,7 +39,7 @@ Azure Cosmos DB provides native support for wire protocol-compatible APIs for po
 
 ## Scope of the read consistency
 
-Read consistency applies to a single read operation scoped within a logical partition. A remote client or a stored procedure can issue the read operation.
+Read consistency applies to a single read operation scoped within a logical partition. A remote client, a stored procedure, or a trigger can issue the read operation.
 
 ## Configure the default consistency level
 
