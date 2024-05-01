@@ -46,6 +46,10 @@
           href: concepts-observability.md
         - name: Metrics
           href: reference-operator-nexus-observability-metrics.md
+        - name: Azure Operator Nexus Network Fabric Configuration Monitoring
+          href: concepts-network-fabric-configuration-monitoring.md
+        - name: Azure Operator Nexus Network Fabric Internal Network BGP Metrics
+          href: concepts-internal-network-bgp-metrics.md
     - name: Security
       href: concepts-security.md
     - name: Control Plane Resiliency
@@ -148,7 +152,8 @@
               href: howto-update-access-control-list-for-network-to-network-interconnects.md
             - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
               href: howto-delete-access-control-list-network-to-network-interconnect.md
-           
+            - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
+              href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
