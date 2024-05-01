@@ -13,15 +13,15 @@ ms.custom: engagement-fy24
 
 This article describes how to migrate Azure VM backups from standard to enhanced policy using Azure Backup.
 
-Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy.. The migration of VM backups to enhanced policy enables you to trigger multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points created using enhanced policy is zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
 
 ## Considerations
 
 - Before you start the migration, ensure that there are no ongoing backup jobs for the VM that you plan to migrate.
-- Migration is supported for Managed VMs only, and isn’t supported for Classic or unmanaged VMs.
+- Migration is supported for Managed VMs only and isn’t supported for Classic or unmanaged VMs.
 - Once the migration is complete, you can’t change the backup policy back to standard policy.
 - Migration operations trigger a backup job as part of the migration process and might take up to several hours to complete for large VMs.
-- The change from standard policy to enhanced policy can result in additional costs.  Learn More.
+- The change from standard policy to enhanced policy can result in additional costs. [Learn More](backup-instant-restore-capability#cost-impact.md).
 
 
 ## Trigger the backup migration operation
