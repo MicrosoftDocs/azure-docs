@@ -327,7 +327,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 Next, use the following steps to connect to the OpenShift cluster using the OpenShift CLI:
 
-1. In the shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
+1. In the shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux. If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
 
    ```azurecli-interactive
    cd ~
@@ -487,7 +487,7 @@ Next, use the following steps to create a secret:
    EOF
    ```
 
-   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`.  If you don't see this output, troubleshoot and resolve the problem before proceeding.
+   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`. If you don't see this output, troubleshoot and resolve the problem before proceeding.
 
 1. Run `oc get pod -w | grep 1/1` to monitor whether all pods of the app are running. When you see output similar to the following example, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the monitoring:
 
