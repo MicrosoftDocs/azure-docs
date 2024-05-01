@@ -7,7 +7,7 @@ ms.date: 04/29/2024
 
 # Transactions in Apache Kafka for Azure Event Hubs
 
-This article provides detail on how to use Apache Kafka’s transactional API with Azure Event Hubs.
+This article provides detail on how to use the [Apache Kafka](https://kafka.apache.org/) transactional API with Azure Event Hubs.
 
 ## Overview
 Event Hubs provides a Kafka endpoint that can be used by your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
@@ -15,16 +15,26 @@ Event Hubs provides a Kafka endpoint that can be used by your existing Kafka cli
 This document focuses on how to use Kafka’s transactional API with Azure Event Hubs seamlessly.
 
 ## Transactions in Apache Kafka
-Transactions in Apache Kafka work in an intuitive fashion, where in a batch of operations are performed across the same or multiple topics and then committed or aborted.
+In cloud native environments, applications must be made resilient to network disruptions and namespace restarts and upgrades. Applications requiring strict processing guarantees must utilize a transactional framework or API to ensure that either all of the operations are executed, or none are so that the application and data state is reliably managed. If the set of operations fail, they can be reliably tried again atomically to ensure the right processing guarantees.
+
+> [!NOTE]
+> Transactional guarantees are typically required when there are multiple operations that need to be processed in an "all or nothing" fashion.
+> 
+> For all other operations, client applications are **resilient by default** to retry the operation with an exponential backoff, if the specific operation failed.
+
+
+Apache Kafka provides a transactional API to ensure this level of processing guarantees across the same or different set of topic/partitions.
+
 Transactions apply to the below cases –
 1.	Transactional producers.
-2.	Exactly once semantics.
+2.	Exactly once processing semantics.
 3.	Read-Process-Write operations.
 
 
 ### Transactional Producers
 
 Transactional producers ensure that data is written atomically to multiple partitions across different topics. Producers can initiate a transaction, write to multiple partitions on the same topic or across different topics, and then commit or abort the transaction.
+
 To ensure that a producer is transactional, the below properties must be set –
 
 ```java
@@ -35,15 +45,17 @@ To ensure that a producer is transactional, the below properties must be set –
 
 Once the producer is initialized, the below call ensures that the producer registers with the broker as a transactional producer -
 
-```Java
+```java
     producer.initTransactions();
 ```
 
-After this, the producer must begin a transaction explicitly, perform send operations across different topics and partitions as normal, and then commit the transaction with the below call –
+The producer must then begin a transaction explicitly, perform send operations across different topics and partitions as normal, and then commit the transaction with the below call –
 
 ```java
     producer.beginTransaction();
-	// send operations
+	/*
+        Send to multiple topic partitions.
+    */
     producer.commitTransaction();
 ```
 
