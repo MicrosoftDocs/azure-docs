@@ -208,12 +208,12 @@ In this security model, you can grant access to your cluster's resources to team
     az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv
     ```
 
-2. Create a role assignment that grants the workload identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
+2. Create a role assignment that grants the identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
 
     > [!IMPORTANT]
     >
-    > * If your key vault is set with `--enable-rbac-authorization` and you're using `key` or `certificate` type, assign the `Key Vault Certificate User` role to give permissions.
-    > * If your key vault is set with `--enable-rbac-authorization` and you're using `secret` type, assign the `Key Vault Secrets User` role.
+    > * If your key vault is set with `--enable-rbac-authorization` and you're using `key` or `certificate` type, assign the [`Key Vault Certificate User`](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role.
+    > * If your key vault is set with `--enable-rbac-authorization` and you're using `secret` type, assign the [`Key Vault Secrets User`](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role.
     > * If your key vault isn't set with `--enable-rbac-authorization`, you can use the [`az keyvault set-policy`][az-keyvault-set-policy] command with the `--key-permissions get`, `--certificate-permissions get`, or `--secret-permissions get` parameter to create a key vault policy to grant access for keys, certificates, or secrets. For example:
     >
     > ```azurecli-interactive
@@ -221,7 +221,8 @@ In this security model, you can grant access to your cluster's resources to team
     > ```
 
     ```azurecli-interactive
-    export KEYVAULT_SCOPE=$(az keyvault show --name $KEYVAULT_NAME --query id -o tsv)
+    export IDENTITY_OBJECT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
+    export KEYVAULT_SCOPE=$(az keyvault show --name <key-vault-name> --query id -o tsv)
 
     # Example command for key vault with RBAC enabled using `key` type
     az role assignment create --role "Key Vault Certificate User" --assignee $USER_ASSIGNED_CLIENT_ID --scope $KEYVAULT_SCOPE
