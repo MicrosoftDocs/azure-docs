@@ -12,50 +12,53 @@ ms.custom: template-how-to
 
 # Configure routers for a Highly Available (HA) deployment
 
-For a Highly Available Azure Private 5G Core deployment, you need to deploy a gateway router (strictly, a Layer 3 capable device – either a router or an L3 switch (router/switch hybrid)) in between the Azure Stack Edge cluster and:
+In a Highly Available Azure Private 5G Core deployment, the Azure Kubernetes Service (AKS) cluster runs on a pair of ASE devices. The ASE devices are deployed in an active / standby configuration, with the backup ASE rapidly taking over service in the event of a failure. Incoming traffic uses a virtual IP address which is routed to the physical IP address of the active ASE. Bidirectional Forwarding Detection (BFD) is used to detect failures.
+
+This requires you to deploy a gateway router between the ASE cluster and:
 
 - the RAN equipment in the access network
 - the data networks.
- 
-This how-to guide describes the configuration required on your routers to support an HA deployment.
 
-## Access network router
+The routers should rapidly detect the failure of an ASE device through a BFD session going down and immediately redirect all traffic to the other ASE. With the recommended settings, BFD should be able to detect failure in about one second, ensuring that traffic should be restored in less than 2.5 seconds.
 
-Configure routers in the access network with the following static routes. The IP addresses defined in the access network are described in [private mobile network prerequisites](/azure/private-5g-core/complete-private-mobile-network-prerequisites).
+This how-to guide describes the configuration required on your router or routers to support an HA deployment. The gateway router for the access network and the gateway router for the data networks may be the same device or separate devices.
+
+## Collect router configuration values
+
+To determine how to configure the static routes on the gateway routers, navigate to your **Packet Core Control Plane** resource in the Azure portal. Under **Settings**, select **Router configuration**. This shows the N2S1 and N3 virtual IP addresses, the IP prefix for all UE pools for each data network and the next hops and relative priorities.
+
+## Configure the access network router
+
+Configure the router in the access network with the following static routes. The IP addresses defined in the access network are described in [private mobile network prerequisites](/azure/private-5g-core/complete-private-mobile-network-prerequisites).
 
 |Destination  |Prefix length   |Next hop  |Priority (lower values are more preferred)  |
 |---------|---------|---------|---------|
 |Virtual N2 | 32 |One of the IP addresses defined in the access network as vNIC addresses on the AMFs’ interfaces to the local access subnet. | 10 |
 |Virtual N2 | 32 |The other IP address defined in the access network as vNIC addresses on the AMFs’ interfaces to the local access subnet. | 10 |
-|Virtual N3 | 32 |The preferred IP address defined in the access network as one of the vNIC addresses on the UPFs’ interfaces to the local access subnet.* | 10 |
-|Virtual N3 | 32 |The non-preferred IP address defined in the access network as one of the vNIC addresses on the UPFs’ interfaces to the local access subnet.* | 20 |
+|Virtual N3 | 32 |The preferred IP address defined in the access network as one of the vNIC addresses on the UPFs’ interfaces to the local access subnet. | 10 |
+|Virtual N3 | 32 |The non-preferred IP address defined in the access network as one of the vNIC addresses on the UPFs’ interfaces to the local access subnet. | 20 |
 
-*See the [Gateway router](#gateway-router) section for how to view the preferred and non-preferred IP addresses.
+### Configure BFD on the access network router
 
-## Data network router
+The access network router must be configured with the following BFD sessions:
 
-If network address translation (NAT) is not enabled, configure the routers in each data network with the following static routes. As for user plane traffic in the access network, one of the static routes is preferred to the other so that, in normal operation, all data network traffic uses the same route. Each data network supports a single subnet.
+- Two BFD sessions between the access network router and the pair of AMF vNIC addresses.
+- Two BFD sessions between the access network router and the pair of UPF vNIC addresses in the access network.
+
+BFD sessions on the access data network routers should be configured to use a polling interval of 330 ms. The maximum tolerable packet loss should be set to 3 packets (this is the default on most routers).
+
+## Configure the data network routers
+
+If network address translation (NAT) is not enabled, configure the routers in each data network with the following static routes. For user plane traffic in the access network, one of the static routes is preferred to the other so that, in normal operation, all data network traffic uses the same route. Each data network supports a single subnet.
 
 |Destination  |Prefix length   |Next hop  |Priority (lower values are more preferred)  |
 |---------|---------|---------|---------|
 |All UE subnets | Variable |DN preferred vNIC (vNIC addresses on the UPFs’ interfaces to the DN).| 10        |
 |All UE subnets | Variable |DN preferred vNIC (vNIC addresses on the UPFs’ interfaces to the DN).| 20        |
 
-## Gateway router
+### Configure BFD on the data network routers
 
-To determine how to configure the static routes on the gateway routers, navigate to your **Packet Core Control Plane** resource in the Azure portal. Under **Settings**, select **Router configuration**. This shows the N2S1 and N3 virtual addresses, the IP prefix for all UE pools for each data network and the next hops and relative priorities.
-
-## Bi-directional Forwarding Detection (BFD)
-
-The access and data network routers must have the following BFD sessions configured:
-
-- Two BFD sessions between the access network router and the pair of AMF vNIC addresses.
-- Two BFD sessions between the access network router and the pair of UPF vNIC addresses in the access network.
-- Two BFD sessions per data network between the data network router and the pair of UPF vNIC addresses in that data network.
-
-BFD sessions on the access data network routers should be configured to use a polling interval of 200 ms. The maximum tolerable packet loss should be set to 3 packets (this is the default on most routers).
-
-The routers should rapidly detect the failure of an Azure Stack Edge device through a BFD session going down and immediately redirect all traffic to the other Azure Stack Edge device. With the recommended settings, BFD should be able to detect failure in about 600 ms, ensuring that traffic should be restored in less than 1.5 seconds.
+Each data network router must be configured with two BFD sessions between the data network router and the pair of UPF vNIC addresses in that data network.
 
 ## Next steps
 
