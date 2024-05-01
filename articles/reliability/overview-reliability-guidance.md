@@ -99,6 +99,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 | Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
+|Azure API Center | [Reliability in Azure API Center](reliability-api-center.md) | [Reliability in Azure API Center](reliability-api-center.md)|
 |Azure Application Gateway for Containers | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md) | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md)|
 |Azure Chaos Studio | [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)| [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
