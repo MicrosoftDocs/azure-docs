@@ -43,9 +43,8 @@ Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a n
 
 | Migrate from Non-Az enabled Gateway SKU | Migrate to Az-enabled Gateway SKU |
 |---------------------------|------------------------|
-| Standard, HighPerformance, UltraPerformance | ErGw1Az, ErGw2Az, ErGw3Az, ErGwScale (Preview) | 
+| Standard, HighPerformance, UltraPerformance | ErGw1Az, ErGw2Az, ErGw3Az, ErGwScale (Preview) |
 | Basic IP | Standard IP |
-
 
 ## Supported migration scenarios
 
