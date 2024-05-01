@@ -73,7 +73,7 @@ Here are the steps for migrating from 2023-07-01-preview:
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.
 
-1. Modify the vector search configuration. This API introduces the concept of *vector profiles that bundles together vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
+1. Modify the vector search configuration. This API introduces the concept of *vector profiles* that bundle vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
 
    + Rename `algorithmConfigurations` to `algorithms`. This is only a renaming of the array. The contents are backwards compatible. This means your existing HNSW configuration parameters can be used.
 
@@ -234,7 +234,7 @@ In this version, there's one breaking change and several behavioral differences.
 
 Code written against earlier API versions breaks on 2020-06-30 and later if code contains the following functionality:
 
-+ Any Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the Edm.DateTimeOffset format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
++ Any `Edm.Date` literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the `Edm.DateTimeOffset` format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
 
 ### Behavior changes
 
