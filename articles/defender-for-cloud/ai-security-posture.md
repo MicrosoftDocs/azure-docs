@@ -10,7 +10,7 @@ author: Elazark
 
 # AI security posture management
 
-Microsoft Defender for Cloud provides AI security posture management capabilities for Azure and AWS that that enhances the security of AI pipelines and services. Defender for Cloud reduces risk to cross cloud AI workloads by:
+Microsoft Defender for Cloud provides AI security posture management capabilities that secure enterprise-built, multi or hybrid cloud (currently Azure and AWS) generative AI applications, throughout the entire application lifecycle. Defender for Cloud reduces risk to cross cloud AI workloads by:
 
 - Discovering generative AI bill of materials (AI BOM), which includes application components, data, and AI artifacts from code to cloud.
 - Strengthening generative AI application security posture with built-in recommendations and by exploring and remediating security risks.
@@ -18,9 +18,9 @@ Microsoft Defender for Cloud provides AI security posture management capabilitie
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="An image of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
-## Discovering generative AI apps
+## Discovering generative AI apps within your environment
 
-Defender for Cloud discovers AI workloads to identify a detailed inventory of your organization's AIBOM. This visibility allows you to identify and address vulnerabilities and protect generative AI applications from potential threats.
+Defender for Cloud discovers AI workloads and identifies details of your organization's AI BOM. This visibility allows you to identify and address vulnerabilities and protect generative AI applications from potential threats.
 
 Defenders for Cloud automatically and continuously discover deployed AI workloads across the following service: 
 
@@ -56,7 +56,7 @@ By continuously monitoring AI workloads, attack path analysis can identify weakn
 
 ### Detecting IaC misconfigurations
 
-DevOps security detects IaC misconfigurations can expose generative AI applications to security vulnerabilities such as over-exposed access controls or inadvertent publicly exposed services. These misconfigurations could lead to data breaches or unauthorized access. Misconfigurations could lead to compliance issues, especially when handling strict data privacy regulations.
+DevOps security, detects IaC misconfigurations, which can expose generative AI applications to security vulnerabilities, such as over-exposed access controls or inadvertent publicly exposed services. These misconfigurations could lead to data breaches or unauthorized access. Misconfigurations could lead to compliance issues, especially when handling strict data privacy regulations.
 
 Defender for Cloud assesses your generative AI apps configuration and provides security recommendations to improve AI security posture. Remediate misconfigurations early in the development cycle allows organizations to prevent more complex problems later on. 
 
