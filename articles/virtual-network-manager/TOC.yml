@@ -111,7 +111,7 @@
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy
     href: how-to-define-network-group-membership-azure-policy.md
-  - name: Create user-defined routes
+  - name: Create user-defined routes (UDRs)
     href: how-to-create-user-defined-route.md
   - name: Common issues
     href: common-issues.md
