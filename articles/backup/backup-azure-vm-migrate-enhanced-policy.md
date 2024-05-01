@@ -18,7 +18,7 @@ Azure Backup now supports the migration of Azure VM backups using standard polic
 ## Considerations
 
 - Before you start the migration, ensure that there are no ongoing backup jobs for the VM that you plan to migrate.
-- Migration is supported for Managed VMs only, and isn’t supported for Classic or Unmanaged VMs.
+- Migration is supported for Managed VMs only, and isn’t supported for Classic or unmanaged VMs.
 - Once the migration is complete, you can’t change the backup policy back to standard policy.
 - Migration operations trigger a backup job as part of the migration process and might take up to several hours to complete for large VMs.
 - The change from standard policy to enhanced policy can result in additional costs.  Learn More.
@@ -48,7 +48,7 @@ To do the policy migration, follow these steps:
 
 ## Monitor the policy migration job
 
-To monitor the migration job, on the **Backup Items** blade, select **View jobs**.
+To monitor the migration job on the **Backup Items** blade, select **View jobs**.
 
 :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png" alt-text="{alt-text}" lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png":::
 
