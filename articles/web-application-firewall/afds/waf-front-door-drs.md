@@ -185,7 +185,7 @@ The Bot Manager 1.0 rule set provides protection against malicious bots and dete
 
 ### Bot Manager 1.1
 
-The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. They provide enhanced protection against malicious bots, and increases good bot detection.
+The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It provides enhanced protection against malicious bots, and increases good bot detection.
 
 |Rule group|Description|
 |---|---|
