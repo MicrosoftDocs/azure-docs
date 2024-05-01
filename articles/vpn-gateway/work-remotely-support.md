@@ -23,7 +23,7 @@ The Azure point-to-site solution is cloud-based and can be provisioned quickly t
 
 A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets or on-premises data centers from a remote location, such as from home or a conference. This article describes how to enable users to work remotely based on various scenarios.
 
-The following table shows the client operating systems and the authentication options that are available to them. It would be helpful to select the authentication method based on the client OS that is already in use. For example, select OpenVPN with Certificate-based authentication if you have a mixture of client operating systems that need to connect. Also, note that point-to-site VPN is only supported on route-based VPN gateways.
+The following table shows the client operating systems and the authentication options that are available to them. It would be helpful to select the authentication method based on the client OS that is already in use. For example, select OpenVPN with Certificate-based authentication if you have a mixture of client operating systems that need to connect. Also, note that point-to-site VPN is only supported on route-based VPN gateways. If you have a policy-based VPN type as your gateway, you need to delete it and deploy a route-based VPN gateway instead.
 
 ![Screenshot that shows client operating systems and available authentication options.](./media/working-remotely-support/os-table.png "OS")
 
