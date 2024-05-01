@@ -34,3 +34,11 @@ This is the replacement for the following preview models:
 ### Region availability
 
 For information on model regional availability consult the model matrix for [standard](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability), and [provisioned deployments](../concepts/models.md#provisioned-deployment-model-availability).
+
+### Deploying GPT-4 Turbo with Vision GA
+
+To deploy the GA model from the Studio UI, select `GPT-4` and then choose the `turbo-2024-04-09` version from the dropdown menu.The default quota for the `gpt-4-turbo-2024-04-09` model will be the same as current quota for GPT-4-Turbo. See the [regional quota limits](../concepts/models.md#standard-deployment-model-quota)
+
+### Playground support
+
+ Currently `gpt-4` **Version:** `turbo-2024-04-09` does not support image input/upload in the studio chat playgrounds.
