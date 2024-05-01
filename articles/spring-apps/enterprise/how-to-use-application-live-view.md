@@ -265,7 +265,7 @@ Use the following steps to configure the deployment using the Azure portal:
 
 1. Navigate to your service resource, and then go to the **Apps** page.
 
-   :::image type="content" source="media/how-to-use-application-live-view/application-list.png" alt-text="Screenshot of the Azure portal that shows the Apps page for a service instance." lightbox="media/   how-to-use-application-live-view/application-list.png":::
+   :::image type="content" source="media/how-to-use-application-live-view/application-list.png" alt-text="Screenshot of the Azure portal that shows the Apps page for a service instance." lightbox="media/how-to-use-application-live-view/application-list.png":::
 
 1. Select an application to configure the custom actuator settings.
 
