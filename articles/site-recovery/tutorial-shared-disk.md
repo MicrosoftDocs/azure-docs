@@ -3,7 +3,7 @@ title: Shared disks in Azure Site Recovery (preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 04/24/2024
+ms.date: 05/01/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -147,7 +147,7 @@ To failover the cluster to a recovery point, follow these steps:
 1. Retain values for the **Time span** field.
 1. Select an individual recovery point for the virtual machines that are *not* part of the cluster recovery point.  
     
-    These virtual machines then failover like independent virtual machines and the shared disk is no longer attached to them. 
+    These virtual machines then failover like independent virtual machines and the shared disk is attached to them. 
 
     :::image type="content" source="media/tutorial-shared-disk/failover-list.png" alt-text="Screenshot showing cluster recovery list."::: 
 
