@@ -146,7 +146,7 @@ Storage Explorer lets you connect to individual resources, such as an Azure Data
 | Queues           | Yes                | No                   | Yes (URL)                      | No                 |
 | Tables           | Yes                | No                   | Yes (URL)                      | No                 |
 
-Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
+Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports. Take a note that you cannot mount a Blob container using Storage Explorer.
 
 To connect to an individual resource, select the **Connect** button in the left-hand toolbar. Then follow the instructions for the resource type you want to connect to.
 
