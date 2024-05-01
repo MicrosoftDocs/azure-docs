@@ -45,7 +45,7 @@ There are three different configuration modes for outbound traffic from the mana
 * Always use private endpoints to access Azure resources. 
 
     > [!IMPORTANT]
-    > While you can create a private endpoint for Azure AI Services, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
+    > While you can create a private endpoint for Azure AI services and Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
 
 * You must add rules for each outbound connection you need to allow.
 * Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
@@ -324,6 +324,9 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Database for PostgreSQL
 * Azure Database for MySQL
 * Azure SQL Managed Instance
+
+> [!IMPORTANT]
+> While you can create a private endpoint for Azure AI services and Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
 
 When you create a private endpoint, you provide the _resource type_ and _subresource_ that the endpoint connects to. Some resources have multiple types and subresources. For more information, see [what is a private endpoint](/azure/private-link/private-endpoint-overview).
 
