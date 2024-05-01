@@ -64,7 +64,7 @@ An individual enrollment is an entry for a single device that may be assigned to
 
 For a walkthrough of how to create and use individual enrollments with X.509 certificates, see [Quickstart:Provision an X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).
 
-To create a X.509 certificate individual enrollment:
+To create an X.509 certificate individual enrollment:
 
 <!-- INCLUDE -->
 [!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
