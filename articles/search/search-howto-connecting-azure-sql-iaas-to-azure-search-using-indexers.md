@@ -68,7 +68,7 @@ It's a best practice to configure the [network security group (NSG)](../virtual-
 
 The following steps and links provide instructions on NSG configuration for VM deployments. Use these instructions to ACL a search service endpoint based on its IP address.
 
-1. Obtain the IP address of your search service. See the [following section](#restrict-access-to-the-azure-ai-search) for instructions.
+1. Obtain the IP address of your search service. See the [following section](#restrict-network-access-to-azure-ai-search) for instructions.
 
 1. Add the search IP address to the IP filter list of the security group. Either one of following articles explains the steps:
 
@@ -78,7 +78,7 @@ The following steps and links provide instructions on NSG configuration for VM d
 
 IP addressing can pose a few challenges that are easily overcome if you're aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.
 
-### Restrict access to Azure AI Search
+### Restrict network access to Azure AI Search
 
 We strongly recommend that you restrict the access to the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) in the ACL instead of making your SQL Azure VMs open to all connection requests.
 
