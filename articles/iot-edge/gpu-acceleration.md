@@ -12,7 +12,7 @@ services: iot-edge
 
 # GPU acceleration for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 GPUs are a popular choice for artificial intelligence computations, because they offer parallel processing capabilities and can often execute vision-based inferencing faster than CPUs. To better support artificial intelligence and machine learning applications, Azure IoT Edge for Linux on Windows (EFLOW) can expose a GPU to the virtual machine's Linux module.
 
