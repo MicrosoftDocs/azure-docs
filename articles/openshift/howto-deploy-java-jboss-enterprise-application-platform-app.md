@@ -93,7 +93,7 @@ Use the following steps to deploy a service principal and get its Application (c
    1. Provide a description of the secret and a duration. When you're done, select **Add**.
    1. After the client secret is added, the value of the client secret is displayed. Copy this value because you can't retrieve it later. Be sure to copy the **Value** and not the **Secret ID**.
 
-You've created your Microsoft Entra application, service principal, and client secret.
+You created your Microsoft Entra application, service principal, and client secret.
 
 ## Create a Red Hat Container Registry service account
 
@@ -111,7 +111,7 @@ Use the following steps to create a Red Hat Container Registry service account a
    - Note down the **username**, including the prepended string (that is, `XXXXXXX|username`). Use this username when you sign in to `registry.redhat.io`.
    - Note down the **password**. Use this password when you sign in to `registry.redhat.io`.
 
-You've created your Red Hat Container Registry service account.
+You created your Red Hat Container Registry service account.
 
 ## Deploy JBoss EAP on Azure Red Hat OpenShift
 
