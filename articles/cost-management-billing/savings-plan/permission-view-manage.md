@@ -34,14 +34,14 @@ You can view, manage, and delegate permissions to savings plans using built-in b
 
 ### Savings plans RBAC roles
 The savings plan lifecycle is independent of an Azure subscription. Savings plans don't inherit permissions from subscriptions after the purchase. Savings plans are a tenant-level resource with their own Azure RBAC permissions. There are four savings plan-specific RBAC roles:
-- Savings plan administrator – allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) to other users.
+- Savings plan administrator – allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](../../role-based-access-control/role-assignments-portal.yml) to other users.
 - Savings plan purchaser – allows purchase of savings plans with a specified subscription.
     - Allows savings plans purchase or [Reservation trade-in](reservation-trade-in.md) by non-billing admins and non-subscription owners.
     - Savings plan purchasing by non-billing admins must be enabled. Learn more [here](buy-savings-plan.md#who-can-buy-a-savings-plan).
 - Savings plan contributor – allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
 - Savings plan reader – allows read-only access to one or more savings plans in a tenant.
 
-RBAC roles can be scoped to either a specific resource entity (e.g. subscription or savings plan) or the Microsoft Entra tenant (directory). To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](https://learn.microsoft.com/azure/role-based-access-control/overview). 
+RBAC roles can be scoped to either a specific resource entity (e.g. subscription or savings plan) or the Microsoft Entra tenant (directory). To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). 
 
 - View savings plans:
     - Tenant-scope: Users with _**Savings plan reader**_ or above.
