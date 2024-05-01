@@ -13,7 +13,7 @@ ms.custom:  "amqp, mqtt, devx-track-csharp"
 
 # Understand the Azure IoT Edge runtime and its architecture
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results.
 
@@ -143,7 +143,7 @@ By verifying that a client belongs to its set of trusted clients defined in IoT 
 
 The IoT Edge hub is entirely controlled by the cloud. It gets its configuration from IoT Hub via its [module twin](iot-edge-modules.md#module-twins). The twin contains a desired property called routes that declares how messages are passed within a deployment. For more information on routes, see [declare routes](module-composition.md#declare-routes).
 
-Additionally, several configurations can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
+Additionally, several configurations can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Runtime quality telemetry
 
@@ -157,7 +157,7 @@ The IoT Edge agent collects the telemetry every hour and sends one message to Io
 
 If you wish to opt out of sending runtime telemetry from your devices, there are two ways to do so:
 
-* Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**, or
+* Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**
 * Uncheck the option in the Azure portal during deployment.
 
 ## Next steps
