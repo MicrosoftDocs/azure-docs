@@ -23,13 +23,14 @@ Azure offers several configuration options for ensuring high availability of Azu
 |     |Use ZRS shared disks.         |Improves availability of data and reduces potential for failure.         |
 
 
-## Intro
+## What managed disks offer
 
-Durability of data is critical for a persistent storage platform. You have important business applications that depend on the persistence of the data. 
+Before going over the options you have, it's important to understand the baseline state you get when you use Azure VMs and managed disks. Most of these options come with an additional cost, but the cost of using these options is generally much lower than the cost of downtime. Durability of data is critical for a persistent storage platform. You have important business applications that depend on the persistence of the data. 
 
 All managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and allows a high tolerance against failures. 
 
 Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helped Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero% [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate). 
+
 
 
 ## Applications running on a single VM
