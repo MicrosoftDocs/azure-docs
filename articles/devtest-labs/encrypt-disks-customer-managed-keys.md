@@ -70,7 +70,7 @@ The following section shows how a lab owner can set up encryption using a custom
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Validate encryption":::
   
-## Next steps
+## Related content
 
 See the following articles: 
 
