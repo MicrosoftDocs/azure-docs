@@ -291,7 +291,7 @@ When you create your function app in the [Azure portal](./functions-get-started.
 ### Configure Entra Authentication ID-based authentication
 
 For setups where you need to use Entra Authentication ID-based authentication, you can add the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` application settings to configure the Azure Functions host. You need to provide the client ID of system-assigned or user-assigned managed identity that is authorized to publish telemetry to the Application Insights resource.
-The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` can be set as follows: `ClientId=<REPLACE-WITH-CLIENT-ID>;Authorization=AAD`. For more information about how to configure Entra Authentication ID-based authentication, see [Microsoft Entra authentication for Application Insights](articles/azure-monitor/app/azure-ad-authentication.md).
+The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` can be set as follows: `ClientId=<REPLACE-WITH-CLIENT-ID>;Authorization=AAD`. For more information about how to configure Entra Authentication ID-based authentication, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
 
 ### New function app in the portal
 
