@@ -11,18 +11,18 @@ ms.custom: template-overview
 
 # What is Trusted Signing?
 
-Signing is often difficult to do – from obtaining certificates, to securing them, and operationalizing a secure way to integrate with build pipelines.
+Certificate signing is often a challenge. The process involves obtaining certificates, securing them, and operationalizing a secure way to integrate certificates with build pipelines.
 
-Trusted Signing (formerly Azure Code Signing) is a Microsoft fully managed end-to-end signing solution that simplifies the process and empowers third-party developers to easily build and distribute applications. This is part of Microsoft’s commitment to an open, inclusive, and secure ecosystem.
+Trusted Signing is a Microsoft fully managed, end-to-end signing solution that simplifies the process and empowers third-party developers to easily build and distribute applications. This is part of the Microsoft commitment to an open, inclusive, and secure ecosystem.
 
 ## Features
 
-* Simplifies the signing process with an intuitive experience in Azure
+* Simplifies the signing process with an intuitive experience in Azure.
 * Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 compliant.
 * Integrations into leading developer toolsets.
 * Supports Public Trust, Test, Private Trust, and CI policy signing scenarios.
 * Timestamping service.
-* Content confidential signing – meaning digest signing that is fast and reliable – your file never leaves your endpoint.
+* Content-confidential signing, so your file never leaves your endpoint and you get digest signing that is fast and reliable.
 
 ## Resource structure
 
@@ -40,6 +40,6 @@ Here’s a high-level overview of the service’s resource structure:
 
 ## Next steps
 
-* [Learn more about the Trusted Signing resource structure.](./concept-trusted-signing-resources-roles.md)
-* [Learn more about the signing integrations.](how-to-signing-integrations.md)
-* [Get started with Trusted Signing.](quickstart.md)
+* [Learn more about the Trusted Signing resource structure](./concept-trusted-signing-resources-roles.md).
+* [Learn more about the signing integrations](how-to-signing-integrations.md).
+* [Get started with Trusted Signing](quickstart.md).

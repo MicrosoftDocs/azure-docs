@@ -1,6 +1,6 @@
 ---
-title: Quickstart Trusted Signing 
-description: Quickstart onboarding to Trusted Signing to sign your files.
+title: "Quickstart: Get started with using Trusted Signing"
+description: Complete this quickstart to get started with using Trusted Signing to sign your files.
 author: mehasharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
@@ -10,15 +10,17 @@ ms.custom: references_regions
 ---
 
 
-# Quickstart: Onboarding to Trusted Signing
+# Quickstart: Get started with using Trusted Signing
 
-Trusted Signing is a fully managed end to end signing service.  In this Quickstart, you create the following three Trusted Signing resources:
+Trusted Signing is a fully managed, end-to-end certificate signing service. In this quickstart, you create the following three Trusted Signing resources:
 
-- Trusted Signing account
-- Identity Validation
-- Certificate Profile
+- A Trusted Signing account
+- An Identity Validation
+- A certificate profile
 
-Trusted Signing provides users with both an Azure portal and Azure CLI extension experience to create and manage their Trusted Signing resources. **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
+Trusted Signing provides users with both an Azure portal and Azure CLI extension experience to create and manage their Trusted Signing resources.
+
+*You can complete Identity Validation only in the Azure portal. You cannot complete Identity Validation by using the Azure CLI.*
 
 ## Prerequisites
 
@@ -34,52 +36,53 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 # [Azure portal](#tab/registerrp-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From either the Azure portal search bar or under All services, select **Subscriptions**.
-3. Select your **Subscription**, where you intend to create Trusted Signing resources.
+1. In either the Azure portal search box or under **All services**, select **Subscriptions**.
+1. Select the subscription where you intend to create Trusted Signing resources.
 
-:::image type="content" source="media/trusted-signing-subscription-resource-provider.png" alt-text="Screenshot of trusted-signing-subscription-resource-provider." lightbox="media/trusted-signing-subscription-resource-provider.png":::
+   :::image type="content" source="media/trusted-signing-subscription-resource-provider.png" alt-text="Screenshot of trusted-signing-subscription-resource-provider." lightbox="media/trusted-signing-subscription-resource-provider.png":::
 
-4. From the list of resource providers, select **Microsoft.CodeSigning**. By default the resource provider is NotRegistered.
-5. Click on the ellipsis, select **Register**.
-6. The status changes to **Registered**.
+1. In the list of resource providers, select **Microsoft.CodeSigning**. By default, the resource provider is `NotRegistered`.
+1. Select the ellipsis, and then select **Register**.
 
-:::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot of trusted-signing-resource-provider-registration." lightbox="media/trusted-signing-resource-provider-registration.png":::
+   The status changes to **Registered**.
+
+   :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot of trusted-signing-resource-provider-registration." lightbox="media/trusted-signing-resource-provider-registration.png":::
 
 # [Azure CLI](#tab/registerrp-cli)
 
-1. If you're using a local installation, login to Azure CLI using the `az login` command.  
+1. If you're using a local installation, sign in to the Azure CLI by using the `az login` command.  
 
-2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+1. To finish the authentication process, complete the steps that appear in your terminal. For other sign-in options, see [Sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
+1. When you're prompted on first use, install the Azure CLI extension. For more information about using extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-4. To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command.
+1. To see the versions of the Azure CLI and dependent libraries that are installed, use the `az version` command.
 
-   - To upgrade to the latest version, use the following command:
+1. To upgrade to the latest version, use the following command:
 
-    ```bash
-    az upgrade [--all {false, true}]
-       [--allow-preview {false, true}]
-        [--yes]
-    ```
+   ```bash
+   az upgrade [--all {false, true}]
+      [--allow-preview {false, true}]
+       [--yes]
+   ```
 
-5. To set your default subscription ID, use the `az account set -s <subscriptionId>` command.
+1. To set your default subscription ID, use the `az account set -s <subscription ID>` command.
 
-6. You can register Trusted Signing resource provider with the command below:
+1. To register a Trusted Signing resource provider, use this command:
 
-    ```
+    ```azurecli
     az provider register --namespace "Microsoft.CodeSigning"
     ```
 
-7. You can verify that registration is complete with the command below: 
+1. You can verify that registration is complete with the command below: 
 
-    ```
+    ```azurecli
     az provider show --namespace "Microsoft.CodeSigning"
     ```
 
-8. You can add the extension for Trusted Signing with the command below:
+1. You can add the extension for Trusted Signing with the command below:
 
-    ```
+    ```azurecli
     az extension add --name trustedsigning
     ```
 
@@ -91,9 +94,9 @@ A Trusted Signing account is a logical container of identity validation and cert
 
 # [Azure portal](#tab/account-portal)
 
-The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:  
+The resources must be created in an Azure region where Trusted Signing is currently available. Check the following table for the current Azure regions that support Trusted Signing resources:  
 
-| Region                               | Region Class Fields  | Endpoint URI Value                   |
+| Region                               | Region class fields  | Endpoint URI value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
 | East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
 | West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
@@ -102,27 +105,25 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From either the Azure portal menu or the Home page, select **Create a resource**.
-3. In the Search box, enter **Trusted Signing account**.
-4. From the results list, select **Trusted Signing account**.
-5. On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays.
-6. In the **Subscription** pull-down menu, select a subscription.
-7. In the **Resource group** field, select **Create new** and enter a resource group name.
-8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
-9. In the **Region** pull-down menu, select a region.
-10. In the **Pricing** tier pull-down menu, select a pricing tier.
-11. Select the **Review + Create** button.
+1. On either the Azure portal menu or on the Home pane, select **Create a resource**.
+1. In the search box, enter and then select **Trusted Signing account**.
+1. On the Trusted Signing account pane, select **Create**.
+1. For **Subscription**, select your Azure subscription.
+1. For **Resource group**, select **Create new**, and then enter a resource group name.
+1. For **Account Name**, enter a unique account name. (See Certificate Profile naming constraints for naming requirements.)
+1. For **Region**, select an Azure region.
+1. For **Pricing**, select a pricing tier.
+1. Select the **Review + Create** button.
 
-    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
+    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-account-creation.png":::
 
-12. After successfully creating your Trusted Signing account, select **Go to resource**.  
+1. After you successfully create your Trusted Signing account, select **Go to resource**.  
 
 **Trusted Signing account naming constraints**:
 
-- Between 3-24 alphanumeric characters.
-- Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
+- Contain from 3 to 24 alphanumeric characters.
+- Begin with a letter, end with a letter or number, and not contain consecutive hyphens.
 - Globally unique.
 - Case insensitive (“Abc” is the same as “abc”).
 
@@ -163,13 +164,6 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 >[!Note]
 >If you are using older version of CLI from Trusted Signing Private Preview, your account is defaulted to Basic SKU. To use Premium either upgrade CLI to latest version or use Azure portal to create account.
-
-**Trusted Signing account naming constraints**:
-
-- Between 3-24 alphanumeric characters.
-- Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Globally unique.
-- Case insensitive (“Abc” is the same as “abc”).
 
 **Helpful commands**:
 
@@ -264,16 +258,16 @@ A certificate profile resource is the logical container of the certificates that
 
 # [Azure CLI](#tab/certificateprofile-cli)
 
-To create a certificate profile with Azure CLI, follow these steps:
+To create a certificate profile with Azure CL:
 
-1. Create a certificate profile using the following command:
+1. Create a certificate profile by using the following command:
 
-    ```
-    trustedsigning certificate-profile create -g MyResourceGroup --a
-        account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    ```
+   ```
+   trustedsigning certificate-profile create -g MyResourceGroup --a
+   account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   ```
 
-- See the below Certificate Profile naming constraints for naming requirements.
+   - See the below Certificate Profile naming constraints for naming requirements.
 
 2. Create a certificate profile that includes optional fields (street address or postal code) in subject name of certificate using the following command:
 
@@ -309,7 +303,7 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 
 # [Azure portal](#tab/deleteresources-portal)
 
-- Delete the Trusted Signing account:
+Delete the Trusted Signing account:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Search box, enter **Trusted Signing account**.
@@ -317,38 +311,38 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 4. On the Trusted Signing account section, select the Trusted Signing account to be deleted.
 5. Select **Delete**.
 
->[!Note]
->This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
+> [!NOTE]
+> This action removes all certificate profiles that are linked to this account, effectively halting the signing process associated with those specific certificate profiles.
 
-- Delete the Certificate Profile:
+Delete the certificate profile:
 
-1. Navigate to your trusted signing account in the Azure portal.
-2. On the trusted signing account overview page or from Objects, select **Certificate Profile**.
+1. In the Azure portal, go to your trusted signing account.
+2. On the trusted signing account overview pane or on the Objects pane, select **Certificate Profile**.
 3. On the **Certificate Profiles**, choose the certificate profile to be deleted.
 4. Select **Delete**.
 
->[!Note]
+> [!NOTE]
 > This action halts any signing associated with the corresponding certificate profiles.
 
 # [Azure CLI](#tab/adeleteresources-cli)
 
-- Delete the Trusted Signing account:
+1. Delete the Trusted Signing account:
 
-```
-trustedsigning delete -n MyAccount -g MyResourceGroup
-```
+   ```
+   trustedsigning delete -n MyAccount -g MyResourceGroup
+   ```
 
->[!Note]
->This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
+   > [!NOTE]
+   > This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
 
-- Delete the certificate profile:
+1. Delete the certificate profile:
 
- ```
-trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
-```
+    ```
+   trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
+   ```
 
->[!Note]
->This action halts any signing associated with the corresponding certificate profiles.
+   > [!NOTE]
+   > This action halts any signing associated with the corresponding certificate profiles.
 
 ---
 
