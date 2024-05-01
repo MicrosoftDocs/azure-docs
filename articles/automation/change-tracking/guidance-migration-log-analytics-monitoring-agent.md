@@ -5,7 +5,7 @@ author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 04/28/2024
+ms.date: 05/01/2024
 ms.author: sudhirsneha
 ms.custom:
 ---
@@ -118,16 +118,17 @@ Follow these steps to migrate using scripts.
    ```azurecli
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
+
+   If the CT logs table schema does not exist, the script mentioned in Step 1 will fail. To troubleshoot, run the following script - 
+
+    ```azurepowershell-interactive
+
+    $psWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $laws
+ 	 # Enabling CT solution on LA ws
+	 New-AzMonitorLogAnalyticsSolution -Type ChangeTracking -ResourceGroupName $resourceGroup -Location $psWorkspace.Location -WorkspaceResourceId $psWorkspace.ResourceId
+    ```
 ---
 
-
-If the CT logs table schema does not exist, the script mentioned in Step 1 will fail. To troubleshoot, run the following script - 
-
-```azurepowershell-interactive
-   $psWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $laws
- 	# Enabling CT solution on LA ws
-	New-AzMonitorLogAnalyticsSolution -Type ChangeTracking -ResourceGroupName $resourceGroup -Location $psWorkspace.Location -WorkspaceResourceId $psWorkspace.ResourceId
-```
 
 ### Compare data across Log analytics Agent and Azure Monitoring Agent version
 
