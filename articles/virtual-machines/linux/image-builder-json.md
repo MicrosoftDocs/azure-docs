@@ -1732,6 +1732,13 @@ This field may be specified only if `subnetId` is also specified and must meet t
 - This subnet must be on the same Virtual Network as the subnet specified in `subnetId`.
 - This subnet must not be the same subnet as the one specified in `subnetId`.
 - This subnet must be delegated to the ACI service so that it can be used to deploy ACI resources. You can read more about subnet delegation for Azure services [here](../../virtual-network/manage-subnet-delegation.md). ACI specific subnet delegation information is available [here](../../container-instances/container-instances-virtual-network-concepts.md).
+- This subnet must allow outbound access to the Internet and to the subnet specified in `subnetId`. This is required so that the ACI can be provisioned and it can communicate with the build VM to perform customizations/validations. On the other end, the subnet specified in `subnetId` must allow inbound access from this subnet. In general, [default security rules of Azure Network Security Groups (NSGs)](../../virtual-network/network-security-groups-overview.md#default-security-rules) allow these accesses. However, if you add more security rules to your NSGs then the following acceses must still be allowed:
+   1. Outbound access from the subnet specified in `containerInstanceSubnetId`:
+      1. To port 443 to the Internet (*for provisioning the container image*).
+      1. To port 445 to the Internet (*for mounting file share from Azure Storage*).
+      1. To port 22 (for ssh/Linux) and Port 5986 (for WinRM/Windows) to the subnet specified in `subnetId` (*for connecting to the build VM*).
+   1. Inbound access to the subnet specified in `subnetId`:
+      1. To Port 22 (for ssh/Linux) and Port 5986 (for WinRM/Windows) from the subnet specified in `containerInstanceSubnetId` (*for ACI to connect to the build VM*).
 
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
