@@ -56,7 +56,7 @@ To audit your flow logs using the built-in policy, take the following steps:
 
 1. Select **Compliance** and change the **Compliance state** filter to **Non-compliant** to list all noncompliant policies. Search for the name of your audit policy that you created, and then select it.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/audit-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists noncompliant policies." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/audit-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists noncompliant policies including the audit policy." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
 
 1. In the policy compliance page, change the **Compliance state** filter to **Non-compliant** to list all noncompliant virtual networks. In this example, there are three noncompliant virtual networks out of four.
 
@@ -120,7 +120,7 @@ To assign the *deployIfNotExists* policy:
 
 1. Select **Compliance** and change the **Compliance state** filter to **Non-compliant** to list all noncompliant policies. Search for the name of your deploy policy that you created, and then select it.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists noncompliant policies." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
+    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance.png" alt-text="Screenshot that shows the Compliance page, which lists noncompliant policies including the deployment policy." lightbox="./media/vnet-flow-logs-policy/audit-policy-compliance.png":::
 
 1. In the policy compliance page, change the **Compliance state** filter to **Non-compliant** to list all noncompliant virtual networks. In this example, there are three noncompliant virtual networks out of four.
 
