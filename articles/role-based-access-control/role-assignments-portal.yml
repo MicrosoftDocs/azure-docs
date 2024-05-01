@@ -167,9 +167,14 @@ procedureSection:
         Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
 
   - title: |
-      Step 6: (Optional) Select assignment type
+      Step 6: Select assignment type (Preview)
     summary: |
-      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance licensed tenant, an **Assignment type** tab will appear. Use eligible assignments to provide just-in-time access to a role.
+      
+      > [!IMPORTANT]
+      > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, an **Assignment type** tab will appear. Use eligible assignments to provide just-in-time access to a role. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
 
       The **Assignment type** tab will look different depending on the role you selected.
     steps:
@@ -179,7 +184,7 @@ procedureSection:
       - |
         (Optional) Use **Configure PIM Policy** to configure expiration options, role activation requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings.
 
-          :::image type="content" source="./media/role-assignments-portal/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-eligible.png":::
+          :::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
       - |
         Click **Next**.
 

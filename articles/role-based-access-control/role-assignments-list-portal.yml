@@ -86,6 +86,11 @@ procedureSection:
   - title: |
       List role assignments at a scope
     summary: |
+
+      > [!IMPORTANT]
+      > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
       Follow these steps:
     steps:
       - |
@@ -107,7 +112,7 @@ procedureSection:
         :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-active-assignments.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/rg-access-control-active-assignments.png":::
 
       - |
-        Click the **Eligible assignments** tab to view the eligible role assignments at this scope. Eligible assignments provide just-in-time access to a role. Principal must activate to use this role for a limited period of time.
+        Click the **Eligible assignments** tab to view the eligible role assignments at this scope. Eligible assignments provide just-in-time access to a role. Principal must activate to use this role for a limited period of time. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
 
         Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 

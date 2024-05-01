@@ -1,5 +1,5 @@
 ---
-title: Activate eligible Azure role assignments - Azure RBAC
+title: Activate eligible Azure role assignments (Preview) - Azure RBAC
 description: Learn how to activate eligible Azure role assignments in Azure role-based access control (Azure RBAC) using the Azure portal.
 author: rolyon
 manager: amycolannino
@@ -9,7 +9,11 @@ ms.date: 05/01/2024
 ms.author: rolyon
 ---
 
-# Activate eligible Azure role assignments
+# Activate eligible Azure role assignments (Preview)
+
+> [!IMPORTANT]
+> Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Eligible Azure role assignments provide just-in-time access to a role for a limited period of time. If you have made eligible for an Azure role, you can activate that role using the Azure portal. Microsoft Entra Privileged Identity Management role activation has been integrated into the Access control (IAM) page in the Azure portal.
 
@@ -52,3 +56,4 @@ Eligible Azure role assignments provide just-in-time access to a role for a limi
 
 ## Next steps
 
+- [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview)
