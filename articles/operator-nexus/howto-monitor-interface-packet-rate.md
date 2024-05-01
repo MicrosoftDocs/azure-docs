@@ -1,6 +1,6 @@
 ---
 title: How to monitor interface In and Out packet rate for Network Fabric Devices via Azure portal
-description: Learn how to track incoming and outgoing packet rates for network fabric devices on Azure Portal for effective network monitoring.
+description: Learn how to track incoming and outgoing packet rates for network fabric devices on Azure portal for effective network monitoring.
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to monitor interface In and Out packet rate for network fabric devices
 
-In the domain of network management, monitoring the Interface In and Out Packet Rate is crucial for ensuring optimal network performance and troubleshooting potential issues. This guide walks you through the steps to access and analyze these metrics for all network fabric devices using the Azure portal..
+In the domain of network management, monitoring the Interface In and Out Packet Rate is crucial for ensuring optimal network performance and troubleshooting potential issues. This guide walks you through the steps to access and analyze these metrics for all network fabric devices using the Azure portal.
 
 ## Step 1: Accessing the Azure portal
 
@@ -19,9 +19,9 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 	
 ## Step 2: Choosing the resource type and subscription
 
-- Once logged in, you land on the Azure portal dashboard..
+- Once logged in, you land on the Azure portal dashboard.
 
-- Utilize the search bar at the top of the page and type in "Monitor" then select it from the search results..
+- Utilize the search bar at the top of the page and type in "Monitor" then select it from the search results.
 
 - Within the Monitor page, locate and click on "Metrics."
 
@@ -59,11 +59,11 @@ In the domain of network management, monitoring the Interface In and Out Packet 
  
 **Understanding In and Out Packets:** 
 
- - **In packet rate:** This metric refers to the rate at which the network interface receives packets. Essentially, it measures the flow of incoming data packets to the device.
+ - **In packet rate:** This metric refers to the rate at which the network interface received packets. Essentially, it measures the flow of incoming data packets to the device.
 	
 	:::image type="content" source="media/metrics-interface-in-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart.":::
 
-- **Out packet rate:** Conversely, the network interface send packets at the rate measured by this metric. It indicates the flow of outgoing data packets from the device to other network destinations.
+- **Out packet rate:** Conversely, the network interface sent packets at the rate measured by this metric. It indicates the flow of outgoing data packets from the device to other network destinations.
   
    :::image type="content" source="media/metrics-interface-out-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart.":::
   
