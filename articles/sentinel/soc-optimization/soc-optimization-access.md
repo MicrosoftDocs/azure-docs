@@ -69,8 +69,6 @@ Supported metrics at the top of the **Overview** tab include:
 
 Select **See all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.
 
-<!--should we make the 3 months / 90 days consistent? also see vs view-->
-
 ### [Defender portal](#tab/defender-portal)
 
 |Title  | Description |
