@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Ha
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 01/25/2024
+ms.date: 05/01/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
-- A local developer command line with a UNIX command environment and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- A local developer command line with a UNIX-like command environment (for example, Ubuntu, macOS, or Windows Subsystem for Linux) and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 - The `mysql` CLI. For instructions see [How To Install MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04).
 
