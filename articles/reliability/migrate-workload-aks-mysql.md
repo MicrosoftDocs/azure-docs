@@ -76,7 +76,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 #### Azure Bastion 
 
-*Regional*: Azure Bastion is deployed within VNets or peered VNets and is associated to an Azure region. For more information, se [Bastion FAQ](../bastion/bastion-faq.md#dr).
+*Regional*: Azure Bastion is deployed within VNets or peered VNets and is associated with an Azure region. For more information, se [Reliability in Azure Bastion](reliablity-bastion.md).
 
 #### Azure Container Registry (ACR) 
 
