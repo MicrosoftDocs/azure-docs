@@ -41,10 +41,10 @@ With the guided gateway migration experience you can deploy a second virtual net
 
 Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
 
-| Migrate from Non-Az enabled Gateway SKU | Migrate to Az-enabled Gateway SKU |
-|---------------------------|------------------------|
+| Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
+|---------------------------------------------|------------------------------------------------|
 | Standard, HighPerformance, UltraPerformance | ErGw1Az, ErGw2Az, ErGw3Az, ErGwScale (Preview) |
-| Basic IP | Standard IP |
+| Basic IP                                    | Standard IP                                    |
 
 ## Supported migration scenarios
 
