@@ -62,7 +62,7 @@ Enable telemetry and experiments in your variant feature flag by following the s
 1. Go to the **Telemetry** tab and check the box **Enable Telemetry**.
 1. Go to the **Experiment** tab, check the box **Create Experiment** and give a name to your experiment.
 1. **Select Review + update**, then **Update**.
-1. A notification indicates that the operation was successful.
+1. A notification indicates that the operation was successful. In **Feature manager**, the variant feature flag now has the word **Active** under **Experiment**.
 
 ## Create metrics for your experiment
 
@@ -80,7 +80,7 @@ You may have multiple events that take in user actions, in which case you would 
     | Setting                             | Example value       | Description                                                                                                                                                                                                                                                                                                                                                                                    |
     |-------------------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Name**                            | *Heart Vote Button* | The name of the experimentation metric.                                                                                                                                                                                                                                                                                                                                                        |
-    | **Description**                     | Empty               | Optional description for the metric.                                                                                                                                                                                                                                                                                                                                                           |
+    | **Description**                     | *Count number of people who select the heart button when they see a special message, vs. when they don't.*               | Optional description for the metric.                                                                                                                                                                                                                                                                                                                                                           |
     | **Application Insights Event Name** | *Like*              | The name of the Application Insights event. This is the name specified in your code with `_telemetryClient.TrackEvent("<Event-Name>")`.                                                                                                                                                                                                                                                        |
     | **Measure as**                      | **Count**           | The following options are available: <br><ul><li>**Count**: counts the number of times the event is triggered by your users.</li><li>**Average**: averages the value of the event for your users.</li><li>**Sum**: adds up the values of the event for your users. Shows the average summed value.</li><li>**Percent**: calculates the percentage of users that triggered the event.</li></ul> |
     | **Desired Impact**                  | **Increase**        | This setting represents the ultimate goal or purpose behind measuring your created metric. |
@@ -93,6 +93,18 @@ You may have multiple events that take in user actions, in which case you would 
 
 > [!NOTE]
 > Application Insights sampling is enabled by default and it may impact your experimentation results. For this tutorial, you are recommended to turn off sampling in Application Insights as directed in the quickstart application. Learn more about [Sampling in Application Insights](../azure-monitor/app/sampling-classic-api.md).
+
+## Get Experimentation results
+
+To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a few minutes.
+
+To view the results of your experiment, navigate to **Feature Manager** and on the list of Feature Variants, click on **...** > **Experiment** or select the **Active** link under the Experiment label in the grid view.
+
+On the results page, select the **Version** of the Experiment you would like to view (at this stage, there should be only one version), the **Baseline** you want to compare the results against, and the **Comparison** variant.
+
+The more traffic and event data is generated by your application, the more your experiment is likely to produce reliable results and conclusions.
+
+If you edit a variant feature flag and make changes to the experiment title, the allocation, variant names or values, then a new version of your experiment will be created. You can then select this version and view its results.
 
 ## Next step
 
