@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 04/30/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
@@ -26,17 +26,25 @@ Use this article to migrate data plane calls to newer versions of the [**Search 
 > [!NOTE]
 > API reference docs are now versioned. To get the right content, open a reference page and then filter by version, using the selector located above the table of contents.
 
-<a name="UpgradeSteps"></a>
+## When to upgrade
 
-## How to upgrade
-
-Azure AI Search breaks backward compatibility as a last resort. This section provides instructions to help you modify existing code that won't run in a newer version. Upgrade is necessary when:
+Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
 + Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include 2023-07-10-preview for vectors and [2019-05-06](#upgrade-to-2019-05-06). 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
 + Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
+
+## Breaking change for client code that reads connection information
+
+Effective March 29, 2024 and applies to all [supported REST APIs](/rest/api/searchservice/search-service-api-versions): 
+
++ [GET Skillset](/rest/api/searchservice/skillsets/get), [GET Index](/rest/api/searchservice/indexes/get), and [GET Indexer](/rest/api/searchservice/indexers/get) no longer return keys or connection properties in a response. This is a breaking change if you have downstream code that reads keys or connections (sensitive data) from a GET response.
+
++ If you need to retrieve admin or query API keys for your search service, use the [Management REST APIs](search-security-api-keys.md?tabs=rest-find#find-existing-keys).
+
++ If you need to retrieve connection strings of another Azure resource such as Azure Storage or Azure Cosmos DB, use the APIs of that resource and published guidance to obtain the information.
 
 ## Upgrade to 2023-10-01-preview
 

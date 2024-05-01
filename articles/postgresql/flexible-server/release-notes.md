@@ -4,10 +4,10 @@ description: Release notes for Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
+ms.date: 4/30/2024
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -15,6 +15,9 @@ ms.topic: overview
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
+
+## Release: May 2024
+* Support for [extensions](./concepts-extensions.md#extension-versions) TimescaleDB (ver 2.13.0) for PG16, login_hook, session_variable.
 
 ## Release: April 2024
 * General availability of [virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server](concepts-read-replicas-promote.md) operation for [read replicas](concepts-read-replicas.md).

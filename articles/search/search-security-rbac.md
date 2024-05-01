@@ -321,7 +321,7 @@ If you're already a Contributor or Owner of your search service, you can present
    Or by using PowerShell:
 
    ```powershell
-   Get-AzAccessToken -ResourceUrl "https://search.azure.com"
+   Get-AzAccessToken -ResourceUrl https://search.azure.com
    ```
 
 1. In a new text file in Visual Studio Code, paste in these variables:
