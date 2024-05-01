@@ -12,7 +12,7 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-t
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template
 
-In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer.
+In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer with associated resources.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
 
@@ -32,36 +32,50 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/internal-loadbalancer-create/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/internal-loadbalancer-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/azuredeploy.json":::
 
 Multiple Azure resources have been defined in the template:
 
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): Virtual machine storage accounts for boot diagnostics.
-- [**Microsoft.Compute/availabilitySets**](/azure/templates/microsoft.compute/availabilitySets): Availability set for virtual machines.
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks): Virtual network for load balancer and virtual machines.
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkInterfaces): Network interfaces for virtual machines.
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers): Internal load balancer.
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualMachines): Virtual machines.
 
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
-**Azure CLI**
+In this step, you deploy the template using Azure PowerShell with the `[New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)` command. 
 
-```azurecli-interactive
-read -p "Enter the location (i.e. westcentralus): " location
-resourceGroupName="myResourceGroupLB"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/internal-loadbalancer-create/azuredeploy.json"
+1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
-az group create \
---location $location \
---name $resourceGroupName 
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
-az deployment group create \
---resource-group $resourceGroupName \
---template-uri  $templateUri
-```
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/internal-loadbalancer-create/azuredeploy.json"
+    
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Name $projectName -location $location
+
+   Write-Host "Press [ENTER] to continue."
+   ```
+
+   Wait until you see the prompt from the console.
+
+2. Select **Copy** from the previous code block to copy the PowerShell script.
+
+3. Right-click the shell console pane and then select **Paste**.
+
+4. Enter the values.
+
+   The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
+
+It takes about 10 minutes to deploy the template. When completed, the output is similar to:
+
+![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-internal-template/deployment-commands-output.png)
+
+Azure PowerShell is used to deploy the template. You can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Review deployed resources
 
@@ -77,11 +91,10 @@ az deployment group create \
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
 
-```azurecli-interactive
-  az group delete \
-    --name myResourceGroupLB
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name "${projectName}rg"
 ```
 
 ## Next steps
