@@ -1105,7 +1105,7 @@ items:
           items:
           - name: Overview
             href: resources/troubleshooting/voice-video-calling/video-issues/overview.md
-          - name: The user can not see video from the remote participant
+          - name: The user cannot see video from the remote participant
             items:
             - name: Subscribing to a video that is unavailable
               href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-video-not-available.md
