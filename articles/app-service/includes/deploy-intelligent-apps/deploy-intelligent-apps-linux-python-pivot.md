@@ -7,7 +7,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps.  In the following tutorial we will be adding an Azure OpenAI service using LangChain to a Python (Flask) application.
+You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps.  In the following tutorial we'll be adding an Azure OpenAI service using LangChain to a Python (Flask) application.
 
 #### Prerequisites
 
@@ -83,20 +83,20 @@ After the files are updated, we can start preparing our environment variables to
 
 ### API Keys and Endpoints
 
-In order to make calls to OpenAI with your client, you will need to first grab the Keys and Endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
+In order to make calls to OpenAI with your client, you'll need to first grab the Keys and Endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you will need the following values:
+For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you'll need the following values:
 
 - `api_key`
 - `api_version`
 - `azure_deployment`
 - `model_name`
 
-For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you will need the following values:
+For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you'll need the following values:
 
 - `apiKey`
 
-Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
+Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
 
@@ -190,7 +190,7 @@ def hello():
 
 ```
 
-Here is the example in it's completed form. In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
+Here's the example in its completed form. In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
 
 ```python
 import os
@@ -268,10 +268,10 @@ Then, go to the azure portal and navigate to the Environment variables.  If you 
 
 - `SCM_DO_BUILD_DURING_DEPLOYMENT` = true
 
-If you have followed the steps above, you are ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you've added in the portal.
+If you have followed the steps above, you're ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you've added in the portal.
 
 ### Authentication
 
-Although optional, it is highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no additional code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
+Although optional, it's highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no other code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
 
 Once deployed, browse to the web app and navigate to the Open AI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.

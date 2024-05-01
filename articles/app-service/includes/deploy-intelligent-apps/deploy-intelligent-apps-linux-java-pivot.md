@@ -7,7 +7,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications using Azure OpenAI and OpenAI.  In the following tutorial we will be adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
+You can use Azure App Service to create applications using Azure OpenAI and OpenAI.  In the following tutorial we'll be adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
 
 #### Prerequisites
 
@@ -30,20 +30,20 @@ For this Spring Boot application, we'll be building off the [quickstart](https:/
 
 ### API Keys and Endpoints
 
-First, you will need to grab the keys and endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
+First, you'll need to grab the keys and endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
 
-For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you will need the following values:
+For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you'll need the following values:
 
 - `endpoint`
 - `apiKey`
 - `deploymentName`
 
-For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you will need the following values:
+For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you'll need the following values:
 
 - `apiKey`
 - `modelName`
 
-Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
+Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
 
@@ -131,7 +131,7 @@ OpenAIClient client = new OpenAIClientBuilder()
     .buildClient();
 ```
 
-Once added, you will see the following imports will be added to the [Application.java](http://Application.java) file:
+Once added, you'll see the following imports will be added to the [Application.java](http://Application.java) file:
 
 ```java
 import com.azure.ai.openai.OpenAIClient;
@@ -141,7 +141,7 @@ import com.azure.core.credential.AzureKeyCredential;
 
 ### Setup prompt and call to OpenAI
 
-Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response.  Here is where we will add our chat message prompt to the code to be passed to the chat completions method.  Use the following code to setup the chat completions method:
+Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response.  Here's wHere we'll add our chat message prompt to the code to be passed to the chat completions method.  Use the following code to setup the chat completions method:
 
 ```java
 List<ChatRequestMessage> chatMessages = new ArrayList<>();
@@ -156,7 +156,7 @@ ChatCompletions chatCompletions = client.getChatCompletions(modelName,
     new ChatCompletionsOptions(chatMessages));
 ```
 
-Here is the example in it's completed from.  In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
+Here's the example in its completed from.  In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
 
 ```java
 
@@ -251,6 +251,6 @@ Once deployed, you can visit your site URL and you will be greeted with the text
 
 ### Authentication
 
-Although optional, it is highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no additional code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
+Although optional, it's highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no other code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
 
 Once deployed, browse to the web app and navigate to the Open AI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
