@@ -16,7 +16,7 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 ### Setup web app
 
-For this Spring Boot application, we’ll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an additional feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
+For this Spring Boot application, we'll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an additional feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
 
 ```bash
   @RequestMapping("/")
@@ -34,16 +34,16 @@ First, you will need to grab the keys and endpoint values from Azure OpenAI or O
 
 For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you will need the following values:
 
-1. `endpoint`
-2. `apiKey`
-3. `deploymentName`
+- `endpoint`
+- `apiKey`
+- `deploymentName`
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you will need the following values:
 
-1. `apiKey`
-2. `modelName`
+- `apiKey`
+- `modelName`
 
-Since we’ll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
+Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
 
@@ -156,7 +156,7 @@ ChatCompletions chatCompletions = client.getChatCompletions(modelName,
     new ChatCompletionsOptions(chatMessages));
 ```
 
-Here is the example in it’s completed from.  In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
+Here is the example in it's completed from.  In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
 
 ```java
 
@@ -244,7 +244,7 @@ public class Application {
 
 ### Deploy to App Service
 
-If you completed the steps above you can deploy to App Service as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you’ve added in the portal.
+If you completed the steps above you can deploy to App Service as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you've added in the portal.
 
 Once deployed, you can visit your site URL and you will be greeted with the text that contains the response from your chat message prompt.  
 

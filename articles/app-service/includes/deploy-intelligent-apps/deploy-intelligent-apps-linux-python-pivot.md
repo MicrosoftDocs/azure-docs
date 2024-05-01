@@ -14,13 +14,11 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 - An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A Flask web application.  Create the sample app using our [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
 
-### Setup Flask web app
+### Setup flask web app
 
----
+For this Flask web application, we'll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *app.py* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
 
-For this Flask web application, we’ll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *app.py* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
-
-First, copy and replace the *index.htm*l file with the following code:
+First, copy and replace the *index.html* file with the following code:
 
 ```html
 <!doctype html>
@@ -85,22 +83,20 @@ After the files are updated, we can start preparing our environment variables to
 
 ### API Keys and Endpoints
 
----
-
 In order to make calls to OpenAI with your client, you will need to first grab the Keys and Endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
 
 For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you will need the following values:
 
-1. `api_key`
-2. `api_version`
-3. `azure_deployment`
-4. `model_name`
+- `api_key`
+- `api_version`
+- `azure_deployment`
+- `model_name`
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you will need the following values:
 
-1. `apiKey`
+- `apiKey`
 
-Since we’ll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
+Since we'll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
 
@@ -141,13 +137,11 @@ openai_api_key = os.environ['OPENAI_API_KEY']
 
 ### LangChain
 
----
-
 LangChain is a framework that enables easy development with OpenAI for your applications.  You can use LangChain with Azure OpenAI and OpenAI models.
 
-To create the OpenAI client, we’ll first start by installing the LangChain library.
+To create the OpenAI client, we'll first start by installing the LangChain library.
 
-1. To install LangChain, navigate to your application using Command Line or Powershell and run the following pip command:
+To install LangChain, navigate to your application using Command Line or Powershell and run the following pip command:
 
 ```python
 pip install langchain-openai
@@ -196,7 +190,7 @@ def hello():
 
 ```
 
-Here is the example in it’s completed form. In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
+Here is the example in it's completed form. In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
 
 ```python
 import os
@@ -258,11 +252,9 @@ if __name__ == '__main__':
 
 ```
 
-Now save the application and follow the next steps to deploy it to App Service. If you would like to test it locally first at this step, you can swap out the key and endpoint values with the literal string values of your OpenAI service. For example: model_name = “gpt-4-turbo”;
+Now save the application and follow the next steps to deploy it to App Service. If you would like to test it locally first at this step, you can swap out the key and endpoint values with the literal string values of your OpenAI service. For example: model_name = 'gpt-4-turbo';
 
 ### Deploy to App Service
-
----
 
 Before deploying to App Service you will need to edit the *requirments.txt* file and add an environment variable to your web app so it will recognize the LangChain library and build properly.
 
@@ -274,9 +266,9 @@ langchain-openai
 
 Then, go to the azure portal and navigate to the Environment variables.  If you are using Visual Studio to deploy, this app setting will enable the same build automation as Git deploy.  Add the following App setting to your web app:
 
-1. SCM_DO_BUILD_DURING_DEPLOYMENT = true
+- `SCM_DO_BUILD_DURING_DEPLOYMENT` = true
 
-If you have followed the steps above, you are ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you’ve added in the portal.
+If you have followed the steps above, you are ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you've added in the portal.
 
 ### Authentication
 
