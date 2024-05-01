@@ -119,7 +119,7 @@ The following sample output resembles successful creation of the resource group:
 }
 ```
 
-## Create an AKS Automatic cluster with integrated monitoring
+## Create an AKS Automatic cluster
 
 To create an AKS Automatic cluster, use the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSAutomaticCluster* with Managed Prometheus and Container Insights integration enabled.
 
@@ -175,7 +175,7 @@ Subscription, Resource Group, Cluster name, and Region
 
     If the prerequisites aren't met and the subscription requires registration of the preview flags, there will be an error shown under the Subscription field.: 
 
-  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Register.png" alt-text="The screenshot of the error shown when a  subscription doesnt have preview flags registered while creating an AKS Automatic cluster in the Azure portal.":::
+    :::image type="content" source="./media/quick-automatic-kubernetes-portal/Register.png" alt-text="The screenshot of the error shown when a  subscription doesnt have preview flags registered while creating an AKS Automatic cluster in the Azure portal.":::
 
 
 3. On the **Monitoring** tab, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags (optional), and proceed to create the cluster. 
@@ -375,20 +375,11 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Delete the cluster
 
-:::zone target="docs" pivot="azure-cli"
-
 If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Run the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
   ```azurecli
   az group delete --name myResourceGroup --yes --no-wait
   ```
-:::zone-end
-
-:::zone target="docs" pivot="azure-portal"
-
-Delete 
-
-:::zone-end
   > [!NOTE]
   > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity, so you don't need to manually remove it.
 
