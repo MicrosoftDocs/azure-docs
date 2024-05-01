@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Packages
+title: Durable Functions packages
 description: Introduction to the Durable Functions packages, extensions, and SDKs.
 author: davidmrdavid
 ms.topic: overview
