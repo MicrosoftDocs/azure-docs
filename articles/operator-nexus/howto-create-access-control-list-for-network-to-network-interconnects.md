@@ -151,3 +151,6 @@ az networkfabric acl create --resource-group "example-rg" --location "eastus2eua
 > After creating the ACL, make sure to note down the ACL reference ID for further reference.
 
 
+## Next Steps
+
+[Applying Access Control Lists (ACLs) to NNI in Azure Fabric](howto-apply-access-control-list-to-network-to-network-interconnects.md)
