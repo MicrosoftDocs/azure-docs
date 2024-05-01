@@ -56,11 +56,11 @@ Your Redis instance is automatically upgraded to a preview version of Redis serv
 
 As an alternative to automatic upgrade, you can also manually upgrade to the latest Redis version. Manual upgrades provide two other benefits instead waiting for the automatic upgrade to occur: a) You control when the upgrade occurs, and b) you can upgrade to preview releases of Redis server.
 
-1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** in thw working pane to start an upgrade.
+1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** in the working pane to start an upgrade.
 
     :::image type="content" source="media/cache-how-to-upgrade/cache-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version, and the available version." :::
 
-1. You, then, see an **Upgrade Redis** pane that shows you the current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You can't downgrade. To confirm and begin the upgrade process, select **Start Upgrade**.
+1. You then see an **Upgrade Redis** pane that shows you the current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You can't downgrade. To confirm and begin the upgrade process, select **Start Upgrade**.
 
     > [!WARNING]
     > Once your Redis instance has been upgraded, it cannot be downgraded to the previous version.
