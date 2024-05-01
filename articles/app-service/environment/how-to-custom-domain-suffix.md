@@ -4,7 +4,7 @@ description: Configure a custom domain suffix for the Azure App Service Environm
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.date: 04/23/2024
+ms.date: 05/01/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -74,7 +74,7 @@ If you rotate your certificate in Azure Key Vault, the App Service Environment p
 
 1. From the [Azure portal](https://portal.azure.com), navigate to the **Custom domain suffix** page for your App Service Environment.
 1. Enter your custom domain name.
-1. Select the managed identity you've defined for your App Service Environment. You can use either a system assigned or user assigned managed identity. You're able to configure your managed identity if you haven't done so already. You can configure the managed identity directly from the custom domain suffix page using the "Add identity" option in the managed identity selection box.
+1. Select the managed identity you define for your App Service Environment. You can use either a system assigned or user assigned managed identity. You're able to configure your managed identity if you haven't done so already. You can configure the managed identity directly from the custom domain suffix page using the "Add identity" option in the managed identity selection box.
 :::image type="content" source="./media/custom-domain-suffix/managed-identity-selection.png" alt-text="Screenshot of a configuration pane to select and update the managed identity for the App Service Environment.":::
 1. Select the certificate for the custom domain suffix.
 1. Select "Save" at the top of the page. To see the latest configuration updates, refresh the page.
@@ -88,7 +88,7 @@ If you rotate your certificate in Azure Key Vault, the App Service Environment p
 
 ## Use Azure Resource Manager to configure custom domain suffix
 
-To configure a custom domain suffix for your App Service Environment using an Azure Resource Manager template, you need to include the below properties. Ensure that you've met the [prerequisites](#prerequisites) and that your managed identity and certificate are accessible and have the appropriate permissions for the Azure Key Vault.
+To configure a custom domain suffix for your App Service Environment using an Azure Resource Manager template, you need to include the below properties. Ensure that you meet the [prerequisites](#prerequisites) and that your managed identity and certificate are accessible and have the appropriate permissions for the Azure Key Vault.
 
 You need to configure the managed identity and ensure it exists before assigning it in your template. For more information on managed identities, see the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -153,7 +153,7 @@ Alternatively, you can update your existing ILB App Service Environment using [A
 1. Scroll to the bottom of the right pane. The **customDnsSuffixConfiguration** attribute is at the bottom.
 1. Enter your values for **dnsSuffix**, **certificateUrl**, and **keyVaultReferenceIdentity**.
 1. Navigate to the **identity** attribute and enter the details associated with the managed identity you're using.
-1. Select the **PUT** button that's located at the top to commit the change to the App Service Environment.
+1. Select the **PUT** button at the top to commit the change to the App Service Environment.
 1. The **provisioningState** under **customDnsSuffixConfiguration** provides a status on the configuration update. 
 
 ::: zone-end
@@ -197,7 +197,7 @@ However, just like apps running on the public multitenant service, you can also 
 
 ## Troubleshooting
 
-If your permissions or network settings for your managed identity, key vault, or App Service Environment aren't set appropriately, you aren't able to configure a custom domain suffix, and you receive an error similar to the example shown in the screenshot. Review the [prerequisites](#prerequisites) to ensure you configured the needed permissions. You also see a similar error message if the App Service platform detects that your certificate is degraded or expired.
+The App Service platform periodically checks if your App Service Environment can access your key vault and if your certificate is valid. If your permissions or network settings for your managed identity, key vault, or App Service Environment aren't set appropriately or recently changed, you aren't able to configure a custom domain suffix. You receive an error similar to the example shown in the screenshot. Review the [prerequisites](#prerequisites) to ensure you configured the needed permissions. You also see a similar error message if the App Service platform detects that your certificate is degraded or expired.
 
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-error.png" alt-text="Screenshot of a sample custom domain suffix error message.":::
 
