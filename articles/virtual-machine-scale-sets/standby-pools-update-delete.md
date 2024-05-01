@@ -19,11 +19,13 @@ ms.reviewer: ju-shim
 
 ## Update a standby pool
 
+You can update the state of the instances and the max ready capacity of your standby pool at any time. The standby pool name can only be set during standby pool creation. 
+
 ### [Portal](#tab/portal-1)
 1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
 2) Under **Availability + scale** select **Standby pool**. 
 3) Select **Manage pool**. 
-4) This brings up a window where you can adjust the provisioning state and maximum ready capacity. The standby pool name can only be set during standby pool creation. 
+4) Update the configuration and save any changes.  
 
 :::image type="content" source="media/standby-pools/managed-standby-pool-after-vmss-create.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
