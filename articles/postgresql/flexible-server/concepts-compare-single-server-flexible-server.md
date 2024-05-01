@@ -10,9 +10,9 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Comparison chart - Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server
+# Comparison chart: Azure Database for PostgreSQL - Flexible Server vs. Single Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 ## Overview
 
@@ -55,7 +55,7 @@ The following table provides a list of high-level features and capabilities comp
 | Storage auto-grow | Yes | Yes |
 | Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 80 K |
 | **Networking/Security** | | |
-| Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
+| Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access |
 | Public access control | Firewall | Firewall |
 | Private link support | Yes | Yes (Preview) |
 | Private VNET injection support | No | Yes |
