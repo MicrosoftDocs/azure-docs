@@ -1,6 +1,6 @@
 ---
-title: Azure Operator Nexus Network Fabric configuration monitoring
-description: Overview of configuration monitoring for Azure Operator Nexus.
+title: Azure Operator Nexus Network Fabric Configuration Monitoring
+description: Overview of Configuration Monitoring for Azure Operator Nexus.
 author: sushantjrao
 ms.author: sushrao
 ms.reviewer: sushrao
