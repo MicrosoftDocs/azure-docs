@@ -53,6 +53,8 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 
 1. Ensure that IoT MQ Arc extension is installed and configured with managed identity.
 
+1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for your IoT MQ extension name. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*.
+
 1. Get the *app ID* associated to the IoT MQ Arc extension managed identity, and note down the GUID value. The *app ID* is different than the object or principal ID. You can use the Azure CLI by finding the object ID of the managed identity and then querying the app ID of the service principal associated to the managed identity. For example:
 
     ```bash
@@ -223,7 +225,7 @@ authentication:
 
 Configure the data lake connector to send data to an Azure Data Explorer endpoint using managed identity.
 
-### Deploy an Azure Data Explorer cluster
+1. To deploy an Azure Data Explorer cluster, follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal&tabs=full).
 
 1. To deploy an Azure Data Explorer cluster, follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal).
 
@@ -232,14 +234,14 @@ Configure the data lake connector to send data to an Azure Data Explorer endpoin
 1. You can create a table for given data via the Azure portal and create columns manually, or you can use [KQL](/azure/data-explorer/kusto/management/create-table-command) in the query tab.
 
     For example:
-    
-    ```kql
     .create table thermostat (
         externalAssetId: string,
         assetName: string,
-        currentTemperature: real,
-        pressure: real,
-        mqttTopic: string,
+        CurrentTemperature: real,
+        Pressure: real,
+        MqttTopic: string,
+        Timestamp: datetime
+    )
         timestamp: datetime
     )
     ```
@@ -267,7 +269,7 @@ Deploy the broker as an ARC extension so that you get managed identity support. 
 
 In order for the connector to authenticate to Azure Data Explorer, you must add the managed identity to the Azure Data Explorer cluster. 
 
-1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for the name of your MQ extension. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*. The MQ extension name is the same as the MQ managed identity name.
+1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for the name of your IoT MQ extension. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*. The IoT MQ extension name is the same as the MQ managed identity name.
 1. In your Azure Data Explorer database, select **Permissions** > **Add** > **Ingestor**. Search for the MQ managed identity name and add it.
 
 For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
@@ -280,13 +282,13 @@ Example deployment file for the Azure Data Explorer connector. Comments that beg
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: DataLakeConnector
-metadata:
+  name: my-adx-connector
+  namespace: azure-iot-operations
   name: my-datalake-connector
   namespace: mq
 spec:
-  protocol: v5
-  image:
+    repository: mcr.microsoft.com/azureiotoperations/datalake
+    tag: 0.4.0-preview
     repository: edgebuilds.azurecr.io/datalake
     tag: edge
     pullPolicy: Always
@@ -294,17 +296,24 @@ spec:
   logLevel: "debug"
   databaseFormat: "adx"
   target:
-    adx:
+      endpoint: https://<cluster>.<region>.kusto.windows.net
       # TODO: insert the ADX cluster endpoint formatted as <cluster>.<region>.kusto.windows.net
       endpoint: "<endpoint>"
       authentication:
-        systemAssignedManagedIdentity:
+  localBrokerConnection:
+    endpoint: aio-mq-dmqtt-frontend:8883
+    tls:
+      tlsEnabled: true
+  name: adx-topicmap
+    authentication:
+      kubernetes: {}
+  dataLakeConnectorRef: my-adx-connector
           audience: "https://api.kusto.windows.net"
 ---
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: DataLakeConnectorTopicMap
 metadata:
-  name: datalake-topicmap
+    mqttSourceTopic: "azure-iot-operations/data/thermostat"
   namespace: azure-iot-operations
 spec:
   dataLakeConnectorRef: "my-datalake-connector"
