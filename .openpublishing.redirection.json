@@ -7,9 +7,14 @@
     },
     {
       "source_path": "articles/traffic-manager/scripts/traffic-manager-cli-websites-high-availability.md",
-      "redirect_url": "/previous-versions/azure/traffic-manager/scripts/traffic-manager-cli-websites-high-availability",
+      "redirect_url": "/previous-versions/azure/traffic-manager/scripts/traffic-manager-cli-websites-high-availability
       "redirect_document_id": false
-    },
+     },
+    {
+      "source_path": "articles/germany/index.yml",
+      "redirect_url": "/previous-versions/azure/germany/index",
+      "redirect_document_id": false
+     },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
