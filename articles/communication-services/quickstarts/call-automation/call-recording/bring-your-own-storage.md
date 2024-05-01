@@ -102,7 +102,7 @@ Refer to this example of the event schema.
 Recordings are stored in the following format as shown in the diagram.
         /YYYYMMDD/
             callId/
-                first_8_of_recordingId + '-' + unique guid)/   
+                first_8_of_recordingId + '-' + unique guid/   
                                 0-acsmetadata.documentId.json
                                 0-audiomp3.documentId.mp3
                                 1-acsmetadata.documentId.json
