@@ -173,6 +173,11 @@ Subscription, Resource Group, Cluster name, and Region
 
     :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
+    If the prerequisites aren't met and the subscription requires registration of the preview flags, there will be an error shown under the Subscription field.: 
+
+  :::image type="content" source="./media/quick-automatic-kubernetes-portal/Register.png" alt-text="The screenshot of the error shown when a  subscription doesnt have preview flags registered while creating an AKS Automatic cluster in the Azure portal.":::
+
+
 3. On the **Monitoring** tab, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags (optional), and proceed to create the cluster. 
 
     :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
