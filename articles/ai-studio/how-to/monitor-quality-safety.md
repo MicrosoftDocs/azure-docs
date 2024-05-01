@@ -102,7 +102,7 @@ Follow these steps to set up monitoring for your prompt flow deployment:
     :::image type="content" source="../media/deploy-monitor/monitor/test-deploy.png" alt-text="Screenshot of the deployment test page." lightbox = "../media/deploy-monitor/monitor/test-deploy.png":::
 
     > [!NOTE]
-    > Monitoring requires that at least one data point comes from a source other than the **Test** tab in the deployment. We recommend using the **Endpoint URL** or **Endpoint Swagger URI** from the prompt flow deployment page to send additional testing data to your deployment. 
+    > Monitoring requires that at least one data point comes from a source other than the **Test** tab in the deployment. We recommend using the REST API available in the **Consume** tab to send sample requests to your deployment. More information on how to do so can be found [here](https://review.learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy?branch=pr-en-us-273312#create-an-online-deployment). 
 
 1. Navigate to the **Deployments** tab and select the prompt flow deployment you just created after it has successfully been deployed. 
 
@@ -162,7 +162,7 @@ You can also view the operational metrics for the deployment by navigating to th
 
 ## Advanced monitoring configuration with SDK v2
 
-Monitoring also supports advanced set up with the SDK v2. 
+Monitoring also supports advanced configuration options with the SDK v2. 
 
 ### Enable Monitoring for token usage 
 
