@@ -80,7 +80,7 @@ If you have requirements that exceed the rate-limits, submit [a request to Azure
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Email
-There is a limit on the number of email messages you can send. If you exceed the below limits on your subscription, your requests will be rejected. You can attempt these requests again, after the Retry-After time has passed. Please take necessary action and request to raise the sending volume limits if needed.
+There is a limit on the number of email messages you can send. If you exceed the below limits on your subscription, your requests will be rejected. You can attempt these requests again, after the Retry-After time has passed. Please take necessary action and request to raise the sending volume limits if needed in case you are using a custom domain.
 
 ### Rate Limits 
 
