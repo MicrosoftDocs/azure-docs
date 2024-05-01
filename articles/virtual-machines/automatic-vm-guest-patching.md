@@ -1,5 +1,5 @@
 ---
-title: Automatic VM Guest Patching for Azure VMs
+title: Automatic Guest Patching for Azure Virtual Machines and Scale Sets
 description: Learn how to automatically patch virtual machines in Azure.
 author: maulikshah23
 ms.service: virtual-machines
@@ -10,20 +10,20 @@ ms.author: maulikshah
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
-# Automatic VM guest patching for Azure VMs
+# Automatic Guest Patching for Azure Virtual Machines and Scale Sets
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
+Enabling automatic guest patching for your Azure Virtual Machines (VMs) and Scale Sets (VMSS) helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
 - Patches are applied during all hours for VMSS Flex.
-- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
+- Azure manages the patch orchestration and follows [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Application health can be monitored through the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
 - Works for all VM sizes.
@@ -34,7 +34,7 @@ If automatic VM guest patching is enabled on a VM, then the available *Critical*
 
 The VM is assessed periodically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
-Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
+Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the platform will automatically assess and apply patches (if required) during the next periodic assessment (usually within a few days) when the VM is powered on.
 
 Definition updates and other patches not classified as *Critical* or *Security* won't be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
