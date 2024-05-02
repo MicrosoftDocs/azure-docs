@@ -14,7 +14,7 @@ ms.date: 01/04/2024
 > The Dynamics 365 connector is officially deprecated and is no longer available. Instead, use the 
 > [Microsoft Dataverse connector](/connectors/commondataserviceforapps/) to access Microsoft Dataverse 
 > used for Microsoft Dynamics 365 Sales, Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 
-> Field Service, Microsoft Dynamics 365 Marketing, and Microsoft Dynamics 365 Project Service Automation.
+> Field Service, Microsoft Dynamics 365 Customer Insights - Journeys, and Microsoft Dynamics 365 Project Service Automation.
 >
 > The Dataverse connector replaces the Microsoft Dataverse (Legacy) connector, previously named as the 
 > Common Data Service 2.0 connector, which replaced the Dynamics 365 connector.
