@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) blob store connection YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) connections YAML schema.
+description: Reference documentation for the CLI (v2) blob store connections YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -40,7 +40,7 @@ You can find the source JSON schema at TBD.
 
 ## Remarks
 
-The `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections. The blob store connection is specific to Azure AI Studio.
+While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections, the blob store connection is specific to Azure AI Studio.
 
 ## Examples
 
