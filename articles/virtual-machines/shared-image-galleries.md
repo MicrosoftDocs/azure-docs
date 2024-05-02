@@ -139,7 +139,7 @@ There are three main ways to share images an Azure Compute Gallery, depending on
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
-## What RBAC Permissions are required to create an ACG Image:
+## RBAC Permissions required to create an ACG Image:
 ACG images can be created by users from various sources, including virtual machines, disks/snapshots, and VHDs. The section outlines the various user permissions necessary for creating an Azure Compute Gallery image. Identifies without the necessary permissions will not be able to create ACG images.
 
 ### [VM as source](#tab/vmsource)
@@ -148,7 +148,7 @@ ACG images can be created by users from various sources, including virtual machi
 ### [Disk/Snapshot as Source](#tab/disksnapsource)
 - Users will require write permission (contributor) on the source disk/snapshot to create an ACG Image version.
 ### [VHD as Source](#tab/vhdsource)
-- Users will require Microsoft.Storage/storageAccounts/listKeys/action, Microsoft.Storage/storageAccounts/write permission (contributor role) on the storage account.
+- Users will require Microsoft.Storage/storageAccounts/listKeys/action (or) Storage Account Contributor on the storage account.
 - For SDK, use the property [properties.storageProfile.osDiskImage.source.storageAccountId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires minimum api-version 2022-03-03.
 ### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
 - Users will require read permission on the Managed Image/Gallery Image.
