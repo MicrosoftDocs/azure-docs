@@ -165,8 +165,7 @@ You can also access the following pages:
 - Tools: This is where you can access tools for prompt flow, tracing, evaluations, and fine-tuning. You can also access the [Visual Studio Code (Web)](how-to/develop-in-vscode.md) experience from this page. 
 - Components: This is where you can view and manage components in the project. Components include data, indexes, deployments, and content filters.
 
-
-## AI Studio enterprise chat solution demo
+## Build your own copilot demo
 
 Learn how to build your own copilot with AI Studio in this [overview video from Microsoft Mechanics on YouTube](https://youtu.be/3hZorLy6JiA).
 > [!VIDEO https://www.youtube.com/embed/3hZorLy6JiA]

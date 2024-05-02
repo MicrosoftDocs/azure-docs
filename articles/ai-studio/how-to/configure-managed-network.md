@@ -63,14 +63,6 @@ The following diagram shows a managed VNet configured to __allow only approved o
 > [!TIP]
 > The creation of the managed VNet is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network.
 
-# [Azure CLI](#tab/azure-cli)
-
-You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound). Use your Azure AI hub name as the workspace name in Azure Machine Learning CLI.
-
-# [Python SDK](#tab/python)
-
-Not available.
-
 # [Azure portal](#tab/portal)
 
 * __Create a new hub__:
@@ -104,20 +96,20 @@ Not available.
 
     1. Select __Save__ at the top of the page to save the changes to the managed VNet.
 
+# [Azure CLI](#tab/azure-cli)
+
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound). Use your Azure AI hub name as the workspace name in Azure Machine Learning CLI.
+
+# [Python SDK](#tab/python)
+
+Not available.
+
 ---
 
 ## Configure a managed virtual network to allow only approved outbound
 
 > [!TIP]
 > The managed VNet is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time.
-
-# [Azure CLI](#tab/azure-cli)
-
-You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). Use your Azure AI hub name as the workspace name in Azure Machine Learning CLI.
-
-# [Python SDK](#tab/python)
-
-Not available.
 
 # [Azure portal](#tab/portal)
 
@@ -172,18 +164,18 @@ Not available.
 
     1. Select __Save__ at the top of the page to save the changes to the managed VNet.
 
----
-
-
-## Manage outbound rules
-
 # [Azure CLI](#tab/azure-cli)
 
-You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#manage-outbound-rules). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). Use your Azure AI hub name as the workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
 Not available.
+
+---
+
+
+## Manage outbound rules
 
 # [Azure portal](#tab/portal)
 
@@ -195,6 +187,14 @@ Not available.
 * To __enable__ or __disable__ a rule, use the toggle in the __Active__ column.
 
 * To __delete__ an outbound rule, select __delete__ for the rule.
+
+# [Azure CLI](#tab/azure-cli)
+
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#manage-outbound-rules). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
+
+# [Python SDK](#tab/python)
+
+Not available.
 
 ---
 

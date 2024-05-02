@@ -28,7 +28,7 @@ In this article, you learn how to create and develop your first prompt flow in A
 ## Prerequisites
 
 - If you don't have an Azure AI Studio project already, first [create a project](create-projects.md).
-- Prompt flow requires a runtime. If you don't have a runtime, you can [create one in Azure AI Studio](./create-manage-runtime.md).
+- Prompt flow requires a compute session. If you don't have a runtime, you can [create one in Azure AI Studio](./create-manage-compute-session.md).
 - You need a deployed model.
 
 ## Create and develop your Prompt flow

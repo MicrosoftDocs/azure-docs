@@ -122,6 +122,8 @@ The query and resulting data visualization run and update each time the dashboar
 
 Queries that result in a list can also be pinned to the dashboard. The feature isn't limited to data visualizations of queries.
 
+When a query is run from the portal, you can select **Directory** to change the query's scope for the directory, management group, or subscription of the resources you want to query. When **Pin to dashboard** is selected, the results are added to your Azure dashboard with the scope used when the query was run.
+
 For more information about working with dashboards, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
 ## Clean up resources
