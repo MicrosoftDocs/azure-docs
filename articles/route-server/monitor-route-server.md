@@ -56,6 +56,10 @@ Metrics explorer supports Sum, Count, Average, Minimum, and Maximum as [aggregat
 > [!IMPORTANT]
 > Azure Monitor exposes another metric for Route Server, **Data Processed by the Virtual Hub Router**. This metric doesn't apply to Route Server and should be ignored.
 
+## Route Server metrics
+
+You can view the following metrics for Azure Route Server:
+
 ### <a name = "bgp"></a>BGP Peer status
 
 Aggregation type: **Max**
