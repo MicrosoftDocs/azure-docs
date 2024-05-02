@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/germany/index.yml",
+      "redirect_url": "/previous-versions/azure/germany/index",
+      "redirect_document_id": false
+    },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
@@ -3851,12 +3856,17 @@
         },
         {
             "source_path_from_root": "/articles/aks/cluster-configuration.md",
-            "redirect_url": "/azure/aks/concepts-clusters-workloads.md",
+            "redirect_url": "/azure/aks/concepts-clusters-workloads",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/aks/intro-kubernetes.md",
+            "redirect_url": "/azure/aks/what-is-aks",
             "redirect_document_id": false
         },
         {

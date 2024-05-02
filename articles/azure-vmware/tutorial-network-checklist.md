@@ -95,7 +95,7 @@ The subnets:
 | Interconnect (HCX-IX)| L2C | TCP (HTTPS) | 443 | Send management instructions from Interconnect to L2C when L2C uses the same path as the Interconnect. |
 | HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,443,902 | Management and OVF deployment. |
 | Interconnect (HCX-IX), Network Extension (HCX-NE) at Source| Interconnect (HCX-IX), Network Extension (HCX-NE) at Destination| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Supports Network Address Translation-Traversal (NAT-T). |
-| On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 500 | Required for IPSEC<br> Internet Key Exchange (ISAKMP) for the bidirectional tunnel. |
+| On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 4500 | Required for IPSEC<br> Internet Key Exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |
 | HCX Connector | connect.hcx.vmware.com<br> hybridity.depot.vmware.com | TCP | 443 | `connect` is needed to validate license key.<br> `hybridity` is needed for updates. |
 
