@@ -94,7 +94,7 @@ To get the portal IP address, ping `stamp2.ext.search.windows.net`, which is the
 
 Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
-## Supplement network security with authorization
+## Supplement network security with token authentication
 
 Firewalls and network security are a first step in preventing unauthorized access to data and operations. Authorization should be your next step. 
 

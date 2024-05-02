@@ -134,7 +134,7 @@ Now that you have the necessary IP addresses, you can set up the inbound rules. 
 
 It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access storage account data behind the firewall.
 
-## Supplement network security with authorization
+## Supplement network security with token authentication
 
 Firewalls and network security are a first step in preventing unauthorized access to data and operations. Authorization should be your next step. 
 
