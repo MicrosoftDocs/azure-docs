@@ -5,26 +5,25 @@ summary: Trusted Signing is an Azure fully managed, end-to-end signing solution 
 
 metadata:
   title: Trusted Signing documentation
-  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third party developers. The service is currently in a preview state. # Required; article description that is displayed in search results. < 160 chars.
+  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third party developers. The service is currently in a preview state.
   ms.service: trusted-signing
-  ms.topic: landing-page # Required
-  author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author: microsoftshawarma
+  ms.author: rakiasegev
+  ms.date: 01/05/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
+
   # Card 
-  - title: How To
+  - title: How to
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Sign a CI Policy by using Trusted Signing
+          - text: Sign a CI policy by using Trusted Signing
             url: how-to-sign-ci-policy.md
-          - text: Signing integrations with Trusted Signing
+          - text: Create signing integrations with Trusted Signing
             url: how-to-signing-integrations.md
           - text: Access signed transactions in Trusted Signing 
             url: how-to-sign-history.md
@@ -34,15 +33,15 @@ landingContent:
     linkLists:
         - linkListType: overview
           links:
-            - text: Get started with using Trusted Signing
+            - text: What is the Trusted Signing service?
               url: overview.md
-  - title: Assigning roles in Trusted Signing
+  - title: Tutorials
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Tutorial on assigning roles in the Trusted Signing service
+          - text: Assign roles in the Trusted Signing service
             url: tutorial-assign-roles.md
-  - title: Quickstarts
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:

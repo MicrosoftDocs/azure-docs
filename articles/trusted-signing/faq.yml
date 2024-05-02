@@ -1,4 +1,5 @@
 ### YamlMime:FAQ
+
 metadata:
   title: Trusted Signing FAQ
   description: Get answers to frequently asked questions for Trusted Signing.
@@ -71,55 +72,53 @@ sections:
           We're not extending any cross-signed certificates. You must sign by using the Trusted Signing service.
       - question: How is Trusted Signing different than the signing that customers do with Partner Center?
         answer: |
-          Signing with the Partner Center is Kernel mode signing (no change here with the introduction of Trusted Signing). You'll need to sign your user mode binaries with Trusted Signing. For your apps that interact with the Windows Security Center (WSC) service, you must include the Code Integrity bit (/INTEGRITYCHECK). Without the Trusted Signing signature, you aren't able to register with the WSC, and Windows Defender will run in parallel.
+          Signing with the Partner Center is kernel-mode signing (no change with the introduction of Trusted Signing). Sign your user-mode binaries by using Trusted Signing. For your apps that interact with the Windows Security Center (WSC) service, you must include the Code Integrity bit (/INTEGRITYCHECK). Without the Trusted Signing signature, you can't register with the WSC, and Windows Defender will run in parallel.
       - question: How do we get the Authenticode certificate?  
         answer: |
-          The Authenticode certificate used for signing with the profile is never given to you. All certificates are securely stored within the service and are only accessible at the time of signing. The public certificate is always included in any signed binary by the service. 
+          The Authenticode certificate that's used for signing with the profile is never given to you. All certificates are securely stored within the service and are accessible only at the time of signing. The public certificate is always included in any binary that the service signs. 
       - question: What are the common steps I should complete if I get a SignTool error (for example, unexpected internal error has occurred)?  
         answer: |
-         - Confirm the dlib and dll are in the correct path.
-          - Confirm the sign tool and dlib are both 64 bit.
-          - [Download](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170) and install C++ Redistributables.
-          - Search the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool) article.
-          - We recommend using this version of the [SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) as opposed to directly from NuGet. We used the previous article to test if it works with our dlib (version 10.0.22621 recommended currently). 
+          - Confirm that the dlib and DLL files are in the correct path.
+          - Confirm that the version of SignTool that's installed and the dlib are both 64-bit.
+          - Download and install [C++ Redistributables](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170).
+          - Search for the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool).
+          - We recommend that you use [this version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
       - question: What if I get a 403 Forbidden or an admin approval to access this resource error? 
         answer: |
-          This error is likely due to the Trusted Signing application not being allowed to run. Confirm that you have the "Trusted Signing Certificate Profile Signer" role: `({assignee} is your email)  az role assignment list --assignee {assignee}`
-      - question: How do I check if the timestamper service is healthy? 
+          This error is likely due to the Trusted Signing application not being allowed to run. Confirm that you have the Trusted Signing Certificate Profile Signer role: `({assignee} is your email)  az role assignment list --assignee {assignee}`
+      - question: How do I check if the time stamp service is healthy? 
         answer: |
-          Run the following command `curl http://timestamp.acs.microsoft.com`. If the StatusCode 200 is returned, it means the timestamper service is healthy and running. 
-      - question: What if I get a 400 error with `SharedTokenCacheCredential` authentication failed? 
+          Run the following command: `curl http://timestamp.acs.microsoft.com`. If StatusCode 200 is returned, it means that the time stamp service is healthy and running. 
+      - question: What if I get a 400 error that says `SharedTokenCacheCredential` authentication failed? 
         answer: |
-          This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON. To learn more, go to [DefaultAzureCredential Class (Azure.Identity)](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
+          This error is caused by certificate caching. Add "ExcludeCredentials": ["SharedTokenCacheCredential"] to your JSON. To learn more, see [DefaultAzureCredential Class (Azure.Identity)](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
       - question: I get errors when I do Private Trust signing. What should I do? 
         answer: |
-          If you get an internal error, check that the CN name you used matches with the cert name. The package name is checked so ensure to copy the entire Subject name that appears in the Azure portal to the manifest file when signing is submitted. 
-      - question: I'm getting command succeeded for SignTool, but the file doesn't appear to be signed when I check the digital signature. What should I do? 
+          If you get an internal error, check that the CN name that you used matches the certificate name. The package name is checked. When you submit signing, be sure that you copy the entire subject name that appears in the Azure portal to paste in the manifest file. 
+      - question: I'm getting "Command succeeded" for SignTool, but the file doesn't appear to be signed when I check the digital signature. What should I do? 
         answer: |
-          If the signature doesn't appear in the digital signature property, run this command: `.\signtool.exe verify /v /debug /pa fileName`. Not all file types have the signature tab in properties.
-      - question: How do I fix pop-up credentials in the Azure VM when running the SignTool + Dlib command?
+          If the signature doesn't appear in the digital signature property, run this command: `.\signtool.exe verify /v /debug /pa fileName`. Not all file types have the **Signature** tab in **Properties**.
+      - question: How do I fix popup credentials in an Azure virtual machine when I run the SignTool + Dlib command?
         answer: |
-          - [Create a user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
-          - Then add the user-assigned managed identity to the VM by selecting the VM, going to "Identity" in the left navigation bar, clicking "User assigned" and the "Add" button to add the managed identity. 
-          - Finally, in the Resource Group (or Subscription) that has the role Trusted Signing Certificate Profile Signer, add the user-assigned managed identity to the role. Go to "Access control (IAM)" and "Role assignments" to assign the correct role.
-      - question: How do I fix pop-up credentials when using GCP?
+          1. Create a [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
+          2. Add the user-assigned managed identity to the virtual machine (VM): Select the VM. On the left menu, select **Identity**, and then select **User assigned**. On the menu bar, select the **Add** button to add the managed identity. 
+          3. Iin the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
+      - question: How do I fix pop-up credentials when I use Google Cloud Platform?
         answer: |
-          - Because GCP doesn't have Azure Managed Identity resource by default, set up an [Environment Credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential Class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. The recommendation is:
+          - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
 
-            ```
-            AZURE_TENANT_ID  The Microsoft Entra tenant(directory) ID. 
-            AZURE_CLIENT_ID The client(application) ID of an App Registration in the tenant. 
-            AZURE_CLIENT_SECRET A client secret that was generated for the App Registration. 
-           ```
-          - To create a Client ID and secret, follow the guidance in [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-          - After creating the Client ID and Secret, navigate to the Resource Group (or Subscription) that has the Trusted Signing Certificate Profile Signer role and add this App to the role. 
+             - **AZURE_TENANT_ID** for the Microsoft Entra tenant (directory) ID.
+             - **AZURE_CLIENT_ID** for the client (application) ID of an app registration in the tenant. 
+             - **AZURE_CLIENT_SECRET** for a client secret that was generated for the app registration. 
+          - To create a client ID and secret, follow the guidance in [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+          - After you creae the client ID and secret, go to the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, and add this app to the role. 
       - question: What if my Trusted Signing account is suspended?
         answer: |
-          Trusted Signing will suspend accounts and or revoke signing certificates if the certificate is found to be misused or abused per our service's Terms of Use. We engage with you directly in such cases following the Code Signing Baseline Requirements (CSBRs) guidelines. 
-      - question: What if I get Azure.Identity.CredentialUnavailableException?
+          Trusted Signing will suspend an account or revoke a signing certificate or both if a certificate is found to be misused or fraudulent per the service's Terms of Use. In this scenario, we will engage with you directly and follow the guidelines in the Code Signing Baseline Requirements (CSBRs). 
+      - question: How do I resolve an Azure.Identity.CredentialUnavailableException error?
         answer: |
-          You should expect to see this error on environments outside of Azure [see here](https://github.com/Azure/azure-sdk-for-net/issues/29471). Recommendation is to "exclude ManagedIdentity" if you're outside of Azure.
-      - question: What if I change the Subscription ID or Tenant ID?
+          You might see this error in environments outside of Azure. We recommend that you include "exclude ManagedIdentity" if you're outside of Azure. For more information, see this [GitHub issue](https://github.com/Azure/azure-sdk-for-net/issues/29471). 
+      - question: What if I change my subscription ID or tenant ID?
         answer: |
-         At the moment, Trusted Signing resources can't be migrated across Subscriptions or Tenants. Hence, any change to Tenant ID or Subscription ID will need fro you to create all the Trusted Signing resources again.
+         Currently, Trusted Signing resources can't be migrated across subscriptions or tenants. If you want to make any change to your tenant ID or subscription ID, you must create all your Trusted Signing resources again.
   

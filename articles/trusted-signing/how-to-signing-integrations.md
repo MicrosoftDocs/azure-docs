@@ -126,11 +126,11 @@ To invoke SignTool to sign a file for you:
 1. Replace the placeholders in the following path with the specific values that you noted in step 1:
 
    ```console
-   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
+   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
    ```
 
 - Both the x86 and x64 versions of *SignTool.exe* are provided as part of the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of *SignTool.exe*.
-- Make sure that you use the recommended Windows SDK version in the dependencies that listed at the beginning of this article, or the .dlib file doesn't work.
+- Make sure that you use the recommended Windows SDK version in the dependencies that listed at the beginning of this article, or the dlib file doesn't work.
 
 Trusted Signing certificates have a three-day validity, so timestamping is critical for continued successful validation of a signature beyond that three-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
 
@@ -138,12 +138,12 @@ Trusted Signing certificates have a three-day validity, so timestamping is criti
 
 You can also use the following tools or platforms to set up signing integrations to work with Trusted Signing.
 
-- GitHub Actions: To learn how to use a GitHub action for Trusted Signing, see [Trusted Signing - Actions - GitHub Marketplace](https://github.com/azure/trusted-signing-action). Complete the instructions to set up and use a GitHub action.
+- **GitHub Actions**: To learn how to use a GitHub action for Trusted Signing, see [Trusted Signing - Actions - GitHub Marketplace](https://github.com/azure/trusted-signing-action). Complete the instructions to set up and use a GitHub action.
 
-- Azure DevOps task: To use the Trusted Signing AzureDevOps task, visit [Trusted Signing - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) and follow the instructions for setup.
+- **Azure DevOps task**: To use the Trusted Signing AzureDevOps task, visit [Trusted Signing - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) and follow the instructions for setup.
 
-- PowerShell for Authenticode: To use PowerShell for Trusted Signing, visit [PowerShell Gallery | Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) to install the PowerShell module.
+- **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, visit [PowerShell Gallery | Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) to install the PowerShell module.
 
-- Azure PowerShell - App Control for Business CI Policy: To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
+- **Azure PowerShell - App Control for Business CI Policy**: To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 
-- Trusted Signing SDK – To create your own signing integration our [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk) is publicly available.
+- **Trusted Signing SDK**: To create your own signing integration, you can use our open-source [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk).
