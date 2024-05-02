@@ -40,7 +40,7 @@ This article contains [specific reliability recommendations for Azure Cosmos DB 
  
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Configure at least two regions for high availability** 
 
-Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it's still susceptible to failures or issues with entire regions or availability zones. As such, it's crucial to enable at least a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime at all and it is as easy as selecting a pin on map. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain write availability in case of one region failure.
+Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it's still susceptible to failures or issues with entire regions or availability zones. To achieve the highest possible availability, you must add at least one secondary region to the account. Downtime is minimal and adding a region is easy. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain zero downtime write availability in case of one failure in a read region.
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -53,7 +53,8 @@ Azure implements multi-tier isolation approach with rack, DC, zone, and region i
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Enable service-managed failover for multi-region accounts with single write region** 
 
-Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the [Service-Managed failover](#service-managed-failover) option allows Azure Cosmos DB to fail over automatically to the next available region with no user action needed.
+Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the [Service-Managed failover](#service-managed-failover) option allows Azure Cosmos DB to be failed over by the service to the next available region with no user action needed.
+
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -65,7 +66,9 @@ Cosmos DB is a battle-tested service with extremely high uptime and resiliency, 
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Evaluate multi-region write capability** 
 
-With multi-region write capability, you can design a multi-region application that's inherently highly available by virtue of being active in multiple regions. Using multi-region write, however, requires that you pay close considerations to consistency requirements and handle potential [writes conflicts by way of conflict resolution policy](/azure/cosmos-db/conflict-resolution-policies). On the flip side, blindly enabling this configuration can lead to decreased availability due to unexpected application behavior and data corruption due to unhandled conflicts.
+With multi-region write capability, you can design a multi-region application that's inherently highly available by virtue of being active in multiple regions. Using multi-region write, however, requires that you pay close atention to consistency requirements and handle potential [writes conflicts by way of conflict resolution policy](/azure/cosmos-db/conflict-resolution-policies). On the flip side, blindly enabling this configuration can lead to decreased availability due to unexpected application behavior and data corruption due to unhandled conflicts.
+
+With multi-region write capability, you can design a multi-region application that's inherently highly available by virtue of its active-active configuration in multiple regions. Using multi-region write requires an asynchronous consistency level such as Session or weaker. You must also monitor and handle potential [writes conflicts by way of conflict resolution policy](/azure/cosmos-db/conflict-resolution-policies).
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -76,14 +79,15 @@ With multi-region write capability, you can design a multi-region application th
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Choose appropriate consistency mode reflecting data durability requirements** 
 
-Within a [globally distributed database environment](/azure/cosmos-db/distribute-data-globally), there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. We recommend using Session consistency unless you have established that stronger consistency mode is needed, you are willing to tolerate higher write latencies, and understand that outages on read-only regions can affect the ability of write region to accept writes.
-
+Within a [globally distributed database environment](/azure/cosmos-db/distribute-data-globally), there is a direct relationship between data consistency and data durability should a region-wide outage occur. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. We recommend using Session consistency unless you have established that zero data loss (RPO = 0) is required. In this scenario you may use strong consistency. However, you will incur greater write latency, and potentially reduce write availability in a two-region configuration should either region encounter an outage.
 
 
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Configure continuous backup mode** 
 
 Cosmos DB automatically [backs up your data](/azure/cosmos-db/continuous-backup-restore-introduction) and there is no way to turn back ups off. In short, you are always protected. But should any mishap occur – a process that went haywire and deleted data it shouldn’t, customer data was overwritten by accident, etc. – minimizing the time it takes to revert the changes is of the essence. With continuous mode, you can self-serve restore your database/collection to a point in time before such mishap occurred. With periodic mode, however, you must contact Microsoft support, which despite us striving to provide speedy help will inevitably increase the restore time.
+
+
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -110,7 +114,7 @@ Not only is establishing a new database connection expensive, so is maintaining 
 
 #### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **Implement retry logic in your client** 
 
-Cosmos DB SDKs by default handle large number of transient errors and automatically retry operations, where possible. That said, your application should add retry policies for certain well-defined cases that cannot be generically handled by the SDKs.For more information, see [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
+Cosmos DB SDKs by default handle large number of transient errors and automatically retry operations, where possible. That said, for any application or service that communicates over a network, you should add retry policies for any operations not handled by the SDK. Any scenarios involving writes should also include concurrency checks which can be configured with the SDK. For more information, see [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
 
 
 
@@ -147,7 +151,7 @@ Your replicas must be deployed in an Azure region that supports availability zon
 
 ### SLA improvements
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase.  Regions where availability zones are enabled are charged at 25% premium, while those without those without availability zones don't incur the premium. Moreover, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
+Because availability zones are physically separate and provide distinct power source, network, and cooling, Availability SLAs (Service-level agreements) are higher (99.995%) than accounts with a single region (99.99%). Regions where availability zones are enabled are charged at 25% premium, while those without those without availability zones don't incur the premium. Moreover, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
 
 Adding an additional region to Cosmos DB account typically increases existing bill by 100% (additively not multiplicatively) though small variations in cost across regions exist. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/).
 

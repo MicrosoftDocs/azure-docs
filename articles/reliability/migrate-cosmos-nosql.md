@@ -28,7 +28,7 @@ Enabling availability zones is a great way to increase resilience of your Cosmos
 
 ## Downtime requirements
 
-There is no downtime associated with a migration to availability zone support.
+When you migrate to availability zone support, a small amount of write unavailability (a few seconds) occurs when adding and removing the secondary region, as the system deliberately stops writes in order to check consistency between regions.
 
 ## Migration
 
@@ -72,7 +72,7 @@ az cosmosdb failover-priority-change --name MyCosmosDBDatabaseAccount --resource
 
 ```
 
-1. Remove the region for which you would like to enable availability zones. The following example shows how to remove East US region from an account configured with West US (write region) and East US (read-only) regions. You must include all accounts that shouldn't be removed in the command. 
+1. Remove the region for which you would like to enable availability zones. The following example shows how to remove East US region from an account configured with West US (write region) and East US (read-only) regions. You must include all regions that shouldn't be removed in the command. 
 
 ```azurecli
 
