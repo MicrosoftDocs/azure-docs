@@ -3,7 +3,7 @@ title: Azure OpenAI Service Provisioned Throughput Units (PTU) onboarding
 description: Learn about provisioned throughput units onboarding and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 02/13/2024
+ms.date: 05/02/2024
 manager: nitinme
 author: mrbullwinkle 
 ms.author: mbullwin 
@@ -16,6 +16,19 @@ This article walks you through the process of onboarding to [Provisioned Through
 
 > [!NOTE]
 > Provisioned Throughput Units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
+
+## When to use provisioned throughput units (PTU)
+
+You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there is an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing.  
+
+### Typical PTU scenarios
+
+- An application that is ready for production or in production.
+- Application has predictable capacity/usage expectations.
+- Application has real-time/latency sensitive requirements.
+
+> [!NOTE]
+> In function calling and agent use cases, token usage can be variable. You should understand your expected Tokens Per Minute (TPM) usage in detail prior to migrating the workloads to PTU.
 
 ## Sizing and estimation: provisioned managed only
 
