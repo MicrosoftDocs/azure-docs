@@ -25,7 +25,7 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 
 - An Azure acccount. If you don't one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI v2.56](/cli/azure/install-azure-cli) or later
-- [Azure Kubernetes Service (AKS) preview extension](azure/aks/draft#install-the-aks-preview-azure-cli-extension)
+- [Azure Kubernetes Service (AKS) preview extension](/azure/aks/draft#install-the-aks-preview-azure-cli-extension)
 - [jq v1.5](https://jqlang.github.io/jq/) or later
 - [Python 3](https://www.python.org/downloads/) or later
 - [kubectl 1.21.0](https://kubernetes.io/docs/tasks/tools/install-kubectl/) or later

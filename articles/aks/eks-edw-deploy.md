@@ -56,7 +56,7 @@ Next, you select whether to use an existing [Azure storage account](/azure/stora
 
 ### Set up Azure Key Vault
 
-The script asks whether you want to use an existing [Azure Key Vault](//azure/key-vault/general/basic-concepts). If so, enter the name of the Key Vault resource. If not, the script creates one for you, using the name you set in the environment variable `KEY_VAULT_NAME`.
+The script asks whether you want to use an existing [Azure Key Vault](/azure/key-vault/general/basic-concepts). If so, enter the name of the Key Vault resource. If not, the script creates one for you, using the name you set in the environment variable `KEY_VAULT_NAME`.
 
 Next, the script assigns the Key Vault Administrator role to the object ID of the principal running the script, so that it's able to perform Key Vault operations.
 
