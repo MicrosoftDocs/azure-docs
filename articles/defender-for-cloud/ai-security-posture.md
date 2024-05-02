@@ -1,7 +1,7 @@
 ---
 title: AI security posture management
 description: Learn about AI security posture management in Microsoft Defender for Cloud and how it protects resources from AI threats.
-ms.date: 05/01/2024
+ms.date: 05/02/2024
 ms.topic: concept-article
 ms.author: elkrieger
 author: Elazark
@@ -10,27 +10,25 @@ author: Elazark
 
 # AI security posture management
 
-Microsoft Defender for Cloud provides AI security posture management capabilities that secure enterprise-built, multi or hybrid cloud (currently Azure and AWS) generative AI applications, throughout the entire application lifecycle. Defender for Cloud reduces risk to cross cloud AI workloads by:
+Microsoft Defender for Cloud provides AI security posture management capabilities that secure enterprise-built, multi, or hybrid cloud (currently Azure and AWS) generative AI applications, throughout the entire application lifecycle. Defender for Cloud reduces risk to cross cloud AI workloads by:
 
-- Discovering generative AI bill of materials (AI BOM), which includes application components, data, and AI artifacts from code to cloud.
+- Discover generative AI Bill of Materials (AI BOM), which includes application components, data, and AI artifacts from code to cloud.
 - Strengthening generative AI application security posture with built-in recommendations and by exploring and remediating security risks.
 - Using the attack path analysis to identify and remediate risks.
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="An image of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
-## Discovering generative AI apps within your environment
+## Discover generative AI apps within your environment
 
 Defender for Cloud discovers AI workloads and identifies details of your organization's AI BOM. This visibility allows you to identify and address vulnerabilities and protect generative AI applications from potential threats.
 
-Defenders for Cloud automatically and continuously discover deployed AI workloads across the following service: 
+Defenders for Cloud automatically and continuously discover deployed AI workloads across the following services: 
 
 - Azure OpenAI Service
 - Azure Machine Learning
 - Amazon Bedrock.
 
-In addition to discovering deployed AI workloads, Defender for Cloud can also discover vulnerabilities within generative AI library dependencies such as TensorFlow, PyTorch, and Langchain. By scanning source code for Infrastructure as Code (IaC) misconfigurations and container images for vulnerabilities.
-
-Regularly updating or patching these can prevent exploits, protecting generative AI applications and maintaining their integrity.
+Defender for Cloud can also discover vulnerabilities within generative AI library dependencies such as TensorFlow, PyTorch, and Langchain, by scanning source code for Infrastructure as Code (IaC) misconfigurations and container images for vulnerabilities. Regularly updating or patching the libraries can prevent exploits, protecting generative AI applications and maintaining their integrity.
 
 With these features, Defender for Cloud provides full visibility of AI workloads from code to cloud.
 
@@ -44,9 +42,11 @@ Defender for Cloud assesses AI workloads and issues recommendations around ident
 
 #### Detecting IaC misconfigurations
 
-DevOps security, detects IaC misconfigurations, which can expose generative AI applications to security vulnerabilities, such as over-exposed access controls or inadvertent publicly exposed services. These misconfigurations could lead to data breaches or unauthorized access. Misconfigurations could lead to compliance issues, especially when handling strict data privacy regulations.
+DevOps security detects IaC misconfigurations, which can expose generative AI applications to security vulnerabilities, such as over-exposed access controls or inadvertent publicly exposed services. These misconfigurations could lead to data breaches, unauthorized access, and compliance issues, especially when handling strict data privacy regulations.
 
-Defender for Cloud assesses your generative AI apps configuration and provides security recommendations to improve AI security posture. Remediate misconfigurations early in the development cycle allows organizations to prevent more complex problems later on. 
+Defender for Cloud assesses your generative AI apps configuration and provides security recommendations to improve AI security posture. 
+
+Detected misconfigurations should be remediated early in the development cycle to prevent more complex problems later on. 
 
 Current IaC AI security checks include:
 
@@ -57,13 +57,13 @@ Current IaC AI security checks include:
 
 ### Explore risks with attack path analysis
 
-Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pre-trained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed. 
+Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pretrained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed. 
 
-By continuously monitoring AI workloads, attack path analysis can identify weaknesses and potential vulnerabilities and follow up with recommendations. Additionally, it extends to cases where the data and compute resources are distributed across Azure, AWS and GCP.
+By monitoring AI workloads continuously, attack path analysis can identify weaknesses and potential vulnerabilities and follow up with recommendations. Additionally, it extends to cases where the data and compute resources are distributed across Azure, AWS, and GCP.
 
 ## Related content
 
-- [Explore risks to pre-deployed generative AI artifacts](explore-ai-risk.md)
+- [Explore risks to predeployed generative AI artifacts](explore-ai-risk.md)
 - [Review security recommendations](review-security-recommendations.md)
 - [Identify and remediate attack paths](how-to-manage-attack-path.md)
 - [Discover generative AI workloads](identify-ai-workload-model.md)

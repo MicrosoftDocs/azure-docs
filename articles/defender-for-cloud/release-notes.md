@@ -39,7 +39,7 @@ Learn more about [AI security posture management](ai-security-posture.md).
 
 May 6, 2024
 
-Defender for AI Workloads provides contextual insights into AI workload threat protection, integrating with [responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Defender for AI security alerts are integrated into Defender XDR in the Defender portal. 
+Defender for AI Workloads provides contextual insights into AI workload threat protection, integrating with [Responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Defender for AI security alerts are integrated into Defender XDR in the Defender portal. 
 This plan helps you monitor your Azure OpenAI powered applications in runtime for malicious activity, identify and remediate security risks.
 
 Learn more about [Defender for AI Workloads](ai-threat-protection.md).
