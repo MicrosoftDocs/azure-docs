@@ -512,6 +512,10 @@
         href: defender-partner-applications.md
       - name: Onboard 42Crunch (preview)
         href: onboarding-guide-42crunch.md
+      - name: Onboard StackHawk (preview)
+        href: onboarding-guide-stackhawk.md
+      - name: Onboard Bright Security (preview)
+        href: onboarding-guide-bright.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:

@@ -14,7 +14,7 @@ Microsoft Defender for Cloud supports third-party tools to help enhance the exis
 
 ## Overview
 
-The support for third-party solutions helps to further streamline, integrate, and orchestrate security findings from partner solutions with Microsoft Defender for APIs. This support enables full lifecycle API security, and the ability for security teams to effectively discover and remediate API security vulnerabilities before they are deployed in production.
+The support for third-party solutions helps to further streamline, integrate, and orchestrate security findings from partner solutions with Microsoft Defender for Cloud. This support enables full lifecycle API security, and the ability for security teams to effectively discover and remediate API security vulnerabilities before they are deployed in production.
 
 The security scan results from partner applications are now available within Defender for Cloud, ensuring that central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience. These security teams can now take governance steps that are natively available through Defender for Cloud recommendations, and extensibility to export scan results from the Azure Resource Graph into management tools of their choice.
 

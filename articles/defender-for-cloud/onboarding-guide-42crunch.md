@@ -28,7 +28,7 @@ Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit)
 
 ## Connect your DevOps environments to Microsoft Defender for Cloud
 
-This connecting your DevOps environment to Defender for Cloud.
+This feature requires connecting your DevOps environment to Defender for Cloud.
 
 See [how to onboard your GitHub organizations](quickstart-onboard-github.md).
 
