@@ -19,6 +19,11 @@
             "source_path_from_root": "/articles/ai-studio/how-to/cli-install.md",
             "redirect_url": "/azure/ai-studio/how-to/sdk-install",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/quickstarts/assistants.md",
+            "redirect_url": "/azure/ai-services/openai/assistants-quickstart",
+            "redirect_document_id": true
         }
     ]
 }
