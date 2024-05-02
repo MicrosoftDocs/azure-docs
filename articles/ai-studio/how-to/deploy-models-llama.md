@@ -109,8 +109,6 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
-  
-# [Meta Llama 2](#tab/llama-two)
 
 ---
 
