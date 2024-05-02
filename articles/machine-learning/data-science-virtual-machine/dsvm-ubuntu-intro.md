@@ -44,10 +44,10 @@ To create an instance of either the Ubuntu 20.04 DSVM or the Azure DSVM for PyTo
          > [!NOTE]
          > If you plan to use JupyterHub, make sure to select **Password** because JupyterHub is *not* configured to use Secure Shell (SSH) Protocol public keys.
 
-      * **Username**: Enter the administrator username. You use this username to sign in to your VM. It doesn't need to match your Azure username. Do *not* use capital letters.
+      * **Username**: Enter the administrator username. You use this username to sign in to your VM. It doesn't need to match your Azure username. Don't use capital letters.
 
          > [!IMPORTANT]
-         > If you use capital letters in your username, JupyterHub will not work, and you'll encounter a 500 internal server error.
+         > If you use capital letters in your username, JupyterHub won't work, and you'll encounter a 500 internal server error.
 
       * **Password**: Enter the password you plan to use to sign in to your VM.
 
@@ -122,7 +122,7 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), whi
       :::image type="content" source="./media/dsvm-ubuntu-intro/jupyter-login.png" alt-text="Screenshot that shows the JupyterHub sign-in pane." lightbox= "./media/dsvm-ubuntu-intro/jupyter-login.png":::
 
    
-      If you receive a 500 error at this stage, you probably used capital letters in your username. This issue is a known interaction between JupyterHub and the PAMAuthenticator it uses.
+      If you receive a 500 error at this stage, you probably used capital letters in your username. This issue is a known interaction between JupyterHub and the PAM authenticator it uses.
    
       If you receive a "Can't reach this page" error, it's likely that your network security group (NSG) permissions need adjustment. In the Azure portal, find the NSG resource within your resource group. To access JupyterHub from the public internet, you must have port 8000 open. (The image shows that this VM is configured for just-in-time access, which we highly recommend. For more information, see [Secure your management ports with just-in time access](../../security-center/security-center-just-in-time.md).)
       >
