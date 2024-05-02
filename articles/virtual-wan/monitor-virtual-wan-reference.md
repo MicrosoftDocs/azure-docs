@@ -27,7 +27,7 @@ The following metric is available for virtual hub router within a virtual hub:
 | **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric's approximate value will be 50%.  |
 
 > [!NOTE]
-> As of March 28, 2024, the backend functionality for the Routing Infrastructure Units and Spoke VM Utilization metrics are still rolling out. As a result, even if you see these metrics displayed in Portal, the actual values of these metrics might appear as 0. The backend functionality of these metrics is aimed to finish rolling out swithin the next several weeks, which will ensure the proper values are emitted. 
+> As of March 28, 2024, the backend functionality for the Routing Infrastructure Units and Spoke VM Utilization metrics are still rolling out. As a result, even if you see these metrics displayed in Portal, the actual values of these metrics might appear as 0. The backend functionality of these metrics is aimed to finish rolling out within the next several weeks, which will ensure the proper values are emitted. 
 > 
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
