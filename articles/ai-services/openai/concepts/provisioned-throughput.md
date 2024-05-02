@@ -86,7 +86,7 @@ A few high-level considerations:
 
 Provisioned deployments provide you with an allocated amount of model processing capacity to run a given model.
 
-In Provisioned-Managed deployments, when capacity is exceeded, the API will immediately return a 429 HTTP Status Error. This enables the user to make decisions on how to manage their traffic. Users can redirect requests to a separate deployment, to a standard Pay-As-You-Go instance, or leverage a retry strategy to manage a given request. The service will continue to return the 429 HTTP status code until the utilization drops below 100%.
+In Provisioned-Managed deployments, when capacity is exceeded, the API will immediately return a 429 HTTP Status Error. This enables the user to make decisions on how to manage their traffic. Users can redirect requests to a separate deployment, to a standard pay-as-you-go instance, or leverage a retry strategy to manage a given request. The service will continue to return the 429 HTTP status code until the utilization drops below 100%.
 
 ### How can I monitor capacity?
 
@@ -101,7 +101,7 @@ The  `retry-after-ms` and `retry-after` headers in the response tell you the tim
 
 #### How does the service decide when to send a 429?
 
-In the Provisioned-Managed offering, each request is evaluated individually according to its prompt size, expected generation size, and model to determine its expected utilization. This is in contrast to Pay-As-You-Go deployments which have a [custom rate limiting behavior](../how-to/quota.md) based on the estimated traffic load. For Pay-As-You-Go deployments this can lead to HTTP 429's being generated prior to defined quota values being exceeded if traffic is not evenly distributed.
+In the Provisioned-Managed offering, each request is evaluated individually according to its prompt size, expected generation size, and model to determine its expected utilization. This is in contrast to pay-as-you-go deployments which have a [custom rate limiting behavior](../how-to/quota.md) based on the estimated traffic load. For pay-as-you-go deployments this can lead to HTTP 429s being generated prior to defined quota values being exceeded if traffic is not evenly distributed.
 
 For Provisioned-Managed, we use a variation of the leaky bucket algorithm to maintain utilization below 100% while allowing some burstiness in the traffic. The high-level logic is as follows:
 1.	Each customer has a set amount of capacity they can utilize on a deployment
@@ -126,7 +126,7 @@ For Provisioned-Managed, we use a variation of the leaky bucket algorithm to mai
 
 #### How many concurrent calls can I have on my deployment?
 
-The number of concurrent calls you can achieve depends on each call's shape (prompt size, max_token parameter, etc). The service will continue to accept calls until the utilization reach 100%. To determine the approximate number of concurrent calls you can model out the maximum requests per minute for a particular call shape in the [capacity calculator](https://oai.azure.com/portal/calculator). If the system generates less than the number of samplings tokens like max_token, it will accept more requests.
+The number of concurrent calls you can achieve depends on each call's shape (prompt size, max_token parameter, etc.). The service will continue to accept calls until the utilization reach 100%. To determine the approximate number of concurrent calls you can model out the maximum requests per minute for a particular call shape in the [capacity calculator](https://oai.azure.com/portal/calculator). If the system generates less than the number of samplings tokens like max_token, it will accept more requests.
 
 ## Next steps
 
