@@ -94,7 +94,7 @@ You can specify the service tag if your data source is either:
 
 Notice that if you specified the service tag for the multitenant environment IP rule, you'll still need an explicit inbound rule for the private execution environment (meaning the search service itself), as obtained through `nslookup`.
 
-## Supplement network security with authorization
+## Supplement network security with token authentication
 
 Firewalls and network security are a first step in preventing unauthorized access to data and operations. Authorization should be your next step. 
 
