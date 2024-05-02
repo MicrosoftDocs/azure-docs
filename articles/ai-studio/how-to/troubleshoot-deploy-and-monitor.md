@@ -94,11 +94,11 @@ The full error message is: "UserErrorFromQuotaService: Simultaneous count exceed
 
 This error message means that the shared quota pool has reached the maximum number of requests it can handle. Try again at a later time when the shared quota is freed up for use.
 
-### Question: I deployed a web app but I don't see a way to launch it or find it.
+### Question: I deployed a web app but I don't see a way to launch it or find it
 
 We're working on improving the user experience of web app deployment at this time. In the meantime, here's a tip: if your web app launch button doesn't become active after a while, try to deploy it again, using the __update an existing app__ option. If the web app was properly deployed, it should show up on the dropdown list of your existing web apps.
 
-### Question: I deployed a model but I don't see it in the playground.
+### Question: I deployed a model but I don't see it in the playground
 
 Playground only supports select models, such as Azure OpenAI models and Llama-2. If playground support is available, you see the **Open in playground** button on the model deployment's **Details** page. 
 
