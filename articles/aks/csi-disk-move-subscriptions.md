@@ -1,5 +1,5 @@
 ---
-title: Move Azure Disk persistent volumes in Azure Kubernetes Service (AKS)
+title: Move Azure Disk persistent volumes to another AKS cluster in the same or a different subscription
 titleSuffix: Azure Kubernetes Service
 description: Learn how to move a persistent volume between Azure Kubernetes Service clusters in the same subscription or a different subscription. 
 author: tamram
@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 04/08/2024
 ---
 
-# Move Azure Disk persistent volumes to same or different subscription
+# Move Azure Disk persistent volumes to another AKS cluster in the same or a different subscription
 
 This article describes how to safely move Azure Disk persistent volumes from one Azure Kubernetes Service (AKS) cluster to another in the same subscription or in a different subscription. The target subscription must be in the same region.
 
@@ -69,7 +69,7 @@ It's important to avoid risk of data corruption, inconsistencies, or data loss w
     > [!NOTE]
     > Note the value of the `resourceGroup` field for each disk that you want to move from the output above. This resource group is the node resource group, not the cluster resource group. You'll need the name of this resource group in order to move the disks.
 
-1. If `diskState` shows `Attached`, first verify if any workloads are still accessing the volume and stop them first. After a period of time, disk state returns state `Unattached` and can then be moved.
+1. If `diskState` shows `Attached`, first determine whether any workloads are still accessing the volume and stop them. After a period of time, disk state returns state `Unattached` and can then be moved.
 
 ## Move the persistent volume
 
@@ -86,10 +86,10 @@ During this process, you reference:
 
 ## Verify that the disk volume has been moved
 
-After moving the disk volume to the target cluster resource group, validate the resource in the resource group list using the [`az disk list`][az-disk-list] command. Reference the destination resource group where the resources were moved. In this example, the disks were moved to a resource group named *MC_myResourceGroup_myAKSCluster_westus*.
+After moving the disk volume to the target cluster resource group, validate the resource in the resource group list using the [`az disk list`][az-disk-list] command. Reference the destination resource group where the resources were moved. In this example, the disks were moved to a resource group named *MC_myResourceGroup_myAKSCluster_eastus*.
 
   ```azurecli-interactive
-    az disk list --resource-group MC_myResourceGroup_myAKSCluster_westus
+    az disk list --resource-group MC_myResourceGroup_myAKSCluster_eastus
   ```
 
 ## Mount the moved disk as a volume
@@ -130,7 +130,7 @@ To mount the moved disk volume, create a static persistent volume with the resou
         - ReadWriteOnce
       resources:
         requests:
-          storage: 20Gi
+          storage: 10Gi
       volumeName: pv-azuredisk
       storageClassName: managed-csi
     ```
@@ -218,6 +218,9 @@ To mount the moved disk volume, create a static persistent volume with the resou
 
 ## Next steps
 
+* For more information about disk-based storage solutions, see [Disk-based solutions in AKS][disk-based-solutions].
+* For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
+
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -225,6 +228,7 @@ To mount the moved disk volume, create a static persistent volume with the resou
 
 <!-- LINKS - internal -->
 [azure-storage-account]: ../storage/common/storage-account-overview.md
+[disk-based-solutions]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage#disk-based-solutions
 [install-azure-cli]: /cli/azure/install-azure-cli
 [move-resources-new-subscription-resource-group]: ../azure-resource-manager/management/move-resource-group-and-subscription.md
 [az-aks-show]: /cli/azure/disk#az-disk-show
@@ -233,3 +237,4 @@ To mount the moved disk volume, create a static persistent volume with the resou
 [move-resources-using-porta]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal
 [move-resources-using-azure-powershell]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-azure-powershell
 [move-resources-using-azure-cli]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
