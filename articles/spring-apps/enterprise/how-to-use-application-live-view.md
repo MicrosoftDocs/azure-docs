@@ -122,7 +122,7 @@ You can view the state of Application Live View in the Azure portal on the **Ove
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to view Application Live View in the Azure CLI:
+Use the following command to view Application Live View:
 
 ```azurecli
 az spring application-live-view show \
@@ -200,7 +200,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
 
 1. After the app is successfully deployed, you can monitor it using the Application Live View dashboard on Dev Tools Portal. For more information, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md).
 
-   If you enabled Dev Tools Portal and exposed a public endpoint, use the following command to get the Dev Tools Portal dashboard URL. Add the suffix `/app-live-view` to compose the endpoint to access Application Live View.
+   If you already enabled Dev Tools Portal and exposed a public endpoint, use the following command to get the Dev Tools Portal dashboard URL. Add the suffix `/app-live-view` to compose the endpoint to access Application Live View.
 
    ```azurecli
    az spring dev-tool show --service <Azure-Spring-Apps-service-instance-name> \
@@ -221,7 +221,7 @@ If you enabled Dev Tools Portal and exposed a public endpoint, use <kbd>Ctrl</kb
 
 Use the following steps to manage Application Live View using the Azure portal:
 
-1. Navigate to your service resource, and then select **Developer Tools**.
+1. Navigate to your Azure Spring Apps service instance, and then select **Developer Tools**.
 1. Select **Manage tools**.
 
    :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page." lightbox="media/how-to-use-application-live-view/manage.png":::
@@ -255,23 +255,17 @@ az spring dev-tool create \
 
 ## Configure customized Spring Boot actuator
 
-Application Live View can automatically connect and monitor Spring boot apps with default actuator settings. The default HTTP port of the actuator endpoints are same as the HTTP port of the application and all actuator endpoints are accessible by the default context path of the application that has the `/actuator` suffix.
+Application Live View can automatically connect and monitor Spring boot apps with default actuator settings. The default HTTP port of the actuator endpoints are same as the HTTP port of the application and all actuator endpoints are accessible by the default context path of the application, which has the `/actuator` suffix.
 
-If the port (`management.server.port=`) or the context path (`management.endpoints.web.base-path=/`) is customized for an app, Application Live View stops connecting and monitoring the app and reports 404 for the app. To allow Application Live View to continue monitoring such apps, use the following steps to configure app deployment and customize actuator endpoints.
+If the port (`management.server.port=`) or the context path (`management.endpoints.web.base-path=/`) are customized for an app, Application Live View stops connecting and monitoring the app and reports 404 for the app. To enable Application Live View to continue monitoring such apps, use the following steps to configure the app deployment to customize the actuator endpoints.
 
 ### [Azure portal](#tab/Portal)
 
 Use the following steps to configure the deployment using the Azure portal:
 
-1. Navigate to your service resource, and then go to the **Apps** page.
-
-   :::image type="content" source="media/how-to-use-application-live-view/application-list.png" alt-text="Screenshot of the Azure portal that shows the Apps page for a service instance." lightbox="media/how-to-use-application-live-view/application-list.png":::
-
-1. Select an application to configure the custom actuator settings.
-
-   :::image type="content" source="media/how-to-use-application-live-view/application-configuration.png" alt-text="Screenshot of the Azure portal that shows the Configuration page with Spring Boot actuator port and  Spring Boot actuator path highlighted." lightbox="media/how-to-use-application-live-view/application-configuration.png":::
-
-1. Select **Save** to apply the configuration changes.
+1. Navigate to your Azure Spring Apps service instance, then go to the **Apps** page and select an application.
+1. Select **Configuration** in the navigation pane.
+1. On the **General settings** tab, update the **Spring Boot actuator port** and **Spring Boot actuator path** values, then select **Save**.
 
    :::image type="content" source="media/how-to-use-application-live-view/application-configuration-save.png" alt-text="Screenshot of the Azure portal that shows the Configuration page with Save option highlighted." lightbox="media/how-to-use-application-live-view/application-configuration-save.png":::
 
@@ -292,7 +286,7 @@ az spring app deploy \
 ---
 
 > [!NOTE]
-> This configuration can be set to an app or a deployment. When you configure the app, it takes effect on the current active deployment. To prevent the configuration to apply on the deployment automatically, create another deployment.
+> You can set this configuration on an app or a deployment. When you configure an app, it actually takes effect on the current active deployment, but doesn't automatically affect new deployments.
 
 ## Use Application Live View in VS Code
 
