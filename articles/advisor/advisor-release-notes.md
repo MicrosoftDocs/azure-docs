@@ -2,7 +2,7 @@
 title: What's new in Azure Advisor
 description: A description of what's new and changed in Azure Advisor
 ms.topic: reference
-ms.date: 05/02/2024
+ms.date: 05/03/2024
 ---
 
 # What's new in Azure Advisor?
