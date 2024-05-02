@@ -90,6 +90,10 @@ Here are some other considerations:
   SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithWavFileInput:YourAudioFile];
   ```
 
+## Swift
+
+The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C. For Swift code examples, see the [recognize speech from a microphone in Swift on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone) sample project in GitHub.
+
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]

@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-speech-services-studio
 
 # Quickstart: Recognize and convert speech to text
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="ai-studio"
 [!INCLUDE [AI Studio include](includes/quickstarts/speech-to-text-basics/ai-studio.md)]
 ::: zone-end
 
