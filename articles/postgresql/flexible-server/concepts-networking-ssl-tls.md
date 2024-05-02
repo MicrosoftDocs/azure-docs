@@ -131,6 +131,11 @@ openssl x509 -in certificate.crt -out certificate.pem -outform PEM
 
 **Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
 
+
+> [!IMPORTANT]
+> Some of the Postgres client libraries, while using **sslmode=verify-full** setting, may experience connection failures with Root CA certificates that are cross-signed with intermediate certificates, resulting in alternate trust paths. In this case, its recommended explicitly specify **sslrootcert** parameter, explained above, or set the PGSSLROOTCERT environment variable to local path where Microsoft RSA Root Certificate Authority 2017 Root CA certificate is placed, from default value of *%APPDATA%\postgresql\root.crt*. 
+
+
 ### Read Replicas with certificate pinning scenarios
 
 With Root CA migration to [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) it's feasible for newly created replicas to be on a newer Root CA certificate than primary server created earlier. 
