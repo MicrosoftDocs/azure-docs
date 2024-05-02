@@ -16,7 +16,7 @@ author: sdgilley
 
 # Get started with Azure AI Studio projects in VS Code (preview)
 
-Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance.
+Azure AI Studio supports developing in VS Code - Desktop and Web. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance.
 
 [!INCLUDE [preview](../includes/generic-preview.md)]
 
@@ -30,20 +30,21 @@ Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenar
 
 ## Launch VS Code from Azure AI Studio 
 
+1. Open your project in Azure AI Studio.
 1. On the left menu, select **Code**.
 1. For **Compute**, select your compute instance. If it's still starting, wait for it to switch to **Running**. You'll see a **Ready** status when the compute is ready for use.
 1. For **VS Code container**, select **Set up container** if the button appears. This configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted. When setup is complete, you'll see **Ready**.
 
     > [!WARNING]
-    > Once you set up the container for this compute instance, it will no longer idle shutdown, even if you [enable and configure idle shutdown](./create-manage-compute.md#configure-idle-shutdown). This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
+     > Even if you [enable idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), idle shutdown will not occur for any compute that is set up with this custom VS Code container. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
 
 1. Open the project in VS Code:
-    * If you want to work in the browser, select **Open project in VS Code (Web)**. A new browser tab connected to *vscode.dev* opens.
-    * If you want to work in your local VS Code instance instead, select the dropdown arrow and choose **Open project in VS Code (Desktop)**. A new local instance of VS Code opens on your local machine.
+    * If you want to work in your local VS Code instance, choose **Open project in VS Code (Desktop)**. A new local instance of VS Code opens on your local machine.
+    * If you want to work in the browser instead, select the dropdown arrow and choose **Open project in VS Code (Web)**. A new browser tab connected to *vscode.dev* opens.
 
 ## The custom container folder structure
 
-Our prebuilt development environments are based on a docker container that has Azure AI SDKs, the prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about). 
+Our prebuilt development environments are based on a docker container that has Azure AI SDKs, the prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about).
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
@@ -60,7 +61,7 @@ This table summarizes the folder structure:
 > [!IMPORTANT]
 > It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your hub's storage account, and therefore aren't lost if the compute instance is deleted.
 
-### Working with prompt flows
+## Working with prompt flows
 
 You can create, reference, and work with prompt flows.
 
@@ -71,6 +72,17 @@ Prompt flow automatically uses the Azure AI Studio connections your project has 
 You can also work with the prompt flow extension in VS Code, which is preinstalled in this environment. Within this extension, you can set the connection provider to your project. See [consume connections from Azure AI](https://microsoft.github.io/promptflow/cloud/azureai/consume-connections-from-azure-ai.html).
 
 For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
+
+## Use AI app templates
+ 
+AI app templates are linked from the **Code** tab of your project. These samples walk you through how to use the Azure AI SDKs to:
+
+* Set up your development environment and connect to existing resources
+* Bring in your custom application code
+* Run evaluations
+* Deploy your code
+
+To provision an entirely new set of resources, including a new hub and project, and deploy sample applications, you can use [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment.
 
 ## Remarks
 
