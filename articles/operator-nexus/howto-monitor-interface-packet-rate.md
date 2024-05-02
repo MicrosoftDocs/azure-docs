@@ -55,7 +55,7 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 
 - You can adjust the time range using the time selector at the top right corner of the chart to view historical data.
 
-## Step 5: Analyze the metrics**
+## Step 5: Analyze the metrics
  
 **Understanding In and Out Packets:** 
 
