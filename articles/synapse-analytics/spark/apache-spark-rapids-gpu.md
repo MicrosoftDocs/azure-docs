@@ -64,7 +64,7 @@ For example, using a large pool with three nodes:
 
 It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Azure Synapse Analytics before proceeding with this section. Let's walk through the steps to run a Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL, and .NET for Spark (C#).
 
-1. Create a GPU-enabled pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
+1. Create a GPU-enabled pool.
 
 2. Create a notebook and attach it to the GPU-enabled pool you created in the first step.
 
