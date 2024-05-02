@@ -5,7 +5,7 @@ description: Learn how to deploy Cohere Embed models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 05/02/2024
 ms.reviewer: shubhiraj
 ms.author: mopeakande
 author: msakande
