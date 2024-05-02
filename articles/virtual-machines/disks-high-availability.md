@@ -20,7 +20,7 @@ Azure offers several configuration options for ensuring high availability of Azu
 |     |[Use zone-redundant storage (ZRS) disks](#use-zone-redundant-storage-disks).         |Access to your data even if an entire zone experiences an outage.         |
 |[Applications running on multiple VMs](#recommendations-for-applications-running-on-multiple-vms)    |Deploy VMs across multiple availability zones using a [zone redundant Virtual Machine Scale Set with flexible orchestration mode](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or by deploying VMs across [three availability zones](#deploy-vms-across-three-availability-zones).         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
 |     |Deploy VMs across multiple fault domains with either [regional Virtual Machine Scale Sets with flexible orchestration mode](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
-|     |[Use ZRS shared disks](#use-zrs-disks-when-sharing-disks).         |Reduces potential for cluster downtime and improves availability of data.         |
+|     |[Use ZRS disks when sharing disks between VMs](#use-zrs-disks-when-sharing-disks-between-vms).         |Prevents a shared disks from becoming a single point of failure.         |
 
 
 ## Availability and durability of managed disks
@@ -85,9 +85,9 @@ Regional Virtual Machine Scale Sets don't protect against large-scale outages li
 
 Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't protect against large-scale outages like a data center or region-wide outages, and don't currently support Ultra Disks or Premium SSD v2 disks.
 
-#### Use ZRS disks when sharing disks
+### Use ZRS disks when sharing disks between VMs
 
-You should use a ZRS disk when sharing a disk between multiple VMs. If you use an LRS disk, it becomes a single point of failure for your cluster, if there's an outage in the zone that the LRS disk is in, you'd experience downtime. Using a ZRS disk mitigates this, since the disk will be in three different zones.
+You should use a ZRS disk when sharing a disk between multiple VMs. If you use an LRS disk, it becomes a single point of failure for your clustered applications and if there's an outage in the zone that the LRS disk is in, you'd experience downtime. Using a ZRS disk mitigates this, since the disk will be in three different availability zones. To learn more about shared disks, see [Share an Azure managed disk](disks-shared.md).
 
 ## Next steps
 
