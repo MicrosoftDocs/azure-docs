@@ -5,7 +5,7 @@ author: sethmanheim
 manager: femila
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 04/17/2024
+ms.date: 05/02/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
@@ -27,6 +27,22 @@ The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. Y
 - For information about migrating from FCM legacy to FCM v1 using the Azure SDKs, see [Google Firebase Cloud Messaging (FCM) migration using SDKs](firebase-migration-sdk.md).
 - For information about migrating from FCM legacy to FCM v1 using the Azure REST APIs, see [Google Firebase Cloud Messaging (FCM) migration using REST APIs](firebase-migration-rest.md).
 - For the latest information about FCM migration, see the [Firebase Cloud Messaging migration guide](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+
+## FAQ
+
+This section provides answers to frequently asked questions about the migration from FCM legacy to FCM v1.
+
+### How do I create FCM v1 template registrations with SDKs or REST APIs? 
+
+For instructions on how to create FCM v1 template registrations, see [Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using SDKs](firebase-migration-sdk.md#android-sdk).
+
+### Do I need to store both FCM legacy and FCM v1 credentials?
+
+Yes, FCM legacy and FCM v1 are treated as two separate platforms in Azure Notification Hubs, so you must store both FCM legacy and FCM v1 credentials separately. For more information, see [the instructions to set up credentials](firebase-migration-rest.md#create-google-service-account-json-file).
+
+### How can I verify that send operations are going through the FCM v1 pipeline rather than the FCM legacy pipeline?
+
+The debug send response contains a `results` property, which is an [array of registration results](/rest/api/notificationhubs/notification-hubs/debug-send?tabs=HTTP#registrationresult) for the debug send. Each registration result specifies the application platform. Additionally, we offer [per-message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) for standard tier notification hubs. This telemetry features `GcmOutcomeCounts` and `FcmV1OutcomeCounts`, which can help you verify which platform is used for send operations.
 
 ## Next steps
 
