@@ -44,6 +44,10 @@ In the [Create an Azure Image Builder Bicep or ARM template JSON template](../li
 
 In the [Azure VM Image Builder networking options](../linux/image-builder-networking.md) documentation:
 
+**Field Updated:**
+
+- Replaced one mention of `VirtualNetworkConfig` with `vnetConfig`
+
 **Fields Removed:**
 
 - `subnetName` in the `vnetConfig` property – this field is deprecated and the new field is `subnetId`
