@@ -119,31 +119,31 @@ Ensure to copy the connection string
 ## Send Events to emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-### [C#](#tab/C#)
+### [C#](#tab/SendSampleC#)
 Emulator support through the C# Event-Hubs SDK is generally avalaible from version 5.11 for "Azure.Messaging.EventHubs" & "Azure.Messaging.EventHubs.Processor" NuGet packages.
 
-### [Python](#tab/Python)
+### [Python](#tab/SendSamplePython)
 TBD
 
-### [C++](#tab/C++)
+### [C++](#tab/SendSampleC++)
 TBD
 
-### [Java](#tab/Java)
+### [Java](#tab/SendSampleJava)
 TBD
 ---
 ## Receive Events from emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-### [C#](#tab/C#1)
+### [C#](#tab/ReceiveSampleC#)
 Emulator support through the C# Event-Hubs SDK is generally avalaible from version 5.11 for "Azure.Messaging.EventHubs" & "Azure.Messaging.EventHubs.Processor" NuGet packages.
 
-### [Python](#tab/Python1)
+### [Python](#tab/ReceiveSamplePython1)
 TBD
 
-### [C++](#tab/C++1)
+### [C++](#tab/ReceiveSampleC++1)
 TBD
 
-### [Java](#tab/Java1)
+### [Java](#tab/ReceiveSampleJava1)
 TBD
 ---
 *Bonus*: To make first round of testing easy, we have packaged a sample .NET Console application in [directory](EventHub/Samples/.NET/EventHubs-Emulator-Demo)
