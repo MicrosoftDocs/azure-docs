@@ -32,9 +32,9 @@ No. Azure Route Server only exchanges BGP routes with your network virtual appli
 
 Yes, if you peer a virtual network hosting the Azure Route Server to another virtual network and you enable **Use the remote virtual network's gateway or Route Server** on the second virtual network, Azure Route Server learns the address spaces of the peered virtual network and send them to all the peered network virtual appliances (NVAs). It also programs the routes from the NVAs into the route table of the virtual machines in the peered virtual network. 
 
-### Why does Azure Route Server require a public IP address?
+### Why does Azure Route Server require a public IP address with opened ports?
 
-Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, that's why it needs the public IP address. This public IP address doesn't constitute a security exposure of your virtual network.
+These public endpoints are required for Azure's underlying SDN and management platform to communicate with Azure Route Server. Because Route Server is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage Route Server via its private endpoints due to compliance requirements. Connectivity to Route Server's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these endpoints. As a result, they do not constitute a security exposure of your virtual network.
 
 ### Does Azure Route Server support IPv6?
 
