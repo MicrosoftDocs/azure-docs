@@ -60,7 +60,7 @@ A subset of the availability zones that support data resilience currently also s
 |	France Central	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Germany West Central	|		|	:white_check_mark:	|		|
 |	Italy North	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
-|	North Europe	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	North Europe	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
 |	Norway East	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Poland Central	|		|	:white_check_mark:	|		|
 |	Sweden Central	|	:white_check_mark:	|	:white_check_mark:	|		|
