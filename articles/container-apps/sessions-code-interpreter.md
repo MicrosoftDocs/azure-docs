@@ -162,7 +162,7 @@ Content-Type: application/octet-stream
 To download a file from a session, send a `GET` request to the `file/content/{filename}` endpoint. The response will contain the file data.
 
 ```http
-GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/file/content/myfile.csv?api-version=2024-02-02-preview&identifier=<session-id>
+GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/files/content/myfile.csv?api-version=2024-02-02-preview&identifier=<session-id>
 Authorization: Bearer <token>
 ```
 
@@ -180,30 +180,24 @@ The response contains a list of files in the session.
 ```json
 {
     "$id": "1",
-    "$values": [
+    "value": [
         {
             "$id": "2",
-            "filename": "test1.txt",
-            "size": 16,
-            "last_modified_time": "2024-04-23T19:36:14.5839269Z"
-        },
-        {
-            "$id": "3",
-            "filename": "test2.txt",
-            "size": 17,
-            "last_modified_time": "2024-04-23T19:36:15.2879262Z"
+            "properties": {
+                "$id": "3",
+                "filename": "test1.txt",
+                "size": 16,
+                "lastModifiedTime": "2024-05-02T07:21:07.9922617Z"
+            }
         },
         {
             "$id": "4",
-            "filename": "test3.txt",
-            "size": 17,
-            "last_modified_time": "2024-04-23T19:36:15.9359256Z"
-        },
-        {
-            "$id": "5",
-            "filename": "testdata.txt",
-            "size": 17,
-            "last_modified_time": "2024-04-23T19:36:16.4999251Z"
+            "properties": {
+                "$id": "5",
+                "filename": "test2.txt",
+                "size": 17,
+                "lastModifiedTime": "2024-05-02T07:21:08.8802793Z"
+            }
         }
     ]
 }
