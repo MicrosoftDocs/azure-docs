@@ -24,7 +24,7 @@ Microsoft Copilot for Security is a generative AI-powered security solution that
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 
-The Azure Firewall plugin helps analysts perform detailed investigations of the malicious traffic intercepted by the IDPS and/or threat intelligence features of their Firewalls across their entire fleet using natural language questions in the Copilot for Security standalone experience.
+The Azure Firewall integration helps analysts perform detailed investigations of the malicious traffic intercepted by the IDPS and/or threat intelligence features of their firewalls across their entire fleet using natural language questions in the Copilot for Security standalone experience.
 
 This article introduces you to Copilot and includes sample prompts that can help Azure Firewall users.
 
@@ -51,7 +51,7 @@ For more information about writing effective Copilot for Security prompts, see [
 ## Using the Azure Firewall integration in the Copilot for Security standalone portal
 
 1.  Ensure your Azure Firewall is configured correctly:
-    - [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Copilot for Security must be configured with resource specific structured logs for IDPS and Threat Intelligence and these logs must be sent to a Log Analytics workspace.
+    - [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Copilot for Security must be configured with resource specific structured logs for IDPS and these logs must be sent to a Log Analytics workspace.
     - [Role Based Access Control for Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/role-based-access-control-for-azure-firewall/ba-p/2245598) – the users using the Azure Firewall plugin in Copilot for Security must have the appropriate Azure RBAC roles to access the Firewall and associated Log Analytics workspace(s).
 2.	Go to [Microsoft Copilot for Security](https://go.microsoft.com/fwlink/?linkid=2247989) and sign in with your credentials.
 3.	Ensure that the Azure Firewall plugin is turned on. In the prompt bar, select the **Sources** icon.
@@ -90,7 +90,7 @@ To view these promptbooks, in the prompt bar, select the **Prompts** icon then s
 
 ## Sample prompts for Azure Firewall
 
-There are many prompts you can use to get information from Azure Firewall. This section lists the ones that work best today. They will be continuously updated as new capabilities are launched.
+There are many prompts you can use to get information from Azure Firewall. This section lists the ones that work best today. They are continuously updated as new capabilities are launched.
 
 
 ### Retrieve the top IDPS signature hits for an Azure Firewall
@@ -99,20 +99,23 @@ Get **log information** about the traffic intercepted by the IDPS feature instea
 
 **Sample prompts**:
 
-- Has there been any malicious traffic  intercepted by my Firewall _\<Firewall name\>_?
+- Has there been any malicious traffic intercepted by my Firewall _\<Firewall name\>_?
 - What are the top 20 IDPS hits from the last seven days for Firewall _\<Firewall name\>_ in resource group _\<resource group name\>_?
-- Show me the top 10 malicious sources that attacked Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_.
+- Show me in tabular form the top 50 attacks that targeted Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_ in the past month.
 
 
-### Expand on the description of an IDPS signature in the Azure Firewall logs
+### Enrich the threat profile of an IDPS signature beyond log information
 
 Get **additional details** to enrich the threat information/profile of an IDPS signature instead of compiling it yourself manually.
 
 **Sample prompts**:
 
 - Tell me more about why the top hit was flagged by IDPS as high severity while the fifth hit was only flagged as low severity.
-- What can you tell me about signature ID _\<ID number\>_? What are the other attacks this attacker is known for?
-- I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE and other similar CVEs that I should be aware of.
+- What can you tell me about this attack? What are the other attacks this attacker is known for?
+- I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE.
+
+> [!NOTE]
+> The questions relevant to this capability may be answered by the MDTI plugin but the responses are equally valid because the firewall capability is also powered by MDTI.
 
 
 ### Look for a given IDPS signature across your tenant, subscription, or resource group
@@ -137,50 +140,8 @@ Get **information from documentation** about using Azure Firewall's IDPS feature
 - What is the difference in risk between alert only and alert and block modes for IDPS?
 
 > [!NOTE]
-> The following sections on threat intelligence related queries are not available today but will be available later.
-
-### Retrieve the top threat intelligence-flagged traffic hits for an Azure Firewall
-
-Get **log information** about the traffic intercepted by the threat intelligence feature instead of constructing KQL queries manually.
-
-**Sample prompts**:
-
-- Have there been attempts by any known malicious entity to access my servers via my Firewall _\<Firewall name\>_?
-- What were the top 20 threat intel-flagged traffic flows from the last seven days for Firewall _\<Firewall name\>_ in resource group _\<resource group name\>_?
-- Show me the top 10 malicious IPs that attacked Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_.
-
-
-### Explain the malicious IP addresses, FQDNs, and URLs flagged by Azure Firewall
-
-Get **additional details** to enrich the threat information/profile of malicious entities instead of compiling it yourself manually.
-
-**Sample prompts**:
-
-- Tell me more about why the top hit IP was flagged as malicious.
-- Why was _\<FQDN/URL name\>_ flagged as malicious? What are the other attacks this attacker is known for?
-- Was the top URL this Firewall flagged associated with an active CVE? If so, tell me more about it.
-
-
-### Look for threat intelligence flagged-traffic across your tenant, subscription, or resource group
-
-Perform a **fleet-wide search** (over any scope) for a threat across all your Firewalls instead of searching for the threat manually.
-
-**Sample prompts**:
-
-- Was this malicious FQDN only stopped by this one Firewall? What about other firewalls across this entire tenant?
-- Was the top flow seen by any other Firewall in the subscription _\<subscription name\>_?
-- Over the past week did any Firewall in resource group _\<resource group name\>_ see the malicious IP _\<IP address\>_?
-
-
-### Generate recommendations to secure your environment using Azure Firewall's threat intelligence feature
-
-Get **information from documentation** about using Azure Firewall's threat intelligence feature to secure your environment instead of having to look up this information manually.
-
-**Sample prompts**:
-
-- How do I protect myself from future attacks from this attacker across my entire infrastructure?
-- If I want to make sure all my Firewalls are protected against attacks from _\<FQDN/URL name\>_, how do I do this?
-- How do I define an allowlist of IPs that Firewall threat intelligence won't block?
+> This capability combines contextual information with enriched threat profile 
+data along with Microsoft documentation to produce a response. This means that certain questions may not get answered by this capability but rather by the Microsoft Documentation capability of the platform. When that happens, the responses provided are equally valid.
 
 
 ## Provide feedback
