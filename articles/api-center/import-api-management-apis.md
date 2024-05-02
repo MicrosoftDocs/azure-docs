@@ -149,6 +149,7 @@ Set the system-assigned identity in your API center using the following [az apic
 ```azurecli 
 az apic service update --name <api-center-name> --resource-group <resource-group-name> --identity '{"type": "SystemAssigned"}'
 ```
+---
 
 ### Assign the managed identity the API Management Service Reader role
 
