@@ -93,7 +93,7 @@
   - name: Foundational services
     items:
       - name: Azure Cosmos DB for NoSQL
-        href: reliability-cosmos-nosql.md
+        href: reliability-cosmos-db-nosql.md
       - name: Azure Event Hubs
         href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure ExpressRoute
