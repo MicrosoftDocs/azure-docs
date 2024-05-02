@@ -24,7 +24,7 @@ sections:
             -	Host attestation helps you verify the full health and compliance of the server before data processing begins.
             -	Hardware Security Module (HSM) can be attached to guard the keys of confidential VM disks, which the tenant exclusively owns.
             -	New UEFI boot architecture supporting the guest OS for enhanced security settings and capabilities.
-            -	A dedicated virtual Trusted Platform Module (TPM) certifies the health of the VM, provides hardened key management, and supports usecases such as BitLocker.
+            -	A dedicated virtual Trusted Platform Module (TPM) certifies the health of the VM, provides hardened key management, and supports use cases such as BitLocker.
           
       - question: |
           Why should I use confidential VMs?
@@ -36,7 +36,7 @@ sections:
       - question: |
           What is AMD SEV-SNP, and how does it relate to Azure confidential VMs?
         answer: |
-          SEV-SNP stands for Secure Encrypted Virtualization-Secure Nested Paging. It a Trusted Execution Environment (TEE) technology provided by AMD and offers multiple protections:
+          SEV-SNP stands for Secure Encrypted Virtualization-Secure Nested Paging. It's a Trusted Execution Environment (TEE) technology provided by AMD and offers multiple protections:
           For example, memory encryption, unique CPU keys, encryption for the processor register state, integrity protection, firmware rollback prevention, side channel hardening, and restrictions on interrupt and exceptions behavior. 
           Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. 
           Confidential VMs leverages AMD SEV-SNP with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
