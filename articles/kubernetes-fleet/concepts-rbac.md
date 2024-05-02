@@ -65,10 +65,10 @@ az role assignment create --role 'Azure Kubernetes Fleet Manager RBAC Reader' --
 ```
 
 <!-- LINKS -->
-[azure-cli-overview]: /cli/azure/what-is-azure-cli.md
-[azure-rbac-overview]: /azure/role-based-access-control/overview.md
-[azure-rbac-fleet-manager-contributor-role]: /azure/role-based-access-control/built-in-roles/containers.md#azure-kubernetes-fleet-manager-contributor-role
-[azure-rbac-fleet-manager-rbac-reader]: /azure/role-based-access-control/built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-reader
-[azure-rbac-fleet-manager-rbac-writer]: /azure/role-based-access-control/built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-writer
-[azure-rbac-fleet-manager-rbac-admin]: /azure/role-based-access-control/built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-admin
-[azure-rbac-fleet-manager-rbac-cluster-admin]: /azure/role-based-access-control/built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-cluster-admin
+[azure-cli-overview]: /cli/azure/what-is-azure-cli
+[azure-rbac-overview]: /azure/role-based-access-control/overview
+[azure-rbac-fleet-manager-contributor-role]: /azure/role-based-access-control/built-in-roles/containers#azure-kubernetes-fleet-manager-contributor-role
+[azure-rbac-fleet-manager-rbac-reader]: /azure/role-based-access-control/built-in-roles/containers#azure-kubernetes-fleet-manager-rbac-reader
+[azure-rbac-fleet-manager-rbac-writer]: /azure/role-based-access-control/built-in-roles/containers#azure-kubernetes-fleet-manager-rbac-writer
+[azure-rbac-fleet-manager-rbac-admin]: /azure/role-based-access-control/built-in-roles/containers#azure-kubernetes-fleet-manager-rbac-admin
+[azure-rbac-fleet-manager-rbac-cluster-admin]: /azure/role-based-access-control/built-in-roles/containers#azure-kubernetes-fleet-manager-rbac-cluster-admin
