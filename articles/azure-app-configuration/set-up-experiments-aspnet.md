@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration 
 ms.topic: tutorial
-ms.date: 04/30/2024
+ms.date: 05/02/2024
 ---
 
 # Tutorial: Run A/B tests on variant feature flags in Azure App Configuration
