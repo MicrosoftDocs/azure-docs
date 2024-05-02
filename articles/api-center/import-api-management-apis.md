@@ -220,7 +220,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
         --scope $scope 
 ---
 
-### Import APIs directly from your API Management instance
+### Import APIs from API Management
 
 Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command to import one or more APIs from your API Management instance to your API center. 
 
