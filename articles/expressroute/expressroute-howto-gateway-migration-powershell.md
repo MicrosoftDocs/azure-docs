@@ -40,7 +40,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 Here are the steps to migrate to a new gateway using PowerShell.
 
-### Step 1: Clone the script
+### Clone the script
 
 1. Clone the setup script from GitHub.
 
@@ -53,7 +53,7 @@ Here are the steps to migrate to a new gateway using PowerShell.
    ```azurepowershell-interactive
    CD azure-docs-powershell-samples/expressroute-gateway/
    ```
-### Step 2: Prepare the migration
+### Prepare the migration
 
 This script creates a new ExpressRoute Virtual Network gateway on the same GatewaySubnet and connects it to your existing ExpressRoute circuits.
 
@@ -66,7 +66,7 @@ This script creates a new ExpressRoute Virtual Network gateway on the same Gatew
 1. The gateway subnet needs two or more address prefixes for migration. If you have only one prefix, you will be prompted to enter an additional prefix. 
 1. Enter an availability zone for your new gateway. 
 
-### Step 3: Run the migration
+### Run the migration
 
 This script transfers the configuration from the old gateway to the new one.
 
@@ -78,7 +78,7 @@ This script transfers the configuration from the old gateway to the new one.
 1. Enter the ID of the pre-migration gateway.
 1. Enter the ID of the post-migration gateway.
 
-### Step 4: Commit the migration
+### Commit the migration
 
 This script deletes the old gateway and its connections.
 
