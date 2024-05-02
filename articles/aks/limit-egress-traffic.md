@@ -316,7 +316,7 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --network-plugin kubenet \
   --outbound-type userDefinedRouting \
   --vnet-subnet-id $SUBNETID \
-  --api-server-authorized-ip-ranges $FWPUBLIC_IP
+  --api-server-authorized-ip-ranges $FWPUBLIC_IP \
   --enable-managed-identity \
   --assign-identity <identity-resource-id> \
   --assign-kubelet-identity <kubelet-identity-resource-id>
