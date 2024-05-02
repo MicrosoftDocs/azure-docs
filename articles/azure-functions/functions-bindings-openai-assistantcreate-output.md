@@ -99,11 +99,11 @@ The specific attribute you apply to define an assistant create output binding de
 
 ### [Isolated process](#tab/isolated-process)
 
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `{{attribute_name}}` to define an assistant create output binding.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `CreateAssistant` to define an assistant create output binding.
 
 ### [In-process](#tab/in-process)
 
-In the [in-process model](./functions-dotnet-class-library.md), apply `{{attribute_name}}` to define an assistant create output binding.
+In the [in-process model](./functions-dotnet-class-library.md), apply `CreateAssistant` to define an assistant create output binding.
 
 ---
 
@@ -111,8 +111,8 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **Id** | The identifier of the assistant to create. |
-| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 
 
@@ -120,25 +120,25 @@ The attribute supports these parameters:
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `{{annotation_name}}` annotation enables you to define an assistant create output binding, which supports these parameters: 
+The `CreateAssistant` annotation enables you to define an assistant create output binding, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the output binding. |
-| **Id** | The identifier of the assistant to create. |
-| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
 <!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `{{decorator_name}}` decorator supports these parameters:
+The `CreateAssistant` decorator supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **Id** | The identifier of the assistant to create. |
-| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 
 ::: zone-end
@@ -149,11 +149,11 @@ The binding supports these configuration properties that you set in the function
 
 |Property | Description |
 |-----------------------|-------------|
-| **type** | Must be `{{binding_name}}`. |
+| **type** | Must be `CreateAssistant`. |
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
-| **Id** | The identifier of the assistant to create. |
-| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -163,8 +163,8 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| **Id** | The identifier of the assistant to create. |
-| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
