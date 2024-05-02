@@ -10,11 +10,7 @@
  ms.custom: include file
 ---
 
-
-You must grant your consent to the partner to create partner topics in a resource group that you designate. This authorization has an expiration time. It's effective for the time period you specify between 1 to 365 days. 
-
-
-1. In the **Partner Authorizations** section, specify a default expiration time for all partner authorizations defined. You can provide a period between 1 and 365 days.
+1. In the **Partner Authorizations** section, specify a default expiration time for all partner authorizations defined. You can provide a period between 1 and 365 days. You must grant your consent to the partner to create partner topics in a resource group that you designate. 
 1. To provide your authorization for a partner to create partner topics in the specified resource group, select **+ Partner Authorization** link.
 
 1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft.

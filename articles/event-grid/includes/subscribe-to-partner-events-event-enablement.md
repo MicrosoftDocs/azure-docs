@@ -33,10 +33,10 @@ To test your partner topic, deploy a the [Event Viewer](https://github.com/Azure
 
         :::image type="content" source="../media/blob-event-quickstart-portal/template-deploy-parameters.png" alt-text="Screenshot showing the Custom deployment page.":::
 1. On the **Review + create** page, select **Create**. 
-1. The deployment may take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
+1. The deployment takes a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
 
     :::image type="content" source="../media/blob-event-quickstart-portal/navigate-resource-group.png" alt-text="Screenshot showing the successful deployment message with a link to navigate to the resource group.":::
-4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and any other resource you may have in the resource group.
+4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and any other resource you have in the resource group.
 
     :::image type="content" source="../media/blob-event-quickstart-portal/resource-group-resources.png" alt-text="Screenshot that shows the Resource Group page with the deployed resources.":::
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
