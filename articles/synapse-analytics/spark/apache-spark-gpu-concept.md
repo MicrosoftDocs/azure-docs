@@ -25,7 +25,7 @@ By using NVIDIA GPUs, data scientists and engineers can reduce the time necessar
 
 ## Create a GPU-accelerated pool
 
-To simplify the process for creating and managing pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes. To learn more about how to create a GPU-accelerated pool, you can visit the quickstart on how to [create a GPU-accelerated pool](../quickstart-create-apache-gpu-pool-portal.md).
+To simplify the process for creating and managing pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes. 
 
 > [!NOTE]
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
@@ -52,8 +52,8 @@ When you select a GPU-accelerated Hardware option in Synapse Spark, you implicit
   - CUDA 11.2: [EULA :: CUDA Toolkit Documentation (nvidia.com)](https://docs.nvidia.com/cuda/eula/index.html)
   - libnccl2=2.8.4: [nccl/LICENSE.txt at master · NVIDIA/nccl (github.com)](https://github.com/NVIDIA/nccl/blob/master/LICENSE.txt)
   - libnccl-dev=2.8.4: [nccl/LICENSE.txt at master · NVIDIA/nccl (github.com)](https://github.com/NVIDIA/nccl/blob/master/LICENSE.txt)
-  - libcudnn8=8.1.1: [Software License Agreement :: NVIDIA Deep Learning cuDNN Documentation](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
-  - libcudnn8-dev=8.1.1: [Software License Agreement :: NVIDIA Deep Learning cuDNN Documentation](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html)
+  - libcudnn8=8.1.1: [Software License Agreement :: NVIDIA Deep Learning cuDNN Documentation](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html)
+  - libcudnn8-dev=8.1.1: [Software License Agreement :: NVIDIA Deep Learning cuDNN Documentation](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html)
   - The CUDA, NCCL, and cuDNN libraries, and the [NVIDIA End User License Agreement (with NCCL Supplement)](https://docs.nvidia.com/deeplearning/nccl/sla/index.html#overview) for the NCCL library
 
 ## Accelerate ETL workloads
