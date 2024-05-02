@@ -30,7 +30,7 @@ Once the configuration is saved, you're all set to stream Large messages with ev
 
 > [!IMPORTANT]
 > Large message streaming is only supported with Self-serve scalable dedicated clusters built out of latest infrastructure. This capability is reflected by the “Supportslargemessages” key.
-> If its value is False, the cluster will not support large message streaming. To enable this feature, you may need to recreate the cluster.
+> If its value is false, the cluster will not support large message streaming. To enable this feature, you must recreate the cluster.
 
 ## Streaming Large messages with Azure Event hubs
 
