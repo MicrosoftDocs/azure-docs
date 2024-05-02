@@ -126,3 +126,4 @@ In this section, you learn how to use the script file that you downloaded in the
 
 - [Network security group flow logs](nsg-flow-logs-overview.md)
 - [Virtual network flow logs](vnet-flow-logs-overview.md)
+- [Manage virtual network flow logs using Azure Policy](vnet-flow-logs-policy.md)
