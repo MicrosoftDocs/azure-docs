@@ -30,7 +30,7 @@ Cloud Shell needs access to certain Azure resources. You make that access availa
 resource providers. The following resource providers must be registered in your subscription:
 
 - **Microsoft.CloudShell**
-- **Microsoft.ContainerInstances**
+- **Microsoft.ContainerInstance**
 - **Microsoft.Relay**
 
 Depending on when your tenant was created, some of these providers might already be registered.
@@ -44,7 +44,7 @@ To see all resource providers and the registration status for your subscription:
 1. In the search box, enter `cloudshell` to search for the resource provider.
 1. Select the **Microsoft.CloudShell** resource provider from the provider list.
 1. Select **Register** to change the status from **unregistered** to **registered**.
-1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
+1. Repeat the previous steps for the **Microsoft.ContainerInstance** and **Microsoft.Relay**
    resource providers.
 
 [![Screenshot of selecting resource providers in the Azure portal.][98a]][98b]
