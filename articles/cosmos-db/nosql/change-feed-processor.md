@@ -92,7 +92,7 @@ You can connect the change feed processor to any relevant event in its [life cyc
 
 A single change feed processor deployment unit consists of one or more compute instances that have the same value for `processorName` and the same lease container configuration, but different instance names. You can have many deployment units in which each unit has a different business flow for the changes and each deployment unit consists of one or more instances.
 
-For example, you might have one deployment unit that triggers an external API each time there's a change in your container. Another deployment unit might move data in real-time each time there's a change. When a change happens in your monitored container, all your deployment units are notified.
+For example, you might have one deployment unit that triggers an external API each time there's a change in your container. Another deployment unit might move data in real time each time there's a change. When a change happens in your monitored container, all your deployment units are notified.
 
 ## Dynamic scaling
 
@@ -179,7 +179,7 @@ You also can use the [change feed estimator](how-to-use-change-feed-estimator.md
 
 A single change feed processor deployment unit consists of one or more compute instances that have the same lease container configuration and the same `leasePrefix`, but different `hostName` values. You can have many deployment units in which each one has a different business flow for the changes, and each deployment unit consists of one or more instances.
 
-For example, you might have one deployment unit that triggers an external API  each time there's a change in your container. Another deployment unit might move data in real-time each time there's a change. When a change happens in your monitored container, all your deployment units are notified.
+For example, you might have one deployment unit that triggers an external API  each time there's a change in your container. Another deployment unit might move data in real time each time there's a change. When a change happens in your monitored container, all your deployment units are notified.
 
 ## Dynamic scaling
 
