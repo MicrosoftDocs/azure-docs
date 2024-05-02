@@ -38,7 +38,7 @@ The following table summarizes the service mapping:
 
 Using the service mapping described in this article, the architecture for the Azure version of the EDW workload is represented in the following diagram:
 
-:::image type="content" source="media/eks-edw-rearchitect/edw-architecture-azure.png" alt-text="Architecture diagram of the EDW workload in AWS.":::
+:::image type="content" source="media/eks-edw-rearchitect/edw-architecture-azure.png" alt-text="Architecture diagram of the EDW workload in Azure.":::
 
 ## Understand compute options
 

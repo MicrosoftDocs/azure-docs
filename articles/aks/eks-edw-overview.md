@@ -9,7 +9,7 @@ ms.author: jenhayes
 
 # Replicate AWS EKS scaling with KEDA and Karpenter workload in Azure
 
-In this article, you'll learn how to replicate the Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) scaling with KEDA and Karpenter event-driven workflow (EDW) workload in Azure. This workload is an implementation of the producer/consumer pattern that facilitates efficient data processing by separating data production from data consumption. KEDA is used to scale pods running consumer processing and Karpenter is used to auto-scale Kubernetes nodes.
+In this article, you learn how to replicate the Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) scaling with KEDA and Karpenter event-driven workflow (EDW) workload in Azure. This workload is an implementation of the producer/consumer pattern that facilitates efficient data processing by separating data production from data consumption. KEDA is used to scale pods running consumer processing and Karpenter is used to autoscale Kubernetes nodes.
 
 For a more detailed understanding of the AWS workload, see  [Scalable and Cost-Effective Event-Driven Workloads with KEDA and Karpenter on Amazon EKS](https://aws.amazon.com/blogs/containers/scalable-and-cost-effective-event-driven-workloads-with-keda-and-karpenter-on-amazon-eks/).
 
@@ -23,9 +23,9 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure acccount. If you don't one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI v2.56](/cli/azure/install-azure-cli) or later
-- [Azure Kubernetes Service (AKS) preview extension](/aks/draft#install-the-aks-preview-azure-cli-extension)
+- [Azure Kubernetes Service (AKS) preview extension](azure/aks/draft#install-the-aks-preview-azure-cli-extension)
 - [jq v1.5](https://jqlang.github.io/jq/) or later
 - [Python 3](https://www.python.org/downloads/) or later
 - [kubectl 1.21.0](https://kubernetes.io/docs/tasks/tools/install-kubectl/) or later
@@ -34,13 +34,13 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 
 ### Download the Azure application code
 
-The application code for this workflow is available in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).  Clone the repository to a directory called `aws-to-azure-edw-workshop` on your local machine by running the following command:
+The application code for this workflow is available in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws). Clone the repository to a directory called `aws-to-azure-edw-workshop` on your local machine by running the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws ./aws-to-azure-edw-workshop
 ```
 
-Once you have cloned the repository, navigate to the `aws-to-azure-edw-workshop` directory and start Visual Studio Code by running the following commands:
+After you clone the repository, navigate to the `aws-to-azure-edw-workshop` directory and start Visual Studio Code by running the following commands:
 
 ```bash
 cd aws-to-azure-edw-workshop

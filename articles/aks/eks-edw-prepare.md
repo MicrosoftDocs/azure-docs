@@ -9,7 +9,7 @@ ms.author: jenhayes
 
 # Prepare to deploy the event-driven workflow (EDW) scaling workload to Azure
 
-The AWS workload is desgined to be deployed using Bash, CloudFormation, and AWS CLI. The producer/consumer app is distributed as a container containing the Python scripts which will work unchanged with Azure Kubernetes Service (AKS). In the following sections, you'll make changes to several Bash shell scripts, and make modifications to the Kubernetes deployment manifests to configure KEDA to use a Azure Storage Queue scaler in place of the Amazon Simple Queue Service (SQS) scaler.
+The AWS workload is designed to be deployed using Bash, CloudFormation, and AWS CLI. The producer/consumer app is distributed as a container containing the Python scripts, which will work unchanged with Azure Kubernetes Service (AKS). In the following sections, you'll make changes to several Bash shell scripts, and make modifications to the Kubernetes deployment manifests to configure KEDA to use a Azure Storage Queue scaler in place of the Amazon Simple Queue Service (SQS) scaler.
 
 For Karpenter, you'll use the [AKS Node Autoprovisioning (NAP)](/azure/aks/node-autoprovision) feature, which is based on Karpenter. This greatly simplifies the deployment and usage of Karpenter on AKS. If you need to deploy Karpenter directly, this can be done using the AKS [Karpenter provider on Github](https://github.com/Azure/karpenter-provider-azure).
 
