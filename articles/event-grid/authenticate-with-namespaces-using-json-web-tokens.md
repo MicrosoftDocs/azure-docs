@@ -10,7 +10,7 @@ ms.author: geguirgu
 # Authenticate with namespaces using JSON Web Tokens
 This article shows how to authenticate with Azure Event Grid namespace using JSON Web Tokens.
 
-Azure Event Grid's MQTT broker supports Custom JWT authentication, which enables clients to connect and authenticate with an Event Grid namespace using Json Web Tokens that are issued by any identity provider, aside from Microsoft Entra ID. 
+Azure Event Grid's MQTT broker supports custom JWT authentication, which enables clients to connect and authenticate with an Event Grid namespace using JSON Web Tokens that are issued by any identity provider, aside from Microsoft Entra ID. 
 
 ## Prerequisites 
 
@@ -20,7 +20,7 @@ To use custom JWT authentication for namespaces, you need to have the following 
 - CA certificate that includes your public keys used to validate the client tokens. 
 - Azure Key Vault account to host the CA certificate that includes your public keys. 
 
-## High-level steps: 
+## High-level steps 
 
 To use custom JWT authentication for namespaces, follow these steps: 
 
@@ -59,7 +59,7 @@ For information configuring system and user-assigned identities using the Azure 
     > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 
 
-## Add role assignment in Azure Key Vault for the namespace’s managed identity. 
+## Add role assignment in Azure Key Vault for the namespace’s managed identity 
 You need to provide access to the namespace to access your Azure Key Vault account using the following steps: 
 
 1. Get Event Grid namespace system managed identity principal ID using the following command 
@@ -98,7 +98,7 @@ In this step, you configure custom authentication settings on your Event Grid na
 1. Select **Apply**. 
 
     > [!NOTE]
-    > you can add up to 2 Issuer certificates for certificate/key rotation purposes. 
+    > You can add up to two `iss` certificates for certificate/key rotation purposes. 
 
 ### Use Azure CLI 
 Use the following command to update your namespace with the custom JWT authentication configuration.  
@@ -108,7 +108,7 @@ Use the following command to update your namespace with the custom JWT authentic
 az resource update --resource-type Microsoft.EventGrid/namespaces --api-version 2024-06-01-preview --ids /subscriptions/69f9e5ac-ca07-42cc-98d2-4718d033bcc5/resourceGroups/dummy-cd-test/providers/Microsoft.EventGrid/namespaces/dummy-cd-test2 --set properties.topicSpacesConfiguration.clientAuthentication='{\"customJwtAuthentication\":{\"tokenIssuer\":\"dmpypin-issuer\",\"issuerCertificates\":[{\"certificateUrl\":\"https://dummyCert-cd-test.vault.azure.net/certificates/dummy-cd-test/4f844b284afd487e9bba0831191087br1\",\"identity\":{\"type\":\"SystemAssigned\"}}]}}' 
 ```
 ## JSON Web Token format
-Json Web Tokens are divided into three main parts: 
+Json Web Tokens are divided into the JWT Header and JWT payload sections.
  
 ### JWT Header 
 

@@ -20,7 +20,7 @@ To use custom domains for namespaces, you need to have the following prerequisit
 - Secure Sockets Layer (SSL) certificate for your custom domain from a public or private CA. 
 - Azure Key Vault account to host the SSL certificate for your custom domain. 
 
-## High-level steps: 
+## High-level steps 
 
 To use custom domains for namespaces, follow these steps: 
 
@@ -37,8 +37,8 @@ To use custom domains for namespaces, follow these steps:
 ## Limitations
 
 - Custom domain configuration is unique per region across MQTT and HTTP host names.
-    - Custom domain configuration can't be identical for the MQTT and HTTP host names under the same namespace. 
-    - Custom domain configuration can't clash with any MQTT or HTTP hostname for any namespace in the same region. 
+- Custom domain configuration can't be identical for the MQTT and HTTP host names under the same namespace. 
+- Custom domain configuration can't clash with any MQTT or HTTP hostname for any namespace in the same region. 
 
 ## Add DNS entries 
 
@@ -74,7 +74,7 @@ For information configuring system and user-assigned identities using the Azure 
     > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 
 
-## Add role assignment in Azure Key Vault for the namespace’s managed identity. 
+## Add role assignment in Azure Key Vault for the namespace’s managed identity 
 You need to provide access to the namespace to access your Azure Key Vault account using the following steps: 
 
 1. Get Event Grid namespace system managed identity principal ID using the following command 
@@ -112,7 +112,7 @@ Use the following steps to add your custom domains:
     1. Select **Add**
     1. Save the **TXT** records as you need to use these values to prove your custom domain ownership. 
 
-## Azure CLI example
+### Azure CLI example
 Use the following command to update your namespace with the custom domain configuration. The following object includes two different `customDomains` configurations: the configuration under `topicSpacesConfiguration` is assigned to your MQTT endpoint, and the configuration under `topicsConfiguration` is assigned to your HTTP endpoint.  
 
 > [!NOTE]
@@ -271,12 +271,12 @@ To prove your domain ownership, follow these steps:
                             "certificateInfo": {
                                 "keyVaultArmId": "/subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
                                 "certificateName": "<certificate name >"
+                            }
                         }
-                    }
-                ]
+                    ]
+                }
             }
         }
-    }        
         ```
     
 
