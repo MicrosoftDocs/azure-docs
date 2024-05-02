@@ -30,7 +30,7 @@ Replicas are new clusters that you manage similar to regular clusters. For each 
 
 Cross-region replication is one of several important pillars in [the Azure business continuity and disaster recovery (BCDR) strategy](../../../reliability/business-continuity-management-program.md). Cross-region replication asynchronously replicates the same applications and data across other Azure regions for disaster recovery protection. Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. Azure Cosmos DB for MongoDB vCore provides an option to create a cluster replica in another region and have data written on the primary cluster replicated to that replica automatically. The fallback to the cluster replica in case of an outage in the primary region needs to be initiated manually.
 
-When cross-region replication is enabled on an Azure Cosmos DB for MongoDB vCore cluster, each shard gets replicated to another region continuously. This replication maintains a replica of data in the selected region. Such a replica is ready to be used as a part of disaster recovery plan in a rare case of the primary region outage. Replication is asynchronous. It means write operations on the primary cluster don't wait for replication to the replica to be completed before sending confirmation of a successful write to the application. Asynchronous replication helps to avoid increased latencies for write operations on the primary cluster.  
+When cross-region replication is enabled on an Azure Cosmos DB for MongoDB vCore cluster, each shard gets replicated to another region continuously. This replication maintains a replica of data in the selected region. Such a replica is ready to be used as a part of disaster recovery plan in a rare case of the primary region outage. Replication is asynchronous. It means write operations on the primary cluster's shard don't wait for replication to the corresponding replica's shard to be completed before sending confirmation of a successful write to the application. Asynchronous replication helps to avoid increased latencies for write operations on the primary cluster.  
 
 ### Read operations on cluster replicas and connection strings
 
@@ -43,7 +43,7 @@ When a cross-region replication is enabled a read-only connection string is crea
 In the event of region outage you can perform disaster recovery operation by promoting your cluster replica in another region to become available for writes. During replica promotion operation the following is happening:
 
 - Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster. 
-- The former primary cluster in region A is replaced with a replica cluster that is synchronized with the new read-write cluster (former replica cluster). The replica cluster is located in the original Azure region A and becomes destination for the promoted replica cluster.
+- The former primary cluster in region A is replaced with a replica cluster that is synchronized with the new read-write cluster (former replica cluster). The replica cluster is located in the original Azure region A and becomes the destination for the promoted replica cluster.
 - Read-write connection string is now pointing to the promoted replica cluster in region B.
 - Read-only connection string is now pointing to the new replica cluster in region A.
 
