@@ -8,9 +8,9 @@
       href: overview.md
   - name: How to
     items:
-    - name: Create signing integrations with Trusted Signing
+    - name: Set up signing integrations to use Trusted Signing
       href: how-to-signing-integrations.md
-    - name: Sign CI policies with Trusted Signing
+    - name: Sign a CI policy by using Trusted Signing
       href: how-to-sign-ci-policy.md
     - name: Access signed transactions in Trusted Signing 
       href: how-to-sign-history.md

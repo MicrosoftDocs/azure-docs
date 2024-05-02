@@ -1,6 +1,6 @@
 ---
-title: Set up signing integrations with Trusted Signing 
-description: Learn how to set up signing integrations with Trusted Signing.  
+title: Set up signing integrations to use Trusted Signing 
+description: Learn how to set up signing integrations to use Trusted Signing.  
 author: microsoftshawarma 
 ms.author: rakiasegev 
 ms.service: trusted-signing
@@ -9,7 +9,7 @@ ms.date: 04/04/2024
 ms.custom: template-how-to-pattern 
 ---
 
-# Set up signing integrations with Trusted Signing
+# Set up signing integrations to use Trusted Signing
 
 Trusted Signing currently supports the following signing integrations:
 
@@ -88,24 +88,26 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing Dlib package or use the following example:
 
    ```json
-     "Endpoint": "<Trusted Signing Account Endpoint>",
-     "TrustedSigningAccountName": "<Trusted Signing Account Name>",
-     "CertificateProfileName": "<Certificate Profile Name>",
-     "CorrelationId": "<Optional CorrelationId*>"
+   {
+     "Endpoint": "<Trusted Signing Account Endpoint>",
+     "TrustedSigningAccountName": "<Trusted Signing Account Name>",
+     "CertificateProfileName": "<Certificate Profile Name>",
+     "CorrelationId": "<Optional CorrelationId*>"
+   }
    ```
 
    The "Endpoint" URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
 
-    | Region       | Region class fields  | Endpoint URI value  |
-    |--------------|-----------|------------|
-    | East US  | EastUS  | `https://eus.codesigning.azure.net` |
-    | West US3 <sup>[1](#myfootnote1)</sup>   | WestUS3  | `https://wus3.codesigning.azure.net` |
-    | West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
-    | West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
-    | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
-    | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
+   | Region       | Region class fields  | Endpoint URI value  |
+   |--------------|-----------|------------|
+   | East US  | EastUS  | `https://eus.codesigning.azure.net` |
+   | West US3 <sup>[1]</sup>   | WestUS3  | `https://wus3.codesigning.azure.net` |
+   | West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
+   | West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
+   | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
+   | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
 
-  The optional "CorrelationId" field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
+   The optional "CorrelationId" field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
 
 ### Use SignTool to sign a file
 

@@ -23,7 +23,7 @@ landingContent:
         links:
           - text: Sign a CI policy by using Trusted Signing
             url: how-to-sign-ci-policy.md
-          - text: Create signing integrations with Trusted Signing
+          - text: Set up signing integrations to use Trusted Signing
             url: how-to-signing-integrations.md
           - text: Access signed transactions in Trusted Signing 
             url: how-to-sign-history.md
