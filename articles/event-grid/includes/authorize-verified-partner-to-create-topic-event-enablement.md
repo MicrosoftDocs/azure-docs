@@ -17,13 +17,10 @@ You must grant your consent to the partner to create partner topics in a resourc
 1. In the **Partner Authorizations** section, specify a default expiration time for all partner authorizations defined. You can provide a period between 1 and 365 days.
 1. To provide your authorization for a partner to create partner topics in the specified resource group, select **+ Partner Authorization** link.
 
-    <:::image type="content" source="./media/subscribe-to-partner-events/screenshot-here.png" alt-text="Screenshot showing the Create Partner Configuration page with the Partner Authorization link selected.":::>
 1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft.
     1. Select **MicrosoftGraphAPI**.
     1. Specify **authorization expiration time**.
-    1. select **Add**. 
-
-        :::image type="content" source="./media/authorize-verified-partner-to-create-topic/add-verified-partner-event-enablement-ux.png" alt-text="Screenshot showing the page that allows you to grant a verified partner the authorization to create resources in your resource group.":::        
+    1. select **Add**.
 
         > [!IMPORTANT]
         > For a greater security stance, specify an expiration time that is short yet provides enough time to create your Microsoft Graph API subscription(s) and related partner topic(s). If you create several Microsoft Graph API subscriptions through this portal experience, you should account for the time it takes to create all resources. The operation fails if there is an attempt to create a partner topic after the authorization expiration time.

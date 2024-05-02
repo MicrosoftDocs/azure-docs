@@ -52,8 +52,6 @@ You subscribe to an Event Grid partner topic to tell Event Grid which events you
 
 1. Now, on the **Event Grid Partner Topic** Overview page, select **+ Event Subscription** on the toolbar.
 
-    :::image type="content" source="../media/partner-event-enablement-portal/new-event-subscription.png" alt-text="Add event subscription button":::
-
 2. On the **Create Event Subscription** page, follow these steps:
     1. Enter a **name** for the event subscription.
     3. Select **Web Hook** for the **Endpoint type**. 
