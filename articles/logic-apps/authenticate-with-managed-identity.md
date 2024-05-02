@@ -19,9 +19,9 @@ If you want to avoid providing, storing, and managing credentials, secrets, or M
 
 Azure Logic Apps supports the following managed identity types:
 
-- [System-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview##managed-identity-types)
+- [System-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types)
 
-- [User-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview##managed-identity-types)
+- [User-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types)
 
 The following list describes some differences between these managed identity types:
 
@@ -37,15 +37,15 @@ This guide shows how to complete the following tasks:
 
 | Tool | Documentation |
 |------|---------------|
-| Azure PowerShell | [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) |
-| Azure CLI | [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
-| Azure REST API | [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md) |
+| Azure PowerShell | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell) |
+| Azure CLI | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli) |
+| Azure REST API | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest) |
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
-- The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
+- The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](../entra/roles/permissions-reference.md) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
 
 - The logic app resource and workflow where you want to use the [trigger or actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
@@ -73,7 +73,9 @@ In Azure Logic Apps, only specific built-in and managed connector operations tha
 
 - [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 
-- [Azure services that support Microsoft Entra authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+- [Azure services that support managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/managed-identities-status)
+
+- [Azure services that support Microsoft Entra authentication](/entra/identity/managed-identities-azure-resources/services-id-authentication-support)
 
 ### [Consumption](#tab/consumption)
 
@@ -207,7 +209,7 @@ When Azure creates your logic app resource definition, the **identity** object g
 | Property (JSON) | Value | Description |
 |-----------------|-------|-------------|
 | **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your logic app in the Microsoft Entra tenant. This GUID sometimes appears as an "object ID" or **objectID**. |
-| **tenantId** | <*Azure-AD-tenant-ID*> | The Globally Unique Identifier (GUID) that represents the Microsoft Entra tenant where the logic app is now a member. Inside the Microsoft Entra tenant, the service principal has the same name as the logic app instance. |
+| **tenantId** | <*Microsoft-Entra-ID-tenant-ID*> | The Globally Unique Identifier (GUID) that represents the Microsoft Entra tenant where the logic app is now a member. Inside the Microsoft Entra tenant, the service principal has the same name as the logic app instance. |
 
 <a name="azure-portal-user-identity"></a>
 <a name="user-assigned-azure-portal"></a>
@@ -303,7 +305,7 @@ Before you can enable the user-assigned identity on a Consumption logic app reso
 
 ## Create user-assigned identity in an ARM template
 
-To automate creating and deploying logic app resources, you can use an [ARM template](logic-apps-azure-resource-manager-templates-overview.md). These templates support [user-assigned identities for authentication](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md).
+To automate creating and deploying logic app resources, you can use an [ARM template](logic-apps-azure-resource-manager-templates-overview.md). These templates support [user-assigned identities for authentication](../entra/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md).
 
 In your template's **resources** section, your logic app's resource definition requires the following items:
 
@@ -522,8 +524,8 @@ For example, to access an Azure Blob storage account with your managed identity,
 
 | Tool | Documentation |
 |------|---------------|
-| Azure PowerShell | [Add role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) |
-| Azure CLI | [Add role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md) |
+| Azure PowerShell | [Add role assignment](../entra/managed-identities-azure-resources/howto-assign-access-powershell.md) |
+| Azure CLI | [Add role assignment](../entra/managed-identities-azure-resources/howto-assign-access-cli.md) |
 | Azure REST API | [Add role assignment](../role-based-access-control/role-assignments-rest.md) |
 
 However, to access an Azure key vault with your managed identity, you have to create an access policy for that identity on your key vault and assign the appropriate permissions for that identity on that key vault. The later steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-access-policy). For Resource Manager templates, PowerShell, and Azure CLI, see the following documentation:
@@ -547,7 +549,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > [!NOTE]
    >
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
-   > For more information, see [Microsoft Entra built-in roles](../active-directory/roles/permissions-reference.md).
+   > For more information, see [Microsoft Entra built-in roles](../entra/roles/permissions-reference.md).
 
 1. Assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
 
@@ -566,7 +568,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
-For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](../entra/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 <a name="azure-portal-access-policy"></a>
 
@@ -600,7 +602,7 @@ The next section shows how to use a managed identity with a trigger or action to
 
 ## Authenticate access with managed identity
 
-After you [enable the managed identity for your logic app resource](#azure-portal-system-logic-app) and [give that identity access to the target resource or entity](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+After you [enable the managed identity for your logic app resource](#azure-portal-system-logic-app) and [give that identity access to the Azure target resource or service](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 > [!IMPORTANT]
 >
@@ -642,7 +644,7 @@ The following steps show how to use the managed identity with a trigger or actio
 
         - A **Managed Identity** list from where you can select a specific managed identity
 
-        - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
+        - The **Audience** property appears on specific triggers and actions so that you can set the resource ID for the Azure target resource or service. Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
      1. From the **Managed Identity** list, select the identity that you want to use, for example:
 
@@ -720,7 +722,7 @@ The following steps show how to use the managed identity with a trigger or actio
 
         - A **Managed Identity** list from where you can select a specific managed identity
 
-        - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
+        - The **Audience** property appears on specific triggers and actions so that you can set the resource ID for the Azure target resource or service. Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
         
         :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity-standard.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity-standard.png":::
 
@@ -786,90 +788,105 @@ The built-in HTTP trigger or action can use the system-assigned identity that yo
 | Property | Required | Description |
 |----------|----------|-------------|
 | **Method** | Yes | The HTTP method that's used by the operation that you want to run |
-| **URI** | Yes | The endpoint URL for accessing the target Azure resource or entity. The URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service. |
+| **URI** | Yes | The endpoint URL for accessing the target Azure resource or entity. The URI syntax usually includes the resource ID for the target Azure resource or service. |
 | **Headers** | No | Any header values that you need or want to include in the outgoing request, such as the content type |
 | **Queries** | No | Any query parameters that you need or want to include in the request. For example, query parameters for a specific operation or for the API version of the operation that you want to run. |
-| **Authentication** | Yes | The authentication type to use for authenticating access to the target resource or entity |
+| **Authentication** | Yes | The authentication type to use for authenticating access to the Azure target resource or service |
 
 As a specific example, suppose that you want to run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity. However, the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can run this operation by using the [HTTP action](logic-apps-workflow-actions-triggers.md#http-action) or another [Blob Service REST API operation](/rest/api/storageservices/operations-on-blobs).
 
 > [!IMPORTANT]
 >
-> To access Azure storage accounts behind firewalls by using the Azure Blob connector and managed identities, 
-> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-in-same-region-with-system-managed-identities).
+> To access Azure storage accounts behind firewalls by using the Azure Blob Storage connector 
+> and managed identities, make sure that you also set up your storage account with the 
+> [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-in-same-region-with-system-managed-identities).
 
-To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
+To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies the following properties:
 
 | Property | Required | Example value | Description |
 |----------|----------|---------------|-------------|
-| **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
 | **URI** | Yes | `https://<storage-account-name>/<folder-name>/{name}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
-| **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <br><br>`x-ms-version` = `2019-02-02` <br><br>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <br><br>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your workflow fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <br><br>For more information, see the following documentation: <br><br>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
+| **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <br><br>`x-ms-version` = `2024-05-05` <br><br>`x-ms-date` = `formatDateTime(utcNow(),'r')` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <br><br>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your workflow fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <br><br>For more information, see the following documentation: <br><br>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
 | **Queries** | Only for the Snapshot Blob operation | `comp` = `snapshot` | The query parameter name and value for the operation. |
 
 ### [Consumption](#tab/consumption)
 
-The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
+1. On the workflow designer, add any trigger you want, and then add the **HTTP** action.
 
-![Screenshot shows Azure portal, Consumption workflow, and HTTP action set up to access resources.](./media/authenticate-with-managed-identity/http-action-example.png)
+   The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
 
-1. After you add the HTTP action, add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
+   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and HTTP action set up to access resources." lightbox="media/authenticate-with-managed-identity/http-action-example-consumption.png":::
 
-   ![Screenshot shows Consumption workflow with HTTP action and opened Add new parameter list with selected property named Authentication.](./media/authenticate-with-managed-identity/add-authentication-property.png)
+1. In the **HTTP** action, add the **Authentication** property. From the **Advanced parameters** list, select **Authentication**.
+
+   :::image type="content" source="media/authenticate-with-managed-identity/add-authentication-property.png" alt-text="Screenshot shows Consumption workflow with HTTP action and opened Advanced parameters list with selected property named Authentication." lightbox="media/authenticate-with-managed-identity/add-authentication-property.png":::
+
+   The **Authentication** section now appears in your **HTTP** action.
 
    > [!NOTE]
    >
-   > Not all triggers and actions support letting you add an authentication type. For more information, see 
-   > [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+   > Not all triggers and actions support letting you add an authentication type. For more information, 
+   > see [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-1. From the **Authentication type** list, select **Managed identity**.
+1. From the **Authentication Type** list, select **Managed Identity**.
 
-   ![Screenshot shows Consumption workflow, HTTP action, and Authentication property with selected option for Managed identity.](./media/authenticate-with-managed-identity/select-managed-identity.png)
+   :::image type="content" source="media/authenticate-with-managed-identity/select-managed-identity.png" alt-text="Screenshot shows Consumption workflow, HTTP action, and Authentication Type property with selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/select-managed-identity.png":::
 
-1. From the managed identity list, select from the available options based on your scenario.
+1. From the **Managed Identity** list, select from the available options based on your scenario.
 
-   - If you set up the system-assigned identity, select **System-assigned managed identity** if not already selected.
+   - If you set up the system-assigned identity, select **System-assigned managed identity**.
 
-     ![Screenshot shows Consumption workflow, HTTP action, and Managed identity property with selected option for System-assigned managed identity.](./media/authenticate-with-managed-identity/select-system-assigned-identity.png)
+     :::image type="content" source="media/authenticate-with-managed-identity/select-system-assigned-identity-example.png" alt-text="Screenshot shows Consumption workflow, HTTP action, and Managed Identity property with selected option for System-assigned managed identity." lightbox="media/authenticate-with-managed-identity/select-system-assigned-identity-example.png":::
 
-   - If you set up a user-assigned identity, select that identity if not already selected.
+   - If you set up the user-assigned identity, select that identity.
 
-     ![Screenshot shows Consumption workflow, HTTP action, and Managed identity property with selected user-assigned identity.](./media/authenticate-with-managed-identity/select-user-assigned-identity-action.png)
+     :::image type="content" source="media/authenticate-with-managed-identity/select-user-assigned-identity-example.png" alt-text="Screenshot shows Consumption workflow, HTTP action, and Managed Identity property with selected user-assigned identity." lightbox="media/authenticate-with-managed-identity/select-user-assigned-identity-example.png":::
 
    This example continues with the **System-assigned managed identity**.
 
-1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
+1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-    For example, if you want to authenticate access to a [Key Vault resource in the global Azure cloud](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: `https://vault.azure.net`. This specific resource ID *doesn't* have any trailing slashes. In fact, including a trailing slash might produce either a `400 Bad Request` error or a `401 Unauthorized` error.
+   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../entra/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+
+   If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
    > [!IMPORTANT]
    >
-   > Make sure that the target resource ID *exactly matches* the value that Microsoft Entra ID expects, 
-   > including any required trailing slashes. For example, the resource ID for all Azure Blob Storage accounts requires 
-   > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
-   > [resource IDs for the Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+   > Make sure that the target resource ID *exactly matches* the value that Microsoft Entra ID expects. 
+   > Otherwise, you might get either a **`400 Bad Request`** error or a **`401 Unauthorized`** error. So, if 
+   > the resource ID includes any trailing slashes, make sure to include them. Otherwise, don't include 
+   > them.
+   >
+   > For example, the resource ID for all Azure Blob Storage accounts requires a trailing slash. However, 
+   > the resource ID for a specific storage account doesn't require a trailing slash. Check the 
+   > resource IDs for the [Azure services that support Microsoft Entra ID](/entra/identity/managed-identities-azure-resources/services-id-authentication-support).
 
-   This example sets the **Audience** property to **`https://storage.azure.com/`** so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://<your-storage-account>.blob.core.windows.net`, for a specific storage account.
+   This example sets the **Audience** property to **`https://storage.azure.com/`** so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, **`https://<your-storage-account>.blob.core.windows.net`**, for a specific storage account.
 
-   ![Screenshot shows Consumption workflow, HTTP action, and Audience" property set to target resource ID.](./media/authenticate-with-managed-identity/specify-audience-url-target-resource.png)
+   :::image type="content" source="media/authenticate-with-managed-identity/set-audience-url-target-resource.png" alt-text="Screenshot shows Consumption workflow and HTTP action with Audience property set to target resource ID." lightbox="media/authenticate-with-managed-identity/set-audience-url-target-resource.png":::
 
    For more information about authorizing access with Microsoft Entra ID for Azure Storage, see the following documentation:
 
    - [Authorize access to Azure blobs and queues by using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md)
 
-   - [Authorize access to Azure Storage with Microsoft Entra ID](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   - [Authorize access to Azure Storage with OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the workflow the way that you want.
 
 ### [Standard](#tab/standard)
 
-The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
+1. On the workflow designer, add any trigger you want, and then add the **HTTP** action.
 
-![Screenshot shows Azure portal, Standard workflow, and HTTP action set up to access resources.](./media/authenticate-with-managed-identity/http-action-example-standard.png)
+   The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
 
-1. After you add the HTTP action, add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
+   ![Screenshot shows Azure portal, Standard workflow, and HTTP action set up to access resources.](./media/authenticate-with-managed-identity/http-action-example-standard.png)
 
-   ![Screenshot shows Standard workflow, HTTP action, and opened list named Add new parameter with selected Authentication property.](./media/authenticate-with-managed-identity/add-authentication-property-standard.png)
+1. In the **HTTP** action, add the **Authentication** property. From the **Advanced parameters** list, select **Authentication**.
+
+   :::image type="content" source="media/authenticate-with-managed-identity/add-authentication-property.png" alt-text="Screenshot shows Standard workflow and HTTP action with opened Advanced parameters list and selected property named Authentication." lightbox="media/authenticate-with-managed-identity/add-authentication-property.png":::
+
+   The **Authentication** section now appears in your **HTTP** action.
 
    > [!NOTE]
    >
@@ -880,30 +897,36 @@ The following example shows a sample HTTP action with all the previously describ
 
    ![Screenshot shows Standard workflow, HTTP action, and Authentication property with selected option for Managed identity.](./media/authenticate-with-managed-identity/select-managed-identity-standard.png)
 
-1. From the managed identity list, select **System-assigned managed identity** if not already selected.
+1. From the **Managed Identity** list, select **System-assigned managed identity**.
 
-   ![Screenshot shows Standard workflow, HTTP action, and opened Managed identity list open with selected option for System-assigned managed identity.](./media/authenticate-with-managed-identity/select-system-assigned-identity-standard.png)
+   ![Screenshot shows Standard workflow, HTTP action, and opened Managed identity list open with selected option for System-assigned managed identity.](./media/authenticate-with-managed-identity/select-system-assigned-identity-example.png)
 
-1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
-  
-    For example, if you want to authenticate access to a [Key Vault resource in the global Azure cloud](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: `https://vault.azure.net`. This specific resource ID *doesn't* have any trailing slashes. In fact, including a trailing slash might produce either a `400 Bad Request` error or a `401 Unauthorized` error.
+1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
+
+   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../entra/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+
+   If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
    > [!IMPORTANT]
    >
-   > Make sure that the target resource ID *exactly matches* the value that Microsoft Entra ID expects, 
-   > including any required trailing slashes. For example, the resource ID for all Azure Blob Storage accounts requires 
-   > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
-   > [resource IDs for the Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+   > Make sure that the target resource ID *exactly matches* the value that Microsoft Entra ID expects. 
+   > Otherwise, you might get either a **`400 Bad Request`** error or a **`401 Unauthorized`** error. So, if 
+   > the resource ID includes any trailing slashes, make sure to include them. Otherwise, don't include 
+   > them.
+   >
+   > For example, the resource ID for all Azure Blob Storage accounts requires a trailing slash. However, 
+   > the resource ID for a specific storage account doesn't require a trailing slash. Check the 
+   > resource IDs for the [Azure services that support Microsoft Entra ID](/entra/identity/managed-identities-azure-resources/services-id-authentication-support).
 
-   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://<your-storage-account>.blob.core.windows.net`, for a specific storage account.
+   This example sets the **Audience** property to **`https://storage.azure.com/`** so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, **`https://<your-storage-account>.blob.core.windows.net`**, for a specific storage account.
 
-   ![Screenshot shows Audience property set to the target resource ID.](./media/authenticate-with-managed-identity/specify-audience-url-target-resource-standard.png)
+   :::image type="content" source="media/authenticate-with-managed-identity/set-audience-url-target-resource.png" alt-text="Screenshot shows Standard workflow and HTTP action with Audience property set to target resource ID." lightbox="media/authenticate-with-managed-identity/set-audience-url-target-resource.png":::
 
    For more information about authorizing access with Microsoft Entra ID for Azure Storage, see the following documentation:
 
    - [Authorize access to Azure blobs and queues by using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md)
 
-   - [Authorize access to Azure Storage with Microsoft Entra ID](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   - [Authorize access to Azure Storage with OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the workflow the way that you want.
 
@@ -1411,9 +1434,9 @@ The steps in this section cover using the [Azure portal](#azure-portal-disable) 
 
 | Tool | Documentation |
 |------|---------------|
-| Azure PowerShell | 1. [Remove role assignment](../role-based-access-control/role-assignments-powershell.md). <br>2. [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). |
-| Azure CLI | 1. [Remove role assignment](../role-based-access-control/role-assignments-cli.md). <br>2. [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). |
-| Azure REST API | 1. [Remove role assignment](../role-based-access-control/role-assignments-rest.md). <br>2. [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md). |
+| Azure PowerShell | 1. [Remove role assignment](../role-based-access-control/role-assignments-powershell.md). <br>2. [Delete user-assigned identity](../entra/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). |
+| Azure CLI | 1. [Remove role assignment](../role-based-access-control/role-assignments-cli.md). <br>2. [Delete user-assigned identity](../entra/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). |
+| Azure REST API | 1. [Remove role assignment](../role-based-access-control/role-assignments-rest.md). <br>2. [Delete user-assigned identity](../entra/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md). |
 
 <a name="azure-portal-disable"></a>
 
@@ -1437,7 +1460,7 @@ The following steps remove access to the target resource from the managed identi
    >
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
+   > [Administrator role permissions in Microsoft Entra ID](../entra/roles/permissions-reference.md).
 
 <a name="disable-identity-logic-app"></a>
 
