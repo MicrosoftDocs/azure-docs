@@ -52,8 +52,8 @@ Some other details to consider:
 
 - When you choose between a public or private hub, the type can't be changed after creation.
 - When using an AKS private cluster, you have the ability to configure fully qualified domain names (FQDNs) and FQDN subdomains. This functionality doesn't apply to the private cluster used in a private hubful fleet.
-- When you connect to a private hub cluster, you can use the same methods that you would to [connect to any private AKS cluster][aks-private-cluster-connect]. However, connecting using AKS command invoke and private endpoints aren't currently supported.
-- When you use private hubful fleets, you're required to specify the subnet in which the Fleet hub cluster's node VMs will reside. This process differs slightly from the AKS private cluster equivalent. For more information, see [Create a private hubful fleet][create-private-hubful-fleet].
+- When you connect to a private hub cluster, you can use the same methods that you would use to [connect to any private AKS cluster][aks-private-cluster-connect]. However, connecting using AKS command invoke and private endpoints aren't currently supported.
+- When you use private hubful fleets, you're required to specify the subnet in which the Fleet hub cluster's node VMs reside. This process differs slightly from the AKS private cluster equivalent. For more information, see [Create a private hubful fleet][create-private-hubful-fleet].
 
 <!-- TODO: NEED REVIEW ON THE WORDING OF ABOVE BULLETS -->
 
