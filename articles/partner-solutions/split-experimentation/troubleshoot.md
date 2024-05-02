@@ -55,9 +55,9 @@ If the data is more than 10 minutes old, requesting results will cause a recalcu
 
 1. Open your Application Insights resource and go to **Monitoring** > **Logs**. Run the query `customEvents` and sort results by timestamp.
 
-- You should see events with name `FeatureEvaluation`.
-  - Ensure `customDimension.eTag` matches the **Etag** in step 1.
-  - Ensure `customDimension.TargetingId` has a value.
+- You should see events with name *FeatureEvaluation*.
+  - Ensure the **ETag** value under **customDimension** matches the **Etag** in step 1.
+  - Ensure that **TargetingId** under **customDimension** has a value.
 - You should see events with different names. These are the events you can build metrics from. Take note of this name. This string was defined by your code in the `TrackEvent` call to App Insights.
 
 1. Go to **Split Experimentation Workspace > Experimentation Metrics**:
@@ -91,7 +91,7 @@ When creating metrics, creating experiments, or getting experiment results, data
 - Example error message:
   - Failed to fetch results
 
-- The application selected in the access policy doesn't grant a sufficient role to access the data plane. To address this error, update the application's [user role assignments](./how-to-set-up-data-access#configure-user-and-role-assignments).
+- The application selected in the access policy doesn't grant a sufficient role to access the data plane. To address this error, update the application's [user role assignments](./how-to-set-up-data-access.md#configure-user-and-role-assignments).
 
 #### Unknown error
 
