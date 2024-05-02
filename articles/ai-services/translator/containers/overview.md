@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 04/19/2024
+ms.date: 05/02/2024
 ms.author: lajanuar
 ---
 
@@ -16,7 +16,7 @@ Azure AI Translator container enables you to build translator application archit
 
 ## Connected containers
 
-**Translator connected container** is deployed on premises and processes content in your environment. It requires internet connectivity to transmit usage metadata for billing; however, your customer content isn't transmitted outside of your premises. The `EULA`, `Billing` and `APIKey` options must be specified to run a container.
+**Translator connected container** is deployed on premises and processes content in your environment. It requires internet connectivity to transmit usage metadata for billing; however, your content isn't transmitted outside of your premises. The `EULA`, `Billing`, and `APIKey` options must be specified to run a container.
 
 You're billed for connected containers monthly, based on the usage and consumption. Queries to the container are billed at the pricing tier for the Azure resource used for the `APIKey` parameter. For more information, *see* [Billing configuration](configuration.md#billing-configuration-setting).
 
