@@ -14,6 +14,7 @@ The following table shows the default and maximum values (in minutes) for specif
 | Plan | Default | Maximum<sup>1</sup> |  
 |------|---------|---------|---------|  
 | **[Consumption plan](../articles/azure-functions/consumption-plan.md)** |  5 | 10 |  
+| **[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)** | 30<sup>2</sup> | Unlimited<sup>3</sup> |
 | **[Premium plan](../articles/azure-functions/functions-premium-plan.md)** |  30<sup>2</sup> | Unlimited<sup>3</sup> |  
 | **[Dedicated plan](../articles/azure-functions/dedicated-plan.md)** |  30<sup>2</sup> | Unlimited<sup>3</sup> |  
 

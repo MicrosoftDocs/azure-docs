@@ -304,6 +304,8 @@
       items:
         - name: Consumption plan
           href: consumption-plan.md
+        - name: Flex Consumption plan
+          href: flex-consumption-plan.md  
         - name: Premium plan
           href: functions-premium-plan.md
         - name: Dedicated plan

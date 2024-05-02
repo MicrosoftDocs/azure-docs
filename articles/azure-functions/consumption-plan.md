@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 # Azure Functions Consumption plan hosting
 
-When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan is the fully <em>serverless</em> hosting option for Azure Functions.
+When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan, along with the [Flex Consumption plan](./flex-consumption-plan.md), is a fully <em>serverless</em> hosting option for Azure Functions.
 
 ## Benefits
 

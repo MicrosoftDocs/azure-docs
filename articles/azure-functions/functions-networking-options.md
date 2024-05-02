@@ -207,7 +207,7 @@ If virtual network integration is configured for the app, [Key Vault references]
 
 Currently, you can use non-HTTP trigger functions from within a virtual network in one of two ways:
 
-+ Run your function app in a Premium plan and enable virtual network trigger support.
++ Run your function app in an [Elastic Premium plan](./functions-premium-plan.md) and enable virtual network trigger support.
 + Run your function app in an App Service plan or App Service Environment.
 
 ### Premium plan with virtual network triggers
