@@ -49,7 +49,7 @@ Microsoft provides a quick start catalog to help you get started with customizat
 - Configure applications like installing Visual Studio extensions 
 - Run PowerShell scripts 
 
-The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
+The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
 
 :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png":::
 
