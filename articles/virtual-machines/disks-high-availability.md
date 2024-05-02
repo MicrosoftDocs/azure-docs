@@ -77,7 +77,7 @@ If you can't deploy your VMs across availability zones, you can deploy them acro
 
 A regional Virtual Machine Scale Set is a Virtual Machine Scale Set that has no explicitly defined availability zones. With regional virtual machine scale sets, VM resources are replicated across fault domains within the region they're deployed in to improve the resiliency and availability of applications and data. This configuration spreads VMs across fault domains by default but also provides the ability to assign fault domains on VM creation. See [this section](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#regional) for details.
 
-Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a data center or region outage.
+Regional Virtual Machine Scale Sets don't protect against large-scale outages like a data center or region outage, and don't currently support Ultra Disks or Premium SSD v2 disks.
 
 #### Use availability sets
 
