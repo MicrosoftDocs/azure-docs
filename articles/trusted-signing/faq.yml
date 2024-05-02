@@ -64,6 +64,9 @@ sections:
       - question: Does Trusted Signing allow me to use a custom CN? 
         answer: |
           Per the CA/B Forum baseline requirements for publicly trusted code signing certs, CN values must be the legal entity's validated name (e.g. Microsoft Corporation) so there isn't much flexibility in CN values. However, a `O` value allows for verified legal names, trade names, and DBAs (doing business as). For individuals, there are already requirements for verification of individuals in the baseline requirements that we meet.
+      - question: What do I do if the new identity validation button on the Azure portal is greyed out?
+        answer: |
+          This means you do not have the Identity Verifier role assigned to your account. Follow the [Assigning roles in Trusted Signing](https://learn.microsoft.com/azure/trusted-signing/tutorial-assign-roles) documentation to assign yourself the appropriate role. 
   - name: Signing
     questions:
       - question: What is Trusted Signing’s compliance level?
