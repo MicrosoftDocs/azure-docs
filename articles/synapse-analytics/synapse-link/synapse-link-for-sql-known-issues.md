@@ -5,7 +5,7 @@ author: jonburchel
 ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
-ms.date: 06/13/2023
+ms.date: 05/02/2023
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -28,7 +28,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
   * sql_variant
   * timestamp
 * Source table row size can't exceed 7,500 bytes. For tables where variable-length columns are stored off-row, a 24-byte pointer is stored in the main record.
-* When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size is not supported. These LOB data types include: varchar(max), nvarchar(max), varbinary(max). An error is thrown and data is not exported to Azure Synapse Analytics. Use the [stored procedure sp_configure](../sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option) to increase the configured maximum value for max text repl size option, which defaults to 64K. A configured value of -1 indicates no limit, other that the limit imposed by the data type.
+* When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size is not supported. These LOB data types include: varchar(max), nvarchar(max), varbinary(max). An error is thrown and data is not exported to Azure Synapse Analytics. Use the [stored procedure sp_configure](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option) to increase the configured maximum value for `max text repl size` option, which defaults to 64K. A configured value of `-1` indicates no limit, other that the limit imposed by the data type.
 * Tables enabled for Azure Synapse Link for SQL can have a maximum of 1,020 columns (not 1,024).
 * While a database can have multiple links enabled, a given table can't belong to multiple links.
 * When a database owner doesn't have a mapped login, Azure Synapse Link for SQL runs into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
@@ -133,7 +133,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
     * If you have defined a custom schema or user named `changefeed` in your database that is not related to Azure Synapse Link, and you do not intend to use Azure Synapse Link for SQL, it is not necessary to drop your `changefeed` schema or user. 
     * If you have defined a customer schema or user named `changefeed` in your database, currently, this database cannot participate in the Azure Synapse Link for SQL.
 
-## Next steps
+## Related content
 
 * [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
