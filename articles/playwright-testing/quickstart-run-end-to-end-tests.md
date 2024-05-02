@@ -310,7 +310,7 @@ We will let you know when we are ready to onboard you. After recieving the confi
     You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal. 
     
     > [!TIP]
-    > This feaure can be used independent of cloud-hosted browsers.
+    > You can use Microsoft Playwright Testing service to publish test results to the portal independent of the cloud-hosted browsers feature.
 
 ## Optimize parallel worker configuration
 

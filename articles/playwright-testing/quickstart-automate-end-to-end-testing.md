@@ -202,6 +202,101 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 >
 > ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
 
+## Enable test results reporting (invite only preview) in your setup
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it is an invite only feature. If you want to get access to it, please sign up [here](https://aka.ms/mpt/reporting-signup). 
+  
+ We will let you know when we are ready to onboard you. After recieving the confirmation:
+    
+1. Navigate to settings from the home page of the workspace
+    ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
+
+3. Select **General** from settings and make sure reporting is **Enabled**
+   ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
+
+3. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You will need to provide `read:packages` permissions to the token.
+
+1. Store the GitHub token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
+
+    # [GitHub Actions](#tab/github)
+    
+    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+    1. Select **New repository secret**.
+    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+    
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PAT_TOKEN_PACKAGE* |  
+        | **Value** | Paste the workspace access token you copied previously. |
+    
+    1. Select **OK** to create the workflow secret.
+
+    # [Azure Pipelines](#tab/pipelines)
+    
+    1. Go to your Azure DevOps project.
+    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+    1. Locate the **Variables** for this pipeline.
+    1. Add a new variable.
+    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+    
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PAT_TOKEN_PACKAGE* |
+        | **Value** | Paste the workspace access token you copied previously. |
+        | **Keep this value secret** | Check this value |
+    
+    1. Select **OK**, and then **Save** to create the workflow secret.
+    
+    ---
+  
+3. Add the following steps before running the tests to publish the report of your Playwright tests in Microsoft Playwright Testing. 
+
+
+    # [GitHub Actions](#tab/github)
+
+    ```yml
+    - name: set up reporting
+      working-directory: path/to/playwright/folder # update accordingly
+      run: |
+        npm set //npm.pkg.github.com/:_authToken ${{secrets.PAT_TOKEN_PACKAGE}} 
+        npm install
+
+    - name: Run Playwright tests
+      working-directory: path/to/playwright/folder # update accordingly
+      env:
+        # Access token and regional endpoint for Microsoft Playwright Testing
+        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
+        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+        PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
+      run: npx playwright test
+    ```
+
+    # [Azure Pipelines](#tab/pipelines)
+
+    ```yml
+    - task: PowerShell@2
+      enabled: true
+      displayName: "Set up reporting"
+      inputs:
+        targetType: 'inline'
+        script: 'npm set //npm.pkg.github.com/:_authToken ${{secrets.PAT_TOKEN_PACKAGE}}'
+                'npm install'
+        workingDirectory: path/to/playwright/folder # update accordingly
+    
+    - task: PowerShell@2
+      enabled: true
+      displayName: "Run Playwright tests"
+      env:
+        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN)
+        PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+      inputs:
+        targetType: 'inline'
+        script: 'npx playwright test -c playwright.service.config.ts --workers=20'
+        workingDirectory: path/to/playwright/folder # update accordingly
+    ```
+
+    ---
+
+
 ## Related content
 
 You've successfully set up a continuous end-to-end testing workflow to run your Playwright tests at scale on cloud-hosted browsers.
