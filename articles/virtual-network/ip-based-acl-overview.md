@@ -60,6 +60,6 @@ It's always a best practice to implement authentication/authorization for traffi
 
 ## Summary
 
-IP based ACLs such as service tags are a good security defense by restricting network traffic, but they shouldn't be the only layer of defense against malicious traffic. Implementing technologies available to you in Azure such as Private Link and Virtual Network Injection in addition to service tags improve your security posture.
+IP based ACLs such as service tags are a good security defense by restricting network traffic, but they shouldn't be the only layer of defense against malicious traffic. Implementing technologies available to you in Azure such as Private Link and Virtual Network Injection in addition to service tags improve your security posture. For more information about Private Link and Virtual Network Injection, see [Azure Private Link](/azure/private-link/private-link-overview) and [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services).
 
 
