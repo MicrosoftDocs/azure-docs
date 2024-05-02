@@ -3,7 +3,7 @@ title: Set up signing integrations with Trusted Signing
 description: Learn how to set up signing integrations with Trusted Signing.  
 author: microsoftshawarma 
 ms.author: rakiasegev 
-ms.service: azure-code-signing 
+ms.service: trusted-signing
 ms.topic: how-to
 ms.date: 04/04/2024 
 ms.custom: template-how-to-pattern 
@@ -30,8 +30,8 @@ This section explains how to set up SignTool to use with Trusted Signing.
 
 ### Prerequisites
 
-- A Trusted Signing account, Identity Validation, and Certificate Profile.
-- Ensure there are proper individual or group role assignments for signing (“Trusted Signing Certificate Profile Signer” role).
+- A Trusted Signing account, identity validation, and a certificate profile.
+- The Trusted Signing Certificate Profile Signer role is assigned to you..
 
 ### Summary of steps
 
@@ -78,23 +78,31 @@ To download and install the Trusted Signing Dlib package (a .zip file):
 
 1. Download the [Trusted Signing Dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client).
 
-1. Extract the Trusted Signing Dlib zipped content and install it on your signing node in a directory you choose. You’re required to install it onto the node you’ll be signing files from with *SignTool.exe*.
+1. Extract the Trusted Signing Dlib zipped content and install it on your signing node in your choice of directory. The node must be the node that you'll be signing files from by using *SignTool.exe*.
 
 ### Create a JSON file
 
-To sign using Trusted Signing, you need to provide the details of your Trusted Signing Account and Certificate Profile that were created as part of the prerequisites. You provide this information on a JSON file by completing these steps:
+To sign by using Trusted Signing, you need to provide the details of your Trusted Signing Account and Certificate Profile that were created as part of the prerequisites. You provide this information on a JSON file by completing these steps:
 
-1. Create a new JSON file (for example `metadata.json`).
-1. Add the specific values for your Trusted Signing Account and Certificate Profile to the JSON file. For more information, see the metadata.sample.json file that’s included in the Trusted Signing Dlib package or refer to the following example:
+1. Create a new JSON file (for example, *metadata.json*).
+1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing Dlib package or use the following example:
 
    ```json
 
-     "Endpoint": "<Code Signing Account Endpoint>",
+     "Endpoint": "<Trusted Signing Account Endpoint>",
      "TrustedSigningAccountName": "<Trusted Signing Account Name>",
      "CertificateProfileName": "<Certificate Profile Name>",
      "CorrelationId": "<Optional CorrelationId*>"
 
+<<<<<<< HEAD
    ```
+=======
+```
+& "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to Metadata file>\metadata.json" <File to sign> 
+```
+* Both x86 and x64 versions of SignTool.exe are provided as part of the Windows SDK - ensure you reference the corresponding version of Azure.CodeSigning.Dlib.dll. The above example is for the x64 version of SignTool.exe.
+* You must make sure you use the recommended Windows SDK version in the dependencies listed at the beginning of this article. Otherwise our dlib won’t work. 
+>>>>>>> 9415df928151f0ed741e3e0af055b967cc38793c
 
    The "Endpoint" URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
 
@@ -113,16 +121,16 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 
 To invoke SignTool to sign a file for you:
 
-1. Make a note of where your SDK Build Tools, extracted Azure.CodeSigning.Dlib, and *metadata.json* file are located (from earlier sections).  
+1. Make a note of where your SDK Build Tools, the extracted *Azure.CodeSigning.Dlib*, and your *metadata.json* file are located (from earlier sections).  
 
-1. Replace the placeholders in the following path with the specific values you noted in step 1:
+1. Replace the placeholders in the following path with the specific values that you noted in step 1:
 
-   ```bash
-   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "<http://timestamp.acs.microsoft.com>" /td SHA256 /dlib "<Path to Azure Code Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to Metadata file>\metadata.json" <File to sign>
+   ```console
+   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
    ```
 
-- Both the x86 and the x64 version of *SignTool.exe* are provided as part of the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of *SignTool.exe*.
-- You must make sure that you use the recommended Windows SDK version in the dependencies listed at the beginning of this article. Otherwise the .dlib file doesn't work.
+- Both the x86 and x64 versions of *SignTool.exe* are provided as part of the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of *SignTool.exe*.
+- Make sure that you use the recommended Windows SDK version in the dependencies that listed at the beginning of this article, or the .dlib file doesn't work.
 
 Trusted Signing certificates have a three-day validity, so timestamping is critical for continued successful validation of a signature beyond that three-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
 

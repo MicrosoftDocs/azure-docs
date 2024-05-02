@@ -4,7 +4,7 @@ description: Troubleshooting guide for identifying slow running queries in Azure
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

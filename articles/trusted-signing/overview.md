@@ -4,7 +4,7 @@ description: Learn about the Trusted Signing service in Azure.
 author: microsoftshawarma
 ms.author: rakiasegev
 ms.topic: overview
-ms.service: azure-code-signing
+ms.service: trusted-signing
 ms.date: 03/21/2024
 ms.custom: template-overview
 ---

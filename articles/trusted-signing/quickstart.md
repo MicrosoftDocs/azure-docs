@@ -63,6 +63,8 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
 1. When you're prompted on first use, install the Azure CLI extension. For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
+   For more information about the Trusted Signing CLI extension, see [Trusted Signing service](https://learn.microsoft.com/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest).
+
 1. To see the versions of the Azure CLI and the dependent libraries that are installed, use the `az version` command.
 
 1. To upgrade to the latest versions, use the following code:
@@ -125,6 +127,7 @@ A Trusted Signing account name must:
 A Trusted Signing account name is:
 
 - Not case-sensitive (“ABC” is the same as “abc”).
+- Rejected by Azure Resource Manager if it begins with "one".
 
 # [Azure portal](#tab/account-portal)
 
@@ -218,6 +221,12 @@ To create an identity validation request:
 1. Check **Certificate subject preview** for the preview of the information that appears in the certificate.
 1. Select **Review and accept Trusted Signing Terms of Use**. You can download the Terms of Use to review or save them.  
 1. Select the **Create** button.
+1. When the request is successfully created, the identity validation request status changes to **In Progress**.
+1. If more documents are required, an email is sent and the request status changes to **Action Required**.
+1. When the identity validation process is finished, the request status changes, and an email is sent with the updated status of the request:
+
+   - **Completed** when the process is completed successfully.
+   - **Failed** When the process is not completed successfully.
 
 :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot that shows the Public option in the New identity validation pane." lightbox="media/trusted-signing-identity-validation-public.png":::
 
@@ -227,8 +236,8 @@ To create an identity validation request:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-| Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. |
-| Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it is created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing.|
+| Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you are validated are up to date. |
+| Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it is created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
 | Additional documentation            | If we need more documentation to process the identity validation request, you are notified though email. You can upload the documents in the Azure portal. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
