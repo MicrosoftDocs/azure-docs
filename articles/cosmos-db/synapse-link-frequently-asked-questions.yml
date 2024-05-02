@@ -45,7 +45,7 @@ sections:
           
           If you need to turn off the capability, delete and re-create a new Azure Cosmos DB account, migrating the data if necessary.
 
-        - question: |
+      - question: |
           Can I disable the Azure Synapse Link feature for my containers?
         answer: |
           Yes, you can use Azure CLI or Powershell to set analytical TTL to `0`, what will turn off Synapse Link from the container and permanently delete analytical store. Please note that currently this action can't be undone and will block the migration of the database account to continuous backup. 
