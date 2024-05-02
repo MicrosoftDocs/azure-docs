@@ -304,7 +304,18 @@ If you don't have user-assigned identities, follow the steps in this section. If
     ```
 
   > [!NOTE]
-  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > If you are using service principal or system-assigned managed identity, while you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, or you are using a user-assigned managed identity, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > In this tab, since user-assigned managed identity is being used, we need to manually perform a [role assignment][add role to identity]. 
+
+#### Assign a role to cluster managed identity
+Assign "Network Contributor" role to cluster managed identity, under the scope of subnet and route table. 
+
+```azurecli-interactive
+myIdentity_objId=$(az identity show --name myIdentity --resource-group $RG --query principalId -o tsv)
+az role assignment create --assignee-object-id $myIdentity_objId --assignee-principal-type ServicePrincipal --role "Network Contributor" --scope $SUBNETID
+FWROUTE_TABLE_ID=$(az resource show --name $FWROUTE_TABLE_NAME --resource-group $RG --resource-type Microsoft.Network/routeTables --query id -o tsv)
+az role assignment create --assignee-object-id $myIdentity_objId --assignee-principal-type ServicePrincipal --role "Network Contributor" --scope $FWROUTE_TABLE_ID
+```
 
 #### Create an AKS cluster with your existing identities
 
@@ -385,7 +396,7 @@ To configure inbound connectivity, you need to write a DNAT rule to the Azure Fi
    store-front       LoadBalancer   10.0.89.139    20.39.18.6    80:32271/TCP         10s
    ```
 
-2. Get the service IP using the `kubectl get svc voting-app` command.
+2. Get the service IP using the `kubectl get svc store-front` command.
 
    ```azurecli-interactive
    SERVICE_IP=$(kubectl get svc store-front -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
