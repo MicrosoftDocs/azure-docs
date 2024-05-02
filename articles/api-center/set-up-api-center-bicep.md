@@ -69,4 +69,6 @@ Replace **\<api-name\>** and **\<api-type\>** with the name and type of an API t
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
+[!INCLUDE [quickstart-template-review-resources](includes/quickstart-template-review-resources.md)]
+
 [!INCLUDE [quickstart-next-steps](includes/quickstart-next-steps.md)]
