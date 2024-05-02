@@ -23,7 +23,7 @@ A lifecycle management policy is composed of one or more rules that define a set
 - The number of days since the blob was last modified.
 - The number of days since the blob was last accessed. To use this condition in an action, you should first [optionally enable last access time tracking](#optionally-enable-access-time-tracking).
 
-When the selected condition is true, then the management policy performs the specified action. For example, if you have defined an action to move a blob from the hot tier to the cool tier if it has not been modified for 30 days, then the lifecycle management policy will move the blob 30 days after the last write operation to that blob.
+When the selected condition is true, then the management policy performs the specified action. For example, if you have defined an action to move a blob from the hot tier to the cool tier if it hasn't been modified for 30 days, then the lifecycle management policy will move the blob 30 days after the last write operation to that blob.
 
 For a blob snapshot or version, the condition that is checked is the number of days since the snapshot or version was created.
 
@@ -31,7 +31,7 @@ For a blob snapshot or version, the condition that is checked is the number of d
 
 Before you configure a lifecycle management policy, you can choose to enable blob access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation. To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
-If [last access time tracking](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](lifecycle-management-overview.md#move-data-based-on-last-accessed-time).
+If [last access time tracking](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) isn't enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](lifecycle-management-overview.md#move-data-based-on-last-accessed-time).
 
 ### [Portal](#tab/azure-portal)
 
@@ -93,7 +93,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. Select **Add** to add the new policy.
 
-Keep in mind that a lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you should select **Base blobs**, **Snapshots**, and **Versions** in the **Blob Subtype** section when you are specifying a delete action as part of the policy.
+Keep in mind that a lifecycle management policy won't delete the current version of a blob until any previous versions or snapshots associated with that blob are deleted. If blobs in your storage account have previous versions or snapshots, then you should select **Base blobs**, **Snapshots**, and **Versions** in the **Blob Subtype** section when you're specifying a delete action as part of the policy.
 
 #### Code view
 
