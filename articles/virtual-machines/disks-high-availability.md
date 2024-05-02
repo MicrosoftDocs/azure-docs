@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
 
-# Best practices for achieving Azure virtual machines and managed disks with high availability
+# Best practices for achieving high availability with Azure virtual machines and managed disks
 
 Azure offers several configuration options for ensuring high availability of Azure virtual machines (VMs) and Azure managed disks. This article covers the resiliency, durability, and availability of these options, and provides recommendations on which of these configurations to use based on your application.
 
@@ -23,7 +23,7 @@ Azure offers several configuration options for ensuring high availability of Azu
 |     |[Use ZRS shared disks](#use-zrs-disks-when-sharing-disks).         |Reduces potential for cluster downtime and improves availability of data.         |
 
 
-## What managed disks offer
+## Availability and durability of managed disks
 
 Before going over your options, it's important to understand the baseline state you have when using Azure VMs and managed disks. Understanding the baseline availability and durability of your environment lets you evaluate whether implementing the options in this article makes sense for you.
 
@@ -31,7 +31,7 @@ Managed disks are designed for 99.999% availability and provide at least 99.9999
 
 Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helps Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero percent [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
-## Applications running on a single VM
+## Recommendations for applications running on a single VM
 
 Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs in different fault domains or availability zones, but you can take steps to increase their availability.
 
@@ -43,7 +43,7 @@ Single VMs using only [Ultra Disks](disks-types.md#ultra-disks), [Premium SSD v2
 
 Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones, which are separated groups of data centers in a region that have independent power, cooling, and networking infrastructure. With ZRS disks, your data is accessible even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
 
-## Applications running on multiple VMs
+## Recommendations for applications running on multiple VMs
 
 Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade web applications, and gaming applications are all examples of applications running on multiple VMs. Multiple VMs have the highest uptime service level agreement (SLA) when deployed across multiple availability zones, and they have the second highest uptime SLA when deployed across multiple storage and compute fault domains.
 
