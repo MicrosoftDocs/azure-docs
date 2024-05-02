@@ -32,7 +32,10 @@ Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/v
 If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
 
 ```azurecli-interactive
-az vmss update --name myScaleSet --resource-group myResourceGroup --set upgradePolicy.mode=manual
+az vmss update \
+    --name myScaleSet \
+    --resource-group myResourceGroup \
+    --set upgradePolicy.mode=manual
 ```
 
 ### [PowerShell](#tab/powershell)
