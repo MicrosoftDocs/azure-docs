@@ -10,15 +10,14 @@ ms.date: 05/01/2024
 
 # Configure data plans for tables in Azure Monitor Logs
 
-Log plans let you balance between how often you use the data in a table, the advanced analytics features you use, and cost savings.  
-Set up the tables in your Log Analytics workspace to meet all your logging needs, including: 
+Your Log Analytics workspace can store various types of logs required for various purposes. For example:
 
 - High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
 - App and resource data for **troubleshooting** by developers
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated data trends for **advanced analytics and machine learning** 
 
-This article explains what each log plan offers, which use cases it's optimal for, and how to configure the log plans of the tables in your Log Analytics workspace.
+Log plans let you manage data ingestion and retention costs based on how often you use the data in a table and the type of analysis you need the data. This article explains what each log plan offers, which use cases it's optimal for, and how to configure the log plans of the tables in your Log Analytics workspace.
 
 ## Permissions required
 
