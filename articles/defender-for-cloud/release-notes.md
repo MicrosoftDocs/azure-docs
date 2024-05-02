@@ -30,7 +30,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 May 7, 2024
 
-Defender for Cloud has integrated Copilot into the security experience in order to provide users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the impact of implementing a recommendation, and the steps to take to implement a recommendation. 
+Defender for Cloud has integrated Copilot into the security experience in order to provide users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the impact of implementing a recommendation, the steps to take to implement a recommendation, and assist with the delegation of recommendations.  
 
 Learn more about [Copilot in Defender for Cloud](copilot.md).
 

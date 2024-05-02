@@ -40,4 +40,3 @@ By selecting summarize with Copilot, you are presented a quick summary of the re
 ## Related content
 
 - [Review recommendations with Copilot](review-with-copilot.md)
-- 
