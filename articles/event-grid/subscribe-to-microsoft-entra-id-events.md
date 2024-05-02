@@ -14,10 +14,9 @@ This article describes steps to subscribe to events published by Microsoft Entra
 ## High-level steps
 
 1. [Register the Event Grid resource provider](#register-the-event-grid-resource-provider) with your Azure subscription.
-1. [Authorize partner](#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 1. [Enable Microsoft Entra ID events to flow to a partner topic](#enable-events-to-flow-to-your-partner-topic).
-4. [Activate the partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
-5. [Subscribe to events](#subscribe-to-partner- events).
+1. [Activate the partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
+1. [Subscribe to events](#subscribe-to-partner-events).
 
 [!INCLUDE [register-provider](./includes/register-provider.md)]
 
@@ -48,7 +47,7 @@ This article describes steps to subscribe to events published by Microsoft Entra
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
 
-[!INCLUDE [subscribe-to-events](includes/subscribe-to-events-event-enablement-ux.md)]
+[!INCLUDE [subscribe-to-events](includes/subscribe-to-partner-events-event-enablement-ux.md)]
 
 ## Test the event flow
 
