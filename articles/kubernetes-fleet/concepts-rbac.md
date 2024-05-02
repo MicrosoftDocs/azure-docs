@@ -16,20 +16,20 @@ This article provides an overview of the various built-in Azure RBAC roles that 
 
 ## Control plane
 
-This role grants access to Azure Resource Manager (ARM) Fleet resources and sub-resources, and is applicable both to hubless and hubful Fleets.
+This role grants access to Azure Resource Manager (ARM) Fleet resources and subresources, and is applicable both to hubless and hubful Fleets.
 
 
 |Role name|Description|Usage|
 |---------|-----------|-----|
-|[Azure Kubernetes Fleet Manager Contributor][azure-rbac-fleet-manager-contributor-role]|This role grants read and write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, and more.|You can use this role to grant Contributor permissions that apply solely to Fleet resources and sub-resources. For example, this role can be given to an Azure administrator tasked with defining and maintaining Fleet resources.|
+|[Azure Kubernetes Fleet Manager Contributor][azure-rbac-fleet-manager-contributor-role]|This role grants read and write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, and more.|You can use this role to grant Contributor permissions that apply solely to Fleet resources and subresources. For example, this role can be given to an Azure administrator tasked with defining and maintaining Fleet resources.|
 
 - **Azure Kubernetes Fleet Manager Contributor Role**
 
     This role grants read and write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, and more.
 
-    You can use this role to grant Contributor permissions that apply solely to Fleet resources and sub-resources. For example, this role can be given to an Azure administrator tasked with defining and maintaining Fleet resources.
+    You can use this role to grant Contributor permissions that apply solely to Fleet resources and subresources. For example, this role can be given to an Azure administrator tasked with defining and maintaining Fleet resources.
 
-    For more details, see [Azure Kubernetes Fleet Manager Contributor Role][azure-rbac-fleet-manager-contributor-role].
+    For more information, see [Azure Kubernetes Fleet Manager Contributor Role][azure-rbac-fleet-manager-contributor-role].
 
 ## Data plane
 
@@ -39,9 +39,9 @@ You can assign data plane roles at the Fleet hub cluster scope, or at an individ
 
 |Role name|Description|Usage|
 |---------|-----------|-----|
-|[Azure Kubernetes Fleet Manager RBAC Reader][azure-rbac-fleet-manager-rbac-reader]|Grants read-only access to most Kubernetes resources within a namespace in the fleet-managed hub cluster. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to `ServiceAccount` credentials in the namespace, which would allow API access as any `ServiceAccount` in the namespace (a form of privilege escalation). Applying this role at cluster scope will give access across all namespaces.|You can use this role to grant the capability to read selected non-sensitive Kubernetes objects at either namespace or cluster scope. For example, you can grant this role for review purposes.|
-|[Azure Kubernetes Fleet Manager RBAC Writer][azure-rbac-fleet-manager-rbac-writer]|Grants read and write access to most Kubernetes resources within a namespace in the fleet-managed hub cluster. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any `ServiceAccount` in the namespace, so it can be used to gain the API access levels of any `ServiceAccount` in the namespace. Applying this role at cluster scope will give access across all namespaces.|You can use this role to grant the capability to write selected Kubernetes objects at either namespace or cluster scope. For example, for use by a project team responsible for objects in a given namespace.|
-|[Azure Kubernetes Fleet Manager RBAC Admin][azure-rbac-fleet-manager-rbac-admin]|Grants read and write access to Kubernetes resources within a namespace in the fleet-managed hub cluster. Provides write permissions on most objects within a namespace, with the exception of `ResourceQuota` object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.|You can use this role to grant the capability to administer selected Kubernetes objects (including roles and role bindings) at either namespace or cluster scope. For example, for use by a project team responsible for objects in a given namespace.|
+|[Azure Kubernetes Fleet Manager RBAC Reader][azure-rbac-fleet-manager-rbac-reader]|Grants read-only access to most Kubernetes resources within a namespace in the fleet-managed hub cluster. It doesn't allow viewing roles or role bindings. This role doesn't allow viewing Secrets, since reading the contents of Secrets enables access to `ServiceAccount` credentials in the namespace, which would allow API access as any `ServiceAccount` in the namespace (a form of privilege escalation). Applying this role at cluster scope gives access across all namespaces.|You can use this role to grant the capability to read selected nonsensitive Kubernetes objects at either namespace or cluster scope. For example, you can grant this role for review purposes.|
+|[Azure Kubernetes Fleet Manager RBAC Writer][azure-rbac-fleet-manager-rbac-writer]|Grants read and write access to most Kubernetes resources within a namespace in the fleet-managed hub cluster. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any `ServiceAccount` in the namespace, so it can be used to gain the API access levels of any `ServiceAccount` in the namespace. Applying this role at cluster scope gives access across all namespaces.|You can use this role to grant the capability to write selected Kubernetes objects at either namespace or cluster scope. For example, for use by a project team responsible for objects in a given namespace.|
+|[Azure Kubernetes Fleet Manager RBAC Admin][azure-rbac-fleet-manager-rbac-admin]|Grants read and write access to Kubernetes resources within a namespace in the fleet-managed hub cluster. Provides write permissions on most objects within a namespace, except for `ResourceQuota` object and the namespace object itself. Applying this role at cluster scope gives access across all namespaces.|You can use this role to grant the capability to administer selected Kubernetes objects (including roles and role bindings) at either namespace or cluster scope. For example, for use by a project team responsible for objects in a given namespace.|
 |[Azure Kubernetes Fleet Manager RBAC Cluster Admin][azure-rbac-fleet-manager-rbac-cluster-admin]|Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster.|You can use this role to grant access to all Kubernetes objects (including CRDs) at either namespace or cluster scope.|
 
 ## Example role assignments
