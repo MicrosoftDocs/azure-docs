@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/02/2024
 ---
 
 # Manage virtual network flow logs using Azure Policy
@@ -26,7 +26,7 @@ In this article, you learn how to use two built-in policies to manage your setup
 
 The **Audit flow logs configuration for every virtual network** policy audits all existing virtual networks  in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/virtualNetwork` for linked flow logs via the flow log property of the virtual network. It then flags any virtual network that doesn't have flow logging enabled.
 
-To audit your flow logs using the built-in policy, take the following steps:
+To audit your flow logs using the built-in policy, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -66,7 +66,10 @@ To audit your flow logs using the built-in policy, take the following steps:
 
 The **Deploy a flow log resource with target virtual network** policy checks all existing virtual networks in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/networkSecurityGroups`. It then checks for linked flow logs via the flow log property of the virtual network. If the property doesn't exist, the policy deploys a flow log.
 
-To assign the *deployIfNotExists* policy:
+> [!IMPORTANT]
+> We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. For example, if you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging (both network security group flow logs and virtual network flow logs generated for all supported workloads in that particular subnet).
+
+To assign the *deployIfNotExists* policy, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -126,7 +129,15 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png" alt-text="Screenshot that shows the noncompliant virtual networks based on the deploy policy." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details.png":::
 
-1. Leave the policy run to evaluate and deploy flow logs for all noncompliant virtual networks. It will deploy flow logs for all noncompliant virtual networks in the specified scope.
+    The policy takes some time to evaluate and deploy flow logs for all noncompliant virtual networks in the specified scope. 
+
+1. Verify that there are no noncompliant virtual networks in the policy compliance page.
+
+    :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png" alt-text="Screenshot that shows there aren't any noncompliant virtual networks after the deployment policy deployed flow logs in the defined scope." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png":::
+
+    You can view the deployed virtual network flow logs by going to **Flow logs** under **Logs** in **Network Watcher**.
+
+    :::image type="content" source="./media/vnet-flow-logs-policy/flow-logs.png" alt-text="Screenshot that shows the flow logs list in Network Watcher." lightbox="./media/vnet-flow-logs-policy/flow-logs.png":::
 
  ## Related content
 
