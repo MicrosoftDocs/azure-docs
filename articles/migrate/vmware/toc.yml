@@ -30,7 +30,7 @@ items:
   - name: Agent-based migration
     items:
     - name: VMware agent-based migration architecture
-      href: agent-based-migration-architecture.md?context=/azure/migrate/context/vmware-conte
+      href: agent-based-migration-architecture.md
     - name: Migrate with agent-based migration
       href: tutorial-migrate-vmware-agent.md    
   - name: Agentless migration
