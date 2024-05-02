@@ -1,7 +1,7 @@
 ---
 title: Overview - AI threat protection
 description: Learn about AI threat protection in Microsoft Defender for Cloud and how it protects your resources from AI threats.
-ms.date: 05/01/2024
+ms.date: 05/02/2024
 ms.topic: overview
 ms.author: elkrieger
 author: Elazark
@@ -35,4 +35,5 @@ To use the Defender for AI Workloads plan, you must enroll in the limited public
 
 ## Related content
 
-After you're accepted into the preview program, you can [onboard Defender for AI Workloads (Preview)](ai-onboarding.md).
+- [Onboard Defender for AI Workloads (Preview)](ai-onboarding.md).
+- [Alerts for AI workloads](alerts-reference.md#alerts-for-ai-workloads)
