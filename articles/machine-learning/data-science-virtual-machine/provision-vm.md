@@ -19,7 +19,7 @@ Get up and running with a Windows Server 2022 Data Science Virtual Machine (DSVM
 
 ## Prerequisite
 
-To create a Windows Data Science Virtual Machine, you need an Azure subscription. [Try Azure for free](https://azure.com/free).
+To create a Windows DSVM, you need an Azure subscription. [Try Azure for free](https://azure.com/free).
 
 Azure free accounts don't support GPU-enabled virtual machine (VM) SKUs.
 
@@ -33,6 +33,7 @@ To create a DSVM instance:
 1. Select **Create**.
 
 1. On the **Create a virtual machine** pane, fill in the **Basics** tab:
+
       * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
       * **Resource group**: Create a new group or use an existing one.
       * **Virtual machine name**: Enter the name of the VM. This name is used in your Azure portal.
