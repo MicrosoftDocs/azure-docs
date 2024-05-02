@@ -3,7 +3,7 @@ title: Azure OpenAI Service provisioned throughput
 description: Learn about provisioned throughput and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 1/16/2024 
+ms.date: 04/29/2024 
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -39,6 +39,10 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 ## How do I get access to Provisioned?
 
 You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
+
+## What models and regions are available for provisioned throughput?
+
+[!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
 
 ## Key concepts
 
