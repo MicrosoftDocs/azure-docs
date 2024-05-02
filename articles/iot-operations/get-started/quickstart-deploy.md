@@ -137,9 +137,9 @@ This script automates the following steps:
 
 * Create the Azure resource group in your Azure subscription to store all the resources.
 
-* Connect the cluster to Azure Arc and registers the required Azure resource providers.
+* Connect the cluster to Azure Arc and register the required Azure resource providers.
 
-* Apply all the required configurations for Azure IoT Operations, including:
+* Apply all of the required configurations for Azure IoT Operations, including:
 
   * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations  broker.
 
