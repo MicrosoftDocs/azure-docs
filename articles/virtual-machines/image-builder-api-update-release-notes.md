@@ -27,7 +27,7 @@ If you send an API request with incorrect case or unrecognized fields, our syste
 
 `Unmarshalling entity encountered error: unmarshalling type *v2024_02_01.ImageTemplate: struct field Properties: unmarshalling type *v2024_02_01.ImageTemplateProperties: struct field Optimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize, unknown field \"vmboot\". There is an issue with the syntax with the JSON template you are submitting. Please check the JSON template for syntax and grammar. For more information on the syntax and grammar of the JSON template, visit http://aka.ms/azvmimagebuildertmplref.`
 
-The error will call out an "unknown field" and point you to our official documentation: [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md). This documentation will guide you on the proper syntax and grammar for constructing valid API calls.
+The error message will mention an "unknown field" and direct you to our official documentation: [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md). This documentation will guide you on the proper syntax and grammar for constructing valid API calls to the Azure Image Builder service.
 
 We have updated our documentation to include the proper capitalization and field names ahead of the API release. Below is a list of the documentation changes we made to match the field names in API version 2024-02-01:
 
@@ -40,7 +40,7 @@ In the [Create an Azure Image Builder Bicep or ARM template JSON template](../li
 
 **Field Removed:**
 
-- `apiVersion`: We recommend avoiding the inclusion of this field in your requests because it is not explicitly specified in our API, so it _may_ lead to errors if you add it to your requests.
+- `apiVersion`: We recommend avoiding the inclusion of this field in your requests because it is not explicitly specified in our API, so including it in your JSON template _may_ lead to errors in your image build.
 
 In the [Azure VM Image Builder networking options](../linux/image-builder-networking.md) documentation:
 
