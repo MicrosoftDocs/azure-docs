@@ -202,7 +202,7 @@ To configure your Key Vault secrets for use in your yaml configurations,
 
 1. Ensure that your dev center project’s managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
 
-1. Grant the Secrets User role to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group includes the managed identity for the dev center, your own user account, and any user or group who need the secret during the customization of a dev box.
+1. Grant the Secrets User role for the Key Vault secret to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group who needs the secret during the customization of a dev box.
 
 For more information, see:
 - Learn how to [Configure a managed identity for a dev center](../deployment-environments/how-to-configure-managed-identity.md#configure-a-managed-identity-for-a-dev-center).
