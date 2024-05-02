@@ -88,7 +88,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL flexible server.
 * PostgreSQL 15 is now available in public preview for Azure Database for PostgreSQL flexible server in limited regions (West Europe, East US, West US2, South East Asia, UK South, North Europe, Japan east).
 * General availability: [Pgvector extension](how-to-use-pgvector.md) for Azure Database for PostgreSQL - Flexible Server.
-* General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md) with Azure Database for PostgreSQL flexible server.
+* General availability: [Azure Key Vault Managed HSM](./concepts-data-encryption.md) with Azure Database for PostgreSQL flexible server.
 * General availability  [32 TB Storage](./concepts-storage.md) with Azure Database for PostgreSQL flexible server.
 * Support for [Ddsv5 and Edsv5 SKUs](./concepts-compute.md) with Azure Database for PostgreSQL flexible server.
 
