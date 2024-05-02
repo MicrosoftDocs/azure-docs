@@ -176,8 +176,10 @@ If you're collecting activity logs using the legacy collection method, we recomm
 
     :::image type="content" source="media/activity-log/data-sources-delete-api.png" alt-text="Screenshot of the configuration of the Data Sources - Delete API." lightbox="media/activity-log/data-sources-delete-api.png":::
 ### Managing legacy log profiles
+> [!NOTE]
+> * Logs Profiles was used to forward Activity Logs to storage accounts and Event Hubs. This method is being retired on the 15th of Sept 2026. If you are using this method, transition to diagnostic settings, which provide better functionality and consistency with resource logs.
 
-Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, consider transitioning to diagnostic settings, which provide better functionality and consistency with resource logs.
+Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, transition to diagnostic settings, which provide better functionality and consistency with resource logs.
 
 #### [PowerShell](#tab/powershell)
 
