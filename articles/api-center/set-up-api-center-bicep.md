@@ -31,7 +31,7 @@ The Bicep file used in this quickstart is from
 
 The following Azure resources are defined in the Bicep file:
 
-* [Mirosoft.ApiCenter/services](/azure/templates/microsoft.apicenter/services)
+* [Microsoft.ApiCenter/services](/azure/templates/microsoft.apicenter/services)
 * [Microsoft.ApiCenter/services/workspaces](/azure/templates/microsoft.apicenter/services/workspaces)
 * [Microsoft.ApiCenter/services/workspaces/apis](/azure/templates/microsoft.apicenter/services/workspaces/apis)
 
@@ -63,7 +63,6 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more inf
 
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -apiName "<api-name>" -apiType "<api-type>"
     ```
-
     ---
 
 Replace **\<api-name\>** and **\<api-type\>** with the name and type of an API that you want to register in your API center.
