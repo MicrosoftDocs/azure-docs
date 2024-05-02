@@ -224,12 +224,6 @@ You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/po
 Stop-AzVmssRollingUpgrade `
     -ResourceGroupName myResourceGroup `
     -VMScaleSetName myScaleSet
-
-Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
-StartTime : 1/12/2024 8:40:46 PM
-EndTime   : 1/12/2024 8:45:18 PM
-Status    : Succeeded
-Error     : 
 ```
 ---
 
