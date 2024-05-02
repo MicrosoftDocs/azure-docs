@@ -1,5 +1,5 @@
 ---
-title: Explore Azure AI services in Azure AI Studio
+title: Overview of AI services in AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces Azure AI services in Azure AI Studio.
 manager: nitinme
@@ -7,15 +7,15 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 2/6/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
 ---
 
-# Explore Azure AI services in Azure AI Studio
+# Overview of AI services in AI Studio
 
-In [Azure AI Studio](https://ai.azure.com), you can quickly try out Azure AI services such as Speech, Vision, and Language. Go to the **Home** page and then select **AI Services** to explore these services.
+In [Azure AI Studio](https://ai.azure.com), you can quickly try out Azure AI services such as Speech, Vision, and Language. Go to the **Home** page and then select **AI Services** from the left pane to explore these services.
 
 ## Azure AI foundation models
 
