@@ -18,7 +18,8 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document, and the [conceptual overview of fleet types](./concepts-choosing-fleet.md) which provides a comparison of different fleet configurations.
+* Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
+* Read the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configuration options.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An identity (user or service principal) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli). This identity needs to have the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
 
@@ -84,7 +85,7 @@ The following output example resembles successful creation of the resource group
 
 ## Create a Fleet resource
 
-You can create a Fleet resource to later group your AKS clusters as member clusters. By default, this resource enables member cluster grouping and update orchestration. If the Fleet hub is enabled, other preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters. For more details, see the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configurations.
+You can create a Fleet resource to later group your AKS clusters as member clusters. By default, this resource enables member cluster grouping and update orchestration. If the Fleet hub is enabled, other preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters. For more information, see the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configurations.
 
 > [!IMPORTANT]
 > Once a Fleet resource has been created, it's possible to change the hub mode from hubless to hubful, but not from hubful to hubless. For hubful fleets, once private or public has been selected it cannot be changed.
@@ -131,7 +132,7 @@ Your output should look similar to the following example output:
 
 If you want to use Fleet for Kubernetes object propagation and multi-cluster load balancing in addition to update orchestration, then you need to create the Fleet resource with the hub cluster enabled by specifying the `--enable-hub` parameter with the [`az fleet create`][az-fleet-create] command.
 
-There are two types of hubful fleets — public and private. For more details, see [Choose an Azure Kubernetes Fleet Manager option](./concepts-choosing-fleet.md#public-and-private-hubful-fleets).
+There are two types of hubful fleets—public and private. For more information, see [Choose an Azure Kubernetes Fleet Manager option](./concepts-choosing-fleet.md#public-and-private-hubful-fleets).
 
 > [!NOTE]
 > By default, hubful fleets are public, and Fleet will choose the VM SKU used for the hub node (at this time, it tries "Standard_D4s_v4", "Standard_D4s_v3", "Standard_D4s_v5", "Standard_Ds3_v2", "Standard_E4as_v4" in order). If none of these options are acceptable or available, you can select a VM SKU by setting `--vm-size <SKU>`.
@@ -177,9 +178,9 @@ Your output should look similar to the following example output:
 #### Private hub
 
 When creating a private hubful fleet, some extra considerations apply:
-- Fleet requires you to provide the subnet on which the Fleet hub cluster's node VMs will be placed. You can specify this at creation time by setting `--agent-subnet-id <subnet>`. This differs from the experience of working directly with a private AKS cluster.
+- Fleet requires you to provide the subnet on which the Fleet hub cluster's node VMs will be placed. You can specify this at creation time by setting `--agent-subnet-id <subnet>`. This command differs from the one you use to work directly with a private AKS cluster.
 - The subnet passed via `--vnet-subnet-id` must not overlap with the AKS default service range of `10.0.0.0/16`.
-- When using an AKS private cluster, you have the ability to configure fully qualified domain names (FQDNs) and FQDN sub-domains. This functionality does not apply to the hub cluster used in a private hubful fleet.
+- When using an AKS private cluster, you have the ability to configure fully qualified domain names (FQDNs) and FQDN subdomains. This functionality doesn't apply to the hub cluster used in a private hubful fleet.
 
 First, create a virtual network and subnet for your hub cluster's node VMs using the `az network vnet create` and `az network vnet subnet create` commands.
 
@@ -190,7 +191,7 @@ az network vnet subnet create --resource-group $GROUP --vnet-name vnet --name su
 SUBNET_ID=$(az network vnet subnet show --resource-group $GROUP --vnet-name vnet -n subnet -o tsv --query id)
 ```
 
-To create a private hubful fleet, use `az fleet create` command with the `--enable-private-cluster` flag and provide the subnet ID obtained above to the  `--agent-subnet-id <subnet>` argument.
+To create a private hubful fleet, use `az fleet create` command with the `--enable-private-cluster` flag and provide the subnet ID obtained in the previous step to the  `--agent-subnet-id <subnet>` argument.
 
 ```azurecli-interactive
 az fleet create --resource-group $GROUP --name $FLEET --enable-hub --enable-private-cluster --agent-subnet-id "$SUBNET_ID"
@@ -238,7 +239,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     }
     ```
 
-3. Verify that the member clusters have successfully joined the Fleet resource using the [`az fleet member list`][az-fleet-member-list] command.
+3. Verify that the member clusters successfully joined the Fleet resource using the [`az fleet member list`][az-fleet-member-list] command.
 
     ```azurecli-interactive
     az fleet member list --resource-group ${GROUP} --fleet-name ${FLEET} -o table
