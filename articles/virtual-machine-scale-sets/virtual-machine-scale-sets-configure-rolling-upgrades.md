@@ -68,7 +68,7 @@ az vmss update \
 	--max-unhealthy-upgraded-instance-percent 20 \
 	--prioritize-unhealthy-instances true \
 	--pause-time-between-batches PT2S \
-	--max-surge false 
+	--max-surge true 
 ```
 
 ### [PowerShell](#tab/powershell1)
