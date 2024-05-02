@@ -10,7 +10,7 @@ ms.date: 05/01/2024
 
 # Configure data plans for tables in a Log Analytics worspace
 
-Your Log Analytics workspace can store various types of logs required for various purposes. For example:
+Your Log Analytics workspace can store various types of logs required for a variety of purposes. For example:
 
 - High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
 - App and resource data for **troubleshooting** by developers
