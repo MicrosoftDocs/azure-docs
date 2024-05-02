@@ -24,14 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| May 7 | [General availability of Permissions Management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
+| May 7 | [General availability of permissions management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
 | May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
 
-### General availability of Permissions Management in Defender for Cloud
+### General availability of permissions management in Defender for Cloud
 
 May 7, 2024
 
-We're announcing the general availability (GA) of [Permissions Management](permissions-management.md) in Defender for Cloud.
+We're announcing the general availability (GA) of [permissions management](permissions-management.md) in Defender for Cloud.
 
 ### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
 
@@ -673,13 +673,13 @@ Learn how to [manage secrets with agentless secrets scanning](secret-scanning.md
 
 November 22, 2023
 
-Microsoft now offers both Cloud-Native Application Protection Platforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with [Microsoft Defender for Cloud (CNAPP)](defender-for-cloud-introduction.md) and [Microsoft Entra Permissions Management](/entra/permissions-management/) (CIEM).
+Microsoft now offers both Cloud-Native Application Protection Platforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with [Microsoft Defender for Cloud (CNAPP)](defender-for-cloud-introduction.md) and [Microsoft Entra permissions management](/entra/permissions-management/) (CIEM).
 
 Security administrators can get a centralized view of their unused or excessive access permissions within Defender for Cloud.
 
 Security teams can drive the least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP cloud environments as part of their Defender Cloud Security Posture Management (CSPM), without any extra licensing requirements.
 
-Learn how to [Enable Permissions Management in Microsoft Defender for Cloud (Preview)](enable-permissions-management.md).
+Learn how to [Enable permissions management in Microsoft Defender for Cloud (Preview)](enable-permissions-management.md).
 
 ### Defender for Cloud integration with ServiceNow
 
