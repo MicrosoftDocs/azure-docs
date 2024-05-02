@@ -12,23 +12,37 @@ ms.topic: conceptual
 
 This article provides an overview of the various Azure Kubernetes Fleet Manager (Fleet) options and the considerations you should use to guide your selection of a specific configuration.
 
-## Hubless fleets and hubful fleets
+## Fleet types
 
-There are two main types of Fleet resources — hubless fleets and hubful fleets. As the names suggest, a hubful fleet has an associated AKS-managed "hub" cluster, which is used to store configuration for workload orchestration and layer-4 load balancing, while a hubless fleet does not. Both options are valid and in active development. There's no expectation that you'll need to migrate to hubful fleets unless you want to take advantage of the additional features.
+There are two main types of Fleet resources — hubless fleets and hubful fleets. Both options are valid and in active development. There's no expectation that you'll need to migrate to hubful fleets unless you want to take advantage of the full set of features.
 
-The following table compares the two options with respect to functionality.
+The following table compares the two options.
 
 ||Hubless fleet|Hubful fleet|
 |----|----|----|
+|**Hub cluster hosting**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>||
+|**Member cluster limit**|Up to 100 clusters|Up to 20 clusters|
 |**Update orchestration**|<span class='green-check'>&#9989;</span>|<span class='green-check'>&#9989;</span>|
 |**Workload orchestration**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
 |**Layer 4 load balancing**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
-|**Billing considerations**|No cost|Cost associated with hub cluster|
-|**Upgrade path**|Can upgrade from a hubless fleet to a hubful fleet|Cannot downgrade from a hubful fleet to a hubless fleet|
+|**Billing considerations**|No cost|You pay cost associated with the hub, which is a standard-tier AKS-cluster.|
+|**Convert fleets between hubless and hubful**|Can upgrade from a hubless fleet to a hubful fleet|Cannot downgrade from a hubful fleet to a hubless fleet|
 
-For more details, see [Create a hubless fleet][quickstart-create-hubless-fleet] and [Create a hubful fleet][quickstart-create-hubful-fleet].
+### Hubless fleets
 
-## Public hubful fleets and private hubful fleets
+Without a hub cluster, Fleet acts solely as a grouping entity in Azure Resource Manager. Certain scenarios, such as update runs, don't require a Kubernetes API and thus don't require a hub cluster, but to take full advantage of all the features available on Fleet, you'll need a hubful fleet.
+
+### Hubful fleets
+
+As the names suggest, a hubful fleet has an associated AKS-managed hub cluster, which is used to store configuration for workload orchestration and layer-4 load balancing.
+
+Upon the creation of a hubful fleet, a hub cluster is automatically created in the same subscription under a managed resource group named `FL_*`.
+
+To improve reliability, hub clusters are locked down by denying any user initiated mutations to the corresponding AKS clusters (under the Fleet-managed resource group `FL_*`) and their underlying Azure resources (under the AKS-managed resource group `MC_FL_*`), such as VMs, via Azure deny assignments.
+
+Hub clusters are exempted from [Azure policies][azure-policy-overview] to avoid undesirable policy effects upon hub clusters.
+
+#### Public and private hubful fleets
 
 For hubful fleets, there are two subtypes:
 
@@ -47,11 +61,10 @@ Some additional details to consider:
 
 ## Next steps
 
-Now that you understand the different types of Kubernetes fleet resources, see [Create a hubless fleet][quickstart-create-hubless-fleet] and [Create a hubful fleet][quickstart-create-hubful-fleet].
+Now that you understand the different types of Kubernetes fleet resources, see [Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure portal][quickstart-create-hubless-fleet] and [Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure CLI][quickstart-create-hubful-fleet].
 
 <!-- LINKS -->
-[quickstart-create-hubless-fleet]: quickstart-create-hubless-fleet.md
-[quickstart-create-hubful-fleet]: quickstart-create-hubful-fleet.md
 [aks-private-cluster]: /azure/aks/private-clusters
 [aks-private-cluster-connect]: /azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
-[create-private-hubful-fleet]: create-private-hubful-fleet.md
+[create-private-hubful-fleet]: quickstart-create-fleet-and-member-clusters.md
+[azure-policy-overview]: /azure/governance/policy/overview
