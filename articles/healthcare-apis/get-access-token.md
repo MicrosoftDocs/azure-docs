@@ -5,13 +5,13 @@ services: healthcare-apis
 author: chachachachami
 ms.service: healthcare-apis
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 09/06/2023
 ms.author: chrupa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Get an access token using Azure CLI or Azure PowerShell
+# Get an access token by using Azure CLI or Azure PowerShell
 
 To use the FHIR&reg; service or the DICOM&reg; service, you need an access token that verifies your identity and permissions to the server. You can obtain an access token using [PowerShell](/powershell/scripting/overview) or the [Azure Command-Line Interface (CLI)](/cli/azure/what-is-azure-cli), which are tools for creating and managing Azure resources.
 
@@ -60,11 +60,10 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 ---
 ## Next steps
 
-[Access FHIR service using Postman](./fhir/use-postman.md)
+[Access the FHIR service by using Postman](./fhir/use-postman.md)
 
-[Access FHIR service using REST client](./fhir/using-rest-client.md)
+[Access the FHIR service by using REST client](./fhir/using-rest-client.md)
 
-[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
-
+[Access the DICOM service by using cURL](dicom/dicomweb-standard-apis-curl.md)
 
 [!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]
