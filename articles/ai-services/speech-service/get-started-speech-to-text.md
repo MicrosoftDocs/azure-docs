@@ -40,12 +40,12 @@ zone_pivot_groups: programming-languages-speech-services-studio
 [!INCLUDE [JavaScript include](includes/quickstarts/speech-to-text-basics/javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-swift"
-[!INCLUDE [Swift include](includes/quickstarts/speech-to-text-basics/swift.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](./includes/quickstarts/speech-to-text-basics/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Swift include](includes/quickstarts/speech-to-text-basics/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest"
