@@ -38,16 +38,15 @@ You can subscribe to the '<collection>Updated' event to receive notifications ab
 In this example, we subscribe to changes in values of the Call object `LocalVideoStream`.
 
 ```javascript
- call.on('localVideoStreamsUpdated', e => {
-    e.added.forEach(async (lvs) => {
+ call.on('localVideoStreamsUpdated', updateEvent => {
+    updateEvent.added.forEach(async (localVideoStream) => {
       console.log(`e.added contains an array of LocalVideoStream that were added to the call`);
     });
-    e.removed.forEach(lvs => {
+    updateEvent.removed.forEach(localVideoStream => {
          console.log(`e.removed contains an array of LocalVideoStream that were removed from the call`);
     });
 });
 ```
-
 
 <!---------- CallClient  object ---------->
 ### Events on the `CallClient` object
@@ -62,7 +61,7 @@ The `incomingCall` event is fires when an incoming is coming.
 
 Your application should notify the user of the incoming call. The notification prompt should propose the user to accept or refuse the call.
 
-### Event Name: `callsUpdated`
+#### Event Name: `callsUpdated`
 
 **When does it occur ?**
 The callsUpdated updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
@@ -70,7 +69,7 @@ The callsUpdated updated event is fired when a call is removed or added to the c
 **How should your application react to the event ?**
 Your application should update its UI based on the number of active calls for the CallAgent instance.
 
-### Event Name: `connectionStateChanged`
+#### Event Name: `connectionStateChanged`
 
 **When does it occur ?**
 The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
