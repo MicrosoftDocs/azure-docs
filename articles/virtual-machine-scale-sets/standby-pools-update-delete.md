@@ -47,7 +47,7 @@ Update an existing standby pool using [Update-AzStandbyVMPool](/powershell/modul
 Update-AzStandbyVMPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
-   -MaxReadyCapcity 20 `
+   -MaxReadyCapacity 20 `
    -VMState "Deallocated" `
 ```
 
