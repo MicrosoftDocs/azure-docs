@@ -32,7 +32,7 @@ This article assumes that you're familiar with developing using Python, but you'
 * [Python](https://www.python.org/downloads/) 3.8+.
 * Latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 
-## Preparing your client workstation
+## Add firewall rules for your client workstation
 
 * If you created your Azure Database for PostgreSQL flexible server instance with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your Azure Database for PostgreSQL flexible server instance. Refer to [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 * If you created your Azure Database for PostgreSQL flexible server instance with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
@@ -120,7 +120,10 @@ In this section, you add authentication code to your working directory and perfo
     
     def get_connection_string():
     
-        # Construct connection string
+        # Construct connection string using passwordless authentication via DefaultAzureCredential.
+        # Call get_token() to get a token from Microsft Entra ID and add it as the password in the connection token.
+        # Note the requested scope parameter in the call to get_token, "https://ossrdbms-aad.database.windows.net".
+
         credential = DefaultAzureCredential()
         conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, credential.get_token("https://ossrdbms-aad.database.windows.net").token, sslmode)
         return (conn_string)
@@ -144,7 +147,7 @@ In this section, you add authentication code to your working directory and perfo
     az login
     ```
 
-    The code examples use [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate with Microsoft Entra ID and get a token that authorizes you to perform operations on your server instance. `DefaultAzureCredential` supports a chain of authentication credential types. Among the credentials supported are credentials that you're signed in to developer tools like the Azure CLI, PowerShell, or Azure Developer CLI with.
+    The authentication code uses [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate with Microsoft Entra ID and get a token that authorizes you to perform operations on your server instance. `DefaultAzureCredential` supports a chain of authentication credential types. Among the credentials supported are credentials that you're signed in to developer tools with like the Azure CLI, PowerShell, or Azure Developer CLI.
 
 #### [Password](#tab/password)
 
