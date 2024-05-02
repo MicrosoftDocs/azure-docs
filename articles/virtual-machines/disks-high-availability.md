@@ -3,7 +3,7 @@ title: Best practices for high availability with Azure VMs and managed disks
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 04/25/2024
+ms.date: 05/01/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -20,7 +20,7 @@ Azure offers several configuration options for ensuring high availability of Azu
 |     |Use zone-redundant storage (ZRS) disks.         |Access to your data even if an entire zone experiences an outage.         |
 |Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration mode or by deploying VMs across three availability zones.         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
 |     |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets with flexible orchestration mode or availability sets.         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
-|     |Use ZRS shared disks.         |Improves availability of data and reduces potential for failure.         |
+|     |Use ZRS shared disks.         |Reduces potential for cluster downtime and improves availability of data.         |
 
 
 ## What managed disks offer
@@ -83,7 +83,7 @@ Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premi
 
 [Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time.  With this configuration, the storage fault domains of disks are aligned to the VM fault domains, preventing VMs from going down if a single storage fault domain has an outage. Availability sets also have better VM to VM latencies compared to availability zones.
 
-Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a data center or region-wide outages.
+Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't protect against large-scale outages like a data center or region-wide outages, and don't currently support Ultra Disks or Premium SSD v2 disks.
 
 #### Use ZRS disks when sharing disks
 
