@@ -57,7 +57,7 @@ Some additional details to consider:
 - You can connect to a private hub cluster using the same methods that you would to [connect to any private AKS cluster][aks-private-cluster-connect] with the exception of AKS command invoke and private endpoint, which are not currently supported.
 - When using private hubful fleets, you're required to provide the subnet in which the Fleet hub cluster's node VMs will be placed. This process differs slightly from the AKS private cluster equivalent. For more details, see [Create a private hubful fleet][create-private-hubful-fleet].
 
-<!-- NEED REVIEW ON THE WORDING OF ABOVE BULLETS -->
+<!-- TODO: NEED REVIEW ON THE WORDING OF ABOVE BULLETS -->
 
 ## Next steps
 
@@ -67,4 +67,5 @@ Now that you understand the different types of Kubernetes fleet resources, see [
 [aks-private-cluster]: /azure/aks/private-clusters
 [aks-private-cluster-connect]: /azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
 [create-private-hubful-fleet]: quickstart-create-fleet-and-member-clusters.md
+<!-- TODO: NEED TO MODIFY ABOVE LINK WHEN TABS FOR HUBLESS/HUBFUL IN QS -->
 [azure-policy-overview]: /azure/governance/policy/overview
