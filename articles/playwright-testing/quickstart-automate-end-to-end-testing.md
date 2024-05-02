@@ -247,8 +247,33 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
     1. Select **OK**, and then **Save** to create the workflow secret.
     
     ---
+4.  Update Playwright config file
+
+    Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
+
+    ```typescript
+    import { defineConfig } from '@playwright/test';
+
+    export default defineConfig({
+        reporter: [
+        ['list'],
+        ['json', {  outputFile: 'test-results.json' }],
+        ['@microsoft/mpt-reporter'] // Microsoft Playwright Testing reporter
+        ],
+    });
+    ```
+    Make sure that the artifacts are enabled in the config for better troubleshooting.
+    
+    ```typescript
+    use: {
+        // ...
+        trace: 'on-first-retry',
+        video:'retain-on-failure',
+        screenshot:'only-on-failure',
+        }
+    ```
   
-3. Add the following steps before running the tests to publish the report of your Playwright tests in Microsoft Playwright Testing. 
+3. Update the CI workflow definition to install the reporting package before running the tests to publish the report of your Playwright tests in Microsoft Playwright Testing. 
 
 
     # [GitHub Actions](#tab/github)
@@ -295,7 +320,8 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
     ```
 
     ---
-
+    > [!TIP]
+    > You can use Microsoft Playwright Testing service to publish test results to the portal independent of the cloud-hosted browsers feature. 
 
 ## Related content
 
