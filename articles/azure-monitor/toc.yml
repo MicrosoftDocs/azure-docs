@@ -431,8 +431,6 @@ items:
         href: azure-monitor-operations-manager.md
       - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
     - name: Tutorials
@@ -611,7 +609,7 @@ items:
       items:
       - name: Overview
         href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
-      - name: View network topology
+      - name: Topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
       - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
@@ -623,25 +621,30 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Data collection rules
+    - name: Azure Monitor pipeline
       items:
       - name: Overview
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-overview.md
-      - name: Best practices
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-best-practices.md
-      - name: Create and edit
+        displayName: Pipeline
+        href: essentials/pipeline-overview.md
+      - name: Data collection rules
         items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+        - name: Overview
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-overview.md
+        - name: Best practices
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-best-practices.md
+        - name: Create and edit
+          items:
+          - name: Create
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-create-edit.md
+          - name: Edit tutorial
+            displayName: data collection rules
+            href: essentials/data-collection-rule-edit.md
+          - name: Structure
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -671,6 +674,8 @@ items:
         href: essentials/data-collection-rule-samples.md      
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
+      - name: Edge pipeline configuration
+        href: essentials/edge-pipeline-configure.md
     - name: Diagnostic Settings
       items:
       - name: Overview
@@ -1292,7 +1297,7 @@ items:
         - name: Set up alert rules
           items:
           - name: Metric alert rules
-            href: alerts/alerts-create-metric-alert-rule.md
+            href: alerts/alerts-create-metric-alert-rule.yml
           - name: Log search alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules

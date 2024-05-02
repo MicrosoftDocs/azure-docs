@@ -124,6 +124,10 @@ When a user without Azure credentials clicks a shareable link, a webpage opens t
 | --- | --- | --- | --- |
 | Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
 
+## Availability zones
+
+[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
+
 ## Next steps
 
 For frequently asked questions, see the [Azure Bastion FAQ](bastion-faq.md).

@@ -39,8 +39,6 @@ items:
       href: concepts/chat/concepts.md
     - name: Email
       href: concepts/email/prepare-email-communication-resource.md
-    - name: Network Traversal
-      href: concepts/network-traversal.md
     - name: Advanced Messaging
       expanded: true
       items:
@@ -103,20 +101,20 @@ items:
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
-        - name: Add Teams interop group calls to your app
-          href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
-    - name: Connect to a Teams calling applications
+    - name: Connect to a Teams calling application
       items:
         - name: Connect to Call Queue
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
         - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
+    - name: Connect Teams users to Azure calls
+      href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
     - name: Connect to a Room call
       items:
       - name: Create a room 
@@ -205,10 +203,6 @@ items:
         href: quickstarts/router/get-started-router.md
       - name: Integrate Azure OpenAI with Job Router
         href: quickstarts/router/job-router-azure-openai-integration.md
-  - name: Network Traversal
-    items:
-    - name: Access TURN relays
-      href: quickstarts/relay-token.md  
   - name: Advanced Messaging
     items:
     - name: WhatsApp
@@ -730,6 +724,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Teams users in Azure Communication Services calls
+            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
@@ -744,6 +740,8 @@ items:
         href: concepts/voice-video-calling/closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
+      - name: Enable interoperability with Teams
+        href: concepts/interop/enable-interoperability-teams.md
     - name: Advanced audio and video
       items:    
       - name: Rooms API for structured meetings 
@@ -1015,18 +1013,6 @@ items:
         href: concepts/analytics/logs/router-logs.md
       - name: Job Router metrics
         href: concepts/router/metrics.md
-  - name: Network Traversal
-    items:
-    - name: Overview
-      href: concepts/network-traversal.md
-    - name: Analytics
-      items:
-      - name: Network Traversal logs
-        href: concepts/analytics/logs/network-traversal-logs.md    
-      - name: Network Traversal metrics
-        href: concepts/analytics/turn-metrics.md  
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Advanced Messaging
     items:
     - name: WhatsApp
@@ -1275,16 +1261,6 @@ items:
       href: /java/api/overview/azure/communication-jobrouter-readme
     - name: Job Router (Python)
       href: /python/api/overview/azure/communication-jobrouter-readme
-  - name: Network Traversal
-    items:
-    - name: Network Traversal (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-8
-    - name: Network Traversal (.NET)
-      href: /dotnet/api/overview/azure/communication.networktraversal-readme
-    - name: Network Traversal (Java)
-      href: /java/api/overview/azure/communication-networktraversal-readme
-    - name: Network Traversal (Python)
-      href: /python/api/overview/azure/communication-networktraversal-readme
   - name: Phone Numbers
     items:
     - name: Phone Numbers (JavaScript)

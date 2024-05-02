@@ -7,7 +7,7 @@ ms.date: 10/09/2023
 
 # User roles and permissions
 
-Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to provide [built-in roles](../role-based-access-control/built-in-roles.md). You can assign these roles to users, groups, and services in Azure to give users access to resources according to the access defined in the role.
+Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) to provide [built-in roles](../role-based-access-control/built-in-roles.md). You can assign these roles to users, groups, and services in Azure to give users access to resources according to the access defined in the role.
 
 Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you're assigned one of these roles for the subscription or for the resource group the resource is in: Owner, Contributor, or Reader.
 
@@ -52,5 +52,5 @@ This article explained how Defender for Cloud uses Azure RBAC to assign permissi
 
 - [Set security policies in Defender for Cloud](tutorial-security-policy.md)
 - [Manage security recommendations in Defender for Cloud](review-security-recommendations.md)
-- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)
 - [Monitor partner security solutions](./partner-integration.md)

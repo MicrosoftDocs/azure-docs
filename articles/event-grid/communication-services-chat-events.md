@@ -31,7 +31,7 @@ Azure Communication Services emits the following chat event types:
 | [Microsoft.Communication.ChatThreadCreated](#microsoftcommunicationchatthreadcreated-event)  | `Thread` |Published when a chat thread is created  |
 | [Microsoft.Communication.ChatThreadDeleted](#microsoftcommunicationchatthreaddeleted-event)| `Thread` | Published when a chat thread is deleted  |
 | [Microsoft.Communication.ChatThreadParticipantAdded](#microsoftcommunicationchatthreadparticipantadded-event) | `Thread` | Published when a new participant is added to a chat thread  |
-| [Microsoft.Communication.ChatThreadParticipantRemoved](#microsoftcommunicationchatthreadparticipantremoved-event) | `Thread` | Published when a new participant is added to a chat thread.  |  
+| [Microsoft.Communication.ChatThreadParticipantRemoved](#microsoftcommunicationchatthreadparticipantremoved-event) | `Thread` | Published when a participant is removed from a chat thread  |  
 | [Microsoft.Communication.ChatMessageReceivedInThread](#microsoftcommunicationchatmessagereceivedinthread-event) |  `Thread` |Published when a message is received in a chat thread  |    
 | [Microsoft.Communication.ChatThreadPropertiesUpdated](#microsoftcommunicationchatthreadpropertiesupdated-event)| `Thread` | Published when a chat thread's properties are updated.|    
 | [Microsoft.Communication.ChatMessageEditedInThread](#microsoftcommunicationchatmessageeditedinthread-event) |  `Thread` |Published when a message is edited in a chat thread |  
