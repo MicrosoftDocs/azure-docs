@@ -2,8 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 04/09/2024
-ms.date: 04/15/2024
+ms.date: 05/01/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,12 +25,21 @@ If you're looking for items older than six months, you can find them in the [Arc
 |Date | Update |
 |--|--|
 | May 7 | [General availability of Permissions Management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
+| May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
 
 ### General availability of Permissions Management in Defender for Cloud
 
 May 7, 2024
 
 We're announcing the general availability (GA) of [Permissions Management](permissions-management.md) in Defender for Cloud.
+
+### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
+
+May 1, 2024
+
+We are announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relational Database Service (RDS) instance types.
+
+Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
 
 ## April 2024
 
