@@ -29,7 +29,7 @@ Before going over your options, it's important to understand the baseline state 
 
 Managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and allows a high tolerance against failures. 
 
-Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helps Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero% [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helps Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero percent [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
 ## Applications running on a single VM
 
@@ -41,7 +41,7 @@ Single VMs using only [Ultra Disks](disks-types.md#ultra-disks), [Premium SSD v2
 
 ### Use zone-redundant storage disks
 
-Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones in the region they're deployed in. With ZRS disks, your data is accessible even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
+Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones, which are separated groups of data centers in a region that have independent power, cooling, and networking infrastructure. With ZRS disks, your data is accessible even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
 
 ## Applications running on multiple VMs
 
@@ -63,7 +63,7 @@ There might be higher network latency between several availability zones than wi
 
 #### Deploy VMs across three availability zones
 
-This deployment provides redundancy in VMs across multiple data centers in a region, and allows you to failover to another zone if there's a data center or zonal outage. You should use this or [zone-redundant Virtual Machine Scale Sets with flexible orchestration](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) configurations to maximize your environment's availability.
+This deployment provides redundancy in VMs across multiple data centers in a region, and allows you to fail over to another zone if there's a data center or zonal outage. You should use this or [zone-redundant Virtual Machine Scale Sets with flexible orchestration](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) configurations to maximize your environment's availability.
 
 There might be higher network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets with flexible orchestration](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).
 
