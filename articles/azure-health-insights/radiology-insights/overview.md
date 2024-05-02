@@ -19,9 +19,9 @@ The model ensures that critical findings are identified and communicated using t
 
 
 
-[!INCLUDE [Disclaimer](../includes/ri-disclaimer.md)]
+<!--- [!INCLUDE [Disclaimer](../includes/ri-disclaimer.md)] --->
 
-
+<!---
 > [!IMPORTANT]
 > Disclaimer  
 The Radiology Insights service  
@@ -30,7 +30,7 @@ The Radiology Insights service
 (3) is not designed, or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgment and should not be used to replace or as a substitute for professional medical advice, diagnosis, treatment, or judgment. Customer should not use the Radiology insights service as a medical device. Customer is solely responsible for any use that doesn’t conform to these restrictions and acknowledges that it would be the legal manufacturer in respect of any such use. Customer is solely responsible for displaying and/or obtaining appropriate consents, warnings, disclaimers, and acknowledgements to end users of customer’s implementation of the Radiology insights service. Customer is solely responsible for any use of the Radiology insights service to collate, store, transmit, process or present any data or information from any third-party products (including medical devices). 
 
 Output from the Radiology insights service doesn't reflect the opinions of Microsoft. The accuracy and reliability of the information provided by the Radiology insights service may vary and aren't guaranteed. AI tools and technologies, including the Radiology insights service, can make mistakes and don't always provide accurate or complete information. It is your responsibility to: (1) thoroughly test and evaluate whether its use is fit for purpose, and (2) identify and mitigate any risks or harms to end users associated with its use.
-
+--->
 
 
 > [!IMPORTANT]
