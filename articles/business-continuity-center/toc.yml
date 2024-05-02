@@ -2,6 +2,10 @@
   href: index.yml
 - name: Overview
   href: business-continuity-center-overview.md
+- name: Quickstart
+  items:
+  - name: View protectable resources
+    href: quick-view-protectable-resources.md
 - name: Tutorials
   items:
   - name: View protectable resources
