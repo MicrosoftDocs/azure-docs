@@ -7,7 +7,7 @@ items:
     href: overview.md
 - name: How to
   items:
-  - name: Manage Split Experimentation Workplace
-    href: manage.md
+  - name: Set up data access control
+    href: how-to-set-up-data-access.md
   - name: Troubleshoot
     href: troubleshoot.md

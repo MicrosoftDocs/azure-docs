@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting your Split Experimentation Workspace
+title: Set up data access control for Split Experimentation Workspace
 description: This article provides information about setting up data access control for Split Experimentation Workspace.
 ms.author: malev
 author: maud-lv
@@ -113,7 +113,7 @@ Split Experimentation workspace supports well-known roles to scope access contro
 
 1. Go to the **Users and groups** menu and select **Add user/group**
 
-    :::image type="content" source="media/data-access/assign-users.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to require an assignment.":::
+    :::image type="content" source="media/data-access/assign-users.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to assign roles to users.":::
 1. Select a user or a group and select one of the roles you created for the Split Experimentation Workspace. 
 
 ## Related content

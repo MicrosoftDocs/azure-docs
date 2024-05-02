@@ -27,8 +27,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage a Split Experimentation Workplace
-            url: manage.md
           - text: Set up data access control
             url: how-to-set-up-data-access.md
           - text: Troubleshoot

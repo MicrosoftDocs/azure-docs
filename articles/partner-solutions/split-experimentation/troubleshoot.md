@@ -77,21 +77,21 @@ When creating metrics, creating experiments, or getting experiment results, data
 - Example Error Message:
   - AADSTS65001: The user or administrator hasn't consented to use the application with ID `<application-ID>` named `<application-name>`. Send an interactive authorization request for this user and resource.
 
-- The application selected in the access policy doesn't authorize Azure portal access for the Split Experimentation resource provider. To address this error, update the application's [authorized client applications](./entra.md#allow-users-to-request-access-to-split-experimentation-from-azure-portal).
+- The application selected in the access policy doesn't authorize Azure portal access for the Split Experimentation resource provider. To address this error, update the application's [authorized client applications](./how-to-set-up-data-access.md#allow-users-to-request-access-to-split-experimentation-from-azure-portal).
 
 #### No assignment
 
 - Example error message:
   - AADSTS50105: ...
 
-- The application selected in the access policy requires direct assignment. To address this error, update the application's [user role assignments](entra.md#configure-user-and-role-assignments).
+- The application selected in the access policy requires direct assignment. To address this error, update the application's [user role assignments](./how-to-set-up-data-access.md#configure-user-and-role-assignments).
 
 #### No authorization
 
 - Example error message:
   - Failed to fetch results
 
-- The application selected in the access policy doesn't grant a sufficient role to access the data plane. To address this error, update the application's [user role assignments](entra.md#configure-user-and-role-assignments).
+- The application selected in the access policy doesn't grant a sufficient role to access the data plane. To address this error, update the application's [user role assignments](./how-to-set-up-data-access#configure-user-and-role-assignments).
 
 #### Unknown error
 
