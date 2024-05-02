@@ -11,7 +11,7 @@ ms.date: 04/22/2024
 
 # Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including those in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md).
+This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including those in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). After you configure the connector using the steps in this article, configure the device.
 
 ## Prerequisites
 
@@ -442,6 +442,10 @@ The "installation" script doesn't actually install anything, but it configures t
     > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
     > Read more about [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
+## Configure the device
+
+Some providers have device instructions available in the article [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md). Contact the solution provider for more information.
+
 ## Test the connector
 
 1. To validate that the syslog daemon is running on the UDP port and that the AMA is listening, run this command:
@@ -494,3 +498,4 @@ The "installation" script doesn't actually install anything, but it configures t
 
 - [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+- [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md)
