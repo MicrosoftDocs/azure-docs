@@ -63,7 +63,7 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
 1. When you're prompted on first use, install the Azure CLI extension. For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-   For more information about the Trusted Signing CLI extension, see [Trusted Signing service](https://learn.microsoft.com/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest).
+   For more information about the Trusted Signing CLI extension, see [Trusted Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest).
 
 1. To see the versions of the Azure CLI and the dependent libraries that are installed, use the `az version` command.
 
