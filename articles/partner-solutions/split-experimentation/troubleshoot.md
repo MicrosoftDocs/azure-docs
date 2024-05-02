@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/01/2024
 ---
 
-# Troubleshooting Split Experimentation Workspace
+# Troubleshoot Split Experimentation Workspace
 
 This document contains information about troubleshooting your Split Experimentation Workspace by initiating a new support request, and includes troubleshooting information for issues you might experience in creating and using a Split Experimentation Workspace.
 
@@ -21,7 +21,7 @@ To contact support about a Split Experimentation Workspace, follow these steps:
 
 1. Under **How can we help you?**, briefly describe the issue and select **Go**.
 
-    :::image type="content" source="media/troubleshoot/support-request.png" alt-text="Screenshot of a new support ticket.":::
+    :::image type="content" source="media/troubleshoot/support-request.png" alt-text="Screenshot of the Azure platform showing the a new support Support + Troubleshooting page.":::
 
 1. Share more information about the issue by answering the questions on screen.
 1. Check the help resources shared on screen. If you need more help, select **Contact support** and select one of the provided options.
@@ -102,5 +102,4 @@ When creating metrics, creating experiments, or getting experiment results, data
 
 ## Related content
 
-- Learn about [managing your Split Experimentation Workspace](manage.md).
-- Learn about [setting up data access control for Split Experimentation Workspace](entra.md).
+- Learn about [setting up data access control for Split Experimentation Workspace](how-to-set-up-data-access.md).

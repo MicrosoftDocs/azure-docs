@@ -5,3 +5,9 @@ items:
   items:
   - name: What is Split Experimentation Workspace?
     href: overview.md
+- name: How to
+  items:
+  - name: Manage Split Experimentation Workplace
+    href: manage.md
+  - name: Troubleshoot
+    href: troubleshoot.md
