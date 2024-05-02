@@ -219,6 +219,24 @@ Here's how to create session hosts and register them to a host pool using the Az
       | Confirm password | Reenter the password. |
    </details>
 
+   <details>
+       <summary>To add session hosts on <b>Azure Extended Zones</b>, select to expand this section.</summary>
+
+      | Parameter | Value/Description |
+      |--|--|
+      | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
+      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | Virtual machine type | Select **Azure virtual machine**. |
+      | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. Then select **Deploy to an Azure Extended Zone**. |
+      | **Azure Extended Zones** |  |
+      | Azure Extended Zone | Select **Los Angeles**. |
+      | Place the session host(s) behind an existing load balancing solution? | Check the box. This will show options for selecting a load balancer and a backend pool.|
+      | Select a load balancer | Select an existing load balancer on the virtual network that the session hosts are being deployed to. |
+      | Select a backend pool | Select a backend pool on the load balancer to that you want to place the sessions host(s) into. |
+      | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
+      | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+   </details>
+
    Once you've completed this tab, select **Next: Tags**.
 
 1. On the **Tags** tab, you can optionally enter any name/value pairs you need, then select **Next: Review + create**.

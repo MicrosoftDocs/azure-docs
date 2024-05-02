@@ -20,7 +20,7 @@ Azure Extended Zones are small-footprint extensions of Azure placed in metros, i
 
 By deploying Azure Virtual Desktop in an Azure Extended Zone, you can:
 
-- Ease low latency and/or data regulation needs for users.
+- Ease low latency and/or data regulation needs for users. Azure Extended Zones uses RDP Shortpath for reduced latency. RDP Shortpath establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. See [RDP Shortpath](rdp-shortpath.md) for more information.
 
 - Meet data locality requirements. If data residency needs the data to be in a specific location, Azure Extended Zones can guarantee that location. 
 
