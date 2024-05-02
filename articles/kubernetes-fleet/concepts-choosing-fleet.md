@@ -1,5 +1,5 @@
 ---
-title: "Choosing an Azure Kubernetes Fleet Manager option"
+title: "Choose an Azure Kubernetes Fleet Manager option"
 description: This article provides a conceptual overview of the various Azure Kubernetes Fleet Manager options and why you may choose a specific configuration.
 ms.date: 05/01/2024
 author: nickomang
