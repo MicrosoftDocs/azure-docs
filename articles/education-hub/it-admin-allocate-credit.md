@@ -15,8 +15,6 @@ In this quickstart, you allocate credits to educators in the Azure Education Hub
 
 ## Prerequisites
 
-To complete this quickstart, you first need to:
-
 - Sign up for the Azure Dev Tools for Teaching program.
 - Sign a Microsoft Customer Agreement.
 - Be in direct field-led motion.
@@ -29,11 +27,11 @@ The first step in assigning credit to educators is to go to the Education Hub:
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Sign in with the account that's associated with Azure Dev Tools for Teaching.
-3. Search for **education** on the search bar, and then select the **Education** result. You're now in the Education Hub.
+3. Search for **education** on the search bar, and then select the **Education** result.
 
 ## Add a credit
 
-Assigning credit means that you're allowing educators to use a certain amount of money from your billing profile to create labs in the Education Hub. Educators that you want to receive the credit must be in the same tenant as you. They must also be owners of the billing profile where you want to create the credit.
+Assigning credit means that you're allowing educators to use a certain amount of money from your billing profile to create labs in the Education Hub. Educators must be in the same tenant as you to receive the credit. They must also be owners of the billing profile where you want to create the credit.
 
 1. Go to the **Credits** section of the Education Hub.
 2. Select **Add** to begin adding a new credit.
@@ -51,7 +49,7 @@ Assigning credit means that you're allowing educators to use a certain amount of
 
 After you create credits, they appear as rows on the **Credits** tab. You can modify them if necessary:
 
-1. Select the **Edit** button to the right of the credit.
+1. Select the **Edit** button to the right of a credit.
 2. Change the end date or the credit amount.
 
    > [!NOTE]
@@ -59,10 +57,12 @@ After you create credits, they appear as rows on the **Credits** tab. You can mo
 
 ## Modify access
 
-You can also modify which educators have access to the credit:
+You can modify which educators have access to a credit:
 
-1. Go to **Cost Management** and add or remove educators from the billing profile associated with the credit.
-2. Added educators receive an email that invites them to visit the Education Hub to begin using the credit. Ensure that the educators sign in to the Azure portal with the account that's associated with the credit's billing profile.
+1. Go to **Cost Management**.
+1. Add or remove educators from the billing profile that's associated with a credit.
+
+   Added educators receive an email that invites them to visit the Education Hub to begin using the credit. Ensure that the educators sign in to the Azure portal by using the account that's associated with the credit's billing profile.
 
 ## Next step
 

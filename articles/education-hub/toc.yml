@@ -56,6 +56,8 @@
       href: add-student-api.md
     - name: Delete a lab
       href: delete-lab-education-hub-apis.md
+    - name: Find IDs for calling Azure Education Hub APIs
+      href: find-ids.md
     - name: Manage students
       href: azure-dev-tools-teaching/manage-students.md
   - name: Azure Dev Tools for Teaching
@@ -66,16 +68,8 @@
     items:
     - name: Track usage and create budgets
       href: navigate-costs.md
-- name: Tutorials
-  items:
-  - name: Azure for Students
-    items:
     - name: Deploy resources
       href: deploy-resources-azure-for-students.md
-  - name: Azure Classroom
-    items:
-    - name: Find IDs for calling Azure Education Hub APIs
-      href: find-ids.md
 - name: Troubleshooting
   items:
   - name: Frequently asked questions

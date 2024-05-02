@@ -19,7 +19,7 @@ In this quickstart, you create a lab in the Azure Education Hub and choose the m
 
 ## Create a lab
 
-1. In the Education Hub, select **Labs** to open the pane where you create and manage labs. A table opens and shows all your existing labs.
+1. In the Education Hub, select **Labs** to open the pane where you create and manage labs. A table shows all your existing labs.
 
     :::image type="content" source="media/set-up-lab/navigate-to-lab-blade.png" alt-text="Screenshot that shows the pane that lists labs in the Azure Education Hub." border="false":::
 

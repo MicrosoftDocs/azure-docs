@@ -26,14 +26,13 @@ You can choose to allocate a cap to the subscriptions to prevent
 unintended use, and then set an expiration date. For example:
 
 - **Flat amount per class**: Each student gets $*x* to manage for the entire quarter or semester.
-
 - **Flat amount per project group**: A project team receives $*x* to fund a group project.
 
 At the subscription level, you can increase or decrease the cap. Changes take effect with minimal latency. When the class or project ends, you can reallocate an unused cap to other subscriptions before the expiration date.
 
 ## Create a course
 
-1. In the Education Hub, select **Courses** to open the pane where you create and manage courses. A table opens and shows all your existing courses.
+1. In the Education Hub, select **Courses** to open the pane where you create and manage courses. A table shows all your existing courses.
 
     :::image type="content" source="media/set-up-course-classroom/education-hub-courses.png" alt-text="Screenshot that shows the pane that lists courses in the Azure Education Hub." border="false":::
 

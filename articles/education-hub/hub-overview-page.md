@@ -18,9 +18,9 @@ Your main landing page in the Azure Education Hub is the **Overview** page. This
 
 1. **Courses** shows the total number of active courses on your account.
 1. **Labs** shows the total number of active labs that you gave to students.
-1. **Action needed** lists any actions you need to complete, such as accepting a lab invitation.
+1. **Action needed** lists any actions that you need to complete, such as accepting a lab invitation.
 1. **Download free software** lists free software that's available for you to download as an educator.
-1. **Start Learning** links to free Azure learning paths and modules.
+1. **Start learning** links to free Azure learning paths and modules.
 1. **Azure Quickstart Templates** includes Azure templates to help speed up and simplify deployment for common tasks.
 
 ## Next step

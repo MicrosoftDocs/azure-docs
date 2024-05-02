@@ -10,7 +10,7 @@ ms.date: 10/31/2023
 
 # Track usage and create budgets in Azure for Students
 
-Azure for Students provides $100 in Azure credit to be used for up to one year. You can renew each year that you're an active student to get an additional $100. However, students need to learn how to effectively manage and conserve their credit to keep their services running throughout the year.
+Azure for Students provides $100 in Azure credit to be used for up to one year. You can renew each year that you're an active student to get an additional $100. However, you need to effectively manage and conserve your credit to keep your services running throughout the year.
 
 ## Track your usage in the Education Hub
 
