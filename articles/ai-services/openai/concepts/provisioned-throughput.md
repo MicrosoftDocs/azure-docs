@@ -3,7 +3,7 @@ title: Azure OpenAI Service provisioned throughput
 description: Learn about provisioned throughput and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 1/16/2024 
+ms.date: 04/29/2024 
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -40,6 +40,10 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 
 You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
 
+## What models and regions are available for provisioned throughput?
+
+[!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
+
 ## Key concepts
 
 ### Provisioned throughput units
@@ -64,12 +68,11 @@ az cognitiveservices account deployment create \
 
 ### Quota
 
-Provisioned throughput quota represents a specific amount of total throughput you can deploy. Quota in the Azure OpenAI Service is managed at the subscription level. All Azure OpenAI resources within the subscription share this quota. 
+Provisioned throughput quota represents a specific amount of total throughput you can deploy. Quota in the Azure OpenAI Service is managed at the subscription level. All Azure OpenAI resources within the subscription share this quota.
 
-Quota is specified in Provisioned throughput units and is specific to a (deployment type, model, region) triplet. Quota isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. You can raise a support request to move quota across deployment types, models, or regions but the swap isn't guaranteed.
+Quota is specified in Provisioned throughput units and is specific to a (deployment type, model, region) triplet. Quota isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-3.5-Turbo.
 
 While we make every attempt to ensure that quota is deployable, quota doesn't represent a guarantee that the underlying capacity is available. The service assigns capacity during the deployment operation and if capacity is unavailable the deployment fails with an out of capacity error.
-
 
 ### Determining the number of PTUs needed for a workload
 
