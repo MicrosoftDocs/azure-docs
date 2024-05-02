@@ -44,10 +44,10 @@ A list of all possible Azure resource types that an indexer might access in a ty
 
 Indexers connect to resources using the following approaches:
 
-- a public endpoint with credentials
-- a private endpoint, using Azure Private Link
-- connect as a trusted service
-- connect through IP addressing
+- A public endpoint with credentials
+- A private endpoint, using Azure Private Link
+- Connect as a trusted service
+- Connect through IP addressing
 
 If your Azure resource is on a virtual network, you should use either a private endpoint or IP addressing to admit indexer connections to the data.
 
