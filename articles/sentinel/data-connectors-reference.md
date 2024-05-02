@@ -34,6 +34,10 @@ Data connectors are available as part of the following offerings:
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
+## Syslog and Common Event Format (CEF) connectors
+
+Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the set up by configuring the device. Some of the device instructions are available in the article [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md). Contact the solution provider for more information.
+
 [comment]: <> (DataConnector includes start)
 
 ## 42Crunch
