@@ -191,7 +191,7 @@ mstsc /v:<publicIpAddress>
 
 A Remote Desktop Protocol (.rdp) file is created and opened. Enter the user name and password (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
-On **vm-1**, enable the Internet Control Message Protocol (ICMP) through the Windows firewall so you can ping this VM from **vm-2** in a later step, using PowerShell:
+On **vm-1**, enable the Internet Control Message Protocol (ICMP) through the Windows Firewall so you can ping this VM from **vm-2** in a later step, using PowerShell:
 
 ```powershell
 New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
