@@ -150,20 +150,14 @@ landingContent:
           url: use-feature-flags-spring-boot.md
         - text: Enable a feature for specified users/groups
           url: howto-targetingfilter-aspnet-core.md
+        - text: Run A/B tests on your variant Feature Flags
+          url: set-up-experiments.aspnet.md
       - linkListType: reference
         links:
         - text: .NET library
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
-
-  - title: Create an experiment
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Set up experiments
-          url: howto-setup-experiments.md
-
   - title: Configuration SDKs and samples
     linkLists:
       - linkListType: sample

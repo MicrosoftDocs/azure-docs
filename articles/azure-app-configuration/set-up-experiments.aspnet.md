@@ -1,25 +1,35 @@
 ---
-title: How to set up experiments in App Configuration (preview)
+title: Tutorial:  Run A/B tests on variant feature flags in Azure App Configuration
 titleSuffix: Azure App configuration
-description: Learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
-#customerintent: As a user of Azure App Configuration, I want to learn how I can set up experiments to test different variants of a feature.
+description: In this tutorial, learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
+#customerintent: As a user of Azure App Configuration, I want to learn how I can run A/B tests on variant feature flags, using Split Experimentation Workspace and App Insights.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration 
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 04/30/2024
 ---
 
-# How to set up experiments (preview) in Azure App Configuration
+# Tutorial: Run A/B tests on variant feature flags in Azure App Configuration
 
-Running A/B testing experiments can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and Split Experimentation Workspace (preview). By doing so, you can make data-driven decisions to improve your application.
+Running A/B testing experiments can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and [Split Experimentation Workspace (preview)](/azure/partner-solutions/split-experimentation). By doing so, you can make data-driven decisions to improve your application.
+
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Add an Application Insights resource to your store
+> * Add a Split Experimentation Workspace to your store
+> * Set up an app to run an experiment
+> * Enable telemetry and create an experiment in your variant feature flag
+> * Create metrics for your experiment
+> * Get experimentation results
 
 ## Prerequisites
 
-- An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store with a variant feature flag having at least two variants.<!--Add link-->
-- A Split Experimentation Workspace resource<!--Add link-->
-- A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
+* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
+* [An App Configuration store with a variant feature flag](./manage-feature-flags.md#create-a-variant-feature-flag-preview) having at least two variants.
+* A Split Experimentation Workspace resource<!--Add link when doc is merged-->
+* A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
 
 ## Add an Application Insights resource to your store
 
@@ -32,7 +42,7 @@ To run an experiment, you first need to connect a workspace-based Application In
 1. Select the Application Insights resource you want to use as the telemetry provider for your variant feature flags and application, and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
 1. A notification indicates that the Application Insights resource was updated successfully for the App Configuration store.
 
-## Add a Split Experimentation Workspace to your store
+## Add a Split Experimentation Workspace (preview) to your store
 
 To run experiments in Azure App Configuration, we're going to use Split Experimentation Workspace. Follow the steps below to add a Split Experimentation Workspace to your store.
 
@@ -116,9 +126,9 @@ Now that you’ve connected the Application Insights resource to the App Configu
 
     This snippet performs the following actions.
 
-    - Adds an Application Insights telemetry client to the application.
-    - Adds a telemetry initializer that appends targeting information to outgoing telemetry.
-    - Disables adaptive sampling. <!-- Once doc is published, add Refer to [Troublehooting](./Troubleshooting.md#Sampling-in-Application-Insights) for more information on why adaptive sampling is disabled.-->
+    * Adds an Application Insights telemetry client to the application.
+    * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
+    * Disables adaptive sampling. <!-- Once troublehooting doc is merged, add Refer to [Troublehooting](./partner-solutions/split-experimentation/troubleshoot.md#Sampling-in-Application-Insights) for more information on why adaptive sampling is disabled.-->
 
 1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
 
@@ -449,7 +459,7 @@ The app we created only specifies one event, but you may have multiple events th
 
     :::image type="content" source="./media/set-up-experiments/created-metric.png" alt-text="Screenshot of the Azure portal showing an experimentation metric.":::
 
-## Get Experimentation results
+## Get experimentation results
 
 To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a 10 to 15 minutes.
 
