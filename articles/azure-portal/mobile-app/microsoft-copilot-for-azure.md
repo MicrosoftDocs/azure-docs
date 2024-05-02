@@ -1,6 +1,6 @@
 ---
 title: Use Microsoft Copilot for Azure (preview) with the Azure mobile app
-description: f
+description: You can use the Azure mobile app to access Microsoft Copilot for Azure (preview) and benefit from its features.
 ms.date: 05/21/2024
 ms.topic: conceptual
 ---
@@ -13,19 +13,23 @@ With Microsoft Copilot for Azure (preview), you can explore the range of service
 
 To learn more about Microsoft Copilot for Azure, see [What is Microsoft Copilot for Azure (preview)?](/azure/copilot/overview) and [Responsible AI FAQ for Microsoft Copilot for Azure (preview)](/azure/copilot/responsible-ai-faq).
 
+> [!IMPORTANT]
+> Microsoft Coilot for Azure is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Access Microsoft Copilot for Azure (preview) on the Azure mobile app
 
-In the Azure Mobile app, you can find the Copilot icon on the top right of your screen in the navigation bar. The first time you use Microsoft Copilot for Azure, you will see a welcome screen that tells you more about the feature and how to use it.  
+In the Azure Mobile app, you can find the Copilot icon on the top right of your screen in the navigation bar. The first time you use Microsoft Copilot for Azure, a welcome screen tells you more about the feature and how to use it.  
 
-To start a conversation with Microsoft Copilot for Azure, just type or speak your query or command in natural language. Microsoft Copilot for Azure will respond with relevant information, code snippets, or suggestions that you can utilize to monitor and manage your resources. It will prompt you to provide more information or select a resource when appropriate. You can also use the provided prompts that appear above the keyboard in the mobile app. These prompts are based on common tasks and your Azure environment. 
+To start a conversation with Microsoft Copilot for Azure, just type or speak your query or command in natural language. You can also use the provided prompts that appear above the keyboard in the mobile app. These prompts are based on common tasks and your Azure environment. Microsoft Copilot for Azure responds with relevant information, code snippets, or suggestions that you can utilize to monitor and manage your resources. When needed, it prompts you to provide more information or select a specific resource.
 
-For more information about how to create prompts that provide great responses, see [Write effective prompts for Microsoft Copilot for Azure (preview)](/azure/copilot/write-effective-prompts)
+For tips on how to create prompts that provide the most helpful responses, see [Write effective prompts for Microsoft Copilot for Azure (preview)](/azure/copilot/write-effective-prompts)
 
-You can provide feedback on any response by tapping the thumbs up/down icon. This helps us improve Copilot and make it more useful for you.  
+To provide feedback on any response, select the thumbs up/down icon. This feedback helps us improve Copilot and make it more useful for you.  
 
 ## Capabilities
 
-To learn more about ways to use Microsoft Copilot for Azure, see [Microsoft Copilot for Azure (preview) capabilities](/azure/copilot/capabilities). Keep in mind that there will be some differences in functionality when using Copilot in the Azure mobile app. Some key scenarios in the Azure mobile app include:
+To learn more about ways to use Microsoft Copilot for Azure, see [Microsoft Copilot for Azure (preview) capabilities](/azure/copilot/capabilities). Keep in mind that there are some differences in functionality when using Copilot in the Azure mobile app. Some key scenarios in the Azure mobile app include:
 
 - Troubleshooting resources
 - Generating CLI and PowerShell scripts
