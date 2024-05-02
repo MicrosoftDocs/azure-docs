@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/22/2024
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,7 @@ This article informs developers that have built custom solutions using the [Azur
 
 **Key points**:
 - Migration recommended - We strongly recommend that you consider migrating your custom solutions to the Microsoft Cost Management APIs. They're actively being developed and offer improved functionality.
-- Retirement date - The Azure Enterprise Reporting APIs will be retired on **May 1, 2024**. After this date, the APIs will stop responding to requests.
+- Retirement date - All Azure Enterprise Reporting APIs are **retired**.
 
 **This article provides**:
 - An overview of the differences between [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) and Cost Management APIs.

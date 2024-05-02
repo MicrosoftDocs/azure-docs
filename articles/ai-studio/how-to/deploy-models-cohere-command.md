@@ -74,7 +74,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Cohere family models, the pay-as-you-go model deployment offering is only available with AI hubs created in EastUS, EastUS2 or Sweden Central regions.
+    > For Cohere family models, the pay-as-you-go model deployment offering is only available with AI hubs created in EastUS2 or Sweden Central region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -93,7 +93,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the model your project must be in the EastUS, EastUS2 or Sweden Central regions.
+1. Select the project in which you want to deploy your model. To deploy the model your project must be in the EastUS2 or Sweden Central region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
@@ -792,13 +792,23 @@ Response:
 
 ##### More inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
+| **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
 | CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
 | CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
 | Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
+##### Retrieval Augmented Generation (RAG) and tool use samples
+**Description** | **Package** | **Sample Notebook**
+--|--|--
+Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
+Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
+Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
 
 ## Cost and quotas
 
