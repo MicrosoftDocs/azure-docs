@@ -61,6 +61,22 @@ The `incomingCall` event is fires when an incoming is coming.
 
 Your application should notify the user of the incoming call. The notification prompt should propose the user to accept or refuse the call.
 
+**Code sample:**
+
+```javascript
+callClient.on('incomingCall', (async (incomimgCallEvent) => {
+        try {
+          // Store a reference to the call object
+          incomingCall = incomimgCallEvent.incomingCall; 
+          // Update your UI to allow
+          acceptCallButton.disabled = false; 
+          callButton.disabled = true;
+        } catch (error) {
+          console.error(error);
+        }
+      });
+```
+
 #### Event Name: `callsUpdated`
 
 **When does it occur ?**
