@@ -33,6 +33,7 @@ The connection to the custom domain suffix endpoint needs to use Server Name Ind
 
 - ILB variation of App Service Environment v3.
 - Valid SSL/TLS certificate must be stored in an Azure Key Vault in .PFX format. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
+- Certificate must be less than 20 kb.
 
 ### Managed identity
 
@@ -60,7 +61,7 @@ If you choose to use Azure role-based access control to manage access to your ke
 
 ### Certificate
 
-The certificate for custom domain suffix must be stored in an Azure Key Vault. The certificate must be uploaded in .PFX format. Certificates in .PEM format aren't supported at this time. App Service Environment uses the managed identity you selected to get the certificate. The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. In the case of public access, you can secure your key vault to only accept traffic from the outbound IP addresses of the App Service Environment.
+The certificate for custom domain suffix must be stored in an Azure Key Vault. The certificate must be uploaded in .PFX format and be smaller than 20 kb. Certificates in .PEM format aren't supported at this time. App Service Environment uses the managed identity you selected to get the certificate. The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. In the case of public access, you can secure your key vault to only accept traffic from the outbound IP addresses of the App Service Environment.
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Screenshot of a sample networking page for key vault to allow custom domain suffix feature.":::
 
