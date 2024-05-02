@@ -86,4 +86,4 @@ Role-based access control (RBAC) is a cornerstone concept for all Azure resource
 
 - Get started with the [Trusted Signing quickstart](./quickstart.md).
 - Review the [Trusted Signing trust models](./concept-trusted-signing-trust-models.md) concept.
-- Review the [Trusting Signing certificates and management](./concept-trusted-signing-cert-management.md) concept.
+- Review the [Trusted Signing certificates and management](./concept-trusted-signing-cert-management.md) concept.

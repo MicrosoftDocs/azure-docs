@@ -36,30 +36,30 @@ This section explains how to set up SignTool to use with Trusted Signing.
 ### Summary of steps
 
 1. [Download and install SignTool](#download-and-install-signtool).
-1. [Download and install the .NET 8 Runtime](#download-and-install-net-80-runtime).
-1. [Download and install the Trusted Signing Dlib Package](#download-and-install-trusted-signing-dlib-package).
-1. [Create a JSON file to provide your Trusted Signing account and a certificate Profile](#create-json-file).
-1. [Invoke SignTool.exe to sign a file](#invoke-signtool-to-sign-a-file).
+1. [Download and install the .NET 8 Runtime](#download-and-install-the-net-80-runtime).
+1. [Download and install the Trusted Signing dlib package](#download-and-install-the-trusted-signing-dlib-package).
+1. [Create a JSON file to provide your Trusted Signing account and a certificate profile](#create-a-json-file).
+1. [Invoke SignTool to sign a file](#use-signtool-to-sign-a-file).
 
 ### Download and install SignTool
 
-Trusted Signing requires the use of SignTool.exe to sign files on Windows, specifically the version of SignTool.exe from the Windows 10 SDK 10.0.19041 or higher. You can install the full Windows 10 SDK via the Visual Studio Installer or [download and install it separately](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
+Trusted Signing requires the use of SignTool.exe to sign files on Windows, specifically the version of SignTool.exe from the Windows 10 SDK 10.0.19041 or higher. You can install the full Windows 10 SDK via the Visual Studio Installer or [download and install it separately](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
 To download and install SignTool:
 
-1. Download the latest version of SignTool + Windows Build Tools NuGet at: [Microsft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/)
+1. Download the latest version of SignTool + Windows Build Tools NuGet at [Microsft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/).
 
 1. Install SignTool from Windows SDK (min version: 10.0.2261.755).
 
-Another option is to use the latest `nuget.exe` to download and extract the latest SDK Build Tools NuGet package by completing the following steps (PowerShell):
+Another option is to use the latest *nuget.exe* file to download and extract the latest SDK Build Tools NuGet package by completing the following steps in PowerShell:
 
-1. Download `nuget.exe` by running the following download command:  
+1. Download *nuget.exe* by running the following download command:  
 
    ```powershell
    Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile .\nuget.exe  
    ```
 
-1. Install `nuget.exe` by running the following installation command:
+1. Install *nuget.exe* by running the following installation command:
 
    ```powershell
    .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.20348.19 
@@ -67,10 +67,10 @@ Another option is to use the latest `nuget.exe` to download and extract the late
 
 ### Download and install the .NET 8.0 Runtime
 
-The components that SignTool.exe uses to interface with Trusted Signing require the installation of the [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) You only need the core .NET 8.0 Runtime. Make sure you install the correct platform runtime depending on which version of SignTool.exe you intend to run (or simply install both). For example:
+The components that SignTool.exe uses to interface with Trusted Signing require the installation of the [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) You only need the core .NET 8.0 Runtime. Make sure that you install the correct platform runtime depending on the version of SignTool.exe you intend to run. Or, you can simply install both. For example:
 
-- For x64 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
-- For x86 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
+- For x64 SignTool.exe: [Download .NET 8.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
+- For x86 SignTool.exe: [Download .NET 8.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
 
 ### Download and install the Trusted Signing Dlib package
 
@@ -107,9 +107,9 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 
   The optional "CorrelationId" field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
 
-### Invoke SignTool to sign a file
+### Use SignTool to sign a file
 
-To invoke SignTool to sign a file for you:
+To invoke SignTool to sign a file:
 
 1. Make a note of where your SDK Build Tools, the extracted *Azure.CodeSigning.Dlib*, and your *metadata.json* file are located (from earlier sections).  
 
@@ -119,10 +119,10 @@ To invoke SignTool to sign a file for you:
    & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
    ```
 
-- Both the x86 and x64 versions of *SignTool.exe* are provided as part of the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of *SignTool.exe*.
-- Make sure that you use the recommended Windows SDK version in the dependencies that listed at the beginning of this article, or the dlib file doesn't work.
+- Both the x86 and x64 versions of *SignTool.exe* are provided in the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of *SignTool.exe*.
+- Make sure that you use the recommended Windows SDK version in the dependencies that are listed at the beginning of this article or the dlib file won't work.
 
-Trusted Signing certificates have a three-day validity, so timestamping is critical for continued successful validation of a signature beyond that three-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
+Trusted Signing certificates have a three-day validity, so times tamping is critical for continued successful validation of a signature beyond that three-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
 
 ## Use other signing integrations with Trusted Signing
 

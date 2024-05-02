@@ -36,7 +36,7 @@ The Public Trust resources in Trusted Signing are designed to support the follow
 - [/INTEGRITYCHECK - Forced Integrity Signing for PE binaries](/cpp/build/reference/integritycheck-require-signature-check)
 - [Virtualization Based Security (VBS) Enclaves](/windows/win32/trusted-execution/vbs-enclaves)
 
-Public Trust is recommended for signing any artifact that is to be shared publicly, and the signer should be a validated legal organization or individual.
+Public Trust is recommended for signing any artifact that is to be shared publicly. The signer should be a validated legal organization or individual.
 
 > [!NOTE]
 > Trusted Signing includes options for "Test" certificate profiles under the Public Trust collection, but the certificates are not publicly trusted. The Public Trust Test certificate profiles are intended to be used for inner-loop dev/test signing and should *not* be trusted.
