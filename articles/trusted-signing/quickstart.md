@@ -20,13 +20,13 @@ Trusted Signing is an Azure fully managed, end-to-end certificate signing servic
 
 Trusted Signing gives you both an Azure portal and an Azure CLI extension experience to create and manage your Trusted Signing resources.
 
-*You can complete identity validation only in the Azure portal. You cannot complete Identity Validation by using the Azure CLI.*
+*You can complete identity validation only in the Azure portal. You can't complete identity validation by using the Azure CLI.*
 
 ## Prerequisites
 
-- A Microsoft Entra Tenant ID.
+- A Microsoft Entra tenant ID.
 
-   For more information, see [Create a Microsoft Entra tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization)
+   For more information, see [Create a Microsoft Entra tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization).
 
 - An Azure subscription.
 

@@ -28,9 +28,9 @@ If the certificate that's issued to you doesn’t match your intended values or 
 
    To continue signing with Trusted Signing:
 
-   1. Initiate a new Identity Validation request.
+   1. Initiate a new identity validation request.
    1. Verify that the information in the certificate subject preview accurately reflects your intended values.
-   1. Create a new certificate profile that uses the newly completed Identity Validation.
+   1. Create a new certificate profile that uses the newly completed identity validation.
 
 Before you initiate a certificate revocation, it’s crucial to verify that all the details are accurate and as intended. After a certificate is revoked, reversing the process isn't possible. Therefore, exercise caution and double-check the information before you proceed with the revocation process.
 
@@ -46,7 +46,7 @@ This article guides you through the process of revoking a certificate profile fr
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Go to your Trusted Signing account resource page.
-1. On either the Account Overview pane or the Objects pane, select **certificate profile**.
+1. On either the account **Overview** pane or on the **Objects** pane, select **Certificate Profile**.
 1. Select the relevant certificate profile.
 1. In the search box, enter the thumbprint of the certificate you want to revoke.
 
@@ -61,4 +61,4 @@ This article guides you through the process of revoking a certificate profile fr
 1. Select **Revoke**.
 1. When the certificate is successfully revoked:
    - The status of the thumbprint that was revoked is updated.
-   - An email is sent to the email addresses that you provided during Identity Validation.
+   - An email is sent to the email addresses that you provided during identity validation.
