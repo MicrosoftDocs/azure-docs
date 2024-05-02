@@ -37,7 +37,7 @@ Use [Get-AzStandbyVMPoolVM](/powershell/module/az.standbypool/Get-azstandbyvmpoo
 ```azurepowershell-interactive
 Get-AzStandbyVMPoolVM -ResourceGroupName myResourceGroup -Name myStandbyPool
 ```
-
+---
 
 
 ## Update a standby pool
