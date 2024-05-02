@@ -16,7 +16,7 @@ This article applies to the Enterprise Agreement cost and usage details file sch
 
 The following information lists the cost and usage details (formerly known as usage details) fields found in Enterprise Agreement cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
-## Version 2023-12-01 preview
+## Version 2023-12-01-preview
 
 | Column |Fields|Description|
 |---|------|------|

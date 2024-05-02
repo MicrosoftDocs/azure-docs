@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/28/2024
+ms.date: 05/02/2024
 ms.author: banders
 ---
 
@@ -14,7 +14,7 @@ ms.author: banders
 
 This article lists the cost details and usage (formerly known as usage details) fields found in the FOCUS cost and usage details file. The FOCUS-specific version of the cost and usage details file differs from other versions. This version adheres to the [FinOps Open Cost and Usage Specification (FOCUS) project specification](https://focus.finops.org/#specification). The file contains contains all of the cost details and usage data for the Azure services that were used.
 
-## Version 1.0-preview
+## Version 1.0-preview(v1)
 
 | Column | Fields | Description |
 |---|---|---|
