@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I disable the Azure Synapse Link feature for my containers?
         answer: |
-          Yes, you can use Azure CLI or Powershell to set analytical TTL to `0`, what will turn off Synapse Link from the container and permanently delete analytical store. Please note that currently this action can't be undone and will block the migration of the database account to continuous backup. 
+          Yes, you can use Azure CLI or PowerShell to set analytical TTL to `0`, what will turn off Synapse Link from the container and permanently delete analytical store. Please note that currently this action can't be undone and will block the migration of the database account to continuous backup. 
           
       - question: |
           Does analytical store have any impact on Azure Cosmos DB transactional SLAs?
