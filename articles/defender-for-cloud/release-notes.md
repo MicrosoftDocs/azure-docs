@@ -24,7 +24,20 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
 | May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+
+### Updated security policy management is now generally available
+
+May 2, 2024
+
+Security policy management across clouds (Azure, AWS, GCP) is now generally available (GA). This enables security teams to manage their security policies in a consistent way and with new features:
+
+- A simplified and same cross cloud interface for creating and managing the Microsoft Cloud Security Benchmark (MCSB) as well as custom recommendations based on KQL queries.
+- Managing regulatory compliance standards in Defender for Cloud across Azure, AWS, and GCP environments.
+- New filtering and export capabilities for reporting.
+
+For more information, see [Security policies in Microsoft Defender for Cloud](security-policy-concept.md#working-with-security-standards).
 
 ### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
 
