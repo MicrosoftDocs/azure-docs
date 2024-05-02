@@ -41,7 +41,7 @@ Learn more about how to [deploy AMA](../azure-monitor/vm/monitor-virtual-machine
 
 For SQL servers on machines, we recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process](defender-for-sql-autoprovisioning.md).
 
-### Endpoint protection recommendations experience
+### Endpoint protection recommendations experience - changes and migration guidance
 
 Endpoint discovery and recommendations are currently provided by the Defender for Cloud Foundational CSPM and the Defender for Servers plans using the Log Analytics agent in GA, or in preview via the AMA. This experience will be replaced by security recommendations that are gathered using agentless machine scanning.  
 
@@ -97,6 +97,57 @@ The [new recommendations](upcoming-changes.md#changes-in-endpoint-protection-rec
 
 - Ensure that [agentless machine scanning is enabled](enable-agentless-scanning-vms.md) as part of Defender for Servers Plan 2 or Defender CSPM.
 - If suitable for your environment, for best experience we recommend that you remove deprecated recommendations when the replacement GA recommendation becomes available. To do that, disable the recommendation in the [built-in Defender for Cloud initiative in Azure Policy](policy-reference.md).
+
+### File Integrity Monitoring experience - changes and migration guidance
+
+Microsoft Defender for Servers Plan 2 now offers a new File Integrity Monitoring (FIM) solution powered by Microsoft Defender for Endpoint (MDE) integration. Once FIM powered by MDE is public, the FIM powered by AMA experience in the Defender for Cloud portal will be removed. In October, FIM powered by MMA will be deprecated.
+
+#### Migration from FIM over AMA
+
+If you currently use FIM over AMA:
+
+- Onboarding new subscriptions or servers to FIM based on AMA and the change tracking extension, as well as viewing changes, will no longer be available through the Defender for Cloud portal beginning May 30.
+- If you want to continue consuming FIM events collected by AMA, you can manually connect to the relevant workspace and view changes in the Change Tracking table with the following query:
+
+    ```kusto
+    ConfigurationChange
+
+    | where TimeGenerated > ago(14d)
+
+    | where ConfigChangeType in ('Registry', 'Files') 
+
+    | summarize count() by Computer, ConfigChangeType
+    ```
+
+- If you want to continue onboarding new scopes or configure monitoring rules, you can manually use [Data Connection Rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection.
+- Microsoft Defender for Cloud recommends disabling FIM over AMA, and onboarding your environment to the new FIM version based on Defender for Endpoint upon release.
+
+#### Disabling FIM over AMA
+
+To disable FIM over AMA, remove the Azure Change Tracking solution. For more information, see [Remove ChangeTracking solution](/azure/automation/change-tracking/remove-feature#remove-changetracking-solution).
+
+Alternatively, you can remove the related file change tracking Data collection rules (DCR). For more information, see [Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation) or [Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule).
+
+After you disable the file events collection using one of the methods above:
+
+- New events will stop being collected on the selected scope.
+- The historical events which already were collected remain stored in the relevant workspace under the *ConfigurationChange* table in the **Change Tracking** section. These events will remain available in the relevant workspace according to the retention period defined in this workspace. For more information, see [How retention and archiving work](/azure/azure-monitor/logs/data-retention-archive#how-retention-and-archiving-work).
+
+#### Migration from FIM over Log Analytics Agent (MMA)
+
+If you currently use FIM over the Log Analytics Agent (MMA):
+
+- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated in October 2024.
+- Microsoft Defender for Cloud recommends disabling FIM over MMA, and onboarding your environment to the new FIM version based on Defender for Endpoint upon release.
+
+#### Disabling FIM over MMA
+
+To disable FIM over MMA, remove the Azure Change Tracking solution. For more information, see [Remove ChangeTracking solution](/azure/automation/change-tracking/remove-feature#remove-changetracking-solution).
+
+After you disable the file events collection:
+
+- New events will stop being collected on the selected scope.
+- The historical events that already were collected remain stored in the relevant workspace under the *ConfigurationChange* table in the **Change Tracking** section. These events will remain available in the relevant workspace according to the retention period defined in this workspace. For more information, see [How retention and archiving work](/azure/azure-monitor/logs/data-retention-archive#how-retention-and-archiving-work).
 
 ## Preparing Defender for SQL on Machines
 
