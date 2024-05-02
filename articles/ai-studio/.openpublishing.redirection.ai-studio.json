@@ -52,7 +52,7 @@
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/models-foundation-azure-ai.md",
-            "redirect_url": "/azure/ai-studio/ai-services/ai-services-in-studio",
+            "redirect_url": "/azure/ai-studio/ai-services/connect-ai-services",
             "redirect_document_id": true
         }
     ]
