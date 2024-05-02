@@ -27,13 +27,13 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 
 - In the Metrics blade, utilize the search bar to quickly find and select the appropriate subscription and set the resource type from the dropdown menus at the top of the page.
 
-  :::image type="content" source="media/scope-resource-type.png" alt-text="Screenshot of Azure portal showing the scope and resource type.":::
+  :::image type="content" source="media/scope-resource-type.png" alt-text="Screenshot of Azure portal showing the scope and resource type." lightbox="media/scope-resource-type.png":::
 	
 ## Step 3: Select the network fabric devices
   
   After choosing the desired subscription and resource type, you'll need to narrow down to the specific network fabric device you want to monitor.
 
-  :::image type="content" source="media/select-network-device-resource.png" alt-text="Screenshot of Azure portal showing the list of resource types.":::
+  :::image type="content" source="media/select-network-device-resource.png" alt-text="Screenshot of Azure portal showing the list of resource types." lightbox="media/select-network-device-resource.png":::
 	
 ## Step 4: View the In & Out packet rate metric
 
@@ -45,11 +45,11 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 
   **Interface In Pkts**
 
-  :::image type="content" source="media/metrics-interface-in-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart.":::
+  :::image type="content" source="media/metrics-interface-in-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart." lightbox="media/metrics-interface-in-pkts.png":::
 	
   **Interface Out Pkts**
 
-  :::image type="content" source="media/metrics-interface-out-pkts.png" alt-text="Screenshot of Azure portal showing the interface out packet rate metric chart.":::
+  :::image type="content" source="media/metrics-interface-out-pkts.png" alt-text="Screenshot of Azure portal showing the interface out packet rate metric chart." lightbox="media/metrics-interface-out-pkts.png":::
 
 - The metric chart will display the packet rate over time, typically captured at 5-minute intervals.
 
@@ -61,11 +61,11 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 
  - **In packet rate:** This metric refers to the rate at which the network interface received packets. Essentially, it measures the flow of incoming data packets to the device.
 	
-	:::image type="content" source="media/metrics-interface-in-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart.":::
+	:::image type="content" source="media/metrics-interface-in-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart." lightbox="media/metrics-interface-in-pkt-avg.png":::
 
 - **Out packet rate:** Conversely, the network interface sent packets at the rate measured by this metric. It indicates the flow of outgoing data packets from the device to other network destinations.
   
-   :::image type="content" source="media/metrics-interface-out-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface out packet rate metric chart.":::
+   :::image type="content" source="media/metrics-interface-out-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface out packet rate metric chart." lightbox="media/metrics-interface-out-pkt-avg.png":::
   
 - Analyze the trend of the packet rate over time.
   
