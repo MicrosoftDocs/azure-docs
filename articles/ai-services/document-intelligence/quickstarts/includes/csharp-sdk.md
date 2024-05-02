@@ -648,7 +648,7 @@ Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cogni
 
 AnalyzeDocumentContent content = new AnalyzeDocumentContent()
 {
-    UrlSource= invoiceUri
+    UrlSource = invoiceUri
 };
 
 Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-invoice", content);

@@ -284,7 +284,7 @@ public class DocIntelligence {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+    // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
     DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
       .credential(new AzureKeyCredential(key))
       .endpoint(endpoint)
@@ -665,24 +665,19 @@ public class DocIntelligence {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
-      .credential(new AzureKeyCredential(key))
-      .endpoint(endpoint)
-      .buildClient();
-
     // sample document
     String modelId = "prebuilt-invoice";
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
     public static void main(final String[] args) throws IOException {
+
       // Instantiate a client that will be used to call the service.
       DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
-        .credential(new AzureKeyCredential("{key}"))
-        .endpoint("https://{endpoint}.cognitiveservices.azure.com/")
+        .credential(new AzureKeyCredential(key))
+        .endpoint(endpoint)
         .buildClient();
 
-      SyncPoller < AnalyzeResultOperation, AnalyzeResultOperation > analyzeLayoutPoller =
+      SyncPoller<AnalyzeResultOperation, AnalyzeResultOperation > analyzeInvoicesPoller =
         client.beginAnalyzeDocument(modelId, 
             null,
             null,

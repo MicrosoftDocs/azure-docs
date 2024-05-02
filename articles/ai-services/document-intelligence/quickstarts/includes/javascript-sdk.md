@@ -146,8 +146,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 :::moniker range="doc-intel-4.0.0"
 
 ```javascript
-    const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
-    const  { AzureKeyCredential } = require("@azure/core-auth");
+    const DocumentIntelligenceClient = require("@azure-rest/ai-document-intelligence");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key";
@@ -157,12 +156,12 @@ Extract text, selection marks, text styles, table structures, and bounding regio
     const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
    async function main() {
-    const client = DocumentIntelligenceClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligenceClient(endpoint, {key:key},);
 
 
     const initialResponse = await client
       .path("/documentModels/{modelId}:analyze", "prebuilt-layout")
-      .post: ({
+      .post({
         contentType: "application/json",
         body: {
           urlSource: formUrl
@@ -310,8 +309,7 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
-const  { AzureKeyCredential } = require("@azure/core-auth");
+const DocumentIntelligenceClient = require("@azure-rest/ai-document-intelligence");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";
@@ -322,7 +320,8 @@ const  { AzureKeyCredential } = require("@azure/core-auth");
 
 async function main() {
 
-    const client = DocumentIntelligenceClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligenceClient(endpoint, {key: key},
+     );
 
     const initialResponse = await client
     .path("/documentModels/{modelId}:analyze", "prebuilt-invoice")
