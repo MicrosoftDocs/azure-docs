@@ -33,7 +33,7 @@ Before you configure a lifecycle management policy, you can choose to enable blo
 
 If [last access time tracking](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](lifecycle-management-overview.md#move-data-based-on-last-accessed-time).
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To enable last access time tracking with the Azure portal, follow these steps:
 
@@ -44,34 +44,17 @@ To enable last access time tracking with the Azure portal, follow these steps:
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing how to enable last access tracking in Azure portal.](media/lifecycle-management-policy-configure/last-access-tracking-enable.png)
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
-To enable last access time tracking with PowerShell, call the [Enable-AzStorageBlobLastAccessTimeTracking](/powershell/module/az.storage/enable-azstoragebloblastaccesstimetracking) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+[!INCLUDE [azure-storage-set-last-access-time-powershell](../../../includes/azure-storage-set-last-access-time-powershell.md)]
 
-```powershell
-# Initialize these variables with your values.
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
+### [Azure CLI](#tab/azure-cli)
 
-Enable-AzStorageBlobLastAccessTimeTracking  -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -PassThru
-```
+[!INCLUDE [azure-storage-set-last-access-time-azure-cli](../../../includes/azure-storage-set-last-access-time-azure-cli.md)]
 
-#### [Azure CLI](#tab/azure-cli)
+### [Template](#tab/template)
 
-To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
-
-```azurecli
-az storage account blob-service-properties update \
-    --resource-group <resource-group> \
-    --account-name <storage-account> \
-    --enable-last-access-tracking true
-```
-
-# [Template](#tab/template)
-
-To enable last access time tracking for a new or existing storage account with an Azure Resource Manager template, include the **lastAccessTimeTrackingPolicy** object in the template definition. For details, see the [Microsoft.Storage/storageAccounts/blobServices 2021-02-01 - Bicep & ARM template reference](/azure/templates/microsoft.storage/2021-02-01/storageaccounts/blobservices?tabs=json). The **lastAccessTimeTrackingPolicy** object is available in the Azure Storage Resource Provider REST API for versions 2019-06-01 and later.
+[!INCLUDE [azure-storage-set-last-access-time-template](../../../includes/azure-storage-set-last-access-time-template.md)]
 
 ---
 
