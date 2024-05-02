@@ -102,6 +102,8 @@ items:
           href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
+        - name: Assign a custom domain name
+          href: assign-custom-domain-name.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
@@ -202,6 +204,8 @@ items:
           href: create-view-manage-namespace-topics.md
         - name: Create, view, and manage event subscriptions
           href: create-view-manage-event-subscriptions.md
+        - name: Assign a custom domain name 
+          href: assign-custom-domain-name.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
