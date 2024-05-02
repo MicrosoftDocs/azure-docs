@@ -48,7 +48,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AutonomousDevelopmentPlatform** | Autonomous Development Platform | Both | Yes | Yes |
 | **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
-| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | Yes |
+| **AzureAdvancedThreatProtection** | Microsoft Defender for Identity. | Outbound | No | Yes |
 | **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. | Outbound | No | Yes |
 | **AzureAttestation** | Azure Attestation. | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>**Note**: This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |

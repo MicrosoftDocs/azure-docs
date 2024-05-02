@@ -38,7 +38,7 @@ A client application requires a valid access token to connect to Azure SignalR S
 
 Use an HTTP-triggered Azure Function and the `SignalRConnectionInfo` input binding to generate the connection information object. The function must have an HTTP route that ends in `/negotiate`.
 
-With [class-based model](#class-based-model) in C#, you don't need the `SignalRConnectionInfo` input binding and can add custom claims much more easily. For more information, see [Negotiation experience in class-based model](#negotiation-experience-in-class-based-model).
+With [class-based model](#class-based-model) in C#, you don't need the `SignalRConnectionInfo` input binding and can add custom claims much more easily. For more information, see [Negotiation experience in class-based model](#negotiation-experience-in-class-based-model-1).
 
 For more information about the `negotiate` function, see [Azure Functions development](#negotiation-function).
 
