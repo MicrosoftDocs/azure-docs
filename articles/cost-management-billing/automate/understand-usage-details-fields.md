@@ -106,7 +106,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
 | RoundingAdjustment | EA, MCA | Rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice. For more information, see [Rounding adjustment details](#rounding-adjustment-details).  |
 | ServiceFamily | MCA | Service family that the service belongs to. |
-| ServiceInfo¹ | All | Service-specific metadata. |
+| ServiceInfo1 | All | Service-specific metadata. |
 | ServiceInfo2 | All | Legacy field with optional service-specific metadata. |
 | ServicePeriodEndDate | MCA | The end date of the rating period that defined and locked pricing for the consumed or purchased service. |
 | ServicePeriodStartDate | MCA | The start date of the rating period that defined and locked pricing for the consumed or purchased service. |
