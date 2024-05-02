@@ -232,10 +232,6 @@ To enable last access time tracking with the Azure portal, follow these steps:
 
 [!INCLUDE [azure-storage-set-last-access-time-azure-cli](../../../includes/azure-storage-set-last-access-time-azure-cli.md)]
 
-### [Template](#tab/template)
-
-[!INCLUDE [azure-storage-set-last-access-time-template](../../../includes/azure-storage-set-last-access-time-template.md)]
-
 ---
 
 ## Next steps
