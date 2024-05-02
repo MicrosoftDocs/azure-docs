@@ -39,8 +39,6 @@ items:
       href: concepts/chat/concepts.md
     - name: Email
       href: concepts/email/prepare-email-communication-resource.md
-    - name: Network Traversal
-      href: concepts/network-traversal.md
     - name: Advanced Messaging
       expanded: true
       items:
@@ -102,19 +100,21 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
-          href: quickstarts/voice-video-calling/get-started-teams-interop.md  
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
-    - name: Connect to a Teams calling applications
+    - name: Connect to a Teams calling application
       items:
         - name: Connect to Call Queue
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
         - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
+    - name: Connect Teams users to Azure calls
+      href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
     - name: Connect to a Room call
       items:
       - name: Create a room 
@@ -203,10 +203,6 @@ items:
         href: quickstarts/router/get-started-router.md
       - name: Integrate Azure OpenAI with Job Router
         href: quickstarts/router/job-router-azure-openai-integration.md
-  - name: Network Traversal
-    items:
-    - name: Access TURN relays
-      href: quickstarts/relay-token.md  
   - name: Advanced Messaging
     items:
     - name: WhatsApp
@@ -286,6 +282,10 @@ items:
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
     - name: Collecting user feedback with the mobile UI Library
       href: tutorials/collecting-user-feedback/collecting-user-feedback.md
+    - name: Audio quality enhancements
+      items:
+        - name: Enabling audio effects
+          href: tutorials/audio-quality-enhancements/add-noise-supression.md
     - name: Virtual appointments
       items:      
       - name: Sample builder
@@ -316,8 +316,6 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
-      - name: Manage Audio Filters
-        href: how-tos/calling-sdk/manage-audio-filters.md
       - name: PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
@@ -395,6 +393,8 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
+        - name: Migrate from Twilio Video to Azure Communication Services
+          href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
@@ -402,6 +402,8 @@ items:
       items:
       - name: Integrate with CallKit in iOS
         href: how-tos/calling-sdk/callkit-integration.md
+      - name: Integrate with TelecomManager on Android
+        href: how-tos/calling-sdk/telecommanager-integration.md
       - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
@@ -656,6 +658,8 @@ items:
       items:
       - name: Migrate from Twilio Video to Azure Communication Services
         href: concepts/migrate-to-azure-communication-services.md
+      - name: How to migrate from Twilio Video to Azure Communication Services
+        href: tutorials/migrating-to-azure-communication-services-calling.md
     - name: Web UI library
       href: https://aka.ms/acsstorybook
     - name: Call Automation
@@ -722,6 +726,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Teams users in Azure Communication Services calls
+            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
@@ -733,9 +739,11 @@ items:
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
       - name: Closed captions
-        href: concepts/interop/enable-closed-captions.md      
+        href: concepts/voice-video-calling/closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
+      - name: Enable interoperability with Teams
+        href: concepts/interop/enable-interoperability-teams.md
     - name: Advanced audio and video
       items:    
       - name: Rooms API for structured meetings 
@@ -767,13 +775,13 @@ items:
       - name: Tuning video quality
         href: concepts/voice-video-calling/video-constraints.md        
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: SDK best practices
+        href: concepts/best-practices.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Networking and Data
       items:
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
-        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: SDK best practices
-        href: concepts/best-practices.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
         href: concepts/call-flows.md
@@ -805,6 +813,10 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and Video events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Closed captions
+      items:
+      - name: Closed captions overview
+        href: concepts/interop/enable-closed-captions.md         
     - name: UI Library
       items:
       - name: UI Library overview
@@ -823,6 +835,8 @@ items:
       items:    
       - name: WebJS calling SDK
         href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Native calling SDK
+        href: concepts/voice-video-calling/known-issues-native.md
       - name: Call Automation
         href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
@@ -949,6 +963,8 @@ items:
       href: concepts/email/email-optout-management.md   
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
+    - name: Quota increase for email domains
+      href: concepts/email/email-quota-increase.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
@@ -957,6 +973,8 @@ items:
         href: concepts/email/email-domain-and-sender-authentication.md
       - name: Best practices for sender authentication support 
         href: concepts/email/email-authentication-best-practice.md
+      - name: Troubleshooting Domain Configuration issues 
+        href: concepts/email/email-domain-configuration-troubleshooting.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
     - name: Events
@@ -999,18 +1017,6 @@ items:
         href: concepts/analytics/logs/router-logs.md
       - name: Job Router metrics
         href: concepts/router/metrics.md
-  - name: Network Traversal
-    items:
-    - name: Overview
-      href: concepts/network-traversal.md
-    - name: Analytics
-      items:
-      - name: Network Traversal logs
-        href: concepts/analytics/logs/network-traversal-logs.md    
-      - name: Network Traversal metrics
-        href: concepts/analytics/turn-metrics.md  
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Advanced Messaging
     items:
     - name: WhatsApp
@@ -1050,9 +1056,21 @@ items:
         - name: Understanding error messages and codes
           href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md
         - name: Reporting an issue
-          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/reporting-an-issue.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/report-issue.md
       - name: Calling (JavaScript)
         items:
+        - name: Call setup issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md
+          - name: Invalid or expired tokens
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/invalid-or-expired-tokens.md
+          - name: Failed to create callAgent
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/failed-to-create-call-agent.md
+          - name: The user doesn't receive incoming call notifications
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/no-incoming-call-notifications.md
+          - name: The call setup takes too long
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/call-setup-takes-too-long.md
         - name: Device and permission issues
           items:
           - name: Overview
@@ -1065,6 +1083,52 @@ items:
             href: resources/troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
           - name: The askDevicePermission API takes too long
             href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
+        - name: Audio issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/audio-issues/overview.md
+          - name: The user cannot hear sound during the call
+            items:
+            - name: The speaking participant doesn't grant the microphone permission
+              href: resources/troubleshooting/voice-video-calling/audio-issues/microphone-permission.md
+            - name: The speaking participant's microphone has a problem
+              href: resources/troubleshooting/voice-video-calling/audio-issues/microphone-issue.md
+            - name: The user's speaker has a problem
+              href: resources/troubleshooting/voice-video-calling/audio-issues/speaker-issue.md
+            - name: There is a network issue in the call
+              href: resources/troubleshooting/voice-video-calling/audio-issues/network-issue.md
+          - name: The user experiences poor audio quality
+            href: resources/troubleshooting/voice-video-calling/audio-issues/poor-quality.md
+          - name: The user experiences delays during the call
+            href: resources/troubleshooting/voice-video-calling/audio-issues/delay-issue.md
+          - name: The user experiences echo during the call
+            href: resources/troubleshooting/voice-video-calling/audio-issues/echo-issue.md
+          - name: The volume of the incoming audio is low
+            href: resources/troubleshooting/voice-video-calling/audio-issues/incoming-audio-low-volume.md
+        - name: Video issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/video-issues/overview.md
+          - name: The user cannot see video from the remote participant
+            items:
+            - name: Subscribing to a video that is unavailable
+              href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-video-not-available.md
+            - name: The remote video becomes unavailable while subscribing the video
+              href: resources/troubleshooting/voice-video-calling/video-issues/remote-video-becomes-unavailable.md
+            - name: The application disposes the video renderer while subscribing the video
+              href: resources/troubleshooting/voice-video-calling/video-issues/application-disposes-video-renderer.md
+            - name: The maximum number of active video subscriptions has been reached
+              href: resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md
+            - name: CreateView timeout
+              href: resources/troubleshooting/voice-video-calling/video-issues/create-view-timeout.md
+          - name: The user experiences poor video quality
+            items:
+            - name: The network is poor during the call
+              href: resources/troubleshooting/voice-video-calling/video-issues/network-poor.md
+            - name: The video sender has high CPU load
+              href: resources/troubleshooting/voice-video-calling/video-issues/video-sender-has-high-cpu-load.md
+            - name: The sender's video is frozen
+              href: resources/troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
         - name: References
           items:
           - name: How to collect client logs
@@ -1201,16 +1265,6 @@ items:
       href: /java/api/overview/azure/communication-jobrouter-readme
     - name: Job Router (Python)
       href: /python/api/overview/azure/communication-jobrouter-readme
-  - name: Network Traversal
-    items:
-    - name: Network Traversal (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-8
-    - name: Network Traversal (.NET)
-      href: /dotnet/api/overview/azure/communication.networktraversal-readme
-    - name: Network Traversal (Java)
-      href: /java/api/overview/azure/communication-networktraversal-readme
-    - name: Network Traversal (Python)
-      href: /python/api/overview/azure/communication-networktraversal-readme
   - name: Phone Numbers
     items:
     - name: Phone Numbers (JavaScript)

@@ -73,7 +73,7 @@ If you're able to reproduce the issue, include details related to the issue. For
 * what result do you actually see
 * reproducibility rate of the issue
 
-For more information, see [Reporting an issue](./reporting-an-issue.md).
+For more information, see [Reporting an issue](report-issue.md).
 
 ## Next steps
 

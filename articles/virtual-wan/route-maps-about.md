@@ -55,7 +55,7 @@ Before using Route-maps, take into consideration the following limitations:
 * During Preview, hubs that are using Route-maps must be deployed in their own virtual WANs.
 * The Route-maps feature is only available for virtual hubs running on the Virtual Machine Scale Sets infrastructure. For more information, see the [FAQ](virtual-wan-faq.md).
 * When using Route-maps to summarize a set of routes, the hub router strips the *BGP Community* and *AS-PATH* attributes from those routes. This applies to both inbound and outbound routes.
-* When adding ASNs to the AS-PATH, don't use ASNs reserved by Azure:
+* When adding ASNs to the AS-PAT, only use the Private ASN range 64512 - 65535, but don't use ASN's Reseverd by Azure:
   * Public ASNs: 8074, 8075, 12076
   * Private ASNs: 65515, 65517, 65518, 65519, 65520
 * You can't apply Route-maps to connections between on-premises and SD-WAN/Firewall NVAs in the virtual hub. These connections aren't supported during Preview. You can still apply route-maps to other supported connections when an NVA in the virtual hub is deployed. This doesn't apply to the Azure Firewall, as the routing for Azure Firewall is provided through Virtual WAN [routing intent features](how-to-routing-policies.md).
@@ -64,7 +64,6 @@ Before using Route-maps, take into consideration the following limitations:
 * Modifying the *Default* route is only supported when the default route is learned from on-premises or an NVA.
 * A prefix can be modified either by Route-maps, or by NAT, but not both.
 * Route-maps won't be applied to the [hub address space](virtual-wan-site-to-site-portal.md#hub).
-* Modifying the Default route is only supported when the default route is learned from on-Prem or an NVA.
 * Applying Route-Maps on NVAs in a spoke VNet is not supported. 
 
 ## Configuration workflow

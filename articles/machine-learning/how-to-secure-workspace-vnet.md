@@ -312,6 +312,12 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     ---
 
 > [!TIP]
+> If you have configured your image build compute to use a compute cluster and want to reverse this decision, execute the same command but leave the image-build-compute reference empty:
+> ```azurecli
+>   az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute ''
+>    ```
+
+> [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
 
 ## Secure Azure Monitor and Application Insights

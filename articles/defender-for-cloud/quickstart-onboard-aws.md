@@ -1,9 +1,8 @@
 ---
 title: Connect your AWS account
-description: Defend your AWS resources by using Microsoft Defender for Cloud.
+description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.custom:
-ms.date: 01/03/2024
+ms.date: 04/08/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -34,7 +33,7 @@ Microsoft Defender for Cloud CSPM service acquires a Microsoft Entra token with 
 
 The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
-Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
+Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
 
 - audience validation
 
@@ -94,6 +93,18 @@ Enable these other extensions on the Azure Arc-connected machines:
 Make sure the selected Log Analytics workspace has a security solution installed. The Log Analytics agent and the Azure Monitor agent are currently configured at the *subscription* level. All of your AWS accounts and Google Cloud Platform (GCP) projects under the same subscription inherit the subscription settings for the Log Analytics agent and the Azure Monitor agent.
 
 [Learn more about monitoring components](monitoring-components.md) for Defender for Cloud.
+
+### Defender for open-source databases (Preview)
+
+If you choose the Defender for open-source relational databases plan, you need:
+
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
+- Connect your [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md).
+
+Region availability: All public AWS regions (excluding Tel Aviv, Milan, Jakarta, Spain and Bahrain).
 
 ### Defender for Servers
 
@@ -195,7 +206,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     Optionally, select **Configure** to edit the configuration as required. If you choose to turn off this configuration, the **Threat detection (control plane)** feature is also disabled. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
-1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server.
+1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server and open-source relational databases on RDS.
 
     (Optional) Select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 

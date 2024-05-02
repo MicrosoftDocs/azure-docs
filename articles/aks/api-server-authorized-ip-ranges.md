@@ -4,6 +4,8 @@ description: Learn how to secure your cluster using an IP address range for acce
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 12/26/2023
+ms.author: schaffererin
+author: schaffererin
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
 
@@ -138,7 +140,7 @@ When you enable API server authorized IP ranges during cluster creation, the out
 - Update an existing cluster's API server authorized IP ranges using the [`az aks update`][az-aks-update] command with the `--api-server-authorized-ip-ranges` parameter. The following example updates API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address range to authorize is *73.140.245.0/24*:
 
     ```azurecli-interactive
-    az aks update --resource-group myResourceGroup --name myAKSCluster -api-server-authorized-ip-ranges 73.140.245.0/24
+    az aks update --resource-group myResourceGroup --name myAKSCluster --api-server-authorized-ip-ranges 73.140.245.0/24
     ```
 
     You can also use *0.0.0.0/32* when specifying the `--api-server-authorized-ip-ranges` parameter to allow only the public IP of the Standard SKU load balancer.
@@ -276,6 +278,7 @@ In this article, you enabled API server authorized IP ranges. This approach is o
 [egress-outboundtype]: egress-outboundtype.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[route-tables]: ../virtual-network/manage-route-table.yml
 [standard-sku-lb]: load-balancer-standard.md
 [azure-devops-allowed-network-cfg]: /azure/devops/organizations/security/allow-list-ip-url
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
