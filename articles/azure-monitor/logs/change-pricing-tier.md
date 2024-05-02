@@ -28,9 +28,9 @@ Use the following steps to change the pricing tier of your workspace using the A
 
 1. From the **Log Analytics workspaces** menu, select your workspace, and open **Usage and estimated costs**. This displays a list of each of the pricing tiers available for this workspace.
 
-2. Review the estimated costs for each pricing tier. This estimate assumes that the last 31 days of your usage is typical. 
+2. Review the estimated costs for each pricing tier. This estimate assumes that your usage in the last 31 days is typical. 
 
-3. Choose the tier with the lowest estimated cost. This tier is labled **Recommended Tier**.   
+3. Choose the tier with the lowest estimated cost. This tier is labeled **Recommended Tier**.   
 
 :::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
     
