@@ -23,29 +23,23 @@ To connect your cluster to Azure Arc:
    > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
    > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-1. Set an environment variable for the cluster name as it will show up in your resource group.
+1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as it will show up in your resource group.
 
-   ```bash
-   # Name of the Arc-enabled cluster to create in your resource group
-   export CLUSTER_NAME=<NEW_CLUSTER_NAME>
-   ```
-
-1. Set environment variables for your Azure subscription, location, and a new resource group. If you're using GitHub Codespaces and set these secrets when creating your codespace, you can skip this step.
+   If you're using GitHub Codespaces and set up these values as recommended secrets when creating your codespace, skip this step. The codespace automatically sets the cluster name to be the same as the codespace name.
 
    ```bash
    # Id of the subscription where your resource group and Arc-enabled cluster will be created
    export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
-   ```
 
-   ```bash
    # Azure region where the created resource group will be located
    # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
    export LOCATION=<REGION>
-   ```
 
-   ```bash
    # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
    export RESOURCE_GROUP=<NEW_RESOURCE_GROUP_NAME>
+
+   # Name of the Arc-enabled cluster to create in your resource group
+   export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
 
 1. Set the Azure subscription context for all commands:
@@ -55,6 +49,9 @@ To connect your cluster to Azure Arc:
    ```
 
 1. Register the required resource providers in your subscription:
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription.
 
    ```azurecli
    az provider register -n "Microsoft.ExtendedLocation"
