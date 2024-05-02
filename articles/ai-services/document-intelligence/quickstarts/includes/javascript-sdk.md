@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/25/2024
+ms.date: 05/02/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -146,47 +146,44 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 :::moniker range="doc-intel-4.0.0"
 
 ```javascript
-    const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
-    const  { AzureKeyCredential } = require("@azure/core-auth");
+    const DocumentIntelligenceClient = require("@azure-rest/ai-document-intelligence");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key";
     const endpoint = "<your-endpoint>";
 
     // sample document
-  const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+    const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-async function main() {
-    const client = DocumentIntelligenceClient(endpoint, new AzureKeyCredential(key));
+   async function main() {
+    const client = DocumentIntelligenceClient(endpoint, {key:key},);
 
-    const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
 
-const {
-        pages,
-        tables
-    } = await poller.pollUntilDone();
+    const initialResponse = await client
+      .path("/documentModels/{modelId}:analyze", "prebuilt-layout")
+      .post({
+        contentType: "application/json",
+        body: {
+          urlSource: formUrl
+        },
+       });
 
-    if (pages.length <= 0) {
-        console.log("No pages were extracted from the document.");
-    } else {
-        console.log("Pages:");
-        for (const page of pages) {
-            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-        }
+    const poller = await getLongRunningPoller(client, initialResponse);
+    const analyzeResult = (await poller.pollUntilDone()).body.analyzeResult;
+
+    const documents = analyzeResult?.documents;
+
+    const document = documents && documents[0];
+    if (!document) {
+    throw new Error("Expected at least one document in the result.");
     }
 
-    if (tables.length <= 0) {
-        console.log("No tables were extracted from the document.");
-    } else {
-        console.log("Tables:");
-        for (const table of tables) {
-            console.log(
-                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-            );
-        }
-    }
+    console.log(
+    "Extracted document:",
+    document.docType,
+    `(confidence: ${document.confidence || "<undefined>"})`,
+    );
+    console.log("Fields:", document.fields);
 }
 
 main().catch((error) => {
@@ -312,8 +309,7 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
-const  { AzureKeyCredential } = require("@azure/core-auth");
+const DocumentIntelligenceClient = require("@azure-rest/ai-document-intelligence");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";
@@ -323,31 +319,43 @@ const  { AzureKeyCredential } = require("@azure/core-auth");
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
-    const client = DocumentIntelligenceClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocument("prebuilt-invoice", invoiceUrl);
-if (pages.length <= 0) {
-        console.log("No pages were extracted from the document.");
+    const client = DocumentIntelligenceClient(endpoint, {key: key},
+     );
+
+    const initialResponse = await client
+    .path("/documentModels/{modelId}:analyze", "prebuilt-invoice")
+    .post({
+      contentType: "application/json",
+      body: {
+        // The Document Intelligence service will access the URL to the invoice image and extract data from it
+        urlSource: invoiceUrl,
+      },
+    });
+
+
+    const poller = await getLongRunningPoller(client, initialResponse);
+
+    poller.onProgress((state) => console.log("Operation:", state.result, state.status));
+    const analyzeResult = (await poller.pollUntilDone()).body.analyzeResult;
+
+    const documents = analyzeResult?.documents;
+
+    const result = documents && documents[0];
+    if (result) {
+      console.log(result.fields);
     } else {
-        console.log("Pages:");
-        for (const page of pages) {
-            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-        }
+      throw new Error("Expected at least one invoice in the result.");
     }
 
-    if (tables.length <= 0) {
-        console.log("No tables were extracted from the document.");
-    } else {
-        console.log("Tables:");
-        for (const table of tables) {
-            console.log(
-                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-            );
-        }
-    }
+console.log(
+    "Extracted invoice:",
+    document.docType,
+    `(confidence: ${document.confidence || "<undefined>"})`,
+  );
+  console.log("Fields:", document.fields);
 }
+
 
 main().catch((error) => {
     console.error("An error occurred:", error);
