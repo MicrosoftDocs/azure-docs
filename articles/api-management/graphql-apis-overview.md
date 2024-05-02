@@ -47,6 +47,7 @@ In API Management, add a GraphQL API from a GraphQL schema, either retrieved fro
 
 * Data object types and fields that clients can request from a GraphQL API
 * Operation types allowed on the data, such as queries 
+* Other types, such as unions and interfaces, that provide additional flexibility and control over the data
 
 For example, a basic GraphQL schema for user data and a query for all users might look like:
 
@@ -61,7 +62,9 @@ type User {
 }
 ```
 
-API Management supports the following operation types in GraphQL schemas. For more information about these operation types, see the [GraphQL specification](https://spec.graphql.org/October2021/#sec-Subscription-Operation-Definitions).
+### Operation types
+
+API Management supports the following operation types in GraphQL schemas. For more information about these operation types, see the [GraphQL specification](https://spec.graphql.org/October2021/#sec-Root-Operation-Types).
 
 * **Query** - Fetches data, similar to a `GET` operation in REST
 *  **Mutation** - Modifies server-side data, similar to a `PUT` or `PATCH` operation in REST
@@ -69,12 +72,13 @@ API Management supports the following operation types in GraphQL schemas. For mo
 
     For example, when data is modified via a GraphQL mutation, subscribed clients could be automatically notified about the change. 
 
-> [!IMPORTANT]
-> API Management supports subscriptions implemented using  the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
-> 
+    > [!IMPORTANT]
+    > API Management supports subscriptions implemented using  the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
+    > 
 
-> [!NOTE]
-> API Management also supports the [union](https://spec.graphql.org/October2021/#sec-Unions) and [interface](https://spec.graphql.org/October2021/#sec-Interfaces) types in GraphQL schemas.
+### Other types
+
+API Management supports the [union](https://spec.graphql.org/October2021/#sec-Unions) and [interface](https://spec.graphql.org/October2021/#sec-Interfaces) types in GraphQL schemas.
 
 ## Resolvers
 
