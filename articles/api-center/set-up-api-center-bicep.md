@@ -48,6 +48,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more inf
 
     ```azurecli
     # Create a resource group in one of the supported regions for Azure API Center
+    
     az group create --name exampleRG --location eastus
 
     az deployment group create --resource-group exampleRG --template-file main.bicep --parameters apiName="<api-name>" apiType="<api-type>" 
@@ -56,6 +57,8 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more inf
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
+    # Create a resource group in one of the supported regions for Azure API Center
+
     New-AzResourceGroup -Name exampleRG -Location eastus
 
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -apiName "<api-name>" -apiType "<api-type>"
