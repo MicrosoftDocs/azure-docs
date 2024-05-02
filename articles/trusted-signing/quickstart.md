@@ -134,7 +134,7 @@ A Trusted Signing account name is:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On either the Azure portal menu or on the Home pane, select **Create a resource**.
 1. In the search box, enter and then select **Trusted Signing account**.
-1. On the Trusted Signing account Overview pane, select **Create**.
+1. On the Trusted Signing account **Overview** pane, select **Create**.
 1. For **Subscription**, select your Azure subscription.
 1. For **Resource group**, select **Create new**, and then enter a resource group name.
 1. For **Account Name**, enter a unique account name.
@@ -192,7 +192,10 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 
 ## Create an identity validation request
 
-You can complete your own identity validation by filing out the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
+You can complete your own identity validation by filling out the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
+
+> [!NOTE]
+> You can't create an identity validation if you don't have the appropriate role assigned. If the **New identity** button is greyed out on the Azure portal,ensure that you are assigned the Trusted Signing Identity Verifier roler to proceed with identity validation.
 
 To create an identity validation request:
 
@@ -200,7 +203,7 @@ To create an identity validation request:
 1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
    - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
-1. On either the Trusted Signing account Overview page or on the Objects pane, select **Identity Validation**.
+1. On either the Trusted Signing account **Overview** page or on the **Objects** pane, select **Identity Validation**.
 1. Select **New Identity Validation**, and then select either **Public** or **Private**.
 
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
@@ -267,7 +270,7 @@ A certificate profile name is:
 To create a certificate profile in the Azure portal:
 
 1. In the Azure portal, go to your new Trusted Signing account.
-1. On the Trusted Signing account Overview pane or on the Objects pane, select **Certificate Profile**.
+1. On the Trusted Signing account **Overview** pane or on the **Objects** pane, select **Certificate Profile**.
 1. On **Certificate Profiles**, select the certificate profile type in the dropdown menu.
 
     - Public identity validation is applicable to Public Trust and Public Trust Test.
@@ -333,7 +336,7 @@ The following table lists *helpful commands* to use when you create a certificat
 ### Delete a certificate profile
 
 1. In the Azure portal, go to your Trusted Signing account.
-1. On the Trusted Signing account Overview pane or on the Objects pane, select **Certificate Profile**.
+1. On the Trusted Signing account **Overview** pane or on the II pane, select **Certificate Profile**.
 1. On **Certificate Profiles**, select the certificate profile that you want to delete.
 1. Select **Delete**.
 

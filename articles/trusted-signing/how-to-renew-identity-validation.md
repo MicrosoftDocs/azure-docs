@@ -21,7 +21,7 @@ On the Identity Validation pane, you can check the expiration date of your ident
 1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
    - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
-1. On either the account Overview pane or the Objects pane, select **Identity Validation**.
+1. On either the account **Overview** pane or on the **Objects** pane, select **Identity Validation**.
 1. Select the identity validation request that needs to be renewed. On the menu bar, select **Renew**.
 
    :::image type="content" source="media/trusted-signing-renew-identity-validation.png" alt-text="Screenshot that shows the Renew option for an identity validation request." lightbox="media/trusted-signing-renew-identity-validation.png":::
@@ -30,7 +30,7 @@ On the Identity Validation pane, you can check the expiration date of your ident
 1. Verify that after you renew a request, the identity validation status is **Completed**.
 1. To ensure that you can continue to use your existing metadata.json file:
 
-   1. Return to the Trusted Signing account Overview pane or to the Objects pane, and then select **Certificate Profile**.
+   1. Return to the Trusted Signing account **Overview** pane or to the **Objects** pane, and then select **Certificate Profile**.
    1. On the **Certificate Profiles** pane, delete the existing certificate profile that's associated with the identity validation that is expiring soon.
    1. Create a new certificate profile that has the same name.
    1. Select the identity validation.
