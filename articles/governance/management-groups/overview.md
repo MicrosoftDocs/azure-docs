@@ -216,10 +216,7 @@ There are limitations that exist when using custom roles on management groups.
   is in place to reduce the number of situations where role definitions and role assignments are
   disconnected. This situation happens when a subscription or management group with a role
   assignment moves to a different parent that doesn't have the role definition.
-- Resource provider data plane actions can't be defined in management group custom roles. This
-  restriction is in place as there's a latency issue with updating the data plane resource
-  providers. This latency issue is being worked on and these actions will be disabled from the role
-  definition to reduce any risks.
+- Custom roles with `DataActions` can't be assigned at the management group scope. For more information, see [Custom role limits](../../role-based-access-control/custom-roles.md#custom-role-limits).
 - Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
