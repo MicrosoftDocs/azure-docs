@@ -24,7 +24,7 @@ items:
     - name: Deploy a FHIR service
       items: 
         - name: Using Azure portal
-          href: fhir-portal-quickstart.md
+          href: deploy-azure-portal.md
         - name: Using Bicep
           href: fhir-service-bicep.md
         - name: Using ARM template
@@ -111,9 +111,9 @@ items:
       href: tutorial-member-match.md
     - name: Patient/$everything
       href: patient-everything.md
-    - name: $purge-history operation
+    - name: $purge-history
       href: purge-history.md
-    - name: $bulk-delete operation
+    - name: $bulk-delete
       href: fhir-bulk-delete.md
     - name: $validate
       items: 

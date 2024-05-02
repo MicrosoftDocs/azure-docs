@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom:
 ms.subservice: aks-storage
 ms.date: 04/19/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use the Azure Disk Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -440,3 +443,4 @@ The output of the command resembles the following example:
 [az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [disk-based-solutions]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage#disk-based-solutions
+

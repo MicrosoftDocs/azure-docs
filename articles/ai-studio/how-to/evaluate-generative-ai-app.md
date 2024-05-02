@@ -2,14 +2,14 @@
 title: How to evaluate with Azure AI Studio and SDK
 titleSuffix: Azure AI Studio
 description: Evaluate your generative AI application with Azure AI Studio UI and SDK.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
 ms.topic: how-to
 ms.date: 3/28/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 zone_pivot_groups: azure-ai-studio-sdk
 ---
 

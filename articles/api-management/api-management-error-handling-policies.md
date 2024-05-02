@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Error handling in API Management policies
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 By providing a `ProxyError` object, Azure API Management allows publishers to respond to error conditions, which may occur during processing of requests. The `ProxyError` object is accessed through the [context.LastError](api-management-policy-expressions.md#ContextVariables) property and can be used by policies in the `on-error` policy section. This article provides a reference for the error handling capabilities in Azure API Management.
 
 ## Error handling in API Management

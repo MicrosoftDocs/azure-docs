@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 03/19/2024
+ms.date: 04/17/2024
 ms.topic: reference
 ---
 
@@ -19,8 +19,6 @@ Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernete
 - Azure Arc-enabled App services
 - Azure Arc-enabled Machine Learning
 - Azure Arc-enabled data services (direct connectivity mode only)
-- Azure Arc resource bridge
-
 [!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
 For more information, see [Azure Arc-enabled Kubernetes network requirements](kubernetes/network-requirements.md).

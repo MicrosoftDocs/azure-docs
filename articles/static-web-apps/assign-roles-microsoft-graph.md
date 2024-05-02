@@ -289,4 +289,4 @@ Clean up the resources you deployed by deleting the resource group.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authentication and authorization](./authentication-authorization.md)
+> [Authentication and authorization](./authentication-authorization.yml)

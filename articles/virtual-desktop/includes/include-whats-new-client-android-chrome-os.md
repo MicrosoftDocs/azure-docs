@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 04/11/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,16 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.0.16.1237   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
-| Beta    | 10.0.16.1237   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+| Public  | 10.0.18.1251   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
+| Beta    | 10.0.18.1251   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
+
+## Updates for version 10.0.18.1251
+
+*Published: December 14, 2023*
+
+In this release, we made the following changes:
+
+- Bug fixes and improvements.
 
 ## Updates for version 10.0.16.1237 
 

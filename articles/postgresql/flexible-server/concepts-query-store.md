@@ -3,7 +3,8 @@ title: Query Store
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 01/22/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -275,9 +276,6 @@ This function discards all statistics gathered so far by Query Store. It discard
 
 This function discards all statistics gathered in-memory by Query Store (that is, the data in memory that hasn't been flushed yet to the on disk tables supporting persistence of collected data for Query Store). This function can only be executed by the server admin role (**azure_pg_admin**).
 
-
-## Limitations and known issues
-[!INCLUDE [Note Query store and Azure storage compability](includes/note-query-store-azure-storage-compability.md)]
 
 ### Read-only mode
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only mode, such as when the `default_transaction_read_only` parameter is set to `on`, or if read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store does not capture any data.

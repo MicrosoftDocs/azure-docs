@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 01/12/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
@@ -91,4 +94,5 @@ You can increase certain default limits and quotas. If your resource supports an
 [vm-skus]: ../virtual-machines/sizes.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [b-series-vm]: ../virtual-machines/sizes-b-series-burstable.md
+
 

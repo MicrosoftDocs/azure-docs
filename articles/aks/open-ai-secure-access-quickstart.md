@@ -292,3 +292,4 @@ For more information on Microsoft Entra Workload ID, see [Microsoft Entra Worklo
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [kubectl-describe-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+

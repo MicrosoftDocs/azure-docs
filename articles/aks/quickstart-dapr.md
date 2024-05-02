@@ -247,3 +247,4 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes
 [azure-portal-cache]: https://portal.azure.com/#create/Microsoft.Cache
 [dapr-component-secrets]: https://docs.dapr.io/operations/components/component-secrets/
+

@@ -1,10 +1,14 @@
 ---
 title: Tutorial - Automatically check and record IP address reputation in incident in Microsoft Sentinel
 description: In this tutorial, learn how to use Microsoft Sentinel automation rules and playbooks to automatically check IP addresses in your incidents against a threat intelligence source and record each result in its relevant incident.
-author: yelevin
-ms.author: yelevin
 ms.topic: tutorial
-ms.date: 12/05/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Tutorial: Automatically check and record IP address reputation information in incidents
@@ -21,8 +25,10 @@ When you complete this tutorial, you'll be able to:
 > * Create an automation rule to invoke the playbook
 > * See the results of your automated process
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
+
 To complete this tutorial, make sure you have:
 
 - An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
@@ -35,19 +41,11 @@ To complete this tutorial, make sure you have:
 
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
-## Sign in to the Azure portal and Microsoft Sentinel
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. From the Search bar, search for and select **Microsoft Sentinel**.
-
-1. Search for and select your workspace from the list of available Microsoft Sentinel workspaces.
-
-1. On the **Microsoft Sentinel | Overview** page, select **Automation** from the navigation menu, under **Configuration**.
-
 ## Create a playbook from a template
 
 Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that you can customize and use to automate a large number of basic SecOps objectives and scenarios. Let's find one to enrich the IP address information in our incidents.
+
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
 
 1. From the **Automation** page, select the **Playbook templates (Preview)** tab.
 
@@ -55,6 +53,8 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
     1. Select the **Tags** filter toggle at the top of the list (to the right of the **Search** field).
 
     1. Clear the **Select all** checkbox, then mark the **Enrichment** checkbox. Select **OK**.
+
+    For example:
 
     :::image type="content" source="media/tutorial-enrich-ip-information/1-filter-playbook-template-list.png" alt-text="Screenshot of list of playbook templates to be filtered by tags." lightbox="media/tutorial-enrich-ip-information/1-filter-playbook-template-list.png":::
 
@@ -132,7 +132,7 @@ Here's where we do that.
 
 ### Authorize Log Analytics connection
 
-The next action is a **Condition** that determines the rest of the for-each loop's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates the address is harmless; a score lower than 0 indicates it's malicious.
+The next action is a **Condition** that determines the rest of the for-each loop's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than **0** indicates the address is harmless; a score lower than **0** indicates it's malicious.
 
 :::image type="content" source="media/tutorial-enrich-ip-information/12-reputation-condition.png" alt-text="Screenshot of condition action in logic app designer.":::
 

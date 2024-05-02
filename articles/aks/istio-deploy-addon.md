@@ -35,16 +35,6 @@ export LOCATION=<location>
 
 This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see [install an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep]. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
 
-When you install the Istio add-on, it deploys the following set of resources to your AKS cluster to enable Istio functionality:
-
-* Istio control plane components, such as Pilot, Mixer, and Citadel
-* Istio ingress gateway
-* Istio egress gateway
-* Istio sidecar injector webhook
-* Istio CRDs (Custom Resource Definitions)
-
-When you enable Istio on your AKS cluster, the sidecar proxy is automatically injected into your application pods. The sidecar proxy is responsible for intercepting all network traffic to and from the pod, and forwarding it to the appropriate destination. In Istio, the sidecar proxy is called **istio-proxy** instead of **envoy**, which is used in other service mesh solutions like Open Sevice Mesh (OSM).
-
 ### Revision selection
 
 If you enable the add-on without specifying a revision, a default supported revision is installed for you.
@@ -263,3 +253,4 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 [istio-deploy-ingress]: istio-deploy-ingress.md
 [az-aks-mesh-get-revisions]: /cli/azure/aks/mesh#az-aks-mesh-get-revisions(aks-preview)
 [bicep-aks-resource-definition]: /azure/templates/microsoft.containerservice/managedclusters
+

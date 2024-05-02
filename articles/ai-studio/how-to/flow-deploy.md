@@ -2,15 +2,15 @@
 title: Deploy a flow as a managed online endpoint for real-time inference
 titleSuffix: Azure AI Studio
 description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 2/24/2024
-ms.reviewer: eur
-ms.author: eur
-author: likebupt
+ms.reviewer: likebupt
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Deploy a flow for real-time inference
