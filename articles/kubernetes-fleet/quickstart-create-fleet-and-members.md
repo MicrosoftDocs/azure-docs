@@ -91,7 +91,7 @@ You can create a Fleet resource to later group your AKS clusters as member clust
 
 ### [Hubless fleet](#tab/hubless)
 
-If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command. For more details, see [What is a hub cluster (preview)?](./concepts-fleet.md#what-is-a-hub-cluster-preview).
+If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command.
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus

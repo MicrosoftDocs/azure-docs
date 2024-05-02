@@ -66,6 +66,6 @@ Now that you understand the different types of Kubernetes fleet resources, see [
 <!-- LINKS -->
 [aks-private-cluster]: /azure/aks/private-clusters
 [aks-private-cluster-connect]: /azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
-[create-private-hubful-fleet]: quickstart-create-fleet-and-member-clusters.md
+[create-private-hubful-fleet]: quickstart-create-fleet-and-members.md#private-hub
 <!-- TODO: NEED TO MODIFY ABOVE LINK WHEN TABS FOR HUBLESS/HUBFUL IN QS -->
 [azure-policy-overview]: /azure/governance/policy/overview
