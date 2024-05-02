@@ -52,7 +52,7 @@ Azure resource providers emit usage and charges to the billing system and popula
 The cost details file exposes multiple price points. They're outlined as follows.
 
 **PAYGPrice:** It's the market price, also referred to as retail or list price, for a given product or service.
-  - In all consumption usage records, `UnitPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
+  - In all consumption usage records, `PayGPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
   - Purchases and refunds have the market price for that transaction.
 
 When you deal with benefit-related records, where the `PricingModel` is `Reservations` or `SavingsPlan`, *PayGPrice* reflects the market price of the meter.

@@ -107,6 +107,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Multifactor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
+* [Intune](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service)
 
 ### Public peering
 

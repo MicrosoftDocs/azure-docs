@@ -137,9 +137,9 @@ This script automates the following steps:
 
 * Create the Azure resource group in your Azure subscription to store all the resources.
 
-* Connect the cluster to Azure Arc and registers the required Azure resource providers.
+* Connect the cluster to Azure Arc and register the required Azure resource providers.
 
-* Apply all the required configurations for Azure IoT Operations, including:
+* Apply all of the required configurations for Azure IoT Operations, including:
 
   * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations  broker.
 
@@ -252,15 +252,6 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
 
    >[!TIP]
    >If you've run `az iot ops init` before, it automatically created an app registration in Microsoft Entra ID for you. You can reuse that registration rather than creating a new one each time. To use an existing app registration, add the optional parameter `--sp-app-id <APPLICATION_CLIENT_ID>`.
-
-1. These quickstarts use the **OPC PLC simulator** to generate sample data. To configure the simulator for the quickstart scenario, run the following command:
-
-   > [!IMPORTANT]
-   > Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
-
-   ```azurecli
-   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
-   ```
 
 ## View resources in your cluster
 

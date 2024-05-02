@@ -300,6 +300,8 @@
       href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
+    - name: Azure API Center
+      href: reliability-api-center.md
     - name: Azure Application Gateway for Containers
       href: reliability-app-gateway-containers.md
     - name: Azure Chaos Studio
@@ -320,6 +322,8 @@
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure HDInsight on AKS
+      href: reliability-hdinsight-on-aks.md
     - name: Azure Health Data Services - Azure API for FHIR
       href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Health Insights 

@@ -157,6 +157,13 @@ In this article, we use a self-signed CA cert from the official Ratify documenta
       name: store-oras
     spec:
       name: oras
+    # If you want to you use Workload Identity for Ratify to access Azure Container Registry,
+    # uncomment the following lines, and fill the proper ClientID:
+    # See more: https://ratify.dev/docs/reference/oras-auth-provider
+    # parameters:
+    #  authProvider:
+    #    name: azureWorkloadIdentity
+    #    clientID: XXX
     ---
     apiVersion: config.ratify.deislabs.io/v1beta1
     kind: Verifier

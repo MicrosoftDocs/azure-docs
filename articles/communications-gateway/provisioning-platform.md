@@ -15,7 +15,7 @@ You can configure Azure Communications Gateway with the details of your customer
 
 - Associate numbers with backend services.
 - Provision backend services with customer configuration (sometimes called _flow-through provisioning_).
-- Add custom header configuration.
+- Add custom header configuration (available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile).
 
 You can provision Azure Communications Gateway with the:
 
@@ -28,7 +28,7 @@ The following table shows how you can provision Azure Communications Gateway for
 |---|---|---|---|
 |Microsoft Teams Direct Routing | Required | Not supported | Supported |
 |Operator Connect | Automatically set up if you use the API for flow-through provisioning or you use the Number Management Portal | Recommended (with API) | Supported |
-|Teams Phone Mobile | Automatically set up if you use the API for flow-through provisioning or you use the Number Management Portal | Recommended (with API) | Supported |
+|Teams Phone Mobile | Automatically set up if you use the API for flow-through provisioning or you use the Number Management Portal | Recommended (with API) | Not Supported |
 |Zoom Phone Cloud Peering | Required | Not supported | Supported |
 | Azure Operator Call Protection Preview | Required | Automatic | Not supported |
 

@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 04/15/2024
+ms.date: 05/01/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,20 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## May 2024
+
+|Date | Update |
+|--|--|
+| May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+
+### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
+
+May 1, 2024
+
+We are announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relational Database Service (RDS) instance types.
+
+Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
 
 ## April 2024
 
@@ -223,7 +237,7 @@ These public preview recommendations will be deprecated at the end March.
 
 The current generally available recommendations are still supported and will be until August 2024.
 
-Learn how to [prepare for the new endpoint detection recommendation experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+Learn how to [prepare for the new endpoint detection recommendation experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
 
 ### Custom recommendations based on KQL for Azure is now public preview
 
@@ -266,11 +280,11 @@ March 6, 2024
 
 Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
-Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
 
 We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
 
-Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
+Learn how to [assign a security standard](update-regulatory-compliance-packages.yml).
 
 ### Deprecation of two recommendations related to PCI
 
@@ -306,7 +320,7 @@ February 28, 2024
 
 The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes:
 
-- Managing [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud across Azure, AWS, and GCP environments.
+- Managing [regulatory compliance standards](update-regulatory-compliance-packages.yml) in Defender for Cloud across Azure, AWS, and GCP environments.
 - Same cross cloud interface experience for creating and managing [Microsoft Cloud Security Benchmark(MCSB) custom recommendations](manage-mcsb.md).
 - The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md).
 
