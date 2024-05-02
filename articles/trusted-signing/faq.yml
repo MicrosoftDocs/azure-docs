@@ -87,11 +87,11 @@ sections:
           This error is likely due to the Trusted Signing application not being allowed to run. Confirm that you have the "Trusted Signing Certificate Profile Signer" role: `({assignee} is your email)  az role assignment list --assignee {assignee}`
       - question: How do I check if the timestamper service is healthy? 
         answer: |
-          Run the following command `curl http://timestamp.acs.microsoft.com`. If the StatusCode 200 is returned, it means the timestamper service is healthy and running. 
+          Run the following command `curl http://timestamp.acs.microsoft.com`. If the StatusCode 200 is returned, it means the timestamper service is healthy and running. 
       - question: What if I get a 400 error with `SharedTokenCacheCredential` authentication failed? 
         answer: |
           This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON. To learn more, go to [DefaultAzureCredential Class (Azure.Identity)](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
-      - question: I’m getting errors when doing Private Trust signing. What should I do? 
+      - question: I get errors when I do Private Trust signing. What should I do? 
         answer: |
           If you get an internal error, check that the CN name you used matches with the cert name. The package name is checked so ensure to copy the entire Subject name that appears in the Azure portal to the manifest file when signing is submitted. 
       - question: I'm getting command succeeded for SignTool, but the file doesn't appear to be signed when I check the digital signature. What should I do? 
@@ -104,12 +104,14 @@ sections:
           - Finally, in the Resource Group (or Subscription) that has the role Trusted Signing Certificate Profile Signer, add the user-assigned managed identity to the role. Go to "Access control (IAM)" and "Role assignments" to assign the correct role.
       - question: How do I fix pop-up credentials when using GCP?
         answer: |
-          - Since GCP doesn't have Azure Managed Identity resource by default, an [Environment Credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) needs to be set up. 
-          Use the [EnvironmentCredential Class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. The recommendation is:
-          ```AZURE_TENANT_ID  The Microsoft Entra tenant(directory) ID. 
-          AZURE_CLIENT_ID The client(application) ID of an App Registration in the tenant. 
-          AZURE_CLIENT_SECRET A client secret that was generated for the App Registration. ````
-          - To create a Client ID and Secret follow the guidance on [Creating a Service Principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+          - Because GCP doesn't have Azure Managed Identity resource by default, set up an [Environment Credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential Class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. The recommendation is:
+
+            ```
+            AZURE_TENANT_ID  The Microsoft Entra tenant(directory) ID. 
+            AZURE_CLIENT_ID The client(application) ID of an App Registration in the tenant. 
+            AZURE_CLIENT_SECRET A client secret that was generated for the App Registration. 
+           ```
+          - To create a Client ID and secret, follow the guidance in [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
           - After creating the Client ID and Secret, navigate to the Resource Group (or Subscription) that has the Trusted Signing Certificate Profile Signer role and add this App to the role. 
       - question: What if my Trusted Signing account is suspended?
         answer: |
