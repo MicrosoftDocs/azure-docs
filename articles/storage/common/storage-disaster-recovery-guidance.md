@@ -59,7 +59,7 @@ Azure Storage accounts support three types of failover:
 - [**Microsoft-managed failover**](#microsoft-managed-failover) - Potentially initiated by Microsoft due to a severe disaster in the primary region. <sup>1,2</sup>
 
 <sup>1</sup> Microsoft-managed failover can't be initiated for individual storage accounts, subscriptions, or tenants. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).<br/>
-<sup>2</sup> Your disaster recovery plan should be based on customer-managed failover. **Do not** rely on Microsoft-managed failover, which would only be used in extreme circumstances.
+<sup>2</sup> Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which would only be used in extreme circumstances.
 
 Each type of failover has a unique set of use cases, corresponding expectations for data loss, and support for accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2). This table summarizes those aspects of each type of failover:
 
@@ -90,7 +90,7 @@ To understand the effect of this type of failover on your users and applications
 In extreme circumstances such as major disasters, Microsoft **may** initiate a regional failover. Regional failovers are uncommon, and only take place when the original primary region is deemed unrecoverable within a reasonable amount of time. During these events, no action on your part is required. If your storage account is configured for RA-GRS or RA-GZRS, your applications can read from the secondary region during a Microsoft-managed failover. However, you don't have write access to your storage account until the failover process is complete.
 
 > [!IMPORTANT]
-> Your disaster recovery plan should be based on customer-managed failover. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.
+> Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.
 > A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed planned failover](#customer-managed-planned-failover-preview).
 
 ### Anticipate data loss and inconsistencies
@@ -141,9 +141,9 @@ Customer-managed failover is supported for general-purpose v2 standard tier stor
 
 The time it takes for a customer-initiated failover to complete after being initiated can vary, although it typically takes less than one hour.
 
-A customer-managed planned failover doesn't lose its geo-redundancy after a failover and subsequent failback. However, a customer-managed failover to recover from an outage does lose its geo-redundancy after a failover (and failback). In that type of failover, your storage account is automatically converted to locally redundant storage (LRS) in the new primary region during a failover, and the storage account in the original primary region is deleted.
+A planned customer-managed failover doesn't lose its geo-redundancy after a failover and subsequent failback, but an unplanned customer-managed failover does. When a customer-managed (unplanned) failover is initiated, your storage account is automatically converted to locally redundant storage (LRS) in the new primary region, and the storage account in the original primary region is deleted.
 
-You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account, but re-replicating data to the new secondary region incurs a charge. Additionally, all archived blobs need to be rehydrated to an online tier before the account can be reconfigured for geo-redundancy. This rehydration also incurs an extra charge. For more information about pricing, see:
+You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account, but re-replicating data to the new secondary region incurs a charge. Additionally, any archived blobs need to be rehydrated to an online tier before the account can be reconfigured for geo-redundancy. This rehydration also incurs an extra charge. For more information about pricing, see:
 
 - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)

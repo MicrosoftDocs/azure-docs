@@ -79,7 +79,13 @@ Azure Files offers multiple redundancy options, including geo-redundancy, to hel
 ## Disaster recovery and failover
 In the case of a disaster or unplanned outage, restoring access to file share data is usually critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
 
-Azure Files offers customer-managed failover for standard storage accounts if the data center in the primary region becomes unavailable. See [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
+Azure Files offers customer-managed (unplanned) failover for standard storage accounts if the data center in the primary region becomes unavailable. 
+
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+
+See [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
+
+
 
 ## Prevent accidental deletion of storage accounts and file shares
 

@@ -25,7 +25,7 @@ Customer-managed storage account planned failover enables you to fail over your 
 This article describes what happens during a customer-managed planned storage account failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed storage account failover to recover from an outage works](storage-failover-customer-managed-unplanned.md).
 
 > [!IMPORTANT]
-> Customer-managed planned failover is currently in PREVIEW.
+> Customer-managed planned failover is currently in PREVIEW. This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities. 
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >

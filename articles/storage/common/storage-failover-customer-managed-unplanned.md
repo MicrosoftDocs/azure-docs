@@ -23,6 +23,13 @@ Customer-managed (unplanned) failover of Azure Storage accounts enables you to f
 
 This article describes what happens during a customer-managed storage account failover and failback at every stage of the process.
 
+> [!IMPORTANT]
+> Customer-managed (unplanned) failover is currently in PREVIEW. This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name.
+
 [!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
 ## Redundancy management during failover and failback
