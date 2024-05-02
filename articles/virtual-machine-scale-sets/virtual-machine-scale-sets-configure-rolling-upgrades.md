@@ -56,6 +56,20 @@ Select the Virtual Machine Scale Set you want to change the upgrade policy for. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
+### [CLI](#tab/cli1)
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update). 
+
+```azurecli-interactive
+az vmss update \
+	--name myScaleSet \
+	--resource-group myResourceGroup \
+	--max-batch-instance-percent 10 \
+	--max-unhealthy-instance-percent 20 \
+	--max-unhealthy-upgraded-instance-percent 20 \
+	--prioritize-unhealthy-instances true \
+	--pause-time-between-batches PT2S \
+	--max-surge false 
+```
 
 ### [PowerShell](#tab/powershell1)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
