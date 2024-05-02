@@ -88,4 +88,4 @@ Remove-AzResourceGroup -Name HealthInsightsResourceGroup
 
 ## Next steps
 
-- Access Radiology Insights with the [REST API](get-started.md).
+<!--- - Access Radiology Insights with the [REST API](get-started.md). --->
