@@ -10,11 +10,34 @@ ms.reviewer: ju-shim
 ---
 
 
-# Update or delete a standby pool (Preview)
+# List, update or delete a standby pool (Preview)
 
 
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
+## List virtual machines in a standby pool
+There are multiple ways of determining if a virtual machine is part of the standby pool. 
+
+### [Portal](#tab/portal)
+Navigate to your Virtual Machine Scale Set. Under **Availability + scale** select **Standby pool**. All virtual machines in the standby pool associated with your scale set are listed here. 
+
+:::image type="content" source="media/standby-pools/list-view-portal.png" alt-text="A screenshot showing how to view all the instances in the standby pool in the portal.":::
+
+
+### [CLI](#tab/cli)
+Use [az standby-vm-pool vm list](/cli/azure/standbypool) to retrieve a list of virtual machines in your standby pool. 
+
+```azurecli-interactive
+az standby-vm-pool vm list --resource-group myResourceGroup --name myStandbyPool
+```
+### [PowerShell](#tab/powershell)
+Use [Get-AzStandbyVMPoolVM](/powershell/module/az.standbypool/Get-azstandbyvmpoolvm) to retrieve a list of virtual machines in your standby pool.
+
+```azurepowershell-interactive
+Get-AzStandbyVMPoolVM -ResourceGroupName myResourceGroup -Name myStandbyPool
+```
+
 
 
 ## Update a standby pool

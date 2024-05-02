@@ -14,9 +14,9 @@ ms.reviewer: ju-shim
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
-Standby pools for Virtual Machine Scale Sets enables you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can draw from when scaling out. 
+Standby pools for Virtual Machine Scale Sets enables you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can pull from when scaling out. 
 
-Standby pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the standby pool before to being put into the scale set and before the instances begin taking traffic.
+Standby pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the standby pool before to being moved into the scale set.
 
 ## Standby pool size
 The number of virtual machines in a standby pool are determined by the number of virtual machines in your scale set and the total max ready capacity configured.
@@ -39,9 +39,9 @@ If the scale set reduces the instance count to 5, the standby pool would fill to
 
 When your scale set requires more instances, rather than creating new instances from scratch, the scale set can instead pull virtual machines from the standby pool. This saves significant time as the virtual machines in the standby pool have already completed all post-provisioning steps. 
 
-When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) and your standby pool will refill to meet the max ready capacity configured.  
+When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) and your standby pool will refill to meet the max ready capacity configured. If at any point in time your scale set needs to scale beyond the number of instances you have in your standby pool, the scale set defaults to standard scale-out methods and creates new instances directly in the Scale Set
 
-If at any point in time your scale set needs to scale beyond the number of instances you have in your standby pool, the scale set defaults to standard scale-out methods and creates new instances directly in the Scale Set
+Standby pools will only give out virtual machines from the pool that match the desired power state configured. For example, if your desired power state is set as deallocated, the standby pool will only give the Virtual Machine Scale Set instances matching that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead
 
 ## Virtual machine states
 

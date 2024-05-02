@@ -58,9 +58,6 @@ Yes. To change the size of your standby pool, change the max ready capacity usin
 ### I created a standby pool and I noticed that some virtual machines are coming up in a failed state. 
 Ensure you have enough quota to complete the standby pool creation. Insufficient quota results in the platform attempting to create the virtual machines in the standby pool but unable to successfully complete the create operation. Check for multiple types of quotas such as Cores, Network Interfaces, IP Addresses, etc.
 
-### Will my scale set use virtual machines from my standby pool if they are in a failed state? 
-No. Virtual Machine Scale Sets will only use instances from your standby pool that match the desired power state of your pool. For example, if your desired power state is set as deallocated, the scale set only uses virtual machines in that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead. 
-
 
 ## Next steps
 
