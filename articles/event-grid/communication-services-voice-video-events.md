@@ -20,8 +20,8 @@ Azure Communication Services emits the following voice and video calling event t
 | [Microsoft.Communication.RecordingFileStatusUpdated](#microsoftcommunicationrecordingfilestatusupdated) | Published when a recording file is available |
 | [Microsoft.Communication.CallStarted](#microsoftcommunicationcallstarted) | Published when a call is started  |
 | [Microsoft.Communication.CallEnded](#microsoftcommunicationcallended)   | Published when a call ends  |
-| [Microsoft.Communication.CallParticipantAdded](#microsoftcommunicationcallparticipantadded) | Published when a participant is added  |
-| [Microsoft.Communication.CallParticipantRemoved](#microsoftcommunicationcallparticipantremoved) | Published when a participant is removed  |
+| [Microsoft.Communication.CallParticipantAdded](#microsoftcommunicationcallparticipantadded) | Published when a participant is added to a call AND they join it |
+| [Microsoft.Communication.CallParticipantRemoved](#microsoftcommunicationcallparticipantremoved) | Published when a participant leaves or is removed from a call  |
 | [Microsoft.Communication.IncomingCall](#microsoftcommunicationincomingcall) | Published when there is an incoming call  |
 
 ## Event responses
