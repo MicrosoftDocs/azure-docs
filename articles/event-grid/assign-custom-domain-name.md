@@ -104,13 +104,17 @@ Use the following steps to add your custom domains:
 1. Navigate to your Event Grid namespace in the [Azure portal](https://portal.azure.com)
 1. On the **Event Grid Namespace** page, select **Custom domains** on the left navigation menu.
 1. On the **Custom domains** page, select **+ Custom domain**.
+
+    :::image type="content" source="./media/assign-custom-domain-name/custom-domains-page.png" alt-text="Screenshot that shows the Custom domains page for an Azure Event Grid namespace with the + Custom domain button selected." lightbox="./media/assign-custom-domain-name/custom-domains-page.png":::
 1. On the **Add custom domain** page, specify values for the following properties:
     1. **Domain name**: the fully qualified domain name to be assigned to one of your Event Grid namespace host names. 
     1. **Associated hostname type**: the default hostname type that is to be associated with your custom domain name. 
     1. **Certificate URL**: the Certificate Identifier of the server certificate in your Azure Key Vault. Include only the base identifier of the certificate by excluding the last segment of the Certificate Identifier. You can choose **Select a certificate using a key vault** instead to select the certificate and the key vault from your subscriptions. 
     1. **Managed identity**: the managed identity used to authenticate with the Key Vault to access the server certificate that was created. 
     1. Select **Add**
-    1. Save the **TXT** records as you need to use these values to prove your custom domain ownership. 
+    
+        :::image type="content" source="./media/assign-custom-domain-name/add-custom-domain-page.png" alt-text="Screenshot that shows the Add custom domain page." lightbox="./media/assign-custom-domain-name/add-custom-domain-page.png":::
+1. Save the **TXT** records as you need to use these values to prove your custom domain ownership. 
 
 ### Azure CLI example
 Use the following command to update your namespace with the custom domain configuration. The following object includes two different `customDomains` configurations: the configuration under `topicSpacesConfiguration` is assigned to your MQTT endpoint, and the configuration under `topicsConfiguration` is assigned to your HTTP endpoint.  
