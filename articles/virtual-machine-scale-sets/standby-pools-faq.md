@@ -20,7 +20,7 @@ Get answers to frequently asked questions about standby pools for Virtual Machin
 Azure standby pools is a feature for Virtual Machine Scale Sets Flexible Orchestration that enables faster scaling out of resources by creating a pool of pre-provisioned virtual machines ready to service your workload. 
 
 ### When should I use standby pools for Virtual Machine Scale Sets? 
-There are two phases of virtual machine creation that can impact the time it takes for a virtual machine to be able to retrieve traffic and where you can use standby pools to improve performance. The first phase is the virtual machine provisioning itself, and the second phase is the post provisioning steps that you might take to make the virtual machine ready for your workload. This second step could include custom script extensions, downloading large amounts of data, security hardening, or any extra configuration steps needed and can often take many minutes to complete. 
+Using a standby pool with your Virtual Machine Scale set can help scale out performance by performing various pre and post provisioning steps in the pool before the VM is placed into the scale set. 
 
 ### What are the benefits of using Azure standby pools for Virtual Machine Scale Sets? 
 Standby pools is a powerful feature for accelerating your time to scale out and reducing the management needed for provisioning virtual machine resources and getting them ready to service your workload. If your applications are latency sensitive or have long initialization steps, standby pools can help with reducing that time and managing the steps to make your virtual machines ready on your behalf. 
@@ -33,9 +33,6 @@ No. Attaching a standby pool to a Virtual Machine Scale Set with Azure autoscale
 
 ### How many virtual machines can my standby pool for Virtual Machine Scale Sets have? 
 The maximum number of virtual machines between a scale set and a standby pool is 1,000. 
-
-### Do virtual machines in the standby pool receive traffic from the load balancer associated with the scale set? 
-No. Virtual machines in the standby pool don't take any traffic from the Load Balancer associated with the scale set until they're moved from the standby pool into the scale set. 
 
 ### Can my standby pool span multiple Virtual Machine Scale Sets? 
 No. A standby pool resource can't span multiple scale sets. Each scale set has its own standby pool attached to it. A standby pool inherits the unique properties of the scale set such as networking, virtual machine profile, extensions, and more. 
@@ -52,7 +49,7 @@ Virtual machines in the standby pool inherit the same virtual machine profile as
 
 
 ### Can I change the size of my standby pool without needing to recreate it? 
-Yes. To change the size of your standby pool, change the max ready capacity using the SDK of your choice. 
+Yes. To change the size of your standby pool, simply update the max ready capacity setting.  
 
 
 ### I created a standby pool and I noticed that some virtual machines are coming up in a failed state. 

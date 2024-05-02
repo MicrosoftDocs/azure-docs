@@ -64,19 +64,14 @@ There's no direct cost associated with using standby pools. Users are charged ba
 |**Deallocated virtual machine state:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. Virtual machines in the deallocated state don't incur any compute costs, only the associated persistent resources incur costs. |
 | **Running virtual machine state:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
 
-## Considerations
-- The total capacity of the standby pool and the Virtual Machine Scale Set together can't exceed 1000 instances. 
-- Creation of pooled resources is subject to the resource availability in each region.
-- Instances in the standby pool are automatically placed into the same resource group that the associated scale set is part of. 
-
 ## Unsupported configurations
-- Attaching a standby pool to a Virtual Machine Scale Set using Azure Spot instances.
-- Attaching a standby pool to a Virtual Machine Scale Set with Azure autoscale enabled. 
-- Attaching a standby pool to a Virtual Machine Scale Set with a fault domain greater than 1. 
-- Creating a standby pool in a different region than the Virtual Machine Scale Set. 
-- Creating a standby pool in a different subscription than the Virtual Machine Scale Set. 
-- Creating a standby pool without specifying a Virtual Machine Scale Set. 
-- Creating a standby pool with a Virtual Machine Scale Set that already has a standby pool attached. 
+- Creating or attaching a standby pool to a Virtual Machine Scale Set using Azure Spot instances.
+- Creating or attaching a standby pool to a Virtual Machine Scale Set with Azure autoscale enabled. 
+- Creating or attaching a standby pool to a Virtual Machine Scale Set with a fault domain greater than 1. 
+- Creating or attaching a standby pool to a Virtual Machine Scale Set in a different region. 
+- Creating or attaching a standby pool to a Virtual Machine Scale Set in a different subscription.  
+- Creating or attaching a standby pool to a Virtual Machine Scale Set that already has a standby pool attached.
+- Creating or attaching a standby pool to a Virtual Machine Scale Set using Uniform Orchestration. 
 
 ## Next steps
 
