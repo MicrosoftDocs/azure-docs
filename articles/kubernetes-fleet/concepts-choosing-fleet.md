@@ -26,13 +26,13 @@ The following table compares the two options.
 |**Workload orchestration**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
 |**Layer 4 load balancing**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
 |**Billing considerations**|No cost|You pay cost associated with the hub, which is a standard-tier AKS-cluster.|
-|**Convert fleets between hubless and hubful**|Can upgrade from a hubless fleet to a hubful fleet|Can't downgrade from a hubful fleet to a hubless fleet|
+|**Convert fleets between hubless and hubful**|Can upgrade from a hubless fleet to a hubful fleet.|Can't downgrade from a hubful fleet to a hubless fleet.|
 
-### Hubless fleets
+## Hubless fleets
 
 Without a hub cluster, Fleet acts solely as a grouping entity in Azure Resource Manager. Certain scenarios, such as update runs, don't require a Kubernetes API and thus don't require a hub cluster. To take full advantage of all the features available on Fleet, you need a hubful fleet.
 
-### Hubful fleets
+## Hubful fleets
 
 A hubful fleet has an AKS-managed hub cluster, which is used to store configuration for workload orchestration and layer-4 load balancing.
 
@@ -40,7 +40,7 @@ Upon the creation of a hubful fleet, a hub cluster is automatically created in t
 
 Hub clusters are exempted from [Azure policies][azure-policy-overview] to avoid undesirable policy effects upon hub clusters.
 
-#### Public and private hubful fleets
+### Public and private hubful fleets
 
 For hubful fleets, there are two subtypes:
 

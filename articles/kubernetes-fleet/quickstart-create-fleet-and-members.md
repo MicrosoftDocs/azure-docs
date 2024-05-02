@@ -185,16 +185,16 @@ When creating a private hubful fleet, some extra considerations apply:
 First, create a virtual network and subnet for your hub cluster's node VMs using the `az network vnet create` and `az network vnet subnet create` commands.
 
 ```azurecli-interactive
-az network vnet create --resource-group $GROUP --name vnet --address-prefixes 192.168.0.0/16
-az network vnet subnet create --resource-group $GROUP --vnet-name vnet --name subnet --address-prefixes 192.168.0.0/24
+az network vnet create --resource-group ${GROUP} --name vnet --address-prefixes 192.168.0.0/16
+az network vnet subnet create --resource-group ${GROUP} --vnet-name vnet --name subnet --address-prefixes 192.168.0.0/24
 
-SUBNET_ID=$(az network vnet subnet show --resource-group $GROUP --vnet-name vnet -n subnet -o tsv --query id)
+SUBNET_ID=$(az network vnet subnet show --resource-group ${GROUP} --vnet-name vnet -n subnet -o tsv --query id)
 ```
 
 To create a private hubful fleet, use `az fleet create` command with the `--enable-private-cluster` flag and provide the subnet ID obtained in the previous step to the  `--agent-subnet-id <subnet>` argument.
 
 ```azurecli-interactive
-az fleet create --resource-group $GROUP --name $FLEET --enable-hub --enable-private-cluster --agent-subnet-id "$SUBNET_ID"
+az fleet create --resource-group ${GROUP} --name ${FLEET} --enable-hub --enable-private-cluster --agent-subnet-id "${SUBNET_ID}"
 ```
 
 ---
