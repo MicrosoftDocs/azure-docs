@@ -138,7 +138,7 @@ See [how to onboard your Azure DevOps organizations](quickstart-onboard-devops.m
 1. Filter by searching for **API security testing**.
 1. Select the recommendation **Azure DevOps repositories should have API security testing findings resolved**.
 
-:::image type="content" source="media/onboarding-guide-stackhawk/azure-devops-recommendations-result.png" alt-text="Screenshot of Azure DevOps repositories should have API security testing findings resolved recommendation." lightbox="media/onboarding-guide-stackhawk/azure-devops-recommendations-result.png":::
+:::image type="content" source="media/onboarding-guide-42crunch/azure-devops-recommendation.png" alt-text="Screenshot of Azure DevOps repositories should have API security testing findings resolved recommendation." lightbox="media/onboarding-guide-42crunch/azure-devops-recommendation.png":::
 
 ## FAQ
 
