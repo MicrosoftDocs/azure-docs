@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 05/02/2024
 ms.author: cshoe
 ---
 
@@ -116,7 +116,7 @@ Dynamic sessions has two types of session pools: code interpreter and custom con
 
 ### Code interpreter
 
-Code interpreter sessions are billed based on the number of sessions that are allocated and how long they're running. For each session that is allocated, you're billed by the second with a minimum charge of 1 hour.
+Code interpreter sessions are billed based on the number of sessions that are allocated and how long they're running. For each session that is allocated, you're billed from the time it's allocated until it's deallocated in increments of 1 hour.
 
 ### Custom container
 
