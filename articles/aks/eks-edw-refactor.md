@@ -13,7 +13,7 @@ To replicate the EDW workload in Azure, you need to refactor your application co
 
 ## Update data access code
 
-The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to update the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs. 
+The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to update the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs.
 
 For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Cosmos DB. The DynamoDB table schema will need to be re-mapped to an Azure Cosmos DB table schema. The data access layer code will also require changes to work with Azure Cosmos DB. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Cosmos DB results table.
 
@@ -272,4 +272,3 @@ To build the container images and push them to ACR, make sure the environment va
 ## Next steps
 
 - With your refactored code, [prepare to deploy the EDW workload to Azure](eks-edw-prepare.md).
-
