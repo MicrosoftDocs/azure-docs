@@ -35,8 +35,8 @@ To force the request to be handled within a specific geography, use the desired 
 |------------------|--------------------------|
 |**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
 |**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
-|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
 |**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland):**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
 |**Switzerland:**</br> For more information, *see* [Switzerland service endpoints](#switzerland-service-endpoints).|Switzerland North &bull; Switzerland West|
 
 #### Switzerland service endpoints

@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 04/29/2024
+ms.date: 05/02/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -146,12 +146,13 @@ Document Translation data residency depends on the Azure region where your Trans
 ✔️ Feature: **Document Translation**</br>
 ✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
 
-|Resource region| Request processing data center |
+|Resource created region| Request processing data center |
 |----------------------------------|-----------------------|
-|**Any region within Europe (except Switzerland)**| Europe: France Central &bull; West Europe|
-|**Switzerland**|Switzerland: Switzerland North &bull; Switzerland West|
-|**Any region within Asia Pacific**| Asia: Japan East &bull; Southeast Asia|
-|**All other regions including Global, North America, and South America**  | US: East US 2 &bull; West US 2|
+|**Global**|Closest available data center.|
+|**Americas**|East US 2 &bull; West US 2|
+|**Asia Pacific**| Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland)**| France Central &bull; West Europe|
+|**Switzerland**|Switzerland North &bull; Switzerland West|
 
 ## Next steps
 

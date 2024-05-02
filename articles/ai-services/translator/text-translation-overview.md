@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 04/29/2024
+ms.date: 05/02/2024
 ms.author: lajanuar
 ---
 
@@ -70,8 +70,8 @@ Text Translation data residency depends on the Azure region where your Translato
 |------------------|--------------------------|
 |**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
 |**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
-|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
 |**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland):**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
 |**Switzerland:**</br> For more information, *see* [Switzerland service endpoints](#switzerland-service-endpoints).|Switzerland North &bull; Switzerland West|
 
 #### Switzerland service endpoints
