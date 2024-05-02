@@ -26,4 +26,4 @@ The following table lists the options available to manage certificates in Contai
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Certificates from Key Vault](custom-domains-certificates.md)
+> [Custom domain names and free managed certificates(custom-domains-managed-certificates.md)
