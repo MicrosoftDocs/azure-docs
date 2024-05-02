@@ -115,36 +115,38 @@ networks:
 ---  
 ## Interacting with Emulator
 
-## [C#](#tab/SendSampleC#)
+### [c#](#tab/SendSampleC#)
 
 Emulator support through the C# Event-Hubs SDK is generally avalaible from version 5.11 for "Azure.Messaging.EventHubs" & "Azure.Messaging.EventHubs.Processor" NuGet packages.
 
-### Send Events to emulator
+#### Send Events to emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-### Receive Events from emulator
+#### Receive Events from emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-## [Python](#tab/SendSamplePython)
-TBD
-### Send Events to emulator
+### [Python](#tab/SendSamplePython)
+
+#### Send Events to emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-### Receive Events from emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-## [C++](#tab/SendSampleC++)
-TBD
-### Send Events to emulator
+#### Receive Events from emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-### Receive Events from emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-## [Java](#tab/SendSampleJava)
-TBD
-### Send Events to emulator
+### [C++](#tab/SendSampleC++)
+
+#### Send Events to emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
-### Receive Events from emulator
+#### Receive Events from emulator
+Once the emulator is running in docker, we could interact with it using client-side code. 
+
+### [Java](#tab/SendSampleJava)
+
+#### Send Events to emulator
+Once the emulator is running in docker, we could interact with it using client-side code. 
+
+#### Receive Events from emulator
 Once the emulator is running in docker, we could interact with it using client-side code. 
 
 ---
