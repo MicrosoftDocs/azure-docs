@@ -20,6 +20,10 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 > [!TIP]
 > To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Turbo with Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
 
+## GPT-4 Turbo model upgrade
+
+[!INCLUDE [GPT-4 Turbo](../includes/gpt-4-turbo.md)]
+
 ## Call the Chat Completion APIs
 
 The following command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md). 
