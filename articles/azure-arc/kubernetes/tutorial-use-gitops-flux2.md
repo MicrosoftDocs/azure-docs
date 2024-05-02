@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 03/22/2024
+ms.date: 04/30/2024
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions
 ---
@@ -568,7 +568,7 @@ If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the de
 
 ## Configurable log-level parameters
 
-By default, the `log-level` for Flux controllers is set to `info`. Starting with [`microsoft.flux` v1.8.3](extensions-release.md#flux-gitops), you can modify these default settings using the `k8s-extension` command as follows:
+By default, the `log-level` for Flux controllers is set to `info`. Starting with `microsoft.flux` v1.8.3, you can modify these default settings using the `k8s-extension` command as follows:
 
 ```azurecli
 --config helm-controller.log-level=<info/error/debug>
@@ -579,13 +579,38 @@ By default, the `log-level` for Flux controllers is set to `info`. Starting with
 --config image-reflector-controller.log-level=<info/error/debug>
 ```
 
-Valid values are `debug`, `info`, or `error`. These values are only configurable for the controllers listed above; they don't apply to the `fluxconfig-agent` and `fluxconfig-controller`.
-
-For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
+Valid values are `debug`, `info`, or `error`. For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
 
 ```azurecli
 az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config source-controller.log-level=error kustomize-controller.log-level=error
 ```
+
+Starting with [`microsoft.flux` v1.9.1](extensions-release.md#flux-gitops), `fluxconfig-agent` and `fluxconfig-controller` support `info` and `error` log levels (but not `debug`). These can be modified by using the k8s-extension command as follows:
+
+```azurecli
+--config fluxconfig-agent.log-level=<info/error>
+--config fluxconfig-controller.log-level=<info/error>
+```
+
+For example, the following command changes `log-level` to `error`:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config fluxconfig-agent.log-level=error fluxconfig-controller.log-level=error
+```
+
+### Azure DevOps SSH-RSA deprecation
+
+Azure DevOps [announced the deprecation of SSH-RSA](https://aka.ms/ado-ssh-rsa-deprecation) as a supported encryption method for connecting to Azure repositories using SSH. If you use SSH keys to connect to Azure repositories in Flux configurations, we recommend moving to more secure RSA-SHA2-256 or RSA-SHA2-512 keys.
+
+When reconciling Flux configurations, you might see an error message indicating ssh-rsa is about to be deprecated or is unsupported. If so, update the host key algorithm used to establish SSH connections to Azure DevOps repositories from the Flux `source-controller` and `image-automation-controller` (if enabled) by using the `az k8s-extension update` command. For example:
+
+```azurecli
+az k8s-extension update --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type <cluster-type> --name flux --config source-controller.ssh-host-key-args="--ssh-hostkey-algos=rsa-sha2-512,rsa-sha2-256"
+
+az k8s-extension update --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type <cluster-type> --name flux --config image-automation-controller.ssh-host-key-args="--ssh-hostkey-algos=rsa-sha2-512,rsa-sha2-256"
+```
+
+For more information on Azure DevOps SSH-RSA deprecation,  see [End of SSH-RSA support for Azure Repos](https://aka.ms/ado-ssh-rsa-deprecation).
 
 ### Workload identity in AKS clusters
 

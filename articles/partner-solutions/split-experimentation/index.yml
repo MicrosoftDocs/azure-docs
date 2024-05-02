@@ -1,48 +1,30 @@
 ### YamlMime:Landing
 
-title: Split Experimentation Workspace (preview)
-summary: Split Experimentation Workspace is the Azure resource that supports running experiments in Azure.
-
+title: Split Experimentation in Azure
+summary: Split Experimentation for Azure App Configuration allows developers to test different variants of a feature and monitor the impact at the feature-level.
 metadata:
-  title: Split Experimentation Workspace
-  description: Split Experimentation Workspace allows you to run A/B tests for your applications and gather feedback for new features.
+  title: Split Experimentation in Azure documentation
+  description: Split Experimentation for Azure App Configuration allows developers to test different variants of a feature and monitor the impact.
+  ms.service: partner-services
+  ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.topic: hub-page
-  ms.date: 04/25/2024
+  ms.date: 04/30/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-
   # Card
-#  - title: About Split Experimentation Workspace
-#    linkLists:
-#      - linkListType: overview
-#        links:
-#          - text: What is Split Experimentation Workspace?
-#            url: overview.md
-#      - linkListType: how-to-guide
-#        links:
-#          - text: Manage the Confluent Cloud resource
-#            url: manage.md
-
+  - title: About Split Experimentation Workspace
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Split Experimentation Workspace
+            url: overview.md
   # Card
-  - title: Create Split Experimentation Workspace resource
+  - title: Create a Split Experimentation Workspace
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Split Experimentation Workspace
+          - text: Create a new instance
             url: create.md
-#      - linkListType: how-to-guide
-#        links:
-#          - text: Troubleshooting Split Experimentation Workspace
-#            url: troubleshoot.md
-
-  # Card
-#  - title: Explore reference content
-#    linkLists:
-#      - linkListType: reference
-#        links:
-#          - text: REST API
-#            url: /rest/api/confluent
