@@ -7,8 +7,8 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 02/27/2024
-ms.custom: engagement-fy24
-zone_pivot_groups: vmware-scenario-422, vmware-discovery-requirements
+ms.custom: vmware-scenario-422, engagement-fy24
+zone_pivot_groups: vmware-discovery-requirements
 ---
 
 # Support matrix for VMware discovery
