@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.custom: engagement-fy24
-ms.date: 04/22/2024
+ms.date: 05/02/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -217,7 +217,7 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
     ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
 
-1. Execute the following script to rotate the AAD app certificate and extend its validity for an additional 6 months:
+1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
     ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1```
 
