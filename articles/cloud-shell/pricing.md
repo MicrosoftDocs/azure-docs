@@ -16,7 +16,7 @@ Azure Cloud Shell runs on a machine provided for free by Azure. If you desire fi
 
 ## Storage cost
 
-Cloud Shell requires a new or existing Azure file share to be mounted to persist files across
+Cloud Shell requires a new or existing Azure Files share to be mounted to persist files across
 sessions. Storage incurs regular costs. For pricing information, see [Azure Files Pricing][01].
 
 ## Network costs
