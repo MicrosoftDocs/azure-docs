@@ -19,19 +19,19 @@ ms.reviewer: ju-shim
 ## List virtual machines in a standby pool
 There are multiple ways of determining if a virtual machine is part of the standby pool. 
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal-1)
 Navigate to your Virtual Machine Scale Set. Under **Availability + scale** select **Standby pool**. All virtual machines in the standby pool associated with your scale set are listed here. 
 
 :::image type="content" source="media/standby-pools/list-view-portal.png" alt-text="A screenshot showing how to view all the instances in the standby pool in the portal.":::
 
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-1)
 Use [az standby-vm-pool vm list](/cli/azure/standbypool) to retrieve a list of virtual machines in your standby pool. 
 
 ```azurecli-interactive
 az standby-vm-pool vm list --resource-group myResourceGroup --name myStandbyPool
 ```
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell-1)
 Use [Get-AzStandbyVMPoolVM](/powershell/module/az.standbypool/Get-azstandbyvmpoolvm) to retrieve a list of virtual machines in your standby pool.
 
 ```azurepowershell-interactive
@@ -44,7 +44,7 @@ Get-AzStandbyVMPoolVM -ResourceGroupName myResourceGroup -Name myStandbyPool
 
 You can update the state of the instances and the max ready capacity of your standby pool at any time. The standby pool name can only be set during standby pool creation. 
 
-### [Portal](#tab/portal-1)
+### [Portal](#tab/portal-2)
 1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
 2) Under **Availability + scale** select **Standby pool**. 
 3) Select **Manage pool**. 
@@ -53,7 +53,7 @@ You can update the state of the instances and the max ready capacity of your sta
 :::image type="content" source="media/standby-pools/managed-standby-pool-after-vmss-create.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
 
-### [CLI](#tab/cli-1)
+### [CLI](#tab/cli-2)
 Update an existing standby pool using [az standby-vm-pool update](/cli/azure/standby-pool).
 
 ```azurecli-interactive
@@ -63,7 +63,7 @@ az standby-vm-pool update \
    --max-ready-capacity 20 \
    --vm-state "Deallocated" \
 ```
-### [PowerShell](#tab/powershell-1)
+### [PowerShell](#tab/powershell-2)
 Update an existing standby pool using [Update-AzStandbyVMPool](/powershell/module/az.standbypool/update-azstandbyvmpool).
 
 ```azurepowershell-interactive
@@ -74,7 +74,7 @@ Update-AzStandbyVMPool `
    -VMState "Deallocated" `
 ```
 
-### [ARM template](#tab/template-1)
+### [ARM template](#tab/template-2)
 ```ARM
 {
  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -97,7 +97,7 @@ Update-AzStandbyVMPool `
 
 ```
 
-### [REST](#tab/rest)
+### [REST](#tab/rest-2)
 Update an existing standby pool using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update).
 
 ```HTTP
@@ -116,7 +116,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 }
 ```
 
-### [Bicep](#tab/bicep-1)
+### [Bicep](#tab/bicep-2)
 Update an existing standby pool deployment. Deploy the updated template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 ```bicep
@@ -149,7 +149,7 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 ## Delete a standby pool
 
-### [Portal](#tab/portal-2)
+### [Portal](#tab/portal-3)
 
 1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
 2) Under **Availability + scale** select **Standby pool**. 
@@ -160,20 +160,20 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 
 
-### [CLI](#tab/cli-2)
+### [CLI](#tab/cli-3)
 Delete an existing standby pool using [az standbypool delete](/cli/azure/standby-pool).
 
 ```azurecli-interactive
 az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
 ```
-### [PowerShell](#tab/powershell-2)
+### [PowerShell](#tab/powershell-3)
 Delete an existing standby pool using [Remove-AzStandbyVMPool](/powershell/module/az.standbypool/remove-azstandbyvmpool).
 
 ```azurepowershell-interactive
 Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowait
 ```
 
-### [REST](#tab/rest-2)
+### [REST](#tab/rest-3)
 Delete an existing standby pool using [Delete](/rest/api/standbypool/standby-virtual-machine-pools/delete).
 
 ```HTTP
