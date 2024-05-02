@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 05/01/2024
 ---
 
 # Indexer access to content protected by Azure network security
@@ -23,9 +23,9 @@ Looking for step-by-step instructions instead? See [How to configure firewall ru
 
 Azure AI Search indexers can make outbound calls to various Azure resources during execution. An indexer makes outbound calls in three situations:
 
-- Connecting to external data sources during indexing
-- Connecting to external, encapsulated code through a skillset that includes custom skills
-- Connecting to Azure Storage during skillset execution to cache enrichments, save debug session state, or write to a knowledge store
+- Connections to external data sources during indexing
+- Connections to external, encapsulated code through a skillset that includes custom skills
+- Connections to Azure Storage during skillset execution to cache enrichments, save debug session state, or write to a knowledge store
 
 A list of all possible Azure resource types that an indexer might access in a typical run are listed in the table below.
 
@@ -68,7 +68,7 @@ For any given indexer run, Azure AI Search determines the best environment in wh
 
   Indexers running in the private environment share computing resources with other indexing and query workloads on the same search service. Typically, only indexers that perform text-based indexing (without skillsets) run in this environment.
 
-- A *multi-tenant environment* that's managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. 
+- A *multitenant environment* that's managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. 
 
   This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Examples of resource-intensive indexer jobs include attaching skillsets, processing large documents, or processing a high volume of documents.
 
@@ -76,23 +76,31 @@ The following section explains the IP configuration for admitting requests from 
 
 ### Setting up IP ranges for indexer execution
 
-If the Azure resource that provides source data exists behind a firewall, you need [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md) for all of the IPs from which an indexer request can originate. The IPs include the one used by the search service and the multi-tenant environment.
+If the Azure resource that provides source data exists behind a firewall, you need [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md) for all of the IPs from which an indexer request can originate. The IPs include the one used by the search service and the multitenant environment.
 
 - To obtain the IP address of the search service (and the private execution environment), use `nslookup` (or `ping`) to find the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`.
 
-- To obtain the IP addresses of the multi-tenant environments within which an indexer might run, use the `AzureCognitiveSearch` service tag. 
+- To obtain the IP addresses of the multitenant environments within which an indexer might run, use the `AzureCognitiveSearch` service tag. 
 
   [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service. You can find these IPs using the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). IP ranges are allocated by region, so check your search service region before you start.
 
-When setting the IP rule for the multi-tenant environment, certain SQL data sources support a simple approach for IP address specification. Instead of enumerating all of the IP addresses in the rule, you can create a [Network Security Group rule](../virtual-network/network-security-groups-overview.md) that specifies the `AzureCognitiveSearch` service tag. 
+When setting the IP rule for the multitenant environment, certain SQL data sources support a simple approach for IP address specification. Instead of enumerating all of the IP addresses in the rule, you can create a [Network Security Group rule](../virtual-network/network-security-groups-overview.md) that specifies the `AzureCognitiveSearch` service tag. 
 
 You can specify the service tag if your data source is either:
 
-- [SQL Server on Azure virtual machines](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-ai-search)
+- [SQL Server on Azure virtual machines](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-network-access-to-azure-ai-search)
 
 - [SQL Managed Instances](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
-Notice that if you specified the service tag for the multi-tenant environment IP rule, you'll still need an explicit inbound rule for the private execution environment (meaning the search service itself), as obtained through `nslookup`.
+Notice that if you specified the service tag for the multitenant environment IP rule, you'll still need an explicit inbound rule for the private execution environment (meaning the search service itself), as obtained through `nslookup`.
+
+## Supplement network security with authorization
+
+Firewalls and network security are a first step in preventing unauthorized access to data and operations. Authorization should be your next step. 
+
+We recommend role-based access, where Microsoft Entra ID users and groups are assigned to roles that determine read and write access to your service. See [Connect to Azure AI Search using role-based access controls](search-security-rbac.md) for a description of built-in roles and instructions for creating custom roles.
+
+If you don't need key-based authentication, we recommend that you disable API keys and use role assignments exclusively.
 
 ## Choosing a connectivity approach
 
@@ -104,13 +112,13 @@ When integrating Azure AI Search into a solution that runs on a virtual network,
 
 Given the above constrains, your choices for achieving search integration in a virtual network are:
 
-- Configure an inbound firewall rule on your Azure PaaS resource that admits indexer requests for data.
+- Configure an inbound firewall rule on your Azure PaaS resource that admits indexer requests for data. Follow that up with role assignments that specify which users and groups have read and write access to your data and operations.
 
 - Configure an outbound connection from Search that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). 
 
   For a private endpoint, the search service connection to your protected resource is through a *shared private link*. A shared private link is an [Azure Private Link](../private-link/private-link-overview.md) resource that's created, managed, and used from within Azure AI Search. If your resources are fully locked down (running on a protected virtual network, or otherwise not available over a public connection), a private endpoint is your only choice.
 
-  Connections through a private endpoint must originate from the search service's private execution environment. To meet this requirement, you'll have to disable multi-tenant execution. This step is described in [Make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
+  Connections through a private endpoint must originate from the search service's private execution environment. To meet this requirement, you'll have to disable multitenant execution. This step is described in [Make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
 Configuring an IP firewall is free. A private endpoint, which is based on Azure Private Link, has a billing impact.
 
@@ -130,7 +138,7 @@ You'll create a shared private link using either the portal pages of your search
 
 In Azure AI Search, your search service must be at least the Basic tier for text-based indexers, and S2 for indexers with skillsets.
 
-A private endpoint connection will accept requests from the private indexer execution environment, but not the multi-tenant environment. You'll need to disable multi-tenant execution as described in step 3 to meet this requirement.
+A private endpoint connection will accept requests from the private indexer execution environment, but not the multitenant environment. You'll need to disable multitenant execution as described in step 3 to meet this requirement.
 
 #### Step 2: Approve the private endpoint connection
 
@@ -160,7 +168,7 @@ This setting is scoped to an indexer and not the search service. If you want all
 
 Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private link that was created and approved for the Azure resource. 
 
-Azure AI Search will validate that callers of the private endpoint have appropriate Azure RBAC role permissions. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+Azure AI Search will validate that callers of the private endpoint have appropriate role assignments. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 
 If the private endpoint isn't approved, or if the indexer didn't use the private endpoint connection, you'll find a `transientFailure` error message in indexer execution history.
 
