@@ -66,7 +66,7 @@ aws iam attach-role-policy --role-name keda-sample-iam-role --policy-arn=arn:aws
 
 ### Azure service-to-service authentication implementation
 
-To control data plane access to the Azure Storage Queue and the Azure Cosmos DB database, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a given resource at a given scope. The user-assigned managed identity security principal linked to the workload identity in an AKS pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Cosmos DB automatically use the context of the security principal to access data in both resources.
+To control data plane access to the Azure Storage Queue and the Azure Cosmos DB database, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a given resource at a given scope. The user-assigned managed identity security principal linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Cosmos DB automatically use the context of the security principal to access data in both resources.
 
 The **Storage Queue Data Contributor** role definition is shown below. Note the data actions which permit the role assignee to read, write, or delete against the Azure Storage Queue.
 
@@ -271,5 +271,5 @@ To build the container images and push them to ACR, make sure the environment va
 
 ## Next steps
 
-- With your refactor code, [prepare to deploy the EDW workload to Azure](eks-edw-prepare.md).
+- With your refactored code, [prepare to deploy the EDW workload to Azure](eks-edw-prepare.md).
 

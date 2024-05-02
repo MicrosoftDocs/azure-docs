@@ -1,5 +1,5 @@
 ---
-title: Understand platform differences for the event-driven workflow (EDW) scaling workload
+title: Understand platform differences for the event-driven workflow (EDW) workload
 description: Become familiar with key differences in how the AWS and Azure platforms operate that are relevant to the EDW scaling workload.
 ms.topic: how-to
 ms.date: 05/01/2024
@@ -7,9 +7,9 @@ author: JnHs
 ms.author: jenhayes
 ---
 
-# Understand platform differences for the event-driven workflow (EDW) scaling workload
+# Understand platform differences for the event-driven workflow (EDW) workload
 
-Before you replicate the EDW workload in Azure, make sure you understand the key differences between the AWS and Azure platforms operate, especially those areas that are relavent to how the workload operates.
+Before you replicate the EDW workload in Azure, make sure you understand the key differences between the AWS and Azure platforms operate, especially those areas that are relevant to how the workload operates.
 
 This article walks through some of the key concepts that are especially useful to understand, and provides links to resources for further learning.
 
@@ -23,7 +23,7 @@ Azure does not have the concept of IAM roles. Instead, Azure uses [Role-based ac
 
 The AWS EDW workload uses service-to-service authentication to connect with a queue and a database. AWS EKS utilizes `AssumeRole`, a feature of IAM, to delegate permissions to AWS services and resources. This allows services to assume an IAM role that grants specific access rights, ensuring secure and limited interactions between services.
 
-In Azure, [AKS uses Microsoft Entra Workload ID](/azure/architecture/aws-professional/eks-to-aks/workload-identity#microsoft-entra-workload-id-for-kubernetes) for applications running on AKS to authenticate to Azure services using the identity of the workload.
+In Azure, [Azure Kubernetes Service (AKS) uses Microsoft Entra Workload ID](/azure/architecture/aws-professional/eks-to-aks/workload-identity#microsoft-entra-workload-id-for-kubernetes) for applications running on AKS to authenticate to Azure services using the identity of the workload.
 
 For both Amazon Simple Queue Service (SQS) and DynamoDB database access using service-to-service authentication, the AWS workflow uses `AssumeRole` in conjunction with EKS, which is a implementation of Kubernetes [service account token token volume projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection). In AWS, when an entity assumes an IAM role, the entity temporarily gains some extra permissions. This way, the entity can perform actions and access resources granted by the assumed role, without changing their own permissions permanently. After the assumed role's session token expires, the entity loses the extra permissions. An IAM policy is deployed that permits code running in an EKS pod to authenticate to the DynamoDB as described in the policy definition.
 

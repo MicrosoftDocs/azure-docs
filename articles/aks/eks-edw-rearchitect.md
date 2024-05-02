@@ -42,7 +42,7 @@ Using the service mapping described in this article, the architecture for the Az
 
 ## Understand compute options
 
-Depending on cost considerations and resilience to possible node eviction, users can choose different types of compute. In AWS, users can choose between on-demand compute (more expensive but no eviction risk) or Spot instances (cheaper but with eviction risk). Azure offers similar compute options for AKS users, who can select either an [on-demand node pool](/azure/aks/create-node-pools) or a [Spot node pool](/azure/aks/spot-node-pool) according to the workload needs.
+Depending on cost considerations and resilience to possible node eviction, users can choose different types of compute. In AWS, users can choose between on-demand compute (more expensive but no eviction risk) or Spot instances (cheaper but with eviction risk). Azure offers similar compute options for Azure Kubernetes Service (AKS) users, who can select either an [on-demand node pool](/azure/aks/create-node-pools) or a [Spot node pool](/azure/aks/spot-node-pool) according to the workload needs.
 
 The next step after creating an equivalent infrastructure architecture for Azure is to start looking into the code and authentication changes that are required for the app to work on Azure.
 

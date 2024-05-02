@@ -25,22 +25,19 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI v2.56](/cli/azure/install-azure-cli) or later
-- [AKS preview extension](/aks/draft#install-the-aks-preview-azure-cli-extension)
+- [Azure Kubernetes Service (AKS) preview extension](/aks/draft#install-the-aks-preview-azure-cli-extension)
 - [jq v1.5](https://jqlang.github.io/jq/) or later
 - [Python 3](https://www.python.org/downloads/) or later
 - [kubectl 1.21.0](https://kubernetes.io/docs/tasks/tools/install-kubectl/) or later
 - [Helm v3.0.0](https://helm.sh/docs/intro/install/) or later
 - [Visual Studio Code](https://code.visualstudio.com/Download) or equivalent
 
-### Download the AKS application code
+### Download the Azure application code
 
-> [!IMPORTANT]
-> Need to update this and remove AWS repo link!
-
-The AWS event-driven workflow application code is available in the [https://github.com/aws-samples/amazon-eks-scaling-with-keda-and-karpenter](https://github.com/aws-samples/amazon-eks-scaling-with-keda-and-karpenter) repository. Clone the repository to a directory called `aws-to-azure-edw-workshop` on your local machine by running the following command:
+The application code for this workflow is available in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).  Clone the repository to a directory called `aws-to-azure-edw-workshop` on your local machine by running the following command:
 
 ```bash
-git clone https://github.com/aws-samples/amazon-eks-scaling-with-keda-and-karpenter ./aws-to-azure-edw-workshop
+git clone https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws ./aws-to-azure-edw-workshop
 ```
 
 Once you have cloned the repository, navigate to the `aws-to-azure-edw-workshop` directory and start Visual Studio Code by running the following commands:
