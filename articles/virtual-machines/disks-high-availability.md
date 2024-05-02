@@ -3,7 +3,7 @@ title: Best practices for high availability with Azure VMs and managed disks
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 05/01/2024
+ms.date: 05/02/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -16,16 +16,16 @@ Azure offers several configuration options for ensuring high availability of Azu
 
 |Configuration  |Recommendation  |Benefits  |
 |---------|---------|---------|
-|[Applications running on a single VM](#applications-running-on-a-single-vm)     |[Use Ultra Disks, Premium SSD v2, and Premium SSD disks](#use-ultra-disks-premium-ssd-v2-or-premium-ssd).         |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime service level agreement (SLA), and these disk types offer the best performance.         |
+|[Applications running on a single VM](#recommendations-for-applications-running-on-a-single-vm)     |[Use Ultra Disks, Premium SSD v2, and Premium SSD disks](#use-ultra-disks-premium-ssd-v2-or-premium-ssd).         |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime service level agreement (SLA), and these disk types offer the best performance.         |
 |     |[Use zone-redundant storage (ZRS) disks](#use-zone-redundant-storage-disks).         |Access to your data even if an entire zone experiences an outage.         |
-|[Applications running on multiple VMs](#applications-running-on-multiple-vms)     |Deploy VMs across multiple availability zones using a [zone redundant Virtual Machine Scale Set with flexible orchestration mode](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or by deploying VMs across [three availability zones](#deploy-vms-across-three-availability-zones).         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
+|[Applications running on multiple VMs](#recommendations-for-applications-running-on-multiple-vms)    |Deploy VMs across multiple availability zones using a [zone redundant Virtual Machine Scale Set with flexible orchestration mode](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or by deploying VMs across [three availability zones](#deploy-vms-across-three-availability-zones).         |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
 |     |Deploy VMs across multiple fault domains with either [regional Virtual Machine Scale Sets with flexible orchestration mode](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
 |     |[Use ZRS shared disks](#use-zrs-disks-when-sharing-disks).         |Reduces potential for cluster downtime and improves availability of data.         |
 
 
 ## Availability and durability of managed disks
 
-Before going over your options, it's important to understand the baseline state you have when using Azure VMs and managed disks. Understanding the baseline availability and durability of your environment lets you evaluate whether implementing the options in this article makes sense for you.
+Before going over recommendations for achieving higher availability, you should understand the default availability and durability of managed disks.
 
 Managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and allows a high tolerance against failures. 
 
