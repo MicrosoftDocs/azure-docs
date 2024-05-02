@@ -1741,7 +1741,7 @@ This field can be specified only if `subnetId` is also specified and must meet t
       1. To the subnet specified in `subnetId` on port 22 (for ssh/Linux) and port 5986 (for WinRM/Windows) (*for connecting to the build VM*).
    1. Inbound access to the subnet specified in `subnetId`:
       1. To Port 22 (for ssh/Linux) and Port 5986 (for WinRM/Windows) from the subnet specified in `containerInstanceSubnetId` (*for ACI to connect to the build VM*).
-- The [template identity](./image-builder-json#user-assigned-identity-for-azure-image-builder-image-template-resource) must have permission to perform 'Microsoft.Network/virtualNetworks/subnets/join/action' action on this subnet's scope. You can read more about Azure permissions for Networking [here](/azure/role-based-access-control/permissions/networking).
+- The [template identity](./image-builder-json.md#user-assigned-identity-for-azure-image-builder-image-template-resource) must have permission to perform 'Microsoft.Network/virtualNetworks/subnets/join/action' action on this subnet's scope. You can read more about Azure permissions for Networking [here](/azure/role-based-access-control/permissions/networking).
 
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
