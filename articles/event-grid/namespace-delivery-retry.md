@@ -9,7 +9,8 @@ author: jfggdl
 ms.author: jafernan
 ---
 
-# Event Grid message delivery and retry
+# Message push delivery and retry with namespace topics
+
 Event Grid namespaces **push delivery** provides durable delivery. Event Grid tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, Event Grid delivers one event at a time to the subscriber.
 
 > [!NOTE]
@@ -174,7 +175,7 @@ This section gives you examples of events and dead-lettered events using the Clo
     }
   }
 ]
-
+```
 
 **LastDeliveryOutcome: Probation**
 

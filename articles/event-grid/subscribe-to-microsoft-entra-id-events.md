@@ -2,11 +2,9 @@
 title: Azure Event Grid - Subscribe to Microsoft Entra ID events
 description: This article explains how to subscribe to events published by Microsoft Entra ID using the Azure Portal.
 ms.topic: how-to
-ms.author jafernan
-author jfggdl
-ms.custom:
-  - build-2024
+ms.custom: build-2024
 ms.date: 05/08/2024
+ms.author: jafernan
 ---
 
 # Subscribe to events published by Microsoft Entra ID

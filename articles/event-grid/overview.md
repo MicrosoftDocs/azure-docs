@@ -94,7 +94,7 @@ Broadcast alerts to a fleet of clients using the **one-to-many** messaging patte
 #### Integrate MQTT data
 :::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data-high-res.png" border="false":::
 
-Integrate data from your MQTT clients by routing MQTT messages to Azure services and custom endpoints through [push delivery](#push-delivery-of-discrete-events) or [pull delivery](#pull-delivery-of-discrete-events). For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
+Integrate data from your MQTT clients by routing MQTT messages to Azure services and custom endpoints through [push delivery](#push-delivery-of-events) or [pull delivery](#pull-delivery-of-discrete-events). For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
 ### Push delivery of events
 
@@ -118,7 +118,7 @@ Event Grid can receive events from 20+ Azure services so that you can automate y
 #### Receive events from your applications
 :::image type="content" source="media/overview/receive-events-apps.png" alt-text="Diagram that shows customer application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-events-apps-high-res.png" border="false":::
 
-Your own service or application publishes events to Event Grid that subscriber applications process. Event Grid features [Namespace Topics](concepts-event-grid-namespaces#namespace-topics) to address integration and routing requirements at scale with a simple resource model. You can also use [Custom Topics](custom-topics.md) to meet basic integration requirements and [Domains](event-domains.md) for a simple management and routing model when you need to distribute events to hundreds or thousands of different groups.
+Your own service or application publishes events to Event Grid that subscriber applications process. Event Grid features [Namespace Topics](concepts-event-grid-namespaces.md#namespace-topics) to address integration and routing requirements at scale with a simple resource model. You can also use [Custom Topics](custom-topics.md) to meet basic integration requirements and [Domains](event-domains.md) for a simple management and routing model when you need to distribute events to hundreds or thousands of different groups.
 
 #### Receive events from partner (SaaS providers)
 :::image type="content" source="media/overview/receive-saas-providers.png" alt-text="Diagram that shows an external partner application publishing event to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-saas-providers-high-res.png" border="false":::
@@ -134,7 +134,7 @@ A multitenant SaaS provider or platform can publish their events to Event Grid t
 
 An event subscription is a generic configuration resource that allows you to define the event handler or destination to which events are sent using push delivery. For example, you can send data to a Webhook, Azure Function, or Event Hubs. For a complete list of event handlers supported, see:
 
-- [Event handlers](namespace-event-handlers.md) supported on namespace topics.
+- [Event handlers](namespace-topics-event-handlers.md) supported on namespace topics.
 - [Event handlers](event-handlers.md) supported on custom, system, domain, and partner topics.
 
 ### Pull delivery of discrete events
