@@ -19,7 +19,7 @@ This article walks you through the process of onboarding to [Provisioned Through
 
 ## When to use provisioned throughput units (PTU)
 
-You should consider switching from Pay-As-You-Go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there is an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing.  
+You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there is an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing.  
 
 ### Typical PTU scenarios
 
