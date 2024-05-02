@@ -4,7 +4,7 @@ description: In this quickstart, use Bicep to set up an API center for API disco
 author: dlepow
 ms.service: api-center
 ms.topic: quickstart
-ms.date: 04/19/2024
+ms.date: 05/02/2024
 ms.author: danlep 
 ---
 
@@ -20,15 +20,14 @@ ms.author: danlep
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * For Azure PowerShell: 
-        [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from
-[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/<template-name>).
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/.
 
-[code-block-or-link-to-code]
-TODO: Add your code or link
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.apicenter/azure-api-center-create/main.bicep":::
 
 The following Azure resources are defined in the Bicep file:
 
@@ -36,12 +35,11 @@ The following Azure resources are defined in the Bicep file:
 * [Microsoft.ApiCenter/services/workspaces](/azure/templates/microsoft.apicenter/services/workspaces)
 * [Microsoft.ApiCenter/services/workspaces/apis](/azure/templates/microsoft.apicenter/services/workspaces/apis)
 
-In this example, the Bicep file creates an API center by default in the Free plan and registers a sample API in the default workspace.
-
+In this example, the Bicep file creates an API center in the Free plan and registers a sample API in the default workspace.
 
 ## Deploy the Bicep file
 
-You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more information about deploying Bicep files, see [Deploy](../azure-resource-manager/bicep/deploy-cli.md).
+You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more information about deploying Bicep files, see [Deploy](../azure-resource-manager/bicep/deploy-cli.md).
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
@@ -49,6 +47,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
     # [CLI](#tab/CLI)
 
     ```azurecli
+    # Create a resource group in one of the supported regions for Azure API Center
     az group create --name exampleRG --location eastus
 
     az deployment group create --resource-group exampleRG --template-file main.bicep --parameters apiName="<api-name>" apiType="<api-type>" 
@@ -66,6 +65,6 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
 
 Replace **\<api-name\>** and **\<api-type\>** with the name and type of an API that you want to register in your API center.
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 [!INCLUDE [quickstart-next-steps](includes/quickstart-next-steps.md)]
