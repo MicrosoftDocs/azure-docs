@@ -44,7 +44,7 @@ Hub clusters are exempted from [Azure policies][azure-policy-overview] to avoid 
 
 For hubful fleets, there are two subtypes:
 
-- **Public hubful fleets** expose the hub cluster to the internet. This means that with the right credentials, anyone on the internet can connect to the hub server. This configuration can be useful during the development and testing phase, but represents a security concern which is largely undesirable in production.
+- **Public hubful fleets** expose the hub cluster to the internet. This means that with the right credentials, anyone on the internet can connect to the hub server. This configuration can be useful during the development and testing phase, but represents a security concern, which is largely undesirable in production.
 
 - **Private hubful fleets** use a [private AKS cluster][aks-private-cluster] as the hub, which prevents open access over the internet. All considerations for a private AKS cluster apply, so review the prerequisites and limitations to determine whether a private hubful fleet meets your needs.
 
@@ -53,17 +53,17 @@ Some other details to consider:
 - Choosing a public or private hub can't be changed after creation.
 - When using an AKS private cluster, you have the ability to configure fully qualified domain names (FQDNs) and FQDN subdomains. This functionality doesn't apply to the private cluster used in a private hubful fleet.
 - You can connect to a private hub cluster using the same methods that you would to [connect to any private AKS cluster][aks-private-cluster-connect]. However, connecting using AKS command invoke and private endpoints aren't currently supported.
-- When using private hubful fleets, you're required to provide the subnet in which the Fleet hub cluster's node VMs will be placed. This process differs slightly from the AKS private cluster equivalent. For more information, see [Create a private hubful fleet][create-private-hubful-fleet].
+- When using private hubful fleets, you're required to provide the subnet in which the Fleet hub cluster's node VMs will reside. This process differs slightly from the AKS private cluster equivalent. For more information, see [Create a private hubful fleet][create-private-hubful-fleet].
 
 <!-- TODO: NEED REVIEW ON THE WORDING OF ABOVE BULLETS -->
 
 ## Next steps
 
-Now that you understand the different types of Kubernetes fleet resources, see [Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure portal][quickstart-create-hubless-fleet] and [Create an Azure Kubernetes Fleet Manager resource and join member clusters using Azure CLI][quickstart-create-hubful-fleet].
+Now that you understand the different types of Kubernetes fleet resources, see [Create an Azure Kubernetes Fleet Manager resource and join member clusters][quickstart-create-fleet].
 
 <!-- LINKS -->
 [aks-private-cluster]: /azure/aks/private-clusters
 [aks-private-cluster-connect]: /azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
 [create-private-hubful-fleet]: quickstart-create-fleet-and-members.md#private-hub
-<!-- TODO: NEED TO MODIFY ABOVE LINK WHEN TABS FOR HUBLESS/HUBFUL IN QS -->
 [azure-policy-overview]: /azure/governance/policy/overview
+[quickstart-create-fleet]: quickstart-create-fleet-and-members.md
