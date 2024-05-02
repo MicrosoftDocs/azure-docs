@@ -146,7 +146,26 @@ With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redu
 
 ### Prerequisites
 
-Your replicas must be deployed in an Azure region that supports availability zones. To see if your region supports availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+- Your replicas must be deployed in an Azure region that supports availability zones. To see if your region supports availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+
+- Determine whether or not availability zones add enough value to your current configuration in [Impact of using availability zones](#impact-of-using-availability-zones).
+
+### Impact of using availability zones
+
+
+The impact of availability zones on the high availability of your CosmosDB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. In many cases, availability zones don’t add value or add minimal value if the account is multi-region (unless configured with strong consistency). 
+
+Consult the table below to estimate the impact of using availability zones in your current account configuration:
+
+
+| Account consistency level | Regions with availability zones enabled| Impact of using availability zones|
+|----|---|---|
+| [Asynchronous (Bounded Staleness or weaker)](/azure/cosmos-db/consistency-levels#bounded-staleness-consistency) |Any number of secondary read regions.| Provides minimal value because the SDK already provides seamless redirects for reads when a read region fails.|
+| [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) |Two or more secondary read regions| Provides marginal value because the system can leverage dynamic quorum should a read region lose availability which allows for writes to continue.|
+| Synchronous (Strong) |One secondary read region.| Provides greater value because the loss of a read region in this scenario can impact write availability.|
+| All |Write regions and any number of secondary regions| Provides greater value.|
+| All |Single region| Provides greatest value.|
+
 
 
 ### SLA improvements
