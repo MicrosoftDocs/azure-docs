@@ -71,27 +71,24 @@ Your Azure resources could be protected using any number of the network isolatio
 
 Azure AI Search has the concept of an *indexer execution environment* that optimizes processing based on the characteristics of the job. There are two environments. If you're using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both environments.
 
-For any given indexer run, Azure AI Search determines the best environment in which to run the indexer. Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
+For any given indexer run, Azure AI Search determines the best environment in which to run the indexer. Depending on the number and types of tasks assigned, the indexer will run in one of two environments.
 
-- A *private execution environment* that's internal to a search service. 
-
-  Indexers running in the private environment share computing resources with other indexing and query workloads on the same search service. Typically, only indexers that perform text-based indexing (without skillsets) run in this environment.
-
-- A *multitenant environment* that's managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. 
-
-  This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Examples of resource-intensive indexer jobs include attaching skillsets, processing large documents, or processing a high volume of documents.
-
+| Execution environment | Description |
+|-----------------------|-------------|
+| Private | Internal to a search service. Indexers running in the private environment share computing resources with other indexing and query workloads on the same search service. Typically, only indexers that perform text-based indexing (without skillsets) run in this environment. If you set up a private connection between an indexer and your data, this is the only execution enriovnment you can use. |
+|  multitenant | Managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Examples of resource-intensive indexer jobs include attaching skillsets, processing large documents, or processing a high volume of documents. |
+  
 The following section explains the IP configuration for admitting requests from either execution environment.
 
 ### Setting up IP ranges for indexer execution
 
-If the Azure resource that provides source data exists behind a firewall, you need [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md) for all of the IPs from which an indexer request can originate. The IPs include the one used by the search service and the multitenant environment.
+If your Azure resource is behind a firewall, set up [inbound rules that admit indexer connections](search-indexer-howto-access-ip-restricted.md) for all of the IPs from which an indexer request can originate. This includes the IP address used by the search service, and the IP addresses used by the multitenant environment.
 
 - To obtain the IP address of the search service (and the private execution environment), use `nslookup` (or `ping`) to find the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`.
 
 - To obtain the IP addresses of the multitenant environments within which an indexer might run, use the `AzureCognitiveSearch` service tag. 
 
-  [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service. You can find these IPs using the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). IP ranges are allocated by region, so check your search service region before you start.
+  [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses of the multitenant environments for each region. You can find these IPs using the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). IP ranges are allocated by region, so check your search service region before you start.
 
 #### Setting up IP rules for Azure SQL
 
@@ -107,14 +104,14 @@ Notice that if you specified the service tag for the multitenant environment IP 
 
 ## Choose a connectivity approach
 
-A search service always runs in the cloud and can't be provisioned into a specific virtual network, running natively on a virtual machine. Although some Azure resources offer [virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview), this functionality won't be offered by Azure AI Search. You should plan on implementing one of the following approaches.
+A search service can't be provisioned into a specific virtual network, running natively on a virtual machine. Although some Azure resources offer [virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview), this functionality won't be offered by Azure AI Search. You should plan on implementing one of the following approaches.
 
 | Approach | Details |
 |----------|---------|
 | Inbound connection to your Azure resource | Configure an inbound firewall rule on your Azure resource that admits indexer requests for your data. Your firewall configuration should include the service tag for multitenant execution and the IP address of your search service. |
 | Private connection between Azure AI Search and your Azure resource | Configure a shared private link used exclusively by your search service for connections to your resource. Connections travel over the internal network and bypass the public internet. If your resources are fully locked down (running on a protected virtual network, or otherwise not available over a public connection), a private endpoint is your only choice. See [Make outbound connections through a private endpoint](search-indexer-howto-access-private.md).|
 
-Connections through a private endpoint must originate from the search service's private execution environment. To meet this requirement, you must disable the multitenant execution environment.
+Connections through a private endpoint must originate from the search service's private execution environment. 
 
 Configuring an IP firewall is free. A private endpoint, which is based on Azure Private Link, has a billing impact. See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for details.
 
@@ -132,7 +129,7 @@ This section narrows in on the private connection option.
 
 - Requires that a subscription owner approve the private endpoint connection.
 
-- Requires that you disable the multitenant execution environment for the indexer.
+- Requires that you turn off the multitenant execution environment for the indexer.
 
   You do this by setting the `executionEnvironment` of the indexer to `"Private"`. This step ensures that all indexer execution is confined to the private environment provisioned within the search service. This setting is scoped to an indexer and not the search service. If you want all indexers to connect over private endpoints, each one must have the following configuration:
   
