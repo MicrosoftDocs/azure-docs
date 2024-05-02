@@ -118,7 +118,7 @@ You can monitor Application Live View using the Azure portal or Azure CLI.
 
 You can view the state of Application Live View in the Azure portal on the **Overview** tab of the **Developer Tools** page.
 
-:::image type="content" source="media/how-to-use-application-live-view/application-live-view-enabled.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page sOverview tab." lightbox="media/how-to-use-application-live-view/application-live-view-enabled.png":::
+:::image type="content" source="media/how-to-use-application-live-view/application-live-view-enabled.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page Overview tab." lightbox="media/how-to-use-application-live-view/application-live-view-enabled.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -228,7 +228,7 @@ Use the following steps to manage Application Live View using the Azure portal:
 
 1. Select the **Enable App Live View** checkbox, and then select **Save**.
 
-   :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Azure portal that shows th Developer Tools section with the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
+   :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools section with the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
 
 1. You can then view the state of Application Live View on the **Developer Tools**.
 
