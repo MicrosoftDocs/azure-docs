@@ -1,14 +1,15 @@
 ---
-title: Resolve capacity errors 
+title: Resolve capacity errors
 description: This article describes how to resolve possible capacity errors when attempting to deploy or scale Azure Database for PostgreSQL Flexible Server.
+author: sachinpmsft
+ms.author: kabharati
+ms.reviewer: sachinpmsft, maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: kabharati 
-ms.reviewer: sachinpmsft 
-author: sachinpmsft
 ms.topic: how-to
-ms.date: 02/23/2024
-ms.custom: references_regions
+ms.custom:
+  - references_regions
 ---
 
 # Resolve capacity errors for Azure Database for PostgreSQL Flexible Server
