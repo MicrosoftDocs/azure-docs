@@ -116,7 +116,10 @@ sections:
           Trusted Signing will suspend accounts and or revoke signing certificates if the certificate is found to be misused or abused per our service's Terms of Use. We engage with you directly in such cases following the Code Signing Baseline Requirements (CSBRs) guidelines. 
       - question: What if I get Azure.Identity.CredentialUnavailableException?
         answer: |
-          You should expect to see this error on environments outside of Azure [see here](https://github.com/Azure/azure-sdk-for-net/issues/29471). Recommendation is to "exclude ManagedIdentity" if you are outside of Azure.
+          You should expect to see this error on environments outside of Azure [see here](https://github.com/Azure/azure-sdk-for-net/issues/29471). Recommendation is to "exclude ManagedIdentity" if you're outside of Azure.
+      - question: What if I change the Subscription ID or Tenant ID?
+        answer: |
+         At the moment, Trusted Signing resources can't be migrated across Subscriptions or Tenants. Hence, any change to Tenant ID or Subscription ID will need fro you to create all the Trusted Signing resources again.
   
 ##additionalContent: |
     ## Next steps
