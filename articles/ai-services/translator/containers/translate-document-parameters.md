@@ -1,5 +1,5 @@
 ---
-title: "Container: Translate document method"
+title: "Container: Translate document"
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body request/response messages for the Azure AI Translator container translate document operation.
 #services: cognitive-services
@@ -31,14 +31,14 @@ ms.author: lajanuar
 
 ***With optional parameters***
 
-```http
+```bash
 POST {Endpoint}/translate?api-version=3.0&from={from}&to={to}&textType={textType}&category={category}&profanityAction={profanityAction}&profanityMarker={profanityMarker}&includeAlignment={includeAlignment}&includeSentenceLength={includeSentenceLength}&suggestedFrom={suggestedFrom}&fromScript={fromScript}&toScript={toScript}
 ```
 
 Example:
 
 ```bash
-`curl -i -X POST "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension" -o "{path-to-output-file-with-file-extension}"`
+`curl -i -X POST "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version={version}" -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension" -o "{path-to-output-file-with-file-extension}"`
 ```
 
 ## Synchronous request headers and parameters
