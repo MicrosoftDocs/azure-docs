@@ -197,7 +197,7 @@ You can complete your own identity validation by filing out the request form wit
 To create an identity validation request:
 
 1. In the Azure portal, go to your new Trusted Signing account.
-1. Confirm that you are assigned the Trusted Signing Identity Verifier role.
+1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
    - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
 1. On either the Trusted Signing account Overview page or on the Objects pane, select **Identity Validation**.
@@ -226,7 +226,7 @@ To create an identity validation request:
 1. When the identity validation process is finished, the request status changes, and an email is sent with the updated status of the request:
 
    - **Completed** when the process is completed successfully.
-   - **Failed** When the process is not completed successfully.
+   - **Failed** When the process isn't completed successfully.
 
 :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot that shows the Public option in the New identity validation pane." lightbox="media/trusted-signing-identity-validation-public.png":::
 
@@ -236,11 +236,11 @@ To create an identity validation request:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-| Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you are validated are up to date. |
+| Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you're validated are up to date. |
 | Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it is created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
-| Additional documentation            | If we need more documentation to process the identity validation request, you are notified though email. You can upload the documents in the Azure portal. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. |
+| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
-| Identity validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
+| Identity validation status            | You're notified through email when there's an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Processing your identity validation request takes from 1 to 7 business days (possibly longer if we need to request more documentation from you). |
 
 ## Create a certificate profile  
@@ -372,7 +372,7 @@ trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAc
 ```
 
 > [!NOTE]
-> This action stops any signing that's associated with the corresponding certificate profiles.
+> This action stops any signing associated with the corresponding certificate profiles.
 
 ---
 

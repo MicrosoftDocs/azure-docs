@@ -76,7 +76,7 @@ To sign new CI policies by using the Trusted Signing service, first install seve
 
 ## Create and deploy a CI policy
 
-For steps to complete to create and deploy your CI policy, see these articles:
+For steps to create and deploy your CI policy, see these articles:
 
 - [Use signed policies to protect Windows Defender Application Control against tampering](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering)
 - [Windows Defender Application Control design guide](/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-design-guide)

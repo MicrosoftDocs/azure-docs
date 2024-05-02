@@ -43,7 +43,7 @@ Public Trust is recommended for signing any artifact that is to be shared public
 
 ## Private Trust
 
-Private Trust is the other trust model that's provided in Trusted Signing. It's for opt-in trust where the signatures aren't broadly trusted across the ecosystem. The CA hierarchy that's used for Trusted Signing's Private Trust resources isn't default-trusted in any root program and in Windows. Rather, it's specifically designed for use in [App Control for Windows (formerly known as Windows Defender Application Control)](/windows/security/application-security/application-control/windows-defender-application-control/wdac) features including:
+Private Trust is the other trust model that's provided in Trusted Signing. It's for opt-in trust where the signatures aren't broadly trusted across the ecosystem. The CA hierarchy that's used for Trusted Signing's Private Trust resources isn't default-trusted in any root program and in Windows. Rather, it's designed for use in [App Control for Windows (formerly known as Windows Defender Application Control)](/windows/security/application-security/application-control/windows-defender-application-control/wdac) features including:
 
 - [Use code signing for added control and protection with WDAC](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-code-signing-for-better-control-and-protection)
 - [Use signed policies to protect Windows Defender Application Control against tampering](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering)

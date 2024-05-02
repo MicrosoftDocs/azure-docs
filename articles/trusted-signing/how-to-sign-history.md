@@ -42,7 +42,7 @@ This article demonstrates an example of how to view signing transactions by usin
 
 The following article guides you through the steps to create a storage account in the same region as your Trusted Signing account. (A basic storage account is sufficient.)
 
-- [Create a storage account](/azure/storage/common/storage-account-create?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json),.
+- [Create a storage account](/azure/storage/common/storage-account-create?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json).
 
 To access and send signing transactions to your storage account:  
 

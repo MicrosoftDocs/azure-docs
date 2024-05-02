@@ -31,7 +31,7 @@ This section explains how to set up SignTool to use with Trusted Signing.
 ### Prerequisites
 
 - A Trusted Signing account, identity validation, and a certificate profile.
-- The Trusted Signing Certificate Profile Signer role is assigned to you..
+- The Trusted Signing Certificate Profile Signer role is assigned to you.
 
 ### Summary of steps
 
@@ -72,7 +72,7 @@ The components that SignTool.exe uses to interface with Trusted Signing require 
 - For x64 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
 - For x86 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
 
-### Download and install Trusted Signing Dlib package
+### Download and install the Trusted Signing Dlib package
 
 To download and install the Trusted Signing Dlib package (a .zip file):
 
@@ -88,21 +88,11 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing Dlib package or use the following example:
 
    ```json
-
      "Endpoint": "<Trusted Signing Account Endpoint>",
      "TrustedSigningAccountName": "<Trusted Signing Account Name>",
      "CertificateProfileName": "<Certificate Profile Name>",
      "CorrelationId": "<Optional CorrelationId*>"
-
-<<<<<<< HEAD
    ```
-=======
-```
-& "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to Metadata file>\metadata.json" <File to sign> 
-```
-* Both x86 and x64 versions of SignTool.exe are provided as part of the Windows SDK - ensure you reference the corresponding version of Azure.CodeSigning.Dlib.dll. The above example is for the x64 version of SignTool.exe.
-* You must make sure you use the recommended Windows SDK version in the dependencies listed at the beginning of this article. Otherwise our dlib won’t work. 
->>>>>>> 9415df928151f0ed741e3e0af055b967cc38793c
 
    The "Endpoint" URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
 
@@ -144,6 +134,6 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, visit [PowerShell Gallery | Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) to install the PowerShell module.
 
-- **Azure PowerShell - App Control for Business CI Policy**: To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
+- **Azure PowerShell - App Control for Business CI Policy**: To use Trusted Signing for CI policy signing, follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 
 - **Trusted Signing SDK**: To create your own signing integration, you can use our open-source [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk).

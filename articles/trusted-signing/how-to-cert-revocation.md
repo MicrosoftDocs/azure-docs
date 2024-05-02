@@ -40,7 +40,7 @@ This article guides you through the process of revoking a certificate profile fr
 
 ## Prerequisites
 
-- Ensure that you are assigned the Owner role for the subscription. To learn more about role-based access control (RBAC) access management, see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
+- Ensure that you're assigned the Owner role for the subscription. To learn more about role-based access control (RBAC) access management, see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
 
 ## Revoke a certificate
 
