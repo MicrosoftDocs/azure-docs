@@ -237,7 +237,7 @@ These public preview recommendations will be deprecated at the end March.
 
 The current generally available recommendations are still supported and will be until August 2024.
 
-Learn how to [prepare for the new endpoint detection recommendation experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+Learn how to [prepare for the new endpoint detection recommendation experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
 
 ### Custom recommendations based on KQL for Azure is now public preview
 
