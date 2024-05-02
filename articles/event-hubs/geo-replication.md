@@ -74,7 +74,8 @@ o	AzureDiagnostics
 | where Category == "ApplicationMetricsLogs"
 | where ActivityName_s == "ReplicationLag
 -	The column count_d indicates the replication lag in seconds between the primary and secondary region.
-	[img](../media/geo-replication/replication-monitoring.png)
+  
+[img](../media/geo-replication/replication-monitoring.png)
  
  ## Publishing Data 
 Event publishing applications can publish data to geo replicated namespaces via stable namespace FQDN of the geo replicated namespace. The event publishing approach is the same as the non-Geo DR case and no changes to data plane SDKs or Kafka client applications are required. 
