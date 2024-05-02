@@ -135,7 +135,9 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png" alt-text="Screenshot that shows there aren't any noncompliant virtual networks after the deployment policy deployed flow logs in the defined scope." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png":::
 
-    You can view the deployed virtual network flow logs by going to **Flow logs** in **Network Watcher**.
+    You can view the deployed virtual network flow logs by going to **Flow logs** under **Logs** in **Network Watcher**.
+
+    :::image type="content" source="./media/vnet-flow-logs-policy/flow-logs.png" alt-text="Screenshot that shows the flow logs list in Network Watcher." lightbox="./media/vnet-flow-logs-policy/flow-logs.png":::
 
  ## Related content
 
