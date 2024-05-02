@@ -74,29 +74,6 @@ Update-AzStandbyVMPool `
    -VMState "Deallocated" `
 ```
 
-### [ARM template](#tab/template-2)
-```ARM
-{
- "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
- "contentVersion": "1.0.0.0",
- "parameters": {},
- "resources": [
-     {
-         "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-         "apiVersion": "2023-12-01-preview",
-         "name": "{StandbyPoolName}",
-         "location": "{Location}",
-         "properties": {
-         "maxReadyCapacity": 20,
-         "virtualMachineState": "Deallocated",
-         "attachedVirtualMachineScaleSetId": ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
-         }
-     }
- ]
-}
-
-```
-
 ### [REST](#tab/rest-2)
 Update an existing standby pool using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update).
 
@@ -157,7 +134,6 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 4) Select **Delete**. 
 
 :::image type="content" source="media/standby-pools/delete-standby-pool-portal.png" alt-text="A screenshot showing how to delete a standby pool in the portal.":::
-
 
 
 ### [CLI](#tab/cli-3)
