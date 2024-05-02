@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/01/2024
 ---
 
-# Configure data plans for tables in Azure Monitor Logs
+# Configure data plans for tables in a Log Analytics worspace
 
 Your Log Analytics workspace can store various types of logs required for various purposes. For example:
 
