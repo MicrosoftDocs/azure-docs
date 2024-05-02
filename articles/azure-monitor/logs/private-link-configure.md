@@ -125,7 +125,7 @@ To create and manage Private Link Scopes, use the [REST API](/rest/api/monitor/p
 The following CLI command creates a new AMPLS resource named `"my-scope"`, with both query and ingestion access modes set to `Open`.
 
 ```
-az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
+az resource create -g "my-resource-group" --name "my-scope" -l global --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
 ```
 
 #### Create an AMPLS with mixed access modes: PowerShell example

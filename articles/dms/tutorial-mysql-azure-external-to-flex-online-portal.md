@@ -83,6 +83,7 @@ As you prepare for the migration, be sure to consider the following limitations.
     * REPAIR TABLE
     * ANALYZE TABLE
     * CHECKSUM TABLE
+  * Azure DMS statement or binlog replication does not support the following syntax: ‘CREATE TABLE `b` as SELECT * FROM `a`;’. The replication of this DDL will result in the following error: “Only BINLOG INSERT, COMMIT and ROLLBACK statements are allowed after CREATE TABLE with START TRANSACTION statement.”
 
 ## Best practices for creating a flexible server for faster data loads using DMS
 

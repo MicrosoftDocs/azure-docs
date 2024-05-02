@@ -25,8 +25,8 @@ Reproducible output is only currently supported with the following:
 
 * `gpt-35-turbo` (1106) - [region availability](../concepts/models.md#gpt-35-turbo-model-availability)
 * `gpt-35-turbo` (0125) - [region availability](../concepts/models.md#gpt-35-turbo-model-availability)
-* `gpt-4` (1106-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability)
-* `gpt-4` (0125-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability)
+* `gpt-4` (1106-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability)
+* `gpt-4` (0125-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability)
 
 ### API Version
 
