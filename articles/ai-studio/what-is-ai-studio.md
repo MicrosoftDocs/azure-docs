@@ -119,7 +119,7 @@ Choose a sample prompt to see how it works or as a starting point for your proje
 
 ### AI Services
 
-From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more. For more information about Azure AI services, see [What are Azure AI services?](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and [Try out AI services](how-to/models-foundation-azure-ai.md).
+From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more. For more information about Azure AI services, see [What are Azure AI services?](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and [Try out AI services](ai-services/connect-ai-services.md).
 
 :::image type="content" source="media/explore/home-ai-services.png" alt-text="Screenshot of the AI Services home page." lightbox= "media/explore/home-ai-services.png":::
 
