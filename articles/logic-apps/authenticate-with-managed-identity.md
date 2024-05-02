@@ -45,7 +45,7 @@ This guide shows how to complete the following tasks:
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
-- The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](../entra/roles/permissions-reference.md) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
+- The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](/entra/identity/role-based-access-control/permissions-reference) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
 
 - The logic app resource and workflow where you want to use the [trigger or actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
@@ -305,7 +305,7 @@ Before you can enable the user-assigned identity on a Consumption logic app reso
 
 ## Create user-assigned identity in an ARM template
 
-To automate creating and deploying logic app resources, you can use an [ARM template](logic-apps-azure-resource-manager-templates-overview.md). These templates support [user-assigned identities for authentication](../entra/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md).
+To automate creating and deploying logic app resources, you can use an [ARM template](logic-apps-azure-resource-manager-templates-overview.md). These templates support [user-assigned identities for authentication](/azure/templates/microsoft.managedidentity/userassignedidentities?pivots=deployment-language-arm-template).
 
 In your template's **resources** section, your logic app's resource definition requires the following items:
 
@@ -549,7 +549,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > [!NOTE]
    >
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
-   > For more information, see [Microsoft Entra built-in roles](../entra/roles/permissions-reference.md).
+   > For more information, see [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference).
 
 1. Assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
 
@@ -568,7 +568,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
-For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](../entra/managed-identities-azure-resources/howto-assign-access-portal.md).
+For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal).
 
 <a name="azure-portal-access-policy"></a>
 
@@ -847,7 +847,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
 1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../entra/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../key-vault/general/authentication.md), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
 
    If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
@@ -911,7 +911,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
 1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../entra/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+   For example, to [authenticate access to a Key Vault resource in the global Azure cloud](../key-vault/general/authentication.md), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
 
    If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
@@ -1452,11 +1452,11 @@ The steps in this section cover using the [Azure portal](#azure-portal-disable) 
 
 | Tool | Documentation |
 |------|---------------|
-| Azure PowerShell | 1. [Remove role assignment](../role-based-access-control/role-assignments-remove.md#azure-powershell). <br>2. [Delete user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell). |
-| Azure CLI | 1. [Remove role assignment](../role-based-access-control/role-assignments-remove.md#azure-cli). <br>2. [Delete user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli). |
-| Azure REST API | 1. [Remove role assignment](../role-based-access-control/role-assignments-remove.md#rest-api). <br>2. [Delete user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest). |
+| Azure PowerShell | 1. [Remove role assignment](/azure/role-based-access-control/role-assignments-remove#azure-powershell). <br>2. [Delete user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell). |
+| Azure CLI | 1. [Remove role assignment](/azure/role-based-access-control/role-assignments-remove#azure-cli). <br>2. [Delete user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli). |
+| Azure REST API | 1. [Remove role assignment](/azure/role-based-access-control/role-assignments-remove#rest-api). <br>2. [Delete user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest). |
 
-For more information, see [Remove Azure role assignments](../role-based-access-control/role-assignments-remove.md).
+For more information, see [Remove Azure role assignments](/azure/role-based-access-control/role-assignments-remove).
 
 <a name="azure-portal-disable"></a>
 
@@ -1480,7 +1480,7 @@ The following steps remove access to the target resource from the managed identi
    >
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Microsoft Entra ID](../entra/roles/permissions-reference.md).
+   > [Administrator role permissions in Microsoft Entra ID](/entra/identity/role-based-access-control/permissions-reference).
 
 <a name="disable-identity-logic-app"></a>
 
