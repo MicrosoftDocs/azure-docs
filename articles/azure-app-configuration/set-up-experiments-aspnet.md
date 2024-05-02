@@ -12,7 +12,7 @@ ms.date: 04/30/2024
 
 # Tutorial: Run A/B tests on variant feature flags in Azure App Configuration
 
-Running A/B testing experiments can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and [Split Experimentation Workspace (preview)](/azure/partner-solutions/split-experimentation). By doing so, you can make data-driven decisions to improve your application.
+Running A/B testing experiments can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and [Split Experimentation Workspace (preview)](./azure/partner-solutions/split-experimentation). By doing so, you can make data-driven decisions to improve your application.
 
 In this tutorial, you:
 
