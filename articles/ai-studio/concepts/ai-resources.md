@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 2/5/2024
+ms.date: 05/02/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist
@@ -84,6 +84,10 @@ With the same API key, you can access all of the following Azure AI services:
 
 Large language models that can be used to generate text, speech, images, and more, are hosted by the hub. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.
 
+To view the keys and endpoints used to connect to Azure AI Services from Azure AI Studio, select **Resources and keys**. You can use the **Filter** to limit the results to the resources you are interested in. For more information, see [Azure AI services API access keys](#azure-ai-services-api-access-keys).
+
+:::image type="content" source="../media/concepts/azureai-resources-keys.png" alt-text="Screenshot of the resources and keys section in the Azure AI Studio." lightbox="../media/concepts/azureai-resources-keys.png":::
+
 ### Virtual networking
 
 Hubs, compute resources, and projects share the same Microsoft-managed Azure virtual network. After you configure the managed networking settings during the hub creation process, all new projects created using that hub will inherit the same virtual network settings. Therefore, any changes to the networking settings are applied to all current and new project in that hub. By default, hubs provide public network access.
@@ -130,27 +134,11 @@ In the Azure portal, you can find resources that correspond to your project in A
 
 1. In [Azure AI Studio](https://ai.azure.com), go to **All hubs** and select your hub. From here, you can view your hub's projects and connected resources. There's also a link to view the corresponding hub resource in the [Azure portal](https://portal.azure.com).
 
-2. Select the project name to view your project's resources. There's a link to your hub in Azure AI Studio, and links to view the project resources in the [Azure portal](https://portal.azure.com).
-
-3. To view the keys and endpoints used to connect to Azure AI Services, select **Resources and keys**. You can use the **Filter** to limit the results to the resources you are interested in.
-
-----------------------
-
-1. In [Azure AI Studio](https://ai.azure.com), go to **Build** > **Project settings** to view your project resources such as connections and API keys. There's a link to your hub in Azure AI Studio and links to view the corresponding project resources in the [Azure portal](https://portal.azure.com).
-
-    :::image type="content" source="../media/concepts/azureai-project-view-ai-studio.png" alt-text="Screenshot of the project and related resources in the Azure AI Studio." lightbox="../media/concepts/azureai-project-view-ai-studio.png":::
-
-1. Select the hub name to view your hub's projects and shared connections. There's also a link to view the corresponding resources in the [Azure portal](https://portal.azure.com).
-
     :::image type="content" source="../media/concepts/azureai-resource-view-ai-studio.png" alt-text="Screenshot of the hub and related resources in the Azure AI Studio." lightbox="../media/concepts/azureai-resource-view-ai-studio.png":::
 
-1. Select **View in the Azure Portal** to see your hub in the Azure portal. 
+1. Select the project name to view your project's resources. There's a link to your hub in Azure AI Studio, and links to view the project resources in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="../media/concepts/ai-hub-azure-portal.png" alt-text="Screenshot of the hub in the Azure portal." lightbox="../media/concepts/ai-hub-azure-portal.png":::
-
-    - Select the **AI Services provider** to see the keys and endpoints needed to authenticate your requests to Azure AI services such as Azure OpenAI. For more information, see [Azure AI services API access keys](#azure-ai-services-api-access-keys). 
-    - Also from the hub page, you can select the **Project resource group** to find your project. 
-
+    :::image type="content" source="../media/concepts/azureai-project-view-ai-studio.png" alt-text="Screenshot of the project and related resources in the Azure AI Studio." lightbox="../media/concepts/azureai-project-view-ai-studio.png":::
 
 ## Next steps
 
