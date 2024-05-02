@@ -34,6 +34,7 @@ Azure NetApp Files backup is supported for the following regions:
 * France Central
 * Germany North
 * Germany West Central
+* Israel Central
 * Japan East
 * Japan West
 * Korea Central
@@ -94,7 +95,6 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
