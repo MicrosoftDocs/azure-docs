@@ -22,7 +22,7 @@ Use this article to troubleshoot and resolve common issues that you might encoun
 When you're creating a build, do the following:
 
 - The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Don't* disable these settings as part of the build.
-- VM Image Builder creates resources in the staging resource group as part of the builds. The exact list of resources depends on the [networking configuration](./image-builder-json.md#vnetconfig-optional) specified in the image template.  Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
+- VM Image Builder creates resources in the staging resource group as part of the builds. The exact list of resources depends on the [networking configuration](./image-builder-json.md#vnetconfig-optional) specified in the image template. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
   - Create an IT_ resource group.
   - Create a storage account without a firewall.
   - Deploy [Azure Container Instances](../../container-instances/container-instances-overview.md).
