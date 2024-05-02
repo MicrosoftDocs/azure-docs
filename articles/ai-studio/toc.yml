@@ -174,6 +174,10 @@ items:
       displayName: applied, cognitive, form recognizer
     - name: Try out Azure AI services
       href: how-to/models-foundation-azure-ai.md
+    - name: Speech
+      items:
+      - name: Real-time speech to text
+        href: ../ai-services/speech-service/get-started-speech-to-text.md?context=/azure/ai-studio/context/context
     - name: Use your image data with Azure OpenAI
       href: how-to/data-image-add.md
       displayName: vision, gpt, turbo
