@@ -8,11 +8,13 @@ ms.date: 05/02/2024
 
 # Discover generative AI workloads
 
-Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AI BOM). By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
+The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AI BOM). Use instructions in this article to use the cloud security explorer to identify the AI workloads and models that are running in your environment and assess their security posture.
 
 ## Prerequisites
 
 - Read about [AI security posture management](ai-security-posture.md).
+
+- Learn more about [investigating risks with the cloud security explorer and attack paths](concept-attack-path.md).
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -49,4 +51,4 @@ The cloud security explorer can be used to identify generative AI workloads and 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Explore risks to pre-deployed generative AI artifacts](explore-ai-risk.md)
+> [Explore risks to generative AI artifacts before deployment](explore-ai-risk.md)

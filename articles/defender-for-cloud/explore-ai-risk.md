@@ -1,18 +1,20 @@
 ---
-title: Explore risks to pre-deployed generative AI artifacts
+title: Explore risks to generative AI artifacts before deployment
 description: Learn how to discover potential security risks for your generative AI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 05/02/2024
 # customer intent: As a user, I want to learn how to identify potential security risks for my generative AI applications in Microsoft Defender for Cloud so that I can enhance their security.
 ---
 
-# Explore risks to pre-deployed generative AI artifacts
+# Explore risks to generative AI artifacts before deployment
 
-The Defender CSPM plan in Microsoft Defender for Cloud helps you to improve the security posture of generative AI apps, by identifying vulnerable dependencies in libraries. This article explains how to explore, identify, and remediate security risks for those apps.
+The Defender CSPM plan in Microsoft Defender for Cloud helps you to improve the security posture of generative AI apps, by identifying vulnerabilities in AI artifacts such as container images and code repositories. This article explains how to explore, identify, and remediate security risks for those apps.
 
 ## Prerequisites
 
 - Read about [AI security posture management](ai-security-posture.md).
+
+- Learn more about [investigating risks with the cloud security explorer and attack paths](concept-attack-path.md).
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 

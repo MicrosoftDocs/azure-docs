@@ -33,8 +33,6 @@ Security teams can correlate AI workloads alerts and incidents within the Defend
 
 To use the Defender for AI Workloads plan, you must enroll in the limited public preview program by filling out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
-After you fill out the registration form and are accepted into the preview program, you can [onboard your Azure subscription to the preview program](ai-onboarding.md#enable-the-defender-for-ai-workloads-plan).
-
 ## Related content
 
-- [Onboard Defender for AI Workloads (Preview)](ai-onboarding.md)
+After you're accepted into the preview program, you can [onboard Defender for AI Workloads (Preview)](ai-onboarding.md).

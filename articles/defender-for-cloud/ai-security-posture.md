@@ -10,15 +10,15 @@ author: Elazark
 
 # AI security posture management
 
-Microsoft Defender for Cloud provides AI security posture management capabilities that secure enterprise-built, multi, or hybrid cloud (currently Azure and AWS) generative AI applications, throughout the entire application lifecycle. Defender for Cloud reduces risk to cross cloud AI workloads by:
+The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender for Cloud provides AI security posture management capabilities that secure enterprise-built, multi, or hybrid cloud (currently Azure and AWS) generative AI applications, throughout the entire application lifecycle. Defender for Cloud reduces risk to cross cloud AI workloads by:
 
-- Discover generative AI Bill of Materials (AI BOM), which includes application components, data, and AI artifacts from code to cloud.
+- Discovering generative AI Bill of Materials (AI BOM), which includes application components, data, and AI artifacts from code to cloud.
 - Strengthening generative AI application security posture with built-in recommendations and by exploring and remediating security risks.
 - Using the attack path analysis to identify and remediate risks.
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="An image of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
-## Discover generative AI apps within your environment
+## Discovering generative AI apps
 
 Defender for Cloud discovers AI workloads and identifies details of your organization's AI BOM. This visibility allows you to identify and address vulnerabilities and protect generative AI applications from potential threats.
 
@@ -36,7 +36,7 @@ With these features, Defender for Cloud provides full visibility of AI workloads
 
 Defender CSPM provides contextual insights into an organization's AI security posture. You can reduce risks within your AI workloads using security recommendations and attack path analysis.
 
-### Explore risks using recommendations
+### Exploring risks using recommendations
 
 Defender for Cloud assesses AI workloads and issues recommendations around identity, data security, and internet exposure to identify and prioritize critical security issues in AI workloads.
 
@@ -55,7 +55,7 @@ Current IaC AI security checks include:
 - Use Managed Identity for Azure AI Service Accounts
 - Use identity-based authentication for Azure AI Service Accounts
 
-### Explore risks with attack path analysis
+### Exploring risks with attack path analysis
 
 Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pretrained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed. 
 
