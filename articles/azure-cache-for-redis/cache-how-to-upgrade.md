@@ -29,6 +29,8 @@ This table contains the information for Redis upgrades features available in eac
 | Basic, Standard, Premium     |        No         |       No       |
 | Enterprise, Enterprise Flash |        Yes        |       Yes      |
 
+### Current versions
+
 This table contains the information for which Redis version are available in each tier.
 
 | Tier                         |        Available Redis version       |
