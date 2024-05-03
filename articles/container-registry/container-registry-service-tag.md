@@ -37,7 +37,7 @@ For detailed steps on creating a webhook setup, refer to the [Azure Container Re
 
 ACR Tasks, such as when you’re building container images or automating workflows, the service tag represents the group of IP address prefixes that ACR uses. During the execution of tasks, Tasks send requests to external resources through service tag IP addresses. If the external resource runs behind firewall, it needs to have inbound rule to allow ACR service tag IP addresses. Applying these inbound rules is a common practice to ensure security and proper access management in cloud environments.
 
-Learn more about [ACR Tasks](container-registry-tasks.md) and how to use the service tag to set up [firewall access rules](container-registry-firewall-access-rules.md) for ACR Tasks.
+Learn more about [ACR Tasks](container-registry-tasks-overview.md) and how to use the service tag to set up [firewall access rules](container-registry-firewall-access-rules.md) for ACR Tasks.
 
 ## Best practices
 
