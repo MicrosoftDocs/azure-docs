@@ -12,13 +12,6 @@ ms.service: kubernetes-fleet
 
 # Upgrade an Azure Kubernetes Fleet Manager resource from hubless to hubful
 
-<!-- Required: Article headline - H1
-
-Identify the product or service and the task the
-article describes.
-
--->
-
 In this article, you'll learn how to upgrade an Azure Kubernetes Fleet Manager (Fleet) resource from hubless to hubful. Fleet resources are hubless by default, which means they don't rely on a central Azure Kubernetes Service (AKS) cluster. A hubful fleet uses an AKS cluster to store and propagate configuration details to enable the full Fleet feature set, which includes scenarios such as workload orchestration and layer-4 load balancing.
 
 For more details, see [Choosing an Azure Kubernetes Fleet Manager option][concepts-choose-fleet].
@@ -34,13 +27,6 @@ For more details, see [Choosing an Azure Kubernetes Fleet Manager option][concep
 - Hubless fleet resources can be upgraded to hubful, but hubful resources cannot be downgraded to hubless.
 - All configuration options and settings associated with hubful fleets are immutable and cannot be changed after creation or upgrade time.
 - Upgrading from hubless to hubful can only be done through the Azure CLI, and currently there is no equivalent Azure portal experience.
-
-## How it works
-
-Then, list the joined members (az fleet member list).
-Also as a one-off, for every member that is joined to the fleet, reconcile the member (az fleet member reconcile).
-Any members that are joined for the first time after the hubless->hubful upgrade has been done do not need to be further reconciled.
-The user can validate that the upgrade worked by connecting to the hub and running kubectl get member clusters (this is all documented in "Quickstart: Access the Kubernetes API of the Fleet resource") - all the Fleet members that were previously returned in az fleet member list should appear in the list returned by kubectl get memberclusters.
 
 ## Initial setup
 
