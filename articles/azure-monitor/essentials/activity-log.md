@@ -285,4 +285,3 @@ Learn more about:
 * [Platform logs](./platform-logs-overview.md)
 * [Activity log event schema](activity-log-schema.md)
 * [Activity log insights](activity-log-insights.md)
-
