@@ -48,7 +48,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
 - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
   - [Azure CLI](/cli/azure). Use `az --version` to test whether az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test whether Docker Daemon is running.
-  - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/). Use `kubectl version` to test whether kubectl works. This document was tested with version v1.21.2.
+  - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl). Use `kubectl version` to test whether kubectl works. This document was tested with version v1.21.2.
   - A Java JDK compatible with the version of WLS you intend to run. The article directs you to install a version of WLS that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed. Use `zip/unzip -v` to test whether `zip/unzip` works.
