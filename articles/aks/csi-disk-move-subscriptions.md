@@ -24,7 +24,8 @@ The sequence of steps to complete this move are:
 
 * Make sure you have Azure CLI version 2.0.59 or later installed and configured. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * Review details and requirements about moving resources between different regions in [Move resources to a new resource group or subscription][move-resources-new-subscription-resource-group]. Be sure to review the [checklist before moving resources][move-resources-checklist] in that article.
-* You have an AKS cluster in the target subscription and the source cluster has persistent volumes with Azure Disks attached.
+* The source cluster must have one or more persistent volumes with an Azure Disk attached.
+* You must have an AKS cluster in the target subscription.
 
 ## Validate disk volume state
 
@@ -227,7 +228,6 @@ To mount the moved disk volume, create a static persistent volume with the resou
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 
 <!-- LINKS - internal -->
-[azure-storage-account]: ../storage/common/storage-account-overview.md
 [disk-based-solutions]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage#disk-based-solutions
 [install-azure-cli]: /cli/azure/install-azure-cli
 [move-resources-new-subscription-resource-group]: ../azure-resource-manager/management/move-resource-group-and-subscription.md
