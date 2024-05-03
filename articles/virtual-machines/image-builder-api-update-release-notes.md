@@ -21,7 +21,7 @@ This article contains all major API changes and feature updates for the Azure VM
 ### May 2024
 #### Breaking Change: Case Sensitivity
 
-Starting from the AIB API version 2024-02-01 and beyond, all fields in our API will be case-sensitive. This means that the capitalization of letters in your API requests must match exactly with the expected format. Previously, our API was more forgiving in terms of case, but moving forward, precision is crucial. When making API calls, ensure that you use the correct capitalization for field names, parameters, and values. For example, if a field is named “vmBoot,” you must use “vmBoot” (not “VMBoot” or “vmboot”).
+Starting from May 15th, 2024, Azure Image Builder's API version 2024-02-01 and beyond will enforce case sensitivity for all fields. This means that the capitalization of letters in your API requests must match exactly with the expected format. Previously, our API was more forgiving in terms of case, but moving forward, precision is crucial. When making API calls, ensure that you use the correct capitalization for field names, parameters, and values. For example, if a field is named “vmBoot,” you must use “vmBoot” (not “VMBoot” or “vmboot”).
 
 If you send an API request with incorrect case or unrecognized fields, our system will reject it. You will receive an error response indicating that the request is invalid. The error will look something like this:
 
