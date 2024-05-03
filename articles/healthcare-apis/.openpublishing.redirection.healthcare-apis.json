@@ -451,6 +451,7 @@
           "redirect_document_id": false
       },
       {
+<<<<<<< HEAD
         "source_path_from_root": "/articles/healthcare-apis/fhir/overview-of-convert-data.md",
         "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
         "redirect_document_id": true
@@ -474,6 +475,11 @@
         "source_path_from_root": "/articles/healthcare-apis/fhir/troubleshoot-convert-data.md",
         "redirect_url": "/azure/healthcare-apis/fhir/convert-data-troubleshoot",
         "redirect_document_id": true
+=======
+        "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-portal-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/deploy-azure-portal",
+        "redirect_document_id": false
+>>>>>>> 6ba0e4222c9ad04dfaa440ca8c7bba3169a06371
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli.md",

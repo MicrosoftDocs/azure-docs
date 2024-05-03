@@ -13,4 +13,4 @@ ms.author: jasteppe
 > - Improved experience for customization of default [Liquid](https://shopify.github.io/liquid/) templates. 
 > - Samples that demonstrate how to create an ETL (extract, transform, load) pipeline with [Azure Data Factory (ADF)](../../data-factory/introduction.md).
 > 
-> To implement the FHIR converter container image, see the [FHIR converter GitHub project](https://github.com/Azure-Samples/azure-health-data-services-samples).
+> To implement the FHIR converter container image, see the [FHIR converter GitHub project](https://github.com/microsoft/fhir-converter).

@@ -16,7 +16,7 @@ ms.custom:  [amqp, mqtt]
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use this article to identify and resolve common issues when using IoT Edge solutions. If you need information on how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -256,7 +256,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",
@@ -270,7 +270,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-         "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+         "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
          "status": "running",
          "type": "docker"
    }
@@ -294,7 +294,7 @@ The IoT Edge runtime enforces process identification for all modules connecting 
 
 #### Solution
 
-As of version 1.0.7, all module processes are authorized to connect. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+As of version 1.0.7, all module processes are authorized to connect. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/main/CHANGELOG.md#iotedged-1).
 
 If upgrading to 1.0.7 isn't possible, complete the following steps. Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file. The `CMD` command leads to one process ID for the module and another process ID for the bash command running the main program, but `ENTRYPOINT` leads to a single process ID.
 
@@ -318,9 +318,6 @@ In the Azure portal:
 
 1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**.
 1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*.
-
-   :::image type="content" source="./media/troubleshoot/optimizeforperformance-false.png" alt-text="Screenshot that shows where to add the OptimizeForPerformance environment variable in the Azure portal.":::
-
 1. Select **Apply** to save changes, then select **Review + create**.
 
    The environment variable is now in the `edgeHub` property of the deployment manifest:
@@ -334,7 +331,7 @@ In the Azure portal:
          },
          "restartPolicy": "always",
          "settings": {
-               "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+               "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",

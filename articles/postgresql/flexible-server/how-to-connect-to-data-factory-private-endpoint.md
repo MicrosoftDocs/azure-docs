@@ -4,7 +4,7 @@ description: This article describes how to connect Azure Database for PostgreSQL
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
