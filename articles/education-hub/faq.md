@@ -1,6 +1,6 @@
 ---
-title: Azure for Education FAQ
-description: Get answers to frequently asked questions about Azure for Education.
+title: Frequently asked questions about Azure for Education
+description: Get answers to frequently asked questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -9,7 +9,7 @@ ms.date: 4/2/2024
 ms.custom: template-tutorial
 ---
 
-# Azure for Education FAQ
+# Frequently asked questions about Azure for Education
 
 In this article, discover all you need to know about Azure for Education. Find answers to common questions about eligibility, benefits, and usage to optimize your experience.
 
