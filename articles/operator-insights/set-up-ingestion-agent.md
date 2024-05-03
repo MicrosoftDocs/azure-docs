@@ -328,15 +328,15 @@ To collect agent logs, follow these instructions to install the Azure Monitor Ag
 
 - When creating a table for storing the logs, you can follow the PowerShell instructions in the Azure Monitor documentation, or use the Log Analytics workspace portal view to create an `MMA-based` table
   - Creating a table through the portal requires a sample log file: [ingestion-agent-logs](media/ingestion-agent-stdout.log)
-  - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`
-    ![image](media/configure-custom-logs-table.png)
+  - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`  
+    :::image type="content" source="media/configure-custom-logs-table.png" alt-text="A screenshot of configuring a logs table in the Azure portal":::
   - You don't need to add any custom columns
 - When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
-- After adding the data collection rule, you can query these logs through the Log Analytics workspace, using the following query to make them easier to work with
+- After adding the data collection rule, you can query these logs through the Log Analytics workspace. Use the following query to make them easier to work with:
   ```
   RawAgentLogs_CL
-  | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')
-  | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message
+  | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')  // Remove any color tags
+  | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message  // Parse the log lines into the TimeGenerated, Level and Message columns for easy filtering
   | order by TimeGenerated desc
   ```
   - Note, this query can't be used as a data source transform since `replace_regex` isn't available in data source transforms
