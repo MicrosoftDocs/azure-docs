@@ -45,9 +45,9 @@ Select the appropriate tab for the rest of the prerequisites based on your prefe
 
 * If you're not running these commands on a compute instance, install the [Azure CLI extension for Machine Learning service (v2)](how-to-configure-cli.md). This extension is already installed for you on a compute instance.
 
-Authenticate and set the default workspace and resource group. Leave the terminal open to run the rest of the commands in this article.
+* Authenticate and set the default workspace and resource group. Leave the terminal open to run the rest of the commands in this article.
 
-[!INCLUDE [cli first steps](includes/cli-first-steps.md)]
+    [!INCLUDE [cli first steps](includes/cli-first-steps.md)]
 
 # [Studio](#tab/azure-studio)
 
