@@ -38,7 +38,7 @@ To build an image configured for ADE, follow these steps:
 1. Build and push your image to your container registry, and ensure it's accessible to ADE.
 1. Reference your image in the `runner` property of your environment definition.
 
-### Select an image by using the FROM statement
+### Select a sample container image by using the FROM statement
 
 To build a Docker image to utilize ADE deployments and access the ADE CLI, you should base your image on one of the ADE-authored images. Including a FROM statement within a created DockerFile for your new image that points to an ADE-authored sample image hosted on Microsoft Artifact Registry. When using ADE-authored images, it's recommended you build your custom image on the ADE core image.
 

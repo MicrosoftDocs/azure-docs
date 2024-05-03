@@ -31,7 +31,14 @@ The ADE CLI is a tool that allows you to build custom images by using ADE base i
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
 
-### FROM statement
+To build an image configured for ADE, follow these steps:
+1. Base your image on an ADE-authored sample image or the image of your choice by using the FROM statement.
+1. Install any necessary packages for your image by using the RUN statement.
+1. Create a *scripts* folder at the same level as your Dockerfile, store your *deploy.sh* and *delete.sh* files within it, and ensure those scripts are discoverable and executable inside your created container. This step is necessary for your deployment to work using the ADE core image.
+1. Build and push your image to your container registry, and ensure it's accessible to ADE.
+1. Reference your image in the `runner` property of your environment definition.
+
+### Select a sample container image by using the FROM statement
 
 Include a FROM statement within a created DockerFile for your new image pointing to a sample image hosted on Microsoft Artifact Registry.
 
