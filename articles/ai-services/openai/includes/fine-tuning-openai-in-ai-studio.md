@@ -9,15 +9,18 @@
  ms.custom: include
 ---
 
+[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
+
 ## Prerequisites
 
 - Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
-- An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
+
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
-- An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor** role on the Azure OpenAI resource.
 - If you don't already have access to view quota and deploy models in Azure AI Studio you need [more permissions](../how-to/role-based-access-control.md).
-- An Azure AI project (/azure/ai-studio/how-to/create-projects) with a connection to the Azure OpenAI resource (/azure/ai-studio/how-to/connections-add?tabs=azure-openai#connection-details)  
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
