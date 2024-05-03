@@ -243,7 +243,7 @@ Storage account failover is a temporary solution to a service outage and shouldn
 
 ### Storage accounts containing archived blobs
 
-Storage accounts containing archived blobs support account failover. However, after a [customer-managed failover](#customer-managed-failover) is complete, all archived blobs must be rehydrated to an online tier before the account can be configured for geo-redundancy.
+Storage accounts containing archived blobs support account failover. However, after a [customer-managed failover](#customer-managed-unplanned-failover) is complete, all archived blobs must be rehydrated to an online tier before the account can be configured for geo-redundancy.
 
 ### Storage resource provider
 
