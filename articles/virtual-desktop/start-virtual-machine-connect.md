@@ -55,7 +55,7 @@ To learn how to assign the *Desktop Virtualization Power On Contributor* role to
 
 Now that you've assigned the *Desktop Virtualization Power On Contributor* role to the service principal on your subscriptions, you can configure Start VM on Connect using the Azure portal or PowerShell.
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 To configure Start VM on Connect using the Azure portal:
 
