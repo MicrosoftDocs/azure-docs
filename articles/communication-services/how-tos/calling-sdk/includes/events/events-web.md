@@ -146,20 +146,31 @@ call.on('stateChanged', (async (connectionStateChangedEvent) => {
   }
 });
 ```
-
 </detail>
 
 
 
 #### Event: `idChanged`
 
-**When does it occur ?**
-
 The `idChanged`  event is fired when the ID of a call changes. The ID of a call changes when the call moves from `connecting` state to `connected`. Once the call is connected, the ID of the call remains identical.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 Your application should save the new call ID but it can also be retrieved from the call object later when needed.
+
+**Code Sample:**
+
+```javascript
+let callId = "";
+call.on('idChanged', (async (callIdChangedEvent) => {
+  callId = call.id; // You can log it as the call ID is useful for debugging call issues
+});
+```
+
+</details>
 
 #### Event: `isMutedChanged`
 
