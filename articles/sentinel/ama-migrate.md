@@ -27,7 +27,7 @@ The Azure Monitor agent provides the following extra functionality, which is not
 
 | Log type | Functionality |
 | --- |---|
-| **Windows logs** | Filtering by security event ID <br>Filtering by event ID <br>Windows event forwarding |
+| **Windows logs** | Filtering by security event ID <br>Windows event forwarding |
 | **Linux logs** | Multi-homing | 
 
 The only logs supported only by the legacy Log Analytics agent are Windows Firewall logs.
