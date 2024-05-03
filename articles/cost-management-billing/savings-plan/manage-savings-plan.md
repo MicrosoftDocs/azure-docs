@@ -66,7 +66,7 @@ To update the autorenewal setting as a billing administrator:
 1. Select the savings plan you want.
 1. Select **Settings** > **Renewal**.
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, follow these steps to update the autorenewal setting.
+If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to update the autorenewal setting.
 
 1. Sign in to the Azure portal.
 1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
@@ -75,7 +75,7 @@ If you purchased a savings plan, have been added to a savings plan, or have been
 
 ## View savings plan details and utilization
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, follow these steps to view savings plan details and utilization.
+If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to view savings plan details and utilization.
 
 1. Sign in to the Azure portal.
 1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
@@ -88,9 +88,8 @@ Users and groups who gain the ability to purchase, manage, or view savings plans
 
 ### Delegate the savings plan purchaser role to a specific subscription
 
-To delegate the purchaser role to a specific subscription:
+To delegate the purchaser role to a specific subscription and after you have elevated access:
 
-After you have elevated access:
 1. Go to **Home** > **Savings plans** to see all savings plans that are in the tenant.
 1. To make modifications to the savings plan, add yourself as an owner of the savings plan order by using **Access control (IAM)**.
 
