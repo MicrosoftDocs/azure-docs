@@ -14,7 +14,7 @@ ms.custom:  [amqp, mqtt]
 
 # Configure the API proxy module for your gateway hierarchy scenario
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article walks through the configuration options for the API proxy module, so you can customize the module to support your gateway hierarchy requirements.
 
@@ -282,7 +282,7 @@ When the API proxy module parses a proxy configuration, it first replaces all en
 
 To update the proxy configuration dynamically, use the following steps:
 
-1. Write your configuration file. You can use this default template as a reference: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Write your configuration file. You can use this default template as a reference: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/main/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Copy the text of the configuration file and convert it to base64.
 1. Paste the encoded configuration file as the value of the `proxy_config` desired property in the module twin.
 

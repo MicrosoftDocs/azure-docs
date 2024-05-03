@@ -4,7 +4,7 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 04/11/2024
+ms.date: 04/29/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -39,37 +39,19 @@ Most Microsoft Sentinel capabilities are available in both the Azure and Defende
 
 This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal or other significant differences between the portals. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
 
-### Defender portal only
-
-The following capabilities are only available in the Defender portal.
-
-| Capability | Learn more |
-| ---------- | ---------- |
-| Attack disruption for SAP | [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption) |
-| Adding alerts to incidents /<br>Removing alerts from incidents | After onboarding Microsoft Sentinel to the unified security operations platform, you can no longer add alerts to, or remove alerts from, incidents in the Azure portal. <br><br>You can remove an alert from an incident in the Defender portal, but only by linking the alert to another incident (existing or new). |
-
-### Azure portal only
-
-The following capabilities are only available in the Azure portal.
-
-| Capability | Learn more |
-| ---------- | ---------- |
-| Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md) |
-| Advanced multistage attack detection | The Fusion analytics rule, which creates incidents based on alert correlations made by the Fusion correlation engine, is disabled when you onboard Microsoft Sentinel to the unified security operations platform. <br><br>The unified security operations platform uses Microsoft Defender XDR's incident-creation and correlation functionalities to replace those of the Fusion engine. <br><br>For more information, see [Advanced multistage attack detection in Microsoft Sentinel](fusion.md) |
-| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't. <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform). |
-| Hunt using bookmarks | [Bookmarks](/azure/sentinel/bookmarks) aren't supported in the advanced hunting experience in the Microsoft Defender portal. In the Defender portal, they are supported in the **Microsoft Sentinel > Threat management > Hunting**. |
-| Tasks | [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md) |
-| Programmatic and manual creation of incidents | Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, are not synchronized to the unified security operations platform. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md). |
-| Reopening closed incidents | In the unified security operations platform, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents. |
-
-### Other portal differences
-
-The following table describes the significant differences between the portals that you might notice after you onboard Microsoft Sentinel to the unified security operations platform.
-
-| Feature area | Description |
-| ------------ | ----------- |
-| Data connectors | In the Defender portal, after you onboard Microsoft Sentinel, the following data connectors that are part of the unified security operations platform aren't shown in the **Data connectors** page:<li>Microsoft Defender for Cloud Apps<li>Microsoft Defender for Endpoint<li>Microsoft Defender for Identity<li>Microsoft Defender for Office 365 (Preview)<li>Microsoft Defender XDR<li>Subscription-based Microsoft Defender for Cloud (Legacy)<li>Tenant-based Microsoft Defender for Cloud (Preview)<br><br>In the Azure portal, these data connectors are still listed with the installed data connectors in Microsoft Sentinel. |
-| Incident comments | After onboarding Microsoft Sentinel to the unified security operations platform, you can add comments to incidents in either portal, but you can't edit existing comments. <br><br>(Edits made to comments in the Azure portal will not synchronize to the unified platform.) |
+| Capability |Availability |Description |
+| ------------ | ----------- |----------- |
+| Advanced hunting using bookmarks | Azure portal only |Bookmarks aren't supported in the advanced hunting experience in the Microsoft Defender portal. In the Defender portal, they're supported in the **Microsoft Sentinel > Threat management > Hunting**. <br><br> For more information, see [Keep track of data during hunting with Microsoft Sentinel](/azure/sentinel/bookmarks). |
+| Attack disruption for SAP | Defender portal only| This functionality is unavailable in the Azure portal. <br><br>For more information, see [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption). |
+| Automation |Some automation procedures are available only in the Azure portal.<br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  | <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform). |
+| Data connectors: visibility of connectors used by the unified security operations platform | Azure portal only|In the Defender portal, after you onboard Microsoft Sentinel, the following data connectors that are part of the unified security operations platform aren't shown in the **Data connectors** page:<li>Microsoft Defender for Cloud Apps<li>Microsoft Defender for Endpoint<li>Microsoft Defender for Identity<li>Microsoft Defender for Office 365 (Preview)<li>Microsoft Defender XDR<li>Subscription-based Microsoft Defender for Cloud (Legacy)<li>Tenant-based Microsoft Defender for Cloud (Preview)<br><br>In the Azure portal, these data connectors are still listed with the installed data connectors in Microsoft Sentinel. |
+| Entities: Add entities to threat intelligence from incidents |Azure portal only |This functionality is unavailable in the unified security operations platform. <Br><br>For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md). |
+| Fusion: Advanced multistage attack detection |Azure portal only  |The Fusion analytics rule, which creates incidents based on alert correlations made by the Fusion correlation engine, is disabled when you onboard Microsoft Sentinel to the unified security operations platform. <br><br>The unified security operations platform uses Microsoft Defender XDR's incident-creation and correlation functionalities to replace those of the Fusion engine. <br><br>For more information, see [Advanced multistage attack detection in Microsoft Sentinel](fusion.md) |
+| Incidents: Adding alerts to incidents /<br>Removing alerts from incidents | Defender portal only|After onboarding Microsoft Sentinel to the unified security operations platform, you can no longer add alerts to, or remove alerts from, incidents in the Azure portal. <br><br>You can remove an alert from an incident in the Defender portal, but only by linking the alert to another incident (existing or new). |
+| Incidents: editing comments |Azure portal only| After onboarding Microsoft Sentinel to the unified security operations platform, you can add comments to incidents in either portal, but you can't edit existing comments. <br><br>Edits made to comments in the Azure portal don't synchronize to the unified security operations platform. |
+| Incidents: Programmatic and manual creation of incidents |Azure portal only  |Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, aren't synchronized to the unified security operations platform. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md). |
+| Incidents: Reopening closed incidents |Azure portal only  |In the unified security operations platform, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents. |
+| Incidents: Tasks |Azure portal only | Tasks are unavailable in the unified security operations platform. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
 
 ## Quick reference
 
@@ -114,7 +96,7 @@ The following table lists the changes in navigation between the Azure and Defend
 |--------------|--------------------------------------------------------|
 | Content hub  | Microsoft Sentinel > Content management > Content hub  |
 | Repositories | Microsoft Sentinel > Content management > Repositories |
-| Community    | Not available                                          |
+| Community    | Microsoft Sentinel > Content management > Community    |
 
 ### Configuration
 

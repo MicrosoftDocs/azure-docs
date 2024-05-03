@@ -12,74 +12,113 @@ ms.author: banders
 ---
 
 # Manage Azure savings plans
+After you buy an Azure savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
+- Update savings plan scope
+- Change auto-renewal settings
+- View savings plan details and utilization
+- Delegate savings plan RBAC roles
+Except for auto-renewal, none of the changes cause a new commercial transaction or change the end date of the savings plan.
 
-After you buy an Azure savings plan, you may need to apply the savings plan to a different subscription, change who can manage the savings plan, or change the scope of the savings plan.
+You can't make the following types of changes after purchase:
+- Hourly commitment
+- Term length
+- Billing frequency
 
+To learn more, visit [savings plan permissions](permission-view-manage.md).
 _Permission needed to manage a savings plan is separate from subscription permission._
 
-## View savings plan order
-
-To view a savings plan order, go to **Savings Plan** > select the savings plan, and then select the **Savings plan order ID**.
 
 ## Change the savings plan scope
+Your hourly savings plan benefit is automatically to usage from savings plan-eligible resources that run in the savings plan's benefit scope. To learn more, visit [savings plan scopes](scope-savings-plan.md).
+Changing a savings plan's benefit scope doesn't alter the savings plan's term.
 
-Your savings plan discount applies to virtual machines, Azure Dedicated Hosts, Azure App services, Azure Container Instances, and Azure Premium Functions resources that match your savings plan and run in the savings plan scope. The billing scope is dependent on the subscription used to buy the savings plan.
-
-Changing a savings plan's scope doesn't affect its term.
-
-To update a savings plan scope:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for **Cost Management + Billing** > **Savings plans**.
-3. Select the savings plan.
+To update a savings plan scope as a billing administrator:
+1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.
+    - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
+    - If you're an MCA billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+2. In the left menu, select **Products + services** > **Savings plans**. The list of savings plans for your EA enrollment or billing profile is shown.
+3. Select the desired savings plan.
 4. Select **Settings** > **Configuration**.
 5. Change the scope.
 
-If you change from shared to single scope, you can only select subscriptions where you're the owner. If you are a billing administrator, you don’t need to be an owner on the subscription. Only subscriptions within the same billing scope as the savings plan can be selected.
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to update a savings plan scope:
+1. Sign in to the Azure portal.
+2. Select All Services > Savings plans to list savings plans that you have access to.
+3. Select the desired savings plan.
+4. Select **Settings** > **Configuration**.
+5. Change the scope.
 
-The scope only applies to Enterprise offers (MS-AZR-0017P or MS-AZR-0148P),  Microsoft Customer Agreements, and Microsoft Partner Agreements.
-
+Selectable scopes must be from Enterprise offers (MS-AZR-0017P or MS-AZR-0148P),  Microsoft Customer Agreements, and Microsoft Partner Agreements.
+If you are not a billing administrator and you change from shared to single scope, you may only select a subscription where you're the owner. Only subscriptions within the same billing account/profile as the savings plan can be selected. 
 If all subscriptions are moved out of a management group, the scope of the savings plan is automatically changed to **Shared**.
 
-## Who can manage a savings plan
 
-By default, the following users can view and manage savings plan:
-
-- The person who bought the savings plan and the account owner for the billing subscription get Azure RBAC access to the savings plan order.
-- Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all savings plans from Cost Management + Billing > **Savings plan**. 
-
-For more information, see [Permissions to view and manage Azure savings plans](permission-view-manage.md).
-
-## How billing administrators view or manage savings plans
-
-If you're a billing administrator you don't need to be an owner on the subscription. Use following steps to view and manage all savings plans and to their transactions.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+## Change auto-renewal setting
+To update auto-renewal setting as a billing administrator:
+1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
-    - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
-2. In the left menu, select **Products + services** > **Savings plan**.
-3. The complete list of savings plans for your EA enrollment or billing profile is shown.
+    - If you're an MCA billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+2. In the left menu, select **Products + services** > **Savings plans**. The list of savings plans for your EA enrollment or billing profile is shown.
+3. Select the desired savings plan.
+4. Select **Settings** > **Renewal**.
+
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to update auto-renewal setting:
+1. Sign in to the Azure portal.
+2. Select All Services > Savings plans to list savings plans that you have access to.
+3. Select the desired savings plan.
+4. Select **Settings** > **Renewal**.
+
+
+## View savings plan details and utilization
+To view as a billing administrator:
+If you're a billing administrator, use following steps to view and manage all savings plans and savings plan orders in the Azure portal:
+1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.
+    - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
+    - If you're an MCA billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+2. In the left menu, select **Products + services** > **Savings plans**. The list of savings plans for your EA enrollment or billing profile is shown.
+3. Select the desired savings plan.
+4. To rename the savings plan, click "Rename". To view payment history or upcoming payments, click the link to the right of "Billing frequency".
+
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to view savings plan details and utilization:
+1. Sign in to the Azure portal.
+2. Select All Services > Savings plans to list savings plans that you have access to.
+3. Select the desired savings plan.
+4. To rename the savings plan, click "Rename". To view payment history or upcoming payments, click the link to the right of "Billing frequency".
+
+
+## Delegate savings plan RBAC roles 
+Users and groups who gain the ability to purchase, manage, or view savings plans via RBAC roles, must do so from **Home** > **Savings plan**.
+### Delegate Savings plan Purchaser role to specific subscription
+To delegate the Purchaser role to a specific subscription:
+1.	Navigate to **Home** > **Subscriptions**
+2.	Select the desired subscription
+3.	Select **Access control (IAM)** from the left navigation bar
+4.	Click **Add**, then **Add role assignment** from the top navigation bar
+
+### Delegate Savings plan Administrator, Contributor or Reader role to a specific savings plan
+To delegate the Administrator, Contributor, or Reader role to a specific savings plan:
+1.	Navigate to **Home** > **Savings plans**
+2.	Select the desired savings plan
+3.	Select **Access control (IAM)** from the left navigation bar
+4.	Click **Add**, then **Add role assignment** from the top navigation bar
+
+### Delegate Savings plan Administrator, Contributor or Reader role to all savings plans
+[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required to grant RBAC roles at the tenant level. To get User Access Administrator rights, follow [Elevate access steps](../../role-based-access-control/elevate-access-global-admin.md).
+
+After you have elevated access:
+1. Navigate to **Home** > **Savings plans** to see all savings plans that are in the tenant.
+2. To make modifications to the savings plan, add yourself as an owner of the savings plan order using Access control (IAM).
+
 
 ## Cancel, exchange, or refund
-
 You can't cancel, exchange, or refund savings plans. 
 
 ## Transfer savings plan
-
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).
 
-## View savings plan usage
-
-Billing administrators can view savings plan usage Cost Management + Billing.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to **Cost Management + Billing** > **Savings plans** and note the **Utilization (%)** for a savings plan.
-1. Select a savings plan.
-1. Review the savings plan use trend over time.
 
 ## Need help? Contact us.
-
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
 
 ## Next steps
 

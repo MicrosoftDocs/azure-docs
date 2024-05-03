@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azu
 ---
 # Action groups
 
-When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences and actions which are performed when alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 This article shows you how to create and manage action groups. 
 
 Each action is made up of:

@@ -50,7 +50,7 @@ productDirectory:
       url: ai-services/index.yml
     # Card
     - title: Azure OpenAI Service
-      summary: Apply advanced coding and language models to a variety of use cases
+      summary: Apply advanced coding and language models to various use cases
       imageSrc: ./media/index/azure-openai.svg
       azureCategories:
         - ai-machine-learning
@@ -1461,7 +1461,7 @@ productDirectory:
       url: azure-signalr/index.yml
     # Card
     - title: Azure Orbital Ground Station
-      summary: Satellite ground station and scheduling services for fast downlinking of data
+      summary: Satellite ground station and scheduling services for fast down linking of data
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
