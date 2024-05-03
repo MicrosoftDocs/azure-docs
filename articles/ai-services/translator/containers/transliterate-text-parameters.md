@@ -1,5 +1,5 @@
 ---
-title: "Container: Transliterate document method"
+title: "Container: Transliterate text"
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body messages for the Azure AI Translator container transliterate text operation.
 #services: cognitive-services
