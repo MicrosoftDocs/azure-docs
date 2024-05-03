@@ -1,7 +1,7 @@
 ---
-title: Tutorial:  Run A/B tests on variant feature flags in Azure App Configuration
+title: 'Tutorial:  Run A/B tests on variant feature flags in Azure App Configuration'
 titleSuffix: Azure App configuration
-description: In this tutorial, learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
+description: In this tutorial, you learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
 #customerintent: As a user of Azure App Configuration, I want to learn how I can run A/B tests on variant feature flags, using Split Experimentation Workspace and App Insights.
 author: maud-lv
 ms.author: malev
@@ -37,7 +37,7 @@ To run an experiment, you first need to connect a workspace-based Application In
 
 1. In your App Configuration store, select **Telemetry > Application Insights (preview)**.
 
-    :::image type="content" source="./media/set-up-experiments/select-application-insights.png" alt-text="Screenshot of the Azure portal, adding an Application Insights to a store.":::
+    :::image type="content" source="./media/set-up-experiments-aspnet/select-application-insights.png" alt-text="Screenshot of the Azure portal, adding an Application Insights to a store.":::
 
 1. Select the Application Insights resource you want to use as the telemetry provider for your variant feature flags and application, and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
 1. A notification indicates that the Application Insights resource was updated successfully for the App Configuration store.
@@ -48,11 +48,14 @@ To run experiments in Azure App Configuration, we're going to use Split Experime
 
 1. In your App Configuration store, select **Experimentation** > **Split Experimentation Workspace (preview)** from the left menu.
 
-    :::image type="content" source="./media/set-up-experiments/find-in-app-configuration-store.png" alt-text="Screenshot of the Azure portal, finding Split Experimentation Workspace from the App Configuration store left menu.":::
+    :::image type="content" source="./media/set-up-experiments-aspnet/find-in-app-configuration-store.png" alt-text="Screenshot of the Azure portal, finding Split Experimentation Workspace from the App Configuration store left menu.":::
 
 1. Select a **Split Experimentation Workspace**, then **Save**. If you don't have a Split Experimentation Workspace, follow the Split Experimentation Workspace quickstart to create one<!--link to Split Experimentation workspace quickstart-->.
 
-    :::image type="content" source="./media/set-up-experiments/add-split-experimentation-workspace.png" alt-text="Screenshot of the Azure portal, adding a Split Experimentation Workspace to the App Configuration store.":::
+    > [!NOTE]
+    > The data source selected in the Split Experimentation Workspace must be the same resource as selected in the previous step.
+
+    :::image type="content" source="./media/set-up-experiments-aspnet/add-split-experimentation-workspace.png" alt-text="Screenshot of the Azure portal, adding a Split Experimentation Workspace to the App Configuration store.":::
 
 1. A notification indicates that the operation was successful.
 
@@ -397,7 +400,7 @@ Now that you’ve connected the Application Insights resource to the App Configu
 1. Look for a message in the format `Now listening on: https://localhost:{port}` in the output of the application. Navigate to the included link in your browser.
 1. Once viewing the running application, select **Register** at the top right to register a new user.
 
-    :::image type="content" source="media/set-up-experiments/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
+    :::image type="content" source="media/set-up-experiments-aspnet/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
 
 1. Register a new user named *user@contoso.com*. The password must have at least six characters and contain a number and a special character.
 
@@ -410,11 +413,11 @@ Now that you’ve connected the Application Insights resource to the App Configu
 
 1. Select the **Login** at the top right to sign in as user b (userb@contoso.com).
 
-    :::image type="content" source="media/set-up-experiments/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
+    :::image type="content" source="media/set-up-experiments-aspnet/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
 
 1. Once logged in, you should see that userb@contoso.com sees a special message when viewing the app.
 
-    :::image type="content" source="media/set-up-experiments/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
+    :::image type="content" source="media/set-up-experiments-aspnet/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
 
     If you create a new user named *user@contoso.com*, the user won't see the special message.
 
@@ -425,7 +428,7 @@ Enable telemetry and experiments in your variant feature flag by following the s
 1. In your App Configuration store, go to **Operations** > **Feature manager**.
 1. Select the **...** context menu all the way to the right of your variant feature flag and select **Edit**.
 
-    :::image type="content" source="./media/set-up-experiments/edit-variant-feature-flag.png" alt-text="Screenshot of the Azure portal, editing a variant feature flag.":::
+    :::image type="content" source="./media/set-up-experiments-aspnet/edit-variant-feature-flag.png" alt-text="Screenshot of the Azure portal, editing a variant feature flag.":::
 
 1. Go to the **Telemetry** tab and check the box **Enable Telemetry**.
 1. Go to the **Experiment** tab, check the box **Create Experiment**, and give a name to your experiment.
@@ -443,7 +446,7 @@ The app we created only specifies one event, but you may have multiple events th
 
 1. Select or enter the following information under **Create an Experimentation Metric** and save with **Create**.
 
-    :::image type="content" source="./media/set-up-experiments/create-metric.png" alt-text="Screenshot of the Azure portal, creating a new experimentation metrics.":::
+    :::image type="content" source="./media/set-up-experiments-aspnet/create-metric.png" alt-text="Screenshot of the Azure portal, creating a new experimentation metrics.":::
 
     | Setting                             | Example value       | Description                                                                                                                                                                                                                                                                                                                                                                                    |
     |-------------------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -457,7 +460,7 @@ The app we created only specifies one event, but you may have multiple events th
 
 1. Once created, the new metric is displayed in the portal. You can edit it or delete it by selecting the (**...**) context menu on the right side of the screen.
 
-    :::image type="content" source="./media/set-up-experiments/created-metric.png" alt-text="Screenshot of the Azure portal showing an experimentation metric.":::
+    :::image type="content" source="./media/set-up-experiments-aspnet/created-metric.png" alt-text="Screenshot of the Azure portal showing an experimentation metric.":::
 
 ## Get experimentation results
 
@@ -467,7 +470,7 @@ To view the results of your experiment, navigate to **Feature Manager** and on t
 
 On the results page, a **Version** of the Experiment, a **Baseline** to compare the results against, and a **Comparison** variant are selected by default. Select **Apply** to view the result of your experiment.
 
-:::image type="content" source="./media/set-up-experiments/experimentation-result.png" alt-text="Screenshot of the Azure portal showing an experimentation result.":::
+:::image type="content" source="./media/set-up-experiments-aspnet/experimentation-result.png" alt-text="Screenshot of the Azure portal showing an experimentation result." lightbox="./media/set-up-experiments-aspnet/experimentation-result.png":::
 
 The screenshot above shows that the experiment had the desired result, with the **On** variant for the **Heart Vote Button** resulting in 560.62% more events than the **Off** variant.
 

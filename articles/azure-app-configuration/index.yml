@@ -58,8 +58,7 @@ landingContent:
           url: concept-soft-delete.md
         - text: Geo-replication 
           url: concept-geo-replication.md
-          
-        
+
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -151,7 +150,7 @@ landingContent:
         - text: Enable a feature for specified users/groups
           url: howto-targetingfilter-aspnet-core.md
         - text: Run A/B tests on your variant Feature Flags
-          url: set-up-experiments.aspnet.md
+          url: set-up-experiments-aspnet.md
       - linkListType: reference
         links:
         - text: .NET library
