@@ -35,7 +35,11 @@ sections:
           Register the Microsoft.CodeSigning app in the subscription resource provider page using the below screenshot as a guide: :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png"::: 
       - question: What if I fail identity validation?
         answer: | 
-          If more documentation is required for identity validation, you're asked to provide those documents on the Azure portal. Otherwise, we recommend checking for an email sent to the listed address for email validation. However, if your organization fails identity validation we can't onboard you to Trusted Signing. We recommend you delete your Trusted Signing account so you don't get billed for unused resources.
+          To identify why the Identity Validation failed: 
+          - We recommend you check if you failed to verify the link within 7 days of receiving the link. This link is sent to the primary email address provided at the time of Identity Validation request creation.
+          OR
+          - If the validation team is unable to make a determination based on the information provided (even after additional documentation is provided), we can't onboard you to Trusted Signing. 
+          We recommend you delete your Trusted Signing account so you don't get billed for unused resources.
       - question: What is the cost of using Trusted Signing?
         answer: | 
           For Public Preview Trusted Signing is free for now. You'll still be prompted to select a Basic or Premium SKU when you create your account.
@@ -52,10 +56,11 @@ sections:
           No. If you delete a certificate profile, any certificates that were previously issued or used under that profile will remain valid - they won't be revoked.
       - question: Does Trusted Signing allow me to use a custom CN? 
         answer: |
-          Per the CA/B Forum baseline requirements for publicly trusted code signing certs, CN values must be the legal entity's validated name (e.g. Microsoft Corporation) so there is no flexibility in CN values. For O, at this time Trusted Signing does not support customization. 
+          - For CN: Per the CA/B Forum baseline requirements for publicly trusted code signing certs, CN values must be the legal entity's validated name (e.g. Microsoft Corporation) so there is no flexibility in CN values. 
+          - For O: At this time Trusted Signing does not support customization. 
       - question: What do I do if the new identity validation button on the Azure portal is greyed out?
         answer: |
-          This means you do not have the Identity Verifier role assigned to your account. Follow the [Assigning roles in Trusted Signing](https://learn.microsoft.com/azure/trusted-signing/tutorial-assign-roles) documentation to assign yourself the appropriate role. 
+          This means you do not have the Trusted Signing Identity Verifier role assigned to your account. Follow the [Assigning roles in Trusted Signing](https://learn.microsoft.com/azure/trusted-signing/tutorial-assign-roles) documentation to assign yourself the appropriate role. 
   - name: Signing
     questions:
       - question: What is Trusted Signing’s HSM compliance level?
