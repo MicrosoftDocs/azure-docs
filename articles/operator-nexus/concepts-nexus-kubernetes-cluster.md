@@ -34,7 +34,7 @@ components:
 application workloads.
 
 * Nodes: To run your applications and supporting services, you need a Kubernetes node. 
-Each NKS cluster has at least one node, a virtual machine (VM) that runs the [Kubernetes node components](../aks/concepts-clusters-workloads.md#nodes).
+Each NKS cluster has at least one node, a virtual machine (VM), that runs the [Kubernetes node components](../aks/concepts-clusters-workloads.md#nodes).
 There are two different node pools in Nexus Kubernetes Clusters 
 
      * System node pools host critical system pods. 
