@@ -48,8 +48,8 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 });
 ```
 
-<!---------- CallClient  object ---------->
-### Events on the `CallClient` object
+<!---------- CallAgent  object ---------->
+### Events on the `CallAgent` object
 
 #### Event Name: `incomingCall`
 
@@ -62,7 +62,6 @@ The `incomingCall` event is fires when an incoming is coming.
 Your application should notify the user of the incoming call. The notification prompt should propose the user to accept or refuse the call.
 
 **Code sample:**
-
 ```javascript
 callClient.on('incomingCall', (async (incomimgCallEvent) => {
         try {
@@ -92,6 +91,22 @@ The `connectionStateChanged` event fired when the state of the `CallAgent` is up
 
 **How should your application react to the event ?**
 Your application should update its UI based on the new state. The possible connection state values are `Connected` and `Disconnected`
+
+**Code sample:**
+```javascript
+callClient.on('connectionStateChanged', (async (connectionStateChangedEvent) => {
+    if (connectionStateChangedEvent.newState === "Connected") {
+        enableCallControls() // Enable all UI element that allow user to make a call
+    }
+
+    if (connectionStateChangedEvent.newState === 'Disconnected') {
+        if (typeof connectionStateChangedEvent.reason !== 'undefined') {
+            alert(`Disconnected reason: ${connectionStateChangedEvent.reason}`)
+        } 
+         disableCallControls() 
+    }
+});
+```
 
 <!---------- Call object ---------->
 ### Events on the `Call` object
