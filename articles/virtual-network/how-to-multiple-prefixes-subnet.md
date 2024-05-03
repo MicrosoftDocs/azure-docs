@@ -22,7 +22,7 @@ The following limitations apply during the public preview:
 
 - The feature only supports virtual machines and virtual machine scale sets and doesn't support Bare Metal or SWIFT resources. Any delegated subnet can't use this feature.
 
-- This feature doesn't support multiple certificate authority configurations. When using multiple prefixes on a subnet, you're only able to use a single CA (certification authorities) configuration. A single IPv4 (Internet Protocol version 4) and single IPv6 (Internet Protocol Version 6) address per NIC (network interface card) is supported.
+- This feature doesn't support multiple customer address (CA) configurations. When using multiple prefixes on a subnet, you're only able to use a single customer address (CA) configuration. A single IPv4 (Internet Protocol version 4) and single IPv6 (Internet Protocol Version 6) address per NIC (network interface card) is supported.
 
 > [!IMPORTANT]
 > Multiple prefix support for Azure Virtual Network subnets is currently in public preview.
