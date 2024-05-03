@@ -54,11 +54,7 @@ Collect all the values in the following table for the packet core instance that 
 
 ## Collect RADIUS values
 
-If you have a Remote Authentication Dial-In User Service (RADIUS) authentication, authorization and accounting (AAA) server in your network, you can optionally configure the packet core to use it to authenticate UEs on attachment to the network and session establishment.
-
-Your RADIUS server must be on your management network and reachable from your Azure Stack Edge device. RADIUS is only supported for authentication when UEs attach to the network or initiate a session. Other RADIUS features, such as accounting, are not supported.
-
-If you want to use RADIUS, collect all the values in the following table.
+If you have a Remote Authentication Dial-In User Service (RADIUS) authentication, authorization and accounting (AAA) server in your network, you can optionally configure the packet core to use it to authenticate UEs on attachment to the network and session establishment. If you want to use RADIUS, collect all the values in the following table.
 
 |Value  |Field name in Azure portal  |
 |---------|---------|
