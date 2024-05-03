@@ -26,8 +26,8 @@ This table contains the information for Redis upgrades features available in eac
 
 | Tier                         | Automatic Upgrade | Manual Upgrade |
 |:---------------------------- |:-----------------:|:--------------:|
-| Basic, Standard, Premium     |        Yes        |       No       |
-| Enterprise, Enterprise Flash |        Yes        |       No       |
+| Basic, Standard, Premium     |        No         |       No       |
+| Enterprise, Enterprise Flash |        Yes        |       Yes      |
 
 This table contains the information for which Redis version are available in each tier.
 
@@ -42,15 +42,13 @@ Currently, no upgrade is available.
 
 ## How to upgrade - Enterprise and Enterprise Flash tiers
 
-> [!NOTE]
-> Updates in the [Redis Enterprise software version](https://docs.redis.com/latest/rs/release-notes/) are done automatically as a part of the normal monthly patching process.
->
+In the Enterprise tiers, you have two options for upgrades: automatic and manual. Automatic upgrades are part of the standard patching process. With the manual process, You can use the start upgrades that are available outside the normal automatic process.
 
 ### Automatic upgrade
 
 Redis server version upgrades are made automatically as a part of the standard monthly patching process. Upgrades to the latest version of Redis occur once that Redis version reaches general availability (GA) on Azure.
 
-Your Redis instance is automatically upgraded to a preview version of Redis server software.
+At GA of a new version, your Redis instance is automatically upgraded to the new GA version unless you defer it before general availability. For more information on deferring an upgrade, see [Defer Upgrades](#defer-upgrades).
 
 ### Start an upgrade manually
 
@@ -72,7 +70,9 @@ As an alternative to automatic upgrade, you can also manually upgrade to the lat
 
 ### Defer Upgrades
 
-You can defer an automatic upgrade when a new version of Redis software is available and GA. You can defer automatic upgrades by as many as 90 days. This option gives you time to test new versions and ensure that everything works as expected. The cache is then upgraded either 90 days after the new Redis version reaches GA, or whenever you trigger the upgrade manually.
+You can defer an automatic upgrade when a new version of Redis software by as many as 90 days. This option gives you time to test new versions and ensure that everything works as expected. The cache is then upgraded either 90 days after the new Redis version reaches GA, or whenever you trigger the upgrade manually.
+
+The deferral option must be selected before a new Redis version reaches GA for it to take effect before the automatic upgrade occurs.
 
 To defer upgrades to your cache, navigate to the **Advanced Settings** on the Resource menu, and select the **Defer Redis DB version updates** box.
 
