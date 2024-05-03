@@ -52,7 +52,7 @@ Update-AzStandbyVMPool `
 ```
 
 ### [ARM template](#tab/template)
-Update an existing standby pool an ARM template and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). 
+Update an existing standby pool deployment. Deploy the updated template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 
 ```ARM
@@ -100,30 +100,6 @@ Update an existing standby pool an ARM template and [az deployment group create]
 
 ```
 
-Run the following command to deploy the template and update your standby pool. 
-
-```azurecli
-az deployment group create --resource-group {resourceGroupName} --template-file {deploymentFileName}.json
-```
-
-### [REST](#tab/rest-2)
-Update an existing standby pool using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update).
-
-```HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
-{
-"type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-"name": "{standbyPoolName}",
-"location": "{location}",
-"properties": {
-	 "elasticityProfile": {
-		 "maxReadyCapacity": 20
-	 },
-	  "virtualMachineState":"Deallocated",
-	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
-	  }
-}
-```
 
 ### [Bicep](#tab/bicep-2)
 Update an existing standby pool deployment. Deploy the updated template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
@@ -152,6 +128,24 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 }
 ```
 
+### [REST](#tab/rest-2)
+Update an existing standby pool using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update).
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
+{
+"type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+"name": "{standbyPoolName}",
+"location": "{location}",
+"properties": {
+	 "elasticityProfile": {
+		 "maxReadyCapacity": 20
+	 },
+	  "virtualMachineState":"Deallocated",
+	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
+	  }
+}
+```
 
 ---
 
