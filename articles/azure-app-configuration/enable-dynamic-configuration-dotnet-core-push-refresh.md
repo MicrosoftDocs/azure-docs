@@ -118,7 +118,7 @@ namespace TestConsole
                     _refresher = options.GetRefresher();
                 }).Build();
 
-            await using var serviceBusClient = await RegisterRefreshEventHandler();
+            await RegisterRefreshEventHandler();
             var message = configuration["TestApp:Settings:Message"];
             Console.WriteLine($"Initial value: {configuration["TestApp:Settings:Message"]}");
 
@@ -136,11 +136,11 @@ namespace TestConsole
             }
         }
 
-        private static async Task<IAsyncDisposable> RegisterRefreshEventHandler()
+        private static async Task RegisterRefreshEventHandler()
         {
             string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
             string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
-            string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName);
+            string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName); 
             ServiceBusClient serviceBusClient = new ServiceBusClient(serviceBusConnectionString);
             ServiceBusProcessor serviceBusProcessor = serviceBusClient.CreateProcessor(serviceBusTopic, serviceBusSubscription);
 
@@ -165,7 +165,6 @@ namespace TestConsole
             };
 
             await serviceBusProcessor.StartProcessingAsync();
-            return serviceBusClient;
         }
     }
 }
