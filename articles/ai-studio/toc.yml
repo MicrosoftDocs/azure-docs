@@ -176,6 +176,10 @@ items:
       href: ai-services/get-started.md
     - name: Connect AI services in AI Studio
       href: ai-services/connect-ai-services.md
+    - name: Speech
+      items:
+      - name: Real-time speech to text
+        href: ../ai-services/speech-service/get-started-speech-to-text.md?context=/azure/ai-studio/context/context
     - name: Use your image data with Azure OpenAI
       href: how-to/data-image-add.md
       displayName: vision, gpt, turbo
