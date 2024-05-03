@@ -79,17 +79,22 @@ callClient.on('incomingCall', (async (incomimgCallEvent) => {
 
 #### Event Name: `callsUpdated`
 
-**When does it occur ?**
-The callsUpdated updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
+The `callsUpdated` updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
 
+<details>
+<summary>View event details</summary>
 **How should your application react to the event ?**
 Your application should update its UI based on the number of active calls for the CallAgent instance.
 
+</details>
+
+
 #### Event Name: `connectionStateChanged`
 
-**When does it occur ?**
 The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
 
+<details>
+<summary>View event details</summary>
 **How should your application react to the event ?**
 Your application should update its UI based on the new state. The possible connection state values are `Connected` and `Disconnected`
 
@@ -108,29 +113,43 @@ callClient.on('connectionStateChanged', (async (connectionStateChangedEvent) => 
     }
 });
 ```
+</details>
 
 <!---------- Call object ---------->
 ### Events on the `Call` object
 
 #### Event Name: `stateChanged`
 
-**When does it occur ?**
-
 The `stateChanged`  event is fired when the call state changes. For example, when a call goes from `connected` to `disconnected`.
+
+<details>
+<summary>View event details</summary>
 
 **How should your application react to the event ?**
 
 Your application should update its UI accordingly. Disabling or enabling appropriate buttons and other UI elements based on the new call state.
 
-#### Event: `stateChanged`
+**Code Sample:**
 
-**When does it occur ?**
+```javascript
+call.on('stateChanged', (async (connectionStateChangedEvent) => {
+  if(call.state === 'Connected') {
+      connectedLabel.hidden = false;
+      acceptCallButton.disabled = true;
+      startCallButton.disabled = true;
+      startVideoButton.disabled = false;
+      stopVideoButton.disabled = false
+  } else if (call.state === 'Disconnected') {
+      connectedLabel.hidden = true;
+      startCallButton.disabled = false;
+      console.log(`Call ended, call end reason={code=${call.callEndReason.code}, subCode=${call.callEndReason.subCode}}`);
+  }
+});
+```
 
-The `stateChanged`  event is fired when the call state changes. For example, when a call goes from `connected` to `disconnected`.
+</detail>
 
-**How might your application react to the event ?**
 
-Your application should update its UI accordingly. Disabling or enabling appropriate buttons and other UI elements based on the new call state.
 
 #### Event: `idChanged`
 
