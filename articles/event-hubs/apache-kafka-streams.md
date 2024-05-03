@@ -15,6 +15,40 @@ Apache Kafka Streams is a Java only client library that provides a framework for
 
 Event Hubs provides a Kafka endpoint that can be used by your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
 
+## Using Kafka Streams with Azure Event Hubs
+
+Azure Event Hubs natively supports AMQP, which is an industry standard messaging protocol, through the service and client default. Given the recent popularity of the Kafka protocol for streaming workloads, Azure Event Hubs has been extended to support the Kafka protocol as well. However, to ensure compatible Kafka Streams behavior, some of the default configuration parameters have to be updated.
+
+These include, updating the topic configuration in the `messageTimestampType` to use the `CreateTime` (i.e. Event time) instead of the `AppendTime` (i.e. log append time) and to update the `retentionTimeInHours` in `retentionDescription` to `-1` to activate infinite retention.
+
+To override the default behavior (required), the below setting must be set in ARM.
+
+> [!NOTE]
+> Only the specific parts of the ARM template are shown to highlight the configuration that needs to be updated.
+>
+
+```json
+{
+  "parameters": {
+    "namespaceName": "contoso-test-namespace",
+    "resourceGroupName": "contoso-resource-group",
+    "eventHubName": "contoso-event-hub-kafka-streams-test",
+    ...
+    "parameters": {
+      "properties": {
+        ...
+        "messageTimestampType": "CreateTime",
+        "retentionDescription": {
+          "cleanupPolicy": "Delete",
+          "retentionTimeInHours": -1,
+          "tombstoneRetentionTimeInHours": 1
+        }
+      }
+    }
+  }
+}
+```
+
 ## Kafka Streams concepts
 
 Kafka streams provides a simple abstraction layer over the Kafka producer and consumer APIs to help developers get started with real time streaming scenarios faster. The light-weight library depends on an **Apache Kafka compatible broker** (like Azure Event Hubs) for the internal messaging layer, and manages a **fault tolerant local state store**. With the transactional API, the Kafka streams library supports rich processing features such as **exactly once processing** and **one record at a time processing**.
@@ -63,13 +97,6 @@ Kafka Streams allows windowing and grace functions to allow for out of order dat
   * Processing time - This is the time when the data record is processed by the stream processing application (or when it is consumed).
   * Append time (aka Creation time) - This is the time when the data is stored and committed to the storage of the Kafka broker. This differs from the creation time because of the time difference between the creation of the event and the actual ingestion by the broker.
 
-#### Created time vs append time
-
-For Kafka Streams to work with Azure Event Hubs, the topic must be configured to use the creation time (i.e. Event time) instead of the ingestion time (i.e. log append time). To set this, the below setting must be put in the `EntityDescription` settings in ARM.
-
-```json
-TBD
-```
 
  
 
@@ -97,3 +124,10 @@ Applications must utilize the windowing and grace period controls to improve fau
 Business and technical users seek to extract key business insights from the output of stream processing workloads, which translate to high transactional guarantee requirements. Kafka streams works together with Kafka transactions to ensure transactional processing guarantees by integrating with the Kafka compatible brokers (i.e. Azure Event Hubs) underlying storage system to ensure that offset commits and state store updates are written atomically.
 
 To ensure transactional processing guarantees, the `processing.guarantee` setting in the Kafka Streams configs must be updated from the default value of `at_least_once` to `exactly_once_v2` (for client versions at or after Apache Kafka 2.5) or `exactly_once` (for client versions before Apache Kafka 2.5.x).
+
+## Next steps
+This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
+
+For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
+
+Also, see the [OAuth samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
