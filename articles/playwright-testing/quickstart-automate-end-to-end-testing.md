@@ -282,6 +282,7 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
     - name: set up reporting
       working-directory: path/to/playwright/folder # update accordingly
       run: |
+        npm config set @microsoft:registry=https://npm.pkg.github.com
         npm set //npm.pkg.github.com/:_authToken ${{secrets.PAT_TOKEN_PACKAGE}} 
         npm install
 
@@ -303,8 +304,10 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
       displayName: "Set up reporting"
       inputs:
         targetType: 'inline'
-        script: 'npm set //npm.pkg.github.com/:_authToken ${{secrets.PAT_TOKEN_PACKAGE}}'
-                'npm install'
+        script: |
+            'npm config set @microsoft:registry=https://npm.pkg.github.com'
+            'npm set //npm.pkg.github.com/:_authToken ${{secrets PAT_TOKEN_PACKAGE}}'
+            'npm install'
         workingDirectory: path/to/playwright/folder # update accordingly
     
     - task: PowerShell@2
