@@ -95,6 +95,8 @@ items:
       href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
     - name: Application DDoS protection
       href: ./shared/application-ddos-protection.md
+    - name: Microsoft Copilot for Security
+      href: waf-copilot.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
 - name: How-to guides
@@ -175,8 +177,6 @@ items:
     href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
     href: geomatch-custom-rules-examples.md
-  - name: Microsoft Copilot for Security
-    href: waf-copilot.md
   - name: Troubleshoot
     items:
      - name: Application Gateway

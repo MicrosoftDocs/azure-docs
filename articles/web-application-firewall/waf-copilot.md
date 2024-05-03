@@ -40,10 +40,20 @@ This integration supports the standalone experience and is accessed through [htt
 
 The preview standalone experience in Azure WAF can help you with:
 
-- Summarizing SQL injection(SQLi) attacks. This Azure WAF skill helps to understand why Azure WAF blocks SQL injection (SQLi) attacks to web applications. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a SQLi request was blocked. 
-- Summarizing Cross-site scripting (XSS) attacks. This Azure WAF skill helps to understand why Azure WAF blocks Cross Site Scripting(XSS) attacks to web applications. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why an XSS request was blocked. 
-- Providing a list of malicious IP addresses in the customer environment and generating related threats. This Azure WAF skill helps to understand client IP addresses blocked by the WAF. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of which IP addresses that WAF blocked and the reason for the blocks. 
-- Providing a list of top WAF rules triggered in the customer environment and generating deep context with related attack vectors. This Azure WAF skill helps to understand why WAF blocks certain requests to web applications. This skill provides details around WAF rules that are triggered due to WAF block. It provides an ordered list of rules based on trigger frequency in the desired time period. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a particular request was blocked.
+- Providing a list of top Azure WAF rules triggered in the customer environment and generating deep context with related attack vectors.  
+   
+   This capability provides details about Azure WAF rules that are triggered due to a WAF block. It provides an ordered list of rules based on trigger frequency in the desired time period. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a particular request was blocked.
+- Providing a list of malicious IP addresses in the customer environment and generating related threats.
+
+   This capability provides details about client IP addresses blocked by the Azure WAF. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of which IP addresses the WAF blocked and the reason for the blocks. 
+
+- Summarizing SQL injection(SQLi) attacks.
+
+   This Azure WAF skill provides you with insights into why it blocks SQL injection (SQLi) attacks on web applications. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a SQLi request was blocked. 
+- Summarizing Cross-site scripting(XSS) attacks.
+
+   This Azure WAF skill helps you understand why Azure WAF blocked Cross Site Scripting(XSS) attacks to web applications. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why an XSS request was blocked.
+
 
 ## Enable the Azure WAF integration in Microsoft Copilot for Security
 
@@ -54,7 +64,7 @@ To enable the integration, follow these steps:
 3.	Open the Microsoft Copilot for Security menu.
  4.	Open **Sources** in the prompt bar.  
 5.	On the Plugins page, set the Azure Web Application Firewall toggle to **On**.
-6.	Select the Settings on the Azure Web Application Firewall plugin to configure the default workspace, subscription ID, resource group name for the Azure Front Door and/or Azure Application Gateway. You can also configure the Application Gateway WAF policy URI and/or Azure Front Door WAF policy URI.
+6.	Select the Settings on the Azure Web Application Firewall plugin to configure the Log Analytics workspace, Log Analytics subscription ID, and the Log Analytics resource group name for Azure Front Door WAF and/or the Azure Application Gateway WAF. You can also configure the Application Gateway WAF policy URI and/or Azure Front Door WAF policy URI.
 7.	To start using the skills, use the prompt bar.
 :::image type="content" source="media/waf-copilot/prompt-bar.png" alt-text="Screenshot showing the Security copilot prompt bar.":::
 
@@ -107,6 +117,10 @@ Your feedback on the Azure WAF integration with Copilot for Security helps with 
 - Inappropriate - Select if the results contain questionable, ambiguous, or potentially harmful information.
 
 For each feedback item, you can provide more information in the next dialog box that appears. Whenever possible, and when the result is Needs improvement, write a few words explaining what can be done to improve the outcome.
+
+## Limitation
+
+If you've migrated to Azure Log Analytics dedicated tables in the Application Gateway WAF V2 version, the Copilot for Security WAF Skills aren't functional. As a temporary workaround, enable Azure Diagnostics as the destination table in addition to the resource-specific table.
 
 ## Privacy and data security in Microsoft Copilot for Security
 
