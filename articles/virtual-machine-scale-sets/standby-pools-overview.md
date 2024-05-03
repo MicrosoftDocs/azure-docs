@@ -41,7 +41,9 @@ When your scale set requires more instances, rather than creating new instances 
 
 When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) and your standby pool will refill to meet the max ready capacity configured. If at any point in time your scale set needs to scale beyond the number of instances you have in your standby pool, the scale set defaults to standard scale-out methods and creates new instances directly in the Scale Set
 
-Standby pools will only give out virtual machines from the pool that match the desired power state configured. For example, if your desired power state is set as deallocated, the standby pool will only give the Virtual Machine Scale Set instances matching that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead
+Standby pools will only give out virtual machines from the pool that match the desired power state configured. For example, if your desired power state is set as deallocated, the standby pool will only give the Virtual Machine Scale Set instances matching that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead.
+
+When using a standby pool with a Virtual Machine Scale Set spread across multiple availability zones, the instances in the pool will also be spread across zones. When a scale out is triggered in one of the zones, a virtual machine in the pool in that same zone will be used. If a virtual machine is needed in a zone where you no longer have any pooled virtual machines left, the scale set will create a new virtual machine directly in the scale set. 
 
 ## Virtual machine states
 
@@ -70,7 +72,7 @@ There's no direct cost associated with using standby pools. Users are charged ba
 - Creating or attaching a standby pool to a Virtual Machine Scale Set with a fault domain greater than 1. 
 - Creating or attaching a standby pool to a Virtual Machine Scale Set in a different region. 
 - Creating or attaching a standby pool to a Virtual Machine Scale Set in a different subscription.  
-- Creating or attaching a standby pool to a Virtual Machine Scale Set that already has a standby pool attached.
+- Creating or attaching a standby pool to a Virtual Machine Scale Set that already has a standby pool.
 - Creating or attaching a standby pool to a Virtual Machine Scale Set using Uniform Orchestration. 
 
 ## Next steps

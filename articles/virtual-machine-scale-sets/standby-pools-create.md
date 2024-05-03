@@ -29,8 +29,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.StandbyPool
 Register-AzProviderFeature -FeatureName StandbyVMPoolPreview -ProviderNamespace Microsoft.StandbyPool
 ```
 
+Alternatively, you can register directly in the Azure portal. 
+1) In the Azure portal, navigate to your subscriptions. 
+2) Select the subscription you want to enable standby pools. 
+3) Under settings, select **Resource providers**.
+4) Search for **Microsoft.StandbyPool** and register the provider. 
+5) Under settings, select **Preview features**.
+6) Search for **Standby Virtual Machine Pool Preview** and register the feature.
+
+
 ### Role-based Access Control Permissions
-In order for standby pools to successfully create Virtual Machines, you need to assign the appropriate RBAC roles. 
+In order for standby pools to successfully create Virtual Machines, you need to assign the appropriate RBAC permissions.
+ 
 1) In the Azure portal, navigate to your subscriptions. 
 2) Select the subscription you want to adjust RBAC permissions. 
 3) Select **Access Control (IAM)**.
@@ -41,7 +51,7 @@ In order for standby pools to successfully create Virtual Machines, you need to 
 8) Select the standby pool Resource Provider and select **Review + Assign**.
 9) Repeat the above steps and for the **Network Contributor** role and the **Managed Identity Operator** role.  
 
-If you're using a customized image in Compute Gallery, ensure to also assign standby pool Resource Provider the **Compute Gallery Sharing Admin** permissions.
+If you're using images stored in Compute Gallery when deploying your scale set, also repeat the above steps for the **Compute Gallery Sharing Admin** role.
 
 For more information on assigning roles, see [assign Azure roles using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
@@ -88,61 +98,68 @@ New-AzStandbyVMPool `
 ```
 
 ### [ARM template](#tab/template)
+Create a standby pool and associate it with an existing scale set. Create a template and deploy it using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-```ARM
+
+```json
 {
- "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
- "contentVersion": "1.0.0.0",
- "parameters": {},
- "resources": [
-     {
-         "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-         "apiVersion": "2023-12-01-preview",
-         "name": "{StandbyPoolName}",
-         "location": "{Location}",
-         "properties": {
-         "maxReadyCapacity": 20,
-         "virtualMachineState": "Deallocated",
-         "attachedVirtualMachineScaleSetId": ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
-         }
-     }
- ]
-}
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+           "type": "string",
+           "defaultValue": "east us"    
+        },
+        "name": {
+           "type": "string",
+           "defaultValue": "myStandbyPool"
+        },
+        "maxReadyCapacity" : {
+           "type": "int",
+           "defaultValue": 10
+        },
+        "virtualMachineState" : {
+           "type": "string",
+           "defaultValue": "Deallocated"
+        },
+        "attachedVirtualMachineScaleSetId" : {
+           "type": "string",
+           "defaultValue": "/subscriptions/{subscriptionID}/resourceGroups/StandbyPools/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+        }
+    },
+    "resources": [ 
+        {
+            "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+            "apiVersion": "2023-12-01-preview",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "properties": {
+               "elasticityProfile": {
+                   "maxReadyCapacity": "[parameters('maxReadyCapacity')]" 
+               },
+               "virtualMachineState": "[parameters('virtualMachineState')]",
+               "attachedVirtualMachineScaleSetId": "[parameters('attachedVirtualMachineScaleSetId')]"
+            }
+        }
+    ]
+   }
 
 ```
 
-### [REST](#tab/rest)
-Create a standby pool and associate it with an existing scale set using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
-
-```HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
-{
-"type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-"name": "{standbyPoolName}",
-"location": "{location}",
-"properties": {
-	 "elasticityProfile": {
-		 "maxReadyCapacity": 20
-	 },
-	  "virtualMachineState":"Deallocated",
-	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
-	  }
-}
-```
 
 ### [Bicep](#tab/bicep)
 Create a standby pool and associate it with an existing scale set. Deploy the template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 ```bicep
 param location string = resourceGroup().location
-param standbyPoolName string = '{standbyPoolName}'
-param maxReadyCapacity int = {maxReadyCapacityCount}
+param standbyPoolName string = 'myStandbyPool'
+param maxReadyCapacity int = 20
 @allowed([
   'Running'
   'Deallocated'
 ])
-param vmState string = '{vmState}'
-param virtualMachineScaleSetId string = '{vmssId}'
+param vmState string = 'Deallocated'
+param virtualMachineScaleSetId string = '/subscriptions/{subscriptionID}/resourceGroups/StandbyPools/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet}'
 
 resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-01-preview' = {
   name: standbyPoolName
@@ -157,6 +174,24 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 }
 ```
 
+### [REST](#tab/rest)
+Create a standby pool and associate it with an existing scale set using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/myStandbyPool?api-version=2023-12-01-preview
+{
+"type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+"name": "myStandbyPool",
+"location": "east us",
+"properties": {
+	 "elasticityProfile": {
+		 "maxReadyCapacity": 20
+	 },
+	  "virtualMachineState":"Deallocated",
+	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+	  }
+}
+```
 
 ---
 
