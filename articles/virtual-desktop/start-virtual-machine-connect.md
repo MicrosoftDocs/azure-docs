@@ -87,9 +87,33 @@ You need to make sure you have the names of the resource group and host pool you
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure Start VM on Connect using Azure CLI:
+You need to make sure you have the names of the resource group and host pool you want to configure. To configure Start VM on Connect using
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. To enable or disable Start VM on Connect, do one of the following steps:
+    1. To enable Start VM on Connect, run the following command, replacing the value for `-ResourceGroupName` and `-Name` with your values:
+    
+          ```azurecli
+          az desktopvirtualization hostpool update \
+               --resource-group $resourceGroupName \
+               --name $hostPoolName \
+               --start-vm-on-connect true
+          ```
+    
+    1. To disable Start VM on Connect, run the following command, replacing the value for `-ResourceGroupName` and `-Name` with your values:
+    
+          ```azurecli
+          az desktopvirtualization hostpool update \
+               --resource-group $resourceGroupName \
+               --name $hostPoolName \
+               --start-vm-on-connect false
+          ```
+    
 
 ---
+
+
 
 >[!NOTE]
 >In pooled host pools, Start VM on Connect will start a VM every five minutes at most. If other users try to sign in during this five-minute period while there aren't any available resources, Start VM on Connect won't start a new VM. Instead, the users trying to sign in will receive an error message that says, "No resources available."
