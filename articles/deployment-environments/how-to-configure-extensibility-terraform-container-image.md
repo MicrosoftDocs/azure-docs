@@ -15,7 +15,7 @@ ms.topic: how-to
 
 In this article, you learn how to build and utilize a custom image within your environment definitions for deployments in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
+ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a container registry. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, which you can see in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
