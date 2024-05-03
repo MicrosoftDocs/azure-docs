@@ -84,7 +84,7 @@ Service Fabric can collect the following logs:
 - For Linux clusters, Azure Monitor Logs is also the recommended tool for Azure platform and infrastructure monitoring. Linux platform diagnostics require different configuration. For more information, see [Service Fabric Linux cluster events in Syslog](service-fabric-diagnostics-oms-syslog.md).
 - You can configure the Azure Monitor agent to send guest OS logs to Azure Monitor Logs, where you can query on them by using Log Analytics.
 - You can write Service Fabric container logs to *stdout* or *stderr* so they're available in Azure Monitor Logs.
-- You can set up the Azure Monitor Logs [container monitoring solution](service-fabric-diagnostics-oms-containers.md) to view container event.
+- You can set up the [container monitoring solution](service-fabric-diagnostics-oms-containers.md) for Azure Monitor Logs to view container events.
 
 ### Service Fabric events
 
