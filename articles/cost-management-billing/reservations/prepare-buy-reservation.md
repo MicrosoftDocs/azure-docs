@@ -55,7 +55,7 @@ While Azure applies reservation discounts on your usage, it processes the reserv
 
 You can always update the scope after you buy a reservation. To do so, go to the reservation, select **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Example showing a reservation scope change" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
+:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Screenshot showing a reservation scope change." lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
 ## Discounted subscription and offer types
 
@@ -112,7 +112,7 @@ You can view payments that were made using APIs, usage data, and in cost analysi
 
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
-![Example showing reservation purchase costs in cost analysis](./media/prepare-buy-reservation/cost-analysis.png)
+:::image type="content" border="true" source="./media/prepare-buy-reservation/cost-analysis.png" alt-text="Screenshot showing reservation purchase costs in cost analysis.":::
 
 ### Exchange and refunds
 

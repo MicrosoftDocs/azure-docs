@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 03/15/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -111,7 +111,7 @@ In addition to those general limits, the following limits apply to DNS operation
 | --------- | ----- |
 | Create or Update | 200 per minute |
 | Delete | 200 per minute |
-| Get | 1000 per minute |
+| Get | 2000 per minute |
 | List By DNS Zone | 60 per minute |
 | List By Type | 60 per minute |
 | Update | 200 per minute |

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -152,7 +152,7 @@ To edit metadata in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab for an Azure Spring Apps instance, with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -195,7 +195,7 @@ To edit SSO properties in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab for an Azure Spring Apps instance, with the section for single sign-on highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab with the section for single sign-on highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -620,7 +620,7 @@ For other supported environment variables, see the following sources:
 - [Application Insights overview](../../azure-monitor/app/app-insights-overview.md?tabs=net)
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
-- [AppDynamics environment variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+- [AppDynamics environment variables](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 - [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
 #### Configure APM integration on the service instance level (recommended)

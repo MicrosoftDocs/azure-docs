@@ -42,7 +42,7 @@ You use system-managed environments when you want [conda](https://conda.io/docs/
 
 You can create environments from clients like the Azure Machine Learning Python SDK, Azure Machine Learning CLI, Environments page in Azure Machine Learning studio, and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
 
-For specific code samples, see the "Create an environment" section of [How to use environments](how-to-manage-environments-v2.md#create-an-environment). 
+For specific code samples, see the "Create an environment" section of [How to use environments](how-to-manage-environments-v2.md#create-a-custom-environment). 
 
 Environments are also easily managed through your workspace, which allows you to:
 

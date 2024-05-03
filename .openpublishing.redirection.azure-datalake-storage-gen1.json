@@ -289,16 +289,6 @@
             "source_path": "articles/data-lake-store/security-controls-policy.md",
             "redirect_url": "/previous-versions/azure/data-lake-store/security-controls-policy",
             "redirect_document_id": false
-          },
-          {
-            "source_path": "articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md",
-            "redirect_url": "/previous-versions/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2",
-            "redirect_document_id": false
-          },
-          {
-            "source_path": "articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md",
-            "redirect_url": "/previous-versions/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal",
-            "redirect_document_id": false
           }
         
     ]

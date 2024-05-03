@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 03/12/2024
 ---
 
 # Service Fabric managed cluster configuration options
@@ -28,6 +28,9 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
 * Configure [Dedicated Hosts](how-to-managed-cluster-dedicated-hosts.md) with managed cluster
 * Use [Ephemeral OS disks](how-to-managed-cluster-ephemeral-os-disks.md) for node types in managed cluster
+
+> [!IMPORTANT]
+> Manually making changes to the resources in a managed cluster isn't supported.
 
 ## Next steps
 

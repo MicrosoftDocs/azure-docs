@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 07/24/2023
 ms.author: tarcher
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, linux-related-content
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

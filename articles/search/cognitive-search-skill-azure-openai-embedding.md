@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 02/21/2024
+ms.date: 03/28/2024
 ---
 
 #	Azure OpenAI Embedding skill
@@ -112,6 +112,15 @@ The output resides in memory. To send this output to a field in the search index
     }
   ]
 ```
+
+## Best practices
+
+The following are some best practices you need to consider when utilizing this skill:
+- If you are hitting your Azure OpenAI TPM (Tokens per minute) limit, consider the [quota limits advisory](../ai-services/openai/quotas-limits.md) so you can address accordingly. Refer to the [Azure OpenAI monitoring](../ai-services/openai/how-to/monitoring.md) documentation for more information about your Azure OpenAI instance performance.
+-	The Azure OpenAI embeddings model deployment you use for this skill should be ideally separate from the deployment used for other use cases, including the [query vectorizer](vector-search-how-to-configure-vectorizer.md). This helps each deployment to be tailored to its specific use case, leading to optimized performance and identifying traffic from the indexer and the index embedding calls easily.
+- Your Azure OpenAI instance should be in the same region or at least geographically close to the region where your AI Search service is hosted. This reduces latency and improves the speed of data transfer between the services.
+-	If you have a larger than default Azure OpenAI TPM (Tokens per minute) limit as published in [quotas and limits](../ai-services/openai/quotas-limits.md) documentation, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) with the Azure AI Search team, so this can be adjusted accordingly. This helps your indexing process not being unnecessarily slowed down by the documented default TPM limit, if you have higher limits.
+
 
 ## Errors and warnings
 

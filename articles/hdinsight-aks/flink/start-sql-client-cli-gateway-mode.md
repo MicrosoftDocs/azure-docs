@@ -3,7 +3,7 @@ title:  Start SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on H
 description: Learn how to start SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 04/17/2024
 ---
 
 # Start SQL Client CLI in gateway mode
@@ -46,7 +46,7 @@ In Apache Flink Cluster on HDInsight on AKS, start the SQL Client CLI in gateway
  
 or
  
-./bin/sql-client.sh gateway --endpoint fqdn:443
+./bin/sql-client.sh gateway --endpoint https://fqdn/sql-gateway
 ```
  
 Get cluster endpoint(host or fqdn) on Azure portal.
@@ -92,12 +92,12 @@ Get cluster endpoint(host or fqdn) on Azure portal.
    1. Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL.
      
          ```
-         bin/sql-client.sh gateway --endpoint <fqdn>:443 
+         bin/sql-client.sh gateway --endpoint https://fqdn/sql-gateway
          ```
           
          Example
          ```
-         user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ bin/sql-client.sh gateway --endpoint <fqdn:443>
+         user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ bin/sql-client.sh gateway --endpoint https://fqdn/sql-gateway
           
                                             ▒▓██▓██▒
                                         ▓████▒▒█▓▒▓███▓▒
@@ -152,6 +152,9 @@ Get cluster endpoint(host or fqdn) on Azure portal.
          :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png" alt-text="Screenshot showing jar files in Azure portal." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png":::
           
    1. Use the table already created and put it into Hive metastore for management, then run the query.
+
+      > [!NOTE]
+      > In this example, all the jars in HDInsight on AKS default Azure Data Lake Storage Gen2. The container and storage account need not be same as specified during the cluster creation. If required, you can specify another storage account, and grant cluster user managed identity the storage blob data owner role on the Azure Data Lake Storage Gen2 side.
           
          ``` SQL
          CREATE CATALOG myhive WITH (

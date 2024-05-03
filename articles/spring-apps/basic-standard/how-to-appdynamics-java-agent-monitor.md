@@ -2,11 +2,11 @@
 title:  "How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)"
 titleSuffix: Azure Spring Apps
 description: How to use the AppDynamics Java agent to monitor Spring Boot applications in Azure Spring Apps.
-author:  KarlErickson
+author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -44,7 +44,7 @@ For the whole workflow, you need to:
 * Activate the AppDynamics Java in-process agent in Azure Spring Apps to generate application metrics data.
 * Connect the AppDynamics Agent to the AppDynamics Controller to collect and visualize the data in the controller.
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg" alt-text="Diagram showing a Spring Boot application in 'Azure Spring Apps' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg" alt-text="Diagram that shows AppDynamics Agent with two-way arrow to Spring Boot Apps in Azure Spring Apps and arrow pointing to AppDynamics Agent." border="false":::
 
 ### Activate an application with the AppDynamics Agent using the Azure CLI
 
@@ -82,7 +82,7 @@ To activate an application through the Azure CLI, use the following steps.
               APPDYNAMICS_CONTROLLER_PORT=443
     ```
 
-Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes).
+Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/tiers-and-nodes).
 
 ### Activate an application with the AppDynamics Agent using the Azure portal
 
@@ -92,17 +92,17 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Select **Apps** in the **Settings** section of the navigation pane.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png" alt-text="Screenshot of the Azure portal that shows the Apps page for an Azure Spring Apps instance." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png":::
 
 1. Select the app, and then select **Configuration** in the navigation pane.
 
 1. Use the **General settings** tab to update values such as the JVM options.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Screenshot of the Azure portal that shows the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
 
 1. Select **Environment variables** to add or update the variables used by your application.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environment variables tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Screenshot of the Azure portal that shows the Configuration page with the Environment variables tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
 
 ## Automate provisioning
 
@@ -180,47 +180,47 @@ This section shows various reports in AppDynamics.
 
 The following screenshot shows an overview of your apps in the AppDynamics dashboard:
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg" alt-text="AppDynamics screenshot showing the Applications page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg" alt-text="Screenshot of AppDynamics that shows the Applications dashboard." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg":::
 
-The **Application Dashboard** shows the overall information for each of your apps, as shown in the following screenshots using example applications:
+The **Applications** tab shows the overall information for each of your apps, as shown in the following screenshots using example applications:
 
 - `api-gateway`
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg" alt-text="AppDynamics screenshot showing the Application Dashboard for the example api-gateway app." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg" alt-text="Screenshot of AppDynamics that shows the Application dashboard for the example api-gateway app." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg":::
 
 - `customers-service`
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg" alt-text="AppDynamics screenshot showing the Application Dashboard for the example customers-service app." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg" alt-text="Screenshot of AppDynamics that shows the Application dashboard for the example customers-service app." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg":::
 
 The following screenshot shows how you can get basic information from the **Database Calls** dashboard.
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg" alt-text="AppDynamics screenshot showing the Database Calls dashboard." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg" alt-text="Screenshot of AppDynamics that shows the Database Calls dashboard." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg":::
 
 You can also get information about the slowest database calls, as shown in these screenshots:
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg" alt-text="AppDynamics screenshot showing the Slowest Database Calls page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg" alt-text="Screenshot of AppDynamics that shows the Slowest Database Calls page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg":::
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg" alt-text="AppDynamics screenshot showing the Correlated Snapshots page accessed from the Slowest Database Calls page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg" alt-text="Screenshot of AppDynamics that shows the Correlated Snapshots page accessed from the Slowest Database Calls page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg":::
 
 The following screenshot shows memory usage analysis in the **Heap** section of the **Memory** page:
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg" alt-text="AppDynamics screenshot showing the Heap section of the Memory page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg" alt-text="Screenshot of AppDynamics that shows the Heap section of the Memory page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg":::
 
 You can also see the garbage collection process, as shown in this screenshot:
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg" alt-text="AppDynamics screenshot showing the Garbage Collection section of the Memory page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg" alt-text="Screenshot of AppDynamics that shows the Garbage Collection section of the Memory page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg":::
 
 The following screenshot shows the **Slow Transactions** page:
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg" alt-text="AppDynamics screenshot showing the Slow Transactions page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg" alt-text="Screenshot of AppDynamics that shows the Slow Transactions page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg":::
 
 You can define more metrics for the JVM, as shown in this screenshot of the **Metric Browser**:
 
-:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg" alt-text="AppDynamics screenshot showing the Metric Browser." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg":::
+:::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg" alt-text="Screenshot of AppDynamics that shows the Metric Browser." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg":::
 
 ## View AppDynamics Agent logs
 
-By default, Azure Spring Apps will print the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the AppDynamics Agent from the following locations:
 
@@ -230,18 +230,18 @@ You can also get the logs of the AppDynamics Agent from the following locations:
 
 ## Learn about AppDynamics Agent upgrade
 
-The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upgrade may affect the following scenarios:
+The AppDynamics Agent is upgraded regularly with JDK (quarterly). Agent upgrade might affect the following scenarios:
 
-* Existing applications using AppDynamics Agent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of AppDynamics Agent.
-* Applications created after upgrade will use the new version of AppDynamics Agent.
+- Existing applications using AppDynamics Agent before upgrade are unchanged, but require restart or redeploy to engage the new version of AppDynamics Agent.
+- Applications created after upgrade use the new version of AppDynamics Agent.
 
 ## Configure virtual network injection instance outbound traffic
 
-For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [Cisco AppDynamics SaaS Domains and IP Ranges](https://docs.appdynamics.com/paa/en/cisco-appdynamics-saas-domains-and-ip-ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ## Understand the limitations
 
-To understand the limitations of the AppDynamics Agent, see [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent).
+To understand the limitations of the AppDynamics Agent, see [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent).
 
 ## Next steps
 

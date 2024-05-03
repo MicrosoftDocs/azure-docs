@@ -16,6 +16,8 @@ When metric counts are presented in the portal, they're renormalized to take int
 > [!NOTE]
 > - If you've adopted our OpenTelemetry Distro and are looking for configuration options, see [Enable Sampling](opentelemetry-configuration.md#enable-sampling).
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 :::image type="content" source="./media/sampling/data-sampling.png" lightbox="./media/sampling/data-sampling.png" alt-text="A screenshot of sampling configuration options.":::
 
 ## Brief summary
@@ -535,6 +537,11 @@ Use the [examples in the earlier section of this page](#configuring-adaptive-sam
 *What happens if I configure the sampling percentage to be too high?*
 
 * Configuring too high a sampling percentage (not aggressive enough) results in an insufficient reduction in the volume of the collected telemetry. You can still experience telemetry data loss related to throttling, and the cost of using Application Insights might be higher than you planned due to overage charges.
+
+*What happens if I configure both IncludedTypes and ExcludedTypes settings?*
+
+* It's best not to set both `ExcludedTypes` and `IncludedTypes` in your configuration to prevent any conflicts and ensure clear telemetry collection settings.
+* Telemetry types that are listed in `ExcludedTypes` are excluded even if they are also set in `IncludedTypes` settings. ExcludedTypes will take precedence over IncludedTypes.
 
 *On what platforms can I use sampling?*
 

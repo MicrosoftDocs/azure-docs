@@ -66,6 +66,8 @@
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
   - name: Monitor
+    href: monitor-data-share.md
+  - name: Monitor share status and history
     href: how-to-monitor.md
   - name: Disaster recovery
     href: disaster-recovery.md
@@ -84,6 +86,8 @@
     href: /rest/api/datashare
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-data-share
+  - name: Monitoring data reference
+    href: monitor-data-share-reference.md
 - name: Resources
   items:
   - name: Microsoft Q&A question page

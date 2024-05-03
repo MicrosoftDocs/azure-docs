@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 03/13/2024
 ---
 
 # Manage your Azure AI Search service with REST APIs
@@ -24,12 +24,16 @@ In this article, learn how to create and configure an Azure AI Search service us
 The Management REST API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
 
 > [!div class="checklist"]
-> * [List search services](#list-search-services)
 > * [Create or update a service](#create-or-update-a-service)
 > * [Enable Azure role-based access control for data plane](#enable-rbac)
-> * [(preview) Enforce a customer-managed key policy](#enforce-cmk)
-> * [(preview) Disable semantic ranking](#disable-semantic-search)
-> * [(preview) Disable workloads that push data to external resources](#disable-external-access)
+> * [Enforce a customer-managed key policy](#enforce-cmk)
+> * [Disable semantic ranking](#disable-semantic-search)
+> * [Disable workloads that push data to external resources](#disable-external-access)
+> * [Create a query key](#create-query-api-keys)
+> * [Regenerate an admin key](#regenerate-admin-api-keys)
+> * [List private endpoint connections](#list-private-endpoint-connections)
+> * [List search operations](#list-search-operations)
+> * [Delete a search services](#delete-a-search-service)
 
 All of the Management REST APIs have examples. If a task isn't covered in this article, see the [API reference](/rest/api/searchmanagement/) instead.
 
@@ -37,16 +41,15 @@ All of the Management REST APIs have examples. If a task isn't covered in this a
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-search/).
 
-* [Postman](https://www.postman.com/downloads/) or another REST client that sends HTTP requests.
+* [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
-* [Azure CLI](/cli/azure/install-azure-cli) used to set up a security principle for the client. You must have owner or administrator permissions to create  a security principle.
+* [Azure CLI](/cli/azure/install-azure-cli) used to get an access token. You must be an owner or administrator in your Azure subscription.
 
-## Create a security principal
+## Get an access token
 
-Management REST API calls are authenticated through Microsoft Entra ID. You'll need a security principal for your REST client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
+Management REST API calls are authenticated through Microsoft Entra ID. You need to provide an access token on the request, along with permissions to create and configure a resource.
 
-> [!NOTE]
-> The following steps are borrowed from the [Azure REST APIs with Postman](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) blog post.
+You can use the [Azure CLI or Azure PowerShell to create an access token](/azure/azure-resource-manager/management/manage-resources-rest).
 
 1. Open a command shell for Azure CLI.
 
@@ -56,135 +59,119 @@ Management REST API calls are authenticated through Microsoft Entra ID. You'll n
    az login
    ```
 
-1. First, get your subscription ID. In the console, enter the following command:
+1. Get the tenant ID and subscription ID. If you have multiple tenants or subscriptions, make sure you use the correct one.
 
    ```azurecli
-   az account show --query id -o tsv
+   az account show
    ````
 
-1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region.
+1. Get an access token.
 
    ```azurecli
-   az group create -l westus -n MyResourceGroup
+   az account get-access-token --query accessToken --output tsv
    ```
 
-1. Create the service principal, replacing the placeholder values with valid values. You'll need a descriptive security principal name, subscription ID, resource group name.
+## Set up Visual Studio Code
 
-   Notice that the security principal has "owner" permissions, necessary for creating or updating an Azure resource. If you're managing an existing search service, use contributor or "Search Service Contributor" (quote enclosed) instead.
+If you're not familiar with the REST client for Visual Studio Code, this section includes setup so that you can complete the tasks in this quickstart.
 
-    ```azurecli
-    az ad sp create-for-rbac --name mySecurityPrincipalName \
-                             --role owner \
-                             --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
+1. Start Visual Studio Code and select the **Extensions** tile.
+
+1. Search for the REST client and select **Install**.
+
+   :::image type="content" source="media/search-get-started-rest/rest-client-install.png" alt-text="Screenshot of the install command.":::
+
+1. Open or create new file named with either a `.rest` or `.http` file extension.
+
+1. Provide variables for the values you retrieved in the previous step.
+
+   ```http
+   @tenantId = PASTE-YOUR-TENANT-ID-HERE
+   @subscriptionId = PASTE-YOUR-SUBSCRIPTION-ID-HERE
+   @token = PASTE-YOUR-TOKEN-HERE
+   ```
+
+1. Verify the session is operational by listing search services in your subscription.
+
+   ```http
+    ### List search services
+    GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
+         Content-type: application/json
+         Authorization: Bearer {{token}}
     ```
 
-   A successful response includes "appId", "password", and "tenant". You'll use these values for the variables "clientId", "clientSecret", and "tenant" in the next section.
+1. Select **Send request**. A response should appear in an adjacent pane. If you have existing search services, they're listed. Otherwise, the list is empty, but as long as the HTTP code is 200 OK, you're ready for the next steps.
 
-## Set up Postman
-
-The following steps are from [this blog post](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) if you need more detail.
-
-1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
-
-    | Variable | Description |
-    |----------|-------------|
-    | clientId | Provide the previously generated "appID" that you created in Microsoft Entra ID. |
-    | clientSecret | Provide the "password" that was created for your client. |
-    | tenantId | Provide the "tenant" that was returned in the previous step. |
-    | subscriptionId | Provide the subscription ID for your subscription. |
-    | resource | Enter `https://management.azure.com/`. This Azure resource is used for all control plane operations. | 
-    | bearerToken | (leave blank; the token is generated programmatically) |
-
-1. In the Authorization tab, select **Bearer Token** as the type.
-
-1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
-
-1. In the Pre-request Script tab, paste in the following script:
-
-    ```javascript
-    pm.test("Check for collectionVariables", function () {
-        let vars = ['clientId', 'clientSecret', 'tenantId', 'subscriptionId'];
-        vars.forEach(function (item, index, array) {
-            console.log(item, index);
-            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.undefined;
-            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.empty; 
-        });
+    ```http
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Pragma: no-cache
+    Content-Length: 22068
+    Content-Type: application/json; charset=utf-8
+    Expires: -1
+    x-ms-ratelimit-remaining-subscription-reads: 11999
+    x-ms-request-id: f47d3562-a409-49d2-b9cd-6a108e07304c
+    x-ms-correlation-request-id: f47d3562-a409-49d2-b9cd-6a108e07304c
+    x-ms-routing-request-id: WESTUS2:20240314T012052Z:f47d3562-a409-49d2-b9cd-6a108e07304c
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    X-Content-Type-Options: nosniff
+    X-Cache: CONFIG_NOCACHE
+    X-MSEdge-Ref: Ref A: 12401F1160FE4A3A8BB54D99D1FDEE4E Ref B: CO6AA3150217011 Ref C: 2024-03-14T01:20:52Z
+    Date: Thu, 14 Mar 2024 01:20:52 GMT
+    Connection: close
     
-        if (!pm.collectionVariables.get("bearerToken") || Date.now() > new Date(pm.collectionVariables.get("bearerTokenExpiresOn") * 1000)) {
-            pm.sendRequest({
-                url: 'https://login.microsoftonline.com/' + pm.collectionVariables.get("tenantId") + '/oauth2/token',
-                method: 'POST',
-                header: 'Content-Type: application/x-www-form-urlencoded',
-                body: {
-                    mode: 'urlencoded',
-                    urlencoded: [
-                        { key: "grant_type", value: "client_credentials", disabled: false },
-                        { key: "client_id", value: pm.collectionVariables.get("clientId"), disabled: false },
-                        { key: "client_secret", value: pm.collectionVariables.get("clientSecret"), disabled: false },
-                        { key: "resource", value: pm.collectionVariables.get("resource") || "https://management.azure.com/", disabled: false }
-                    ]
-                }
-            }, function (err, res) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    let resJson = res.json();
-                    pm.collectionVariables.set("bearerTokenExpiresOn", resJson.expires_on);
-                    pm.collectionVariables.set("bearerToken", resJson.access_token);
-                }
-            });
-        }
-    });
+    {
+      "value": [ . . . ]
+    }
     ```
-
-1. Save the collection.
-
-Now that Postman is set up, you can send REST calls similar to the ones described in this article. You'll update the endpoint and request body where applicable.
-
-## List search services
-
-Returns all search services under the current subscription, including detailed service information:
-
-```rest
-GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
-```
 
 ## Create or update a service
 
 Creates or updates a search service under the current subscription. This example uses variables for the search service name and region, which haven't been defined yet. Either provide the names directly, or add new variables to the collection.
 
-```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
-{
-  "location": "{{region}}",
-  "sku": {
-    "name": "basic"
-  },
-  "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default"
-  }
-}
+```http
+### Create a search service (provide an existing resource group)
+@resource-group = my-rg
+@search-service-name = my-search
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+
+    {
+        "location": "North Central US",
+        "sku": {
+            "name": "basic"
+        },
+        "properties": {
+            "replicaCount": 1,
+            "partitionCount": 1,
+            "hostingMode": "default"
+        }
+      }
 ```
 
 ## Create an S3HD service
 
-To create an [S3HD](search-sku-tier.md#tier-descriptions) service, use a combination of `-Sku` and `-HostingMode` properties. Set "sku" to `Standard3` and "hostingMode" to `HighDensity`.
+To create an [S3HD](search-sku-tier.md#tier-descriptions) service, use a combination of `sku` and `hostingMode` properties. Set `sku` to `standard3` and "hostingMode" to `HighDensity`.
 
-```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
-{
-  "location": "{{region}}",
-  "sku": {
-    "name": "Standard3"
-  },
-  "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "HighDensity"
-  }
-}
+```http
+@resource-group = my-rg
+@search-service-name = my-search
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+
+    {
+        "location": "{{region}}",
+        "sku": {
+          "name": "standard3"
+        },
+        "properties": {
+          "replicaCount": 1,
+          "partitionCount": 1,
+          "hostingMode": "HighDensity"
+        }
+    }
 ```
 
 <a name="enable-rbac"></a>
@@ -195,22 +182,25 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 
 In this step, configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
 
-To use Azure role-based access control (Azure RBAC) for data plane operations, set "authOptions" to "aadOrApiKey" and then send the request.
+To use role-based access control for data plane operations, set `authOptions` to `aadOrApiKey` and then send the request.
 
-If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting "disableLocalAuth" to "true".
+To use role-based access control exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting `disableLocalAuth` to true.
 
-```rest
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
-{
-  "properties": {
-    "disableLocalAuth": false,
-    "authOptions": {
-      "aadOrApiKey": {
-        "aadAuthFailureMode": "http401WithBearerChallenge"
-      }
+```http
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+
+    {
+        "properties": {
+            "disableLocalAuth": false,
+            "authOptions": {
+                "aadOrApiKey": {
+                    "aadAuthFailureMode": "http401WithBearerChallenge"
+                }
+            }
+        }
     }
-  }
-}
 ```
 
 <a name="enforce-cmk"></a>
@@ -221,16 +211,19 @@ If you're using [customer-managed encryption](search-security-manage-encryption-
 
 When you enable this policy, any REST calls that create objects containing sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
 
-```rest
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
-{
-  "properties": {
-    "encryptionWithCmk": {
-      "enforcement": "Enabled",
-      "encryptionComplianceStatus": "Compliant"
-    },
-  }
-}
+```http
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+     
+     {
+        "properties": {
+            "encryptionWithCmk": {
+            "enforcement": "Disabled",
+            "encryptionComplianceStatus": "Compliant"
+            },
+        }
+    }
 ```
 
 <a name="disable-semantic-search"></a>
@@ -239,35 +232,97 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 Although [semantic ranking isn't enabled](semantic-how-to-enable-disable.md) by default, you could lock down the feature at the service level.
 
-```rest
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
-{
-  "properties": {
-    "semanticSearch": "disabled"
-  }
-}
+```http
+### disable semantic ranking
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+     
+     {
+        "properties": {
+            "semanticSearch": "Disabled"
+        }
+    }
 ```
 
 <a name="disable-external-access"></a>
 
-## (preview) Disable workloads that push data to external resources
+## Disable workloads that push data to external resources
 
 Azure AI Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
 
-```rest
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
-{
-  "properties": {
-    "disabledDataExfiltrationOptions": [
-      "All"
-    ]
-  }
-}
+```http
+### disable-external-access
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+     
+     {
+        "properties": {
+            "publicNetworkAccess": "Disabled"
+        }
+    }
+```
+
+## Delete a search service
+
+```http
+### delete a search service
+DELETE https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+```
+
+## List admin API keys
+
+```http
+### List admin keys
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+```
+
+## Regenerate admin API keys
+
+You can only regenerate one admin API key at a time.
+```http
+### Regnerate admin keys
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/regenerateAdminKey/primary?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer 
+```
+
+## Create query API keys
+
+```http
+### Create a query key
+@query-key-name = myQueryKey
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/createQueryKey/{name}?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+```
+
+## List private endpoint connections
+
+```http
+### List private endpoint connections
+GET https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/privateEndpointConnections?api-version=2023-11-01 HTTP/1.1
+     Content-type: application/json
+     Authorization: Bearer {{token}}
+```
+
+## List search operations
+
+```http
+### List search operations
+GET https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups?api-version=2021-04-01 HTTP/1.1
+  Content-type: application/json
+  Authorization: Bearer {{token}}
 ```
 
 ## Next steps
 
-After a search service is configured, next steps include [create an index](search-how-to-create-search-index.md) or [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
+After a search service is configured, next steps include [create an index](search-how-to-create-search-index.md) or [query an index](search-query-overview.md) using the portal, REST APIs, or an Azure SDK.
 
 * [Create an Azure AI Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)

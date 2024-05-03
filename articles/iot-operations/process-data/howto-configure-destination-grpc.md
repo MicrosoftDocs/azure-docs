@@ -1,6 +1,6 @@
 ---
 title: Send data to a gRPC endpoint from a pipeline
-description: Configure a pipeline destination stage to send the pipeline output to a gRPC endpoint for further processing.
+description: Configure a pipeline destination stage to send the pipeline output to a gRPC endpoint for further processing with Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to send data from a pipeline to a gRPC endpoint so that I can run custom processing on the output from the pipeline.
 ---
 
-# Send data to a gRPC endpoint
+# Send data to a gRPC endpoint with Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -28,7 +28,7 @@ When you send data to a gRPC endpoint from a destination stage:
 
 To configure and use a destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor (preview).
+- A deployed instance of Azure IoT Data Processor Preview.
 - A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
 - The `protoc` tool to generate the descriptor.
 

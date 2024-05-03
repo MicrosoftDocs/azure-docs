@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ---
 

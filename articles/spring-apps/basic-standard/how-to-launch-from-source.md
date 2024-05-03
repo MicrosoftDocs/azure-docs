@@ -4,7 +4,7 @@ description: In this quickstart, learn how to launch your application in Azure S
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 11/12/2021
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-api
 ---

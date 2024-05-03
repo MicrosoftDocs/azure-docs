@@ -40,7 +40,7 @@ curl "https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob
 
 ## Import file
 
-From the edit project pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. The select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
+From the edit project pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. Then, select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of edit project menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions.png) ]( ../media/active-learning/import-questions.png#lightbox)

@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: troubleshooting
-ms.date: 01/03/2024
+ms.date: 03/29/2024
 ms.service: site-recovery
 ms.custom: engagement-fy23
 ---
@@ -159,3 +159,7 @@ Restart the following services:
 - VSS service.
 - Azure Site Recovery VSS Provider.
 - VDS service.
+
+## Next steps
+
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

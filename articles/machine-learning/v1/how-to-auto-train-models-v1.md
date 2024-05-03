@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 ms.date: 01/25/2023
 ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1

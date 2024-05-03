@@ -19,8 +19,8 @@ landingContent:
             url: ./whats-new.md
           - text: Change data capture
             url: ./concepts-change-data-capture.md
-          - text: Managed Airflow
-            url: ./concept-managed-airflow.md
+          - text: Workflow Orchestration Manager
+            url: ./concepts-workflow-orchestration-manager.md
   - title: About Azure Data Factory
     linkLists:
       - linkListType: overview
@@ -40,7 +40,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pipelines and activities in Azure Data Factory
-            url: ./concepts-pipelines-activities.md    
+            url: ./concepts-pipelines-activities.md
           - text: Pipeline execution and triggers
             url: ./concepts-pipeline-execution-triggers.md
       - linkListType: quickstart
@@ -60,7 +60,7 @@ landingContent:
           - text: Copy activity overview
             url: ./copy-activity-overview.md
           - text: SAP Knowledge Center
-            url: ./industry-sap-overview.md      
+            url: ./industry-sap-overview.md
       - linkListType: tutorial
         links:
           - text: Copy data in cloud
@@ -77,7 +77,7 @@ landingContent:
             url: ./data-flow-create.md
           - text: Copy and transform data from a REST endpoint
             url: ./connector-rest.md
-      - linkListType: concept 
+      - linkListType: concept
         links:
           - text: Change Data Capture (CDC)
             url: ./concepts-change-data-capture.md
@@ -90,20 +90,20 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Capture changed data with a CDC resource
-            url: how-to-change-data-capture-resource.md            
-  - title: Managed Airflow
+            url: how-to-change-data-capture-resource.md
+  - title: Workflow Orchestration Manager
     linkLists:
       - linkListType: concept
         links:
-          - text: Managed Airflow
-            url: concept-managed-airflow.md
+          - text: Workflow Orchestration Manager
+            url: concepts-workflow-orchestration-manager.md
       - linkListType: how-to-guide
         links:
-          - text: How does Managed Airflow work?
-            url: how-does-managed-airflow-work.md
+          - text: How does Workflow Orchestration Manager work?
+            url: how-does-workflow-orchestration-manager-work.md
       - linkListType: tutorial
         links:
-          - text: Run an existing pipeline with Managed Airflow
+          - text: Run an existing pipeline with Workflow Orchestration Manager
             url: tutorial-run-existing-pipeline-with-airflow.md
   - title: SAP knowledge center
     linkLists:

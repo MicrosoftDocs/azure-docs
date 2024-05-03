@@ -44,18 +44,6 @@ landingContent:
             url: ../private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal.md
 
   # Card
-  - title: About Affirmed Private Network Service on Azure
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is Affirmed Private Network Service on Azure?
-            url: affirmed-private-network-service-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy Affirmed Private Network Service on Azure
-            url: deploy-affirmed-private-network-service-solution.md
-
-  # Card
   - title: About Azure Network Function Manager
     linkLists:
       - linkListType: overview

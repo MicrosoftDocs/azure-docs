@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -43,7 +43,7 @@ Stopped VMs are billed and continue to use reservation hours. Deallocate or dele
 
  The Azure reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour, the reservation application for VMs in the hour is locked. In the event a VM doesn't run for an hour or concurrent VMs within the hour don't fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
-![Screenshot of one applied reservation and two matching VM instances](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
+:::image type="content" border="true" source="./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png" alt-text="Screenshot of one applied reservation and two matching VM instances.":::
 
 1. Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charged for any usage below the reservations line, since it has been already paid as part of reservation purchase.
 2. In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.

@@ -3,10 +3,11 @@ title: Configure and access logs
 description: How to access database logs.
 author: varun-dhawan
 ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 1/25/2024
 ---
 
 # Configure and access logs in Azure Database for PostgreSQL - Flexible Server

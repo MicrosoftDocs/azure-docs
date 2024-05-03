@@ -5,7 +5,7 @@ description: Learn how to set up alerts based on resource log events from Azure 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 03/12/2024
 ms.author: cherylmc
 
 ---

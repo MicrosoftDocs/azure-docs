@@ -3,7 +3,7 @@ title: Linter rule - no unused variables
 description: Linter rule - no unused variables
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/10/2023
+ms.date: 03/20/2024
 ---
 
 # Linter rule - no unused variables

@@ -1,9 +1,9 @@
 ---
-title: Manifests - Azure IoT Orchestrator
+title: How Azure IoT Orchestrator uses manifests
 description: Understand how Azure IoT Orchestrator uses manifests to define resources and deployments for Azure IoT Operations
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
@@ -12,13 +12,15 @@ ms.date: 10/25/2023
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Orchestrator manifests
+# Azure IoT Orchestrator Preview - manifests
 
-The Azure IoT Orchestrator service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+The Azure IoT Orchestrator Preview service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
 
 ## Target
 
-A *target* is a specific deployment environment, such as a Kubernetes cluster or an edge device. It describes infrastructural components, which are components installed once on a device, like PowerShell or Azure IoT Data Processor (preview). Each target has its own configuration settings, which can be customized to meet the specific needs of the deployment environment. It also specifies provider bindings that define what types of resources are to be managed on the target (for example, Helm, PowerShell scripts, K8s, CRs, or Bash scripts).
+A *target* is a specific deployment environment, such as a Kubernetes cluster or an edge device. It describes infrastructural components, which are components installed once on a device, like PowerShell or Azure IoT Data Processor Preview. Each target has its own configuration settings, which can be customized to meet the specific needs of the deployment environment. It also specifies provider bindings that define what types of resources are to be managed on the target (for example, Helm, PowerShell scripts, K8s, CRs, or Bash scripts).
 
 To create a target resource for an Arc-enabled K8s cluster, add the resource definition JSON to an Azure Resource Manager template. The following example creates a target resource that defines multiple components and bindings.
 

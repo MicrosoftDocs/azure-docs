@@ -23,7 +23,7 @@ Here are the high level steps from the script:
 ```azurepowershell
 # NOTE: Before run this script ensure you are logged in Azure by using "az login" command.
 
-$webhookAppId = "[REPLACE_WITH_YOUR_ID]"
+$webhookAppObjectId = "[REPLACE_WITH_YOUR_ID]"
 $eventSubscriptionWriterUserPrincipalName = "[REPLACE_WITH_USER_PRINCIPAL_NAME_OF_THE_USER_WHO_WILL_CREATE_THE_SUBSCRIPTION]"
 
 # Start execution

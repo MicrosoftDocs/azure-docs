@@ -8,7 +8,7 @@ ms.date: 05/01/2023
 # Use RDMA or GPU instances in Batch pools
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To run certain Batch jobs, you can take advantage of Azure VM sizes designed for large-scale computation. For example:
 

@@ -74,7 +74,7 @@ More Azure Lab Services template samples can be found in [Azure Quickstart Templ
 
 1. Select the following link to sign in to Azure and open a template. The template creates a lab plan.
 
-    :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.labservices%2flab-plan%2fazuredeploy.json":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.labservices%2flab-plan%2fazuredeploy.json":::
 
 1. Optionally, change the name of the lab plan.
 1. Select the **Resource group**.

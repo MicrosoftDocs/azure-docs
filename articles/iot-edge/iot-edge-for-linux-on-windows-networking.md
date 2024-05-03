@@ -6,6 +6,7 @@ author: PatAltimore
 # this is the PM responsible
 ms.reviewer: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/15/2022
@@ -21,7 +22,7 @@ ms.author: fcabrera
 ## Networking
 To establish a communication channel between the Windows host OS and the EFLOW virtual machine, we use Hyper-V networking stack. For more information about Hyper-V networking, see [Hyper-V networking basics](/windows-server/virtualization/hyper-v/plan/plan-hyper-v-networking-in-windows-server#hyper-v-networking-basics). Basic networking in EFLOW is simple; it uses two parts, a virtual switch and a virtual network. 
 
-The easiest way to establish basic networking on Windows client SKUs is by using the [**default switch**](/virtualization/community/team-blog/2017/20170726-hyper-v-virtual-machine-gallery-and-networking-improvements#details-about-the-default-switch) already created by the Hyper-V feature. During EFLOW deployment, if no specific virtual switch is specified using the `-vSwitchName` and `-vSwitchType` flags, the virtual machine will be created using the **default switch**.
+The easiest way to establish basic networking on Windows client SKUs is by using the [**default switch**](https://techcommunity.microsoft.com/t5/virtualization/hyper-v-virtual-machine-gallery-and-networking-improvements/ba-p/382375) already created by the Hyper-V feature. During EFLOW deployment, if no specific virtual switch is specified using the `-vSwitchName` and `-vSwitchType` flags, the virtual machine will be created using the **default switch**.
 
 On Windows Server SKUs devices, networking is a bit more complicated as there's no **default switch** available. However, there's a comprehensive guide on [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md). 
 

@@ -5,14 +5,14 @@ description: Learn how to use Azure OpenAI on your Azure Machine Learning index 
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/14/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom: devx-track-python
 ---
 
-# Data source - Azure Machine Learning index
+# Data source - Azure Machine Learning index (preview)
 
 The configurable options of Azure Machine Learning index when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
 

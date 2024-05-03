@@ -224,6 +224,9 @@ items:
         - name: How to record video samples
           href: text-to-speech-avatar/custom-avatar-record-video-samples.md
           displayName: avatar
+        - name: Deploy your custom text to speech avatar model as an endpoint
+          href: text-to-speech-avatar/custom-avatar-endpoint.md
+          displayName: avatar
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
@@ -288,6 +291,8 @@ items:
         href: ingestion-client.md
       - name: Telephony Integration
         href: call-center-telephony-integration.md
+      - name: Connect Azure Communication Services with Azure AI services
+        href: ../../communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md?context=/azure/ai-services/speech-service/context/context
     - name: Gaming integration
       href: gaming-concepts.md
     - name: Language learning
@@ -508,9 +513,6 @@ items:
             displayName: migrate,migration,deprecate,retire,sunset
           - name: From Speech to text v3.0 to v3.1
             href: migrate-v3-0-to-v3-1.md
-            displayName: migrate,migration,deprecate,retire,sunset
-          - name: From Speech to text v2.0 to v3.0
-            href: migrate-v2-to-v3.md
             displayName: migrate,migration,deprecate,retire,sunset
         - name: From Long Audio API to Batch synthesis API
           href: migrate-to-batch-synthesis.md

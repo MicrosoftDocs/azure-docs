@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -24,7 +24,7 @@ You can also complete this quickstart using [Azure PowerShell](quick-create-powe
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

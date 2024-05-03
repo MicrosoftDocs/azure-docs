@@ -55,6 +55,8 @@ If you can see a fired alert in the Azure portal, but didn't receive the email t
    - The settings of your email security appliance, if any (like Barracuda, Cisco).
 
 1. **Have you accidentally unsubscribed from the action group?**
+   > [!NOTE]
+   > Keep in mind if you unsubscribe from an action group then all members from a distribution list will be unsubscribed as well. You can continue to use your distribution list email address. However, you will need to inform the users of your distribution list that if they unsubscribe, they are unsubscribing the whole distribution list rather than just themselves. A work around for this is to add the email address of all the users in the action group individually. One action group can contain up to 1000 email address. Then, if a specific user wants to unsubscribe, then they will be able to do so without affecting the other users. You will also be able to see which users have unsubscribed.
 
     The alert emails provide a link to unsubscribe from the action group. To check if you accidentally unsubscribed from this action group, either:
 
@@ -268,7 +270,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Check the alert processing rule parameters.**
 
-    Check the [alert processing rule documentation](./alerts-processing-rules.md), or the [alert processing rule PowerShell Set-AzAlertProcessingRule](https://learn.microsoft.com/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
+    Check the [alert processing rule documentation](./alerts-processing-rules.md), or the [alert processing rule PowerShell Set-AzAlertProcessingRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
 

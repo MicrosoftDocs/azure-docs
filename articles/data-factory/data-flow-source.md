@@ -1,5 +1,5 @@
 ---
-title: Source transformation in mapping data flow
+title: Source transformation in mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to set up a source transformation in a mapping data flow in Azure Data Factory or Azure Synapse Analytics pipelines.
 author: kromerm
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/20/2023
 ---
 
-# Source transformation in mapping data flow
+# Source transformation in mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -34,18 +34,18 @@ To use an inline dataset, select the format you want in the **Source type** sele
 
 ### Schema options
 
-Because an inline dataset is defined inside the data flow, there is not a defined schema associated with the inline dataset. On the Projection tab, you can import the source data schema and store that schema as your source projection. On this tab, you will find a "Schema options" button that allows you to define the behavior of ADF's schema discovery service.
+Because an inline dataset is defined inside the data flow, there isn't a defined schema associated with the inline dataset. On the Projection tab, you can import the source data schema and store that schema as your source projection. On this tab, you find a "Schema options" button that allows you to define the behavior of ADF's schema discovery service.
 
-* Use projected schema: This option is useful when you have a large number of source files that ADF will scan as your source. ADF's default behavior is to discover the schema of every source file. But if you have a pre-defined projection already stored in your source transformation, you can set this to true and ADF will skip auto-discovery of every schema. With this option turned on, the source transformation can read all files in a much faster manner, applying the pre-defined schema to every file.
-* Allow schema drift: Turn on schema drift so that your data flow will allow new columns that are not already defined in the source schema.
-* Validate schema: Setting this option will cause data flow to fail if any column and type defined in the projection does not match the discovered schema of the source data.
-* Infer drifted column types: When new drifted columns are identified by ADF, those new columns will be cast to the appropriate data type using ADF's automatic type inference.
+* Use projected schema: This option is useful when you have a large number of source files that ADF scans as your source. ADF's default behavior is to discover the schema of every source file. But if you have a pre-defined projection already stored in your source transformation, you can set this to true and ADF skips auto-discovery of every schema. With this option turned on, the source transformation can read all files in a much faster manner, applying the pre-defined schema to every file.
+* Allow schema drift: Turn on schema drift so that your data flow allows new columns that aren't already defined in the source schema.
+* Validate schema: Setting this option causes the data flow to fail if any column and type defined in the projection doesn't match the discovered schema of the source data.
+* Infer drifted column types: When new drifted columns are identified by ADF, those new columns are cast to the appropriate data type using ADF's automatic type inference.
 
 :::image type="content" source="media/data-flow/inline-selector.png" alt-text="Screenshot that shows Inline selected.":::
 
 ## Workspace DB (Synapse workspaces only)
 
-In Azure Synapse workspaces, an additional option is present in data flow source transformations called ```Workspace DB```. This will allow you to directly pick a workspace database of any available type as your source data without requiring additional linked services or datasets. The databases created through the [Azure Synapse database templates](../synapse-analytics/database-designer/overview-database-templates.md) are also accessible when you select Workspace DB.
+In Azure Synapse workspaces, an additional option is present in data flow source transformations called ```Workspace DB```. This allows you to directly pick a workspace database of any available type as your source data without requiring additional linked services or datasets. The databases created through the [Azure Synapse database templates](../synapse-analytics/database-designer/overview-database-templates.md) are also accessible when you select Workspace DB.
 
 :::image type="content" source="media/data-flow/syms-source.png" alt-text="Screenshot that shows workspacedb selected.":::
 
@@ -104,11 +104,11 @@ Development values for dataset parameters can be configured in [debug settings](
 
 **Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of the service to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
 
-* Select the **Allow schema drift** check box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+* Select the **Allow schema drift** check box if the source columns change often. This setting allows all incoming source fields to flow through the transformations to the sink.
 
-* Selecting **Infer drifted column types** instructs the service to detect and define data types for each new column discovered. With this feature turned off, all drifted columns will be of type string.
+* Selecting **Infer drifted column types** instructs the service to detect and define data types for each new column discovered. With this feature turned off, all drifted columns are of type string.
 
-**Validate schema:** If **Validate schema** is selected, the data flow will fail to run if the incoming source data doesn't match the defined schema of the dataset.
+**Validate schema:** If **Validate schema** is selected, the data flow fails to run if the incoming source data doesn't match the defined schema of the dataset.
 
 **Skip line count**: The **Skip line count** field specifies how many lines to ignore at the beginning of the dataset.
 
@@ -117,11 +117,11 @@ Development values for dataset parameters can be configured in [debug settings](
 To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
-> When debug mode is turned on, the row limit configuration in debug settings will overwrite the sampling setting in the source during data preview.
+> When debug mode is turned on, the row limit configuration in debug settings overwrite the sampling setting in the source during data preview.
 
 ## Source options
 
-The **Source options** tab contains settings specific to the connector and format chosen. For more information and examples, see the relevant [connector documentation](#supported-sources).
+The **Source options** tab contains settings specific to the connector and format chosen. For more information and examples, see the relevant [connector documentation](#supported-sources). This includes details like isolation level for those data sources that support it (like on-premises SQL Servers, Azure SQL Databases, and Azure SQL Managed instances), and other data source specific settings as well.
 
 ## Projection
 
@@ -129,7 +129,7 @@ Like schemas in datasets, the projection in a source defines the data columns, t
 
 :::image type="content" source="media/data-flow/source-3.png" alt-text="Screenshot that shows settings on the Projection tab.":::
 
-If your text file has no defined schema, select **Detect data type** so that the service will sample and infer the data types. Select **Define default format** to autodetect the default data formats.
+If your text file has no defined schema, select **Detect data type** so that the service samples and infers the data types. Select **Define default format** to autodetect the default data formats.
 
 **Reset schema** resets the projection to what is defined in the referenced dataset.
 
@@ -137,15 +137,15 @@ If your text file has no defined schema, select **Detect data type** so that the
 
 ### Import schema
 
-Select the **Import schema** button on the **Projection** tab to use an active debug cluster to create a schema projection. It's available in every source type. Importing the schema here will override the projection defined in the dataset. The dataset object won't be changed.
+Select the **Import schema** button on the **Projection** tab to use an active debug cluster to create a schema projection. It's available in every source type. Importing the schema here overrides the projection defined in the dataset. The dataset object won't be changed.
 
 Importing schema is useful in datasets like Avro and Azure Cosmos DB that support complex data structures that don't require schema definitions to exist in the dataset. For inline datasets, importing schema is the only way to reference column metadata without schema drift.
 
 ## Optimize the source transformation
 
-The **Optimize** tab allows for editing of partition information at each transformation step. In most cases, **Use current partitioning** will optimize for the ideal partitioning structure for a source.
+The **Optimize** tab allows for editing of partition information at each transformation step. In most cases, **Use current partitioning** optimizes for the ideal partitioning structure for a source.
 
-If you're reading from an Azure SQL Database source, custom **Source** partitioning will likely read data the fastest. The service will read large queries by making connections to your database in parallel. This source partitioning can be done on a column or by using a query.
+If you're reading from an Azure SQL Database source, custom **Source** partitioning likely reads data the fastest. The service reads large queries by making connections to your database in parallel. This source partitioning can be done on a column or by using a query.
 
 :::image type="content" source="media/data-flow/sourcepart3.png" alt-text="Screenshot that shows the Source partition settings.":::
 

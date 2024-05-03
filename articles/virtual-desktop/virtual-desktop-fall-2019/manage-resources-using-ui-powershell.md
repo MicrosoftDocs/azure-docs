@@ -55,6 +55,8 @@ Get started by signing in to both the Az and Azure AD PowerShell modules. Here's
     Connect-AzureAD
     ```
 
+    [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+
 4. After that, navigate to the folder where you saved the two PowerShell scripts from the RDS-Templates GitHub repo.
 
 Keep the PowerShell window you used to sign in open to run additional PowerShell cmdlets while signed in.

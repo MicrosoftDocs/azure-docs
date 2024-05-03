@@ -3,7 +3,11 @@ title: Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes S
 description: Describes how to statically provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service.
 ms.topic: article
 ms.custom:
+ms.subservice: aks-storage
 ms.date: 02/26/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service
@@ -471,3 +475,4 @@ Astra Trident supports many features with Azure NetApp Files. For more informati
 [azure-netapp-smb]: azure-netapp-files-smb.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-netapp-files-volume-dual-protocol]: ../azure-netapp-files/create-volumes-dual-protocol.md
+

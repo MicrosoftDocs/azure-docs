@@ -5,6 +5,7 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines
 ms.subservice: openshift
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 10/14/2019

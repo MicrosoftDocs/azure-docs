@@ -161,4 +161,5 @@ In this scenario, the Azure VM gets a new IP address after failover. To setup a 
 Site Recovery will now honor these settings and ensure that the virtual machine on failover is connected to the selected resource via the corresponding IP Address, if it is available in the target IP range. In this scenario, there's no need to failover the entire subnet. A DNS update will be required to update records for failed over machine to point to the new IP address of the virtual machine.
 
 ## Next steps
+
 [Learn about](site-recovery-active-directory.md) replicating on-premises Active Directory and DNS to Azure.

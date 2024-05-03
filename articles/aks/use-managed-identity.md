@@ -2,10 +2,14 @@
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.date: 03/07/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -164,7 +168,7 @@ For a user-assigned kubelet identity outside the default worker node resource gr
     ```
 
 > [!NOTE]
-> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to propagate.
 
 ## Bring your own managed identity
 
@@ -507,3 +511,4 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [managed-identity-operator]: ../role-based-access-control/built-in-roles.md#managed-identity-operator
+

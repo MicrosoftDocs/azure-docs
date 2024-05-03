@@ -8,9 +8,9 @@ author: dcurwin
 
 ## Default Log Analytics workspace for AKS
 
-The Log Analytics workspace is used by the Defender agent as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
+The Log Analytics workspace is used by the Defender sensor as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
 
-The Defender agent uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender agent is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
+The Defender sensor uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender sensor is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
 
 The naming convention for the default Log Analytics workspace and resource group is:
 

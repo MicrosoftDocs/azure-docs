@@ -79,15 +79,21 @@ https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiv
 > [!WARNING]
 > The value of the parameter `X-ConnectionId` should be in the format of GUID without dashes or other dividers. All other formats aren't supported and will be discarded by the Service. 
 >
-> Example. If the request contains  `X-ConnectionId=9f4ffa51-13a8-46eb-a289-aa98b28e766f` (GUID with dividers) or `X-ConnectionId=Request9f4ffa5113a846eba289aa98b28e766f` (non-GUID) then the value of `X-ConnectionId` will not be accepted by the system, and the Session won't be found in the logs.
+> Example. If the request contains expressions like these:
+>
+> - `X-ConnectionId=9f4ffa51-13a8-46eb-a289-aa98b28e766f` (GUID with dividers)
+> - `X-ConnectionId=Request9f4ffa5113a846eba289aa98b28e766f` (non-GUID)
+> - `X-ConnectionId=5948f700d2a811ee`  (non-GUID)
+>
+>then the value of `X-ConnectionId` will not be accepted by the system, and the Session won't be found in the logs.
 
 ## Getting Transcription ID for Batch transcription
 
 [Batch transcription API](batch-transcription.md) is a subset of the [Speech to text REST API](rest-speech-to-text.md). 
 
-The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create).
+The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create).
 
-The following is and example response body of a [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) request. GUID value `537216f8-0620-4a10-ae2d-00bdb423b36f` found in the first `self` element is the Transcription ID.
+The following is and example response body of a [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) request. GUID value `537216f8-0620-4a10-ae2d-00bdb423b36f` found in the first `self` element is the Transcription ID.
 
 ```json
 {
@@ -116,7 +122,7 @@ The following is and example response body of a [Transcriptions_Create](https://
 }
 ```
 > [!NOTE]
-> Use the same technique to determine different IDs required for debugging issues related to [custom speech](custom-speech-overview.md), like uploading a dataset using [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) request.
+> Use the same technique to determine different IDs required for debugging issues related to [custom speech](custom-speech-overview.md), like uploading a dataset using [Datasets_Create](/rest/api/speechtotext/datasets/create) request.
 
 > [!NOTE]
-> You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) request.
+> You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [Transcriptions_Get](/rest/api/speechtotext/transcriptions/get) request.

@@ -1,7 +1,7 @@
 ---
 title: Statsbeat in Application Insights | Microsoft Docs
 description: Statistics about Application Insights SDKs and AutoInstrumentation
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/24/2022
 ms.custom: references_regions
 ms.reviwer: heya

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/21/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -196,27 +196,33 @@ Use the following steps to build and deploy the sample applications.
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page, with Metrics highlighted in the navigation pane, and with azure-applicationinsights highlighted in the Metric Namespace dropdown menu." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page with Metric Namespace menu open and azure-applicationinsights option highlighted." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_buffered_calls**, and then set **Aggregation** to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker buffered calls and Aggregation set to Average." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker buffered calls and average aggregation." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker calls and Aggregation set to Average." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker calls and average aggregation." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Add filter** and set **Name** to **Delay**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker calls and Aggregation set to Average, and with Filter set to the name Delay." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker calls, average aggregation and Delay Filter." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Apply splitting** and set **Split by** to **kind**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker calls and Aggregation set to Average, and with Apply splitting selected with Split by set to kind." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker calls, average aggregation, and splitting." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Add metric** and set **Metric** to **resilience4j_circuitbreaker_buffered_calls**, and then set **Aggregation** to **Avg**. Select **Add metric** again and set **Metric** to **resilience4j_circuitbreaker_slow_calls**, and then set **Aggregation** set to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/slow-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows three charts: A chart with Metric set to circuit breaker calls and Aggregation set to Average. A chart with Metric set to circuit breaker calls buffered and Aggregation set to Average. A chart with Metric set to circuit breaker slow calls  and Aggregation set to Average." lightbox="media/how-to-circuit-breaker-metrics/slow-calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/slow-calls.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the chart described in this step." lightbox="media/how-to-circuit-breaker-metrics/slow-calls.png":::
+
 
 ::: zone-end
 
@@ -224,7 +230,8 @@ Use the following steps to build and deploy the sample applications.
 
 1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select the default **Application Insights** on the page.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Enterprise Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Application Insights page with the default Application Insights instance highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png":::
+
 
    > [!NOTE]
    > If there's no default Application Insights available, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
@@ -233,27 +240,32 @@ Use the following steps to build and deploy the sample applications.
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page, with Metrics highlighted in the navigation pane, and with azure-applicationinsights highlighted in the Metric Namespace dropdown menu." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page with the Metric Namespace menu open and azure.applicationinsights highlighted." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_buffered_calls**, and then set **Aggregation** to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker buffered calls and Aggregation set to Average." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker buffered calls and average aggregation." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker calls and Aggregation set to Average." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker calls and average aggregation." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Add filter** and set **Name** to **Delay**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker calls and Aggregation set to Average, and with Filter set to the name Delay." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker calls, average aggregation and delay filter." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Apply splitting** and set **Split by** to **kind**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with Metric set to circuit breaker calls and Aggregation set to Average, and with Apply splitting selected with Split by set to kind." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows a chart with circuit breaker calls, average aggregation, and splitting." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
+
 
 1. Set **Metric** to **resilience4j_circuitbreaker_calls**, and then set **Aggregation** to **Avg**. Select **Add metric** and set **Metric** to **resilience4j_circuitbreaker_buffered_calls**, and then set **Aggregation** to **Avg**. Select **Add metric** again and set **Metric** to **resilience4j_circuitbreaker_slow_calls**, and then set **Aggregation** set to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/slow-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page that shows three charts: A chart with Metric set to circuit breaker calls and Aggregation set to Average. A chart with Metric set to circuit breaker calls buffered and Aggregation set to Average. A chart with Metric set to circuit breaker slow calls  and Aggregation set to Average." lightbox="media/how-to-circuit-breaker-metrics/slow-calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/slow-calls.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page with the chart described in this step." lightbox="media/how-to-circuit-breaker-metrics/slow-calls.png":::
 
 ::: zone-end
 

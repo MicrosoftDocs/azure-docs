@@ -10,7 +10,7 @@ ms.author: mmitrik
 ms.custom: mode-api, devx-track-arm-template
 ---
 
-# Deploy the DICOM service with Data Lake Storage (Preview)
+# Deploy the DICOM service with Azure Data Lake Storage
 
 Deploying the [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md) enables organizations to store and process imaging data in a standardized, secure, and scalable way.
 
@@ -25,7 +25,7 @@ After deployment completes, you can use the Azure portal to see the details abou
 > [!NOTE]
 > The Azure Data Lake Storage option is only available for new instances of the DICOM service. After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.
 
-## Deploy the DICOM service with Data Lake Storage using the Azure portal
+## Deploy the DICOM service with Azure Data Lake Storage by using the Azure portal
 
 1. On the **Resource group** page of the Azure portal, select the name of the **Azure Health Data Services workspace**.
 
@@ -41,9 +41,9 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 1. Enter a name for the DICOM service.
 
-1. Select **External (preview)** for the Storage Location.  
+1. Select **Data Lake Storage (default)** for the storage location.  
 
-    :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot showing the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
+    :::image type="content" source="media/deploy-data-lake/create-dicom-service-data-lake-sml.png" alt-text="Screenshot showing the storage location option." lightbox="media/deploy-data-lake/create-dicom-service-data-lake-lrg.png":::
 
 1. Select the **subscription** and **resource group** that contains the storage account.
 
@@ -206,12 +206,30 @@ Use the Azure portal to **Deploy a custom template** and then use the sample ARM
 
 1. When prompted, select the values for the workspace name, DICOM service name, region, storage account name, storage account SKU, and container name.  
 
-1. Select **Review + create** to deploy the DICOM service.  
+1. Select **Review + create** to deploy the DICOM service.
+
+## Troubleshooting
+
+### Connectivity
+
+To be alerted to store health and connectivity failures, please sign up for [Resource Health alerts](/azure/service-health/resource-health-alert-monitor-guide).
+
+### 424 Failed Dependency
+
+When the response status code is `424 Failed Dependency`, the issue lies with a dependency configured with DICOM and it may be the data lake store.
+The response body indicates which dependency failed and provides more context on the failure. For data lake storage account failures, an error code is provided which was received when attempting to interact with the store. For more information, see [Azure Blob Storage error codes](/rest/api/storageservices/blob-service-error-codes).
+Note that a code of `ConditionNotMet` typically indicates the blob file has been moved, deleted or modified without using DICOM APIs. The best way to mitigate such a situation is to use the DICOM API to DELETE the instance to remove the index and then reupload the modified file. This will enable you to continue to reference and interact with the file through DICOM APIs.
 
 ## Next steps
+[Receive resource health alerts](/azure/service-health/resource-health-alert-monitor-guide)
 
-* [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
-* [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+
+[Review DICOM service conformance statement](/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
+
+[Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+
 * [Enable audit and diagnostic logging in the DICOM service](enable-diagnostic-logging.md)
+
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

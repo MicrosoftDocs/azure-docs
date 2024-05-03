@@ -24,7 +24,7 @@ The following diagram shows the architecture of Bastion.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the following **Deploy to Azure** button. The template opens in the Azure portal.
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ In this section, you deploy Bastion by using the Azure portal. You don't connect
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the following **Deploy to Azure** button:
 
-     :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json":::
+     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json":::
 
 1. In the **Azure Bastion as a Service** template, enter or select information on the **Basics** tab. Keep these considerations in mind:
 

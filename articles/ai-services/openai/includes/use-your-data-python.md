@@ -21,17 +21,19 @@ cd openai-python
 
 2. Install the following Python Libraries:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```console
-pip install openai==0.28.1
-pip install python-dotenv
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai
+pip install python-dotenv
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```console
+pip install openai==0.28.1
 pip install python-dotenv
 ```
 
@@ -40,6 +42,53 @@ pip install python-dotenv
 ## Create the Python app
 
 1. From the project directory, open the *main.py* file and add the following code:
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+import openai
+import dotenv
+
+dotenv.load_dotenv()
+
+endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
+api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT_ID")
+
+client = openai.AzureOpenAI(
+    azure_endpoint=endpoint,
+    api_key=api_key,
+    api_version="2024-02-01",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "What are my available health plans?",
+        },
+    ],
+    extra_body={
+        "data_sources":[
+            {
+                "type": "azure_search",
+                "parameters": {
+                    "endpoint": os.environ["AZURE_AI_SEARCH_ENDPOINT"],
+                    "index_name": os.environ["AZURE_AI_SEARCH_INDEX"],
+                    "authentication": {
+                        "type": "api_key",
+                        "key": os.environ["AZURE_AI_SEARCH_API_KEY"],
+                    }
+                }
+            }
+        ],
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+```
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -101,50 +150,6 @@ pip install python-dotenv
    )
    print(completion)
    ```
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-import os
-import openai
-import dotenv
-
-dotenv.load_dotenv()
-
-endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
-api_key = os.environ.get("AZURE_OPENAI_API_KEY")
-deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT_ID")
-
-client = openai.AzureOpenAI(
-    base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
-    api_key=api_key,
-    api_version="2023-08-01-preview",
-)
-
-completion = client.chat.completions.create(
-    model=deployment,
-    messages=[
-        {
-            "role": "user",
-            "content": "What are my available health plans?",
-        },
-    ],
-    extra_body={
-        "dataSources": [
-            {
-                "type": "AzureCognitiveSearch",
-                "parameters": {
-                    "endpoint": os.environ["AZURE_AI_SEARCH_ENDPOINT"],
-                    "key": os.environ["AZURE_AI_SEARCH_API_KEY"],
-                    "indexName": os.environ["AZURE_AI_SEARCH_INDEX"]
-                }
-            }
-        ]
-    }
-)
-
-print(completion.model_dump_json(indent=2))
-```
 
 ---
 

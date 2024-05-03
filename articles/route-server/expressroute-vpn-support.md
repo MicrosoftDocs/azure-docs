@@ -32,7 +32,7 @@ The following diagram shows an example of using Route Server to exchange routes 
 
 :::image type="content" source="./media/expressroute-vpn-support/expressroute-with-route-server.png" alt-text="Diagram showing ExpressRoute gateway and SDWAN NVA exchanging routes through Azure Route Server.":::
 
-You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN and ExpressRoute gateways are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other.
+You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN and ExpressRoute gateways are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other. The Azure VPN and ExpressRoute gateway must be deployed in the same virtual network as Route Server in order for BGP peering to be successfully established. 
 
 If you enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes dynamically over BGP. For more information, see [How to configure BGP for Azure VPN Gateway](../vpn-gateway/bgp-howto.md). If you don’t enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes that are defined in the local network gateway of *On-premises 1*. For more information, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). Whether you enable BGP on the VPN gateway or not, the gateway advertises the routes it learns to the Route Server if route exchange is enabled. For more information, see [Configure route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange).
 

@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 01/22/2024
+ms.date: 03/20/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -132,6 +132,12 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Tags
 
 [!INCLUDE [azure-resource-graph-samples-cat-tags](../../../../includes/resource-graph/samples/bycat/tags.md)]
+
+## Virtual Machine Scale Sets
+
+[!INCLUDE [vmss-computeresources-uniform-orchestration](../../includes/resource-graph/query/vmss-computeresources-uniform-orchestration.md)]
+
+[!INCLUDE [vmss-resources-flexible-orchestration](../../includes/resource-graph/query/vmss-resources-flexible-orchestration.md)]
 
 ## Next steps
 

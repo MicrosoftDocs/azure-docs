@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Configure credential manager - user-delegated access to backend API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article guides you through the high level steps to configure and use a managed [connection](credentials-overview.md) that grants Microsoft Entra users or groups delegated permissions to a backend OAuth 2.0 API. Follow these steps for scenarios when a client app (or bot) needs to access backend secured online resources on behalf of an authenticated user (for example, checking emails or placing an order).
 
 ## Scenario overview 
@@ -181,5 +183,5 @@ In the preceding policy definition, replace:
 
 ## Related content
 
-* Learn more about [access restriction policies](api-management-access-restriction-policies.md)
+* Learn more about [authentication and authorization policies](api-management-policies.md#authentication-and-authorization)
 * Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Microsoft Entra ID.

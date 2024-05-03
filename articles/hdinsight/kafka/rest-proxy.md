@@ -4,7 +4,7 @@ description: Learn how to do Apache Kafka operations using a Kafka REST proxy on
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom:
-ms.date: 02/20/2024
+ms.date: 04/09/2024
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -17,7 +17,7 @@ For operations supported by the Kafka REST API, see [HDInsight Kafka REST Proxy 
 
 ## Background
 
-:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design" border="false":::
+:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design." border="false":::
 
 For the full specification of operations supported by the API, see [Apache Kafka REST Proxy API](/rest/api/hdinsight-kafka-rest-proxy).
 
@@ -44,10 +44,10 @@ If you bring your own VNet and control network traffic with network security gro
 1. Create a Microsoft Entra security group. Add the application that you've registered with Microsoft Entra ID to the security group as a **member** of the group. This security group will be used to control which applications allow to interact with the REST proxy. For more information on creating Microsoft Entra groups, see [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     Validate the group is of type **Security**.
-    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group" border="true":::
+    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group." border="true":::
 
     Validate that application is member of Group.
-    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership" border="true":::
+    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership." border="true":::
 
 ## Create a Kafka cluster with REST proxy enabled
 
@@ -65,7 +65,7 @@ The steps use the Azure portal. For an example using Azure CLI, see [Create Apac
 
 1. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
 
-     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL" border="true":::
+     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL." border="true":::
 
 ## Client application sample
 

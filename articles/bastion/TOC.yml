@@ -15,7 +15,7 @@
     href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
-  - name: Deploy Bastion with manual settings
+  - name: Deploy Bastion using manually specified settings
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:

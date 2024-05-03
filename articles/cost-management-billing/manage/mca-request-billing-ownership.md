@@ -6,7 +6,7 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/29/2023
+ms.date: 03/26/2024
 ms.author: banders
 ---
 
@@ -137,7 +137,7 @@ As the user that requested the transfer:
 1. Search for **Cost Management + Billing**.
 1. In the billing scopes page, select the billing account where the transfer request was started and then in the left menu, select **Transfer requests**.
 1. Select the billing profile and invoice section where the transfer request was started and review the status.  
-    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="Screenshot that shows the list of transfers with their status. " lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="Screenshot that shows the list of transfers with their status." lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
 
 The Transfer requests page displays the following information:
 
@@ -199,6 +199,24 @@ You can request billing ownership of products for the following subscription typ
 ¹ Any credit available on the subscription won't be available in the new account after the transfer.
 
 ² Only supported for products in accounts that are created during sign-up on the Azure website.
+
+## Troubleshooting
+
+Use the following troubleshooting information if you're having trouble transferring subscriptions.
+
+### Original Azure subscription billing owner leaves your organization
+
+It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Microsoft Entra ID. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing and paying bills. The subscription could go into a past-due state. Eventually, the subscription could get disabled because of nonpayment. Ultimately, the subscription could get deleted, affecting every service that runs on the subscription.
+
+When a subscription no longer has a valid billing account owner, Azure sends an email to other Billing account owners, Service Administrators (if any), Co-Administrators (if any), and Subscription Owners informing them of the situation and provides them with a link to accept billing ownership of the subscription. Any one of the users can select the link to accept billing ownership. For more information about billing roles, see [Billing Roles](understand-mca-roles.md) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Here's an example of what the email looks like.
+
+:::image type="content" source="./media/mca-request-billing-ownership/orphaned-subscription-email.png" alt-text="Screenshot showing an example email to accept billing ownership." lightbox="./media/mca-request-billing-ownership/orphaned-subscription-email.png" :::
+
+Additionally, Azure shows a banner in the subscription's details window in the Azure portal to Billing owners, Service Administrators, Co-Administrators, and Subscription Owners. Select the link in the banner to accept billing ownership.
+
+:::image type="content" source="./media/mca-request-billing-ownership/orphaned-subscription-example.png" alt-text="Screenshot showing an example of a subscription without a valid billing owner." lightbox="./media/mca-request-billing-ownership/orphaned-subscription-example.png" :::
 
 ## Check for access
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

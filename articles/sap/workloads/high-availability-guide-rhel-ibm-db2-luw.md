@@ -3,7 +3,7 @@ title: Set up IBM Db2 HADR on Azure virtual machines (VMs) on RHEL | Microsoft D
 description: Establish high availability of IBM Db2 LUW on Azure virtual machines (VMs) RHEL.
 author: msjuergent
 manager: bburns
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 keywords: 'SAP'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

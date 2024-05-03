@@ -184,6 +184,9 @@ The Migration and modernization tool will take care of distributing the virtual 
 
 > [!TIP]
 > We recommend migrating virtual machines in batches of 200 for optimal performance if you want to migrate a large number of virtual machines.
+
+> [!NOTE]
+> User can only select the primary appliance while starting replication. It is not possible for user to select a scale out appliance while starting replication. By design, based on availability it would be decided whether replication will be allotted to primary appliance or scale out appliance.
   
 ## Next steps
 

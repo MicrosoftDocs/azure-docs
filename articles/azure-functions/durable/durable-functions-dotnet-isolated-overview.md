@@ -61,7 +61,7 @@ public class MyActivity : TaskActivity<string, string>
 {
     private readonly ILogger logger;
 
-    public MyActivity(ILogger<SayHelloTyped> logger) // activites have access to DI.
+    public MyActivity(ILogger<MyActivity> logger) // activites have access to DI.
     {
         this.logger = logger;
     }
@@ -160,6 +160,7 @@ This table isn't an exhaustive list of changes.
 | `IDurableEntityContext.SignalEntity` | `TaskEntityContext.SignalEntity` |
 | `IDurableEntityContext.StartNewOrchestration` | `TaskEntityContext.ScheduleNewOrchestration` |
 | `IDurableEntityContext.DispatchAsync` | `TaskEntityDispatcher.DispatchAsync`. Constructor params removed. |
+| `IDurableOrchestrationClient.GetStatusAsync` | `DurableTaskClient.GetInstanceAsync` |
 
 #### Behavioral changes
 

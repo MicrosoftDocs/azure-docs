@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: reference
-ms.date: 11/15/2023
+ms.date: 03/11/2024
 ms.author: pafarley
 ---
 
@@ -17,23 +17,18 @@ ms.author: pafarley
 
 ## Authentication
 
-Include the following header when making a call to any API in this document.
+Include the following headers when making a call to any API in this document.
 
-```
-Ocp-Apim-Subscription-Key: YOUR_COMPUTER_VISION_KEY
-```
 
+Ocp-Apim-Subscription-Key: `YOUR_COMPUTER_VISION_KEY`
 Version: `2023-05-01-preview`
 
 
 ## CreateIndex
 
 ### URL
-PUT /retrieval/indexes/{indexName}?api-version=<verion_number>
 
-### Summary
-
-Creates an index for the documents to be ingested.
+`PUT /retrieval/indexes/{indexName}?api-version=<version_number>`
 
 ### Description
 
@@ -42,7 +37,7 @@ An index needs to be created before ingestion can be performed.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index to be created. | Yes | string |
 | api-version | query | Requested API version. | Yes | string |
@@ -50,18 +45,14 @@ An index needs to be created before ingestion can be performed.
 
 #### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 201 | Created | [GetIngestionIndexResponseModel](#getingestionindexresponsemodel) |
 
 ## GetIndex
 
 ### URL
-GET /retrieval/indexes/{indexName}?api-version=<verion_number>
-
-### Summary
-
-Retrieves the index.
+`GET /retrieval/indexes/{indexName}?api-version=<version_number>`
 
 ### Description
 
@@ -69,14 +60,14 @@ Retrieves the index with the specified name.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index to retrieve. | Yes | string |
 | api-version | query | Requested API version. | Yes | string |
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [GetIngestionIndexResponseModel](#getingestionindexresponsemodel) |
 | default | Error | [ErrorResponse](#errorresponse) |
@@ -84,11 +75,8 @@ Retrieves the index with the specified name.
 ## UpdateIndex
 
 ### URL
-PATCH /retrieval/indexes/{indexName}?api-version=<verion_number>
+`PATCH /retrieval/indexes/{indexName}?api-version=<version_number>`
 
-### Summary
-
-Updates an index.
 
 ### Description
 
@@ -96,7 +84,7 @@ Updates an index with the specified name.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index to be updated. | Yes | string |
 | api-version | query | Requested API version. | Yes | string |
@@ -104,7 +92,7 @@ Updates an index with the specified name.
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [GetIngestionIndexResponseModel](#getingestionindexresponsemodel) |
 | default | Error | [ErrorResponse](#errorresponse) |
@@ -112,11 +100,7 @@ Updates an index with the specified name.
 ## DeleteIndex
 
 ### URL
-DELETE /retrieval/indexes/{indexName}?api-version=<verion_number>
-
-### Summary
-
-Deletes an index.
+`DELETE /retrieval/indexes/{indexName}?api-version=<version_number>`
 
 ### Description
 
@@ -124,7 +108,7 @@ Deletes an index and all its associated ingestion documents.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index to be deleted. | Yes | string |
 | api-version | query | Requested API version. | Yes | string |
@@ -138,11 +122,8 @@ Deletes an index and all its associated ingestion documents.
 ## ListIndexes
 
 ### URL
-GET /retrieval/indexes?api-version=<verion_number>
+`GET /retrieval/indexes?api-version=<version_number>`
 
-### Summary
-
-Retrieves all indexes.
 
 ### Description
 
@@ -150,7 +131,7 @@ Retrieves a list of all indexes across all ingestions.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ------ |
 | $skip | query | Number of datasets to be skipped. | No | integer |
 | $top | query | Number of datasets to be returned after skipping. | No | integer |
@@ -158,7 +139,7 @@ Retrieves a list of all indexes across all ingestions.
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [GetIngestionIndexResponseModelCollectionApiModel](#getingestionindexresponsemodelcollectionapimodel) |
 | default | Error | [ErrorResponse](#errorresponse) |
@@ -166,11 +147,8 @@ Retrieves a list of all indexes across all ingestions.
 ## CreateIngestion
 
 ### URL
-PUT /retrieval/indexes/{indexName}/ingestions/{ingestionName}?api-version=<verion_number>
+`PUT /retrieval/indexes/{indexName}/ingestions/{ingestionName}?api-version=<version_number>`
 
-### Summary
-
-Creates an ingestion for a specific index and ingestion name.
 
 ### Description
 
@@ -181,7 +159,7 @@ Update mode will update the metadata only. In order to reprocess the video, the 
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index to which the ingestion is to be created. | Yes | string |
 | ingestionName | path | The name of the ingestion to be created. | Yes | string |
@@ -190,7 +168,7 @@ Update mode will update the metadata only. In order to reprocess the video, the 
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 202 | Accepted | [IngestionResponseModel](#ingestionresponsemodel) |
 
@@ -198,11 +176,8 @@ Update mode will update the metadata only. In order to reprocess the video, the 
 
 ### URL
 
-GET /retrieval/indexes/{indexName}/ingestions/{ingestionName}?api-version=<verion_number>
+`GET /retrieval/indexes/{indexName}/ingestions/{ingestionName}?api-version=<version_number>`
 
-### Summary
-
-Gets the ingestion status.
 
 ### Description
 
@@ -210,7 +185,7 @@ Gets the ingestion status for the specified index and ingestion name.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index for which the ingestion status to be checked. | Yes | string |
 | ingestionName | path | The name of the ingestion to be retrieved. | Yes | string |
@@ -219,7 +194,7 @@ Gets the ingestion status for the specified index and ingestion name.
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [IngestionResponseModel](#ingestionresponsemodel) |
 | default | Error | [ErrorResponse](#errorresponse) |
@@ -228,11 +203,8 @@ Gets the ingestion status for the specified index and ingestion name.
 
 ### URL
 
-GET /retrieval/indexes/{indexName}/ingestions?api-version=<verion_number>
+`GET /retrieval/indexes/{indexName}/ingestions?api-version=<version_number>`
 
-### Summary
-
-Retrieves all ingestions.
 
 ### Description
 
@@ -240,14 +212,14 @@ Retrieves all ingestions for the specific index.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index for which to retrieve the ingestions. | Yes | string |
 | api-version | query | Requested API version. | Yes | string |
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [IngestionResponseModelCollectionApiModel](#ingestionresponsemodelcollectionapimodel) |
 | default | Error | [ErrorResponse](#errorresponse) |
@@ -256,11 +228,8 @@ Retrieves all ingestions for the specific index.
 
 ### URL
 
-GET /retrieval/indexes/{indexName}/documents?api-version=<verion_number>
+`GET /retrieval/indexes/{indexName}/documents?api-version=<version_number>`
 
-### Summary
-
-Retrieves all documents.
 
 ### Description
 
@@ -268,7 +237,7 @@ Retrieves all documents for the specific index.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index for which to retrieve the documents. | Yes | string |
 | $skip | query | Number of datasets to be skipped. | No | integer |
@@ -277,7 +246,7 @@ Retrieves all documents for the specific index.
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [IngestionDocumentResponseModelCollectionApiModel](#ingestiondocumentresponsemodelcollectionapimodel) |
 | default | Error | [ErrorResponse](#errorresponse) |
@@ -286,11 +255,7 @@ Retrieves all documents for the specific index.
 
 ### URL
 
-POST /retrieval/indexes/{indexName}:queryByText?api-version=<verion_number>
-
-### Summary
-
-Performs a text-based search.
+`POST /retrieval/indexes/{indexName}:queryByText?api-version=<version_number>`
 
 ### Description
 
@@ -298,7 +263,7 @@ Performs a text-based search on the specified index.
 
 ### Parameters
 
-| Name | Located in | Description | Required | Schema |
+| Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | indexName | path | The name of the index to search. | Yes | string |
 | api-version | query | Requested API version. | Yes | string |
@@ -306,7 +271,7 @@ Performs a text-based search on the specified index.
 
 ### Responses
 
-| Code | Description | Schema |
+| Code | Description | Type |
 | ---- | ----------- | ------ |
 | 200 | Success | [SearchResultDocumentModelCollectionApiModel](#searchresultdocumentmodelcollectionapimodel) |
 | default | Error | [ErrorResponse](#errorresponse) |

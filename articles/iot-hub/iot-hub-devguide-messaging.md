@@ -29,7 +29,7 @@ Learn more about these topics:
 
 * [Understand IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing)
 
-* [Use IoT Hub message routing to send device-to-cloud messages to different endponts](iot-hub-devguide-messages-d2c.md)
+* [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
 
 ## Send cloud-to-device messages from IoT Hub
 

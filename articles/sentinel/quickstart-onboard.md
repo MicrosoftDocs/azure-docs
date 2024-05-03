@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Onboard in Microsoft Sentinel'
+title: 'Quickstart: Onboard to Microsoft Sentinel'
 description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: yelevin
 ms.author: yelevin
@@ -44,16 +44,18 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
     :::image type="content" source="media/quickstart-onboard/search-product.png" alt-text="Screenshot of searching for a service while enabling Microsoft Sentinel.":::   
 
-1. Select **Add**.
+1. Select **Create**.
 
 1. Select the workspace you want to use or create a new one. You can run Microsoft Sentinel on more than one workspace, but the data is isolated to a single workspace.
 
     :::image type="content" source="media/quickstart-onboard/choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel.":::      
  
    - The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
-   - Once deployed on a workspace, Microsoft Sentinel **doesn't currently support** moving that workspace to another resource group or subscription.
+   - Once deployed on a workspace, Microsoft Sentinel **doesn't support** moving that workspace to another resource group or subscription.
 
-1. Select **Add Microsoft Sentinel**.
+1. Select **Add**.
+
+As an alternative to using the portal, you can onboard to Microsoft Sentinel using an API request, by calling the [OnboardingStates ARM api](/rest/api/securityinsights/sentinel-onboarding-states/create?view=rest-securityinsights-2024-03-01&preserve-view=true&tabs=HTTP).
 
 ## Install a solution from the content hub
 

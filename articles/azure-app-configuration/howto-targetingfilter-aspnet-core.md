@@ -57,13 +57,13 @@ In this section, you will create a web application that allows users to sign in 
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // Retrieve the connection string
-    string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+    // Retrieve the App Config connection string
+    string AppConfigConnectionString = builder.Configuration.GetConnectionString("AppConfig");
 
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(connectionString);
+        options.Connect(AppConfigConnectionString);
         options.UseFeatureFlags();
     });
 
@@ -143,12 +143,6 @@ In this section, you will create a web application that allows users to sign in 
 ## Update the web application code to use `TargetingFilter`
 
 At this point, you can use the feature flag to enable or disable the `Beta` feature for all users. To enable the feature flag for some users while disabling it for others, update your code to use `TargetingFilter`. In this example, you use the signed-in user's email address as the user ID, and the domain name portion of the email address as the group. You add the user and group to the `TargetingContext`. The `TargetingFilter` uses this context to determine the state of the feature flag for each request.
-
-1. Update to the latest version of the `Microsoft.FeatureManagement.AspNetCore` package.
-
-   ```dotnetcli
-   dotnet add package Microsoft.FeatureManagement.AspNetCore
-   ```
 
 1. Add *ExampleTargetingContextAccessor.cs* file.
 

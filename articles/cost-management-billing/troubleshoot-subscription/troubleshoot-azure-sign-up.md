@@ -83,7 +83,7 @@ The issue can also occur if the account was created using the Microsoft 365 Deve
 
 ## Identity verification by phone
 
-![Identity verification by phone](./media/troubleshoot-azure-sign-up/2.png)
+:::image type="content" border="true" source="./media/troubleshoot-azure-sign-up/2.png" alt-text="Screenshot showing identity verification by phone.":::
  
 When you get the text message or telephone call, enter the code that you receive in the text box.
 
@@ -103,7 +103,7 @@ Here are some other tips:
 
 ## Identity verification by card
 
-![Identity verification by card](./media/troubleshoot-azure-sign-up/3.png)
+:::image type="content" border="true" source="./media/troubleshoot-azure-sign-up/3.png" alt-text="Screenshot showing identity verification by card.":::
  
 ### Common issues and solutions
 

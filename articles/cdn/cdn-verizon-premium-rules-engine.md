@@ -6,9 +6,8 @@ author: duongau
 
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 03/20/2024
 ms.author: duau
-
 ---
 
 # Override HTTP behavior using the Azure CDN from Edgio Premium rules engine
@@ -24,15 +23,15 @@ The Azure CDN rules engine allows you to customize how HTTP requests are handled
 To access the rules engine, you must first select **Manage** from the top of the **CDN profile** page to access the Azure CDN management page. Depending on whether your endpoint is optimized for dynamic site acceleration (DSA), you then access the rules engine with the set of rules appropriate for your type of endpoint:
 
 - Endpoints optimized for general web delivery or other non-DSA optimization:
-    
+
     Select the **HTTP Large** tab, then select **Rules Engine**.
 
     :::image type="content" source="./media/cdn-rules-engine/cdn-http-rules-engine.png" alt-text="Screenshot of rules engine for HTTP.":::
 
 - Endpoints optimized for DSA:
-    
+
     Select the **ADN** tab, then select **Rules Engine**.
-    
+
     ADN is a term used by Edgio to specify DSA content. Any rules you create here are ignored by any endpoints in your profile that are not optimized for DSA.
 
     :::image type="content" source="./media/cdn-rules-engine/cdn-dsa-rules-engine.png" alt-text="Screenshot of rules engine for DSA.":::
@@ -48,13 +47,13 @@ To access the rules engine, you must first select **Manage** from the top of the
 1. Select **+ New** to create a new draft policy.
 
     :::image type="content" source="./media/cdn-rules-engine/new-draft.png" alt-text="Screenshot of the create a new policy button.":::
-   
+
 1. Give the policy a name. Select **Continue**, then select **+ Rule**.
 
     :::image type="content" source="./media/cdn-rules-engine/new-draft-2.png" alt-text="Screenshot of the policy creation page.":::
 
    > [!IMPORTANT]
-   > The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule. For example, if you have a rule that allows access to a resource based on a request property and a rule that denies access to all requests, the second rule overrides the first one. Rules will override earlier rules only if they interact with the same properties.
+   > The order in which multiple rules are listed affects how they are handled. A subsequent rule might override the actions specified by a previous rule. For example, if you have a rule that allows access to a resource based on a request property and a rule that denies access to all requests, the second rule overrides the first one. Rules will override earlier rules only if they interact with the same properties.
    >
 
 1. Enter a name in the **Name / Description** textbox.
@@ -62,23 +61,23 @@ To access the rules engine, you must first select **Manage** from the top of the
 1. Select the **+** button and then select **Match** or **Select First Match** for the match logic. The difference between the two is described in [Request Identification](https://docs.edgecast.com/cdn/index.html#HRE/MatchesConcept.htm?).
 
 1. Identify the type of requests the rule applies to. Use the default match condition, **Always**.
-   
+
     :::image type="content" source="./media/cdn-rules-engine/cdn-request-type.png" alt-text="Screenshot of the CDN rule match condition.":::
-   
+
    > [!NOTE]
    > Multiple match conditions are available in the dropdown list. For information about the currently selected match condition, select the blue informational icon to its left.
    >
    > For a detailed list of conditional expressions, see [Rules engine conditional expressions](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
-   >  
+   >
    > For a detailed list of match conditions, see [Rules engine match conditions](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
    >
    >
 
 1. To add a new feature, select the **+** button in the conditional statement.
-   
+
     :::image type="content" source="./media/cdn-rules-engine/cdn-new-feature.png" alt-text="Screenshot of the CDN rules feature in a rule.":::
-   
-1. From the *category* drop-down, select **Caching**. Then from the *feature* drop-down, select **Force Internal Max-Age**. In the text box enter the value **300**. Leave the rest of the settings as default and select **Save** to complete the configuration of the rule.
+
+1. From the *category* dropdown list, select **Caching**. Then from the *feature* dropdown list, select **Force Internal Max-Age**. In the text box enter the value **300**. Leave the rest of the settings as default and select **Save** to complete the configuration of the rule.
 
    > [!NOTE]
    > Multiple features are available in the dropdown list. For information about the currently selected feature, select the blue informational icon to its left.
@@ -97,7 +96,7 @@ To access the rules engine, you must first select **Manage** from the top of the
 
     :::image type="content" source="./media/cdn-rules-engine/policy-builder-2.png" alt-text="Screenshot of the deploy request button in policy builder.":::
 
-1. If this CDN profile is new with no previous rules or production traffic, you can select the environment as **Production** in the drop-down menu. Enter a description of the environment and then select **Create Deploy Request**.
+1. If this CDN profile is new with no previous rules or production traffic, you can select the environment as **Production** in the dropdown list menu. Enter a description of the environment and then select **Create Deploy Request**.
 
     :::image type="content" source="./media/cdn-rules-engine/policy-builder-environment.png" alt-text="Screenshot of the CDN policy builder environment.":::
 
@@ -122,22 +121,22 @@ To access the rules engine, you must first select **Manage** from the top of the
 
 ## Rules Engine staging environment
 
-* The staging environment provides a sandbox where you can test the new CDN configuration end to end without impacting the production environment. This configuration allows you to replicate traffic flow through your staging network to an origin server.
-* The staging environment is designed for functional testing and is at a smaller scale than the production CDN environment. Therefore, you shouldn't use this environment for scale, high volume or throughput testing.
-* Traffic should be kept under 50 Mbps or 500 requests per second.
-* Changes made to the staging environment will not affect your live site environment.
-* Testing HTTPS traffic using the staging environment will result in a TLS certificate mismatch.
-* Testing mechanism:
-    * After locking a draft into a policy, select **Deploy Request**. Select the environment as **Staging** and then select **Create Deploy Request**.
+- The staging environment provides a sandbox where you can test the new CDN configuration end to end without affecting the production environment. This configuration allows you to replicate traffic flow through your staging network to an origin server.
+- The staging environment is designed for functional testing and is at a smaller scale than the production CDN environment. Therefore, you shouldn't use this environment for scale, high volume or throughput testing.
+- Traffic should be kept under 50 Mbps or 500 requests per second.
+- Changes made to the staging environment will not affect your live site environment.
+- Testing HTTPS traffic using the staging environment will result in a TLS certificate mismatch.
+- Testing mechanism:
+    - After locking a draft into a policy, select **Deploy Request**. Select the environment as **Staging** and then select **Create Deploy Request**.
 
-        :::image type="content" source="./media/cdn-rules-engine/policy-staging.png" alt-text="Screenshot of a staging policy." lightbox="./media/cdn-rules-engine/policy-staging-expanded.png":::    
- 
-    * Edit your local host file to create an A record for your endpoint or custom domain. 
-    * Check the test asset for the custom domain in the browser and proceed without using HTTPS.
-    
+        :::image type="content" source="./media/cdn-rules-engine/policy-staging.png" alt-text="Screenshot of a staging policy." lightbox="./media/cdn-rules-engine/policy-staging-expanded.png":::
+
+    - Edit your local host file to create an A record for your endpoint or custom domain.
+    - Check the test asset for the custom domain in the browser and proceed without using HTTPS.
+
     > [!NOTE]
-    > Once a policy is deployed in the staging environment, it will take 15 mins to propagate.
-    > 
+    > Once a policy is deployed in the staging environment, it will take 15 minutes to propagate.
+    >
 
 ## See also
 

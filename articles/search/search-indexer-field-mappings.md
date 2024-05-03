@@ -63,6 +63,8 @@ Field mappings are added to the `fieldMappings` array of an indexer definition. 
 | targetFieldName | Optional. Represents a field in your search index. If omitted, the value of `sourceFieldName` is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
 | mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
 
+If you get an error similar to `"Field mapping specifies target field 'Address/city' that doesn't exist in the index"`, it's because target field mappings can't be a complex type. The workaround is to create an index schema that's identical to the raw content for field names and data types. See [Tutorial: Index nested JSON blobs](search-semi-structured-data.md) for an example.
+
 Azure AI Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
 
 > [!NOTE]
@@ -386,7 +388,7 @@ This function converts a string into a formatted JSON object. This can be used f
 
 ### Example - map text content to a complex field
 
-Assume there is a SQL row with a JSON string that needs to be mapped to a (correspondingly defined) complex field in the index, the `toJson` function can be used to achieve this. For instance, if a complex field in the index needs to be populated with the following data:
+Assume there's a SQL row with a JSON string that needs to be mapped to a (correspondingly defined) complex field in the index, the `toJson` function can be used to achieve this. For instance, if a complex field in the index needs to be populated with the following data:
 
 ```JSON
 {

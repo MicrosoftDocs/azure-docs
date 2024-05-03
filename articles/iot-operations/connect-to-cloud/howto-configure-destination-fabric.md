@@ -16,7 +16,7 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor (preview) pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
+Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 Before you can write to Microsoft Fabric from a data pipeline, you need to grant access to the lakehouse from the pipeline. You can use either a service principal or a managed identity to authenticate the pipeline. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
 
-Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/onelake-security#authentication).
+Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/security/get-started-security#authentication).
 
 # [Service principal](#tab/serviceprincipal)
 
@@ -68,7 +68,7 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessFabricSecret --value <client-secret>
     ```
 
-1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 # [Managed identity](#tab/managedidentity)
 

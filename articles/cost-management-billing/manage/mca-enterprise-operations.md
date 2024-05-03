@@ -18,7 +18,7 @@ If your organization signed a Microsoft Customer Agreement to renew your Enterpr
 
 The following diagram describes how billing is organized in your new billing account.
 
-![Image of ea-mca-post-transition-hierarchy](./media/mca-enterprise-operations/mca-post-transition-hierarchy.png)
+:::image type="content" border="false" source="./media/mca-enterprise-operations/mca-post-transition-hierarchy.png" alt-text="Diagram showing the post-transition hierarchy.":::
 
 | Enterprise Agreement   | Microsoft Customer Agreement    |
 |------------------------|--------------------------------------------------------|

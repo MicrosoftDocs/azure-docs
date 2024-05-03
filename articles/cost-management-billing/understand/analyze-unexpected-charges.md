@@ -7,7 +7,7 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 03/19/2024
 ms.author: banders
 ---
 
@@ -33,6 +33,9 @@ Whether you know if you have any existing cost anomalies or not, Cost analysis i
 
 Anomaly detection is available in Cost analysis smart views when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
 
+>[!NOTE]
+> Cost anomaly alerts are not available for Azure Government customers.
+
 In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Smart views**. In the following example, the **Resources** smart view is selected. If you have a cost anomaly, you see an insight.
 
 :::image type="content" source="./media/analyze-unexpected-charges/insight-recommendation-01.png" alt-text="Example screenshot showing an insight." lightbox="./media/analyze-unexpected-charges/insight-recommendation-01.png" :::
@@ -51,7 +54,7 @@ Continuing from the previous example of the anomaly labeled **Daily run rate dow
 
 Cost anomalies are evaluated for subscriptions daily and compare the day's total usage to a forecasted total based on the last 60 days to account for common patterns in your recent usage. For example, spikes every Monday. Anomaly detection runs 36 hours after the end of the day (UTC) to ensure a complete data set is available.
 
-The anomaly detection model is a univariate time-series, unsupervised prediction and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://research.google/pubs/pub45774/). It's different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
+The anomaly detection model is a univariate time-series, unsupervised prediction, and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://research.google/pubs/pub45774/). It's different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
 
 Anomaly detection is available to every subscription monitored using the cost analysis. To enable anomaly detection for your subscriptions, open a cost analysis smart view and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
 
@@ -111,7 +114,7 @@ At this point, you know what changed and the value that costs changed. However, 
 
 ## Find people responsible for changed resource use
 
-Using Cost analysis, you might find resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource knows about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team created the resource, updated its SKU (thereby changing the resource rate), or increased the load on the resource due to code changes.
+Using Cost analysis, you might find resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource knows about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team created the resource, updated its SKU (which changed the resource rate), or increased the load on the resource due to code changes.
 
 The [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md) article for Azure Resource Graph might help you to find additional information about configuration changes to resources.
 

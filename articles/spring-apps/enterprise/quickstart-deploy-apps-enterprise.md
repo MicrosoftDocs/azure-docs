@@ -450,4 +450,4 @@ Now that you've successfully built and deployed your app, continue on to any of 
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 - [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
-- [Integrate Azure Open AI](quickstart-fitness-store-azure-openai.md)
+- [Integrate Azure OpenAI](quickstart-fitness-store-azure-openai.md)

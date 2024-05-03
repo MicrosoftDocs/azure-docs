@@ -4,9 +4,11 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 04/01/2024
 ms.author: cherylmc
+ms.custom: references_regions
 ---
+
 # Azure Bastion FAQ
 
 ## <a name="host"></a>Bastion service and deployment FAQs
@@ -26,6 +28,14 @@ At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 
 Azure Bastion doesn't move or store customer data out of the region it's deployed in.
+
+### <a name="az"></a>Does Azure Bastion support availability zones?
+
+[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
+
+If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
+
+For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
@@ -59,6 +69,10 @@ No, Azure Bastion doesn't currently support Azure Private Link.
 ### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
 
 At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
+
+### <a name="write-permissions"></a>Are special permissions required to deploy Bastion to the AzureBastionSubnet?
+
+To deploy Bastion to the AzureBastionSubnet, write permissions are required. Example: **Microsoft.Network/virtualNetworks/write**.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
@@ -96,7 +110,7 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 ### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
 
-Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site virtual network. If there is an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
+Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site virtual network. If there's an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
 ### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
 
@@ -157,7 +171,7 @@ See [About VM connections and features](vm-about.md) for supported features.
 
 ### <a name="shareable-links-passwords"></a>Is Reset Password available for local users connecting via shareable link?
 
-No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button may appear.
+No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button might appear.
 
 ### <a name="audio"></a>Is remote audio available for VMs?
 
@@ -203,7 +217,7 @@ To set your target language as your keyboard layout on a Windows workstation, na
 
 Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser.
 
-### <a name="keyboard-focus"></a>How do I take keyboard or mouse focus back from an instance?
+### <a name="keyboard-focus"></a>How do I take back keyboard or mouse focus from an instance?
 
 Click the Windows key twice in a row to take back focus within the Bastion window.
 
@@ -221,7 +235,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
 
 ## <a name="peering"></a>VNet peering FAQs
 

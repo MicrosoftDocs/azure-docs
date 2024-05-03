@@ -2,12 +2,12 @@
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: include
-ms.date: 09/06/2023
+ms.date: 02/13/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-Azure Container Storage Preview is only available for a subset of Azure regions:
+Azure Container Storage is only available for a subset of Azure regions:
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East

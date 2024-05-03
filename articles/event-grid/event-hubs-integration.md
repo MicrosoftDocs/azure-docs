@@ -59,7 +59,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     1. If you're using the Cloud Shell for the first time:
         1. If you see an option to select between **Bash** and **PowerShell**, select **Bash**.
 
-            :::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+            :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
         1. Create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files.
 

@@ -76,6 +76,10 @@ landingContent:
             url: how-to-convert-segy-to-zgy.md
           - text: How to Upload large files using file service
             url: how-to-upload-large-files-using-file-service.md
+          - text: How to enable External Data Sources (EDS)
+            url: how-to-enable-external-data-sources.md
+          - text: How to register External Data Sources (EDS)
+            url: how-to-register-external-data-sources.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
@@ -124,3 +128,5 @@ landingContent:
             url: how-to-enable-cors.md
           - text: Set up audit logs
             url: how-to-manage-audit-logs.md
+          - text: Publish Microsoft Azure Data Manager for Energy APIs to a secured API gateway
+            url: how-to-secure-apis.md

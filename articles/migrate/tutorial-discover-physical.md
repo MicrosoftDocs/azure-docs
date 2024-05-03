@@ -5,9 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/12/2024
+ms.date: 04/05/2024
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
 
@@ -61,7 +61,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -79,7 +79,10 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Prepare Windows server
 
-For Windows servers, use a domain account for domain-joined servers, and a local account for servers that aren't domain-joined. The user account can be created in one of the two ways:
+- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that aren't domain-joined.
+- For physical discovery, specify the username in Down level format (domain\username) and UPN format (username@domain.com) is not supported. 
+
+The user account can be created in one of the two ways:
 
 ### Option 1
 
@@ -129,7 +132,7 @@ For Linux servers, you can create a user account in one of two ways:
 
 Your user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
 
-* For **Windows servers** and web apps discovery, create an account (local or domain) that has administrator permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
+* For **Windows servers** and web apps discovery, create an account (local or domain) that has administrator permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
 * For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 > [!NOTE]
@@ -191,9 +194,7 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-    **Download** | **Hash value**
-    --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.

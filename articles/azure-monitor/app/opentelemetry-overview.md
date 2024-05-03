@@ -62,7 +62,7 @@ A direct exporter sends telemetry in-process (from the application's code) direc
 *The currently available Application Insights SDKs and Azure Monitor OpenTelemetry Distros rely on a direct exporter*.
 
 > [!NOTE]
-> For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](./opentelemetry-enable.md#can-i-use-the-opentelemetry-collector).
+> For Azure Monitor's position on the OpenTelemetry-Collector, see the [OpenTelemetry FAQ](./opentelemetry-enable.md#can-i-use-the-opentelemetry-collector).
 
 > [!TIP]
 > If you are planning to use OpenTelemetry-Collector for sampling or additional data processing, you may be able to get these same capabilities built-in to Azure Monitor. Customers who have migrated to [Workspace-based Application Insights](convert-classic-resource.md) can benefit from [Ingestion-time Transformations](../essentials/data-collection-transformations.md). To enable, follow the details in the [tutorial](../logs/tutorial-workspace-transformations-portal.md), skipping the step that shows how to set up a diagnostic setting since with Workspace-centric Application Insights this is already configured. If you’re filtering less than 50% of the overall volume, it’s no additional cost. After 50%, there is a cost but much less than the standard per GB charge.

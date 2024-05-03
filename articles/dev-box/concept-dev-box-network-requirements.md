@@ -34,6 +34,9 @@ To use your own network and provision [Microsoft Entra hybrid joined](/azure/dev
 
 When connecting to resources on-premises through Microsoft Entra hybrid joins, work with your Azure network topology expert. Best practice is to implement a [hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources. Hub and spoke topology can help you manage network traffic and security. 
 
+> [!IMPORTANT]
+> When using your own network, Microsoft Dev Box currently does not support moving network interfaces to a different virtual network or a different subnet. 
+
 ## Allow network connectivity
 
 In your network configuration, you must allow traffic to the following service URLs and ports to support provisioning, management, and remote connectivity of dev boxes.

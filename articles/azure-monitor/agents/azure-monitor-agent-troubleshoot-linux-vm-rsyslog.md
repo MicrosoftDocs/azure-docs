@@ -11,7 +11,7 @@ ms.reviewer: shseth
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC standards:
 
@@ -46,7 +46,7 @@ The next sections describe the issue.
 Azure Monitor Agent for Linux buffers events to `/var/opt/microsoft/azuremonitoragent/events` prior to ingestion. On a default Azure Monitor Agent for Linux installation, this directory takes ~650 MB of disk space at idle. The size on disk increases when it's under sustained logging load. It gets cleaned up about every 60 seconds and reduces back to ~650 MB when the load returns to idle.
 
 #### Confirm the issue of a full disk
-The `df` command shows almost no space available on `/dev/sda1`, as shown here:
+The `df` command shows almost no space available on `/dev/sda1`, as shown in the following output. Note that you should examine the line item that correlates to the log directory (for example, `/var/log` or `/var` or `/`).
 
 ```bash
    df -h

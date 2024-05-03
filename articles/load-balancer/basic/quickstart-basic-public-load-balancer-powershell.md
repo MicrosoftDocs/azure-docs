@@ -4,7 +4,8 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer using Azure PowerShell
 author: mbender-ms
 ms.author: mbender
-ms.date: 06/08/2023
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.topic: quickstart
 ms.service: load-balancer
 ms.custom: devx-track-azurepowershell, mode-api

@@ -69,7 +69,7 @@ sections:
       - question: |
           For my Azure DevOps connector, why are write permissions required for work items, build, code, service hooks, and advanced security?
         answer: |
-          These permissions are required for certain DevOps security features, such as pull request annotations, to work. 
+          These permissions are required for certain DevOps security features, such as pull request annotations, to work.
 
 
       - question: |
@@ -96,7 +96,7 @@ sections:
       - question: |
           Why am I not able to configure Pull Request Annotations?
         answer: |
-          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating a Microsoft Entra role in PIM](../active-directory/privileged-identity-management/pim-how-to-activate-role.md). 
+          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating a Microsoft Entra role in PIM](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
 
       - question: |
@@ -148,7 +148,7 @@ sections:
           - Large number of concurrent builds that peak during work hours.
           - Authorized user is a [Power Platform](/power-platform/) user making extra Azure DevOps API calls, using up the global rate limit quotas.
 
-          Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
+          Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
 
 
 additionalContent: |

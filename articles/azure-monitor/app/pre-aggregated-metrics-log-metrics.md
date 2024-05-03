@@ -8,9 +8,9 @@ ms.reviewer: vitalyg
 
 # Log-based and pre-aggregated metrics in Application Insights
 
-This article explains the difference between "traditional" Application Insights metrics that are based on logs and pre-aggregated metrics. Both types of metrics are available to users of Application Insights. Each one brings a unique value in monitoring application health, diagnostics, and analytics. The developers who are instrumenting applications can decide which type of metric is best suited to a particular scenario. Decisions are based on the size of the application, expected volume of telemetry, and business requirements for metrics precision and alerting.
-
 [!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
+This article explains the difference between "traditional" Application Insights metrics that are based on logs and pre-aggregated metrics. Both types of metrics are available to users of Application Insights. Each one brings a unique value in monitoring application health, diagnostics, and analytics. The developers who are instrumenting applications can decide which type of metric is best suited to a particular scenario. Decisions are based on the size of the application, expected volume of telemetry, and business requirements for metrics precision and alerting.
 
 ## Log-based metrics
 

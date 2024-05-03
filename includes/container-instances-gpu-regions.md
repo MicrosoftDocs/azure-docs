@@ -9,6 +9,4 @@ ms.author: tomcassidy
 
 | Regions | OS | Available GPU SKUs |
 | -------- | ---- | :-----------: |
-| East US, West Europe, West US 2 | Linux | K80, P100, V100 |
-| Southeast Asia | Linux | V100|
-| Central India | Linux | V100 |
+| East US, West Europe, West US 2, Southeast Asia, Central India | Linux | V100 |

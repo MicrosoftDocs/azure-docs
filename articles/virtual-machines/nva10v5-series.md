@@ -43,7 +43,7 @@ Each virtual machine instance in NVadsA10v5-series comes with a GRID license. Th
 
 <sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology
 
-<sup>2</sup> The actual GPU VRAM reported in the operating system will be little less due to Error Correcting Code (ECC) support.
+<sup>2</sup> The actual GPU VRAM reported in the operating system will be a little less due to Error Correcting Code (ECC) support.
 
 
 

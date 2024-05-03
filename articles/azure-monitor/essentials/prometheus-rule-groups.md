@@ -67,7 +67,7 @@ If both cluster ID scope and `clusterName` aren't specified  for a rule group, t
 
 You can also limit your rule group to a cluster scope using the [portal UI](#configure-the-rule-group-scope).
 
-### Create or edit Prometheus rule group in the Azure portal (preview)
+### Create or edit Prometheus rule group in the Azure portal
 
 To create a new rule group from the portal home page:
 
@@ -227,7 +227,7 @@ The rule group contains the following properties.
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
 | `apiVersion` | True | string | `2023-03-01` |
-| `location` | True | string | Resource location from regions supported in the preview. |
+| `location` | True | string | Resource location out of supported regions. |
 | `properties.description` | False | string | Rule group description. |
 | `properties.scopes` | True | string[] | Must include the target Azure Monitor workspace ID. Can optionally include one more cluster ID, as well. |
 | `properties.enabled` | False | boolean | Enable/disable group. Default is true. |
@@ -298,26 +298,32 @@ $rules = @($rule1, $rule2)
 $scope = "/subscriptions/fffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/MyresourceGroup/providers/microsoft.monitor/accounts/MyAccounts"
 New-AzPrometheusRuleGroup -ResourceGroupName MyresourceGroup -RuleGroupName MyRuleGroup -Location eastus -Rule $rules -Scope $scope -Enabled
 ```
-
 ## View Prometheus rule groups
-You can view the rule groups and their included rules in the Azure portal by selecting **Rule groups** from the Azure Monitor workspace.
+You can view your Prometheus rule groups and their included rules in the Azure portal in one of the following ways:
+* In the [portal home page](https://portal.azure.com/), in the search box, look for **Prometheus Rule Groups**.
+* In the [portal home page](https://portal.azure.com/), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**.
+      :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-from-alerts.png" alt-text="Screenshot that shows how to view Prometheus rule groups from the alerts screen.":::
+* In the page of a specific Azure Kubernetes Services resource (AKS), or a specific Azure Monitor Workspace (AMW), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**, to view a list of rule groups for this specific resource.
+You can select a rule group from the list to view or edit its details.
 
-:::image type="content" source="media/prometheus-metrics-rule-groups/azure-monitor-workspace-rule-groups.png" lightbox="media/prometheus-metrics-rule-groups/azure-monitor-workspace-rule-groups.png"  alt-text="Screenshot of rule groups in an Azure Monitor workspace.":::
+## View the resource health states of your Prometheus rule groups
+You can now view the [resource health state](../../service-health/resource-health-overview.md) of your Prometheus rule group in the portal. This can allow you to detect problems in your rule groups, such as incorrect configuration, or query throttling problems
 
-## Disable and enable rules
-To enable or disable a rule, select the rule in the Azure portal. Select either **Enable** or **Disable** to change its status.
+1. In the [portal](https://portal.azure.com/), go to the overview of your Prometheus rule group you would like to monitors
+1. From the left pane, under **Help**, select **Resource health**.
+    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-resource-health.png" alt-text="Screenshot that shows how to view resource health state of a Prometheus rule group.":::
+1. In the rule group resource health screen, you can see the current availability state of the rule group, as well as a history of recent resource health events, up to 30 days back.
+    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-resource-health-history.png" alt-text="Screenshot that shows how to view the resource health history of a Prometheus rule group.":::
 
-:::image type="content" source="media/prometheus-metrics-rule-groups/enable-rule.png" lightbox="media/prometheus-metrics-rule-groups/enable-rule.png"  alt-text="Screenshot of Prometheus rule detail with enable option.":::
-
-> [!NOTE] 
-> After you disable or re-enable a rule or a rule group, it may take few minutes for the rule group list to reflect the updated status of the rule or the group.
-
-
-
-
+* If the rule group is marked as **Available**, it is working as expected.
+* If the rule group is marked as **Degraded**, one or more rules in the group are not working as expected. This can be due to the rule query being throttled, or to other issues that may cause the rule evaluation to fail. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
+* If the rule group is marked as **Unavailable**, the entire rule group is not working as expected. This can be due the configuration issue (for example, the Azure Monitor Workspace can't be detected) or due to internal service issues. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
+* If the rule group is marked as **Unknown**, the entire rule group is disabled or is in an unknown state.
+     
+## Disable and enable rule groups 
+To enable or disable a rule, select the rule group in the Azure portal. Select either **Enable** or **Disable** to change its status.
 
 ## Next steps
-
 - [Learn more about the Azure alerts](../alerts/alerts-types.md).
 - [Prometheus documentation for recording rules](https://aka.ms/azureprometheus-promio-recrules).
 - [Prometheus documentation for alerting rules](https://aka.ms/azureprometheus-promio-alertrules).

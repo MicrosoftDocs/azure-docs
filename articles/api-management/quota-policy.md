@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Set usage quota by subscription
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
@@ -70,7 +72,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -95,6 +97,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

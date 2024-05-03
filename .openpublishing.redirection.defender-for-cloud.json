@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-cloud/secret-scanning.md",
+            "redirect_url": "/azure/defender-for-cloud/secrets-scanning-servers",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/prevent-misconfigurations.md",
             "redirect_url": "/azure/defender-for-cloud/manage-mcsb",
             "redirect_document_id": false
@@ -711,7 +716,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.md",
+            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.yml",
             "redirect_url": "/azure/defender-for-cloud/update-regulatory-compliance-packages",
             "redirect_document_id": true
         },
@@ -721,7 +726,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/workflow-automation.md",
+            "source_path_from_root": "/articles/security-center/workflow-automation.yml",
             "redirect_url": "/azure/defender-for-cloud/workflow-automation",
             "redirect_document_id": true
         },
@@ -939,6 +944,21 @@
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic.md",
             "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-aws",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/custom-security-policies.md",
+            "redirect_url": "/azure/defender-for-cloud/create-custom-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerabilities-for-images.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerabilities-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerability-assessment-findings.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerability-registry-images",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/how-to-migrate-to-built-in.md",

@@ -24,6 +24,7 @@
 | URLs in a single cache purge call | 100 |
 | Maximum bandwidth<sup>1</sup> | 75 Gbps |
 | Maximum requests per second per profile<sup>1</sup> | 100,000 |
+| HTTP header size limit (per header) | 32 KB |
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
@@ -69,6 +70,7 @@
 | Maximum security policy per profile | 100 | 200 |
 | Maximum associations per security policy | 110 | 225 |
 | Maximum secrets per profile | 100 | 500 |
+| HTTP header size limit (per header) | 32 KB | 32 KB|
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |

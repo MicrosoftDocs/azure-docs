@@ -35,7 +35,7 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 #### [Linux](#tab/linuxinstall)
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The following Linux distributions are supported for x64 architectures that use the Speech CLI:
 

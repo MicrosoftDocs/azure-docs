@@ -3,7 +3,7 @@ title: Authentication and authorization
 description: Find out about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 02/03/2023
+ms.date: 03/14/2023
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin
@@ -21,7 +21,7 @@ Implementing a secure solution for authentication (signing-in users) and authori
 
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
-- You can integrate with multiple login providers. For example, Microsoft Entra ID, Facebook, Google, Twitter.
+- You can integrate with multiple login providers. For example, Microsoft Entra, Facebook, Google, Twitter.
 
 Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
 
@@ -45,7 +45,7 @@ When you configure this feature with one of these providers, its sign-in endpoin
 
 Enabling this feature will cause all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this with the  `requireHttps` setting in the V2 configuration. However, we do recommend sticking with HTTPS, and you should ensure no security tokens ever get transmitted over non-secure HTTP connections.
 
-App Service can be used for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set **Action to take when request is not authenticated** to  log in with one of the configured identity providers. To authenticate but not restrict access, set **Action to take when request is not authenticated** to "Allow anonymous requests (no action)."
+App Service can be used for authentication with or without restricting access to your site content and APIs.  Access restrictions can be set in the **Authentication** > **Authentication settings** section of your web app. To restrict app access only to authenticated users, set **Action to take when request is not authenticated** to  log in with one of the configured identity providers. To authenticate but not restrict access, set **Action to take when request is not authenticated** to "Allow anonymous requests (no action)."
 
 > [!IMPORTANT]
 > You should give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
@@ -114,23 +114,29 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 In the [Azure portal](https://portal.azure.com), you can configure App Service with a number of behaviors when incoming request is not authenticated. The following headings describe the options.
 
-**Allow unauthenticated requests**
+**Restric access**
 
-This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers.
+- **Allow unauthenticated requests** This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers.
 
-This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](configure-authentication-customize-sign-in-out.md#use-multiple-sign-in-providers) to your users. However, you must write code.
+  This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](configure-authentication-customize-sign-in-out.md#use-multiple-sign-in-providers) to your users. However, you must write code.
 
-**Require authentication**
+- **Require authentication** This option will reject any unauthenticated traffic to your application.  Specific action to take is specified in the **Unauthenticated requests** section.  
 
-This option will reject any unauthenticated traffic to your application. This rejection can be a redirect action to one of the configured identity providers. In these cases, a browser client is redirected to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`. You can also configure the rejection to be an `HTTP 401 Unauthorized` or `HTTP 403 Forbidden` for all requests.
+  With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](configure-authentication-user-identities.md)).
 
-With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](configure-authentication-user-identities.md)).
+  > [!CAUTION]
+  > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
-> [!CAUTION]
-> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
+  > [!NOTE]
+  > When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
 
-> [!NOTE]
-> When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in the Microsoft identity platform, see [Microsoft identity platform authorization basics](../active-directory/develop/authorization-basics.md).
+**Unauthenticated requests**
+
+- **HTTP 302 Found redirect: recommended for websites** Redirects action to one of the configured identity providers. In these cases, a browser client is redirected to `/.auth/login/<provider>` for the provider you choose. 
+- **HTTP 401 Unauthorized: recommended for APIs** If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`. You can also configure the rejection to be an `HTTP 401 Unauthorized` for all requests.
+- **HTTP 403 Forbidden** Configures the rejection to be an `HTTP 403 Forbidden` for all requests.
+- **HTTP 404 Not found** Configures the rejection to be an `HTTP 404 Not found` for all requests.
+
 
 ### Token store
 

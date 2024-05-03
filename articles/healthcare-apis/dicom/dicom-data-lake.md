@@ -1,18 +1,18 @@
 ---
-title: Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services
-description: Learn how to use Azure Data Lake Storage with the DICOM service to store, access, and analyze medical imaging data in the cloud. Explore the benefits, architecture, and data contracts of this integration.
+title: Manage medical imaging data with the DICOM service and Azure Data Lake Storage
+description: Learn how to use the DICOM service in Azure Health Data Services to store, access, and analyze medical imaging data in the cloud. Explore the benefits, architecture, and data contracts of the integration of the DICOM service with Azure Data Lake Storage.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 03/11/2024
 ms.author: mmitrik
 ms.custom: mode-api
 ---
 
-# Azure Data Lake Storage integration for the DICOM service (Preview)
+#  Manage medical imaging data with the DICOM service and Azure Data Lake Storage
 
-The [DICOM&reg; service](overview.md) provides cloud-scale storage for medical imaging data using the DICOMweb standard. With the integration of Azure Data Lake Storage, you gain full control of your imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs.  
+The [DICOM&reg; service](overview.md) provides cloud-scale storage for medical imaging data using the DICOMweb standard. The integration of the DICOM service with Azure Data Lake Storage means you gain full control of your imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs.  
 
 By using Azure Data Lake Storage with the DICOM service, organizations are able to:
 
@@ -49,9 +49,6 @@ AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
 
 In addition to DICOM data, a small file to enable [health checks](#health-check) will be written to this location.
 
-> [!NOTE]
-> During public preview, the DICOM service writes data to the storage container and reads the data, but user-added data isn't read and indexed by the DICOM service. Similarly, if DICOM data written by the DICOM service is modified or removed, it may result in errors when accessing data with the DICOMweb APIs.
-
 ## Permissions
 
 The DICOM service is granted access to the data like any other service or application accessing data in a storage account. Access can be revoked at any time without affecting your organization's ability to access the data. The DICOM service needs the ability to read, write, and delete files in the provided file system. This can be provided by granting the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to the system-assigned or user-assigned managed identity attached to the DICOM service.
@@ -69,18 +66,17 @@ If there is an issue with access, status and details are displayed by [Azure Res
 
 ## Limitations
 
-During public preview, the DICOM service with data lake storage has these limitations:  
+The DICOM service with data lake storage has these limitations:  
 
 - [Bulk Import](import-files.md) isn't supported.
 - UPS-RS work items aren't stored in the data lake storage account.  
 - User data added to the data lake storage account isn't read and indexed by the DICOM service. It's possible that a filename collision could occur, so we recommend that you don't write data to the folder structure used by the DICOM service.
 - If DICOM data written by the DICOM service is modified or removed, errors might result when accessing data with the DICOMweb APIs.
-- Configuration of customer-managed keys isn't supported during the creation of a DICOM service when you opt to use external storage.
 - The archive access tier isn't supported. Moving data to the archive tier will result in errors when accessing data with the DICOMweb APIs.
 
 ## Next steps
 
-[Deploy the DICOM service with Azure Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md)
+[Deploy the DICOM service with Azure Data Lake Storage](deploy-dicom-services-in-azure-data-lake.md)
 
 [Get started using DICOM data in analytics workloads](get-started-with-analytics-dicom.md)
 
