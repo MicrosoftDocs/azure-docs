@@ -234,3 +234,12 @@ additionalContent:
               url: ../web-application-firewall/afds/waf-front-door-create-portal.md
             - text: See more
               url: ../web-application-firewall/index.yml
+        # Card
+        - title: Network security management
+          links:
+            - text: What is Azure Firewall Manager?
+              url: ../firewall-manager/overview.md
+            - text: Secure your virtual WAN using Azure Firewall Manager
+              url: ../firewall-manager/secure-cloud-network.md
+            - text: See more
+              url: ../firewall-manager/index.yml
