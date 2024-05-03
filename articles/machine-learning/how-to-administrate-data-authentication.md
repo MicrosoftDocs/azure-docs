@@ -1,5 +1,5 @@
 ---
-title: How to administrate data authentication
+title: Administer data authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to manage data access and how to authenticate in Azure Machine Learning.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: franksolomon
 ms.date: 09/26/2023
 ms.custom: engagement-fy23
 
-# Customer intent: As an administrator, I need to administrate data access and set up authentication methods for data scientists.
+# Customer intent: As an administrator, I need to administer data access and set up authentication methods for data scientists.
 ---
 
 # Data administration
