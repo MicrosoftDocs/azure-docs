@@ -98,11 +98,61 @@ New-AzStandbyVMPool `
 ```
 
 ### [ARM template](#tab/template)
+Create a standby pool and associate it with an existing scale set by using an ARM template and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). 
+
 
 ```ARM
-
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+           "type": "string",
+           "defaultValue": "{location}"    
+        },
+        "name": {
+           "type": "string",
+           "defaultValue": "{standbyPoolName}"
+        },
+        "maxReadyCapacity" : {
+           "type": "int",
+           "defaultValue": {maxReadyCapacity}
+        },
+        "virtualMachineState" : {
+           "type": "string",
+           "defaultValue": "{Deallocated or Running}"
+        },
+        "attachedVirtualMachineScaleSetId" : {
+           "type": "string",
+           "defaultValue": "/subscriptions/{subscriptionID}/resourceGroups/StandbyPools/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
+        }
+    },
+    "resources": [ 
+        {
+            "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+            "apiVersion": "2023-12-01-preview",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "properties": {
+               "elasticityProfile": {
+                   "maxReadyCapacity": "[parameters('maxReadyCapacity')]" 
+               },
+               "virtualMachineState": "[parameters('virtualMachineState')]",
+               "attachedVirtualMachineScaleSetId": "[parameters('attachedVirtualMachineScaleSetId')]"
+            }
+        }
+    ]
+   }
 
 ```
+
+Run the following command to deploy the template and update your standby pool. 
+
+```azurecli
+az deployment group create --resource-group {resourceGroupName} --template-file {deploymentFileName}.json
+```
+
+
 
 ### [REST](#tab/rest)
 Create a standby pool and associate it with an existing scale set using [Create or Update](/rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
