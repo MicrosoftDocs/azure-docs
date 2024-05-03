@@ -16,6 +16,8 @@ ms.subservice: storage-common-concepts
 
 Each time you access data in your storage account, your client application makes a request over HTTP/HTTPS to Azure Storage. By default, every resource in Azure Storage is secured, and every request to a secure resource must be authorized. Authorization ensures that the client application has the appropriate permissions to access a particular resource in your storage account.
 
+[!INCLUDE [storage-auth-recommendations](../../../includes/storage-auth-recommendations.md)]
+
 ## Understand authorization for data operations
 
 The following table describes the options that Azure Storage offers for authorizing access to data:
