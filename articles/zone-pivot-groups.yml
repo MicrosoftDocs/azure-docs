@@ -1995,6 +1995,20 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-fine-tuning-new
+  title: Programming languages
+  prompt: Choose your preferred fine-tuning method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-ai-studio
+    title: AI Studio (Preview)
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+
+# Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages
   prompt: Choose your preferred usage method
