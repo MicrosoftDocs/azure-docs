@@ -12,7 +12,9 @@ ms.author: banders
 
 # FOCUS cost and usage details file schema
 
-This article lists the cost details and usage (formerly known as usage details) fields found in the FOCUS cost and usage details file. The FOCUS-specific version of the cost and usage details file differs from other versions. This version adheres to the [FinOps Open Cost and Usage Specification (FOCUS) project specification](https://focus.finops.org/#specification). The file contains contains all of the cost details and usage data for the Azure services that were used.
+This article lists the cost details and usage (formerly known as usage details) fields found in the FOCUS cost and usage details file. The FOCUS version of the cost and usage details file uses columns, values, and semantics as they are defined in the [FinOps Open Cost and Usage Specification (FOCUS) project](https://focus.finops.org/#specification). The file contains all of the same cost and usage data for the Microsoft Cloud services that were used or purchased as what you will find in the actual and amortized files.
+
+To learn more about FOCUS, see [FOCUS: A new specification for cloud cost transparency](https://azure.microsoft.com/blog/focus-a-new-specification-for-cloud-cost-transparency).
 
 ## Version 1.0-preview(v1)
 
