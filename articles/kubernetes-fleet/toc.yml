@@ -33,6 +33,7 @@
 - name: How-to guides
   items:
   - name: Upgrade from hubless to hubful fleet
+    href: upgrade-hubless-hubful.md
   - name: Orchestrate updates across multiple member clusters
     href: update-orchestration.md
   - name: Multi-cluster Layer 4 Load Balancing

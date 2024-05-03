@@ -32,6 +32,8 @@ The following table compares the two options.
 
 Without a hub cluster, Fleet acts solely as a grouping entity in Azure Resource Manager. Certain scenarios, such as update runs, don't require a Kubernetes API and thus don't require a hub cluster. To take full advantage of all the features available on Fleet, you need a hubful fleet.
 
+For more information, see [Create a hubless fleet][create-hubless-fleet].
+
 ## Hubful fleets
 
 A hubful fleet has an AKS-managed hub cluster, which is used to store configuration for workload orchestration and layer-4 load balancing.
@@ -45,6 +47,8 @@ Hub clusters are exempted from [Azure policies][azure-policy-overview] to avoid 
 For hubful fleets, there are two subtypes:
 
 - **Public hubful fleets** expose the hub cluster to the internet. This means that with the right credentials, anyone on the internet can connect to the hub server. This configuration can be useful during the development and testing phase, but represents a security concern, which is largely undesirable in production.
+
+For more information, see [Create a public hubful fleet][create-public-hubful-fleet].
 
 - **Private hubful fleets** use a [private AKS cluster][aks-private-cluster] as the hub, which prevents open access over the internet. All considerations for a private AKS cluster apply, so review the prerequisites and limitations to determine whether a private hubful fleet meets your needs.
 
@@ -64,6 +68,8 @@ Now that you understand the different types of Kubernetes fleet resources, see [
 <!-- LINKS -->
 [aks-private-cluster]: /azure/aks/private-clusters
 [aks-private-cluster-connect]: /azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
-[create-private-hubful-fleet]: quickstart-create-fleet-and-members.md#private-hub
 [azure-policy-overview]: /azure/governance/policy/overview
 [quickstart-create-fleet]: quickstart-create-fleet-and-members.md
+[create-hubless-fleet]: quickstart-create-fleet-and-members.md?tabs=hubless#create-a-fleet-resource
+[create-public-hubful-fleet]: quickstart-create-fleet-and-members.md?tabs=hubful#public-hub
+[create-private-hubful-fleet]: quickstart-create-fleet-and-members.md?tabs=hubful#private-hub
