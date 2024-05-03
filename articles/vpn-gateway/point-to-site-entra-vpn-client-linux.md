@@ -66,7 +66,7 @@ If you used the P2S server configuration steps as mentioned in the [Prerequisite
 
 In this section, you configure the Azure VPN client for Linux.
 
-* If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered App ID for Azure VPN Client](point-to-site-entra-registered-app.md#about-the-microsoft-registered-app-for-azure-vpn-client).
+* If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered App ID for Azure VPN Client](point-to-site-entra-registered-app.md).
 
 * For Microsoft Entra ID authentication, use the **azurevpnconfig_aad.xml** file. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
