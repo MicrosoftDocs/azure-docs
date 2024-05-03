@@ -78,7 +78,7 @@ If you rotate your certificate in Azure Key Vault, the App Service Environment p
 1. Select the managed identity you define for your App Service Environment. You can use either a system assigned or user assigned managed identity. You're able to configure your managed identity if you haven't done so already. You can configure the managed identity directly from the custom domain suffix page using the "Add identity" option in the managed identity selection box.
 :::image type="content" source="./media/custom-domain-suffix/managed-identity-selection.png" alt-text="Screenshot of a configuration pane to select and update the managed identity for the App Service Environment.":::
 1. Select the certificate for the custom domain suffix.
-    1. If you use a private endpoint to access the key vault, you can't use the default key vault certificate URL the portal interface provides. You must manually enter and use the private link URL, which is in the format *https://<key-vault-name>.privatelink.vaultcore.azure.net/secrets/<certificate-name>*.
+    1. If you use a private endpoint to access the key vault, you can't use the default key vault certificate URL the portal interface provides. You must manually enter and use the private link URL, which is in the format *https://KEY-VAULT-NAME.privatelink.vaultcore.azure.net/secrets/CERTIFICATE-NAME*.
 1. Select "Save" at the top of the page. To see the latest configuration updates, refresh the page.
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-portal-experience.png" alt-text="Screenshot of an overview of the custom domain suffix portal experience.":::
 1. It takes a few minutes for the custom domain suffix configuration to be set. Check the status by selecting "Refresh" at the top of the page. The banner updates with the latest progress. Once complete, the banner will state that the custom domain suffix is configured.
@@ -90,7 +90,7 @@ If you rotate your certificate in Azure Key Vault, the App Service Environment p
 
 ## Use Azure Resource Manager to configure custom domain suffix
 
-To configure a custom domain suffix for your App Service Environment using an Azure Resource Manager template, you need to include the below properties. Ensure that you meet the [prerequisites](#prerequisites) and that your managed identity and certificate are accessible and have the appropriate permissions for the Azure Key Vault. If you use a private endpoint to access the key vault, you can't use the default key vault certificate URL. You must use the private link URL, which is in the format *https://<key-vault-name>.privatelink.vaultcore.azure.net/secrets/<certificate-name>*.
+To configure a custom domain suffix for your App Service Environment using an Azure Resource Manager template, you need to include the below properties. Ensure that you meet the [prerequisites](#prerequisites) and that your managed identity and certificate are accessible and have the appropriate permissions for the Azure Key Vault. If you use a private endpoint to access the key vault, you can't use the default key vault certificate URL. You must use the private link URL, which is in the format *https://KEY-VAULT-NAME.privatelink.vaultcore.azure.net/secrets/CERTIFICATE-NAME*.
 
 You need to configure the managed identity and ensure it exists before assigning it in your template. For more information on managed identities, see the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
