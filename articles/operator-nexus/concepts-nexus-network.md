@@ -21,7 +21,7 @@ wishes those networks are to be exposed within their cluster.
 
 ## Nexus Network plugins
 
-Network plugin is the feature to configuration how Nexus Kubernetes cluster use the underlying Networks when attach networks to Nexus Kubernetes cluster.
+Network plugin is the feature to configuration how Nexus Kubernetes cluster use the underlying Networks when attaching networks to Nexus Kubernetes cluster.
 The type of plugins supported for different network types. 
 
 | Plugin Name | Available Network |
