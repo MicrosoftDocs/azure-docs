@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/29/2024
+ms.date: 05/03/2024
 ms.custom: devx-track-java, devguide-java
 ---
 
@@ -26,7 +26,7 @@ The following table lists the parameters available when constructing a [RequestR
 | --- | --- | --- | --- |
 | `retryPolicyType` | [RetryPolicyType](/java/api/com.azure.storage.common.policy.retrypolicytype) | Optional. The approach to use for calculating retry delays. | [EXPONENTIAL](/java/api/com.azure.storage.common.policy.retrypolicytype#com-azure-storage-common-policy-retrypolicytype-exponential) |
 | `maxTries` | Integer | Optional. The maximum number of retry attempts before giving up. | 4 |
-| `tryTimeoutInSeconds` | Integer | Optional. Maximum time allowed before a request is cancelled and assumed failed. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. A good starting point might be 60 seconds per MB of anticipated payload size. | Integer.MAX_VALUE (seconds) |
+| `tryTimeoutInSeconds` | Integer | Optional. Maximum time allowed before a request is cancelled and assumed failed. Note that the timeout applies to the operation request, not the overall operation end to end. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. A good starting point might be 60 seconds per MB of anticipated payload size. | Integer.MAX_VALUE (seconds) |
 | `retryDelayInMs` | Long | Optional. Specifies the amount of delay to use before retrying an operation. | 4ms for [EXPONENTIAL](/java/api/com.azure.storage.common.policy.retrypolicytype#com-azure-storage-common-policy-retrypolicytype-exponential), 30ms for [FIXED](/java/api/com.azure.storage.common.policy.retrypolicytype#com-azure-storage-common-policy-retrypolicytype-fixed) |
 | `maxRetryDelayInMs` | Long | Optional. Specifies the maximum delay allowed before retrying an operation. | 120ms |
 | `secondaryHost` | String | Optional. Secondary storage account endpoint to retry requests against. Before setting this value, you should understand the issues around reading stale and potentially inconsistent data. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md) | None |
@@ -43,7 +43,7 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 ```
 
 
-In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. You can configure various retry strategies for service clients based on the needs of your app.
+In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. This policy applies to client requestsYou can configure various retry strategies for service clients based on the needs of your app.
 
 ## Related content
 
