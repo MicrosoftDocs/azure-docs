@@ -17,18 +17,11 @@ Initial: 84 (2544/39)
 Current: 100 (2548/3)
 -->
 
-# How customer-managed (unplanned) storage account failover works
+# How customer-managed (unplanned) failover works
 
-Customer-managed (unplanned) failover of Azure Storage accounts enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary region. All storage service endpoints are then redirected to the *new* primary region. After the storage service endpoint outage is resolved, you can perform another failover operation to fail *back* to the original primary region.
+Customer-managed (unplanned) failover enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary region. All storage service endpoints are then redirected to the *new* primary region. After the storage service endpoint outage is resolved, you can perform another failover operation to fail *back* to the original primary region.
 
 This article describes what happens during a customer-managed storage account failover and failback at every stage of the process.
-
-> [!IMPORTANT]
-> Customer-managed (unplanned) failover is currently in PREVIEW. This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name.
 
 [!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
@@ -54,12 +47,12 @@ The failback process is essentially the same as the failover process except Azur
 
 After failback, you can reconfigure your storage account to take advantage of geo-redundancy again. If the original primary region was configured for LRS, you can configure it to be GRS or RA-GRS. If the original primary was configured as ZRS, you can configure it to be GZRS or RA-GZRS. For more options, see [Change how a storage account is replicated](redundancy-migration.md).
 
-## How to initiate a failover
+## How to initiate an unplanned failover
 
-To learn how to initiate a failover, see [Initiate a storage account failover](storage-initiate-account-failover.md).
+To learn how to initiate an unplanned failover, see [Initiate a storage account failover](storage-initiate-account-failover.md).
 
 > [!CAUTION]
-> Storage account failover usually involves some data loss, and potentially file and data inconsistencies. It's important to understand the impact that an account failover would have on your data before initiating one.
+> Unplanned failover usually involves some data loss, and potentially file and data inconsistencies. It's important to understand the impact that an account failover would have on your data before initiating this type of failover.
 >
 > For details about potential data loss and inconsistencies, see [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
 

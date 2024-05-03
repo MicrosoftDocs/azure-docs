@@ -130,7 +130,7 @@ Although Microsoft could potentially initiate a regional failover, this only hap
 ### Anticipate data loss and inconsistencies
 
 > [!CAUTION]
-> Storage account failover usually involves some amount data loss, and could also potentially introduce file and data inconsistencies. In your disaster recovery plan, it's important to consider the impact that an account failover would have on your data before initiating one.
+> Customer-managed (unplanned) failover usually involves some amount data loss, and can also potentially introduce file and data inconsistencies. In your disaster recovery plan, it's important to consider the impact that an account failover would have on your data before initiating one.
 
 Because data is written asynchronously from the primary region to the secondary region, there's always a delay before a write to the primary region is copied to the secondary. If the primary region becomes unavailable, it's possible that the most recent writes might not yet be copied to the secondary.
 

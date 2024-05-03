@@ -44,16 +44,14 @@ Before you can perform an account failover on your storage account, make sure th
 
 Review these important topics detailed in the [disaster recovery guidance](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article before initiating a customer-managed failover.
 
-- **Potential data loss**: Data loss should be expected during an uplanned storage account failover.
-    > [!WARNING]
-    > It is important to understand the expectations for data loss associated with an unplanned failover, and to plan for it. For details on the implications of an unplanned account failover and to how to prepare for data loss, see the [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies) section.
-- **Geo-redundancy**: Before you can perform a failover, your storage account must be configured for geo-redundancy. Initial synchronization from the primary to the secondary region must also have completed before the failover process can begin. If your account isn't configured for geo-redundancy, you can change it by following the steps described within the [Change how a storage account is replicated](redundancy-migration.md) article. For more information about Azure storage redundancy options, see the [Azure Storage redundancy](storage-redundancy.md) article. 
-- **Understand the different types of account failover**: There are **TWO** or **three** types of storage account failover. See the [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article to learn about potential use cases for each type, and how they differ. *This article focuses on how to initiate a customer-managed failover to recover from the service endpoints being unavailable in the primary region, or a customer-managed **planned** failover (preview) used primarily to perform disaster recovery testing*.
+- **Potential data loss**: Data loss should be expected during an uplanned storage account failover. For details on the implications of an unplanned account failover and to how to prepare for data loss, see the [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies) section.
+- **Geo-redundancy**: Before you can perform a failover, your storage account must be configured for geo-redundancy. Initial synchronization from the primary to the secondary region must complete before the failover process can begin. If your account isn't configured for geo-redundancy, you can change it by following the steps described within the [Change how a storage account is replicated](redundancy-migration.md) article. For more information about Azure storage redundancy options, see the [Azure Storage redundancy](storage-redundancy.md) article. 
+- **Understand the different types of account failover**: There are two types of customer-managed failover. See the [Plan for failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article to learn about potential use cases for each type, and how they differ.
 - **Plan for unsupported features and services**: Review the [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) article and take appropriate action before initiating a failover.
 - **Supported storage account types**: Ensure that your storage account type can be used to initiate a failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
-- **Set your expectations for timing and cost**: The time it takes the failover process to complete after being intiated can vary, but typically takes less than one hour. A an unplanned failover results in the loss of geo-redundancy configuration. Reconfiguring GRS typically incurs extra time and cost. For more information, see the [time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over) section.
+- **Set your expectations for timing and cost**: After intiation, the time it takes the customer-managed failover process to complete can vary, but typically takes less than one hour. An unplanned failover results in the loss of geo-redundancy configuration. Reconfiguring GRS typically incurs extra time and cost. For more information, see the [time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over) section.
 
-## Initiate the failover
+## Initiate the customer-managed failover
 
 <!--You can initiate an account failover from the Azure portal, PowerShell, or the Azure CLI.-->
 
@@ -76,20 +74,13 @@ Complete the following steps to initiate an account failover using the Azure por
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-redundancy.png" alt-text="Screenshot showing redundancy and failover status." lightbox="media/storage-initiate-account-failover/portal-failover-redundancy.png":::
 
-    If your storage account is configured with a hierarchical namespace enabled, the following message is displayed:
-
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png" alt-text="Screenshot showing that failover isn't supported for hierarchical namespace." lightbox="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png":::
-
 1. Verify that your storage account is configured for geo-redundant storage (GRS, RA-GRS, GZRS or RA-GZRS). If it's not, select the desired redundancy configuration from the **Redundancy** drop-down and select **Save** to commit your change. After the geo-redundancy configuration is changed, your data is synchronized from the primary to the secondary region. This synchronization will take several minutes, and failover can't be initiated until all data has been replicated. The following message appears until the synchronization is complete:
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png" alt-text="Screenshot showing the location of the message indicating that synchronization is still in progress." lightbox="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png":::
 
 1. Select **Prepare for Customer-Managed failover** as shown in the following image:
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" lightbox="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing the prepare for failover window.":::
-
-    > [!NOTE]
-    > If your storage account is configured with a hierarchical namespace enabled, the `Failover` option is disabled.
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-redundancy.png" alt-text="Screenshot showing redundancy and failover status." lightbox="media/storage-initiate-account-failover/portal-failover-redundancy.png":::
 
 1. Select the type of failover to prepare for. The confirmation page varies depending on the type of failover you select.
     **If you select `Unplanned Failover`**:
@@ -97,13 +88,6 @@ Complete the following steps to initiate an account failover using the Azure por
     You will see a warning about potential data loss and information about needing to manually reconfigure geo-redundancy after the failover:
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare-failover.png" alt-text="Screenshot showing the failover option selected on the Prepare for failover window." lightbox="media/storage-initiate-account-failover/portal-failover-prepare-failover.png":::
-
-    For more information about potential data loss and what happens to your account redundancy configuration during failover, see:
-
-    > [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies)
-    >
-    > [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover)
-    The **Last Sync Time** property indicates the last time the secondary was synchronized with the primary. The difference between **Last Sync Time** and the current time provides an estimate of the extent of data loss that you will experience after the failover is completed. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
 
     **If you select `Planned failover`** (preview):
 

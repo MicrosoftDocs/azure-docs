@@ -20,9 +20,11 @@ Current: 100 (1779/0)
 
 # How customer-managed planned failover (preview) works
 
-Customer-managed storage account planned failover enables you to fail over your entire geo-redundant storage account to the secondary region to do disaster recovery testing. During failover, the original secondary region becomes the new primary and all storage service endpoints for blobs, tables, queues, and files are redirected to the new primary region. After testing is complete, you can perform another failover operation to *fail back* to the original primary region. A *failback* is an operation restores a storage account to its original regional configuration.
+Customer-managed planned failover (preview) can be used to to test your disaster recovery plan. During the planned failover process, the primnary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary, while the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
-This article describes what happens during a customer-managed planned storage account failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed storage account failover to recover from an outage works](storage-failover-customer-managed-unplanned.md).
+Customer-managed planned failover (preview) can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
+
+This article describes what happens during a customer-managed planned storage account failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
 
 > [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW. This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -31,7 +33,7 @@ This article describes what happens during a customer-managed planned storage ac
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name.
 
-## Redundancy management during failover and failback
+## Redundancy management during planned failover and failback
 
 > [!TIP]
 > To understand the varying redundancy states during the storage account failover and failback process in detail, see [Azure Storage redundancy](storage-redundancy.md) for definitions of each.
@@ -59,7 +61,7 @@ The failback process is essentially the same as the failover process, except Azu
 
 To learn how to initiate a failover, see [Initiate a storage account failover](storage-initiate-account-failover.md).
 
-## The failover and failback process
+## The planned failover and failback process
 
 The following diagrams show what happens during a customer-managed planned failover and failback of a storage account.
 
@@ -69,7 +71,7 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 :::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png" alt-text="Diagram that shows how clients write data to the storage account in the primary region." lightbox="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png":::
 
-### The failover process (GRS/RA-GRS)
+### The planned failover process (GRS/RA-GRS)
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
 
@@ -87,7 +89,7 @@ After the failover is complete, the original primary region becomes the new seco
 
 While in the failover state, perform your disaster recovery testing.
 
-### The failback process (GRS/RA-GRS)
+### The planned failback process (GRS/RA-GRS)
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
@@ -109,7 +111,7 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 :::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png" alt-text="Diagram that shows how the clients write data to the storage account in the primary region." lightbox="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png":::
 
-### The failover process (GZRS/RA-GZRS)
+### The planned failover process (GZRS/RA-GZRS)
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
 
@@ -127,7 +129,7 @@ After the failover is complete, the original primary region becomes the new seco
 
 While in the failover state, perform your disaster recovery testing.
 
-### The failback process (GZRS/RA-GZRS)
+### The planned failback process (GZRS/RA-GZRS)
 
 When testing is complete, perform another failover to fail back to the original primary region. The following image illustrates the steps involved in the failover process.
 
