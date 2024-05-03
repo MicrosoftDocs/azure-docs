@@ -311,7 +311,7 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models:
+When annotations are enabled as shown in the code snippets below, the following information is returned by the API for optional models:
 
 |Model| Output|
 |--|--|
@@ -322,7 +322,21 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
-Annotations are currently available in the GA API version `2024-02-01` and in all preview versions starting from `2023-06-01-preview` for Completions and Chat Completions (GPT models). The following code snippet shows how to use annotations:
+See the following table for the annotation availability in each API version:
+
+|Category |2024-02-01 GA| 2023-10-01-preview | 2023-06-01-preview| 
+|--|--|--|--|
+| Hate | ✅ |✅ |✅ |
+| Violence | ✅ |✅ |✅ |
+| Sexual |✅ |✅ |✅ |
+| Self-harm |✅ |✅ |✅ |
+| Prompt Shield for jailbreak attacks|✅ |✅ |✅ |
+|Prompt Shield for indirect attacks|  |✅ |✅ |
+|Protected material text|✅ |✅ |✅ |
+|Protected material code|✅ |✅ |✅ |
+|Profanity blocklist|✅ |✅ |✅ |
+|Custom blocklist| | ✅ |✅ |
+
 
 # [OpenAI Python 1.x](#tab/python-new)
 
