@@ -24,7 +24,9 @@ Azure Service Fabric has the following layers that you can monitor:
 You can monitor how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. [Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) offer built-in integration with Service Fabric.
 
 - For an overview of monitoring and diagnostics for Service Fabric infrastructure, platform, and applications, see [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
+- To learn about best practices, see [Monitoring and diagnostic best practices for Azure Service Fabric](service-fabric-best-practices-monitoring.md).
 - For a tutorial that shows how to view Service Fabric events and health reports, query the EventStore APIs, and monitor performance counters, see [Tutorial: Monitor a Service Fabric cluster in Azure](service-fabric-tutorial-monitor-cluster.md).
+- To learn how to configure Azure Monitor logs to monitor your Windows containers orchestrated on Service Fabric, see [Tutorial: Monitor Windows containers on Service Fabric using Azure Monitor logs](service-fabric-tutorial-monitoring-wincontainers.md).
 
 ### Service Fabric Explorer
 
@@ -58,10 +60,10 @@ Service Fabric also provides a set of performance counters for the Reliable Serv
 
 Azure Monitor Logs is recommended for monitoring cluster level events. After you configure the [Log Analytics agent](service-fabric-diagnostics-oms-agent.md) with your workspace, you can collect:
 
-- Performance metrics such as CPU Utilization.
+- Performance metrics such as CPU utilization.
 - .NET performance counters such as process level CPU utilization.
 - Service Fabric performance counters such as number of exceptions from a reliable service.
-- Container metrics such as CPU Utilization.
+- Container metrics such as CPU utilization.
 
 ### Guest OS metrics
 
@@ -82,6 +84,7 @@ Service Fabric can collect the following logs:
 - For Linux clusters, Azure Monitor Logs is also the recommended tool for Azure platform and infrastructure monitoring. Linux platform diagnostics require different configuration. For more information, see [Service Fabric Linux cluster events in Syslog](service-fabric-diagnostics-oms-syslog.md).
 - You can configure the Azure Monitor agent to send guest OS logs to Azure Monitor Logs, where you can query on them by using Log Analytics.
 - You can write Service Fabric container logs to *stdout* or *stderr* so they're available in Azure Monitor Logs.
+- You can set up the Azure Monitor Logs [container monitoring solution](service-fabric-diagnostics-oms-containers.md) to view container event.
 
 ### Service Fabric events
 
