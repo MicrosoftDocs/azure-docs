@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 05/03/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -77,17 +77,51 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
 
-To test your disaster recovery plan, you can perform a planned failover of your storage account from the primary to the secondary region. During the failover process, the original secondary region becomes the new primary and the original primary becomes the new secondary. After the failover is complete, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions to perform a planned failover.
+To test your disaster recovery plan, you can perform a planned failover from the primary to the secondary region. During the failover process, the original secondary region becomes the new primary and the original primary becomes the new secondary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions to perform a planned failover.
 
-You can also use this type of failover during a partial networking or compute outage in your primary region. This type of outage occurs, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
+You can also use this type of failover during a partial networking or compute outage in your primary region. These outages might occur, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
 
 During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. See [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies).
+
+To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback processes. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
+
+### Customer-managed (unplanned) failover
+
+Although the two types of customer-managed failover work in a similar manner, there are primarily two ways in which they differ:
+
+- The management of the redundancy configurations within the primary and secondary regions (LRS or ZRS).
+- The status of the geo-redundancy configuration at each stage of the failover and failback process.
+
+The following table compares the redundancy state of a storage account after a failover of each type:
+
+| Result of failover on...                | Customer-managed planned failover            | Customer-managed failover                                               |
+|-----------------------------------------|----------------------------------------------|-------------------------------------------------------------------------|
+| ...the secondary region                 | The secondary region becomes the new primary | The secondary region becomes the new primary                            |
+| ...the original primary region          | The original primary region becomes the new secondary |The copy of the data in the original primary region is deleted  |
+| ...the account redundancy configuration | The storage account is converted to GRS      | The storage account is converted to LRS                                 |
+| ...the geo-redundancy configuration     | Geo-redundancy is retained                   | Geo-redundancy is lost                                                  |
+
+The following table summarizes the resulting redundancy configuration at every stage of the failover and failback process for each type of failover:
+
+| Original <br> configuration           | After <br> failover | After re-enabling <br> geo redundancy | After <br> failback | After re-enabling <br> geo redundancy |
+|---------------------------------------|---------------------|---------------------------------------|---------------------|---------------------------------------|
+| **Customer-managed planned failover** |                     |                                       |                     |                                       |
+| GRS                                   | GRS                 | n/a <sup>2</sup>                      | GRS                 | n/a <sup>2</sup>                      |
+| GZRS                                  | GRS                 | n/a <sup>2</sup>                      | GZRS                | n/a <sup>2</sup>                      |
+| **Customer-managed failover**         |                     |                                       |                     |                                       |
+| GRS                                   | LRS                 | GRS <sup>1</sup>                      | LRS                 | GRS <sup>1</sup>                      |
+| GZRS                                  | LRS                 | GRS <sup>1</sup>                      | ZRS                 | GZRS <sup>1</sup>                     |
+
+<sup>1</sup> Geo-redundancy is lost during a failover to recover from an outage and must be manually reconfigured.<br>
+<sup>2</sup> Geo-redundancy is retained during a failover for disaster recovery testing and doesn't need to be manually reconfigured.
+
+If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can fail over to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data in the new primary region.
 
 To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
 ### Microsoft-managed failover
 
-In extreme circumstances such as major disasters, Microsoft **may** initiate a regional failover. Regional failovers are uncommon, and only take place when the original primary region is deemed unrecoverable within a reasonable amount of time. During these events, no action on your part is required. If your storage account is configured for RA-GRS or RA-GZRS, your applications can read from the secondary region during a Microsoft-managed failover. However, you don't have write access to your storage account until the failover process is complete.
+Although Microsoft could potentially initiate a regional failover, this only happens in extreme circumstances such as major disasters. Regional failovers are extremely uncommon and only take place when the original primary region is deemed unrecoverable within a reasonable amount of time. During these events, no action on your part is required. If your storage account is configured for RA-GRS or RA-GZRS, your applications can read from the secondary region during a Microsoft-managed failover. However, you don't have write access to your storage account until the failover process is complete.
 
 > [!IMPORTANT]
 > Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.

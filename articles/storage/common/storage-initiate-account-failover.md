@@ -42,29 +42,28 @@ Before you can perform an account failover on your storage account, make sure th
 > - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
 -->
 
-Before failing over your storage account, review these important articles covered in the [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover).
+Review these important topics detailed in the [disaster recovery guidance](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article before initiating a customer-managed failover.
 
-- **Potential data loss**: When you fail over your storage account in response to an unexpected outage in the primary region, some data loss is expected.
-
-> [!WARNING]
-> It is very important to understand the expectations for loss of data with certain types of failover, and to plan for it. For details on the implications of an account failover and to how to prepare for data loss, see [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
-- **Geo-redundancy**: Before you can perform an account failover on your storage account, make sure it's configured for geo-redundancy and that the initial synchronization from the primary to the secondary region is complete. For more information about Azure storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md). If your account isn't configured for geo-redundancy, you can change it. For more information, see [Change how a storage account is replicated](redundancy-migration.md).
-- **Understand the different types of account failover**: There are three types of storage account failover. To learn the use cases for each and how they function differently, see [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover). This article focuses on how to initiate a *customer-managed failover* to recover from the service endpoints being unavailable in the primary region, or a *customer-managed* ***planned*** *failover* (preview) used primarily to perform disaster recovery testing.
-- **Plan for unsupported features and services**: Review [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) and take the appropriate action before initiating a failover.
-- **Supported storage account types**: Ensure the type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
-- **Set your expectations for timing and cost**: The time it takes to fail over after you initiate it can vary, but it typically takes less than one hour. A customer-managed failover associated with an outage in the primary region loses its geo-redundancy configuration after a failover (and failback). Reconfiguring GRS typically incurs extra time and cost. For more information, see [The time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over).
+- **Potential data loss**: Data loss should be expected during an uplanned storage account failover.
+    > [!WARNING]
+    > It is important to understand the expectations for data loss associated with an unplanned failover, and to plan for it. For details on the implications of an unplanned account failover and to how to prepare for data loss, see the [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies) section.
+- **Geo-redundancy**: Before you can perform a failover, your storage account must be configured for geo-redundancy. Initial synchronization from the primary to the secondary region must also have completed before the failover process can begin. If your account isn't configured for geo-redundancy, you can change it by following the steps described within the [Change how a storage account is replicated](redundancy-migration.md) article. For more information about Azure storage redundancy options, see the [Azure Storage redundancy](storage-redundancy.md) article. 
+- **Understand the different types of account failover**: There are **TWO** or **three** types of storage account failover. See the [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article to learn about potential use cases for each type, and how they differ. *This article focuses on how to initiate a customer-managed failover to recover from the service endpoints being unavailable in the primary region, or a customer-managed **planned** failover (preview) used primarily to perform disaster recovery testing*.
+- **Plan for unsupported features and services**: Review the [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) article and take appropriate action before initiating a failover.
+- **Supported storage account types**: Ensure that your storage account type can be used to initiate a failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
+- **Set your expectations for timing and cost**: The time it takes the failover process to complete after being intiated can vary, but typically takes less than one hour. A an unplanned failover results in the loss of geo-redundancy configuration. Reconfiguring GRS typically incurs extra time and cost. For more information, see the [time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over) section.
 
 ## Initiate the failover
 
 <!--You can initiate an account failover from the Azure portal, PowerShell, or the Azure CLI.-->
 
-You can initiate either type of customer-managed failover using the Azure portal, PowerShell, or the Azure CLI.
+You can initiate either a planned or unplanned customer-managed failover using the Azure portal, PowerShell, or the Azure CLI.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## [Portal](#tab/azure-portal)
 
-Complete the following steps to initiate an account failover from the Azure portal:
+Complete the following steps to initiate an account failover using the Azure portal:
 
 1. Navigate to your storage account.
 
@@ -73,26 +72,27 @@ Complete the following steps to initiate an account failover from the Azure port
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing geo-replication and failover status":::
 -->
 
-1. Under **Data management**, select **Redundancy**. The following image shows the geo-redundancy configuration and failover status of a storage account.
+1. Select **Redundancy** from within the **Data management** group. The following image shows the geo-redundancy configuration and failover status of a storage account.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-redundancy.png" alt-text="Screenshot showing redundancy and failover status." lightbox="media/storage-initiate-account-failover/portal-failover-redundancy.png":::
 
     If your storage account is configured with a hierarchical namespace enabled, the following message is displayed:
+
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png" alt-text="Screenshot showing that failover isn't supported for hierarchical namespace." lightbox="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png":::
 
-1. Verify that your storage account is configured for geo-redundant storage (GRS, RA-GRS, GZRS or RA-GZRS). If it's not, then select the desired redundancy configuration under **Redundancy** and select **Save** to change it. After changing the geo-redundancy configuration, it will take several minutes for your data to synchronize from the primary to the secondary region. You cannot initiate a failover until the synchronization is complete. You might see the following message on the **Redundancy** page until all of your data is replicated:
+1. Verify that your storage account is configured for geo-redundant storage (GRS, RA-GRS, GZRS or RA-GZRS). If it's not, select the desired redundancy configuration from the **Redundancy** drop-down and select **Save** to commit your change. After the geo-redundancy configuration is changed, your data is synchronized from the primary to the secondary region. This synchronization will take several minutes, and failover can't be initiated until all data has been replicated. The following message appears until the synchronization is complete:
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png" alt-text="Screenshot showing message indicating synchronization is still in progress." lightbox="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png" alt-text="Screenshot showing the location of the message indicating that synchronization is still in progress." lightbox="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png":::
 
-1. Select **Prepare for failover**. You will be presented with a page similar to the image that follows where you can select the type of failover to perform:
+1. Select **Prepare for Customer-Managed failover** as shown in the following image:
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" lightbox="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing the prepare for failover window.":::
 
     > [!NOTE]
-    > If your storage account is configured with a hierarchical namespace enabled, the `Failover` option will be disabled.
+    > If your storage account is configured with a hierarchical namespace enabled, the `Failover` option is disabled.
 
 1. Select the type of failover to prepare for. The confirmation page varies depending on the type of failover you select.
-    **If you select `Failover`**:
+    **If you select `Unplanned Failover`**:
 
     You will see a warning about potential data loss and information about needing to manually reconfigure geo-redundancy after the failover:
 
