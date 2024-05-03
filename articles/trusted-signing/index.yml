@@ -15,10 +15,28 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
-
-  # Card 
-  - title: How to
+  - title: About Trusted Signing
     linkLists:
+        - linkListType: overview
+          links:
+            - text: What is the Trusted Signing service?
+              url: overview.md
+  - title: Key concepts
+    linkLists:
+         - linkListType: concept
+           links:
+            - text: Trusted Signing trust models
+              url: concept-trusted-signing-trust-models.md
+            - text: Trusted Signing resources and roles
+              url: concept-trusted-signing-resources-roles.md
+            - text: Trusted Signing certificate management
+              url: concept-trusted-signing-cert-management.md
+  - title: Get started with Trusted Signing
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up Trusted Signing
+            url: quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Sign a CI policy by using Trusted Signing
@@ -29,31 +47,8 @@ landingContent:
             url: how-to-sign-history.md
           - text: Revoke a certificate profile in Trusted Signing
             url: how-to-cert-revocation.md
-  - title: Overview
-    linkLists:
-        - linkListType: overview
-          links:
-            - text: What is the Trusted Signing service?
-              url: overview.md
-  - title: Tutorials
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Assign roles in the Trusted Signing service
             url: tutorial-assign-roles.md
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Trusted Signing quickstart
-            url: quickstart.md
-  - title: Learn about signing
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Trusted Signing trust models
-            url: concept-trusted-signing-trust-models.md
-          - text: Trusted Signing resources and roles
-            url: concept-trusted-signing-resources-roles.md
-          - text: Trusted Signing certificate management
-            url: concept-trusted-signing-cert-management.md
+

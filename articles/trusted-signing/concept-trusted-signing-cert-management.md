@@ -84,4 +84,4 @@ Trusted Signing passionately supports a healthy ecosystem by using active threat
 ## Next step
 
 >[!div class="nextstepaction"]
->[Get started with using Trusted Signing](./quickstart.md)
+>[Set up Trusted Signing](./quickstart.md)
