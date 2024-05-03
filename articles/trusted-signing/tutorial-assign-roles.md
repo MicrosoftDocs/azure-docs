@@ -5,7 +5,7 @@ author: microsoftshawarma
 ms.author: rakiasegev
 ms.service: trusted-signing
 ms.topic: tutorial
-ms.date: 03/21/2023
+ms.date: 03/21/2024
 ---
 
 # Assign roles in Trusted Signing

@@ -27,7 +27,7 @@ Trusted Signing has the following resource types:
 
 In the following example structure, an Azure subscription has a resource group. Under the resource group, you can have one or many Trusted Signing account resources with one or many identity validations and certificate profiles.
 
-:::image type="content" source="media/trusted-signing-resource-structure-overview.png" alt-text="Diagram that shows the Trusted Signing service resource group and certificate profile structure." border="false":::
+:::image type="content" source="media/trusted-signing-resource-structure.png" alt-text="Diagram that shows the Trusted Signing service resource group and certificate profile structure." border="false":::
 
 The ability to have multiple Trusted Signing accounts and certificate profiles is useful because the service supports Public Trust, Private Trust, continuous integration (CI) policy, virtualization-based security (VBS) enclaves, and test signing types. For more information about the certificate profile types and how they're used, see [Trusted Signing certificate types and management](./concept-trusted-signing-cert-management.md).
 
