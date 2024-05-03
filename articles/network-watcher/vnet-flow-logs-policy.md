@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/03/2024
 ---
 
 # Manage virtual network flow logs using Azure Policy
@@ -24,7 +24,7 @@ In this article, you learn how to use two built-in policies to manage your setup
 
 ## Audit flow logs configuration for virtual networks using a built-in policy
 
-The **Audit flow logs configuration for every virtual network** policy audits all existing virtual networks  in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/virtualNetwork` for linked flow logs via the flow log property of the virtual network. It then flags any virtual network that doesn't have flow logging enabled.
+The **Audit flow logs configuration for every virtual network** policy audits all existing virtual networks  in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/virtualNetworks` for linked flow logs via the flow log property of the virtual network. It then flags any virtual network that doesn't have flow logging enabled.
 
 To audit your flow logs using the built-in policy, follow these steps:
 
@@ -64,7 +64,7 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 ## Deploy and configure virtual network flow logs using a built-in policy
 
-The **Deploy a flow log resource with target virtual network** policy checks all existing virtual networks in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/networkSecurityGroups`. It then checks for linked flow logs via the flow log property of the virtual network. If the property doesn't exist, the policy deploys a flow log.
+The **Deploy a flow log resource with target virtual network** policy checks all existing virtual networks in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/virtualNetworks`. It then checks for linked flow logs via the flow log property of the virtual network. If the property doesn't exist, the policy deploys a flow log.
 
 > [!IMPORTANT]
 > We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. For example, if you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging (both network security group flow logs and virtual network flow logs generated for all supported workloads in that particular subnet).
@@ -97,9 +97,12 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
     | Setting | Value |
     | --- | --- |
+    | **Effect** | Select **DeployIfNotExists** to enable the execution of the policy. The other available option is: **Disabled**.|
     | **Virtual Network Region** | Select the region of your virtual network that you're targeting with the policy. |
     | **Storage Account** | Select the storage account. The storage account must be in the same region as the virtual network. |
+    | **Network Watcher RG** | Select the resource group of your Network Watcher instance. The flow logs created by the policy are saved into this resource group. |
     | **Network Watcher** | Select the Network Watcher instance of the selected region. |
+    | **Number of days to retain flowlogs** | Select the number of days that you want to keep your flow logs data in the storage account. The default value is 30 days. If you don't want to apply any retention policy, enter **0**. |
 
     :::image type="content" source="./media/vnet-flow-logs-policy/assign-deploy-policy-parameters.png" alt-text="Screenshot that shows the Parameters tab of assigning a deployment policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/assign-deploy-policy-parameters.png":::
 
