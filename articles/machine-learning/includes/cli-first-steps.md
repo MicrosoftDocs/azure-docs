@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 author: sdgilley
 ms.service: machine-learning
 services: machine-learning
@@ -19,4 +19,4 @@ ms.custom: include file
     az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE
      ```
 
-* If you're running the commands locally, omit `--identity` and follow instructions for authentication.  Also replace `$CI_RESOURCE_GROUP` and `$CI_WORKSPACE` with your values.
+* If you're running the commands locally, omit `--identity` and follow instructions for authentication. Also replace `$CI_RESOURCE_GROUP` and `$CI_WORKSPACE` with your values.
