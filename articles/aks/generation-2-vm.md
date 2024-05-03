@@ -50,6 +50,8 @@ Create a Windows node pool with a Generation 2 VM using the [`az aks nodepool ad
 az aks nodepool add --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --vm-size <supported-generation-2-vm-size> --os-type Windows --os-sku Windows2022 --aks-custom-headers UseWindowsGen2VM=true
 ```
 
+---
+
 ## Update an existing node pool to use a Generation 2 VM
 
 ### [Linux node pool](#tab/update-generation-2-vm)
@@ -67,6 +69,7 @@ If you're using a Generation 1 image, you can update your node pool to use Gener
 ```azurecli-interactive
 az aks nodepool update --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --vm-size <supported-generation-2-vm-size> --os-type Windows --os-sku Windows2022 --aks-custom-headers UseWindowsGen2VM=true
 ```
+---
 
 ## Check if you're using a Generation 2 node image
 
@@ -84,5 +87,5 @@ To learn more about Generation 2 VMs, see [Support for Generation 2 VMs on Azure
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
-[create-node-pools]: aks/learn/create-node-pools
+[create-node-pools]: ./create-node-pools.md
 [az-vm-list-skus]: /cli/azure/vm#az_vm_list_skus
