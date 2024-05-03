@@ -67,7 +67,7 @@ If you have a Remote Authentication Dial-In User Service (RADIUS) authentication
 |URL of the default username secret, stored in your Azure Key Vault. Not required if using IMSI. |Secret URI for the default username |
 |URL of the default password secret, stored in your Azure Key Vault. |Secret URI for the default password |
 
-To add the default username and password secrets to Azure Key Vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal).
+To add the default username and password secrets to Azure Key Vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
 
 To add the certificate to Azure Key Vault:
 
