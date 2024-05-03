@@ -52,7 +52,8 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 ### Events on the `CallAgent` object
 
 #### Event Name: `incomingCall`
-
+<details>
+<summary>View event details</summary>
 **When does it occur ?**
 
 The `incomingCall` event is fires when an incoming is coming.
@@ -75,6 +76,7 @@ callClient.on('incomingCall', (async (incomimgCallEvent) => {
         }
       });
 ```
+</details>
 
 #### Event Name: `callsUpdated`
 
