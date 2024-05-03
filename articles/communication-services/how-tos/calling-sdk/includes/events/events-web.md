@@ -52,12 +52,10 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 ### Events on the `CallAgent` object
 
 #### Event Name: `incomingCall`
+The `incomingCall` event is fires when an incoming is coming.
+
 <details>
 <summary>View event details</summary>
-
-**When does it occur ?**
-
-The `incomingCall` event is fires when an incoming is coming.
 
 **How should your application react to the event ?**
 
