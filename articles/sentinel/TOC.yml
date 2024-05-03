@@ -717,7 +717,7 @@
     - name: Sonrai Data Connector
       href: data-connectors/sonrai-data-connector.md
     - name: SonicWall Firewall 
-      href: sonicwall-firewall.md
+      href: data-connectors/sonicwall-firewall.md
     - name: Sophos Cloud Optix
       href: data-connectors/sophos-cloud-optix.md
     - name: Sophos Endpoint Protection (using Azure Functions)
