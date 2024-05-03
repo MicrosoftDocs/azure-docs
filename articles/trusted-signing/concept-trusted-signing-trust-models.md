@@ -21,20 +21,20 @@ For signature consumers like publicly trusted code signing for Microsoft Windows
 
 Trusted Signing provides two primary trust models to support a wide variety of signature consumption (*validations*):
 
-- [Public Trust](#public-trust)
-- [Private Trust](#private-trust)
+- [Public Trust](#public-trust-model)
+- [Private Trust](#private-trust-model)
 
 > [!NOTE]
-> You aren't limited to applying trust models in the signing scenarios that this article discusses. Trusted Signing was designed to support Windows and Authenticode code signing and App Control for Business features in Windows. It broadly supports other signing and trust models beyond Windows.
+> You aren't limited to applying the trust models that are used in the signing scenarios described in this article. Trusted Signing was designed to support Windows and Authenticode code signing and Application Control for Windows features. It broadly supports other signing and trust models beyond Windows.
 
-## Public Trust
+## Public Trust model
 
-Public Trust is one of the trust models provided in Trusted Signing and is the most commonly used model. The certificates in the Public Trust model are issued from the [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and comply with the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This root CA is included a relying party's root certificate program, such as the [Microsoft Root Certificate Program](/security/trusted-root/program-requirements), for code signing and time stamping.
+Public Trust is one of the two trust models that are provided in Trusted Signing and is the most commonly used model. The certificates in the Public Trust model are issued from the [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and comply with the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This root CA is included a relying party's root certificate program, such as the [Microsoft Root Certificate Program](/security/trusted-root/program-requirements), for code signing and time stamping.
 
 Public Trust resources in Trusted Signing are designed to support the following signing scenarios and security features:
 
 - [Win32 app code signing](/windows/win32/seccrypto/cryptography-tools#introduction-to-code-signing)
-- [Windows 11 Smart App Control](/windows/apps/develop/smart-app-control/code-signing-for-smart-app-control)
+- [Smart App Control in Windows 11](/windows/apps/develop/smart-app-control/code-signing-for-smart-app-control)
 - [/INTEGRITYCHECK forced integrity signing for portable executable (PE) binaries](/cpp/build/reference/integritycheck-require-signature-check)
 - [Virtualization-based security (VBS) enclaves](/windows/win32/trusted-execution/vbs-enclaves)
 
@@ -43,9 +43,9 @@ We recommend that you use Public Trust to sign any artifact that you want to sha
 > [!NOTE]
 > Trusted Signing includes options for "test" certificate profiles under the Public Trust collection, but the certificates are not publicly trusted. The Public Trust Test certificate profiles are intended to be used for inner-loop dev/test signing and should *not* be trusted.
 
-## Private Trust
+## Private Trust model
 
-Private Trust is the second trust model that's provided in Trusted Signing. It's for opt-in trust when signatures aren't broadly trusted across the ecosystem. The CA hierarchy that's used for Trusted Signing Private Trust resources isn't default-trusted in any root program and in Windows. Rather, it's designed for use in [Application Control for Windows (formerly Windows Defender Application Control, or *WDAC*)](/windows/security/application-security/application-control/windows-defender-application-control/wdac) features, including:
+Private Trust is the second trust model that's provided in Trusted Signing. It's for opt-in trust when signatures aren't broadly trusted across the ecosystem. The CA hierarchy that's used for Trusted Signing Private Trust resources isn't default-trusted in any root program and in Windows. Rather, it's designed to use in [App Control for Business (formerly Windows Defender Application Control, *WDAC*)](/windows/security/application-security/application-control/windows-defender-application-control/wdac) features, including:
 
 - [Use code signing for added control and protection with WDAC](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-code-signing-for-better-control-and-protection)
 - [Use signed policies to protect Windows Defender Application Control against tampering](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering)

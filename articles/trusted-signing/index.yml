@@ -21,17 +21,15 @@ landingContent:
           links:
             - text: What is the Trusted Signing service?
               url: overview.md
-  - title: Key concepts
-    linkLists:
-         - linkListType: concept
-           links:
+        - linkListType: concept
+          links:
             - text: Trusted Signing trust models
               url: concept-trusted-signing-trust-models.md
             - text: Trusted Signing resources and roles
               url: concept-trusted-signing-resources-roles.md
             - text: Trusted Signing certificate management
               url: concept-trusted-signing-cert-management.md
-  - title: Get started with Trusted Signing
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
@@ -47,8 +45,9 @@ landingContent:
             url: how-to-sign-history.md
           - text: Revoke a certificate profile in Trusted Signing
             url: how-to-cert-revocation.md
+  - title: Assign roles
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Assign roles in the Trusted Signing service
             url: tutorial-assign-roles.md
-
