@@ -324,18 +324,18 @@ When displaying code in your application, we strongly recommend that the applica
 
 See the following table for the annotation availability in each API version:
 
-|Category |2024-02-01 GA| 2023-10-01-preview | 2023-06-01-preview| 
+|Category |2024-02-01 GA| 2024-04-01-preview | 2023-10-01-preview | 2023-06-01-preview| 
 |--|--|--|--|
-| Hate | ✅ |✅ |✅ |
-| Violence | ✅ |✅ |✅ |
-| Sexual |✅ |✅ |✅ |
-| Self-harm |✅ |✅ |✅ |
-| Prompt Shield for jailbreak attacks|✅ |✅ |✅ |
-|Prompt Shield for indirect attacks|  |✅ |✅ |
-|Protected material text|✅ |✅ |✅ |
-|Protected material code|✅ |✅ |✅ |
-|Profanity blocklist|✅ |✅ |✅ |
-|Custom blocklist| | ✅ |✅ |
+| Hate | ✅ |✅ |✅ |✅ |
+| Violence | ✅ |✅ |✅ |✅ |
+| Sexual |✅ |✅ |✅ |✅ |
+| Self-harm |✅ |✅ |✅ |✅ |
+| Prompt Shield for jailbreak attacks|✅ |✅ |✅ |✅ |
+|Prompt Shield for indirect attacks|  | ✅ | | |
+|Protected material text|✅ |✅ |✅ |✅ |
+|Protected material code|✅ |✅ |✅ |✅ |
+|Profanity blocklist|✅ |✅ |✅ |✅ |
+|Custom blocklist| | ✅ |✅ |✅ |
 
 
 # [OpenAI Python 1.x](#tab/python-new)
