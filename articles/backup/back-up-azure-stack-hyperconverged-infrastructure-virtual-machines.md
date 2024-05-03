@@ -29,15 +29,16 @@ MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 
 
 
-- **Arc VMs**: [Arc VMs](../azure-arc/servers/overview.md) add fabric management capabilities along with [*Arc-enabled servers*](../azure-arc/servers/overview.md). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs are supported in a limited capacity in Azure Stack HCI, version 23H2.
+- **Arc VMs**: [Arc VMs](../azure-arc/servers/overview.md) add fabric management capabilities in addition to [Arc-enabled servers](../azure-arc/servers/overview.md). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Stack HCI, version 23H2.
 
-   The following table lists the various level of backup and restore capabilities for Azure Arc VMs:
+   The following table lists the various levels of backup and restore capabilities for Azure Arc VMs:
 
-  | Protection level | Description |
-  | --- | --- |
-  | **Guest-level backups and recovery** (which require an agent in the guest OS) | Work as expected. |
-  | **Host-level backups** | Work as expected. | 
-  | **Host-level recovery** <br><br>  - Recovery to the original VM instance <br>  - Alternate location recovery (ALR) | <br> - Works as expected. <br> - Limited support.  ALR recovers to a Hyper-V VM, instead of an Arc VM. Currently conversion of Hyper-V VM to an Arc VM isn't supported after you create it. |
+  | Protection level | Recovery location | Description |
+  | --- | --- | --- |
+  | **Guest-level backups and recovery** (which require an agent in the guest OS) |      | Work as expected. |
+  | **Host-level backups** |        | Work as expected. |
+  | **Host-level recovery** |   Recovery to the original VM instance |   Recovery to the original VMs works as expected. |
+  |              | Alternate location recovery (ALR)  | Recovery to the ALR is supported in a limited way as the ALR recovers to a Hyper-V VM. Currently, conversion of Hyper-V VM to an Arc VM isn't supported. |
 
  Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
 
@@ -52,7 +53,7 @@ Both methods have pros and cons:
 - Guest-level backup is useful if you want to protect specific workloads running on a virtual machine. At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file.
 
   >[!Note]
-  >*Passthrough disks* aren't supported in HCI.
+  >*Passthrough disks* aren't supported in Azure Stack HCI.
 
 ## Backup prerequisites
 
@@ -75,23 +76,23 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 2. Set up the MABS protection agent on the server or each cluster node.
 
-3. To deploy the agent, choose one for the following method:
+3. To deploy the agent, choose one of the following method:
 
    - **Attach agents**: Select an agent that's already installed.
    - **Install agent**: If you don't have the agent installed:
-     1. Install the agent on each of the cluster node by running the following command:
+     1. To install the agent on each cluster node, run the following command:
      
         ```
         Install DPMAgentInstaller.exe`
         ```
     
-     2. Once the installation is complete, run following command to configure the agent on the node:
+     2. After the installation is complete, run the following command to configure the agent on the node:
 
         ```
        .\SetDpmServer.exe -dpmServerName winvm01
        ```
 
-     3. Add the agent in the MABS server by selecting **Attach agent**.
+     3. To add the agent to the MABS server, select **Attach agent**.
 
    :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png" alt-text="Screenshot shows how to attach an agent." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png":::
 
@@ -173,7 +174,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
     - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Azure Stack HCI virtual machine to a different host within the same cluster,  independent of processor architecture. Azure Stack HCI virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
     
         >[!NOTE]
-        >- There's a limited support for Alternate location recovery (ALR) for Arc VMs. The VM is recovered as a Hyper-V VM, instead of an Arc VM. Currently, conversion of Hyper-V VMs to Arc VMs aren't supported once you create them.
+        >- There's limited support for Alternate location recovery (ALR) for Arc VMs. The VM is recovered as a Hyper-V VM, instead of an Arc VM. Currently, conversion of Hyper-V VMs to Arc VMs isn't supported once you create them.
         >- If you select the original host, the behavior is the same as **Recover to original instance**. The original VHD and all associated checkpoints will be deleted.
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of  Azure Stack HCI virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
