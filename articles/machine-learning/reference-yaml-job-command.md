@@ -6,8 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, devx-track-python
-
+ms.custom: cliv2, devx-track-python, update-code
 author: balapv
 ms.author: balapv
 ms.date: 11/28/2022

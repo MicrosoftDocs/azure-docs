@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 04/05/2023
+ms.date: 04/23/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
@@ -76,7 +76,7 @@ For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
 ### Install Dapr on your AKS cluster
 
-Install the Dapr extension on your AKS cluster. Before you start, make sure you've:
+Install the Dapr extension on your AKS cluster. Before you start, make sure you have:
 - [Installed or updated the `k8s-extension`][k8s-ext]. 
 - [Registered the `Microsoft.KubernetesConfiguration` service provider][k8s-sp]
 
@@ -84,7 +84,7 @@ Install the Dapr extension on your AKS cluster. Before you start, make sure you'
 az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup --name dapr --extension-type Microsoft.Dapr
 ```
 
-Verify Dapr has been installed by running the following command:
+Verify Dapr is installed:
 
 ```sh
 kubectl get pods -A
@@ -108,7 +108,7 @@ kubectl apply -f redis.yaml
 
 ### Run the application
 
-Once you've deployed Redis, deploy the application to AKS:
+Once Redis is deployed, deploy the application to AKS:
 
 ```sh
 kubectl apply -f deployment.yaml
@@ -131,7 +131,7 @@ echo $DAPR_URL
 
 ## Start the workflow
 
-Now that the application and Dapr have been deployed to the AKS cluster, you can now start and query workflow instances. Begin by making an API call to the sample app to restock items in the inventory:
+Now that the application and Dapr are deployed to the AKS cluster, you can now start and query workflow instances. Restock items in the inventory using the following API call to the sample app:
 
 ```sh
 curl -X GET $APP_URL/stock/restock
@@ -140,41 +140,44 @@ curl -X GET $APP_URL/stock/restock
 Start the workflow:
 
 ```sh
-curl -X POST $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234/start \
+curl -i -X POST $DAPR_URL/v1.0-beta1/workflows/dapr/OrderProcessingWorkflow/start?instanceID=1234 \
   -H "Content-Type: application/json" \
   -d '{ "input" : {"Name": "Paperclips", "TotalCost": 99.95, "Quantity": 1}}'
 ```
 
 Expected output:
 
-```json
-{"instance_id":"1234"}
+```
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+Traceparent: 00-00000000000000000000000000000000-0000000000000000-00
+Date: Tue, 23 Apr 2024 15:35:00 GMT
+Content-Length: 21
 ```
 
 Check the workflow status:
 
 ```sh
-curl -X GET $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234
+curl -i -X GET $DAPR_URL/v1.0-beta1/workflows/dapr/1234
 ```
 
 Expected output:
 
 ```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+Traceparent: 00-00000000000000000000000000000000-0000000000000000-00
+Date: Tue, 23 Apr 2024 15:51:02 GMT
+Content-Length: 580
+
 {
-  "WFInfo":
-    {
-      "instance_id":"1234"
-    },
-    "start_time":"2023-03-03T19:19:16Z",
-    "metadata":
-    {
-      "dapr.workflow.custom_status":"",
-      "dapr.workflow.input":"{\"Name\":\"Paperclips\",\"Quantity\":1,\"TotalCost\":99.95}",
-      "dapr.workflow.last_updated":"2023-03-03T19:19:33Z",
-      "dapr.workflow.name":"OrderProcessingWorkflow",
-      "dapr.workflow.output":"{\"Processed\":true}",
-      "dapr.workflow.runtime_status":"COMPLETED"
-    }
+  "instanceID":"1234",
+  "workflowName":"OrderProcessingWorkflow",
+  "createdAt":"2024-04-23T15:35:00.156714334Z",
+  "lastUpdatedAt":"2024-04-23T15:35:00.176459055Z",
+  "runtimeStatus":"COMPLETED",
+  "dapr.workflow.input":"{ \"input\" : {\"Name\": \"Paperclips\", \"TotalCost\": 99.95, \"Quantity\": 1}}",
+  "dapr.workflow.output":"{\"Processed\":true}"
 }
 ```
 
@@ -189,7 +192,7 @@ Notice that the workflow status is marked as completed.
 [install-cli]: /cli/azure/install-azure-cli
 [k8s-ext]: ./dapr.md#set-up-the-azure-cli-extension-for-cluster-extensions
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
-[k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-service-provider
+[k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-resource-provider
 [dapr-config]: ./dapr-settings.md
 [az-cloud-shell]: ./learn/quick-kubernetes-deploy-powershell.md#azure-cloud-shell
 [kubectl]: ./tutorial-kubernetes-deploy-cluster.md#connect-to-cluster-using-kubectl

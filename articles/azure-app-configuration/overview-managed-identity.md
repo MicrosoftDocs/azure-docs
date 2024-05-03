@@ -85,7 +85,7 @@ The following steps will walk you through creating a user-assigned identity and 
 1. Create a user-assigned identity called `myUserAssignedIdentity` using the CLI.
 
     ```azurecli-interactive
-    az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
+    az identity create --resource-group myResourceGroup --name myUserAssignedIdentity
     ```
 
     In the output of this command, note the value of the `id` property.

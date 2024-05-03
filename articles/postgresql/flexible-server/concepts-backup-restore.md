@@ -1,14 +1,15 @@
 ---
 title: Backup and restore
 description: Learn about the concepts of backup and restore with Azure Database for PostgreSQL - Flexible Server.
+author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.author: alkuchar
-author: AwdotiaRomanowna
-ms.date: 02/28/2024
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
@@ -185,6 +186,7 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
 - In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
 - LTR backup is currently not supported for CMK-enabled servers. This capability will be added in the future.
+- LTR backup is currently not supported on geo-replicas. You can still perform LTR backups from the primary servers.
 
 
 For more information about performing a long term backup, visit the [how-to guide](../../backup/backup-azure-database-postgresql-flex.md).
