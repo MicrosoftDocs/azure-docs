@@ -50,7 +50,7 @@ Add a user as a billing administrator to an Enterprise Agreement or a Microsoft 
 
 - **Enterprise Agreement**: Add users with the Enterprise administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Enterprise administrators can view and manage savings plans in **Cost Management + Billing**.
   - Users with the Enterprise administrator (read-only) role can only view the savings plan from **Cost Management + Billing**.
-  - Department admins and account owners can't view savings plans unless they're explicitly added to them by using access control, which is also known as identity and access management. For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
+  - Department admins and account owners can't view savings plans unless they're explicitly added to them by using **Access control (IAM)**. For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
 - **Microsoft Customer Agreement**: Users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made by using the billing profile.
     - Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
@@ -93,7 +93,7 @@ If you have savings plan-specific RBAC roles (savings plan administrator, purcha
 ### Add RBAC roles to users and groups
 To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles)
 
-_Enterprise administrators can take ownership of a savings plan order. They can add other users to a savings plan by using access control._
+_Enterprise administrators can take ownership of a savings plan order. They can add other users to a savings plan by using_ **Access control (IAM)**.
 
 ## Grant access with PowerShell
 

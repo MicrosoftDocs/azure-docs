@@ -88,7 +88,7 @@ Users and groups who gain the ability to purchase, manage, or view savings plans
 
 ### Delegate the savings plan purchaser role to a specific subscription
 
-To delegate the purchaser role to a specific subscription and after you have elevated access:
+To delegate the purchaser role to a specific subscription, and after you have elevated access:
 
 1. Go to **Home** > **Savings plans** to see all savings plans that are in the tenant.
 1. To make modifications to the savings plan, add yourself as an owner of the savings plan order by using **Access control (IAM)**.
