@@ -23,7 +23,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
-For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md/access-tokens.md?pivots=platform-azcli).
+For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 
 ## Setting up
@@ -102,7 +102,7 @@ let displayName: String = "Quickstart User"
 
 Replace `<ADD_YOUR_ENDPOINT_URL_HERE>` with the endpoint for your Communication Services resource.
 Replace `<ADD_YOUR_USER_TOKEN_HERE>` with the token generated above, via the Azure client command line.
-Read more about user access tokens: [User Access Token](../../identity/access-tokens.md/access-tokens.md)
+Read more about user access tokens: [User Access Token](../../identity/access-tokens.md)
 
 Replace `Quickstart User` with the display name you'd like to use in the Chat.
 
