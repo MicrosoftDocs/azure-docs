@@ -227,6 +227,8 @@ This deletes the basic compute cluster, created from the `create_basic` object e
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
+This deletes a compute cluster named `basic-example`.
+
 ```azurecli
 az ml compute delete --name basic-example 
 ```
