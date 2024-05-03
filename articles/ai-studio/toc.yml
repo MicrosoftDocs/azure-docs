@@ -41,6 +41,10 @@ items:
     items:
     - name: Model catalog
       href: how-to/model-catalog.md
+    - name: Azure OpenAI family models
+      items:
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models
