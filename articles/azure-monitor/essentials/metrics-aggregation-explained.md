@@ -83,6 +83,9 @@ It is important to establish what's "normal" for your workload to know what time
 
 Data collection varies by metric. 
 
+> [!NOTE] 
+> The examples below are simplified for illustration, and the actual metric data included in each aggregation is affected by the data available when the evaluation occurs.
+
 ### Measurement collection frequency 
 
 There are two types of collection periods.
