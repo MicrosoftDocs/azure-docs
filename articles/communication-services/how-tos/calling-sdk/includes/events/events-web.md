@@ -54,6 +54,7 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 #### Event Name: `incomingCall`
 <details>
 <summary>View event details</summary>
+
 **When does it occur ?**
 
 The `incomingCall` event is fires when an incoming is coming.
