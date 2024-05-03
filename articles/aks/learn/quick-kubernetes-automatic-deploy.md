@@ -232,7 +232,8 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
   name: clusterName
   location: location  
   sku: {
-		name: 'Automatic'
+		name: 'Automatic',
+  		tier: 'Standard'
   }
   properties: {
     agentPoolProfiles: [
