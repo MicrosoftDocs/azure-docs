@@ -1,11 +1,11 @@
 ---
-title: Transform HL7v2 data to FHIR R4 with $convert-data in the FHIR service for Azure Health Data Services.
-description: Learn how to transform HL7v2 data into FHIR R4 by using Azure Data Factory’s $convert-data operation. This article covers prerequisites, configuration, and pipeline creation for seamless data conversion and storage with Azure Data Lake Storage Gen2 capabilities.
+title: Transform HL7v2 data to FHIR R4 with $convert-data in the FHIR service for Azure Health Data Services
+description: Learn how to transform HL7v2 data into FHIR R4 by using Azure Data Factory’s $convert-data operation. Explore prerequisites, configuration, and pipeline creation for data conversion and storage with Azure Data Lake Storage Gen2 capabilities.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 05/13/2024
 ms.author: jasteppe
 ---
 
@@ -139,7 +139,7 @@ To configure the pipeline to automatically run whenever a new HL7v2 blob file in
 
 1. Select **Author** from the navigation menu. Select the pipeline configured in the previous section and select **Add trigger** and **New/Edit** from the menu bar. 
    
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png" alt-text="Screenshot showing the Azure Data Factory Add trigger and New/Edit options." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png" alt-text="Screenshot showing the Azure Data Factory add trigger and new or edit options." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png":::
 
 2.	In the **Add triggers** panel, select the **Choose trigger** dropdown, and then select **New**. 
 3.	Enter a **Name** and **Description** for the trigger.

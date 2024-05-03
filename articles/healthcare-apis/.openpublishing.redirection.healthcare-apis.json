@@ -456,6 +456,11 @@
         "redirect_document_id": false
       },
       {
+      "source_path_from_root": "/articles/healthcare-apis/fhir/de-identified-export.md",
+      "redirect_url": "/azure/healthcare-apis/fhir/deidentified-export",
+      "redirect_document_id": false
+      },
+      {
           "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli.md",
           "redirect_url": "/azure/healthcare-apis/get-access-token",
           "redirect_document_id": false
