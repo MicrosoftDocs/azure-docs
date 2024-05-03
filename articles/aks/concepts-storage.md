@@ -152,7 +152,7 @@ A cluster administrator can *statically* create a persistent volume, or a volume
 
 ## Storage classes
 
-To specify different tiers of storage, such as Premium and Standard, you can create a *storage class*.
+To specify different tiers of storage, such as premium or standard, you can create a *storage class*.
 
 A storage class also defines a *reclaim policy*. When you delete the persistent volume, the reclaim policy controls the behavior of the underlying Azure Storage resource. The underlying resource can either be deleted or kept for use with a future pod.
 
@@ -160,7 +160,7 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 
 | Storage class | Description |
 |---|---|
-| `managed-csi` | Uses Azure StandardSSD locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. |
+| `managed-csi` | Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable. You can edit the persistent volume claim to specify the new size. |
 | `managed-csi-premium` | Uses Azure Premium locally redundant storage (LRS) to create a managed disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. Similarly, this storage class allows for persistent volumes to be expanded. |
 | `azurefile-csi` | Uses Azure Standard storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-csi-premium` | Uses Azure Premium storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted.|
@@ -223,7 +223,7 @@ spec:
 When you create a pod definition, you also specify:
 
 * The persistent volume claim to request the desired storage.
-* The *volumeMount* for your applications to read and write data.
+* The *volume mount* for your applications to read and write data.
 
 The following example YAML manifest shows how the previous persistent volume claim can be used to mount a volume at */mnt/azure*:
 
@@ -249,11 +249,11 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 
 ```yaml
 ...      
-       volumeMounts:
-        - mountPath: "d:"
-          name: volume
-        - mountPath: "c:\k"
-          name: k-dir
+      volumeMounts:
+      - mountPath: "d:"
+        name: volume
+      - mountPath: "c:\k"
+        name: k-dir
 ...
 ```
 
