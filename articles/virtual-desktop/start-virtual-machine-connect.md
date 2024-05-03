@@ -92,7 +92,7 @@ You need to make sure you have the names of the resource group and host pool you
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
 2. To enable or disable Start VM on Connect, do one of the following steps:
-    1. To enable Start VM on Connect, run the following command, replacing the value for `-ResourceGroupName` and `-Name` with your values:
+    1. To enable Start VM on Connect, run the following command, replacing the value for `--resource-group` and `--name` with your values:
     
           ```azurecli
           az desktopvirtualization hostpool update \
@@ -101,7 +101,7 @@ You need to make sure you have the names of the resource group and host pool you
                --start-vm-on-connect true
           ```
     
-    1. To disable Start VM on Connect, run the following command, replacing the value for `-ResourceGroupName` and `-Name` with your values:
+    1. To disable Start VM on Connect, run the following command, replacing the value for `--resource-group` and `--name` with your values:
     
           ```azurecli
           az desktopvirtualization hostpool update \
