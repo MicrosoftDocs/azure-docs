@@ -456,6 +456,9 @@ Additional things to note:
 
 * If your hub is connected to a large number of spoke virtual networks (60 or more), then you might notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
 
+### Why does the virtual hub router require a public IP address with opened ports?
+These public endpoints are required for Azure's underlying SDN and management platform to communicate with the virtual hub router. Because the virtual hub router is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage the hub router via its private endpoints due to compliance requirements. Connectivity to the hub router's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual hub. 
+
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 
 The route limit for OpenVPN clients is 1000.

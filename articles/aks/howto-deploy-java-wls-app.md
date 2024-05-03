@@ -48,7 +48,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
 - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
   - [Azure CLI](/cli/azure). Use `az --version` to test whether az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test whether Docker Daemon is running.
-  - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/). Use `kubectl version` to test whether kubectl works. This document was tested with version v1.21.2.
+  - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl). Use `kubectl version` to test whether kubectl works. This document was tested with version v1.21.2.
   - A Java JDK compatible with the version of WLS you intend to run. The article directs you to install a version of WLS that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed. Use `zip/unzip -v` to test whether `zip/unzip` works.
@@ -700,7 +700,7 @@ Use the following steps to verify the functionality of the deployment by viewing
    :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of weblogic-cafe test points." border="false":::
 
    > [!NOTE]
-   > The hyperlinks in the **Test Point** column are not selectable because we did notconfigure the admin console with the external URL on which it is running. This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
+   > The hyperlinks in the **Test Point** column are not selectable because we did not configure the admin console with the external URL on which it is running. This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
 
 1. Understand the `context-path` value of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
 1. Construct a fully qualified URL for the sample app by appending the `context-path` to the **clusterExternalUrl** value. If you deployed the recommended sample app, the fully qualified URL should be something like `http://wlsgw202401-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
