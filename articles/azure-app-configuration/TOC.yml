@@ -221,8 +221,6 @@
       href: howto-disable-public-access.md
     - name: Set up private access
       href: howto-set-up-private-access.md
-    - name: ASP.Net
-      href: set-up-experiments.aspnet.md
 - name: Reference
   items:
     - name: REST API
