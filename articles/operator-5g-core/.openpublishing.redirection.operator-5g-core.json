@@ -1,9 +1,0 @@
-{
-    "redirections": [
-        {
-            "source_path": "quickstart-complete-prerequistes-deploy-azure-kubernetes-service.md",
-            "redirect_url": "quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
-            "redirect_document_id": false
-        }
-    ]
-}
