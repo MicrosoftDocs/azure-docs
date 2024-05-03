@@ -37,9 +37,9 @@ To create a DSVM instance:
       * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
       * **Resource group**: Create a new group or use an existing one.
       * **Virtual machine name**: Enter the name of the VM. This name is used in your Azure portal.
-      * **Location**: Select the datacenter that's most appropriate. For fastest network access, the datacenter that hosts most of your data or is located closest to your physical location is the best choice. For more information, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Location**: Select the datacenter that's most appropriate. For fastest network access, the datacenter that hosts most of your data or is located closest to your physical location is the best choice. For more information, refer to [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Image**: Leave the default value.
-      * **Size**: This option should autopopulate with an appropriate size for general workloads. For more information, see [Windows VM sizes in Azure](../../virtual-machines/sizes.md)
+      * **Size**: This option should autopopulate with an appropriate size for general workloads. For more information, refer to [Windows VM sizes in Azure](../../virtual-machines/sizes.md)
       * **Username**: Enter the administrator username. You use this username to sign in to your VM. It doesn't need to match your Azure username.
       * **Password**: Enter the password you plan to use to sign in to your VM.
 1. Select **Review + create**.

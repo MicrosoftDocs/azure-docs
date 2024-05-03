@@ -18,7 +18,7 @@ Get up and running with the Ubuntu 20.04 Data Science Virtual Machine (DSVM) and
 
 ## Prerequisites
 
-You need an Azure subscription to create either an Ubuntu 20.04 DSVM or an Azure DSVM for PyTorch. [Try Azure for free](https://azure.com/free).
+You need an Azure subscription to create either an Ubuntu 20.04 Data Science Virtual Machine or an Azure DSVM for PyTorch. [Try Azure for free](https://azure.com/free).
 
 Azure free accounts don't support GPU-enabled virtual machine (VM) SKUs.
 
@@ -36,9 +36,9 @@ To create an instance of either the Ubuntu 20.04 DSVM or the Azure DSVM for PyTo
       * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
       * **Resource group**: Create a new group or use an existing one.
       * **Virtual machine name**: Enter the name of the VM. This name is used in your Azure portal.
-      * **Region**: Select the datacenter that's most appropriate. For fastest network access, the datacenter that hosts most of your data or is located closest to your physical location is the best choice. For more information, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Region**: Select the datacenter that's most appropriate. For fastest network access, the datacenter that hosts most of your data or is located closest to your physical location is the best choice. For more information, refer to [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Image**: Don't change the default value.
-      * **Size**: This option should autopopulate with a size that's appropriate for general workloads. For more information, see [Linux VM sizes in Azure](../../virtual-machines/sizes.md).
+      * **Size**: This option should autopopulate with a size that's appropriate for general workloads. For more information, refer to [Linux VM sizes in Azure](../../virtual-machines/sizes.md).
       * **Authentication type**: For quicker setup, select **Password**.
 
          > [!NOTE]
@@ -69,7 +69,7 @@ You can access the Ubuntu DSVM in one of four ways:
 
 ### SSH
 
-If you configured your VM with SSH authentication, you can sign in with the account credentials that you created in the **Basics** section of step 4 for the text shell interface. For more information, see [Learn more about connecting to a Linux VM](../../virtual-machines/linux-vm-connect.md).
+If you configured your VM with SSH authentication, you can sign in with the account credentials that you created in the **Basics** section of step 4 for the text shell interface. For more information, refer to [Learn more about connecting to a Linux VM](../../virtual-machines/linux-vm-connect.md).
 
 ### xrdp
 The standard tool for accessing Linux graphical sessions is xrdp. While the distro doesn't include this tool by default, [these instructions](../../virtual-machines/linux/use-remote-desktop.md) explain how to install it.
@@ -124,7 +124,7 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), whi
    
       If you receive a 500 error at this stage, you probably used capital letters in your username. This issue is a known interaction between JupyterHub and the PAM authenticator it uses.
    
-      If you receive a "Can't reach this page" error, it's likely that your network security group (NSG) permissions need adjustment. In the Azure portal, find the NSG resource within your resource group. To access JupyterHub from the public internet, you must have port 8000 open. (The image shows that this VM is configured for just-in-time access, which we highly recommend. For more information, see [Secure your management ports with just-in time access](../../security-center/security-center-just-in-time.md).)
+      If you receive a "Can't reach this page" error, it's likely that your network security group (NSG) permissions need adjustment. In the Azure portal, find the NSG resource within your resource group. To access JupyterHub from the public internet, you must have port 8000 open. (The image shows that this VM is configured for just-in-time access, which we highly recommend. For more information, refer to [Secure your management ports with just-in time access](../../security-center/security-center-just-in-time.md).)
       >
       > :::image type="content" source="./media/dsvm-ubuntu-intro/nsg-permissions.png" alt-text="Screenshot that shows NSG configuration values." lightbox= "./media/dsvm-ubuntu-intro/nsg-permissions.png":::
 
