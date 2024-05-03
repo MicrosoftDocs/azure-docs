@@ -1,16 +1,16 @@
 ---
 title: Vector search on Azure Database for PostgreSQL
 description: Enable semantic simiolarity search for Retrieval Augemented Generation (RAG) on Azure Database for PostgreSQL with pgvector database extension.
-ms.author: avijitgupta
 author: AvijitkGupta
-ms.reviewer: kabharati
+ms.author: avijitgupta
+ms.reviewer: kabharati, maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: how-to
 ms.custom:
   - build-2023
   - ignite-2023
-ms.topic: how-to
-ms.date: 03/01/2024
 ---
 
 # How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server

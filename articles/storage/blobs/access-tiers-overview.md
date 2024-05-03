@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 04/12/2024
+ms.date: 05/01/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: fryu
@@ -130,8 +130,11 @@ Keep in mind the following points when changing a blob's tier:
 
 Blob storage lifecycle management offers a rule-based policy that you can use to transition your data to the desired access tier when your specified conditions are met. You can also use lifecycle management to expire data at the end of its life. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.
 
-> [!NOTE]
-> Data stored in a premium block blob storage account cannot be tiered to hot, cool, cold or archive by using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from the block blob storage account to the hot tier in a different account using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The **Put Block From URL** API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+You can't rehydrate an archived blob to an online tier by using lifecycle management policies. Data stored in a premium block blob storage account cannot be tiered to hot, cool, cold or archive by using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from the block blob storage account to the hot tier in a different account using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The **Put Block From URL** API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+
+## Storage Actions
+
+While lifecycle management helps you move data between tiers in a single account, you can use a _storage task_ to accomplish this task at scale across multiple accounts. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 ## Summary of access tier options
 
