@@ -30,7 +30,7 @@ You can create custom filters based on action types and rule names. Metrics incl
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="Screenshot that shows the metrics for an Azure Front Door WAF.":::
 
-## JavaScript challenge metrics
+## JavaScript challenge (preview) metrics
 
 To access your JavaScript challenge WAF metrics:
 
