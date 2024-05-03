@@ -54,7 +54,7 @@ and Arc for Servers are included by default when clusters are created. The succe
 the cluster is designated as failed.
 
 * Optional Addons: These are supplementary resources associated with a Kubernetes Cluster resource. Nexus Kubernetes Cluster customers can choose to activate or deactivate these addons on demand. 
-Supplementary features like centralized local image caching within the cluster for disconnected scenarios.Customers install optional addons to access extra features. The status, health, 
+Supplementary features like centralized local image caching within the cluster for disconnected scenarios. Customers install optional addons to access extra features. The status, health, 
 and version of each required and optional addon can be monitored within Azure Resource Manager.
 
 Addons are installed once and only updated or upgraded when the customer upgrades the Nexus Kubernetes cluster. This setup enables customers to apply critical production hotfixes without interference from the nc-aks-operator, which could otherwise overwrite their cluster modifications.
