@@ -1,6 +1,6 @@
 ---
-title: Use generation 2 virtual machines in Azure Kubernetes Service (AKS)
-description: Learn how to use generation 2 virtual machines on Windows and Linux node pools in Azure Kubernetes Service (AKS).
+title: Use Generation 2 virtual machines in Azure Kubernetes Service (AKS)
+description: Learn how to use Generation 2 virtual machines on Windows and Linux node pools in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: azure-kubernetes-service
 ms.date: 05/03/2024
