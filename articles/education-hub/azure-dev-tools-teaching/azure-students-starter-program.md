@@ -29,7 +29,7 @@ A credit card isn't required for the Azure for Students Starter offer. However, 
 
 ## Related content
 
-- [Get help with sign-in errors](troubleshoot-login.md)
+- [Resolve sign-in problems](troubleshoot-login.md)
 - [Get an overview of the Azure for Students program](azure-students-program.md)
 - [Download software in the Azure for Students program](download-software.md)
 - [Access Microsoft Learn training materials](/training/)

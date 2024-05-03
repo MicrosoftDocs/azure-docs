@@ -22,7 +22,7 @@ For more information, see the [terms and conditions for the Azure for Students o
 
 ## Related content
 
-- [Get help with sign-in errors](troubleshoot-login.md)
+- [Resolve sign-in problems](troubleshoot-login.md)
 - [Download software in the Azure for Students program](download-software.md)
 - [Get an overview of the Azure for Students Starter program](azure-students-starter-program.md)
 - [Access Microsoft Learn training materials](/training/)

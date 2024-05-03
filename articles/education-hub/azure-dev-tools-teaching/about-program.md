@@ -34,7 +34,7 @@ Students don't need to sign up for an Azure subscription to access their softwar
 
 Software is accessible through an [Education Hub](https://azureforeducation.microsoft.com/devtools) that houses all products and services that are available to academic users. The Education Hub is built into the [Azure portal](https://portal.azure.com/). Students access software by simply signing in to the Azure portal with the same credentials that they use to access their Imagine subscription.
 
-## Why can't I purchase Azure Dev Tools for Teaching?
+## Eligibility to purchase Azure Dev Tools for Teaching
 
 Azure Dev Tools for Teaching is available to redeem only if you have a Volume Licensing agreement with Microsoft. [Learn more about Volume Licensing for educational institutions](https://aka.ms/ees).
 

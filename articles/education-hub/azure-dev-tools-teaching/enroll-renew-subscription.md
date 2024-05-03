@@ -48,7 +48,7 @@ Sixty days before your membership expires, you receive email reminders to renew 
 
 You can complete the renewal process as early as 90 days before the expiration date:
 
-1. Go to the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/Order).
+1. Go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/Order).
 
 1. On the Azure Dev Tools for Teaching banner, select **Renew an existing plan**.
 
@@ -58,7 +58,7 @@ You can complete the renewal process as early as 90 days before the expiration d
 
 1. Confirm all enrollment information, and then select **Confirm and Place Order**.
 
-## Next steps
+## Related content
 
 - [Set up access for Azure Dev Tools for Teaching](set-up-access.md)
 - [Manage student access](manage-students.md)
