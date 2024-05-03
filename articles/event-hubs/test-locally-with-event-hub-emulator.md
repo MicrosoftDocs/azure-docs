@@ -1,8 +1,6 @@
 # Test Event Hubs Locally with Event Hubs emulator 
 
-This article summarizes the steps to develop and test with local event hubs emulator. TO read more about Event hubs read :
-
-
+This article summarizes the steps to develop and test locally with local event hubs emulator. TO read more about Event hubs read :
 
 ## Pre-Requisites
 
@@ -43,14 +41,21 @@ Once the pre-requisites are complete, you could follow below manual steps to run
 
 `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser’`
 
-2. Download the repository and execute `~\Messaging-Emulator\EventHub\Execution_Scripts\Windows\LaunchEmulator.ps1` ; This script would fetch images and bring up 3 containers – EH Emulator, Azurite and SQL Edge (Dependencies for Emulator)
+2. Download the repository and execute `~\Messaging-Emulator\EventHub\Execution_Scripts\Windows\LaunchEmulator.ps1`.This would fetch images and bring up 2 containers – Event Hubs emulator & Azurite (dependency for Emulator)
 3. Once the steps are successful, you could find containers running in Docker Desktop.
 
 ### Linux
-Once the pre-requisites (Docker & Azure CLI) are complete, you could follow below manual steps to run Event Hubs emulator locally. 
+Once the pre-requisites  are complete, you could follow below manual steps to run Event Hubs emulator locally. 
 
-1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` ; this would fetch images and bring up 3 containers – EH Emulator, Azurite and SQL Edge (Dependencies for Emulator)
+1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` .This would fetch images and bring up 2 containers – Event Hubs emulator & Azurite (dependency for Emulator)
 2. Once the steps are successful, you could find containers running in Docker.
+
+### MacOS
+Once the pre-requisites  are complete, you could follow below manual steps to run Event Hubs emulator locally. 
+
+1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` .This would fetch images and bring up 2 containers – Event Hubs emulator & Azurite (dependency for Emulator)
+2. Once the steps are successful, you could find containers running in Docker.
+
 
 ### [Docker (Linux Container)](#tab/docker-linux-container)
 
@@ -115,43 +120,14 @@ networks:
 ---  
 ## Interacting with Emulator
 
-### [c#](#tab/SendSampleC#)
+For connecting to Emulator, you could use below connection string : 
+```
+"Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+```
+To get started, refer to our GitHub Samples - <add #link later>
 
-Emulator support through the C# Event-Hubs SDK is generally avalaible from version 5.11 for "Azure.Messaging.EventHubs" & "Azure.Messaging.EventHubs.Processor" NuGet packages.
+#Add Table for SDK details
 
-#### Send Events to emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
+## Next Steps
 
-#### Receive Events from emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
-### [Python](#tab/SendSamplePython)
-
-#### Send Events to emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
-#### Receive Events from emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
-### [C++](#tab/SendSampleC++)
-
-#### Send Events to emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
-#### Receive Events from emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
-### [Java](#tab/SendSampleJava)
-
-#### Send Events to emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
-#### Receive Events from emulator
-Once the emulator is running in docker, we could interact with it using client-side code. 
-
----
-*Bonus*: To make first round of testing easy, we have packaged a sample .NET Console application in [directory](EventHub/Samples/.NET/EventHubs-Emulator-Demo)
-
-
-## We love feedback!
-Want to suggest improvement or report a bug? You could open a new GitHub issue and we would be happy to assist you.< Add a link to EH public repo>
+Read more about Azure event hubs emulator - ##
