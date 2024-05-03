@@ -52,13 +52,13 @@ Yes, but you can use import/export. Once you update the client SDK, it creates d
 
 For direct send operations, there are no Notification Hubs-specific changes that need to be made on the client device. If you store installations or registrations with Azure Notification Hubs, you must let Notification Hubs know that you want to listen to the migrated platform (FCM v1). Regardless of whether you use Notification Hubs or Firebase directly, payload changes are required. See the [documentation on how to migrate to FCM v1](notification-hubs-gcm-to-fcm.md).
 
-### My PNS feedback shows "unknown error" when sending a FCM v1 message. What should I do to fix this?
+### My PNS feedback shows "unknown error" when sending an FCM v1 message. What should I do to fix this error?
 
 Azure Notification Hubs is working on a solution that reduces the number of times "unknown error" is shown. In the meantime, standard tier customers can use the [notification feedback API](/rest/api/notificationhubs/get-pns-feedback) to examine the responses.
 
 ### How can Xamarin customers migrate to FCM v1?
 
-Xamarin is currently being deprecated. Xamarin customers should migrate to MAUI, but MAUI is not currently supported by Azure Notification Hubs. It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
+Xamarin is now deprecated. Xamarin customers should migrate to MAUI, but MAUI is not currently supported by Azure Notification Hubs. It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
 
 ## Next steps
 
