@@ -298,7 +298,8 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
-1. In the search bar, enter *SAP*.
+1. In the search bar, enter *SAP*.![Uploading image.png…]()
+
 
 1. Select **Microsoft Sentinel for SAP** from the search results, and select **Open connector page**.
 
@@ -338,7 +339,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Copy the **Role assignment commands** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
@@ -351,7 +352,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
     >
     > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
-1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command** in step 2. For example:
+1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent deployment command** in step 2. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-agent.png" alt-text="Screenshot of the Agent command to copy in step 2.":::
 
@@ -367,13 +368,13 @@ This procedure describes how to create a new agent through the Azure portal, aut
     > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the [command line](#command-line-options) aren't displayed here.
     >
 
-1. On the VM where you plan to install the agent, open a terminal and run the **Agent command** that you'd copied in the previous step.
+1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 
     Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
 ### Connect to a new SAP system
 
@@ -450,7 +451,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Copy the **Role assignment commands** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
@@ -463,7 +464,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
     >
     > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
-1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command** in step 2. For example:
+1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent deployment command** in step 2. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-agent.png" alt-text="Screenshot of the Agent command to copy in step 2.":::
 
@@ -477,13 +478,13 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the [command line](#command-line-options) aren't displayed here.
 
-1. On the VM where you plan to install the agent, open a terminal and run the **Agent command** that you'd copied in the previous step.
+1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 
     Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
 ### Connect to a new SAP system
 
