@@ -327,7 +327,7 @@ Accessing logs on the VM can be difficult. To make diagnosing issues with ingest
 To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Colllect logs from text or JSON files](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-text-log)
 
 - When creating a table for storing the logs, you can follow the powershell instructions in the link above, or use the Log Analytics workspace portal view to create an `MMA-based` table
-  - This is a sample log file: <ingestion-agent-stdout.log>
+  - This is a sample log file: [ingestion-agent-logs](media/ingestion-agent-stdout.log)
   - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`
     ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/133898687/2278e6f7-c0ba-48a8-a540-545c7a4550a2)
   - No columns other than the defaults are required
