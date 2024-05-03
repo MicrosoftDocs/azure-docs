@@ -342,4 +342,4 @@ To publish changes to your static web app in Azure, commit and push your code to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Configure app settings](./application-settings.yml)

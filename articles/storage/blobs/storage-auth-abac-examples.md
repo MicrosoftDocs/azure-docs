@@ -1409,6 +1409,8 @@ Here are the settings to add this condition using the Azure portal.
 > | Operator | [ForAllOfAnyValues:StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#forallofanyvalues) |
 > | Value | {'metadata', 'snapshots', 'versions'} |
 
+:::image type="content" source="./media/storage-auth-abac-examples/blob-include-list-allow-portal.png" alt-text="Screenshot of condition editor in Azure portal showing a condition to allow a user to list blobs in a container and include metadata, snapshot, and version information." lightbox="./media/storage-auth-abac-examples/blob-include-list-allow-portal.png":::
+
 # [Portal: Code editor](#tab/portal-code-editor)
 
 To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
@@ -1466,6 +1468,8 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | [List blobs include](storage-auth-abac-attributes.md#list-blob-include) |
 > | Operator | [ForAllOfAllValues:StringNotEquals](../../role-based-access-control/conditions-format.md#forallofallvalues) |
 > | Value | {'metadata'} |
+
+:::image type="content" source="./media/storage-auth-abac-examples/blob-include-list-metadata-deny-portal.png" alt-text="Screenshot of condition editor in Azure portal showing a condition to restrict a user from listing blobs when metadata is included in the request." lightbox="./media/storage-auth-abac-examples/blob-include-list-metadata-deny-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 

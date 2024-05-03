@@ -5,6 +5,9 @@ ms.topic: article
 ms.subservice: aks-upgrade
 ms.custom:
 ms.date: 09/12/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Upgrade the OS version for your Azure Kubernetes Service (AKS) Windows workloads
@@ -123,3 +126,4 @@ In this article, you learned how to upgrade the OS version for Windows workloads
 
 <!-- LINKS - External -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
+

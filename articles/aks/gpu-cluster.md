@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-developer
 ms.date: 04/10/2023
+author: schaffererin
+ms.author: schaffererin
+
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -520,3 +523,4 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [NVadsA10]: /azure/virtual-machines/nva10v5-series
+

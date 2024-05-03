@@ -106,6 +106,9 @@ When the receiving client fails to process a message but wants the message to be
 
 If a receiving client fails to process a message and knows that redelivering the message and retrying the operation won't help, it can reject the message, which moves it into the dead-letter queue by calling the [DeadLetter](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deadlettermessageasync) API on the message, which also allows setting a custom property including a reason code that can be retrieved with the message from the dead-letter queue.
 
+> [!NOTE]
+> A dead-letter subqueue exists for a queue or a topic subscription only when you have the [dead-letter feature](service-bus-dead-letter-queues.md) enabled for the queue or subscription. 
+
 A special case of settlement is deferral, which is discussed in a [separate article](message-deferral.md).
 
 The `Complete`, `DeadLetter`, or `RenewLock` operations might fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.

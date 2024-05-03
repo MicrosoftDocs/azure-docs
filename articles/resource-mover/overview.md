@@ -66,6 +66,11 @@ Using Resource Mover, you can currently move the following resources across regi
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
 
+To move over services and resource not supported by Resource Mover or to move any service and resource by manual methods, see:
+
+- [Availability zone migration guidance overview for Microsoft Azure products and services](../reliability/availability-zones-migration-overview.md).
+- [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation)
+
 
 ## Next steps
 

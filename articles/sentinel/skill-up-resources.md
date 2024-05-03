@@ -10,7 +10,7 @@ ms.custom: fasttrack-edit
 
 # Microsoft Sentinel skill-up training 
 
-This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 modules that present relevant product documentation, blog posts, and other resources. 
+This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 self-paced modules that present relevant product documentation, blog posts, and other resources. 
 
 The modules listed here are split into five parts following the life cycle of a Security Operation Center (SOC):
 
@@ -99,7 +99,7 @@ Use Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft Defender XDR
 * View the Better Together webinar ["OT and IOT attack detection, investigation, and response."](https://youtu.be/S8DlZmzYO2s)
 
 
-#### To monitor your multi-cloud workloads
+#### To monitor your multicloud workloads
 
 The cloud is (still) new and often not monitored as extensively as on-premises workloads. Read this [presentation](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/AzureSentinelBlog/243/1/L400-P2%20Use%20cases.pdf) to learn how Microsoft Sentinel can help you close the cloud monitoring gap across your clouds.
 
@@ -127,7 +127,7 @@ You can also send the alerts from Microsoft Sentinel to your third-party SIEM or
 #### For MSSPs
 Because it eliminates the setup cost and is location agnostic, Microsoft Sentinel is a popular choice for providing SIEM as a service. You'll find a [list of MISA (Microsoft Intelligent Security Association) member-managed security service providers (MSSPs) that use Microsoft Sentinel](https://www.microsoft.com/security/blog/2020/07/14/microsoft-intelligent-security-association-managed-security-service-providers/). Many other MSSPs, especially regional and smaller ones, use Microsoft Sentinel but aren't MISA members.
 
-To start your journey as an MSSP, read the [Microsoft Sentinel Technical Playbooks for MSSPs](https://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, which covers cloud architecture and multi-tenant support.  
+To start your journey as an MSSP, read the [Microsoft Sentinel Technical Playbooks for MSSPs](https://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, which covers cloud architecture and multitenant support.  
 
 ## Part 2: Architecting and deploying
 

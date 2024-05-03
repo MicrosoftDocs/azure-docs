@@ -5,10 +5,10 @@ author: sethmanheim
 manager: femila
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 03/01/2024
+ms.date: 04/12/2024
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 03/01/2024
+ms.lastreviewed: 04/12/2024
 ---
 
 # Google Firebase Cloud Messaging migration using REST API and the Azure portal
@@ -158,26 +158,28 @@ If you have an existing GCM registration, update the registration to **FcmV1Regi
 
 ```xml
 // FcmV1Registration 
-<?xml version="1.0" encoding="utf-8"?> 
-<entry xmlns="http://www.w3.org/2005/Atom"> 
-    <content type="application/xml"> 
-        <FcmV1RegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"> 
-   <Tags>myTag, myOtherTag</Tags> 
-            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId> 
-        </FcmV1RegistrationDescription> 
-    </content> 
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <FcmV1RegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">
+            <Tags>myTag, myOtherTag</Tags>
+            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>
+        </FcmV1RegistrationDescription>
+    </content>
 </entry> 
 
 // FcmV1TemplateRegistration 
-<?xml version="1.0" encoding="utf-8"?> 
-<entry xmlns="http://www.w3.org/2005/Atom"> 
-    <content type="application/xml"> 
-        <FcmV1TemplateRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"> 
-            <Tags>myTag, myOtherTag</Tags> 
-            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>  
-            <BodyTemplate><![CDATA[ {BodyTemplate}]]></BodyTemplate> 
-        </ FcmV1TemplateRegistrationDescription > 
-    </content> 
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <FcmV1TemplateRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">
+            <Tags>myTag, myOtherTag</Tags>
+            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>
+            <BodyTemplate><![CDATA[ {BodyTemplate}]]></BodyTemplate>
+        </FcmV1TemplateRegistrationDescription>
+    </content>
 </entry>
 ```
 

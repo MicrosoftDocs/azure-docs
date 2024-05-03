@@ -13,6 +13,8 @@ ms.author: tehnoonr
 
 # Failed to update API Management service hostnames
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article describes the "Failed to update API Management service hostnames" error that you may experience when you add a custom domain for the Azure API Management service. This article provides troubleshooting steps to help you resolve the issue.
 
 ## Symptoms

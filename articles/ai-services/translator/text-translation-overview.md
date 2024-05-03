@@ -18,7 +18,7 @@ ms.author: lajanuar
 Text translation documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-text-rest-api.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**How-to guides**](create-translator-resource.yml). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Text translation features
@@ -82,9 +82,9 @@ Text Translation data residency depends on the Azure region where your Translato
 
 Ready to begin?
 
-* [**Create a Translator resource**](create-translator-resource.md "Go to the Azure portal.") in the Azure portal.
+* [**Create a Translator resource**](create-translator-resource.yml "Go to the Azure portal.") in the Azure portal.
 
-* [**Get your access keys and API endpoint**](create-translator-resource.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
+* [**Get your access keys and API endpoint**](create-translator-resource.yml#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
 
 * Explore our [**Quickstart**](quickstart-text-rest-api.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
   * [**C#/.NET**](quickstart-text-rest-api.md?tabs=csharp)

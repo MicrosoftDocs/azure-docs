@@ -123,7 +123,7 @@ Use the following steps to upload your certificate to key vault:
 1. Under **Password**, if you're uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault removes that password.
 1. Select **Create**.
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-a.png" alt-text="Screenshot of the Create a certificate pane." lightbox="./media/how-to-custom-domain/import-certificate-a.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-a.png" alt-text="Screenshot of the Azure portal Create a certificate dialog box." lightbox="./media/how-to-custom-domain/import-certificate-a.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -159,9 +159,9 @@ use the following steps to grant access using the Azure portal:
    > [!NOTE]
    > If you don't find the "Azure Spring Apps Domain-Management", search for "Azure Spring Cloud Domain-Management".
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-b.png" alt-text="Screenshot of the Azure portal Create an access policy page with Get and List options for Secret permissions and Certificate permissions highlighted." lightbox="./media/how-to-custom-domain/import-certificate-b.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-b.png" alt-text="Screenshot of the Azure portal Add Access Policy page with Get and List selected from Secret permissions and from Certificate permissions." lightbox="./media/how-to-custom-domain/import-certificate-b.png":::
 
-   :::image type="content" source="./media/how-to-custom-domain/import-certificate-c.png" alt-text="Screenshot of the Azure portal that shows the Create Access Policy page for a key vault with Azure Spring Cloud Domain-Management selected." lightbox="./media/how-to-custom-domain/import-certificate-c.png":::
+   :::image type="content" source="./media/how-to-custom-domain/import-certificate-c.png" alt-text="Screenshot of the Azure portal Create Access Policy page with Azure Spring Apps Domain-management selected from the Select a principal dropdown." lightbox="./media/how-to-custom-domain/import-certificate-c.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -190,15 +190,15 @@ az keyvault set-policy \
 
 1. On the **Select certificate from Azure** page, select the **Subscription**, **Key Vault**, and **Certificate** from the drop-down options, and then choose **Select**.
 
-   :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
+   :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal that shows the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
 1. On the opened **Set certificate name** page, enter your certificate name, select **Enable auto sync** if needed, and then select **Apply**. For more information, see the [Auto sync certificate](#auto-sync-certificate) section.
 
-   :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of the Set certificate name dialog box.":::
+   :::image type="content" source="./media/how-to-custom-domain/set-certificate-name.png" alt-text="Screenshot of the Azure portal Set certificate name dialog box.":::
 
 1. When you have successfully imported your certificate, it displays in the list of **Private Key Certificates**.
 
-   :::image type="content" source="./media/how-to-custom-domain/key-certificates.png" alt-text="Screenshot of a private key certificate.":::
+   :::image type="content" source="./media/how-to-custom-domain/key-certificates.png" alt-text="Screenshot of the Azure portal that shows the Private Key Certificates tab.":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -306,10 +306,11 @@ You can use a CNAME record to map a custom DNS name to Azure Spring Apps.
 
 ### Create the CNAME record
 
-Go to your DNS provider and add a CNAME record to map your domain to the `<service-name>.azuremicroservices.io`. Here, `<service-name>` is the name of your Azure Spring Apps instance. We support wildcard domain and sub domain.
+Go to your DNS provider and add a CNAME record to map your domain to `<service-name>.azuremicroservices.io`. Here, `<service-name>` is the name of your Azure Spring Apps instance. We support wildcard domain and sub domain.
+
 After you add the CNAME, the DNS records page resembles the following example:
 
-:::image type="content" source="./media/how-to-custom-domain/dns-records.png" alt-text="Screenshot of a DNS records page." lightbox="./media/how-to-custom-domain/dns-records.png":::
+:::image type="content" source="./media/how-to-custom-domain/dns-records.png" alt-text="Screenshot of the DNS records page that shows the Azure Spring Apps instance." lightbox="./media/how-to-custom-domain/dns-records.png":::
 
 ## Map your custom domain to Azure Spring Apps app
 
@@ -322,17 +323,17 @@ Go to application page.
 1. Select **Custom Domain**.
 2. Then **Add Custom Domain**.
 
-   :::image type="content" source="./media/how-to-custom-domain/custom-domain.png" alt-text="Screenshot of a custom domain page." lightbox="./media/how-to-custom-domain/custom-domain.png":::
+   :::image type="content" source="./media/how-to-custom-domain/custom-domain.png" alt-text="Screenshot of the Azure portal that shows the Custom domain page." lightbox="./media/how-to-custom-domain/custom-domain.png":::
 
 3. Type the fully qualified domain name for which you added a CNAME record, such as www.contoso.com. Make sure that Hostname record type is set to CNAME (`<service-name>.azuremicroservices.io`)
 4. Select **Validate** to enable the **Add** button.
 5. Select **Add**.
 
-   :::image type="content" source="./media/how-to-custom-domain/add-custom-domain.png" alt-text="Screenshot of the Add custom domain pane.":::
+   :::image type="content" source="./media/how-to-custom-domain/add-custom-domain.png" alt-text="Screenshot of the Azure portal Add custom domain dialog box.":::
 
 One app can have multiple domains, but one domain can only map to one app. When you successfully mapped your custom domain to the app, it displays on the custom domain table.
 
-:::image type="content" source="./media/how-to-custom-domain/custom-domain-table.png" alt-text="Screenshot of the custom domain table." lightbox="./media/how-to-custom-domain/custom-domain-table.png":::
+:::image type="content" source="./media/how-to-custom-domain/custom-domain-table.png" alt-text="Screenshot of the Azure portal that shows a custom domain table." lightbox="./media/how-to-custom-domain/custom-domain-table.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -370,7 +371,7 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 1. Select your **Certificate** or import it.
 1. Select **Save**.
 
-   :::image type="content" source="./media/how-to-custom-domain/add-ssl-binding.png" alt-text="Screenshot of the SSL Binding pane.":::
+   :::image type="content" source="./media/how-to-custom-domain/add-ssl-binding.png" alt-text="Screenshot of the Azure portal that shows the TLS/SSL binding pane.":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -390,7 +391,7 @@ az spring app custom-domain update \
 
 After you successfully add SSL binding, the domain state is secure: **Healthy**.
 
-:::image type="content" source="./media/how-to-custom-domain/secured-domain-state.png" alt-text="Screenshot of an SSL binding." lightbox="./media/how-to-custom-domain/secured-domain-state.png":::
+:::image type="content" source="./media/how-to-custom-domain/secured-domain-state.png" alt-text="Screenshot of an SSL binding that shows the domain state Healthy." lightbox="./media/how-to-custom-domain/secured-domain-state.png":::
 
 ## Enforce HTTPS
 

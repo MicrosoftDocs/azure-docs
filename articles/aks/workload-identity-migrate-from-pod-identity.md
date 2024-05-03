@@ -5,6 +5,9 @@ ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 07/31/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Migrate from pod managed-identity to workload identity
@@ -233,3 +236,4 @@ This article showed you how to set up your pod to authenticate using a workload 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
+

@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Metrics retirements (August 2023)
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 Azure API Management integrates natively with Azure Monitor and emits metrics every minute, giving customers visibility into the state and health of their APIs. The following five legacy metrics have been deprecated since May 2019 and will no longer be available after 31 August 2023:
 
 * Total Gateway Requests
