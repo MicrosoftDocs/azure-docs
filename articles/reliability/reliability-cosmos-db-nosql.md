@@ -162,9 +162,9 @@ Consult the table below to estimate the impact of using availability zones in yo
 |----|---|---|
 | [Asynchronous (Bounded Staleness or weaker)](/azure/cosmos-db/consistency-levels#bounded-staleness-consistency) |Any number of secondary read regions.| Provides minimal value because the SDK already provides seamless redirects for reads when a read region fails.|
 | [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) |Two or more secondary read regions| Provides marginal value because the system can leverage dynamic quorum should a read region lose availability which allows for writes to continue.|
-| Synchronous (Strong) |One secondary read region.| Provides greater value because the loss of a read region in this scenario can impact write availability.|
-| All |Write regions and any number of secondary regions| Provides greater value.|
-| All |Single region| Provides greatest value.|
+| Synchronous (Strong) |One secondary read region| Provides greater value because the loss of a read region in this scenario can impact write availability.|
+| All |Write regions and any number of secondary regions| Ensures greater availability for write operations for zonal failures. |
+| All |Single region | Single region cannot benefit from multi-region failover capability. Using availability zones guards against total availability loss due to zonal failure.|
 
 
 
