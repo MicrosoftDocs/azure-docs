@@ -14,11 +14,11 @@ Considerations and limitations:
 
 * A P2S VPN gateway can only support one Audience value. It can't support multiple Audience values simultaneously.
 
-* At this time, the newer Microsoft-registered app doesn't support as many Audience values as the older, manually registered app. If you need an Audience value for anything other than Azure Public or a Custom audience value, use the older manually registered method and values.
+* At this time, the newer Microsoft-registered App ID doesn't support as many Audience values as the older, manually registered app. If you need an Audience value for anything other than Azure Public or a Custom audience value, use the older manually registered method and values.
 
 * The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. The Linux client does support custom Audience values.
 
-* The latest version of the Azure VPN Client for both Windows and macOS are backward compatible. To use the appropriate Audience value for the Microsoft-registered app, you must update the Azure VPN Client to the latest version.
+* The latest version of the Azure VPN Client for both Windows and macOS are backward compatible. To use the appropriate Audience value for the Microsoft-registered App ID, you must update the Azure VPN Client to the latest version.
 
 The following table shows the versions of the Azure VPN Client that are supported for each App ID and the corresponding available Audience values.
 

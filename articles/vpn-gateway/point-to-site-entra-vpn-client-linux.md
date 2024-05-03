@@ -1,6 +1,6 @@
 ---
 title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - Linux'
-description: Learn how to configure the Linux Azure VPN Client for Microsoft Entra ID authentication for gateways configured to use the Microsoft-registered Enterprise App.
+description: Learn how to configure the Linux Azure VPN Client for Microsoft Entra ID authentication for gateways configured to use the Microsoft-registered Azure VPN Client App ID.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This article helps you configure the Azure VPN Client on a Linux computer (Ubuntu) to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra ID authentication. For more information about point-to-site connections, see [About Point-to-Site connections](point-to-site-about.md).
 
-[!INCLUDE [Microsoft Entra ID Enterprise registered](../../includes/vpn-gateway-entra-registered-app-openvpn-note.md)]
+[!INCLUDE [Note - applies to Microsoft-registered App ID](../../includes/vpn-gateway-entra-registered-app-openvpn-note.md)]
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ If you used the P2S server configuration steps as mentioned in the [Prerequisite
 
 In this section, you configure the Azure VPN client for Linux.
 
-* If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered app for Azure VPN Client](point-to-site-entra-registered-app.md#about-the-microsoft-registered-app-for-azure-vpn-client).
+* If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered App ID for Azure VPN Client](point-to-site-entra-registered-app.md#about-the-microsoft-registered-app-for-azure-vpn-client).
 
 * For Microsoft Entra ID authentication, use the **azurevpnconfig_aad.xml** file. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
