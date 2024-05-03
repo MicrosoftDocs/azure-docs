@@ -12,17 +12,17 @@ ms.service: kubernetes-fleet
 
 # Upgrade an Azure Kubernetes Fleet Manager resource from hubless to hubful
 
-In this article, you'll learn how to upgrade an Azure Kubernetes Fleet Manager (Fleet) resource from hubless to hubful. Fleet resources are hubless by default, which means they don't rely on a central Azure Kubernetes Service (AKS) cluster. A hubful fleet uses an AKS cluster to store and propagate configuration details to enable the full Fleet feature set, which includes scenarios such as workload orchestration and layer-4 load balancing.
+In this article, you learn how to upgrade an Azure Kubernetes Fleet Manager (Fleet) resource from hubless to hubful. Fleet resources are hubless by default, which means they don't rely on a central Azure Kubernetes Service (AKS) cluster. A hubful fleet uses an AKS cluster to store and propagate configuration details to enable the full Fleet feature set, which includes scenarios such as workload orchestration and layer-4 load balancing.
 
-For more details, see [Choosing an Azure Kubernetes Fleet Manager option][concepts-choose-fleet].
+For more information, see [Choosing an Azure Kubernetes Fleet Manager option][concepts-choose-fleet].
 
 ## Prerequisites and limitations
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- You must have an existing hubless fleet resource. The steps in this article will show you how to create a hubless fleet, but you already have one you can substitute your existing resource.
-- This article also includes steps on joining member clusters. If you plan to follow along, you'll need at least one AKS cluster.
+- You must have an existing hubless fleet resource. The steps in this article show you how to create a hubless fleet, but you already have one you can substitute your existing resource.
+- This article also includes steps on joining member clusters. If you plan to follow along, you need at least one AKS cluster.
 
 - Hubless fleet resources can be upgraded to hubful, but hubful resources cannot be downgraded to hubless.
 - All configuration options and settings associated with hubful fleets are immutable and cannot be changed after creation or upgrade time.
@@ -62,7 +62,7 @@ az fleet create -n $FLEET -g $RG --enable-hub --dns-name-prefix ${USER}
 
 ## Validate the upgrade
 
-After running the `az fleet create` command to upgrade the fleet resource, verify that the upgrade succeeded by viewing the output. The `provisioningState` should read `Succeeded` and the `hubProfile` field should exist. For example, see the following output, which has been truncated for readability:
+After running the `az fleet create` command to upgrade the fleet resource, verify that the upgrade succeeded by viewing the output. The `provisioningState` should read `Succeeded` and the `hubProfile` field should exist. For example, see the following output:
 
 ```bash
 {
@@ -112,11 +112,11 @@ For each member cluster that you rejoin to the newly upgraded fleet, view the ou
 
 ## Verify functionality
 
-To verify that your newly upgraded fleet resource is functioning properly and member clusters have joined succesfully, you can follow the steps in [Kubernetes workload orchestration][workload-orchestration].
+To verify that your newly upgraded fleet resource is functioning properly and member clusters joined successfully, you can follow the steps in [Kubernetes workload orchestration][workload-orchestration].
 
 ## Clean up resources
 
-Once you're finished, you can remove the fleet resource and related resources by deleting the resource group. Keep in mind that if your AKS clusters reside in a different resource group, they won't be removed.
+Once you're finished, you can remove the fleet resource and related resources by deleting the resource group. Keep in mind that this operation won't remove your AKS clusters if they reside in a different resource group.
 
 ```azurecli-interactive
 az group delete -n $RG
@@ -124,7 +124,7 @@ az group delete -n $RG
 
 ## Next steps
 
-Now that you've upgraded from a hubless to a hubful fleet resource, you can take advantage of features that were previously unavailable to you. For example, see:
+Now that your hubless fleet resource is upgraded to a hubful fleet resource, you can take advantage of features that were previously unavailable to you. For example, see:
 
 > [!div class="nextstepaction"]
 > [Layer-4 load balancing across Fleet member clusters](l4-load-balancing.md)
