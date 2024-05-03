@@ -69,9 +69,9 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
 2. Forward SonicWall Firewall Common Event Format (CEF) logs to Syslog agent
 
-Set your SonicWall Firewall to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.
+   Set your SonicWall Firewall to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.
 
- Follow Instructions . Then Make sure you select local use 4 as the facility. Then select ArcSight as the Syslog format.
+    Follow Instructions . Then Make sure you select local use 4 as the facility. Then select ArcSight as the Syslog format.
 
 3. Validate connection
 
