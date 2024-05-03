@@ -70,8 +70,8 @@ If your file upload fails, you can view the error message under “data files”
 
 - **Bad data:** A poorly curated or unrepresentative dataset will produce a low-quality model. Your model may learn inaccurate or biased patterns from your dataset. For example, if you are training a chatbot for customer service, but only provide training data for one scenario (e.g. item returns) it will not know how to respond to other scenarios. Or, if your training data is bad (contains incorrect responses), your model will learn to provide incorrect results.
 
-
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
 - Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)
+- Learn more about [Azure OpenAI quotas](../quotas-limits.md)

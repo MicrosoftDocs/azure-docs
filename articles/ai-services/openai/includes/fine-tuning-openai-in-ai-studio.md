@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Include file
+ description: Include file
  author: mrbullwinkle
  ms.author: mbullwin
  ms.service: azure-ai-studio
@@ -17,7 +17,7 @@
 - An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor** role on the Azure OpenAI resource.
 - If you don't already have access to view quota and deploy models in Azure AI Studio you need [more permissions](../how-to/role-based-access-control.md).
-- An Azure AI project (https://learn.microsoft.com/en-us/azure/ai-studio/how-to/create-projects) with a connection to the Azure OpenAI resource (https://learn.microsoft.com/en-us/azure/ai-studio/how-to/connections-add?tabs=azure-openai#connection-details)  
+- An Azure AI project (/azure/ai-studio/how-to/create-projects) with a connection to the Azure OpenAI resource (/azure/ai-studio/how-to/connections-add?tabs=azure-openai#connection-details)  
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
@@ -61,7 +61,7 @@ Different model types require a different format of training data.
 
 The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `gpt-35-turbo-0613` the fine-tuning dataset must be formatted in the conversational format that is used by the [Chat completions](../how-to/chatgpt.md) API.
 
-If you would like a step-by-step walk-through of fine-tuning a `gpt-35-turbo-0613` model please refer to the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md)
+If you would like a step-by-step walk-through of fine-tuning a `gpt-35-turbo-0613` model please refer to the [Azure OpenAI fine-tuning tutorial.](../tutorials/fine-tune.md)
 
 ### Example file format
 
@@ -164,7 +164,7 @@ To fine-tune an Azure OpenAI model in an existing Azure AI Studio project, follo
 ### Choose your training data
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane displays any existing, previously uploaded datasets and also provides options to upload new training data.
 
-:::image type="content" source="../media/fine-tuning/studio-training-data.png" alt-text="Screenshot of the Training data pane for the Fine-tune model wizard in Azure AI Studio." lightbox="../media/fine-tuning/ai-studio/training-data.png":::
+:::image type="content" source="../media/fine-tuning/studio-training-data-local.png" alt-text="Screenshot of the Training data pane for the Fine-tune model wizard in Azure AI Studio." lightbox="../media/fine-tuning/ai-studio/training-data-local.png":::
 
 - If your training data is already in your project, select **Data in Azure AI Studio**.
 
@@ -177,7 +177,7 @@ The next step is to either choose existing prepared training data or upload new 
    - For large data files, we recommend that you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob Storage, see [What is Azure Blob Storage](../../../storage/blobs/storage-blobs-overview.md)?
 > [!NOTE]
 > Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 512 MB in size.
-    :::image type="content" source="../media/fine-tuning/ai-studio/fine-tune-training-data.png" alt-text="Screenshot of option to upload training data locally." lightbox="../media/fine-tuning/ai-studio/fine-tune-training-data-local.png":::
+    :::image type="content" source="../media/fine-tuning/ai-studio/fine-tune-training-data-preview.png" alt-text="Screenshot of option to upload training data locally." lightbox="../media/fine-tuning/ai-studio/fine-tune-training-data-preview.png":::
 
 After uploading files, you will see a preview of your training data. Select **Next** to continue.
 
@@ -209,9 +209,6 @@ You can choose to leave the default configuration or customize the values to you
 
 Review your choices and select **Submit** to start training your new fine-tuned model.
 
- :::image type="content" source="../media/fine-tuning/ai-studio/fine-tune-review-settings.png" alt-text="Screenshot of the review fine-tuning settings page." lightbox="../media/fine-tuning/ai-studio/fine-tune-review-settings.png":::
-
-
 ## Check the status of your fine-tuned model
 
 After you submit your fine-tuning job, you see a page with details about your fine-tuned model. You can find the status and more information about your fine-tuned model on the **Build** > **Fine-tuning** > **Models** page in Azure AI Studio.
@@ -238,7 +235,7 @@ The result file is a CSV file that contains a header row and a row for each trai
 
 You can also view the data in your results.csv file as plots in Azure AI Studio under the **Metrics** tab of your fine-tuned model. Select the link for your trained model, and you will see three charts: loss, mean token accuracy, and token accuracy. If you provided validation data, both datasets will appear on the same plot.
 
-Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data, that may indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
+Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data that may indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
 
 ## Deploy a fine-tuned model
 
@@ -278,9 +275,3 @@ You can delete a fine-tuned model on the **Fine-tuning** page in Azure AI Studio
 ### Delete your training files
 
 You can optionally delete training and validation files that you uploaded for training, and result files generated during training. For this you need to go to Azure OpenAI Studio and navigate to the **Management** > **Data files** pane. Select the file to delete, and then select **Delete** to delete the file.
-
-## Next steps
-
-- Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)
-- Learn more about [Azure OpenAI quotas](../quotas-limits.md)
