@@ -315,7 +315,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 ## Next steps
 
-[Convert your data to FHIR](convert-data.md)
+[Convert your data to FHIR](convert-data-overview.md)
 
 [Configure export settings and set up a storage account](configure-export-data.md)
 

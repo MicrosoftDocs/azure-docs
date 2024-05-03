@@ -32,8 +32,6 @@ However, the `$convert-data` operation itself isn't an ETL pipeline.
 
 There's an example published in the [Azure Data Factory template gallery](../../data-factory/solution-templates-introduction.md#template-gallery) named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. When you’re in the Azure Data Factory template gallery, you can search for the template.
 
-:::image type="content" source="media/convert-data/convert-data-faq/azure-data-factory-template-gallery.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/convert-data-faq/azure-data-factory-template-gallery.png"::: 
-
 > [!IMPORTANT]
 > The purpose of this template is to help you get started with an ETL pipeline. Any steps in this pipeline can be removed, added, edited, or customized to fit your needs.  
 >

@@ -135,8 +135,6 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 2. Change the **Status** to **On** and select **Save** to enable the system-managed identity in the FHIR service.
 
-:::image type="content" source="media/convert-data/convert-data-configuration/fhir-managed-identity-enabled.png" alt-text="Screenshot of the FHIR pane for enabling the managed identity feature." lightbox="media/convert-data/convert-data-configuration/fhir-managed-identity-enabled.png":::
-
 ### Step 4: Provide Azure Container Registry access to the FHIR service managed identity
 
 1. In your resource group, go to your **Container Registry** instance, and then select the **Access control (IAM)** tab.
@@ -168,8 +166,6 @@ To use the Azure portal:
 1. In your FHIR service instance, under **Transfer and transform data**, select **Artifacts**. A list of currently registered Azure Container Registry servers is displayed. 
 3. Select **Add** and then, in the dropdown list, select your registry server. 
 4. Select **Save**. 
-
-   :::image type="content" source="media/convert-data/convert-data-configuration/fhir-acr-add-registry.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/convert-data-configuration/fhir-acr-add-registry.png":::
 
 You can register up to 20 ACR servers in the FHIR service.
 

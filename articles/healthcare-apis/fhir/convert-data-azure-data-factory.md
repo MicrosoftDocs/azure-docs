@@ -19,7 +19,7 @@ In this article, we detail how to use [Azure Data Factory (ADF)](../../data-fact
 
 Before getting started, do these steps:
 
-1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [`$convert-data`](overview-of-convert-data.md) operation.
+1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [`$convert-data`](convert-data-overview.md) operation.
 2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](convert-data-configuration.md#default-templates) for conversion. If your use case requires customized templates, set up your [Azure Container Registry instance to host your own templates](convert-data-configuration.md#host-your-own-templates) to be used for the conversion operation. 
 3. Create storage accounts with [Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container to store the data to read from and write to.
 
@@ -190,7 +190,7 @@ Successful pipeline executions result in the transformed FHIR R4 bundles as JSON
 
 ### Errors
 
-Errors encountered during conversion, as part of the pipeline execution, result in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container. For information on how to troubleshoot `$convert-data`, see [Troubleshoot $convert-data](troubleshoot-convert-data.md).
+Errors encountered during conversion, as part of the pipeline execution, result in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container. For information on how to troubleshoot `$convert-data`, see [Troubleshoot $convert-data](convert-data-troubleshoot.md).
 
 :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png" alt-text="Screenshot showing Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png":::
 
