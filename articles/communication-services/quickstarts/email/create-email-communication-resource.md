@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-azcli-csharp-ps
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
@@ -29,7 +29,7 @@ Get started with Email by provisioning your first Email Communication Service re
 [!INCLUDE [Azure CLI](./includes/create-email-resource-az-cli.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="platform-net"
 [!INCLUDE [.NET](./includes/create-email-resource-dot-net.md)]
 ::: zone-end
 

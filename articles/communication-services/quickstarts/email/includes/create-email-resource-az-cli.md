@@ -65,7 +65,7 @@ If you want to clean up and remove an Email Communication Services subscription,
 az communication email delete --name "<EmailServiceName>" --resource-group "<resourceGroup>"
 ```
 
-[Deleting the resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it.
+[Deleting the resource group](../../../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it.
 
 > [!NOTE]
 > Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
