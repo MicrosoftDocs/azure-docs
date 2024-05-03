@@ -1,9 +1,9 @@
 ---
-author: tamram
+author: pauljewellmsft
 ms.service: azure-storage
 ms.topic: include
-ms.date: 03/09/2020
-ms.author: tamram
+ms.date: 05/03/2024
+ms.author: pauljewell
 ---
 
 The following table describes capacity, scalability, and performance targets for Table storage.
