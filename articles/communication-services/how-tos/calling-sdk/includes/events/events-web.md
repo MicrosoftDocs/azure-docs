@@ -146,7 +146,7 @@ call.on('stateChanged', (async (connectionStateChangedEvent) => {
   }
 });
 ```
-</detail>
+</details>
 
 
 
@@ -169,7 +169,6 @@ call.on('idChanged', (async (callIdChangedEvent) => {
   callId = call.id; // You can log it as the call ID is useful for debugging call issues
 });
 ```
-
 </details>
 
 #### Event: `isMutedChanged`
