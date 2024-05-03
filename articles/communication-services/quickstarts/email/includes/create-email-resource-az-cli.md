@@ -14,7 +14,7 @@ ms.author: v-vprasannak
 
 ## Create Email Communication Services resource
 
-To create an Email Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. Run the following command to create the resource:
+To create an Email Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. To create the resource, run the following command: 
 
 ```azurepowershell-interactive
 az communication email create --name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
@@ -22,7 +22,7 @@ az communication email create --name "<EmailServiceName>" --location "Global" --
 
 If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication email create --name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionId>"
+az communication email create --name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 You can configure your Email Communication Services resource with the following options:
@@ -43,7 +43,7 @@ az communication email update --name "<EmailServiceName>" --tags newTag="newVal1
 az communication email update --name "<EmailServiceName>" --tags newTag="newVal2" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
-To list all of your Email Communication Service Resources in a given Resource group use the following command:
+To list all of your Email Communication Service Resources in a given Resource group, use the following command:
 
 ```azurepowershell-interactive
 az communication email list --resource-group "<resourceGroup>"
@@ -56,5 +56,18 @@ az communication email show --name "<EmailServiceName>" --resource-group "<resou
 
 az communication email show --name "<EmailServiceName>" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
+
+## Clean up resource
+
+If you want to clean up and remove an Email Communication Services subscription, you can delete the resource or resource group. You can delete your email communication resource by running the following command.
+
+```azurecli-interactive
+az communication email delete --name "<EmailServiceName>" --resource-group "<resourceGroup>"
+```
+
+[Deleting the resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it.
+
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 For information on other commands, see [Email Communication CLI](/cli/azure/communication/email).

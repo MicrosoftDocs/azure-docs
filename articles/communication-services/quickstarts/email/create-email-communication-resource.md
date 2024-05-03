@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-azcli-net-ps
+zone_pivot_groups: acs-plat-azp-azcli-csharp-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
@@ -19,36 +19,23 @@ ms.devlang: azurecli
 Get started with Email by provisioning your first Email Communication Service resource. Provision Email Communication Service resources through the [Azure portal](https://portal.azure.com/) or with the .NET management client library. The management client library and the Azure portal enable you to create, configure, update, and delete your resources and interface with [Azure Resource Manager](../../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functions available in the client libraries are available in the Azure portal.
 
 > [!WARNING]
-> Note that it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already, must be used.
+> Note that it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already must be used.
 
-::: zone pivot="platform-azp"
-[!INCLUDE [Azure portal](./includes/create-email-resource-azp.md)]
+::: zone pivot="platform-azportal"
+[!INCLUDE [Azure portal](./includes/create-email-resource-azportal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE [Azure CLI](./includes/create-email-resource-az-cli.md)]
 ::: zone-end
 
-::: zone pivot="platform-net"
-[!INCLUDE [.NET](./includes/create-email-resource-net.md)]
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [.NET](./includes/create-email-resource-dot-net.md)]
 ::: zone-end
 
 ::: zone pivot="platform-powershell"
 [!INCLUDE [PowerShell](./includes/create-email-resource-powershell.md)]
 ::: zone-end
-
-## Clean up resources
-
-If you want to clean up and remove an Email Communication Services subscription, you can delete the resource or resource group. You can delete your email communication resource by running the following command.
-
-```azurecli-interactive
-az communication email delete --name "<EmailServiceName>" --resource-group "<resourceGroup>
-```
-
-[Deleting the resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it.
-
-> [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 ## Next steps
 

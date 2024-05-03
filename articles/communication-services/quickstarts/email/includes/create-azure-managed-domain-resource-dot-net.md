@@ -54,15 +54,13 @@ using Azure.ResourceManager;
 using Azure.ResourceManager.Communication;
 using Azure.ResourceManager.Resources;
 ...
-// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
+// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/dotnet/azure/sdk/authentication?tabs=command-line
 TokenCredential cred = new DefaultAzureCredential();
 // authenticate your client
 ArmClient client = new ArmClient(cred);
 ```
 
-## Managing Domain Resources
-
-### Interacting with Azure resources
+## Interacting with Azure resources
 
 Now that you're authenticated.
 
@@ -70,9 +68,12 @@ For each of the following examples, we'll be assigning our Domain resources to a
 
 If you need to create an Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md).
 
-#### Create a Domain resource
+## Create a Domain resource
 
-When creating a Domain resource, you have to specify the resource group name, Email Communication Service name, resource name and DomainManagement. Note: The `Location` property is always `global`.
+When creating a Domain resource, you have to specify the resource group name, Email Communication Service name, resource name and DomainManagement. 
+
+> [!NOTE]
+> The `Location` property is always `global`.
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -102,7 +103,9 @@ CommunicationDomainResourceData resourceData = result.Data;
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
 
-#### Update a Domain resource
+## Manage your Domain Resources
+
+### Update a Domain resource
 
 ```csharp
 ...
@@ -133,7 +136,7 @@ CommunicationDomainResourceData resourceData = result.Data;
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
 
-#### List by Email Service
+### List by Email Service
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -160,7 +163,7 @@ await foreach (CommunicationDomainResource item in collection.GetAllAsync())
 Console.WriteLine($"Succeeded");
 ```
 
-#### Get Domain resource
+### Get Domain resource
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -181,7 +184,7 @@ bool result = await collection.ExistsAsync(domainName);
 Console.WriteLine($"Succeeded: {result}");
 ```
 
-#### Delete a Domain resource
+## Clean up a Domain resource
 
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
@@ -198,3 +201,6 @@ await communicationDomainResource.DeleteAsync(WaitUntil.Completed);
 
 Console.WriteLine($"Succeeded");
 ```
+
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

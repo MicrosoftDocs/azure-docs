@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-azcli-net-ps
+zone_pivot_groups: acs-plat-azp-azcli-csharp-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -17,20 +17,20 @@ ms.devlang: azurecli
 
 In this quick start, you learn how to provision a custom verified email domain in Azure Communication Services.
 
-::: zone pivot="platform-azp"
-[!INCLUDE [Azure portal](./includes/create-custommanaged-domain-resource-azp.md)]
+::: zone pivot="platform-azportal"
+[!INCLUDE [Azure portal](./includes/create-custom-managed-domain-resource-azportal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/create-custommanaged-domain-resource-az-cli.md)]
+[!INCLUDE [Azure CLI](./includes/create-custom-managed-domain-resource-az-cli.md)]
 ::: zone-end
 
-::: zone pivot="platform-net"
-[!INCLUDE [.NET](./includes/create-custommanaged-domain-resource-net.md)]
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [.NET](./includes/create-custom-managed-domain-resource-dot-net.md)]
 ::: zone-end
 
 ::: zone pivot="platform-powershell"
-[!INCLUDE [PowerShell](./includes/create-custommanaged-domain-resource-powershell.md)]
+[!INCLUDE [PowerShell](./includes/create-custom-managed-domain-resource-powershell.md)]
 ::: zone-end
 
 ## Azure Managed Domains compared to Custom Domains

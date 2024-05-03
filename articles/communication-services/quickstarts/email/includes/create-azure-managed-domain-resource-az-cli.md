@@ -18,23 +18,23 @@ ms.author: v-vprasannak
 To create a Domain resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. To create the resource, run the following command:
 
 ```azurepowershell-interactive
-az communication email domain create --domain-name AzureManagedDomain --email-service-name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>" --domain-management AzureManaged
+az communication email domain create --domain-name AzureManagedDomain --email-service-name "<EmailServiceName>" --location "Global" --resource-group "<resourceGroup>" --domain-management AzureManaged
 ```
 
 If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication email domain create --domain-name AzureManagedDomain --email-service-name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --domain-management AzureManaged --subscription "<subscriptionId>"
+az communication email domain create --domain-name AzureManagedDomain --email-service-name "<EmailServiceName>" --location "Global" --resource-group "<resourceGroup>" --domain-management AzureManaged --subscription "<subscriptionId>"
 ```
 
 You can configure your Domain resource with the following options:
 
 * The [resource group](../../../../azure-resource-manager/management/manage-resource-groups-cli.md)
 * The name of the Email Communication Services resource
-* The geography of the resource will be associated with
+* The geography the resource will be associated with
 * The name of the Domain resource:
 	* For Azure domains, the name should be AzureManagedDomain.
-* The name of the Domain management.
-	* For Azure domains, the name should be AzureManaged.	
+* The value of the Domain management property.
+	* For Azure domains, the value should be AzureManaged.	
 
 In the next step, you can assign tags to the domain resource. Tags can be used to organize your Domain resources. For more information about tags, see the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md).
 
@@ -59,12 +59,15 @@ To show all the information on a given domain resource use the following command
 az communication email domain show --domain-name AzureManagedDomain --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>"
 ```
 
-#### Delete Domain resource
+## Clean up Domain resource
 
 If you want to clean up and remove a Domain resource, You can delete by running the following command.
 
 ```azurepowershell-interactive
 az communication email domain delete --domain-name AzureManagedDomain --email-service-name "<EmailServiceName>" --resource-group "<resourceGroup>"
 ```
+
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 For information on other commands, see [Domain CLI](/cli/azure/communication/email/domain).

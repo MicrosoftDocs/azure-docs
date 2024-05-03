@@ -53,15 +53,13 @@ using Azure.ResourceManager;
 using Azure.ResourceManager.Communication;
 using Azure.ResourceManager.Resources;
 ...
-// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
+// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/dotnet/azure/sdk/authentication?tabs=command-line
 TokenCredential cred = new DefaultAzureCredential();
 // authenticate your client
 ArmClient client = new ArmClient(cred);
 ```
 
-## Managing Email Service Resources
-
-### Interacting with Azure resources
+## Interacting with Azure resources
 
 Now that you're authenticated.
 
@@ -69,7 +67,7 @@ For each of the following examples, we'll be assigning our Email Services resour
 
 If you need to create a resource group, you can do so by using the [Azure portal](../../../../azure-resource-manager/management/manage-resource-groups-portal.md) or the [Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
-#### Create an Email Services resource
+## Create an Email Services resource
 
 When creating an Email Services resource, you'll specify the resource group name and resource name. Note: The `Location` property is always `global`, and during public preview the `DataLocation` value must be `UnitedStates`.
 
@@ -100,7 +98,9 @@ EmailServiceResourceData resourceData = result.Data;
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
 
-#### Update an Email Services resource
+## Manage your Email Communication Services resource
+
+### Update an Email Communication Services resource
 
 ```csharp
 ...
@@ -130,7 +130,7 @@ EmailServiceResourceData resourceData = result.Data;
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
 
-#### List all Email Service resources by resource group
+### List all Email Communication Service resources by resource group
 
 ```csharp
 // this example assumes you already have this ResourceGroupResource created on azure
@@ -156,7 +156,7 @@ await foreach (EmailServiceResource item in collection.GetAllAsync())
 Console.WriteLine($"Succeeded");
 ```
 
-#### List all Email Service resources by subscription
+### List all Email Communication Service resources by subscription
 
 ```csharp
 // this example assumes you already have this SubscriptionResource created on azure
@@ -178,7 +178,7 @@ await foreach (EmailServiceResource item in subscriptionResource.GetEmailService
 Console.WriteLine($"Succeeded");
 ```
 
-#### Delete an Email Services resource
+## Clean up resource
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -194,3 +194,5 @@ await emailServiceResource.DeleteAsync(WaitUntil.Completed);
 
 Console.WriteLine($"Succeeded");
 ```
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

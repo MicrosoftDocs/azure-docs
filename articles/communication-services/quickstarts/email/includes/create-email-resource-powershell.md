@@ -13,7 +13,7 @@ ms.author: v-vprasannak
 
 ## Create Email Communication Service resource
 
-To create a Email Communication Service resource, Sign into your Azure account by using the ```Connect-AzAccount``` using the following command and provide your credentials.
+To create an Email Communication Service resource, Sign into your Azure account by using the ```Connect-AzAccount``` using the following command and provide your credentials.
 
 ```PowerShell
 PS C:\> Connect-AzAccount
@@ -42,7 +42,7 @@ You can configure your Communication Services resource with the following option
 * The name of the Email Communication Services resource
 * The geography the resource will be associated with
 
-In the next step, you can assign tags to the resource. Tags can be used to organize your Azure Email resources. See the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md) for more information about tags.
+In the next step, you can assign tags to the resource. Tags can be used to organize your Azure Email resources. For more information about tags, see the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md).
 
 ## Manage your Email Communication Services resource
 
@@ -66,8 +66,13 @@ To list all the information on a given resource, use the following command:
 PS C:\> Get-AzEmailService -Name ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1
 ```
 
-If you want to clean up and remove a Email Communication Services, You can delete your Email communication resource by running the following command:
+## Clean up resource
+
+If you want to clean up and remove an Email Communication Services, You can delete your Email communication resource by running the following command:
 
 ```PowerShell
 PS C:\> Remove-AzEmailService -Name ContosoEmailServiceResource1 -ResourceGroupName ContosoResourceProvider1
 ```
+
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

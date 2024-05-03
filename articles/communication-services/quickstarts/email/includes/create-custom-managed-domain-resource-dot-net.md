@@ -60,15 +60,13 @@ using Azure.ResourceManager;
 using Azure.ResourceManager.Communication;
 using Azure.ResourceManager.Resources;
 ...
-// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
+// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/dotnet/azure/sdk/authentication?tabs=command-line
 TokenCredential cred = new DefaultAzureCredential();
 // authenticate your client
 ArmClient client = new ArmClient(cred);
 ```
 
-## Managing Domain Resources
-
-### Interacting with Azure resources
+## Interacting with Azure resources
 
 Now that you're authenticated.
 
@@ -76,9 +74,12 @@ For each of the following examples, we'll be assigning our Domain resources to a
 
 If you need to create an Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md). 
 
-#### Create a Domain resource
+## Create a Domain resource
 
-When creating a Domain resource, you'll specify the resource group name, Email Communication Service name, resource name and DomainManagement. Note: The `Location` property is always `global`.
+When creating a Domain resource, you'll specify the resource group name, Email Communication Service name, resource name and DomainManagement.
+
+> [!NOTE]
+> The `Location` property is always `global`.
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -93,7 +94,7 @@ EmailServiceResource emailServiceResource = client.GetEmailServiceResource(email
 CommunicationDomainResourceCollection collection = emailServiceResource.GetCommunicationDomainResources();
 
 // invoke the operation
-string domainName = "mydomain.com";
+string domainName = "contoso.com";
 CommunicationDomainResourceData data = new CommunicationDomainResourceData(new AzureLocation("Global"))
 {
     DomainManagement = DomainManagement.CustomerManaged,
@@ -108,7 +109,9 @@ CommunicationDomainResourceData resourceData = result.Data;
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
 
-#### Update a Domain resource
+## Manage your Domain Resources
+
+### Update a Domain resource
 
 ```csharp
 ...
@@ -117,7 +120,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 string subscriptionId = "11112222-3333-4444-5555-666677778888";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
-string domainName = "mydomain.com";
+string domainName = "contoso.com";
 ResourceIdentifier communicationDomainResourceId = CommunicationDomainResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName);
 CommunicationDomainResource communicationDomainResource = client.GetCommunicationDomainResource(communicationDomainResourceId);
 
@@ -135,47 +138,8 @@ CommunicationDomainResourceData resourceData = result.Data;
 // for demo we just print out the id
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
-#### Initiate Domain Verification
 
-To configure sender authentication for your domains, refer Configure sender authentication for custom domain section from the Azure portal tab.
-
-```csharp
-// this example assumes you already have this CommunicationDomainResource created on azure
-// for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
-string resourceGroupName = "MyResourceGroup";
-string emailServiceName = "MyEmailServiceResource";
-string domainName = "mydomain.com";
-ResourceIdentifier communicationDomainResourceId = CommunicationDomainResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName);
-CommunicationDomainResource communicationDomainResource = client.GetCommunicationDomainResource(communicationDomainResourceId);
-
-// invoke the operation
-DomainsRecordVerificationContent content = new DomainsRecordVerificationContent(DomainRecordVerificationType.Spf);
-await communicationDomainResource.InitiateVerificationAsync(WaitUntil.Completed, content);
-
-Console.WriteLine($"Succeeded");
-```
-
-#### Cancel Domain Verification
-
-```csharp
-// this example assumes you already have this CommunicationDomainResource created on azure
-// for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
-string resourceGroupName = "MyResourceGroup";
-string emailServiceName = "MyEmailServiceResource";
-string domainName = "mydomain.com";
-ResourceIdentifier communicationDomainResourceId = CommunicationDomainResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName);
-CommunicationDomainResource communicationDomainResource = client.GetCommunicationDomainResource(communicationDomainResourceId);
-
-// invoke the operation
-DomainsRecordVerificationContent content = new DomainsRecordVerificationContent(DomainRecordVerificationType.Spf);
-await communicationDomainResource.CancelVerificationAsync(WaitUntil.Completed, content);
-
-Console.WriteLine($"Succeeded");
-```
-
-#### List by Email Service
+### List by Email Service
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -202,7 +166,7 @@ await foreach (CommunicationDomainResource item in collection.GetAllAsync())
 Console.WriteLine($"Succeeded");
 ```
 
-#### Get Domain resource
+### Get Domain resource
 
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
@@ -217,13 +181,17 @@ EmailServiceResource emailServiceResource = client.GetEmailServiceResource(email
 CommunicationDomainResourceCollection collection = emailServiceResource.GetCommunicationDomainResources();
 
 // invoke the operation
-string domainName = "mydomain.com";
+string domainName = "contoso.com";
 bool result = await collection.ExistsAsync(domainName);
 
 Console.WriteLine($"Succeeded: {result}");
 ```
 
-#### Delete a Domain resource
+## Verification operation for your Domain resource
+
+To configure sender authentication for your domains, refer Configure sender authentication for custom domain section from the Azure portal tab.
+
+### Initiate Verification
 
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
@@ -231,7 +199,46 @@ Console.WriteLine($"Succeeded: {result}");
 string subscriptionId = "11112222-3333-4444-5555-666677778888";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
-string domainName = "mydomain.com";
+string domainName = "contoso.com";
+ResourceIdentifier communicationDomainResourceId = CommunicationDomainResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName);
+CommunicationDomainResource communicationDomainResource = client.GetCommunicationDomainResource(communicationDomainResourceId);
+
+// invoke the operation
+DomainsRecordVerificationContent content = new DomainsRecordVerificationContent(DomainRecordVerificationType.Spf);
+await communicationDomainResource.InitiateVerificationAsync(WaitUntil.Completed, content);
+
+Console.WriteLine($"Succeeded");
+```
+
+### Cancel Verification
+
+```csharp
+// this example assumes you already have this CommunicationDomainResource created on azure
+// for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
+string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string resourceGroupName = "MyResourceGroup";
+string emailServiceName = "MyEmailServiceResource";
+string domainName = "contoso.com";
+ResourceIdentifier communicationDomainResourceId = CommunicationDomainResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName);
+CommunicationDomainResource communicationDomainResource = client.GetCommunicationDomainResource(communicationDomainResourceId);
+
+// invoke the operation
+DomainsRecordVerificationContent content = new DomainsRecordVerificationContent(DomainRecordVerificationType.Spf);
+await communicationDomainResource.CancelVerificationAsync(WaitUntil.Completed, content);
+
+Console.WriteLine($"Succeeded");
+```
+
+
+## Clean up a Domain resource
+
+```csharp
+// this example assumes you already have this CommunicationDomainResource created on azure
+// for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
+string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string resourceGroupName = "MyResourceGroup";
+string emailServiceName = "MyEmailServiceResource";
+string domainName = "contoso.com";
 ResourceIdentifier communicationDomainResourceId = CommunicationDomainResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName);
 CommunicationDomainResource communicationDomainResource = client.GetCommunicationDomainResource(communicationDomainResourceId);
 
@@ -240,3 +247,6 @@ await communicationDomainResource.DeleteAsync(WaitUntil.Completed);
 
 Console.WriteLine($"Succeeded");
 ```
+
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

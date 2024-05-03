@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 03/29/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-azcli-net-ps
+zone_pivot_groups: acs-plat-azp-azcli-csharp-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -17,20 +17,20 @@ ms.devlang: azurecli
 
 In this quick start, you learn about how to add and remove multiple email sender addresses in Azure Communication Services.
 
-::: zone pivot="platform-azp"
-[!INCLUDE [Azure portal](./includes/create-senderusername-resource-azp.md)]
+::: zone pivot="platform-azportal"
+[!INCLUDE [Azure portal](./includes/create-sender-username-resource-azportal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/create-senderusername-resource-az-cli.md)]
+[!INCLUDE [Azure CLI](./includes/create-sender-username-resource-az-cli.md)]
 ::: zone-end
 
-::: zone pivot="platform-net"
-[!INCLUDE [.NET](./includes/create-senderusername-resource-net.md)]
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [.NET](./includes/create-sender-username-resource-dot-net.md)]
 ::: zone-end
 
 ::: zone pivot="platform-powershell"
-[!INCLUDE [PowerShell](./includes/create-senderusername-resource-powershell.md)]
+[!INCLUDE [PowerShell](./includes/create-sender-username-resource-powershell.md)]
 ::: zone-end
 
 ## Next steps

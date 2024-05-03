@@ -54,15 +54,13 @@ using Azure.ResourceManager;
 using Azure.ResourceManager.Communication;
 using Azure.ResourceManager.Resources;
 ...
-// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
+// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/dotnet/azure/sdk/authentication?tabs=command-line
 TokenCredential cred = new DefaultAzureCredential();
 // authenticate your client
 ArmClient client = new ArmClient(cred);
 ```
 
-## Managing Sender Username Resources
-
-### Interacting with Azure resources
+## Interacting with Azure resources
 
 Now that you're authenticated.
 
@@ -70,7 +68,7 @@ For each of the following examples, we'll be assigning our Sender Username resou
 
 If you need to create an Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md) and to create a Domain resource, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/add-custom-verified-domains.md).
 
-#### Create a Sender Username resource
+## Create a Sender Username resource
 
 When creating a Sender Username resource, you have to specify the resource group name, Email Communication Service name, Domain name and resource name.
 
@@ -103,8 +101,9 @@ SenderUsernameResourceData resourceData = result.Data;
 // for demo we just print out the id
 Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```
+## Managing Sender Username Resources
 
-#### List by Domain resource
+### List by Domain resource
 
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
@@ -131,7 +130,7 @@ await foreach (SenderUsernameResource item in collection.GetAllAsync())
 
 Console.WriteLine($"Succeeded");
 ```
-#### Get Sender Username
+### Get Sender Username
 
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
@@ -153,7 +152,7 @@ bool result = await collection.ExistsAsync(senderUsername);
 Console.WriteLine($"Succeeded: {result}");
 ```
 
-#### Delete a Sender Username resource
+### Clean up a Sender Username resource
 
 ```csharp
 // this example assumes you already have this SenderUsernameResource created on azure
@@ -161,7 +160,7 @@ Console.WriteLine($"Succeeded: {result}");
 string subscriptionId = "11112222-3333-4444-5555-666677778888";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
-string domainName = "mydomain.com";
+string domainName = "contoso.com";
 string senderUsername = "contosoNewsAlerts";
 ResourceIdentifier senderUsernameResourceId = SenderUsernameResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainName, senderUsername);
 SenderUsernameResource senderUsernameResource = client.GetSenderUsernameResource(senderUsernameResourceId);
@@ -171,3 +170,6 @@ await senderUsernameResource.DeleteAsync(WaitUntil.Completed);
 
 Console.WriteLine($"Succeeded");
 ```
+
+> [!NOTE]
+> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
