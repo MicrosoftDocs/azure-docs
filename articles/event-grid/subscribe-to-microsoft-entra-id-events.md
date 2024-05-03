@@ -41,8 +41,6 @@ This article describes steps to subscribe to events published by Microsoft Entra
     1. Select **Enable lifecycle events** if you want lifecycle events to be sent to your partner topic. Receiving lifecycle event allows you to know with anticipation when your Microsoft Graph API subscription is about to expire so that you can take actions for renewing it.
 1. Select **Next: Partner Configuration** at the bottom of the page.
 [!INCLUDE [authorize-verified-partner-to-create-topic-event-enablement-ux](includes/authorize-verified-partner-to-create-topic-event-enablement.md)]
-
-
 1. You should see a partner topic created in the specified Azure subscription and resource group.
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]

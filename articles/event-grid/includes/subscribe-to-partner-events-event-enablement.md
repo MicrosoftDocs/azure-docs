@@ -19,7 +19,7 @@ At this point, Microsoft Graph API events should be arriving on your activated p
 
 ### Deploy the Event viewer application
 
-To test your partner topic, deploy a the [Event Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer), which is a prebuilt web app. The Event Viewer app displays all events delivered to it. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+To test your partner topic, deploy the [Event Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer), which is a prebuilt web app. The Event Viewer app displays all events delivered to it. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. Select **Deploy to Azure** to deploy the solution to your Azure subscription. In the Azure portal, provide values for the parameters.
 
