@@ -44,7 +44,7 @@ To get started, you need the following resources, gated access approval, and too
 
   * For Translator **connected** containers, select the `S1` pricing tier.
 
-    :::image type="content" source="media/connected-pricing-tier.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/connected-pricing-tier.png" alt-text="Screenshot of pricing tier selection for Translator connected container.":::
 
   * For Translator **disconnected** containers, select **`Commitment tier disconnected containers`** as your pricing tier. You only see the option to purchase a commitment tier if your disconnected container access request is approved.
 
