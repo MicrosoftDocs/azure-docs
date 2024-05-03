@@ -24,15 +24,15 @@ This article contains [specific reliability recommendations for Azure Cosmos DB 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Availability**](#availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Configure at least two regions for high availability](#)|
-| [**Disaster recovery**](#disaster-recovery) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Enable service-managed failover for multi-region accounts with single write region](#)|
-||:::image type="icon" source="media/icon-recommendation-high.svg":::| [Evaluate multi-region write capability](#)|
-||:::image type="icon" source="media/icon-recommendation-high.svg":::| [Choose appropriate consistency mode reflecting data durability requirements](#)|
-||:::image type="icon" source="media/icon-recommendation-high.svg":::| [Configure continuous backup mode](#)|
-|**System efficiency**(#system-efficiency)|:::image type="icon" source="media/icon-recommendation-high.svg":::| [Ensure query results are fully drained](#)|
-||:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Maintain singleton pattern in your client](#)|
-|**Application resilience**(#application-resilience)|:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Implement retry logic in your client](#)|
-|**Monitoring**(#monitoring)|:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Monitor Cosmos DB health and set up alerts](#)|
+| [**Availability**](#availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Configure at least two regions for high availability](#-configure-at-least-two-regions-for-high-availability)|
+| [**Disaster recovery**](#disaster-recovery) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Enable service-managed failover for multi-region accounts with single write region](#-enable-service-managed-failover-for-multi-region-accounts-with-single-write-region)|
+||:::image type="icon" source="media/icon-recommendation-high.svg":::| [Evaluate multi-region write capability](#-evaluate-multi-region-write-capability)|
+||:::image type="icon" source="media/icon-recommendation-high.svg":::| [Choose appropriate consistency mode reflecting data durability requirements](#-choose-appropriate-consistency-mode-reflecting-data-durability-requirements)|
+||:::image type="icon" source="media/icon-recommendation-high.svg":::| [Configure continuous backup mode](#-configure-continuous-backup-mode)|
+|[**System efficiency**](#system-efficiency)|:::image type="icon" source="media/icon-recommendation-high.svg":::| [Ensure query results are fully drained](#-ensure-query-results-are-fully-drained)|
+||:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Maintain singleton pattern in your client](#-maintain-singleton-pattern-in-your-client)|
+|[**Application resilience**](#application-resilience)|:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Implement retry logic in your client](#-implement-retry-logic-in-your-client)|
+|[**Monitoring**](#monitoring)|:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Monitor Cosmos DB health and set up alerts](#-monitor-cosmos-db-health-and-set-up-alerts)|
 
 
 
