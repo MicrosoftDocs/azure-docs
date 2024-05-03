@@ -20,13 +20,15 @@ The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage sp
 
 ## Supported Azure OpenAI Service models
 
-The policy can be used with APIs for the following [Azure OpenAI Service models](../ai-services/openai/concepts/models.md):
+The policy is used with APIs [added to API Management from the Azure OpenAI Service](azure-openai-api-from-specification.md) of the following types:
 
 | API type | Supported models |
 |-------|-------------|
 | Chat completion     |  Chat GPT 3.5<br/><br/>Chat GPT 4 |
 | Embeddings | text-embedding-3-large<br/><br/> text-embedding-3-small<br/><br/>text-embedding-ada-002 |
 | Completion | Chat GPT 3.5 Turbo |
+
+For more information, see [Azure OpenAI Service models](../ai-services/openai/concepts/models.md).
 
 ## Policy statement
 
@@ -88,5 +90,6 @@ In the following example, the token limit of 5000 per minute is keyed by the cal
 ## Related policies
 
 * [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
+* [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) policy
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

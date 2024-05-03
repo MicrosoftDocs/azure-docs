@@ -123,6 +123,8 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|
 |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs. | Yes | Yes<sup>1</sup> | Yes | Yes |
 |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution. | Yes | Yes | Yes | Yes |
+|  [Emit metrics](emit-metric-policy.md) | Sends metrics to Application Insights for consumption of language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | No |
+
 
 <sup>1</sup> In the V2 gateway, the `trace` policy currently does not add tracing output in the test console.
 
