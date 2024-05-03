@@ -54,7 +54,7 @@ Storage accounts that created in Cloud Shell are tagged with `ms-resource-usage:
 If you want to disallow users from creating storage accounts in Cloud Shell, create an
 [Azure resource policy][02] that's triggered by this specific tag.
 
-## Managaing Cloud Shell storage
+## Managing Cloud Shell storage
 
 ### Use the `clouddrive` command
 
