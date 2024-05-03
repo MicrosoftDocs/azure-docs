@@ -76,8 +76,6 @@ items:
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
-    - name: Custom image support with Terraform
-      href: how-to-configure-extensibility-terraform-container-image.md
 - name: Manage costs
   expanded: false
   items:
