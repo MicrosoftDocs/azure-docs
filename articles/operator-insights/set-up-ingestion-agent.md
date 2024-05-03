@@ -322,11 +322,11 @@ The configuration you need is specific to the type of source and your Data Produ
 
 ## [Optional] Configure log collection for access through Azure Monitor
 
-Accessing logs on the VM can be difficult. To make diagnosing issues with ingestion easier, it is recommended to set up collection of logs through Azure Monitor. This can be done for Azure VMs, and also machines deployed in other environments (referred to as hybrid machines) through the use of Azure Arc.
+Accessing logs on the VM can be difficult. To make diagnosing issues with ingestion easier, it's recommended to set up collection of logs through Azure Monitor. This can be done for Azure VMs, and also machines deployed in other environments (referred to as hybrid machines) through the use of Azure Arc.
 
-To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Collect logs from text or JSON files](../azure-monitor/agents/data-collection-text-log.md)
+To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Collect logs from text or JSON files](../azure-monitor/agents/data-collection-text-log.md).
 
-- When creating a table for storing the logs, you can follow the powershell instructions in the link above, or use the Log Analytics workspace portal view to create an `MMA-based` table
+- When creating a table for storing the logs, you can follow the PowerShell instructions in the link above, or use the Log Analytics workspace portal view to create an `MMA-based` table
   - This is a sample log file: [ingestion-agent-logs](media/ingestion-agent-stdout.log)
   - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`
     ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/133898687/2278e6f7-c0ba-48a8-a540-545c7a4550a2)
@@ -339,7 +339,7 @@ To collect agent logs, follow these instructions to install the Azure Monitor Ag
   | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message
   | order by TimeGenerated desc
   ```
-  - Note, this query sadly can't be used as a data source transform since `replace_regex` is not available in data source transforms
+  - Note, this query sadly can't be used as a data source transform since `replace_regex` isn't available in data source transforms
 
 ## Related content
 
