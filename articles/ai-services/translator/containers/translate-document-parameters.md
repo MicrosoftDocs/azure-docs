@@ -1,5 +1,5 @@
 ---
-title: "Container: Translate document method"
+title: "Container: Translate document"
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body request/response messages for the Azure AI Translator container translate document operation.
 #services: cognitive-services
@@ -26,7 +26,7 @@ ms.author: lajanuar
 `POST` request:
 
 ```bash
-    POST "http://localhost:{port}/translator/document:translate?sourceLanguage={sourceLanguage}&targetLanguage={targetLanguage}&api-version=2023-11-01-preview" -F "document=@{path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file-with-file-extension}"
+    POST "http://localhost:{port}/translator/document:translate?sourceLanguage={sourceLanguage}&targetLanguage={targetLanguage}&api-version={api-version}" -F "document=@{path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file-with-file-extension}"
 ```
 
 Example:
@@ -71,7 +71,7 @@ For this project, you need a source document to translate. You can download our 
 Here's an example cURL HTTP request using localhost:5000:
 
 ```bash
-curl -v "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=v1.0" -F "document=@document-translation-sample-docx" -o "C:\translation\translated-file.md"
+curl -v "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=2023-11-01-preview" -F "document=@document-translation-sample-docx" -o "C:\translation\translated-file.md"
 ```
 
 ***Upon successful completion***:
