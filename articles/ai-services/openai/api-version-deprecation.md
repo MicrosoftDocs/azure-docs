@@ -24,7 +24,7 @@ This article is to help you understand the support lifecycle for the Azure OpenA
 Azure OpenAI API version [2024-04-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json)
 is currently the latest preview release.
 
-This version contains support for all the latest Azure OpenAI features including:
+This version contains support for the latest Azure OpenAI features including:
 
 - [Embeddings `encoding_format` and `dimensions` parameters] [**Added in 2024-03-01-preview**]
 - [Assistants API](./assistants-reference.md). [**Added in 2024-02-15-preview**]
@@ -37,7 +37,7 @@ This version contains support for all the latest Azure OpenAI features including
 
 ## Changes between 2024-03-01-preview and 2024-04-01-preview API specification
 
-- Enhancements parameters removed.
+- **Breaking Change**: Enhancements parameters removed. This impacts the `gpt-4` **Version:** `vision-preview` model.
 
 - [contentFilterDetailedResults](https://github.com/Azure/azure-rest-api-specs/blob/fbc90d63f236986f7eddfffe3dca6d9d734da0b2/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json#L2989) added.
 - [timestamp_granularities](https://github.com/Azure/azure-rest-api-specs/blob/fbc90d63f236986f7eddfffe3dca6d9d734da0b2/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json#L5217) parameter added.
