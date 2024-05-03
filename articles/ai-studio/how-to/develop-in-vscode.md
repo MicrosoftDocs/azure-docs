@@ -73,14 +73,14 @@ For more information, see [prompt flow capabilities](https://microsoft.github.io
 
 ## Use AI app templates
  
-AI app templates are linked from the **Code** tab of your project. These samples walk you through how to use the Azure AI SDKs to:
+AI app templates are linked from the right side of the **Code** tab of your project. These samples walk you through how to use the Azure AI SDKs to:
 
 * Set up your development environment and connect to existing resources
 * Bring in your custom application code
 * Run evaluations
 * Deploy your code
 
-To provision an entirely new set of resources, including a new hub and project, and deploy sample applications, you can use [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment.
+To provision an entirely new set of resources, including a new hub and project, and deploy these sample applications, you can use [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment.
 
 ## Remarks
 
