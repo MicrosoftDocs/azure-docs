@@ -39,7 +39,7 @@ Your service should have the following two articles:
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 Azure Monitor Network Insights provides a comprehensive view of health and metrics for all deployed network resources (including Application Gateway), without requiring any configuration. For more information, see [Azure Monitor Network Insights](../network-watcher/network-insights-overview.md).
 
