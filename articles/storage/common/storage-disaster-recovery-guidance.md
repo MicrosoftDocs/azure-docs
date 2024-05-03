@@ -77,24 +77,24 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
 
-To test your disaster recovery plan, you can perform a planned failover from the primary to the secondary region. During the failover process, the original secondary region becomes the new primary and the original primary becomes the new secondary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions to perform a planned failover.
+Customer-managed planned failover (preview) can be used to to test your disaster recovery plan. During the planned failover process, the primnary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary, while the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
-You can also use this type of failover during a partial networking or compute outage in your primary region. These outages might occur, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
+Customer-managed planned failover (preview) can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
 
-During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. See [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies).
+During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. For more detail, see the [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies) article.
 
-To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback processes. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
+To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the planned failover and failback processes. For details about how this process works, see [How customer-managed (planned) failover works](storage-failover-customer-managed-planned.md).
 
 ### Customer-managed (unplanned) failover
 
-Although the two types of customer-managed failover work in a similar manner, there are primarily two ways in which they differ:
+Although both types of customer-managed failover work in a similar manner, there are primarily two ways in which they differ:
 
 - The management of the redundancy configurations within the primary and secondary regions (LRS or ZRS).
 - The status of the geo-redundancy configuration at each stage of the failover and failback process.
 
 The following table compares the redundancy state of a storage account after a failover of each type:
 
-| Result of failover on...                | Customer-managed planned failover            | Customer-managed failover                                               |
+| Result of failover on...                | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover                                               |
 |-----------------------------------------|----------------------------------------------|-------------------------------------------------------------------------|
 | ...the secondary region                 | The secondary region becomes the new primary | The secondary region becomes the new primary                            |
 | ...the original primary region          | The original primary region becomes the new secondary |The copy of the data in the original primary region is deleted  |
@@ -108,16 +108,16 @@ The following table summarizes the resulting redundancy configuration at every s
 | **Customer-managed planned failover** |                     |                                       |                     |                                       |
 | GRS                                   | GRS                 | n/a <sup>2</sup>                      | GRS                 | n/a <sup>2</sup>                      |
 | GZRS                                  | GRS                 | n/a <sup>2</sup>                      | GZRS                | n/a <sup>2</sup>                      |
-| **Customer-managed failover**         |                     |                                       |                     |                                       |
+| **Customer-managed (unplanned) failover**                              |                     |                                       |                     |                                       |
 | GRS                                   | LRS                 | GRS <sup>1</sup>                      | LRS                 | GRS <sup>1</sup>                      |
 | GZRS                                  | LRS                 | GRS <sup>1</sup>                      | ZRS                 | GZRS <sup>1</sup>                     |
 
-<sup>1</sup> Geo-redundancy is lost during a failover to recover from an outage and must be manually reconfigured.<br>
-<sup>2</sup> Geo-redundancy is retained during a failover for disaster recovery testing and doesn't need to be manually reconfigured.
+<sup>1</sup> Geo-redundancy is lost during unplanned failover and must be manually reconfigured.<br>
+<sup>2</sup> Geo-redundancy is retained during a unplanned failover and doesn't need to be manually reconfigured.
 
-If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can fail over to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data in the new primary region.
+If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can initiate a failover to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data there.
 
-To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
+To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed (unplanned) failover works](storage-failover-customer-managed-unplanned.md).
 
 ### Microsoft-managed failover
 
