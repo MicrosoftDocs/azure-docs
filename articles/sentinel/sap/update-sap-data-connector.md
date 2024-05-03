@@ -136,7 +136,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 
 1. In the **Configuration** area, under step **1. Add an API based collector agent**, locate the agent that you're updating and select the **Show commands** button.
 
-1. Copy the **Role assignment command** and **TBD command** displayed. Run them on your agent VM, replacing the `Object_ID` placeholders with your VM identity object ID.
+1. Copy the **Role assignment commands** displayed. Run them on your agent VM, replacing the `Object_ID` placeholders with your VM identity object ID.
     
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
