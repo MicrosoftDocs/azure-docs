@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/28/2024
+ms.date: 05/02/2024
 ms.author: banders
 ---
 
@@ -58,7 +58,7 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|MISSING.|
+| 39 |AvailabilityZone|  .|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
 | 42 |BillingCurrencyCode|Currency associated with the billing account.|
@@ -73,8 +73,8 @@ The following information lists the cost and usage details (formerly known as us
 | 51 |PlanName|Marketplace plan name.|
 | 52 |ServiceFamily|Service family that the service belongs to.|
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 54 |benefitId|MISSING.|
-| 55 |benefitName|MISSING.|
+| 54 |benefitId|  .|
+| 55 |benefitName|  .|
 
 ## Version 2021-10-01
 
@@ -130,25 +130,25 @@ The following information lists the cost and usage details (formerly known as us
 | 48 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 | 49 |BillingPeriodStartDate|The start date of the billing period.|
 | 50 |BillingPeriodEndDate|The end date of the billing period.|
-| 51 |AvailabilityZone|MISSING.|
+| 51 |AvailabilityZone|  .|
 | 52 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 54 |benefitId|MISSING.|
-| 55 |benefitName|MISSING.|
+| 54 |benefitId|  .|
+| 55 |benefitName|  .|
 
 ## Version 2021-01-01
 
 | Column |Fields|Description|
 |---|------|------|
-| 1 |InvoiceSectionName|MISSING.|
+| 1 |InvoiceSectionName|  .|
 | 2 |AccountName|Display name of the EA enrollment account or pay-as-you-go billing account.|
 | 3 |AccountOwnerId|Unique identifier for the EA enrollment account or pay-as-you-go billing account.|
-| 4 |SubscriptionId|MISSING.|
+| 4 |SubscriptionId|  .|
 | 5 |SubscriptionName|Name of the Azure subscription.|
 | 6 |ResourceGroup|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
 | 7 |ResourceLocation|Datacenter location where the resource is running. See `Location`.|
 | 8 |Date|The usage or purchase date of the charge.|
-| 9 |ProductName|MISSING.|
+| 9 |ProductName|  .|
 | 10 |MeterCategory|Name of the classification category for the meter. For example, `Cloud services` and `Networking`.|
 | 11 |MeterSubCategory|Name of the meter subclassification category.|
 | 12 |MeterId|The unique identifier for the meter.|
@@ -157,7 +157,7 @@ The following information lists the cost and usage details (formerly known as us
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units purchased or consumed.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
-| 18 |CostInBillingCurrency|MISSING.|
+| 18 |CostInBillingCurrency|  .|
 | 19 |CostCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 | 20 |ConsumedService|Name of the service the charge is associated with.|
 | 21 |ResourceId|Unique identifier of the Azure Resource Manager resource.|
@@ -178,10 +178,10 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|MISSING.|
+| 39 |AvailabilityZone|  .|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
-| 42 |BillingCurrencyCode|MISSING.|
+| 42 |BillingCurrencyCode|  .|
 | 43 |BillingPeriodStartDate|The start date of the billing period.|
 | 44 |BillingPeriodEndDate|The end date of the billing period.|
 | 45 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
@@ -198,15 +198,15 @@ The following information lists the cost and usage details (formerly known as us
 
 | Column |Fields|Description|
 |---|------|------|
-| 1 |InvoiceSectionName|MISSING.|
+| 1 |InvoiceSectionName|  .|
 | 2 |AccountName|Display name of the EA enrollment account or pay-as-you-go billing account.|
 | 3 |AccountOwnerId|Unique identifier for the EA enrollment account or pay-as-you-go billing account.|
-| 4 |SubscriptionId|MISSING.|
+| 4 |SubscriptionId|  .|
 | 5 |SubscriptionName|Name of the Azure subscription.|
 | 6 |ResourceGroup|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
 | 7 |ResourceLocation|Datacenter location where the resource is running. See `Location`.|
 | 8 |Date|The usage or purchase date of the charge.|
-| 9 |ProductName|MISSING.|
+| 9 |ProductName|  .|
 | 10 |MeterCategory|Name of the classification category for the meter. For example, `Cloud services` and `Networking`.|
 | 11 |MeterSubCategory|Name of the meter subclassification category.|
 | 12 |MeterId|The unique identifier for the meter.|
@@ -215,7 +215,7 @@ The following information lists the cost and usage details (formerly known as us
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units purchased or consumed.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
-| 18 |CostInBillingCurrency|MISSING.|
+| 18 |CostInBillingCurrency|  .|
 | 19 |CostCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 | 20 |ConsumedService|Name of the service the charge is associated with.|
 | 21 |ResourceId|Unique identifier of the Azure Resource Manager resource.|
@@ -236,10 +236,10 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|MISSING.|
+| 39 |AvailabilityZone|  .|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
-| 42 |BillingCurrencyCode|MISSING.|
+| 42 |BillingCurrencyCode|  .|
 | 43 |BillingPeriodStartDate|The start date of the billing period.|
 | 44 |BillingPeriodEndDate|The end date of the billing period.|
 | 45 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
@@ -262,7 +262,7 @@ The following information lists the cost and usage details (formerly known as us
 | 5 |SubscriptionName|Name of the Azure subscription.|
 | 6 |ResourceGroup|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
 | 7 |ResourceLocation|Datacenter location where the resource is running. See `Location`.|
-| 8 |UsageDateTime|MISSING.|
+| 8 |UsageDateTime|  .|
 | 9 |ProductName|Name of the product.|
 | 10 |MeterCategory|Name of the classification category for the meter. For example, `Cloud services` and `Networking`.|
 | 11 |MeterSubcategory|Name of the meter subclassification category.|
@@ -272,11 +272,11 @@ The following information lists the cost and usage details (formerly known as us
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |UsageQuantity|The number of units purchased or consumed.|
 | 17 |ResourceRate|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
-| 18 |PreTaxCost|MISSING.|
+| 18 |PreTaxCost|  .|
 | 19 |CostCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 | 20 |ConsumedService|Name of the service the charge is associated with.|
-| 21 |ResourceType|MISSING.|
-| 22 |InstanceId|MISSING.|
+| 21 |ResourceType|  .|
+| 22 |InstanceId|  .|
 | 23 |Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 | 24 |OfferId|Name of the offer purchased.|
 | 25 |AdditionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|

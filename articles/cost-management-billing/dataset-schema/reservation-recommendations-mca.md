@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/28/2024
+ms.date: 05/02/2024
 ms.author: banders
 ---
 
@@ -33,6 +33,6 @@ This article lists all of the data fields available in the Microsoft Customer Ag
 | 13 |scope|Shared or single recommendation.|
 | 14 |SkuName|The Azure Resource Manager SKU name.|
 | 15 |Sku Properties|List of SKU properties|
-| 16 |SubscriptionId|MISSING.|
+| 16 |SubscriptionId|  |
 | 17 |Term|Reservation recommendations in one or three-year terms.|
 | 18 |Total Cost With ReservedInstances|Cost of reservation recommendations in one or three-year terms.|

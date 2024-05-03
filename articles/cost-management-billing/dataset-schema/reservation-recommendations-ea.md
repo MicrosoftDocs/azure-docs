@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/26/2024
+ms.date: 05/02/2024
 ms.author: banders
 ---
 
@@ -32,7 +32,7 @@ This article lists all of the data fields available in the Enterprise Agreement 
 | 12 |RecommendedQuantityNormalized|The normalized recommended quantity.|
 | 13 |ResourceType|The Azure resource type.|
 | 14 |Scope|Shared or single recommendation.|
-| 15 |SubscriptionId|MISSING.|
+| 15 |SubscriptionId|  |
 | 16 |SkuProperties|List of SKU properties.|
 | 17 |Term|Reservation recommendations in one or three-year terms.|
 | 18 |TotalCostWithReservedInstances|The total amount of cost with reserved instances.|

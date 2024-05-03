@@ -1,18 +1,18 @@
 ---
-title: Microsoft Customer Agreement (MCA) partner cost and usage details file schema
+title: Microsoft Customer Agreement and Microsoft Partner Agreement cost and usage details file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement partner cost and usage details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/28/2024
+ms.date: 05/02/2024
 ms.author: banders
 ---
 
-# Microsoft Customer Agreement partner cost and usage details file schema
+# Microsoft Customer Agreement (MCA) and Microsoft Partner Agreement (MPA) cost and usage details file schema
 
-This article applies to the Microsoft Customer Agreement partner cost and usage details file schema.
+This article applies to the MCA and partner MPA cost and usage details file schema.
 
 The following information lists the cost and usage details (formerly known as usage details) fields found in Microsoft Customer Agreement partner cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
@@ -68,9 +68,9 @@ The following information lists the cost and usage details (formerly known as us
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|MISSING|
-|50|paygCostInBillingCurrency|MISSING|
-|51|paygCostInUsd|MISSING|
+|49|costInUsd|  |
+|50|paygCostInBillingCurrency|  |
+|51|paygCostInUsd|  |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -87,8 +87,8 @@ The following information lists the cost and usage details (formerly known as us
 |65|reservationName|Name of the purchased reservation instance.|
 |66|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |67|unitPrice|The price per unit for the charge.|
-|68|benefitId|MISSING|
-|69|benefitName|MISSING|
+|68|benefitId|  |
+|69|benefitName|  |
 |70|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-10-01
@@ -143,9 +143,9 @@ The following information lists the cost and usage details (formerly known as us
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|MISSING|
-|50|paygCostInBillingCurrency|MISSING|
-|51|paygCostInUsd|MISSING|
+|49|costInUsd|  |
+|50|paygCostInBillingCurrency|  |
+|51|paygCostInUsd|  |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -162,8 +162,8 @@ The following information lists the cost and usage details (formerly known as us
 |65|reservationName|Name of the purchased reservation instance.|
 |66|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |67|unitPrice|The price per unit for the charge.|
-|68|benefitId|MISSING|
-|69|benefitName|MISSING|
+|68|benefitId|  |
+|69|benefitName|  |
 |70|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-01-01
@@ -218,9 +218,9 @@ The following information lists the cost and usage details (formerly known as us
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|MISSING|
-|50|paygCostInBillingCurrency|MISSING|
-|51|paygCostInUsd|MISSING|
+|49|costInUsd|  |
+|50|paygCostInBillingCurrency|  |
+|51|paygCostInUsd|  |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -290,9 +290,9 @@ The following information lists the cost and usage details (formerly known as us
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|MISSING|
-|50|paygCostInBillingCurrency|MISSING|
-|51|paygCostInUsd|MISSING|
+|49|costInUsd|  |
+|50|paygCostInBillingCurrency|  |
+|51|paygCostInUsd|  |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|

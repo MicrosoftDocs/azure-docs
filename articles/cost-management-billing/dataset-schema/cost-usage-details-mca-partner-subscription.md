@@ -1,31 +1,31 @@
 ---
-title: Microsoft Customer Agreement (MCA) partner subscription cost and usage details file schema
+title: Microsoft Customer Agreement and Microsoft Partner Agreement subscription cost and usage details file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement partner subscription cost and usage details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/28/2024
+ms.date: 05/02/2024
 ms.author: banders
 ---
 
-# Microsoft Customer Agreement partner subscription cost and usage details file schema
+# Microsoft Customer Agreement (MCA) and Microsoft Partner Agreement (MPA) subscription cost and usage details file schema
 
-This article applies to the Microsoft Customer Agreement partner subscription cost and usage details file schema.
+This article applies to the MCA and MPA subscription cost and usage details file schema.
 
-The following information lists the cost and usage details (formerly known as usage details) fields found in Microsoft Customer Agreement partner subscription cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
+The following information lists the cost and usage details (formerly known as usage details) fields found in MCA and MPA subscription cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
 ## Version 2023-12-01-preview
 
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName| MISSING |
+|2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId| MISSING |
-|6|customerName| MISSING |
+|5|customerTenantId|    |
+|6|customerName|    |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -59,7 +59,7 @@ The following information lists the cost and usage details (formerly known as us
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|MISSING|
+|40|costInUsd|  |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
@@ -73,8 +73,8 @@ The following information lists the cost and usage details (formerly known as us
 |51|reservationName|Name of the purchased reservation instance.|
 |52|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |53|unitPrice|The price per unit for the charge.|
-|54|benefitId|MISSING|
-|55|benefitName|MISSING|
+|54|benefitId|  |
+|55|benefitName|  |
 |56|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-10-01
@@ -82,11 +82,11 @@ The following information lists the cost and usage details (formerly known as us
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName| MISSING |
+|2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId| MISSING |
-|6|customerName| MISSING |
+|5|customerTenantId|    |
+|6|customerName|    |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -120,7 +120,7 @@ The following information lists the cost and usage details (formerly known as us
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|MISSING|
+|40|costInUsd|  |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
@@ -134,8 +134,8 @@ The following information lists the cost and usage details (formerly known as us
 |51|reservationName|Name of the purchased reservation instance.|
 |52|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |53|unitPrice|The price per unit for the charge.|
-|54|benefitId|MISSING|
-|55|benefitName|MISSING|
+|54|benefitId|  |
+|55|benefitName|  |
 |56|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-01-01
@@ -143,11 +143,11 @@ The following information lists the cost and usage details (formerly known as us
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName| MISSING |
+|2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId| MISSING |
-|6|customerName| MISSING |
+|5|customerTenantId|    |
+|6|customerName|    |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -181,7 +181,7 @@ The following information lists the cost and usage details (formerly known as us
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|MISSING|
+|40|costInUsd|  |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
@@ -201,11 +201,11 @@ The following information lists the cost and usage details (formerly known as us
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName| MISSING |
+|2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId| MISSING |
-|6|customerName| MISSING |
+|5|customerTenantId|    |
+|6|customerName|    |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -222,7 +222,7 @@ The following information lists the cost and usage details (formerly known as us
 |20|meterSubCategory|Name of the meter subclassification category.|
 |21|meterRegion|Name of the datacenter location for services priced based on location. See Location.|
 |22|ProductId|Unique identifier for the product.|
-|23|product| MISSING |
+|23|product|    |
 |24|subscriptionId|Unique identifier for the Azure subscription.|
 |25|subscriptionName|Name of the Azure subscription.|
 |26|publisherType|Supported values: Microsoft, Azure, AWS, Marketplace. Values are microsoft for MCA accounts and Azure for EA and pay-as-you-go accounts.|
@@ -239,7 +239,7 @@ The following information lists the cost and usage details (formerly known as us
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|MISSING|
+|40|costInUsd|  |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
