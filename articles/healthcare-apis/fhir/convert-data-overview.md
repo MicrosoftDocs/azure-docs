@@ -25,7 +25,7 @@ The `$convert-data` operation supports four types of data conversion:
 
 ## Use the $convert-data endpoint
 
- Use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). Create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). For example, a workflow might include data ingestion, performing `$convert-data` operations, validation, data pre- and post-processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
+ Use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). Create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). For example, a workflow might include data ingestion, performing `$convert-data` operations, validation, data pre- and post-processing, data enrichment, data deduplication, and loading data for persistence in the [FHIR service](overview.md). 
 
 The `$convert-data` operation is integrated into the FHIR service as a REST API action. You can call the `$convert-data` endpoint as follows:
 
