@@ -49,22 +49,31 @@ If the data is more than 10 minutes old, requesting results will cause a recalcu
 ### No data in the experimentation results page
 
 1. Go to **App Configuration > Feature Manager**.
-    1. Select the **...** context menu all the way to the right of a variant feature flag and select **Edit**.
-    1. Select **History** and take note of the timestamp and **Etag** of the newest version.
-    1. Select **Experiment** from the **...** context menu. The **Version** timestamp should match the timestamp seen in the previous step.
+    1. Select the **...** context menu all the way to the right of a variant feature flag and select **History**.
+
+      :::image type="content" source="media/troubleshoot/feature-manager-context-menu.png" alt-text="Screenshot of the Azure platform showing the variant feature flags menu.":::
+
+    1. Take note of the timestamp and **Etag** of the newest variant feature flag version.
+    1. Select **Experiment** from the same **...** context menu. The **Version** timestamp should match the timestamp seen in the previous step.
 
 1. Open your Application Insights resource and go to **Monitoring** > **Logs**. Run the query `customEvents` and sort results by timestamp.
 
-- You should see events with name *FeatureEvaluation*.
-  - Ensure the **ETag** value under **customDimension** matches the **Etag** in step 1.
-  - Ensure that **TargetingId** under **customDimension** has a value.
-- You should see events with different names. These are the events you can build metrics from. Take note of this name. This string was defined by your code in the `TrackEvent` call to App Insights.
+- You should see events with name *FeatureEvaluation*. Under **customDimension**:
+  - Ensure the **ETag** value matches the **Etag** in step 1.
+  - Ensure that **TargetingId** has a value.
+
+      :::image type="content" source="media/troubleshoot/logs-customdimensions.png" alt-text="Screenshot of the Azure platform showing customDimension field.":::
+
+- Under **Name**, you should see events with different names. These are the events you can build metrics from. Take note of these names. These strings were defined by your code in the `TrackEvent` calls to App Insights.
 
 1. Go to **Split Experimentation Workspace > Experimentation Metrics**:
     1. Select **...** > **Edit** on the right side of your metric.
     1. Make sure the **Application Insights Event Name** exactly matches the **name** seen in Application Insights in step 2.
 
-1. Watch the network traffic of the Experiment results page and check the response of the metric-results call. You should see `SampleSizeReceived`.
+1. Open developer tools in your browser, then select the **Network** tab and the **metric-results** call to check the network traffic of the experiment results page and the response of the metric-results call.
+
+      :::image type="content" source="media/troubleshoot/sample-size-received.png" alt-text="Screenshot of the Azure platform showing the sample size received in the developer tools.":::
+
     - If `SampleSizeReceived` is more than 0, your Split Experimentation Workspace is receiving events but the mapping of the resources on Azure to create your experiment may not have been correctly set up.
     - If `SampleSizeReceived` equals to 0, your Split Experimentation Workspace isn't seeing any of the data. This can be due to missing data in your storage account, implying an incorrect export rule, or incorrect permissions set up between your Split Experimentation Workspace and your storage account. Navigate to your Split Experimentation Workspace resource to review details of the linked Storage Account under "Data Source".
 
