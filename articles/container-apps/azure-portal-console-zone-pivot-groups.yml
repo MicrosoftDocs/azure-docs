@@ -9,3 +9,13 @@ groups:
     title: Azure portal
   - id: console
     title: Console
+- id: azure-portal-cli-azd
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: cli
+    title: Azure CLI
+  - id: azd
+    title: Azure Developer CLI
