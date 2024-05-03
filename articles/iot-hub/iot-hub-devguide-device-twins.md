@@ -343,14 +343,7 @@ The device app can ignore all notifications with `$version` less or equal than t
 
 ## Next steps
 
-Now you have learned about device twins, you may be interested in the following IoT Hub developer guide topics:
+To try out some of the concepts described in this article, see the following IoT Hub articles:
 
-* [Understand and use module twins in IoT Hub](iot-hub-devguide-module-twins.md)
-* [Invoke a direct method on a device](iot-hub-devguide-direct-methods.md)
-* [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md)
-
-To try out some of the concepts described in this article, see the following IoT Hub tutorials:
-
-* [How to use the device twin](device-twins-node.md)
-* [How to use device twin properties](tutorial-device-twins.md)
-* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Tutorial: Configure your devices with device twin properties](tutorial-device-twins.md)
+* [How to use device twins](device-twins-csharp.md)
