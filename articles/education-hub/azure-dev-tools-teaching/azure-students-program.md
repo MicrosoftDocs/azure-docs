@@ -10,7 +10,7 @@ ms.service: azure-education
 
 # Azure for Students
 
-Through the Azure Dev Tools for Teaching program, students who have a current and active Azure for Students subscription can download certain software developer tools for free. Azure for Students provides access to all Azure products that are expressly intended to support education or teaching, noncommercial research, or efforts to design, develop, test, and demonstrate software applications for these purposes. Students download the tools from the Azure Education Hub.
+Through the Azure Dev Tools for Teaching program, students who have a current and active Azure for Students subscription can download certain software developer tools for free. Azure for Students provides access to all Azure products expressly for the support of education or teaching, noncommercial research, or efforts to design, develop, test, and demonstrate software applications for these purposes. Students download the tools from the Azure Education Hub.
 
 Azure for Students gives you a $100 credit for 12 months. It includes access to more than 25 free services, including compute, network, storage, and databases. Any charges that you incur during this period are deducted from the credit. You can see your remaining credit on the [Azure Sponsorships portal](https://www.microsoftazuresponsorships.com/).
 
