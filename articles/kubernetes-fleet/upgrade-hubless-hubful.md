@@ -24,9 +24,9 @@ For more information, see [Choosing an Azure Kubernetes Fleet Manager option][co
 - You must have an existing hubless fleet resource. The steps in this article show you how to create a hubless fleet, but you already have one you can substitute your existing resource.
 - This article also includes steps on joining member clusters. If you plan to follow along, you need at least one AKS cluster.
 
-- Hubless fleet resources can be upgraded to hubful, but hubful resources cannot be downgraded to hubless.
-- All configuration options and settings associated with hubful fleets are immutable and cannot be changed after creation or upgrade time.
-- Upgrading from hubless to hubful can only be done through the Azure CLI, and currently there is no equivalent Azure portal experience.
+- Hubless fleet resources can be upgraded to hubful, but hubful resources can't be downgraded to hubless.
+- All configuration options and settings associated with hubful fleets are immutable and can't be changed after creation or upgrade time.
+- Upgrading from hubless to hubful can only be done through the Azure CLI, and currently there's no equivalent Azure portal experience.
 
 ## Initial setup
 
