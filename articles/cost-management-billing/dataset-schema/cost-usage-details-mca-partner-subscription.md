@@ -1,6 +1,6 @@
 ---
-title: Microsoft Customer Agreement and Microsoft Partner Agreement subscription cost and usage details file schema
-description: Learn about the data fields available in the Microsoft Customer Agreement partner subscription cost and usage details file.
+title: Cloud Solution Provider (CSP) subscription cost and usage details file schema
+description: Learn about the data fields available in the CSP subscription cost and usage details file schema.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
@@ -10,11 +10,9 @@ ms.date: 05/02/2024
 ms.author: banders
 ---
 
-# Microsoft Customer Agreement (MCA) and Microsoft Partner Agreement (MPA) subscription cost and usage details file schema
+# Cloud Solution Provider subscription cost and usage details file schema
 
-This article applies to the MCA and MPA subscription cost and usage details file schema.
-
-The following information lists the cost and usage details (formerly known as usage details) fields found in MCA and MPA subscription cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
+This article applies to cost and usage details file schema for a Microsoft Partner Agreement where the CSP partner or the customer has selected a subscription or resource group scope.
 
 ## Version 2023-12-01-preview
 
