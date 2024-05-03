@@ -320,6 +320,26 @@ The configuration you need is specific to the type of source and your Data Produ
     sudo systemctl enable az-aoi-ingestion.service
     ```
 
+## [Optional] Configure log collection for access through Azure Monitor
+
+Accessing logs on the VM can be difficult. To make diagnosing issues with ingestion easier, it is recommended to set up collection of logs through Azure Monitor. This can be done for Azure VMs, and also machines deployed in other environments (referred to as hybrid machines) through the use of Azure Arc.
+
+To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Colllect logs from text or JSON files](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-text-log)
+
+- When creating a table for storing the logs, you can follow the powershell instructions in the link above, or use the Log Analytics workspace portal view to create an `MMA-based` table
+  - This is a sample log file: <ingestion-agent-stdout.log>
+  - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`
+    ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/133898687/2278e6f7-c0ba-48a8-a540-545c7a4550a2)
+  - No columns other than the defaults are required
+- When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
+- After adding the data collection rule, you can query these logs through the Log Analytics workspace, using the following query to make them easier to work with
+  ```
+  RawAgentLogs_CL
+  | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')
+  | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message
+  | order by TimeGenerated desc
+  ```
+
 ## Related content
 
 Learn how to:
