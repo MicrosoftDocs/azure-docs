@@ -47,7 +47,7 @@ In general, identity-based data authentication involves these checks:
 * Does this user have permission for reading?
     - Does the user identity or the compute managed identity have the necessary permissions for that storage resource? Permissions are granted by using Azure RBAC.
     - The storage account [Reader](../role-based-access-control/built-in-roles.md#reader) reads the storage metadata.
-    - The [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads and lists Blob storage containers and blobs.
+    - The [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads and lists storage containers and blobs.
     - For more information, see [Azure built-in roles for storage](../role-based-access-control/built-in-roles/storage.md).
 * Does this user have permission for writing?
     - Does the user identity or the compute managed identity have the necessary permissions for that storage resource? Permissions are granted by using Azure RBAC.
@@ -93,24 +93,24 @@ For SDK V1, data authentication in a job always uses compute MSI. For SDK V2, da
 
 The following information helps you set up data authentication to access data behind a virtual network from a Machine Learning workspace.
 
-### Add permissions of a Storage account to a Machine Learning workspace managed identity
+### Add permissions of a storage account to a Machine Learning workspace managed identity
 
-When you use a Storage account from the studio, if you want to see Dataset Preview, you must enable **Use workspace managed identity for data preview and profiling in Azure Machine Learning studio** in the datastore setting. Then add the following Azure RBAC roles of the storage account to the workspace managed identity:
+When you use a storage account from the studio, if you want to see Dataset Preview, you must enable **Use workspace managed identity for data preview and profiling in Azure Machine Learning studio** in the datastore setting. Then add the following Azure RBAC roles of the storage account to the workspace managed identity:
 
 * [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 * If the storage account uses a private endpoint to connect to the virtual network, you must grant the [Reader](../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint to the managed identity.
 
 For more information, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).
 
-The following sections explain the limitations of using a Storage account, with your workspace, in a virtual network.
+The following sections explain the limitations of using a storage account, with your workspace, in a virtual network.
 
-### Secure communication with a Storage account
+### Secure communication with a storage account
 
-To secure communication between Machine Learning and Storage accounts, configure the storage to [grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
+To secure communication between Machine Learning and storage accounts, configure the storage to [grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ### Azure Storage firewall
 
-When a Storage account is located behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when you use the studio, your client doesn't connect to the storage account. The Machine Learning service that makes the request connects to the storage account. The IP address of the service isn't documented, and it changes frequently. Enabling the storage firewall won't allow the studio to access the storage account in a virtual network configuration.
+When a storage account is located behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when you use the studio, your client doesn't connect to the storage account. The Machine Learning service that makes the request connects to the storage account. The IP address of the service isn't documented, and it changes frequently. Enabling the storage firewall won't allow the studio to access the storage account in a virtual network configuration.
 
 ### Azure Storage endpoint type
 
@@ -127,7 +127,7 @@ When you use Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX
 
 When you use Azure Data Lake Storage Gen2 as a datastore, you can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside a virtual network.
 
-- **To use Azure RBAC**: Follow the steps described in this [Datastore: Azure Storage account](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) article section. Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when you use Azure RBAC.
+- **To use Azure RBAC**: Follow the steps described in [Datastore: Azure Storage account](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account). Data Lake Storage Gen2 is based on Azure Storage, so the same steps apply when you use Azure RBAC.
 - **To use ACLs**: The managed identity of the workspace can be assigned access like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 ## Next steps
