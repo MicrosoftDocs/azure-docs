@@ -34,13 +34,13 @@ az vm list-skus --location <location> --size <vm-size> --output table
 
 ## Create a node pool with a Generation 2 VM
 
-### [Linux node pool](#tab/create-generation-2-vm)
+### [Linux node pool](#tab/linux-node-pool)
 
 By default, Linux uses the Generation 2 node image unless the VM size doesn't support Generation 2.
 
 Create a Linux node pool with a Generation 2 VM using the default [node pool creation][create-node-pools] process.
 
-### [Windows node pool](#tab/create-generation-2-vm)
+### [Windows node pool](#tab/windows-node-pool)
 
 By default, Windows uses the Generation 1 node image unless the VM size doesn't support Generation 1.
 
@@ -54,7 +54,7 @@ az aks nodepool add --resource-group <resource-group-name> --cluster-name <clust
 
 ## Update an existing node pool to use a Generation 2 VM
 
-### [Linux node pool](#tab/update-generation-2-vm)
+### [Linux node pool](#tab/linux-node-pool)
 
 If you're using a VM size that only supports Generation 1, you can update your node pool to a vm size that supports Generation 2 using the [`az aks nodepool update`][az-aks-nodepool-update] command. This update changes your node image from Generation 1 to Generation 2.
 
@@ -62,7 +62,7 @@ If you're using a VM size that only supports Generation 1, you can update your n
 az aks nodepool update --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --vm-size <supported-generation-2-vm-size> --os-type Linux
 ```
 
-### [Windows node pool](#tab/update-generation-2-vm)
+### [Windows node pool](#tab/windows-node-pool)
 
 If you're using a Generation 1 image, you can update your node pool to use Generation 2 by selecting a VM size that supports Generation 2 using the [`az aks nodepool update`][az-aks-nodepool-update] command. To specify that you want to use Generation 2, add a custom header `--aks-custom-headers UseWindowsGen2VM=true`. Generation 2 VM also requires Windows Server 2022. This update changes your node image from Generation 1 to Generation 2.
 
