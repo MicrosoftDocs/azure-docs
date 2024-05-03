@@ -2448,7 +2448,7 @@ groups:
   pivots:
   - id: portal
     title: Azure portal
-  - id: cli
+  - id: azurecli
     title: Azure CLI
   - id: azd
     title: Azure Developer CLI
