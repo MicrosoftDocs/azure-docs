@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 04/10/2024
+ms.date: 05/02/2024
 ms.service: vpn-gateway
 ms.topic: include
 ---
@@ -12,9 +12,11 @@ ms.topic: include
 | Azure certificate | OpenVPN  | [Windows](../articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md)|- [OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client.md)<br>- [Azure VPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-azure-vpn-client.md)
 | Azure certificate | IKEv2, OpenVPN  | [macOS-iOS](../articles/vpn-gateway/point-to-site-vpn-client-cert-mac.md)|[macOS-iOS](../articles/vpn-gateway/point-to-site-vpn-client-cert-mac.md)|
 | Azure certificate |  IKEv2, OpenVPN  | [Linux](../articles/vpn-gateway/point-to-site-vpn-client-cert-linux.md) |[Linux](../articles/vpn-gateway/point-to-site-vpn-client-cert-linux.md) |
-| Microsoft Entra ID - 3rd-party App ID |OpenVPN (SSL) | [Windows](../articles/vpn-gateway/openvpn-azure-ad-client.md) |[Azure VPN Client - Windows](../articles/vpn-gateway/openvpn-azure-ad-client.md) |
-| Microsoft Entra ID - 3rd-party App ID| OpenVPN (SSL)| [macOS](../articles/vpn-gateway/openvpn-azure-ad-client-mac.md) |[Azure VPN Client - macOS](../articles/vpn-gateway/openvpn-azure-ad-client-mac.md) |
-| Microsoft Entra ID - 1st-party App ID | OpenVPN (SSL) | [Linux](../articles/vpn-gateway/point-to-site-entra-application-id-first-party.md)| [Azure VPN Client - Linux](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |
+| Microsoft Entra ID - registered Enterprise app | OpenVPN (SSL) | [Linux](../articles/vpn-gateway/point-to-site-entra-registered-app.md)| [Azure VPN Client - Linux](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |
+| Microsoft Entra ID - registered Enterprise app | OpenVPN (SSL) | [Windows](../articles/vpn-gateway/point-to-site-entra-registered-app.md)| [Azure VPN Client - Windows](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |
+| Microsoft Entra ID - registered Enterprise app | OpenVPN (SSL) | [macOS](../articles/vpn-gateway/point-to-site-entra-registered-app.md)| [Azure VPN Client - macOS](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |
+| Microsoft Entra ID - manually registered app |OpenVPN (SSL) | [Windows](../articles/vpn-gateway/openvpn-azure-ad-client.md) |[Azure VPN Client - Windows](../articles/vpn-gateway/openvpn-azure-ad-client.md) |
+| Microsoft Entra ID - manually registered app| OpenVPN (SSL)| [macOS](../articles/vpn-gateway/openvpn-azure-ad-client-mac.md) |[Azure VPN Client - macOS](../articles/vpn-gateway/openvpn-azure-ad-client-mac.md) |
 | RADIUS - certificate |  - | [Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate.md)|[Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate.md)|
 | RADIUS -  password | - | [Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md)|[Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md)|
 | RADIUS - other methods |  - | [Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-other.md)|[Article](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-other.md)|

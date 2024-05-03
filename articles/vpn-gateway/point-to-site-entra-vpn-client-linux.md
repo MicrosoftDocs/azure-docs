@@ -1,81 +1,74 @@
 ---
-title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - first-party App ID - Linux'
-description: 'Learn how to configure the Azure VPN Client for Linux for Microsoft Entra ID authentication on Ubuntu.'
+title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - Linux'
+description: Learn how to configure the Linux Azure VPN Client for Microsoft Entra ID authentication for gateways configured to use the Microsoft-registered Enterprise App.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: howto
-ms.date: 04/09/2024
+ms.date: 05/03/2024
 ms.author: cherylmc
-
 ---
+
 # Configure the Azure VPN Client - Microsoft Entra ID authentication - Linux (Preview)
 
 This article helps you configure the Azure VPN Client on a Linux computer (Ubuntu) to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra ID authentication. For more information about point-to-site connections, see [About Point-to-Site connections](point-to-site-about.md).
 
-[!INCLUDE [first-party authentication openvpn note](../../includes/vpn-gateway-entra-first-party-open-vpn-note.md)]
+[!INCLUDE [Microsoft Entra ID Enterprise registered](../../includes/vpn-gateway-entra-registered-app-openvpn-note.md)]
 
 ## Prerequisites
 
-Complete the steps for the point-to-site server configuration. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication - first-party App ID - Linux clients](point-to-site-entra-application-id-first-party.md). 
-
-The Azure VPN Client for Linux uses a specific tenant configuration. You can't use this version of the Azure VPN Client with a point-to-site Microsoft Entra ID authentication that uses a third-party Application ID. For more information about Application IDs, see [What are application objects and where do they come from](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added).
+Complete the steps for the point-to-site server configuration. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-registered-app.md).
 
 ## Workflow
 
 After your Azure VPN Gateway P2S server configuration is complete, your next steps are as follows:
 
 1. Download and install the Azure VPN Client for Linux.
-1. Generate the VPN client profile configuration package.
 1. Import the client profile settings to the VPN client.
 1. Create a connection.
 
-## Download the Azure VPN Client for Linux
+## Download and install the Azure VPN Client
 
-1. Linux uses a specific version of the Azure VPN Client. Use the following steps to download and install the latest version of the Azure VPN Client for Linux.
+Use the following steps to download and install the latest version of the Azure VPN Client for Linux.
 
-   > [!NOTE]
-   > Add only the repository list of your Ubuntu version 20.04 or 22.04.
-   > For more information, see the [Linux Software Repository for Microsoft Products](https://learn.microsoft.com/linux/packages).
+> [!NOTE]
+> Add only the repository list of your Ubuntu version 20.04 or 22.04.
+> For more information, see the [Linux Software Repository for Microsoft Products](https://learn.microsoft.com/linux/packages).
 
-   ```CLI
-   # install curl utility
-   sudo apt-get install curl
+```CLI
+# install curl utility
+sudo apt-get install curl
 
-   # Install Microsoft's public key
-   curl -sSl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+# Install Microsoft's public key
+curl -sSl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
 
-   # Install the production repo list for focal
-   # For Ubuntu 20.04
-   curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-
-   ubuntu-focal-prod.list
+# Install the production repo list for focal
+# For Ubuntu 20.04
+curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-
+ubuntu-focal-prod.list
 
-   # Install the production repo list for jammy
-   # For Ubuntu 22.04
-   curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-
-   ubuntu-jammy-prod.list
+# Install the production repo list for jammy
+# For Ubuntu 22.04
+curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-
+ubuntu-jammy-prod.list
 
-   sudo apt-get update
-   sudo apt-get install microsoft-azurevpnclient
-   ```
+sudo apt-get update
+sudo apt-get install microsoft-azurevpnclient
+```
 
-1. Install the Azure VPN Client to each Linux computer.
+## Download VPN client profile configuration files
 
-## Generate VPN client profile configuration files
+To configure your Azure VPN Client profile, you download a VPN Client profile configuration package from the Azure P2S gateway. This package contains the necessary settings to configure the VPN client.
 
-If you used the P2S server configuration steps for Linux as mentioned in the [prerequisite](#prerequisites), you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files you'll need. If you need to generate the package again, see [Generate the VPN client profile configuration package](point-to-site-entra-application-id-first-party.md#download-the-vpn-client-profile-configuration-package).
+If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files you'll need. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-registered-app.md#download-the-vpn-client-profile-configuration-package).
 
-## About VPN client profile configuration files for Linux
+## About VPN client profile configuration files
 
-We're migrating the current Azure VPN Application ID to a first-party Application ID. The Azure VPN client for Linux is a newly released client and supports only first-party application App ID (not third-party). The Azure VPN client for Linux is also the *only* version of the Azure VPN client that supports the first-party App ID at this time. For more information, see [About VPN Gateway and first-party App IDs](point-to-site-entra-application-id-first-party.md).
+In this section, you configure the Azure VPN client for Linux.
 
-In the Linux client setup, you must reference the new version of the Application ID (App ID).
+* If your P2S gateway configuration was previously configured to use the older, manually registered App ID versions, your P2S configuration doesn't support the Linux VPN client. See [About the Microsoft-registered app for Azure VPN Client](point-to-site-entra-registered-app.md#about-the-microsoft-registered-app-for-azure-vpn-client).
 
-First-party App ID - **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**
-
-The third-party version of the Application ID,  *41b23e61-6c1e-4545-b367-cd054e0ed4b4*, won’t work with a first-party version of the Azure VPN Client (in this case, the Linux client). However, if you have a custom App ID, you can use it with the Azure VPN Client for Linux.
-
-For Microsoft Entra ID authentication, use the **azurevpnconfig_aad.xml** file. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
+* For Microsoft Entra ID authentication, use the **azurevpnconfig_aad.xml** file. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
 1. On the Azure VPN Client page, select **Import**.
 
@@ -91,15 +84,14 @@ For Microsoft Entra ID authentication, use the **azurevpnconfig_aad.xml** file. 
 
    :::image type="content" source="media/point-to-site-entra-vpn-client-linux/server-validation.png" alt-text="Screenshot Server Validation and Client Authentication fields." lightbox="media/point-to-site-entra-vpn-client-linux/server-validation.png":::
 
-1. For the **Tenant** field, specify the URL of your Microsoft Entra Tenant. Make sure the Tenant URL doesn't have a \ (backslash) at the end. Forward slash is permissible.
+1. For the **Tenant** field, specify the URL of your Microsoft Entra Tenant. Make sure the Tenant URL doesn't have a `\` (backslash) at the end. Forward slash is permissible.
 
    The Tenant ID has the following structure:
 `https://login.microsoftonline.com/{Entra TenantID}`
 
-1. For the **Audience** field, specify the Application ID (App ID). The Azure VPN Client for Linux uses this specific first-party App ID for Azure Public: `41b23e61-6c1e-4545-b367-cd054e0ed4b4`. We also support a custom first-party App ID for this field.
+1. For the **Audience** field, specify the Application ID (App ID).
 
-   > [!NOTE]
-   > The Azure VPN Client only supports Microsoft Entra ID authentication (first-party App ID) for the Azure public cloud.
+   The App ID for Azure Public is: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. We also support  custom App ID for this field.
 
 1. For the **Issuer** field, specify the URL of the Secure Token Service. Include a trailing slash at the end of the Issuer value. Otherwise, the connection might fail.
 
