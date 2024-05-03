@@ -3,7 +3,7 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 04/11/2024
 ms.author: helohr
 ms.custom: subject-rbac-steps
 ---
