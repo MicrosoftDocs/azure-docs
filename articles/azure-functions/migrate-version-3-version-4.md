@@ -215,7 +215,15 @@ When you migrate to version 4.x, make sure that your local.settings.json file ha
 
 # [.NET 6 (in-process model)](#tab/net6-in-proc)
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp/local.settings.json":::
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "AzureWebJobsStorageConnectionStringValue",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+    }
+}
+```
 
 ---
 
