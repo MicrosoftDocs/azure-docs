@@ -59,7 +59,7 @@ If the scale set reduces the instance count to 5, the standby pool would fill to
 - Max ready capacity (15) - Virtual Machine Scale Set instance count (5) = Standby pool size (10)
 
 
-### Availability zones
+## Availability zones
 When using a standby pool with a Virtual Machine Scale Set using [availability zones](virtual-machine-scale-sets-use-availability-zones.md), the instances in the pool will be spread the same zones the Virtual Machine Scale Set is using. 
 
 When a scale out is triggered in one of the zones, a virtual machine in the pool in that same zone will be used. If a virtual machine is needed in a zone where you no longer have any pooled virtual machines left, the scale set creates a new virtual machine directly in the scale set. 
