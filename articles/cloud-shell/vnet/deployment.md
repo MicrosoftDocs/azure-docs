@@ -105,7 +105,7 @@ For more information, see the following articles:
 
 The Azure container instance ID is a unique value for every tenant. You use this identifier in the
 [quickstart templates][08] to configure a virtual network for Cloud Shell. To get the Id from the
-command line, see [Alternate way to get the Azure Container Instance Id][12].
+command line, see [Alternate way to get the Azure Container Instance ID][12].
 
 1. Sign in to the [Azure portal][11]. From the home page, select **Microsoft Entra ID**. If the icon
    isn't displayed, enter `Microsoft Entra ID` in the top search bar.
@@ -246,7 +246,7 @@ Shell.
    template.
 1. Select **Create storage**.
 
-## Alternate way to get the Azure Container Instance Id
+## Alternate way to get the Azure Container Instance ID
 
 If you have Azure PowerShell installed, you can use the following command to get the Azure Container
 Instance ID.
