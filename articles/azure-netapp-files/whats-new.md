@@ -14,6 +14,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2024
+
+* [Azure NetApp Files backup](backup-introduction.md) is now generally available (GA).
+
+    You still must register the feature before using it for the first time. 
+
 ## April 2024 
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
