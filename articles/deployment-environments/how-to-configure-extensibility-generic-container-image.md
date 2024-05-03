@@ -123,25 +123,7 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 
 ## Build a container image with a script
 
-Microsoft provides a quickstart script to help you get started. The script builds your image and pushes it to a specified Azure Container Registry (ACR) under the repository `ade` and the tag `latest`. 
-
-To use the script, you must:
-
-1. Configure a Dockerfile and scripts folder to support the ADE extensibility model. 
-1. Supply a registry name and directory for your custom image.
-1. Have the Azure CLI and Docker Desktop installed and in your PATH variables.
-1. Have permissions to push to the specified registry.
-
-You can run the script [here](https://github.com/Azure/deployment-environments/blob/custom-runner-private-preview/Runner-Images/quickstart-image-build.ps1). 
-
-You can call the script using the following command in PowerShell:
-```powershell
-.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}'
-```
-Additionally, if you would like to push to a specific repository and tag name, you can run:
-```powershell
-.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
-```
+[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
 
 ## Access operation logs and error details
 

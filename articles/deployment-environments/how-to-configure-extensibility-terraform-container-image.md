@@ -198,6 +198,10 @@ When authoring environment definitions to use your custom image in their deploym
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
+## Build a container image with a script
+
+[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
+
 ## Access operation logs and error details
 
 ADE stores error details for a failed deployment the *$ADE_ERROR_LOG* file. 
