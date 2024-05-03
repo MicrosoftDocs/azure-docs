@@ -49,7 +49,7 @@ Select the appropriate tab for the rest of the prerequisites based on your prefe
 
 Authenticate and set the default workspace and resource group. Leave the terminal open to run the rest of the commands in this article.
 
-    [!INCLUDE [cli first steps](includes/cli-first-steps.md)]
+[!INCLUDE [cli first steps](includes/cli-first-steps.md)]
 
 # [Studio](#tab/azure-studio)
 
