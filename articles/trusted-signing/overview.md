@@ -17,7 +17,7 @@ Trusted Signing (formerly Azure Code Signing) is a Microsoft fully managed end-t
 ## Features
 
 * Simplifies the signing process with an intuitive experience in Azure
-* Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 compliant.
+* Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 certified HSMs.
 * Integrations into leading developer toolsets.
 * Supports Public Trust, Test, Private Trust, and CI policy signing scenarios.
 * Timestamping service. 
