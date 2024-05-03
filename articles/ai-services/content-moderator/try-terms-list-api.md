@@ -16,7 +16,7 @@ ms.author: pafarley
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
-Use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) to create custom lists of terms to use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, and also compares text against custom and shared blocklists.
+Use the [List Management API](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists?view=rest-cognitiveservices-contentmoderator-v1.0) to create custom lists of terms to use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, and also compares text against custom and shared blocklists.
 
 > [!NOTE]
 > There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
@@ -39,7 +39,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 After you make changes to a term list, you must refresh its index for changes to be included in future scans. This step is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
 
-1. In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
+1. In the [Term List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
 
    The **Term Lists - Refresh Search Index** page opens.
 
@@ -54,7 +54,7 @@ After you make changes to a term list, you must refresh its index for changes to
    ![Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
 
 ## Create a term list
-1. Go to the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Go to the [Term List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists?view=rest-cognitiveservices-contentmoderator-v1.0). 
 
    The **Term Lists - Create** page opens.
 
@@ -126,7 +126,7 @@ Deleting a term or a list is straightforward. You use the API to do the followin
 
 This example deletes a single term.
 
-1. In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term**, and then select **Delete**. 
+1. In the [Term List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, select **Term**, and then select **Delete**. 
 
    The **Term - Delete** opens.
 
@@ -150,7 +150,7 @@ This example deletes a single term.
 
 You can edit a list’s name and description, and add metadata items.
 
-1. In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Update Details**. 
+1. In the [Term List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, select **Term Lists**, and then select **Update Details**. 
 
    The **Term Lists - Update Details** page opens.
 

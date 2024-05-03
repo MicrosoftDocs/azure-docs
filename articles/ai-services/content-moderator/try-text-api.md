@@ -13,7 +13,7 @@ ms.date: 01/18/2024
 
 # Moderate text from the API console
 
-Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content for profanity and compare it against custom and shared lists.
+Use the [Text Moderation API](/rest/api/cognitiveservices/contentmoderator/text-moderation?view=rest-cognitiveservices-contentmoderator-v1.0) in Azure Content Moderator to scan your text content for profanity and compare it against custom and shared lists.
 
 ## Get your API key
 
@@ -21,7 +21,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 ## Navigate to the API reference
 
-Go to the [Text Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Go to the [Text Moderation API reference](/rest/api/cognitiveservices/contentmoderator/text-moderation?view=rest-cognitiveservices-contentmoderator-v1.0). 
 
   The **Text - Screen** page opens.
 

@@ -14,14 +14,14 @@ ms.author: pafarley
 
 # Moderate images from the API console
 
-Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator to scan image content. The moderation job scans your content for profanity, and compares it against custom and shared blocklists.
+Use the [Image Moderation API](/rest/api/cognitiveservices/contentmoderator/image-moderation?view=rest-cognitiveservices-contentmoderator-v1.0) in Azure Content Moderator to scan image content. The moderation job scans your content for profanity, and compares it against custom and shared blocklists.
 
 ## Use the API console
 Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
-1. Go to [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Go to [Image Moderation API reference](/rest/api/cognitiveservices/contentmoderator/image-moderation?view=rest-cognitiveservices-contentmoderator-v1.0).
 
-   The **Image - Evaluate** image moderation page opens.
+   Go to the **Image - Evaluate** image moderation page.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
@@ -53,7 +53,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 You can use the Image Moderation API to locate faces in an image. This option can be useful when you have privacy concerns and want to prevent a specific face from being posted on your platform. 
 
-1. In the [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), in the left menu, under **Image**, select **Find Faces**. 
+1. In the [Image Moderation API reference](/rest/api/cognitiveservices/contentmoderator/image-moderation?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, under **Image**, select **Find Faces**. 
 
    The **Image - Find Faces** page opens.
 
@@ -77,7 +77,7 @@ You can use the Image Moderation API to locate faces in an image. This option ca
 
 You can use the Content Moderator OCR capability to detect text in images.
 
-1. In the [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), in the left menu, under **Image**, select **OCR**. 
+1. In the [Image Moderation API reference](/rest/api/cognitiveservices/contentmoderator/image-moderation?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, under **Image**, select **OCR**. 
 
    The **Image - OCR** page opens.
 

@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Moderate with custom image lists in the API console
 
-You use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator to create custom lists of images. Use the custom lists of images with the Image Moderation API. The image moderation operation evaluates your image. If you create custom lists, the operation also compares it to the images in your custom lists. You can use custom lists to block or allow the image.
+You use the [List Management API](/rest/api/cognitiveservices/contentmoderator/list-management-image-lists?view=rest-cognitiveservices-contentmoderator-v1.0) in Azure Content Moderator to create custom lists of images. Use the custom lists of images with the Image Moderation API. The image moderation operation evaluates your image. If you create custom lists, the operation also compares it to the images in your custom lists. You can use custom lists to block or allow the image.
 
 > [!NOTE]
 > There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
@@ -37,7 +37,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 After you make changes to an image list, you must refresh its index for changes to be included in future scans. This step is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
 
-1. In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image Lists**, and then select **Refresh Search Index**.
+1. In the [Image List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-image-lists?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, select **Image Lists**, and then select **Refresh Search Index**.
 
    The **Image Lists - Refresh Search Index** page opens.
 
@@ -54,7 +54,7 @@ After you make changes to an image list, you must refresh its index for changes 
 
 ## Create an image list
 
-1. Go to the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
+1. Go to the [Image List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-image-lists?view=rest-cognitiveservices-contentmoderator-v1.0).
 
    The **Image Lists - Create** page opens. 
 
@@ -122,7 +122,7 @@ Deleting an image or a list is straightforward. You can use the API to do the fo
 
 This example deletes a single image:
 
-1. In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image**, and then select **Delete**. 
+1. In the [Image List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-image-lists?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, select **Image**, and then select **Delete**. 
 
    The **Image - Delete** page opens.
 
@@ -144,7 +144,7 @@ In our example, the list ID is **58953**, the value for **ContentSource**. The i
 
 You can edit a list’s name and description, and add metadata items.
 
-1. In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image Lists**, and then select **Update Details**. 
+1. In the [Image List Management API reference](/rest/api/cognitiveservices/contentmoderator/list-management-image-lists?view=rest-cognitiveservices-contentmoderator-v1.0), in the left menu, select **Image Lists**, and then select **Update Details**. 
 
    The **Image Lists - Update Details** page opens.
 
