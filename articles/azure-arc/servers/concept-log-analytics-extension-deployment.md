@@ -25,7 +25,7 @@ Review the different methods to install the VM extension using one method or a c
 
 ### Use Azure Arc-enabled servers
 
-This method supports managing the installation, management, and removal of VM extensions from the [Azure portal](manage-vm-extensions-portal.md), using [PowerShell](manage-vm-extensions-powershell.md), the [Azure CLI](manage-vm-extensions-cli.md), or with an [Azure Resource Manager (ARM) template](manage-vm-extensions-template.md).
+This method supports managing the installation, management, and removal of VM extensions (including the Azure Monitor agent) from the [Azure portal](manage-vm-extensions-portal.md), using [PowerShell](manage-vm-extensions-powershell.md), the [Azure CLI](manage-vm-extensions-cli.md), or with an [Azure Resource Manager (ARM) template](manage-vm-extensions-template.md).
 
 #### Advantages
 
