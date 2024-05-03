@@ -40,7 +40,7 @@ There are two different node pools in Nexus Kubernetes Clusters
      * System node pools host critical system pods. 
      * User node pools host application pods. 
 
-However,application pods can be scheduled on system node pools if user wants
+However, application pods can be scheduled on system node pools if user wants
 only one node pool in their cluster. Every Nexus Kubernetes Cluster must
 contain at least one system node pool with at least one node.
 
