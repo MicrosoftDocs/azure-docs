@@ -273,13 +273,14 @@ No. Students don't need an Office 365 account. If students have access to your A
 
 ### Why aren't my credentials recognized when I sign in to Azure Dev Tools for Teaching?
 
-Make sure that you're using your school credentials to sign in to Azure Dev Tools for Teaching. It might help to open a private browsing session. If you still can't sign in, contact your subscription admin. To find your subscription admin, [contact us](https://aka.ms/adt4tsupport).
+Make sure that you're using your school credentials to sign in to Azure Dev Tools for Teaching. It might help to open a private browsing session.
+
+If you still can't sign in, contact your subscription admin. To find your subscription admin, [contact us](https://aka.ms/adt4tsupport).
 
 ### How do I find my subscriber ID?
 
-When you first enroll in the program, your subscriber ID is in the welcome email that you receive for your subscription.
-
-If you renewed your subscription, your subscriber ID is in the renewal email that the subscription admin received.
+- **When you first enroll in the program**: Your subscriber ID is in the welcome email that you receive for your subscription.
+- **If you renewed your subscription**: Your subscriber ID is in the renewal email that the subscription admin received.
 
 Your subscriber ID is also in the Visual Studio subscription portal. After you sign in, go to the **My Account** page and look under **My Subscription**.
 
