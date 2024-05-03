@@ -17,8 +17,8 @@ ms.devlang: azurecli
 
 In this quick start, you learn about how to add and remove multiple email sender addresses in Azure Communication Services.
 
-::: zone pivot="platform-azportal"
-[!INCLUDE [Azure portal](./includes/create-sender-username-resource-azportal.md)]
+::: zone pivot="platform-azp"
+[!INCLUDE [Azure portal](./includes/create-sender-username-resource-az-portal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"

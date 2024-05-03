@@ -17,8 +17,8 @@ ms.devlang: azurecli
 
 In this quick start, you learn how to provision a custom verified email domain in Azure Communication Services.
 
-::: zone pivot="platform-azportal"
-[!INCLUDE [Azure portal](./includes/create-custom-managed-domain-resource-azportal.md)]
+::: zone pivot="platform-azp"
+[!INCLUDE [Azure portal](./includes/create-custom-managed-domain-resource-az-portal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"

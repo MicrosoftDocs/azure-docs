@@ -18,8 +18,8 @@ ms.devlang: azurecli
 
 In this quick start, you learn how to provision the Azure Managed Domain to Email Communication Service in Azure Communication Services.
 
-::: zone pivot="platform-azportal"
-[!INCLUDE [Azure portal](./includes/create-azure-managed-domain-resource-azportal.md)]
+::: zone pivot="platform-azp"
+[!INCLUDE [Azure portal](./includes/create-azure-managed-domain-resource-az-portal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"

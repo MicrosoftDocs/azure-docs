@@ -21,8 +21,8 @@ Get started with Email by provisioning your first Email Communication Service re
 > [!WARNING]
 > Note that it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already must be used.
 
-::: zone pivot="platform-azportal"
-[!INCLUDE [Azure portal](./includes/create-email-resource-azportal.md)]
+::: zone pivot="platform-azp"
+[!INCLUDE [Azure portal](./includes/create-email-resource-az-portal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
