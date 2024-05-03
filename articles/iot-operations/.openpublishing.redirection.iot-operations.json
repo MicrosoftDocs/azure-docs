@@ -34,6 +34,11 @@
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-event-driven-with-dapr.md",
             "redirect_url": "/azure/iot-operations/develop/tutorial-event-driven-with-dapr",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-process-telemetry.md",
+            "redirect_url": "/azure/iot-operations/get-started/quickstart-upload-telemetry-to-cloud",
+            "redirect_document_id": false
         }
     ]
 }
