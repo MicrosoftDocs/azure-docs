@@ -46,7 +46,7 @@ Many customers enable Service Tags as part of their strategy of defense. Service
 
 ## Limitations
 
-One challenge with relying only on IP based ACLs is that IP addresses can be faked if RPKI isn't implemented. IP spoofing is a category of malicious activity where the IP that you think you can trust is no longer an IP you should trust. By using an IP address to pretend to be a trusted source, that traffic gains access to your computer, device, or network.
+One challenge with relying only on IP based ACLs is that IP addresses can be faked if RPKI isn't implemented. Azure automatically applies RPKI and DDoS protections to mitigate IP spoofing. IP spoofing is a category of malicious activity where the IP that you think you can trust is no longer an IP you should trust. By using an IP address to pretend to be a trusted source, that traffic gains access to your computer, device, or network.
 
 A known IP Address doesn't necessarily mean it's safe or trustworthy. IP Spoofing can occur not just at a network layer but also within applications. Vulnerabilities in HTTP headers allow hackers to inject payloads leading to security events. Layers of validation need to occur from not just the network but also within applications. Building a philosophy of trust but verify is necessary with the advancements that are occurring in cyber-attacks.
 
@@ -54,7 +54,7 @@ A known IP Address doesn't necessarily mean it's safe or trustworthy. IP Spoofin
 
 Every service documents the role and meaning of the IP prefixes in their service tag. Service Tags alone aren't sufficient to secure traffic without considering the nature of the service and the traffic it sends.
 
-The IP prefixes and Service Tag for a Service have traffic and users beyond the service itself. If an Azure service permits Customer Controllable Destinations, the customer is inadvertently allowing traffic controlled by other users of the same Azure service. Understanding the meaning of each Service Tag that you want to utilize helps you understand your risk and identify extra layers of protection that are required.
+The IP prefixes and Service Tag for a Service might have traffic and users beyond the service itself. If an Azure service permits Customer Controllable Destinations, the customer is inadvertently allowing traffic controlled by other users of the same Azure service. Understanding the meaning of each Service Tag that you want to utilize helps you understand your risk and identify extra layers of protection that are required.
 
 It's always a best practice to implement authentication/authorization for traffic rather than relying on IP addresses alone. Validations of client-provided data, including headers, add that next level of protection against spoofing. Azure Front Door (AFD) includes extended protections by evaluating the header and ensures that it matches your application and your identifier. For more information about Azure Front Door's extended protections, see [Secure traffic to Azure Front Door origins](/azure/frontdoor/origin-security?tabs=app-service-functions&pivots=front-door-standard-premium).
 
