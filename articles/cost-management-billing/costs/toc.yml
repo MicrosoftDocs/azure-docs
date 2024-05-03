@@ -55,9 +55,9 @@
           href: ../dataset-schema/cost-usage-details-ea.md
         - name: Cost and usage details - MCA
           href: ../dataset-schema/cost-usage-details-mca.md
-        - name: Cost and usage details - MCA and Partner
+        - name: Cost and usage details - MPA
           href: ../dataset-schema/cost-usage-details-mca-partner.md
-        - name: Cost and usage details - MCA, Partner, and Subscription
+        - name: Cost and usage details - CSP subscription
           href: ../dataset-schema/cost-usage-details-mca-partner-subscription.md
         - name: Cost and usage details - pay-as-you-go
           href: ../dataset-schema/cost-usage-details-pay-as-you-go.md
