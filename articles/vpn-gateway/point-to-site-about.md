@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 05/03/2024
 ms.author: cherylmc
 
 ---
@@ -41,13 +41,15 @@ The validation of the client certificate is performed by the VPN gateway and hap
 
 ### Microsoft Entra ID authentication
 
-Microsoft Entra ID authentication allows users to connect to Azure using their Microsoft Entra ID credentials. With Microsoft Entra ID authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN. Microsoft Entra ID authentication is only supported for the OpenVPN protocol. Clients must use the Azure VPN Client in order to connect. There are two different App IDs, depending on whether you want to use first-party or third party authorized applications.
+You can configure your P2S gateway to allow VPN users to authenticate using Microsoft Entra ID credentials. With Microsoft Entra ID authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN. Microsoft Entra ID authentication is supported only for the OpenVPN protocol. To authenticate and connect, clients must use the Azure VPN Client.
 
 [!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
+#### Workflow
+
 At a high level, you need to perform the following steps to configure Microsoft Entra ID authentication:
 
-1. Configure a tenant.
+1. If using manual app registration, perform the necessary steps on the Entra tenant.
 1. Enable Microsoft Entra ID authentication on the P2S gateway.
 1. Generate and download the appropriate Azure VPN Client profile configuration files.
 1. Download, install, and configure the Azure VPN Client on the client computer.
