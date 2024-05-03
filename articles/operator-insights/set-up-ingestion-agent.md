@@ -330,7 +330,7 @@ To collect agent logs, follow these instructions to install the Azure Monitor Ag
   - Creating a table through the portal requires a sample log file: [ingestion-agent-logs](media/ingestion-agent-stdout.log)
   - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`
     ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/133898687/2278e6f7-c0ba-48a8-a540-545c7a4550a2)
-  - No columns other than the defaults are required
+  - You don't need to add any custom columns
 - When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
 - After adding the data collection rule, you can query these logs through the Log Analytics workspace, using the following query to make them easier to work with
   ```
