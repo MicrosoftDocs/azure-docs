@@ -1,29 +1,32 @@
 ---
-title: Azure API Management policy reference - azure-openai-token-limit | Microsoft Docs
+title: Azure API Management policy reference - azure-openai-token-limit
 description: Reference for the azure-openai-token-limit policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/17/2024
+ms.date: 05/03/2024
 ms.author: danlep
 ---
 
-# Limit Azure OpenAI token usage
+# Limit Azure OpenAI Service token usage
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-The `azure-openai-token-limit` policy prevents Azure OpenAI AI usage spikes by limiting  language model tokens per calculated key..... When the token usage... is exceeded, ....
+The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage spikes on a per key basis by limiting consumption of language model tokens to a specified number per minute. When the token usage is exceeded, the caller receives a `503 Service Unavailable` response status code.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
-## Supported models
+## Supported Azure OpenAI Service models
 
+The policy can be used with APIs for the following [Azure OpenAI Service models](../ai-services/openai/concepts/models.md):
 
-| Model | Description |
+| API type | Supported models |
 |-------|-------------|
-
+| Chat completion     |  Chat GPT 3.5<br/><br/>Chat GPT 4 |
+| Embeddings | text-embedding-3-large<br/><br/> text-embedding-3-small<br/><br/>text-embedding-ada-002 |
+| Completion | Chat GPT 3.5 Turbo |
 
 ## Policy statement
 
@@ -31,7 +34,6 @@ The `azure-openai-token-limit` policy prevents Azure OpenAI AI usage spikes by l
 <azure-openai-token-limit counter-key="key value"
         tokens-per-minute="number"
         estimate-prompt-tokens="true | false"    
-        prompt-type="auto | chat-completion | completion | embeddings"
         retry-after-header-name="custom header name, replaces default 'Retry-After'" 
         retry-after-variable-name="policy expression variable name"
         remaining-tokens-header-name="header name"  
@@ -45,19 +47,14 @@ The `azure-openai-token-limit` policy prevents Azure OpenAI AI usage spikes by l
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | counter-key          | The key to use for the token limit policy. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.| Yes      | N/A     |
-| tokens-per-minute | The number of tokens...                                         | Yes      | N/A     |
-| estimate-prompt-tokens | A Boolean value that determines whether to estimate the number of tokens required for a prompt.  | Yes       | N/A     |
-| prompt-type | The type of prompt for which to estimate the number of tokens. | No       | auto     |
+| tokens-per-minute | The maximum number of tokens consumed by prompt and completion per minute.         | Yes      | N/A     |
+| estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate the number of tokens based on prompt schema in API; may reduce performance. <br> - `false`: don't estimate prompt tokens.  | Yes       | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified `tokens-per-minute` is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
-| remaining-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed.|  No | N/A  |
-| remaining-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed.|  No | N/A  |
-| consumed-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed.|  No | N/A  |
-| consumed-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed.|  No | N/A  |
-
-
-
-
+| remaining-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
+| remaining-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining tokens allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
+| consumed-tokens-header-name    | The name of a response header whose value is the number of tokens consumed by both prompt and completion. The header is added to response only after the response is received from backend. Policy expressions aren't allowed.|  No | N/A  |
+| consumed-tokens-variable-name    | The name of a variable initialized to the estimated number of tokens in the prompt in `backend` section of pipeline if `estimate-prompt-tokens` is `true` and zero otherwise. The variable is updated with the reported count upon receiving the response in `outbound` section.|  No | N/A  |
 
 ## Usage
 
@@ -68,26 +65,25 @@ The `azure-openai-token-limit` policy prevents Azure OpenAI AI usage spikes by l
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* This policy is only applied when an API is accessed using a subscription key.
-
-
 
 ## Example
 
-In the following example...
+In the following example, the token limit of 5000 per minute is keyed by the caller IP address. The policy doesn't estimate the number of tokens required for a prompt. After each policy execution, the remaining tokens allowed in the time period are stored in the variable `remainingTokens`.
 
 ```xml
 <policies>
     <inbound>
         <base />
-        <.../>
+        <azure-openai-token-limit>
+            counter-key="@(context.Request.IpAddress)"
+            tokens-per-minute="5000" estimate-prompt-tokens="false" "remaining-tokens-variable-name="remainingTokens"
+        </azure-openai-token-limit>
     </inbound>
     <outbound>
         <base />
     </outbound>
 </policies>
 ```
-
 
 ## Related policies
 
