@@ -1,5 +1,5 @@
 ---
-title: Prepare to deploy the event-driven workflow (EDW) scaling workload to Azure
+title: Prepare to deploy the event-driven workflow (EDW) workload to Azure
 description: Take the necessary steps so you can deploy the EDW workload in Azure.
 ms.topic: how-to
 ms.date: 05/01/2024
@@ -7,7 +7,7 @@ author: JnHs
 ms.author: jenhayes
 ---
 
-# Prepare to deploy the event-driven workflow (EDW) scaling workload to Azure
+# Prepare to deploy the event-driven workflow (EDW) workload to Azure
 
 The AWS workload is designed to be deployed using Bash, CloudFormation, and AWS CLI. The producer/consumer app is distributed as a container containing the Python scripts, which will work unchanged with Azure Kubernetes Service (AKS). In the following sections, you'll make changes to several Bash shell scripts, and make modifications to the Kubernetes deployment manifests to configure KEDA to use a Azure Storage Queue scaler in place of the Amazon Simple Queue Service (SQS) scaler.
 

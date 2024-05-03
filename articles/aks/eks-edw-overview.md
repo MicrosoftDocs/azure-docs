@@ -1,5 +1,5 @@
 ---
-title: Replicate AWS EKS scaling with KEDA and Karpenter workload in Azure
+title: Replicate the AWS EDW workload with KEDA and Karpenter workload in Azure
 description: Learn how to replicate the AWS EKS Scaling with KEDA and Karpenter event driven workflow (EDW) workload in Azure.
 ms.topic: how-to
 ms.date: 05/01/2024
@@ -7,7 +7,7 @@ author: JnHs
 ms.author: jenhayes
 ---
 
-# Replicate AWS EKS scaling with KEDA and Karpenter workload in Azure
+# Replicate the AWS event-driven workflow (EDW) workload with KEDA and Karpenter in Azure
 
 In this article, you learn how to replicate the Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) scaling with KEDA and Karpenter event-driven workflow (EDW) workload in Azure. This workload is an implementation of the producer/consumer pattern that facilitates efficient data processing by separating data production from data consumption. KEDA is used to scale pods running consumer processing and Karpenter is used to autoscale Kubernetes nodes.
 
@@ -23,7 +23,8 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 
 ## Prerequisites
 
-- An Azure acccount. If you don't one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- The **Owner** or **User Access Administrator** [Azure built-in role](/azure/role-based-access-control/built-in-roles) on a subscription in your Azure account.
 - [Azure CLI v2.56](/cli/azure/install-azure-cli) or later
 - [Azure Kubernetes Service (AKS) preview extension](/azure/aks/draft#install-the-aks-preview-azure-cli-extension)
 - [jq v1.5](https://jqlang.github.io/jq/) or later

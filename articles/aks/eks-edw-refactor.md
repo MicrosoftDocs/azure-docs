@@ -126,7 +126,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
 1. Retrieve the OIDC Issuer URL from the AKS cluster:
 
    ```azurecli
-   A1. KS_OIDC_ISSUER=$(az aks show --name $AKS_CLUSTER_NAME --resource-group "$RESOURCE_GROUP_NAME" --query "oidcIssuerProfile.issuerUrl" -otsv)
+   KS_OIDC_ISSUER=$(az aks show --name $AKS_CLUSTER_NAME --resource-group "$RESOURCE_GROUP_NAME" --query "oidcIssuerProfile.issuerUrl" -otsv)
    ```
 
 1. Create a managed identity:
@@ -141,7 +141,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
 
    ```azurecli
    kubectl create serviceaccount "$SERVICE_ACCOUNT_NAME" -n "$SERVICE_ACCOUNT_NAMESPACE"
-       kubectl annotate serviceaccount "$SERVICE_ACCOUNT_NAME" -n "$SERVICE_ACCOUNT_NAMESPACE" "azure.workload.identity/client-id=$workloadManagedIdentityClientId"
+   kubectl annotate serviceaccount "$SERVICE_ACCOUNT_NAME" -n "$SERVICE_ACCOUNT_NAMESPACE" "azure.workload.identity/client-id=$workloadManagedIdentityClientId"
    ```
 
 1. Establish a federated identity credential:
@@ -263,7 +263,7 @@ TODO: Insert link to final python code file for the consumer from the sample (ka
 
 Once you have refactored the app code to use Azure services and authenticate between Azure services using Microsoft Entra Workload ID with AKS, you can build the container images and push them to [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro). In the `app` directory of the cloned repository, a shell script builds the container images and pushes them to ACR. The script is called `docker-command.sh`. Open the `.sh` file and review the code. The script builds the producer and consumer container images and pushes them to ACR. For more information, see [Introduction to container registries in Azure](/azure/container-registry/container-registry-intro) and learn how to [push and pull images](/azure/container-registry/container-registry-get-started-docker-cli) from ACR.
 
-To build the container images and push them to ACR, make sure the environment variable `AZURE_CONTAINER_REGISTRY` is set to the name of the resgistry you want to push the images to, then run the following command:
+To build the container images and push them to ACR, make sure the environment variable `AZURE_CONTAINER_REGISTRY` is set to the name of the registry you want to push the images to, then run the following command:
 
 ```bash
 ./app/docker-command.sh

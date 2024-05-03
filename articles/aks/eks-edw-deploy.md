@@ -42,7 +42,7 @@ cd deployment
 ./deploy.sh
 ```
 
-Before the script takes action, it first checks that all of the prerequisite tools are installed. If not, the script terminates, and you'll see an error message letting you know which prerequisites are missing. Install any needed tools and then run the script again.
+Before the script takes action, it first checks that all of the [prerequisite tools](eks-edw-overview.md#prerequisites) are installed. If not, the script terminates, and you'll see an error message letting you know which prerequisites are missing. Install any needed tools and then run the script again.
 
 The deployment script also checks that the [Node Autoprovisioning Preview for Azure Kubernetes Service (AKS)](/azure/aks/node-autoprovision) is enabled. If not, the script executes a CLI call to enable it.
 
