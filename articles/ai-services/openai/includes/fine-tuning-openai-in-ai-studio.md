@@ -167,7 +167,7 @@ To fine-tune an Azure OpenAI model in an existing Azure AI Studio project, follo
 ### Choose your training data
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane displays any existing, previously uploaded datasets and also provides options to upload new training data.
 
-:::image type="content" source="../media/fine-tuning/studio-training-data-local.png" alt-text="Screenshot of the Training data pane for the Fine-tune model wizard in Azure AI Studio." lightbox="../media/fine-tuning/ai-studio/training-data-local.png":::
+:::image type="content" source="../media/fine-tuning/ai-studio/fine-tune-training-data-local.png" alt-text="Screenshot of the Training data pane for the Fine-tune model wizard in Azure AI Studio." lightbox="../media/fine-tuning/ai-studio/fine-tune-training-data-local.png":::
 
 - If your training data is already in your project, select **Data in Azure AI Studio**.
 
