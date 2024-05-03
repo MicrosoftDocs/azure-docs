@@ -33,10 +33,7 @@ Before you can successfully deploy Azure Operator 5G Core, you must:
 - Grant "Mobile Packet Core" service principal Contributor access at the subscription level (note this is a temporary requirement until the step is embedded as part of the RP registration).
 - Ensure that the network, subnet, and IP plans are ready for the resource parameter files.   
 
-Based on your deployment environments, complete one of the following prerequisites:
-
-- [Prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md).
-- [Prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
+Complete the steps found in [Prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
 
 ## Post cluster creation
 
