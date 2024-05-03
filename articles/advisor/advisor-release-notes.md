@@ -17,7 +17,7 @@ In the Azure portal, Azure Advisor currently shows potential aggregated cost sav
 
 #### Recommended action
 
-If you want to continue calculating aggregated potential yearly savings, follow these steps. Note that individual recommendations might show savings that overlap with the savings shown in other recommendations, although you might not be able to benefit from them concurrently. For example, you can benefit from savings plans or from reservations for virtual machines, but not typically from both on the same virtual machines.
+If you want to continue calculating aggregated potential yearly savings, follow [these steps](/azure/advisor/advisor-how-to-calculate-total-cost-savings). Note that individual recommendations might show savings that overlap with the savings shown in other recommendations, although you might not be able to benefit from them concurrently. For example, you can benefit from savings plans or from reservations for virtual machines, but not typically from both on the same virtual machines.
 
 ### Public Preview: Resiliency Review on Azure Advisor
 
