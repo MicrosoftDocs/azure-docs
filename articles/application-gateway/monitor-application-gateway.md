@@ -149,8 +149,6 @@ AzureDiagnostics
 -->
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
-<!-- ### [TODO-replace-with-service-name] alert rules. REQUIRED. -->
-
 ### Application Gateway alert rules
 
 The following table lists some suggested alert rules for Application Gateway. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Application Gateway monitoring data reference](monitor-application-gateway-reference.md).
@@ -159,11 +157,10 @@ The following table lists some suggested alert rules for Application Gateway. Th
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Metric|CPU utilization crosses 80%|Under normal conditions, CPU usage shouldn't regularly exceed 90%. This can cause latency in the websites hosted behind the Application Gateway and disrupt the client experience.|
-|Metric|Unhealthy host count crosses threshold|Indicates the number of backend servers that Application Gateway is unable to probe successfully. This catches issues where the Application Gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
+|Metric|CPU utilization crosses 80%|Under normal conditions, CPU usage shouldn't regularly exceed 90%. This situation can cause latency in the websites hosted behind the Application Gateway and disrupt the client experience.|
+|Metric|Unhealthy host count crosses threshold|Indicates the number of backend servers that Application Gateway is unable to probe successfully. This alert catches issues where the Application Gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
 |Metric|Response status (4xx, 5xx) crosses threshold|When Application Gateway response status is 4xx or 5xx. There could be occasional 4xx or 5xx response seen due to transient issues. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 |Metric|Failed requests crosses threshold|When failed requests metric crosses a threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
-
 
 **Application Gateway v2**
 
@@ -171,17 +168,16 @@ The following table lists some suggested alert rules for Application Gateway. Th
 |:---|:---|:---|
 |Metric|Compute Unit utilization crosses 75% of average usage|Compute unit is the measure of compute utilization of your Application Gateway. Check your average compute unit usage in the last one month and set alert if it crosses 75% of it.|
 |Metric|Capacity Unit utilization crosses 75% of peak usage|Capacity units represent overall gateway utilization in terms of throughput, compute, and connection count. Check your maximum capacity unit usage in the last one month and set alert if it crosses 75% of it.|
-|Metric|Unhealthy host count crosses threshold|Indicates number of backend servers that application gateway is unable to probe successfully. This catches issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
+|Metric|Unhealthy host count crosses threshold|Indicates number of backend servers that application gateway is unable to probe successfully. This alert catches issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
 |Metric|Response status (4xx, 5xx) crosses threshold|When Application Gateway response status is 4xx or 5xx. There could be occasional 4xx or 5xx response seen due to transient issues. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 |Metric|Failed requests crosses threshold|When Failed requests metric crosses threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 |Metric|Backend last byte response time crosses threshold|Indicates the time interval between start of establishing a connection to backend server and receiving the last byte of the response body. Create an alert if the backend response latency is more that certain threshold from usual.|
-|Metric|Application Gateway total time crosses threshold|This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. Should create an alert if the backend response latency is more that certain threshold from usual.|
+|Metric|Application Gateway total time crosses threshold|This value is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. Should create an alert if the backend response latency is more that certain threshold from usual.|
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
-If you're creating or running an application that uses Application Gateway, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) can offer additional types of alerts.
+If you're creating or running an application that uses Application Gateway, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) can offer other types of alerts.
 
-<!-- ### Advisor recommendations -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
