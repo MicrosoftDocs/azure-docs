@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -197,7 +197,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
    az spring gateway route-config show \
        --name test-api-routes \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
-       
+
    az spring gateway route-config list \
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```

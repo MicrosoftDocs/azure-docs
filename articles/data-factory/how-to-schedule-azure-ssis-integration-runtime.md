@@ -121,7 +121,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    1. On your Data Factory page in the Azure portal, select **Access control (IAM)**.
    1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
       | Setting | Value |
       | --- | --- |

@@ -13,18 +13,18 @@ ms.date: 04/12/2024
 Azure Monitor’s Diagnostic Settings enable you to route platform metrics, resource logs, and the activity log to various destinations. For each Azure resource, you need to configure its own diagnostic setting. Similarly, each Trust Signing account should have its own settings established.
 Currently there are four different options enabled:
 
-- **Log Analytics workspace**: A Log Analytics workspace serves as a distinct environment for log data. Each workspace has its own data repository and configuration. It’s the designated destination for sending your data. If you haven’t already set up a workspace, create one before proceeding. For additional details, refer to the [Log Analytics workspace Overview.](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview) 
+- **Log Analytics workspace**: A Log Analytics workspace serves as a distinct environment for log data. Each workspace has its own data repository and configuration. It’s the designated destination for sending your data. If you haven’t already set up a workspace, create one before proceeding. For additional details, refer to the [Log Analytics workspace Overview.](/azure/azure-monitor/logs/log-analytics-workspace-overview) 
 - **Storage Account**: An Azure storage account houses all your Azure Storage data objects, including blobs, files, queues, and tables. It offers a unique namespace for your Azure Storage data, accessible globally via HTTP or HTTPS. When setting up your storage account, follow these steps:
   - Select your Subscription: Choose the appropriate subscription.
   - Choose a Storage Account: Specify the storage account where you want to store your data.
   - Azure Storage Lifecycle Policy: Utilize the Azure Storage Lifecycle Policy to manage how long your logs are retained.
-For additional information, refer to the [Storage account Overview](https://learn.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
-- **Event Hub**: Azure Event Hubs is a cloud-native data streaming service that can handle millions of events per second with low latency. It seamlessly streams data from any source to any destination. When configuring it, you can specify the subscription to which the event hub belongs. For additional information, refer to the [Event Hubs Overview](https://learn.microsoft.com/azure/event-hubs/event-hubs-about)
+For additional information, refer to the [Storage account Overview](/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
+- **Event Hub**: Azure Event Hubs is a cloud-native data streaming service that can handle millions of events per second with low latency. It seamlessly streams data from any source to any destination. When configuring it, you can specify the subscription to which the event hub belongs. For additional information, refer to the [Event Hubs Overview](/azure/event-hubs/event-hubs-about)
 - **Partner Solution**: You can send platform metrics and logs to certain Azure Monitor partners.
 
 Remember, each setting can have no more than one of each of the destination types. If you need to delete a resource, rename, or move a resource, or migrate it across resource groups or subscriptions, first delete its diagnostic settings.
 
-For more detailed information, you can refer to the official Microsoft documentation on [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) and [Creating diagnostic settings in Azure Monitor.](https://learn.microsoft.com/azure/azure-monitor/essentials/create-diagnostic-settings)
+For more detailed information, you can refer to the official Microsoft documentation on [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) and [Creating diagnostic settings in Azure Monitor.](/azure/azure-monitor/essentials/create-diagnostic-settings)
 
 Following is an example of how to view signing transactions through storage account.
 
@@ -37,7 +37,7 @@ Following is an example of how to view signing transactions through storage acco
 
 Follow the steps to access and send signing transactions to your storage account:  
 
-1. Follow this guide to create Storage accounts, [Create a storage account - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-account-create?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json), in the same region as your trusted signing account (Basic storage account is sufficient).
+1. Follow this guide to create Storage accounts, [Create a storage account - Azure Storage | Microsoft Learn](/azure/storage/common/storage-account-create?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json), in the same region as your trusted signing account (Basic storage account is sufficient).
 2. Navigate to your trusted signing account in the Azure portal.
 3. On the trusted signing account overview page, locate **Diagnostics Settings** under Monitoring section.
 

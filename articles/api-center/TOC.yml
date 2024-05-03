@@ -5,20 +5,24 @@
   items:
     - name: Overview
       items:
-      - name: What is API Center?
+      - name: What is Azure API Center?
         displayName: Overview
         href: overview.md
       - name: Key concepts
         href: key-concepts.md  
       - name: Service limits
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits
+      - name: Frequently asked questions
+        href: frequently-asked-questions.yml    
     - name: Quickstarts
       items:
-          - name: Create an API center
+          - name: Create an API center - portal
             href: set-up-api-center.md
+          - name: Create an API center - CLI
+            href: set-up-api-center-azure-cli.md
     - name: Tutorials
       items:
-          - name: 1 - Customize metadata properties
+          - name: 1 - Define custom metadata
             href: add-metadata-properties.md
           - name: 2 - Add APIs to the inventory
             href: register-apis.md
@@ -30,18 +34,24 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
+      - name: Build and register APIs - VS Code extension
+        href: use-vscode-extension.md
 - name: API governance
   items:
+      - name: Use metadata for governance
+        href: metadata.md
       - name: Analyze APIs using linting rules
         href: enable-api-analysis-linting.md
 - name: API discovery and consumption
   items:
-      - name: Enable API Center portal
+      - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
-      - name: Use VS Code extension
-        href: use-vscode-extension.md
       - name: Discover APIs with GitHub Copilot Chat
         href: use-vscode-extension-copilot.md
+- name: API center management and operations
+  items:
+      - name: Reliability
+        href: ../reliability/reliability-api-center.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
 - name: Reference
   items:
       - name: Azure CLI
@@ -57,6 +67,8 @@
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apicenter
       - name: Event Grid schema
-        href: ../event-grid/event-schema-api-center.md
+        href: ../event-grid/event-schema-api-center.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
       - name: Resource Manager template
         href: /azure/templates/microsoft.apicenter/allversions
+      - name: Azure built-in roles
+        href: ../role-based-access-control/built-in-roles.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#integration

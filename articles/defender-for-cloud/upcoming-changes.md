@@ -25,6 +25,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
+| [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
+| [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | May 2024 |
 | [Deprecation of fileless attack alerts](#deprecation-of-fileless-attack-alerts) | April 18, 2024 | May 2024 |
 | [Change in CIEM assessment IDs](#change-in-ciem-assessment-ids) | April 16.2024 | May 2024 |
 | [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation) | April 3, 2024 | May 2024 |
@@ -46,6 +49,53 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Removal of FIM over AMA and release of new version over Defender for Endpoint
+
+**Announcement date: May 1, 2024**
+
+**Estimated date for change: June 2024**
+
+As part of the [MMA deprecation and the Defender for Servers updated deployment strategy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), all Defender for Servers security features will be provided via a single agent (MDE), or via agentless scanning capabilities, and without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA).
+
+The new version of File Integrity Monitoring (FIM) over Microsoft Defender for Endpoint (MDE) allows you to meet compliance by monitoring critical files and registries in real-time, auditing changes, and detecting suspicious file content alterations.
+
+As part of this release, FIM experience over AMA will no longer be available through the Defender for Cloud portal beginning May 30th. For more information, see [File Integrity Monitoring experience - changes and migration guidance](prepare-deprecation-log-analytics-mma-agent.md#file-integrity-monitoring-experience---changes-and-migration-guidance).
+
+## Deprecation of system update recommendations
+
+**Announcement date: May 1, 2024**
+
+**Estimated date for change: May 2024**
+
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), the following recommendations that rely on those agents are set for deprecation:
+
+- [System updates should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SystemUpdatesRecommendationDetailsWithRulesBlade/assessmentKey/4ab6e3c5-74dd-8b35-9ab9-f61b30875b27)
+- [System updates on virtual machine scale sets should be installed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/bd20bd91-aaf1-7f14-b6e4-866de2f43146)
+
+The new recommendations based on Azure Update Manager integration [are Generally Available](release-notes-archive.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga) and have no agent dependencies.
+
+## Deprecation of MMA related recommendations
+
+**Announcement date: May 1, 2024**
+
+**Estimated date for change: May 2024**
+
+As part of the [MMA deprecation and the Defender for Servers updated deployment strategy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), all Defender for Servers security features will be provided via a single agent (MDE), or via agentless scanning capabilities, and without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA).
+
+As part of this, and in a goal to reduce complexity, the following recommendations are going to be deprecated:
+
+| Display name                                             | Related feature |
+| ------------------------------------------------------------ | ------------------- |
+| Log Analytics agent should be installed on Windows-based Azure Arc-enabled machines | MMA enablement      |
+| Log Analytics agent should be installed on virtual machine scale sets | MMA enablement      |
+| Auto provisioning of the Log Analytics agent should be enabled on subscriptions | MMA enablement      |
+| Log Analytics agent should be installed on virtual machines  | MMA enablement      |
+| Log Analytics agent should be installed on Linux-based Azure Arc-enabled machines | MMA enablement      |
+| Guest Configuration extension should be installed on machines | GC  enablement      |
+| Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity | GC  enablement      |
+| Adaptive application controls for defining safe applications should be enabled on your machines | AAC                 |
+| Adaptive application controls for defining safe applications should be enabled on your machines | AAC  |
 
 ## Deprecation of fileless attack alerts
 
@@ -137,7 +187,7 @@ For a subset of controls, Microsoft Actions was accessible from the **Microsoft 
 
 In February 2021, the deprecation of the MSCA task was communicated to all customers and has been past end of life support since [March 2022](https://devblogs.microsoft.com/premier-developer/microsoft-security-code-analysis/). As of February 26, 2024, MSCA is officially no longer operational.
 
-Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and more security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.yml) and more security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
 ## Decommissioning of Microsoft.SecurityDevOps resource provider
 
@@ -181,7 +231,7 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | March 2024 |
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | March 2024 |
 
-Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
 
 ## Change in pricing for multicloud container threat detection
 
@@ -219,7 +269,7 @@ In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner op
 
 **Estimated date for change: May 2024**
 
-The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path, which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.md).
+The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path, which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.yml).
 
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 

@@ -30,7 +30,7 @@ When you assign the role at the project level, the user can perform the precedin
 1. Select **Projects**, then choose the project that you want your development team members to be able to access.
 1. Select **Access control (IAM)** from the left menu.
 1. Select **Add** > **Add role assignment**.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -54,7 +54,7 @@ The users can now view the project and manage all the environment types that you
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
