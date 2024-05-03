@@ -6,7 +6,7 @@ ms.subservice: mq
 ms.custom: devx-track-azurecli
 ms.author: patricka
 ms.topic: tutorial
-ms.date: 02/28/2024
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
@@ -159,7 +159,7 @@ metadata:
 spec:
   image: 
     repository: mcr.microsoft.com/azureiotoperations/mqttbridge
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 2

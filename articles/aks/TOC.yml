@@ -570,6 +570,8 @@
                       href: use-ultra-disks.md
                     - name: Bring your own keys for disks
                       href: azure-disk-customer-managed-keys.md
+                    - name: Move a persistent volume between clusters
+                      href: csi-disk-move-subscriptions.md
                     - name: Use Azure Container Storage with Azure Disks
                       href: ../storage/container-storage/use-container-storage-with-managed-disks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
               - name: Azure Elastic SAN
