@@ -17,7 +17,7 @@ items:
 - name: Quickstarts
   items:
   - name: Get started with Assistants and code interpreter in the playground
-    href: quickstarts/assistants.md
+    href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
   - name: Hear and speak with chat in the playground
     href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with content safety
@@ -167,7 +167,7 @@ items:
         href: concepts/evaluation-approach-gen-ai.md
       - name: Evaluation and monitoring metrics for generative AI
         href: concepts/evaluation-metrics-built-in.md
-      - name: Harms mitigation strategies with Azure AI
+      - name: Content risk mitigation strategies with Azure AI
         href: concepts/evaluation-improvement-strategies.md
     - name: Evaluate with Azure AI Studio and SDK
       href: how-to/evaluate-generative-ai-app.md

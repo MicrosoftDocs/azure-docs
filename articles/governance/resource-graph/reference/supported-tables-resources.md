@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 03/20/2024
+ms.date: 05/03/2024
 ms.topic: reference
 ms.custom: generated
 ---
@@ -183,13 +183,24 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 ## recoveryservicesresources
 
+- microsoft.azurebusinesscontinuity/deletedunifiedprotecteditems
+- microsoft.azurebusinesscontinuity/unifiedprotecteditems
 - microsoft.dataprotection/backupvaults/backupinstances
 - microsoft.dataprotection/backupvaults/backupjobs
 - microsoft.dataprotection/backupvaults/backuppolicies
+- microsoft.dataprotection/backupvaults/deletedbackupinstances
+- microsoft.recoveryservices/locations/deletedvaults
+- microsoft.recoveryservices/locations/deletedvaults/backupfabrics/protectioncontainers/protecteditems
+- microsoft.recoveryservices/vaults
 - microsoft.recoveryservices/vaults/alerts
-- microsoft.recoveryservices/vaults/backupFabrics/protectionContainers/protectedItems (Backup Items)
+- microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems (Backup Items)
 - microsoft.recoveryservices/vaults/backupjobs
 - microsoft.recoveryservices/vaults/backuppolicies
+- microsoft.recoveryservices/vaults/replicationfabrics/replicationprotectioncontainers/replicationprotecteditems
+- microsoft.recoveryservices/vaults/replicationjobs
+- microsoft.recoveryservices/vaults/replicationpolicies
+
+For Azure Site Recovery, only _Azure to Azure_ and _VMware to Azure_ resources return results in Azure Resource Graph Explorer, like in a query for `replicationprotecteditems`.
 
 ## resourcechanges
 

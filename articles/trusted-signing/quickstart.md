@@ -186,6 +186,9 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 You can complete your own Identity Validation by filing out the request form with the information that should be included in the certificate.  Identity Validation can only be completed in the Azure portal – it can't be completed with Azure CLI.
 
+> [!NOTE]
+> You will not be able to create an identity validation if you do not have the appropriate role assigned. If the "New identity" button is greyed out on the Azure portal ensure you have the "Trusted Signing Identity Verifier role" in order to proceed with identity validation. 
+
 Here are the steps to create an Identity Validation request:
 
 1. Navigate to your new Trusted Signing account in the Azure portal.
