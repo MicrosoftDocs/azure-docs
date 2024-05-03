@@ -70,7 +70,7 @@ This script creates a new ExpressRoute virtual network gateway on the same gatew
     ```
 1. Enter the resource ID of your gateway.
 1. The gateway subnet needs two or more address prefixes for the migration. If you have only one prefix, you're prompted to enter an additional prefix. 
-1. Choose a suffix for your new resources, the new resource name will be existingresourcename_<suffix>.
+1. Choose a name for your new resources, the new resource name will be added to the existing name. For example: existingresourcename_newname.
 1. Enter an availability zone for your new gateway. 
 
 
