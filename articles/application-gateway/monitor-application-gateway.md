@@ -54,9 +54,17 @@ For more information about the resource types for Application Gateway, see [Azur
 <!-- ## Azure Monitor platform metrics -->
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-For a list of available metrics for Azure Application Gateway, see [Azure Application Gateway monitoring data reference](monitor-application-gateway-reference.md#metrics).
+The **Overview** page in the Azure portal for each Application Gateway includes the following metrics:
 
-<!-- OPTIONAL. If your service doesn't collect Azure Monitor platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)] -->
+- Sum Total Requests
+- Sum Failed Requests
+- Sum Response Status by HttpStatus
+- Sum Throughput
+- Sum CurrentConnections
+- Avg Healthy Host Count By BackendPool HttpSettings
+- Avg Unhealthy Host Count By BackendPool HttpSettings
+
+For a list of available metrics for Azure Application Gateway, see [Azure Application Gateway monitoring data reference](monitor-application-gateway-reference.md#metrics).
 
 <!-- ## OPTIONAL Application Gateway metrics
 If your service uses any non-Azure Monitor based metrics, add the following include and more information.
@@ -65,6 +73,16 @@ If your service uses any non-Azure Monitor based metrics, add the following incl
 <!-- ## Azure Monitor resource logs -->
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
+
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Common and service-specific schema for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). 
+
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+
+For a list of the types of resource logs collected for Azure Application Gateway, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#resource-logs).
+
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#azure-monitor-logs-tables).  
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Application Gateway, see [Azure Application Gateway monitoring data reference](monitor-application-gateway-reference.md#resource-logs).
 
@@ -82,15 +100,53 @@ For the available resource log categories, their associated Log Analytics tables
 <!-- ## Kusto queries -->
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-<!-- REQUIRED. Add sample Kusto queries for your service here. -->
+```kusto
+// Requests per hour 
+// Count of the incoming requests on the Application Gateway. 
+// To create an alert for this query, click '+ New alert rule'
+AzureDiagnostics
+| where ResourceType == "APPLICATIONGATEWAYS" and OperationName == "ApplicationGatewayAccess"
+| summarize AggregatedValue = count() by bin(TimeGenerated, 1h), _ResourceId
+| render timechart 
+```
+
+```kusto
+// Failed requests per hour 
+// Count of requests to which Application Gateway responded with an error. 
+// To create an alert for this query, click '+ New alert rule'
+AzureDiagnostics
+| where ResourceType == "APPLICATIONGATEWAYS" and OperationName == "ApplicationGatewayAccess" and httpStatus_d > 399
+| summarize AggregatedValue = count() by bin(TimeGenerated, 1h), _ResourceId
+| render timechart
+```
+
+```kusto
+// Top 10 Client IPs 
+// Count of requests per client IP. 
+AzureDiagnostics
+| where ResourceType == "APPLICATIONGATEWAYS" and OperationName == "ApplicationGatewayAccess"
+| summarize AggregatedValue = count() by clientIP_s
+| top 10 by AggregatedValue
+```
+
+```kusto
+// Errors by user agent 
+// Number of errors by user agent. 
+// To create an alert for this query, click '+ New alert rule'
+AzureDiagnostics
+| where ResourceType == "APPLICATIONGATEWAYS" and OperationName == "ApplicationGatewayAccess" and httpStatus_d > 399
+| summarize AggregatedValue = count() by userAgent_s, _ResourceId
+| sort by AggregatedValue desc
+```
+
+
 
 <!-- ## Alerts -->
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 <!-- OPTIONAL. ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. 
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
-
-<!-- OPTIONAL. ONLY if applications run on your service that work with Application Insights, add the following include. 
+-->
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 <!-- ### [TODO-replace-with-service-name] alert rules. REQUIRED. -->

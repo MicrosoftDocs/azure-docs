@@ -329,7 +329,7 @@
     href: private-link-configure.md
 - name: Reference
   items:
-  - name: Monitoring data
+  - name: Monitoring data reference
     href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
