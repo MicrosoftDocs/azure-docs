@@ -11,11 +11,11 @@ ms.custom: template-how-to-pattern
 
 # Sign a CI policy by using Trusted Signing
 
-To sign new CI policies by using the Trusted Signing service, first install several prerequisites.
+To sign new continuous integration (CI) policies by using the Trusted Signing service, first be sure you have several prerequisites.
 
 ## Prerequisites
 
-- A Trusted Signing account, identity validation, and a certificate profile.
+- A Trusted Signing account, identity validation, and certificate profile.
 - You are assigned the Trusted Signing Certificate Profile Signer role.
 - [Azure PowerShell in Windows](/powershell/azure/install-azps-windows) installed.
 - [Az.CodeSigning](/powershell/module/az.codesigning/) module downloaded.
@@ -23,7 +23,7 @@ To sign new CI policies by using the Trusted Signing service, first install seve
 ## Sign a CI policy
 
 1. ⁠Unzip the Az.CodeSigning module to a folder.
-1. ⁠Open Windows PowerShell [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest).
+1. ⁠Open [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest).
 1. In the *Az.CodeSigning* folder, run this command:
 
    ```powershell
@@ -34,8 +34,8 @@ To sign new CI policies by using the Trusted Signing service, first install seve
 
    ```json
    "Endpoint": "https://xxx.codesigning.azure.net/" 
-   "TrustedSigningAccountName": "<Trusted Signing Account Name>", 
-   "CertificateProfileName": "<Certificate Profile Name>",
+   "TrustedSigningAccountName": "<Trusted Signing Account Name>", 
+   "CertificateProfileName": "<Certificate Profile Name>",
    ```
 
 1. Get the [root certificate](/powershell/module/az.codesigning/get-azcodesigningrootcert) that you want to add to the trust store:
@@ -62,7 +62,7 @@ To sign new CI policies by using the Trusted Signing service, first install seve
    Get-AzCodeSigningCustomerEku -MetadataFilePath C:\temp\metadata.json 
    ```
 
-1. To sign your policy, you run the `invoke` command:
+1. To sign your policy, run the `invoke` command:
 
    ```powershell
    Invoke-AzCodeSigningCIPolicySigning -accountName TestAccount -profileName TestCertProfile -endpointurl "https://xxx.codesigning.azure.net/" -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 

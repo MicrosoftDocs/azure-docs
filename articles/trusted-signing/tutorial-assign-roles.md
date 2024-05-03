@@ -12,7 +12,7 @@ ms.date: 03/21/2023
 
 The Trusted Signing service has a few service-specific roles in addition to the standard Azure roles. Use [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) to assign user and group roles for the Trusted Signing-specific roles.
 
-In this tutorial, you review the different Trusted Signing supported roles. Then, you assign roles to your Trusted Signing account in the Azure portal.
+In this tutorial, you review Trusted Signing supported roles. Then, you assign roles to your Trusted Signing account in the Azure portal.
 
 ## Supported roles for Trusted Signing
 
@@ -27,7 +27,7 @@ The following table lists the roles that Trusted Signing supports, including wha
 | Reader |  x | |  | | | |
 | User Access Admin | | |  | |x | |
 
-The Trusted Signing Identity Verifier role is specifically needed to manage identity validation requests, which can only be done via the Azure portal, and not by using the Azure CLI. The Trusted Signing Certificate Profile Signer role is needed to successfully sign by using Trusted Signing.
+The Trusted Signing Identity Verifier role is specifically required to manage identity validation requests, which can be done only via the Azure portal, and not by using the Azure CLI. The Trusted Signing Certificate Profile Signer role is required to successfully sign by using Trusted Signing.
 
 ## Assign roles
 
@@ -36,8 +36,10 @@ The Trusted Signing Identity Verifier role is specifically needed to manage iden
 
    :::image type="content" source="media/trusted-signing-rbac-roles.png" alt-text="Screenshot that shows the Azure portal UI and the Trusted Signing custom RBAC roles.":::
 
-1. To assign these roles, select **Add**, and then select **Add role assignment**. Follow the guidance in [Assign roles in Azure](../role-based-access-control/role-assignments-portal.yml) to assign the relevant roles to your identities. *You'll need at least the Contributor role to create a Trusted Signing account and certificate profile.*
-1. For more granular access control on the certificate profile level, you can use the Azure CLI to assign roles. You can use the following commands to assign the Trusted Signing Certificate Profile Signer role to users and service principals to sign files.
+1. To assign these roles, select **Add**, and then select **Add role assignment**. Follow the guidance in [Assign roles in Azure](../role-based-access-control/role-assignments-portal.yml) to assign the relevant roles to your identities.
+
+   To create a Trusted Signing account and certificate profile, you must be assigned at least the *Contributor* role.
+1. For more granular access control on the certificate profile level, you can use the Azure CLI to assign roles. You can use the following commands to assign the Trusted Signing Certificate Profile Signer role to users and service principals to sign files:
 
    ```azurecli
    az role assignment create --assignee <objectId of user/service principle> 
@@ -47,5 +49,5 @@ The Trusted Signing Identity Verifier role is specifically needed to manage iden
 
 ## Related content
 
-- [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
-- [Trusted Signing quickstart](quickstart.md)
+- [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md)
+- [Set up Trusted Signing quickstart](quickstart.md)

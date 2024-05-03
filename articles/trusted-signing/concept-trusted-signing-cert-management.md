@@ -67,7 +67,7 @@ Every certificate that you create and issue is logged in the Azure portal. You c
 
 ## Time stamp countersignatures
 
-The standard practice in signing is to countersign all signatures with an RFC 3161-compliant time stamp. Because Trusted Signing uses short-lived certificates, time stamp countersigning is critical for a signature to be valid beyond the life of the signing certificate. A time stamp countersignature provides a cryptographically secure time stamp token from a Time Stamping Authority (TSA) that meets the standard requirements of the Cyber Safety Review Board (CSRB).
+The standard practice in signing is to countersign all signatures with an RFC 3161-compliant time stamp. Because Trusted Signing uses short-lived certificates, time stamp countersigning is critical for a signature to be valid beyond the life of the signing certificate. A time stamp countersignature provides a cryptographically secure time stamp token from a Time Stamping Authority (TSA) that meets the standards of the Code Signing Baseline Requirements (CSBRs).
 
 A countersignature provides a reliable date and time of when signing occurred. If the time stamp countersignature is inside the signing certificate's validity period and the TSA certificate's validity period, the signature is valid. It's valid long after the signing certificate and the TSA certificate expire (unless either are revoked).
 

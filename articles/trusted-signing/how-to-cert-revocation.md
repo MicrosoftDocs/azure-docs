@@ -19,24 +19,22 @@ If the certificate that's issued to you doesn’t match your intended values or 
 
    Revoking the certificate ensures that any compromised or incorrect certificates become invalid. Make sure that you promptly revoke any certificates that no longer meet your requirements.
 
-1. For certificate revocation requests, Contact Microsoft.
+1. For assistance revoking a certificate, contact Microsoft.
 
-   - If you encounter any issues revoking a certificate by using the Azure portal (especially for scenarios that don't involve misuse or fraud), contact Microsoft.
+   - If you encounter any issues revoking a certificate by using the Azure portal (especially for scenarios that don't involve misuse or abuse), contact Microsoft.
    - For any misuse or abuse of certificates that are issued to you by Trusted Signing, contact Microsoft immediately at `acsrevokeadmins@microsoft.com`.
 
-1. Continue signing with Trusted Signing.
-
-   To continue signing with Trusted Signing:
+1. Continue signing by using Trusted Signing.
 
    1. Initiate a new identity validation request.
    1. Verify that the information in the certificate subject preview accurately reflects your intended values.
    1. Create a new certificate profile that uses the newly completed identity validation.
 
-Before you initiate a certificate revocation, it’s crucial to verify that all the details are accurate and as intended. After a certificate is revoked, reversing the process isn't possible. Therefore, exercise caution and double-check the information before you proceed with the revocation process.
+Before you initiate a certificate revocation, it’s crucial that you verify that all the details are accurate and as intended. After a certificate is revoked, reversing the process isn't possible. Use caution and double-check the information before you proceed with the revocation process.
 
 Revocation can be completed only in the Azure portal. You can't revoke the certificate by using the Azure CLI.
 
-This article guides you through the process of revoking a certificate profile from a Trusted Signing account.
+This article describes how to revoke a certificate profile in a Trusted Signing account.
 
 ## Prerequisites
 
@@ -45,7 +43,7 @@ This article guides you through the process of revoking a certificate profile fr
 ## Revoke a certificate
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Go to your Trusted Signing account resource page.
+1. Go to your Trusted Signing account resource pane.
 1. On either the account **Overview** pane or on the **Objects** pane, select **Certificate Profile**.
 1. Select the relevant certificate profile.
 1. In the search box, enter the thumbprint of the certificate you want to revoke.
@@ -54,10 +52,10 @@ This article guides you through the process of revoking a certificate profile fr
 
 1. Select the thumbprint, and then select **Revoke**.
 1. For **Revocation reason**, select a reason.
-1. Enter **Revocation date time** (must be within the certification created and expiry date).
+1. For **Revocation date time**, enter a value that's within the date and time of the certificate creation and expiration.
 
    The **Revocation date time** value is converted to your local time zone.
-1. For **Remarks**, enter any additional information you'd like to add to the certificate revocation record.
+1. For **Remarks**, enter any information you'd like to add to the certificate revocation.
 1. Select **Revoke**.
 1. When the certificate is successfully revoked:
    - The status of the thumbprint that was revoked is updated.
