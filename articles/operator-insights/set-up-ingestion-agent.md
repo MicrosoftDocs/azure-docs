@@ -324,7 +324,7 @@ The configuration you need is specific to the type of source and your Data Produ
 
 Accessing logs on the VM can be difficult. To make diagnosing issues with ingestion easier, it is recommended to set up collection of logs through Azure Monitor. This can be done for Azure VMs, and also machines deployed in other environments (referred to as hybrid machines) through the use of Azure Arc.
 
-To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Colllect logs from text or JSON files](../azure-monitor/agents/data-collection-text-log.md)
+To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Collect logs from text or JSON files](../azure-monitor/agents/data-collection-text-log.md)
 
 - When creating a table for storing the logs, you can follow the powershell instructions in the link above, or use the Log Analytics workspace portal view to create an `MMA-based` table
   - This is a sample log file: [ingestion-agent-logs](media/ingestion-agent-stdout.log)
