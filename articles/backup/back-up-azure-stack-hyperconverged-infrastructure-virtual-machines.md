@@ -76,7 +76,7 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 2. Set up the MABS protection agent on the server or each cluster node.
 
-3. To deploy the agent, choose one of the following method:
+3. To deploy the agent, choose one of the following methods:
 
    - **Attach agents**: Select an agent that's already installed.
    - **Install agent**: If you don't have the agent installed:
@@ -132,7 +132,7 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 If MABS is running on Windows Server 2012 R2 or later, then you can back up replica virtual machines. This is useful for several reasons:
 
-**Reduces the impact of backups on the running workload** - Taking a backup of a virtual machine incurs some overhead as a snapshot is created. By offloading the backup process to a secondary remote site, the running workload is no longer affected by the backup operation. This is applicable only to deployments where the backup copy is stored on a remote site. For example, you might take daily backups and store data locally to ensure quick restore times, but take monthly or quarterly backups from replica virtual machines stored remotely for long-term retention.
+**Reduces the impact of backups on the running workload** - Taking a backup of a virtual machine incurs some overhead as a snapshot is created. When you offload the backup process to a secondary remote site, the running workload is no longer affected by the backup operation. This is applicable only to deployments where the backup copy is stored on a remote site. For example, you might take daily backups and store data locally to ensure quick restore times, but take monthly or quarterly backups from replica virtual machines stored remotely for long-term retention.
 
 **Saves bandwidth** - In a typical remote branch office/headquarters deployment you need an appropriate amount of provisioned bandwidth to transfer backup data between sites. If you create a replication and failover strategy, in addition to your data backup strategy, you can reduce the amount of redundant data sent over the network. By backing up the replica virtual machine data rather than the primary, you save the overhead of sending the backed-up data over the network.
 
