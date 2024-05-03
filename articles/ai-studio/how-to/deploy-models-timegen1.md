@@ -74,7 +74,16 @@ TimeGEN-1 can be consumed using the chat API.
 
 1. Copy the **Target** URL and the **Key** value.
 
-1.Try the samples here: <To do add the sample table>
+1.Try the samples here:
+| Use Case | Description | Sample Notebook |
+|Quick Start Forecast|Nixtla’s TimeGEN1 is a generative pre-trained forecasting model for time series data. TimeGEN1 can produce accurate forecasts for new time series without training, using only historical values as inputs.|[Quick Start Forecast](https://aka.ms/quick-start-forecasting)|
+|Finetunning|Fine-tuning is a powerful process for utilizing Time-GEN1 more effectively. Foundation models such as TimeGEN1 are pre-trained on vast amounts of data, capturing wide-ranging features and patterns. These models can then be specialized for specific contexts or domains. With fine-tuning, the model's parameters are refined to forecast a new task, allowing it to tailor its vast pre-existing knowledge towards the requirements of the new data. Fine-tuning thus serves as a crucial bridge, linking TimeGEN1's broad capabilities to your tasks specificities. Concretely, the process of fine-tuning consists of performing a certain number of training iterations on your input data minimizing the forecasting error. The forecasts will then be produced with the updated model. To control the number of iterations, use the finetune_steps argument of the forecast method.|[Finetuning](https://aka.ms/finetuning-TimeGEN1)|
+|Anomaly Detection|Anomaly detection in time series data is crucial across various industries like finance and 
+healthcare. It involves monitoring ordered data points to spot irregularities that may signal 
+issues or threats. This enables organizations to act swiftly to prevent, improve or safeguard
+their operations.|[Anomaly Detection](https://aka.ms/anomaly-detection)|
+|Exogenous Variables|Calendar variables and special dates are one of the most common types of additional variables used in forecasting applications. They provide additional context on the current state of the time series, especially for window-based models such as TimeGEN1. These variables often include adding information on each observation’s month, week, day, or hour. For example, in high-frequency hourly data, providing the current month of the year provides more context than the limited history available in the input window to improve the forecasts.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
+|Demand Forecasting|Demand forecasting is the process of leveraging historical data and other analytical information to build models that help predict future estimates of customer demand for specific products over a specific period. It helps shape product road map, inventory production and inventory allocation, among other things.|[Demand Forecasting](https://aka.ms/demand-forecasting-with-TimeGEN1)|
 
     For more information on using the APIs, see the [reference](#reference-for-timegen1-deployed-as-a-service) section.
 
@@ -86,92 +95,91 @@ Payload is a JSON formatted string containing the following parameters:
 
 | Key | Type | Default | Description |
 |-----|-----|-----|-----|
-| `df`    | `DataFrame`  | No default. This value must be specified.  | - Description: The DataFrame on which the function will operate. Expected to contain at least the following columns:
+| **DataFrame (`df`)**    | `DataFrame`  | No default. This value must be specified.  | - Description: The DataFrame on which the function will operate. Expected to contain at least the following columns:
 - `time_col`: Column name in `df` that contains the time indices of the time series. This is typically a datetime column with regular intervals, e.g., hourly, daily, monthly data points.
 - `target_col`: Column name in `df` that contains the target variable of the time series, i.e., the variable we wish to predict or analyze.
 Additionally, you can pass multiple time series (stacked in the dataframe) considering an additional column:
 - `id_col`: Column name in `df` that identifies unique time series. Each unique value in this column corresponds to a unique time series.
  |
-| `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
-| `max_tokens`  | `integer` | `8192`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
-| `ignore_eos`          | `boolean` | `False`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
-| `safe_prompt` | `boolean` | `False`  | Whether to inject a safety prompt before all conversations. |
-
-The `messages` object has the following fields:
-
-| Key       | Type      | Value |
-|-----------|-----------|------------|
-| `content` | `string` | The contents of the message. Content is required for all messages. |
-| `role`    | `string` | The role of the message's author. One of `system`, `user`, or `assistant`. |
-
+| **Forecast Horizon (`h`)**     | `int` | No default. This value must be specified. | Forecast horizon |
+| **Frequency (`freq`)** | `str` | None    |Frequency of the data. By default, the frequency will be inferred automatically. [See pandas’ available frequencies](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases). |
+| **Identifying Column (`id_col`)**       | `str` | `unique_id`    | Column that identifies each series.|
+|**Time Column (`time_col`)**| `str`  |`ds`    | Column that identifies each timestep; its values can be timestamps or integers.  |
+| **Target Column (`target_col`)**         | `str` | `y`  | Column that contains the target. |
+| **Exogenous DataFrame (`X_df`)**| `DataFrame`| None  | DataFrame with `[unique_id, ds]` columns and `df`’s future exogenous variables. |
+|**Prediction Intervals (`level`)**|`List[Union[int, float]]`|None|Confidence levels between 0 and 100 for prediction intervals.|
+|**Quantiles (`quantiles`)**|`List[float]`|None|List of quantiles to forecast between (0, 1). `level` and `quantiles` should not be used simultaneously. The output dataframe will have the quantile columns formatted as `TimeGEN-q-(100 * q)` for each q. 100 * q represents percentiles but we choose this notation to avoid having dots in column names.|
+|**Fine-tuning Steps (`finetune_steps`)**|`int`|0|Number of steps used to fine-tune learning TimeGEN-1 in the new data.|
+|**Fine-tuning Loss (`finetune_loss`)**|`str`|`default`|Loss function to use for fine-tuning. Options: `mae`, `mse`, `rmse`, `mape`, `smape`|
+|**Clean Exogenous First (`clean_ex_first`)**|`bool`|True|Clean exogenous signal before making forecasts using TimeGEN-1.|
+|**Validate API Key (`validate_api_key`)**|`bool`|False|If true, validates API key before sending requests.|
+|**Add History (`add_history`)**|`bool`|False|Return fitted values of the model.|
+|**Date Features (`date_features`)**|`Union`|False|Features computed from the dates. Can be pandas date attributes or functions that will take the dates as input. If true, automatically adds most used date features for the frequency of `df`.|
+|**One-Hot Encoding Date Features (`date_features_to_one_hot`)**|`Union`|True|Apply one-hot encoding to these date features. If `date_features=True` then all date features are one-hot encoded by default.|
+|**Model (`model`)**|`str`|`azureai`|`azureai`|
+|**Number of Partitions (`num_partitions`)**|`int`|None|Number of partitions to use. If none, the number of partitions will be equal to the available parallel resources in distributed environments.|
 
 #### Example
 
-__Body__
-
 ```json
-{
-    "messages":
-    [
-        { 
-        "role": "system", 
-        "content": "You are a helpful assistant that translates English to Italian."
-        },
-        {
-        "role": "user", 
-        "content": "Translate the following sentence from English to Italian: I love programming."
-        }
-    ],
-    "temperature": 0.8,
-    "max_tokens": 512,
+payload = {
+    "model": "azureai",
+    "freq": "D",
+    "fh": 7,
+    "y": {
+        "2015-12-02": 8.71177264560569,
+        "2015-12-03": 8.05610965954506,
+        "2015-12-04": 8.08147504013705,
+        "2015-12-05": 7.45876269238096,
+        "2015-12-06": 8.01400499477946,
+        "2015-12-07": 8.49678638163858,
+        "2015-12-08": 7.98104975966596,
+        "2015-12-09": 7.77779262633883,
+        "2015-12-10": 8.2602342916073,
+        "2015-12-11": 7.86633892304654,
+        "2015-12-12": 7.31055015853442,
+        "2015-12-13": 7.71824095195932,
+        "2015-12-14": 8.31947369244219,
+        "2015-12-15": 8.23668532271246,
+        "2015-12-16": 7.80751004221619,
+        "2015-12-17": 7.59186171488993,
+        "2015-12-18": 7.52886925664225,
+        "2015-12-19": 7.17165682276851,
+        "2015-12-20": 7.89133075766189,
+        "2015-12-21": 8.36007143564403,
+        "2015-12-22": 8.11042723757502,
+        "2015-12-23": 7.77527584648686,
+        "2015-12-24": 7.34729970074316,
+        "2015-12-25": 7.30182234213793,
+        "2015-12-26": 7.12044437239249,
+        "2015-12-27": 8.87877607170755,
+        "2015-12-28": 9.25061821847475,
+        "2015-12-29": 9.24792513230345,
+        "2015-12-30": 8.39140318535794,
+        "2015-12-31": 8.00469951054955,
+        "2016-01-01": 7.58933582317062,
+        "2016-01-02": 7.82524529143177,
+        "2016-01-03": 8.24931374626064,
+        "2016-01-04": 9.29514097366865,
+        "2016-01-05": 8.56826646160024,
+        "2016-01-06": 8.35255436947459,
+        "2016-01-07": 8.29579811063615,
+        "2016-01-08": 8.29029259122431,
+        "2016-01-09": 7.78572089653462,
+        "2016-01-10": 8.28172399041139,
+        "2016-01-11": 8.4707303170059,
+        "2016-01-12": 8.13505390861157,
+        "2016-01-13": 8.06714903991011
+    },
+    "clean_ex_first": True,
+    "finetune_steps": 0,
+    "finetune_loss": "default"
 }
 ```
 
 #### Response schema
 
-The response payload is a dictionary with the following fields:
-
-| Key       | Type      | Description                                                                |
-|-----------|-----------|----------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                    |
-| `choices` | `array`   | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.        |
-| `model`   | `string`  | The model_id used for completion.                                          |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                        |
-| `usage`   | `object`  | Usage statistics for the completion request.                               |
-
-> [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`.
-
-
-The `choices` object is a dictionary with the following fields:
-
-| Key     | Type      | Description  |
-|---------|-----------|--------------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be `0` to `n-1`. |
-| `messages` or `delta`   | `string`  | Chat completion result in `messages` object. When streaming mode is used, `delta` key is used.  |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response <br>- `null`: API response still in progress or incomplete.|
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
-
-
-The `usage` object is a dictionary with the following fields:
-
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
-
-The `logprobs` object is a dictionary with the following fields:
-
-| Key              | Type                    | Value   |
-|------------------|-------------------------|---------|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
-| `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the probability. |
+The response is a data frame of type `pandas.DataFrame` which containes the TimeGEN-1 forecasts for point predictions and probabilistic predictions.
 
 #### Example
 
@@ -179,52 +187,49 @@ The following is an example response:
 
 ```json
 {
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
-    "object": "chat.completion",
-    "created": 2012359,
-    "model": "",
-    "choices": [
-        {
-            "index": 0,
-            "finish_reason": "stop",
-            "message": {
-                "role": "assistant",
-                "content": "Sure, I\'d be happy to help! The translation of ""I love programming"" from English to Italian is:\n\n""Amo la programmazione.""\n\nHere\'s a breakdown of the translation:\n\n* ""I love"" in English becomes ""Amo"" in Italian.\n* ""programming"" in English becomes ""la programmazione"" in Italian.\n\nI hope that helps! Let me know if you have any other sentences you\'d like me to translate."
-            }
-        }
+  "status": 200,
+  "data": {
+    "timestamp": [
+      "2016-01-14 00:00:00",
+      "2016-01-15 00:00:00",
+      "2016-01-16 00:00:00",
+      "2016-01-17 00:00:00",
+      "2016-01-18 00:00:00",
+      "2016-01-19 00:00:00",
+      "2016-01-20 00:00:00"
     ],
-    "usage": {
-        "prompt_tokens": 10,
-        "total_tokens": 40,
-        "completion_tokens": 30
-    }
+    "value": [
+      7.960582256317139,
+      7.7414960861206055,
+      7.728490352630615,
+      8.267574310302734,
+      8.543140411376953,
+      8.298713684082031,
+      8.105557441711426
+    ],
+    "input_tokens": 43,
+    "output_tokens": 7,
+    "finetune_tokens": 0
+  },
+  "message": "success",
+  "details": "request successful",
+  "code": "B10",
+  "support": "If you have questions or need support, please email ops@nixtla.io",
+  "requestID": "2JHQL2LDUX"
 }
 ```
-#### More inference examples
-
-| **Sample Type**       | **Sample Notebook**                             |
-|----------------|----------------------------------------|
-| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
-| LangChain      | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
-| Mistral AI     | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
-| LiteLLM        | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) 
 
 ## Cost and quotas
 
 ### Cost and quota considerations for TimeGEN-1 deployed as a service
 
-Mistral models deployed as a service are offered by Mistral AI through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+TimeGEN-1 deployed as a service are offered by Nixtla through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
 For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
-
-## Content filtering
-
-Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
 ## Next steps
 
