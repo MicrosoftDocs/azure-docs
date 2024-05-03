@@ -27,7 +27,7 @@ The following table lists the roles that Trusted Signing supports, including wha
 | Reader |  x | |  | | | |
 | User Access Admin | | |  | |x | |
 
-The Trusted Signing Identity Verifier role is specifically required to manage identity validation requests, which can be done only via the Azure portal, and not by using the Azure CLI. The Trusted Signing Certificate Profile Signer role is required to successfully sign by using Trusted Signing.
+The Trusted Signing Identity Verifier role is *required* to manage identity validation requests, which you can do only in the Azure portal, and not by using the Azure CLI. The Trusted Signing Certificate Profile Signer role is required to successfully sign by using Trusted Signing.
 
 ## Assign roles
 

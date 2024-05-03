@@ -29,7 +29,7 @@ Trusted Signing provides two primary trust models to support a wide variety of s
 
 ## Public Trust model
 
-Public Trust is one of the two trust models that are provided in Trusted Signing and is the most commonly used model. The certificates in the Public Trust model are issued from the [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and comply with the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This root CA is included a relying party's root certificate program, such as the [Microsoft Root Certificate Program](/security/trusted-root/program-requirements), for code signing and time stamping.
+Public Trust is one of the two trust models that are provided in Trusted Signing and is the most commonly used model. The certificates in the Public Trust model are issued from the [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and comply with the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This root CA is included in a relying party's root certificate program, such as the [Microsoft Root Certificate Program](/security/trusted-root/program-requirements), for code signing and time stamping.
 
 Public Trust resources in Trusted Signing are designed to support the following signing scenarios and security features:
 

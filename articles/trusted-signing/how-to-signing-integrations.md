@@ -85,7 +85,7 @@ To download and install the Trusted Signing dlib package (a .zip file):
 To sign by using Trusted Signing, you need to provide the details of your Trusted Signing account and certificate profile that were created as part of the prerequisites. You provide this information on a JSON file by completing these steps:
 
 1. Create a new JSON file (for example, *metadata.json*).
-1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing Dlib package or use the following example:
+1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing dlib package or use the following example:
 
    ```json
    {
@@ -132,7 +132,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **GitHub Actions**: To learn how to use a GitHub action for Trusted Signing, see [Trusted Signing - Actions](https://github.com/azure/trusted-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
 
-- **Azure DevOps task**: To use the Trusted Signing AzureDevOps task, visit [Trusted Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
+- **Azure DevOps task**: To use the Trusted Signing Azure DevOps task, visit [Trusted Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
 
 - **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) in PowerShell Gallery to install the PowerShell module.
 

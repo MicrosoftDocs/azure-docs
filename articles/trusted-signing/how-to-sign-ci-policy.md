@@ -33,9 +33,11 @@ To sign new continuous integration (CI) policies by using the Trusted Signing se
 1. Optionally, you can create a *metadata.json* file that looks like this example:
 
    ```json
-   "Endpoint": "https://xxx.codesigning.azure.net/" 
-   "TrustedSigningAccountName": "<Trusted Signing Account Name>", 
-   "CertificateProfileName": "<Certificate Profile Name>",
+   {
+   "Endpoint":"https://xxx.codesigning.azure.net/",
+   "TrustedSigningAccountName":"<Trusted Signing Account Name>",
+   "CertificateProfileName":"<Certificate Profile Name>"
+   }
    ```
 
 1. Get the [root certificate](/powershell/module/az.codesigning/get-azcodesigningrootcert) that you want to add to the trust store:
