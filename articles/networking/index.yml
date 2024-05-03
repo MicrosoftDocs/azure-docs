@@ -76,6 +76,49 @@ additionalContent:
               url: ../dns/dns-delegate-domain-azure-dns.md
             - text: See more
               url: ../dns/index.yml
+        # Card
+        - title: Azure Virtual Network manager
+          links:
+          - text: What is Azure Virtual Network Manager?
+            url: ../virtual-network/virtual-networks-overview.md
+          - text: see more
+            url: ../virtual-network/index.yml
+        # Card
+        - title: Azure Bastion
+          links:
+          - text: What is Azure Bastion?
+            url: ../bastion/bastion-overview.md
+          - text: see more
+            url: ../bastion/index.yml
+        # Card
+        - title: Route Server
+          links: 
+          - text: What is Route Server?
+            url: ../route-server/overview.md
+          - text: see more
+            url: ../route-server/index.yml
+        # Card
+        - title: NAT Gateway
+          links:
+          - text: What is NAT Gateway?
+            url: ../nat-gateway/nat-overview.md
+          - text: see more
+            url: ../nat-gateway/index.yml
+        # Card
+        - title: Traffic Manager
+          links:
+          - text: What is Traffic Manager?
+            url: ../traffic-manager/traffic-manager-overview.md
+          - text: see more
+            url: ../traffic-manager/index.yml
+        # Card
+        - title: Network Watcher
+          links:
+          - text: What is Network Watcher?
+            url: ../network-watcher/network-watcher-overview.md
+          - text: see more
+            url: ../network-watcher/index.yml
+
     - title: Load balancing and content delivery # < 60 chars (optional)
       items:
         # Card
@@ -169,4 +212,3 @@ additionalContent:
               url: ../web-application-firewall/afds/waf-front-door-create-portal.md
             - text: See more
               url: ../web-application-firewall/index.yml
-              
