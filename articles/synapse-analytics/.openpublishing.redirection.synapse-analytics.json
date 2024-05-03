@@ -3,7 +3,7 @@
         {
           "source_path": "/articles/synapse-analytics/quickstart-create-apache-gpu-pool-portal.md",
           "redirect_url": "/azure/synapse-analytics/spark",
-          "redirect_document_id": false
+          "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-browse-partners.md",
