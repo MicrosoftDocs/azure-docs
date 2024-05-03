@@ -50,7 +50,7 @@ contain at least one system node pool with at least one node.
 Nexus Kubernetes Cluster Addons is a feature of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters with additional packages or features. The addons are categorized into two types: required and optional.
 
 * Required Addons: These addons are automatically deployed into provisioned Nexus Kubernetes clusters. Core addons such as Calico, MetalLB, Nexus Storage CSI, IPAM plugins, metrics-server, node-local-dns, Arc for Kubernetes, 
-and Arc for Servers are included by default when clusters are created.The successful completion of the cluster provisioning process depends on these addons being installed successfully. If a required addon installation fails and cannot be fixed,
+and Arc for Servers are included by default when clusters are created. The successful completion of the cluster provisioning process depends on these addons being installed successfully. If a required addon installation fails and cannot be fixed,
 the cluster is designated as failed.
 
 * Optional Addons: These are supplementary resources associated with a Kubernetes Cluster resource. Nexus Kubernetes Cluster customers can choose to activate or deactivate these addons on demand. 
