@@ -20,7 +20,7 @@ You can use this information to create a site in an existing private mobile netw
 ## Prerequisites
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
-- If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
+- If you want to give Azure role-based access control (RBAC) to storage accounts, you must have the relevant permissions on your account.
 - Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). We recommend that the mobile network site resource you create in this procedure belongs to the same resource group.
 
 ## Choose a service plan
@@ -51,6 +51,49 @@ Collect all the values in the following table for the packet core instance that 
    |The core technology type the packet core instance should support: 5G, 4G, or combined 4G and 5G. |**Technology type**|
    | The Azure Stack Edge resource representing the Azure Stack Edge Pro device in the site. You created this resource as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).</br></br> If you're going to create your site using the Azure portal, collect the name of the Azure Stack Edge resource.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the Azure Stack Edge resource. You can do this by navigating to the Azure Stack Edge resource, selecting **JSON View** and copying the contents of the **Resource ID** field. | **Azure Stack Edge device** |
    |The custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Commission the AKS cluster](commission-cluster.md).</br></br> If you're going to create your site using the Azure portal, collect the name of the custom location.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the custom location. You can do this by navigating to the Custom location resource, selecting **JSON View** and copying the contents of the **Resource ID** field.|**Custom location**|
+
+## Collect RADIUS values
+
+If you have a Remote Authentication Dial-In User Service (RADIUS) authentication, authorization and accounting (AAA) server in your network, you can optionally configure the packet core to use it to authenticate UEs on attachment to the network and session establishment. If you want to use RADIUS, collect all the values in the following table.
+
+|Value  |Field name in Azure portal  |
+|---------|---------|
+|IP address for the RADIUS AAA server. |RADIUS server address |
+|IP address for the network access servers (NAS). |RADIUS NAS address |
+|Port to use on the RADIUS AAA server. |RADIUS server port |
+|The names of one or more data networks that require RADIUS authentication. |RADIUS Auth applies to DNs |
+|Whether to use: </br></br>- the default username and password, defined in your Azure Key Vault </br></br>- the International Mobile Subscriber Identity (IMSI) as the username, with the password defined in your Azure Key Vault. |RADIUS authentication username. |
+|URL of the certificate used to secure communication between the packet core and AAA server, stored in your Azure Key Vault. |Shared secret |
+|URL of the default username secret, stored in your Azure Key Vault. Not required if using IMSI. |Secret URI for the default username |
+|URL of the default password secret, stored in your Azure Key Vault. |Secret URI for the default password |
+
+To add the default username and password secrets to Azure Key Vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal).
+
+To add the certificate to Azure Key Vault:
+
+   1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
+   1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
+
+      - Be signed by a globally known and trusted CA.
+      - Use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
+
+      We also recommend setting a DNS name for your certificate.
+
+   1. If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) for information on enabling auto-rotation.
+
+      > [!NOTE]
+      >
+      > - Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
+      > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
+
+   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (RBAC).
+
+      - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Azure Private MEC** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Azure Private MEC** service principal.
+      - If you want to, assign the Key Vault access policy or Azure RBAC to a [user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md).
+
+          - If you have an existing user-assigned identity configured for diagnostic collection you can modify it.
+          - Otherwise, you can create a new user-assigned identity.
 
 ## Collect access network values
 
@@ -141,7 +184,7 @@ You can use a self-signed or a custom certificate to secure access to the [distr
 
 If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything. You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
-If you want to provide a custom HTTPS certificate at site creation, follow the steps below.
+If you want to provide a custom HTTPS certificate at site creation:
 
    1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
    1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
@@ -158,7 +201,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
       > - Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
       > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
 
-   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
+   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (RBAC).
 
       - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Azure Private MEC** service principal.
       - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Azure Private MEC** service principal.
