@@ -28,11 +28,11 @@ Here’s a high-level overview of the service’s resource structure:
 
 ![Diagram of Azure Code Signing resource group and cert profiles.](./media/trusted-signing-resource-structure-overview.png)
 
-* You create a resource group within a subscription. You then create a Trusted Signing account within the resource group.
-* Two resources within an account:
-    *	Identity validation 
+* You create a resource group within a subscription. You then create a Trusted Signing account within that resource group.
+* There are two resources within a Trusted Signing account:
+    * Identity validation 
     * Certificate profile 
-* Two types of accounts (depending on the SKU you choose):
+* There are two types of Trusted Signing accounts (depending on the SKU(Pricing tier) you choose):
     * Basic 
     * Premium
 
