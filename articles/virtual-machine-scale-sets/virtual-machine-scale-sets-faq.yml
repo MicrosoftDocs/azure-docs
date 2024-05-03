@@ -52,7 +52,7 @@ sections:
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
       - question: |
-          What is the difference betweeen OS Image Upgrade and Reimage?
+          What is the difference between OS Image Upgrade and Reimage?
         answer: |
           OS Image Upgrade is a gradual and non-disruptive process that updates the OS image for the entire Virtual Machine Scale Set over time, ensuring minimal impact on running workloads. 
           
