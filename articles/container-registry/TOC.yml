@@ -347,6 +347,8 @@
     href: ./policy-reference.md
   - name: Monitoring data
     href: monitor-service-reference.md
+  - name: Service Tag
+    href: container-registry-service-tag.md
 - name: Troubleshoot
   expanded: false
   items:
