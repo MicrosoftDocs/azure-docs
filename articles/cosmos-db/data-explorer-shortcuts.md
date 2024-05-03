@@ -107,9 +107,9 @@ These shortcuts are used within the query editor.
 | **Undo last editing** | <kbd>Ctrl</kbd>+<kbd>Z</kbd> | <kbd>Cmd</kbd>+<kbd>Z</kbd> |
 | **Unindent the current line or the selected lines** | <kbd>Shift</kbd>+<kbd>Tab</kbd> | <kbd>Shift</kbd>+<kbd>Tab</kbd> |
 
-## Feedback
+## Comments
 
-Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any feedback you have about the keyboard shortcuts.
+Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any comments you have about the keyboard shortcuts.
 
 ## Related content
 
