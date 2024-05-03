@@ -18,12 +18,12 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - A Mac running [Xcode](https://developer.apple.com/xcode/), along with a valid developer certificate installed into your Keychain.
 - A [Teams deployment](/deployoffice/teams-install). 
-- A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
+- A [User Access Token](../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
-For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../../identity/access-tokens.md?pivots=platform-azcli).
+For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md/access-tokens.md?pivots=platform-azcli).
 
 
 ## Setting up
@@ -102,7 +102,7 @@ let displayName: String = "Quickstart User"
 
 Replace `<ADD_YOUR_ENDPOINT_URL_HERE>` with the endpoint for your Communication Services resource.
 Replace `<ADD_YOUR_USER_TOKEN_HERE>` with the token generated above, via the Azure client command line.
-Read more about user access tokens: [User Access Token](../../../../identity/access-tokens.md)
+Read more about user access tokens: [User Access Token](../../identity/access-tokens.md/access-tokens.md)
 
 Replace `Quickstart User` with the display name you'd like to use in the Chat.
 
