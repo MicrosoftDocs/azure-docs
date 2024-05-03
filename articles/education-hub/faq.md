@@ -146,7 +146,7 @@ Your Azure for Students Starter subscription gives you access to certain softwar
 
 You can access your Azure course credits by creating a new Azure Academic Grant subscription. Select the **Activate** button in the sponsorship approval email.
 
-You can also convert an existing subscription to the Azure sponsorship offer to access your credits. To convert your subscription, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+You can also convert an existing subscription to the Azure Sponsorship offer to access your credits. To convert your subscription, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### Can I associate my course credits with an existing subscription?
 
@@ -156,7 +156,7 @@ You can associate your course credits with an existing subscription on the accou
 
 When you go to your subscription details in the Azure portal, you see $0.00. The offer places a 100% discount on all services. The portal shows what you're charged during your monthly usage period, which should be $0.00.
 
-To view your balance and sponsorship information, go to [Azure Sponsorships](https://www.microsoftazuresponsorships.com/balance) and sign in to your account.
+To view your balance and sponsorship information, go to the [Azure Sponsorships portal](https://www.microsoftazuresponsorships.com/balance) and sign in to your account.
 
 ### Can I apply my course credits to an existing Enterprise Agreement?
 
