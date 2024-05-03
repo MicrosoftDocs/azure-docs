@@ -629,6 +629,11 @@ You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the follo
 * `gpt-35-turbo-16k` (0613)
 * `gpt-35-turbo` (1106)
 
+Additionally, if you would like to use the `gpt-35-turbo` (0125) model it is available in these regions as of May 2024:
+* Canada East
+* North Central US
+* South Central US
+  
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
 
 ## Next steps
