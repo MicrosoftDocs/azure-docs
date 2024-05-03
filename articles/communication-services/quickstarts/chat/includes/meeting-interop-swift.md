@@ -45,7 +45,7 @@ Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting
 
 1. Add the following code to the `Podfile` under the target, and save.
 
-```
+```ruby
 target 'Chat Teams Interop' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -56,7 +56,7 @@ target 'Chat Teams Interop' do
   
 end
 ```
-1. Run pod install.
+1. Run `pod install`.
 
 1. Open the `.xcworkspace` file with Xcode.
 
@@ -77,11 +77,12 @@ Under the build settings, search for `sandbox` and set `User Script Sandboxing` 
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting adds them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user will not have access to chat messages that were sent before they joined the meeting and they will not be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
+A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Once a user has joined the Teams meeting, they can send and receive messages with other meeting attendees. The user will not have access to chat messages sent prior to joining, nor will they be able to send or receive messages when they are not in the meeting. 
+To join the meeting and start chatting, you can follow the next steps.
 
 ## Set up the app framework
 
-Import the AzureCommunication* packages in `ContentView.swift` by adding the following snippet:
+Import the Azure Communication packages in `ContentView.swift` by adding the following snippet:
 
 ``` swift
 import AVFoundation
