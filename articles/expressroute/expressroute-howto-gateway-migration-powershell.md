@@ -69,8 +69,8 @@ This script creates a new ExpressRoute virtual network gateway on the same gatew
    gateway-migration/preparemigration.ps1
     ```
 1. Enter the resource ID of your gateway.
-1. The gateway subnet needs two or more address prefixes for the migration. If you have only one prefix, you will be prompted to enter an additional prefix. 
-1. Choose the suffix for new resources, new resource name will be existingresourcename_<suffix>.
+1. The gateway subnet needs two or more address prefixes for the migration. If you have only one prefix, you're prompted to enter an additional prefix. 
+1. Choose a suffix for your new resources, the new resource name will be existingresourcename_<suffix>.
 1. Enter an availability zone for your new gateway. 
 
 
@@ -78,7 +78,7 @@ This script creates a new ExpressRoute virtual network gateway on the same gatew
 
 This script transfers the configuration from the old gateway to the new one.
 
-1. Identify the resource ID of your new post-migration gateway. Use the resource name you given for this gateway in the prevous step. 
+1. Identify the resource ID of your new post-migration gateway. Use the resource name you given for this gateway in the previous step. 
 
     ```azurepowershell-interactive
    $resourceId = Get-AzResource -Name {virtual network gateway name}
@@ -89,7 +89,7 @@ This script transfers the configuration from the old gateway to the new one.
     ```azurepowershell-interactive
    gateway-migration/migration.ps1
     ```
-1. Enter the resource ID of your pre-migration gateway.
+1. Enter the resource ID of your premigration gateway.
 1. Enter the resource ID of your post-migration gateway.
 
 ### Commit the migration
@@ -101,7 +101,7 @@ This script deletes the old gateway and its connections.
     ```azurepowershell-interactive
    gateway-migration/commitmigration.ps1
     ```
-1. Enter the resource ID of the pre-migration gateway.
+1. Enter the resource ID of the premigration gateway.
 
     >[!IMPORTANT]
     > - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
