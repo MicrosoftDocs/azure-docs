@@ -18,22 +18,6 @@ Standby pools for Virtual Machine Scale Sets enables you to increase scaling per
 
 Standby pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the standby pool before to being moved into the scale set.
 
-## Standby pool size
-The number of virtual machines in a standby pool are determined by the number of virtual machines in your scale set and the total max ready capacity configured.
-
-For example, a Virtual Machine Scale Set with 10 instances and a standby pool with a max ready capacity of 15 would result in their being 5 instances in the standby pool.
-
-- Max ready capacity (15) - Virtual Machine Scale Set instance count (10) = Standby pool size (5)
-
-If the scale set reduces the instance count to 5, the standby pool would fill to 10 instances. 
-
-- Max ready capacity (15) - Virtual Machine Scale Set instance count (5) = Standby pool size (10)
-
-| Setting | Description | 
-|---|---|
-| maxReadyCapacity | The maximum number of virtual machines you want to have ready.|
-| instanceCount | The current number of virtual machines already deployed in your scale set.|
-| Standby pool Size | Standby pool size = `maxReadyCapacity`– `instanceCount` |
 
 ## Scaling
 
@@ -43,7 +27,8 @@ When your scale set scales back down, the instances are deleted from your scale 
 
 Standby pools will only give out virtual machines from the pool that match the desired power state configured. For example, if your desired power state is set as deallocated, the standby pool will only give the Virtual Machine Scale Set instances matching that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead.
 
-When using a standby pool with a Virtual Machine Scale Set spread across multiple availability zones, the instances in the pool will also be spread across zones. When a scale out is triggered in one of the zones, a virtual machine in the pool in that same zone will be used. If a virtual machine is needed in a zone where you no longer have any pooled virtual machines left, the scale set will create a new virtual machine directly in the scale set. 
+## Availability zones
+When using a standby pool with a Virtual Machine Scale Set using [availability zones](virtual-machine-scale-sets-use-availability-zones.md), the instances in the pool will be spread the same zones the Virtual Machine Scale Set is using. When a scale out is triggered in one of the zones, a virtual machine in the pool in that same zone will be used. If a virtual machine is needed in a zone where you no longer have any pooled virtual machines left, the scale set will create a new virtual machine directly in the scale set. 
 
 ## Virtual machine states
 
@@ -57,14 +42,34 @@ The virtual machines in the standby pool can be kept in a running state or a dea
 
 :::image type="content" source="media/standby-pools/running-vm-pool.png" alt-text="A screenshot showing the workflow when using running VM pools.":::
 
+## Standby pool size
+The number of virtual machines in a standby pool is calculated by the number of max ready capacity of the pool minus the virtual machines currently deployed in your scale set. 
+
+| Setting | Description | 
+|---|---|
+| maxReadyCapacity | The maximum number of virtual machines you want to have ready.|
+| instanceCount | The current number of virtual machines already deployed in your scale set.|
+| Standby pool size | Standby pool size = `maxReadyCapacity`– `instanceCount`. |
+
+### Example
+A Virtual Machine Scale Set with 10 instances and a standby pool with a max ready capacity of 15 would result in their being 5 instances in the standby pool.
+
+- Max ready capacity (15) - Virtual Machine Scale Set instance count (10) = Standby pool size (5)
+
+If the scale set reduces the instance count to 5, the standby pool would fill to 10 instances. 
+
+- Max ready capacity (15) - Virtual Machine Scale Set instance count (5) = Standby pool size (10)
+
+
+
 ## Pricing
 
-There's no direct cost associated with using standby pools. Users are charged based on the resources deployed. For example, keeping virtual machines in a running state incurs compute, networking, and storage costs. While keeping virtual machines in a deallocated state does not incur any compute costs, but any persistent disks or networking configurations do incur cost. For more information on Virtual Machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
+There's no direct cost associated with using standby pools. Users are charged based on the resources deployed. For example, keeping virtual machines in a running state incurs compute, networking, and storage costs. While keeping virtual machines in a deallocated state does not incur any compute costs, but any persistent disks or networking configurations do incur cost. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
 
 | State | Description |
 |---|---|
-|**Deallocated virtual machine state:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. Virtual machines in the deallocated state don't incur any compute costs, only the associated persistent resources incur costs. |
-| **Running virtual machine state:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
+|**Deallocated:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. Virtual machines in the deallocated state don't incur any compute costs, only the associated persistent resources incur costs. |
+| **Running:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
 
 ## Unsupported configurations
 - Creating or attaching a standby pool to a Virtual Machine Scale Set using Azure Spot instances.
