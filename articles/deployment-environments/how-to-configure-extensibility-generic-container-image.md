@@ -24,6 +24,8 @@ The ADE CLI is a tool that allows you to build custom images by using ADE base i
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure Deployment Environments set up in your Azure subscription. 
+    - To set up ADE, follow the [Quickstart: Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
 ## Create and build a container image
 
