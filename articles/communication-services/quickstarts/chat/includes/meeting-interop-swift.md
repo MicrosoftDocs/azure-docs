@@ -23,7 +23,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
-For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
+For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../../identity/access-tokens.md?pivots=platform-azcli).
 
 
 ## Setting up
@@ -32,7 +32,7 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../ide
 
 In Xcode, create a new iOS project and select the Single View App template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the Language to Swift and the User Interface to SwiftUI. You're not going to create tests during this quick start. Feel free to uncheck Include Tests.
 
-:::image type="content" source="../../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
 
 ### Installing CocoaPods
@@ -66,14 +66,14 @@ In order to access the device's microphone, you need to update your app's Inform
 
 Under the target, select the `Info` tab and add a string for ‘Privacy -  Microphone Usage Description’
 
-:::image type="content" source="../../media/ios/xcode-add-microphone-permission.png" alt-text="Screenshot showing adding microphone usage within Xcode.":::
+:::image type="content" source="../media/ios/xcode-add-microphone-permission.png" alt-text="Screenshot showing adding microphone usage within Xcode.":::
 
 ### Disable User Script Sandboxing
 
 Some of the scripts within the linked libraries write files during the build process. To allow this, disable the User Script Sandboxing in Xcode.
 Under the build settings, search for `sandbox` and set `User Script Sandboxing` to `No`.
 
-:::image type="content" source="../../media/ios/disable-user-script-sandbox.png" alt-text="Screenshot showing disabling user script sandboxing within Xcode.":::
+:::image type="content" source="../media/ios/disable-user-script-sandbox.png" alt-text="Screenshot showing disabling user script sandboxing within Xcode.":::
 
 ## Joining the meeting chat 
 
@@ -102,7 +102,7 @@ let displayName: String = "Quickstart User"
 
 Replace `<ADD_YOUR_ENDPOINT_URL_HERE>` with the endpoint for your Communication Services resource.
 Replace `<ADD_YOUR_USER_TOKEN_HERE>` with the token generated above, via the Azure client command line.
-Read more about user access tokens: [User Access Token](../../identity/access-tokens.md)
+Read more about user access tokens: [User Access Token](../../../../identity/access-tokens.md)
 
 Replace `Quickstart User` with the display name you'd like to use in the Chat.
 
