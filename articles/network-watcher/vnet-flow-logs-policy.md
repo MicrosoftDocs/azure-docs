@@ -89,6 +89,9 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy.png" alt-text="Screenshot that shows how to select the deployment policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/deploy-policy.png":::
 
+    > [!NOTE]
+    > You need *Contributor* or *Owner* permission to use this policy.
+
 1. Enter a name in **Assignment name** or use the default name, and then enter your name in **Assigned by**.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/assign-deploy-policy-basics.png" alt-text="Screenshot that shows the Basics tab of assigning a deployment policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/assign-deploy-policy-basics.png":::
@@ -106,19 +109,9 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/assign-deploy-policy-parameters.png" alt-text="Screenshot that shows the Parameters tab of assigning a deployment policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/assign-deploy-policy-parameters.png":::
 
-1. Select **Next** or the **Remediation** tab. Select the following values:
+1. Select **Next** or the **Remediation** tab.
 
-    | Setting | Value |
-    | --- | --- |
-    | **Create a remediation task** | Select the checkbox if you want the policy to affect existing resources not only newly created resources. |
-    | **Create a Managed Identity** | Select the checkbox. |
-    | **Type of Managed Identity** | Select the type of managed identity that you want to use. |
-    | **System assigned identity location** | Select the region of your system assigned identity. |
-    | **Scope** | Select the scope of your user-assigned identity. |
-    | **Existing user assigned identities** | Select your user-assigned identity. |
-
-    > [!NOTE]
-    > You need *Contributor* or *Owner* permission to use this policy.
+1. Select **Create a remediation task** checkbox.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/assign-deploy-policy-remediation.png" alt-text="Screenshot that shows the Remediation tab of assigning a deployment policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/assign-deploy-policy-remediation.png":::
 
