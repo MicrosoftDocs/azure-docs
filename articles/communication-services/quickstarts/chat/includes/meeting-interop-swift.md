@@ -77,7 +77,7 @@ Under the build settings, search for `sandbox` and set `User Script Sandboxing` 
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Once a user has joined the Teams meeting, they can send and receive messages with other meeting attendees. The user will not have access to chat messages sent prior to joining, nor will they be able to send or receive messages when they are not in the meeting. 
+A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Once a user has joined the Teams meeting, they can send and receive messages with other meeting attendees. The user won't have access to chat messages sent prior to joining, nor will they be able to send or receive messages when they aren't in the meeting. 
 To join the meeting and start chatting, you can follow the next steps.
 
 ## Set up the app framework
@@ -204,11 +204,11 @@ var body: some View {
 
 ### Initialize the ChatClient
 
-Instantiate the `ChatClient` and enable message notifications. We are using real-time notifications for receiving chat messages. 
+Instantiate the `ChatClient` and enable message notifications. We're using real-time notifications for receiving chat messages. 
 
 With the main body set up, let's add the functions to handle the setup of the call and chat clients.
 
-in the `onAppear` function, add the following code to initialize the `CallClient` and `ChatClient`:
+In the `onAppear` function, add the following code to initialize the `CallClient` and `ChatClient`:
 
 ```swift
   if let threadIdFromMeetingLink = getThreadId(from: self.meetingLink) {
@@ -452,7 +452,7 @@ class CallObserver : NSObject, CallDelegate {
 
 ### Leave the chat
 
-When the user leaves the Team's meeting, we clear the Chat messages from the UI and hangup the call. The full code is shown below.
+When the user leaves the Team's meeting, we clear the Chat messages from the UI and hang up the call. The full code is shown below.
 
 ```swift
   func leaveMeeting() {
@@ -476,7 +476,7 @@ When the user leaves the Team's meeting, we clear the Chat messages from the UI 
 
 ## Get a Teams meeting chat thread for a Communication Services user
 
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 
 With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response has a `chatInfo` object that contains the `threadID`.
 
@@ -486,7 +486,7 @@ Run the application.
 
 To join the Teams meeting, enter your Team's meeting link in the UI.
 
-After you join the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you are able to send and receive messages.
+After you join the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you're able to send and receive messages.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-ios.png" alt-text="Screenshot of the completed iOS Application.":::
 
