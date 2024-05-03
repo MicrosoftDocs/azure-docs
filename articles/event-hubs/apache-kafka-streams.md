@@ -55,10 +55,45 @@ For example
   * Joining static customer data (modeled as a table) with dynamic transactions (modeled as a stream), and
   * Joining changing portfolio positions in a day traders portfolio (modeled as a stream) with the latest market data feed, i.e. stock prices (modeled as a stream)
 
-### Created time vs append time
+### Time
+
+Kafka Streams allows windowing and grace functions to allow for out of order data records to be ingested and still be included in the processing. To ensure that this behavior is deterministic, there are additional notions of time in Kafka streams. These include: 
+
+  * Creation time (aka Event time) - This is the time when the event occured and the data record was created.
+  * Processing time - This is the time when the data record is processed by the stream processing application (or when it is consumed).
+  * Append time (aka Creation time) - This is the time when the data is stored and committed to the storage of the Kafka broker. This differs from the creation time because of the time difference between the creation of the event and the actual ingestion by the broker.
+
+#### Created time vs append time
+
+For Kafka Streams to work with Azure Event Hubs, the topic must be configured to use the creation time (i.e. Event time) instead of the ingestion time (i.e. log append time). To set this, the below setting must be put in the `EntityDescription` settings in ARM.
+
+```json
+TBD
+```
+
+ 
+
+### Stateful operations
+
+State management enables sophisticated stream processing applications like joining and aggregating data from different streams. This is achieved with state stores provided by Kafka Streams and accessed using [stateful operators in the Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#stateful-transformations).
+
+Stateful transformations in the DSL include:
+  * [Aggregating](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-aggregating)
+  * [Joining](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-joins)
+  * [Windowing (as part of aggregations and joins)](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-windowing)
+  * [Applying custom processors and transformers](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-process), which may be stateful, for Processor API integration
 
 ### Window and grace
 
-### States
+Windowing operations in the  [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html) allow developers to control how records are grouped for a given key for [stateful operations like aggregations and joins](#stateful-operations).
+
+Windowing operations also permit the specification of a **grace period** to provide some flexibility for out-of-order records for a given window. A record that is meant for a given window and arrives after the given window but within the grace period is accepted. Records arriving after the grace period is over are discarded. 
+
+Applications must utilize the windowing and grace period controls to improve fault tolerance for out-of-order records. The appropriate values vary based on the workload and must be identified empirically.
+
 
 ### Processing guarantees
+
+Business and technical users seek to extract key business insights from the output of stream processing workloads, which translate to high transactional guarantee requirements. Kafka streams works together with Kafka transactions to ensure transactional processing guarantees by integrating with the Kafka compatible brokers (i.e. Azure Event Hubs) underlying storage system to ensure that offset commits and state store updates are written atomically.
+
+To ensure transactional processing guarantees, the `processing.guarantee` setting in the Kafka Streams configs must be updated from the default value of `at_least_once` to `exactly_once_v2` (for client versions at or after Apache Kafka 2.5) or `exactly_once` (for client versions before Apache Kafka 2.5.x).
