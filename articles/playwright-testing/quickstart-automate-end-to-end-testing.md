@@ -279,7 +279,7 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
     # [GitHub Actions](#tab/github)
 
     ```yml
-    - name: set up reporting
+    - name: Install reporting package
       working-directory: path/to/playwright/folder # update accordingly
       run: |
         npm config set @microsoft:registry=https://npm.pkg.github.com
@@ -301,7 +301,7 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
     ```yml
     - task: PowerShell@2
       enabled: true
-      displayName: "Set up reporting"
+      displayName: "Install reporting package"
       inputs:
         targetType: 'inline'
         script: |
