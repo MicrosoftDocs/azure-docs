@@ -35,5 +35,4 @@ Microsoft.MobilePacketCore/observabilityServices
 
 ## Related content
 
-- [Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md)
 - [Complete the prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)

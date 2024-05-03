@@ -73,7 +73,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. Purchases and Marketplace usage might be shown as blank or `unassigned`. |
 | MeterId¹ | All | The unique identifier for the meter. |
 | MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
-| MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
+| MeterRegion | All | Name of the datacenter location for services priced based on location. See `Location`. |
 | MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | OfferId¹ | EA, pay-as-you-go | Name of the Azure offer, which is the type of Azure subscription that you have. For more information, see supported [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/). |
 | pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details). |
