@@ -87,7 +87,7 @@ This script transfers the configuration from the old gateway to the new one.
 1.  Run the **Migration.ps1** script to perform the migration. 
 
     ```azurepowershell-interactive
-   gateway-migration/migration.ps1
+    gateway-migration/migration.ps1
     ```
 1. Enter the resource ID of your premigration gateway.
 1. Enter the resource ID of your post-migration gateway.
