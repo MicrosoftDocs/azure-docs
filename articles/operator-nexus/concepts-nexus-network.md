@@ -17,7 +17,7 @@ standard industry technologies that are reliable, predictable, and familiar to o
 
 Nexus offers several top-level API resources that categorically represent different types of networks with different input expectations.  
 These network types represent logical attachments but also Layer3 information as well.  Essentially, they encapsulate how the customer 
-wishes those networks are to be exposed within their cluster
+wishes those networks are to be exposed within their cluster.
 
 ## Nexus Network plugins
 
