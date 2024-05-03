@@ -23,7 +23,7 @@ Currently, the Azure portal doesn't provide savings plan recommendations for man
 1. Aggregate the recommended hourly commitments for all subscriptions within the management group.
 2. Purchase up to ~70% of the above value.
 3. Wait at least 3 days for the newly-purchased savings plan to affect your subscription recommendations.
-4. Repeast steps 1-3 until you have achieved your desired coverage levels.
+4. Repeat steps 1-3 until you have achieved your desired coverage levels.
 
 
 ## Need help? Contact us
