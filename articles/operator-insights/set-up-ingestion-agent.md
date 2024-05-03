@@ -339,7 +339,7 @@ To collect agent logs, follow these instructions to install the Azure Monitor Ag
   | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message
   | order by TimeGenerated desc
   ```
-  - Note, this query sadly can't be used as a data source transform since `replace_regex` isn't available in data source transforms
+  - Note, this query can't be used as a data source transform since `replace_regex` isn't available in data source transforms
 
 ## Related content
 
