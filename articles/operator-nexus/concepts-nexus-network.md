@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Nexus Network Overview
 
-This article describe core concepts of Nexus Networks, Include the options to configure nexus networks with critical properties introduction
+This article describe core concepts of Nexus Networks.
 Nexus Network enables application connect with on-prem network and other services over Azure public Cloud. It supports operator use cases with
 standard industry technologies that are reliable, predictable, and familiar to operators and network equipment providers. This means supporting 
 technologies such as SR-IOV, DPDK, MACVLAN, IPVLAN and avoiding technologies that may inhibit line rate performance or increase troubleshooting 
