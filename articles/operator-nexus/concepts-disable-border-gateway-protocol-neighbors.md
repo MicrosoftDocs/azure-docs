@@ -10,7 +10,7 @@ ms.date: 05/03/2024
 ---
 # Disable the Border Gateway Protocol neighbors
 
-Here are some examples demonstrating how a user can implement the RW commands to disable Border Gateway Protocol (BGP) neighbors.
+This article provides examples demonstrating how a user can implement the read write (RW) commands to disable Border Gateway Protocol (BGP) neighbors.
 
 ## Shut down a specific peer at Virtual Routing and Forwarding (VRF) level
 
@@ -148,7 +148,7 @@ az networkfabric device run-rw --resource-name <ResourceName>; --resource-group 
 | Parameter                | Description                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | `az networkfabric device run-rw` | Azure CLI command for executing a read-write operation on a network device within Azure Network Fabric.                         |
-| `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation will be performed.                                 |
+| `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation is performed.                                 |
 | `--resource-group` | Specifies the name of the resource group that contains the network device.                                                       |
 | `--rw-command "router bgp 65055\n neighbor untrustnetwork shutdown"` | Specifies the RW commands to be executed on the network device. These commands configure BGP settings to shut down the neighbor named "untrustnetwork". |
 
@@ -186,7 +186,7 @@ az networkfabric device run-rw --resource-name <ResourceName> --resource-group <
 | Parameter                | Description                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | `az networkfabric device run-rw` | Azure CLI command for executing a read-write operation on a network device within Azure Network Fabric.                         |
-| `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation will be performed.                                 |
+| `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation is performed.                                 |
 | `--resource-group` | Specifies the name of the resource group that contains the network device.                                                       |
 | `--rw-command "router bgp 65055\n neighbor untrustnetwork shutdown"` | Specifies the RW commands to be executed on the network device. These commands configure BGP settings to shut down the neighbor named "untrustnetwork". |
 | `--no-wait`              | Indicates that the command should be executed asynchronously without waiting for the operation to complete.                   |
@@ -247,7 +247,7 @@ az networkfabric device run-rw --resource-name <ResourceName> --resource-group <
 | Parameter                | Description                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | `az networkfabric device run-rw` | Azure CLI command for executing a read-write operation on a network device within Azure Network Fabric.                         |
-| `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation will be performed.                                 |
+| `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation is performed.                                 |
 | `--resource-group` | Specifies the name of the resource group that contains the network device.                                                       |
 | `--rw-command "router bgp 4444\n vrf gfab1-isd\n niehgbor 10.100.30.18 shudown"` | Specifies the RW commands to be executed on the network device. These commands configure BGP settings to shut down the neighbor with IP address 10.100.30.18 within the VRF named "gfab1-isd". |
 
@@ -257,22 +257,6 @@ Expected output:
 ```Output
 Error: Message: \[GNMI SET failed. Error: GNMI SET failed: rpc error: code = config failed to apply.
 ```
-
-## Command restrictions
-
-The RW command feature is open and there are no restrictions on it. However, proceed with caution because incorrect usage of the configuration can bring down the system.
-
-- The creation of vLANs ranging from 1 to 500 and 3000 to 4095 isn't recommended as this range is reserved for infrastructure purposes.
-- Don't tamper the Management vLAN configuration.
-- It's imperative not to tamper the Network-to-Network Interconnect (NNI) Ingress and Egress Access Control Lists (ACLs), as any modifications could potentially result in a loss of connectivity to the Azure Operator Nexus instance.
-- There are no schematic or syntax validations performed for RW commands. You must ensure that the configuration is vetted out before executing it.
-- The RW config commands should be an absolute command; short forms and prompts aren't supported. 
-    For example: 
-    Enter `router bgp <ASN>\n vrf <name>\n neighbor <IPaddress> shutdown`
-    Not `router bgp <ASN>\n vrf <name>\n nei <IPaddress> sh or shut`
-
-- It's crucial to thoroughly review the Route Policy configuration before implementation, as any oversight could potentially compromise the existing Route Policy setup.
-- Changing the router BGP configuration and shutting it down brings down the stability of the device.
 
 ## Related content
 

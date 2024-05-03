@@ -376,7 +376,7 @@ az networkfabric device run-rw --resource-name <ResourceName> --resource-group <
 | `--rw-command " "` | Specifies an empty RW command to be executed on the network device. This command is essentially a placeholder with no action.     |
 
 > [!NOTE]
-> in the above command, space is required within Quotes.
+> Ensure that there is a space between the quotation marks in the empty RW command. 
 
 Expected output:
 
@@ -467,6 +467,22 @@ show interfaces description
 |Et3      | admin down        | down          | **"AR-Mgmt2:Et3 to Not-Connected"**      |
 |Et4      | admin down        | down          |  **"AR-Mgmt2:Et4 to Not-Connected"**    |
 ```
+
+## Command restrictions
+
+The RW command feature is open and there are no restrictions on it. However, proceed with caution because incorrect usage of the configuration can bring down the system.
+
+- The creation of vLANs ranging from 1 to 500 and 3000 to 4095 isn't recommended as this range is reserved for infrastructure purposes.
+- Don't tamper the Management vLAN configuration.
+- It's imperative not to tamper the Network-to-Network Interconnect (NNI) Ingress and Egress Access Control Lists (ACLs), as any modifications could potentially result in a loss of connectivity to the Azure Operator Nexus instance.
+- There are no schematic or syntax validations performed for RW commands. You must ensure that the configuration is vetted out before executing it.
+- The RW config commands should be an absolute command; short forms and prompts aren't supported. 
+    For example: 
+    Enter `router bgp <ASN>\n vrf <name>\n neighbor <IPaddress> shutdown`
+    Not `router bgp <ASN>\n vrf <name>\n nei <IPaddress> sh or shut`
+
+- It's crucial to thoroughly review the Route Policy configuration before implementation, as any oversight could potentially compromise the existing Route Policy setup.
+- Changing the router BGP configuration and shutting it down brings down the stability of the device.
 
 ## Limitations 
 
