@@ -32,7 +32,7 @@ However, the `$convert-data` operation itself isn't an ETL pipeline.
 
 There's an example published in the [Azure Data Factory template gallery](../../data-factory/solution-templates-introduction.md#template-gallery) named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. When you’re in the Azure Data Factory template gallery, you can search for the template.
 
-:::image type="content" source="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png"::: 
+:::image type="content" source="media/convert-data/convert-data-faq/azure-data-factory-template-gallery.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/convert-data-faq/azure-data-factory-template-gallery.png"::: 
 
 > [!IMPORTANT]
 > The purpose of this template is to help you get started with an ETL pipeline. Any steps in this pipeline can be removed, added, edited, or customized to fit your needs.  
@@ -67,17 +67,17 @@ The outcome of FHIR conversion is a FHIR bundle as a batch.
 
 ## Can I customize a default Liquid template? 
 
-Yes. You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. For more information, see [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md).
+Yes. You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. For more information, see [Configure settings for $convert-data using the Azure portal](convert-data-configuration.md).
 
 ## After I customize a template, can I reference and store various versions?
 
-Yes. It’s possible to store and reference custom templates. For more information, see [Configure settings for $convert-data by using the Azure portal](configure-settings-convert-data.md).
+Yes. It’s possible to store and reference custom templates. For more information, see [Configure settings for $convert-data by using the Azure portal](convert-data-configuration.md).
 
 ## If I need support with troubleshooting, where can I go?
 
 Depending on the version of `$convert-data` you’re using, you can:
 
-* Use the [troubleshooting guide](troubleshoot-convert-data.md) for the FHIR service in Azure Health Data Services version of the `$convert-data` operation.
+* Use the [troubleshooting guide](convert-data-troubleshoot.md) for the FHIR service in Azure Health Data Services version of the `$convert-data` operation.
 
 * Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
 
@@ -87,9 +87,9 @@ Depending on the version of `$convert-data` you’re using, you can:
 
 [Overview of $convert-data](convert-data-overview.md)
 
-[Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
+[Configure settings for $convert-data using the Azure portal](convert-data-configuration.md)
 
-[Troubleshoot $convert-data](troubleshoot-convert-data.md)
+[Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
  

@@ -37,7 +37,7 @@ To access and use the default templates for your conversion requests, ensure tha
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
 >
-> For more information on hosting your own templates, see [Host your own templates](configure-settings-convert-data.md#host-your-own-templates) 
+> For more information on hosting your own templates, see [Host your own templates](convert-data-configuration.md#host-your-own-templates) 
 
 ## Customize templates
 
@@ -135,7 +135,7 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 2. Change the **Status** to **On** and select **Save** to enable the system-managed identity in the FHIR service.
 
-:::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-managed-identity-enabled.png" alt-text="Screenshot of the FHIR pane for enabling the managed identity feature." lightbox="media/convert-data/configure-settings-convert-data/fhir-managed-identity-enabled.png":::
+:::image type="content" source="media/convert-data/convert-data-configuration/fhir-managed-identity-enabled.png" alt-text="Screenshot of the FHIR pane for enabling the managed identity feature." lightbox="media/convert-data/convert-data-configuration/fhir-managed-identity-enabled.png":::
 
 ### Step 4: Provide Azure Container Registry access to the FHIR service managed identity
 
@@ -169,7 +169,7 @@ To use the Azure portal:
 3. Select **Add** and then, in the dropdown list, select your registry server. 
 4. Select **Save**. 
 
-   :::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png":::
+   :::image type="content" source="media/convert-data/convert-data-configuration/fhir-acr-add-registry.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/convert-data-configuration/fhir-acr-add-registry.png":::
 
 You can register up to 20 ACR servers in the FHIR service.
 

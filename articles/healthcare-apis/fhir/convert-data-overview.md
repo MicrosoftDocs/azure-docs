@@ -60,7 +60,7 @@ A `$convert-data` operation call packages the health data for conversion inside 
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
 >
-> For more information on hosting your own templates, see [Host your own templates](Configure-settings-convert-data.md#host-your-own-templates) 
+> For more information on hosting your own templates, see [Host your own templates](convert-data-configuration.md#host-your-own-templates) 
 
 #### Sample request
 
@@ -118,11 +118,11 @@ The outcome of FHIR conversion is a FHIR bundle as a batch.
 
 ## Next steps
 
-[Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
+[Configure settings for $convert-data using the Azure portal](convert-data-configuration.md)
 
-[Troubleshoot $convert-data](troubleshoot-convert-data.md)
+[Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
-[$convert-data FAQ](frequently-asked-questions-convert-data.md)
+[$convert-data FAQ](convert-data-faq.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
  
