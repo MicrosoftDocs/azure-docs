@@ -6,7 +6,7 @@ ms.date: 5/21/2024
 ms.author: eur
 ---
 
-In this quickstart, you try real-time speech to text in [Azure AI Studio](https://studio.azureaiservices.com/). 
+In this quickstart, you try real-time speech to text in [Azure AI Studio](https://ai.azure.com). 
 
 ## Prerequisites
 
@@ -14,19 +14,18 @@ In this quickstart, you try real-time speech to text in [Azure AI Studio](https:
 
 ## Try real-time speech to text
 
-1. Go to the **Home** page in [AI Studio](https://studio.azureaiservices.com/) and then select **AI Services** from the left pane.
+1. Go to the **Home** page in [AI Studio](https://ai.azure.com/) and then select **AI Services** from the left pane.
 
     :::image type="content" source="../../../media/ai-studio/ai-services-home.png" alt-text="Screenshot of the AI Services page in Azure AI Studio." lightbox="../../../media/ai-studio/ai-services-home.png":::
 
 1. Select **Speech** from the list of AI services.
 1. Select **Real-time speech to text**.
 
-
-    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-select.png" alt-text="Screenshot of the AI Services page in Azure AI Studio." lightbox="../../../media/ai-studio/real-time-speech-to-text-select.png":::
+    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-select.png" alt-text="Screenshot of the option to select the real-time speech to text tile." lightbox="../../../media/ai-studio/real-time-speech-to-text-select.png":::
 
 1. In the **Try it out** section, select your hub's AI services connection. For more information about AI services connections, see [connect AI services to your hub in AI Studio](../../../../../ai-studio/ai-services/connect-ai-services.md#connect-to-ai-services). 
 
-    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-connect.png" alt-text="Screenshot of the AI Services page in Azure AI Studio." lightbox="../../../media/ai-studio/real-time-speech-to-text-connect.png":::
+    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-connect.png" alt-text="Screenshot of the option to select an AI services connection and other settings." lightbox="../../../media/ai-studio/real-time-speech-to-text-connect.png":::
 
 1. Select **Show advanced options** to configure speech to text options such as: 
 
@@ -38,9 +37,9 @@ In this quickstart, you try real-time speech to text in [Azure AI Studio](https:
 
 1. Select an audio file to upload, or record audio in real-time. In this example, we use the `Call1_separated_16k_health_insurance.wav` file that's available in the [Speech SDK repository on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/raw/master/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav). You can download the file or use your own audio file.
 
-    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-audio.png" alt-text="Screenshot of the AI Services page in Azure AI Studio." lightbox="../../../media/ai-studio/real-time-speech-to-text-audio.png":::
+    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-audio.png" alt-text="Screenshot of the option to select an audio file or speak into a microphone." lightbox="../../../media/ai-studio/real-time-speech-to-text-audio.png":::
 
 1. You can view the real-time speech to text results in the **Results** section.
 
-    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-results.png" alt-text="Screenshot of the AI Services page in Azure AI Studio." lightbox="../../../media/ai-studio/real-time-speech-to-text-results.png":::
+    :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-results.png" alt-text="Screenshot of the real-time transcription results in Azure AI Studio." lightbox="../../../media/ai-studio/real-time-speech-to-text-results.png":::
 
