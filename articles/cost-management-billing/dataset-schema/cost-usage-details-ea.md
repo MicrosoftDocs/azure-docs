@@ -12,7 +12,7 @@ ms.author: banders
 
 # Enterprise Agreement cost and usage details file schema
 
-This article applies to the Enterprise Agreement cost and usage details file schema. For other schema file versions, see the [dataset schema index](schema-index.md).
+This article applies to the Enterprise Agreement (EA) cost and usage details file schema. For other schema file versions, see the [dataset schema index](schema-index.md).
 
 The following information lists the cost and usage details (formerly known as usage details) fields found in Enterprise Agreement cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
