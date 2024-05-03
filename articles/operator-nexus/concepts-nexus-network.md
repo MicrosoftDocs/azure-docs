@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Nexus Networks"
-description: Introduction to Nexus Networks.
+description: Introduction to Nexus Networks core concepts.
 author: leijgao
 ms.author: leijiagao
 ms.service: azure-operator-nexus
@@ -11,11 +11,9 @@ ms.custom: template-concept
 
 # Nexus Network Overview
 
-This article describe core concepts of Nexus Networks.
-Nexus Network enables application connect with on-prem network and other services over Azure public Cloud. It supports operator use cases with
-standard industry technologies that are reliable, predictable, and familiar to operators and network equipment providers. This means supporting 
-technologies such as SR-IOV, DPDK, MACVLAN, IPVLAN and avoiding technologies that may inhibit line rate performance or increase troubleshooting 
-complexity for mission critical outages and issues.  
+This article describes core concepts of Nexus Networks, Include the options to configure nexus networks with critical properties introduction.
+Nexus Network enables application connect with on-premises network and other services over Azure public Cloud. It supports operator use cases with
+standard industry technologies that are reliable, predictable, and familiar to operators and network equipment providers.
 
 Nexus offers several top-level API resources that categorically represent different types of networks with different input expectations.  
 These network types represent logical attachments but also Layer3 information as well.  Essentially, they encapsulate how the customer 
@@ -23,16 +21,16 @@ wishes those networks are to be exposed within their cluster
 
 ## Nexus Network plugins
 
-Network plugin is the feature to configuration how Nexus Kubernetes cluster utilize the underlying Networks when attach networks to Nexus Kubernetes cluster.
-Below is a the type of plugin supported for different network types. 
+Network plugin is the feature to configuration how Nexus Kubernetes cluster use the underlying Networks when attach networks to Nexus Kubernetes cluster.
+The type of plugins supported for different network types. 
 
 | Plugin Name | Available Network |
 |---------------------|---------------|
-|SRIOV|L2,L3,Trunk|
-|DPDK|L2,L3,Trunk|
-|MACVLAN|L2,L3,Trunk|
-|IPVLAN|L3,Trunk|
-|OSDev|L2,L3,Trunk|
+|SRIOV|L2, L3, Trunk|
+|DPDK|L2, L3, Trunk|
+|MACVLAN|L2, L3, Trunk|
+|IPVLAN|L3, Trunk|
+|OSDev|L2, L3, Trunk|
 
  * SRIOV: The SRIOV plugin generates a network attachment definition named after the corresponding network resource. This interface is integrated into a sriov-dp-config resource, 
 which is linked to by the network attachment definition. If a network is connected to the cluster multiple times, all interfaces will be available for scheduling via the network 
@@ -41,24 +39,23 @@ attachment definition. No IP assignment is made to this type of interface within
  * DPDK: Configured specifically for DPDK workloads, the DPDK plugin type creates a network attachment definition that mirrors the associated network resource. This interface is 
 placed within a sriov-dp-config resource, which the network attachment definition references. Multiple connections of the same network to the cluster make all interfaces schedulable 
 through the network attachment definition. Depending on the hardware of the platform, the interface might be linked to a specific driver to support DPDK processing. Like SRIOV, this 
-interface does not receive an IP assignment within the node operating system.
+interface doesn't receive an IP assignment within the node operating system.
 
  * OSDevice: The OSDevice plugin type is tailored for direct use within the node operating system, rather than Kubernetes. It acquires a network configuration that is visible and 
 functional within the node’s operating system network namespace. This plugin is suitable for instances where direct communication over this network from the node’s OS is required.
 
- * IPVLAN: The IPVLAN plugin type facilitates the creation of a network attachment definition named according to the associated network resource. This interface allows for the efficient 
+ * IPVLAN: The IPVLAN plugin type helps the creation of a network attachment definition named according to the associated network resource. This interface allows for the efficient 
 routing of traffic in environments where network isolation is required without the need for multiple physical network interfaces. It operates by assigning multiple IP addresses to a 
-single network interface, each behaving as if it is on a separate physical device. Despite the separation at the IP layer, this type does not handle separate MAC addresses, and it does 
-not provide IP assignments within the node operating system.
+single network interface, each behaving as if it is on a separate physical device. Despite the separation at the IP layer, this type doesn't handle separate MAC addresses, and it doesn't provide IP assignments within the node operating system.
 
- * MACVLAN: The MACVLAN plugin type generates a network attachment definition reflective of the linked network resource. This interface type creates multiple virtual network interfaces 
-each with a unique MAC address over a single physical network interface. It is particularly useful in scenarios where applications running in containers need to appear as physically 
-separate on the network for security or compliance reasons. Each interface behaves as if it is directly connected to the physical network, which allows for IP assignments within the 
+ * MACVLAN: The MACVLAN plugin type generates a network attachment definition reflective of the linked network resource. This interface type creates multiple virtual networks interfaces 
+each with a unique MAC address over a single physical network interface. It's useful in scenarios where applications running in containers need to appear as physically 
+separate on the network for security or compliance reasons. Each interface behaves as if it's directly connected to the physical network, which allows for IP assignments within the 
 node operating system.
 
 ## Nexus Network IPAM
 
-Nexus Kubernetes offers IP Address Management (IPAM) solutions in various forms. For standalone virtual machines or Nexus kubernetes nodes connected to a Nexus network supporting Layer3, 
+Nexus Kubernetes offers IP Address Management (IPAM) solutions in various forms. For standalone virtual machines or Nexus kubernetes nodes connected to a Nexus network supporting Layer 3, 
 an IPAM system is employed that covers multiple clusters. This system ensures unique IP addresses across both VMs and Nexus Kubernetes nodes within network VM interfaces inside VM operating 
 systems. Additionally, when these networks are utilized for containerized workloads, Network Attachment Definitions (NADs) automatically generated by Nexus kubernetes cluster incorporate this IPAM feature. 
 This same cross-cluster IPAM capability is used to guarantee that containers connected to the same networks receive unique IP addresses as well.
@@ -66,10 +63,10 @@ This same cross-cluster IPAM capability is used to guarantee that containers con
 ## Nexus Relay
 
 Nexus Kubernetes utilizes the Arc "bring-your-own-relay" functionality by integrating the Nexus kubernetes Hybrid Relay infrastructure in each region where the Nexus Cluster service operates. 
-This setup uses dedicated Nexus relay infrastructure within Nexus owned subscriptions, ensuring that Nexus kubernetes cluster Arc Connectivity does not rely on shared public relay networks.
+This setup uses dedicated Nexus relay infrastructure within Nexus owned subscriptions, ensuring that Nexus kubernetes cluster Arc Connectivity doesn't rely on shared public relay networks.
 
 The dedicated relay infrastructure allows Nexus to establish multiple hybrid connections with listeners at a reduced cost of goods sold (COGS). Each Nexus Cluster instance is equipped with its 
-own relay, and customers can manage Network ACL rules through the Nexus Cluster ARM APIs. These rules determine which networks can access both the az connectedk8s proxy and az ssh for their 
+own relay, and customers can manage Network ACL rules through the Nexus Cluster Azure Resource Manager APIs. These rules determine which networks can access both the az connectedk8s proxy and az ssh for their 
 Nexus Arc resources within that specific on-premises Nexus Cluster. This feature enhances operator security by adhering to security protocols established after previous Arc/Relay security incidents, 
 requiring remote Arc connectivity to have customer-defined network filters or ACLs.
 
