@@ -35,7 +35,7 @@ The catalog has over 1,600 models today, including leading models from OpenAI, M
 
 Choosing a great base model is just the first step. For most AI applications, it’s not enough to rely on the safety mitigations built into the model itself. Even with fine-tuning, LLMs can make mistakes and are susceptible to attacks such as jailbreaks. In many applications at Microsoft, we use another AI-based safety system, [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/), to provide an independent layer of protection, helping you to block the output of risky content. Azure AI Content Safety is a content moderation offering that goes around the model and monitors the inputs and outputs to help identify and prevent attacks from being successful and catches places where the models make a mistake.
  
-When you deploy your model through the model catalog or deploy your LLM applications to an endpoint, you can use [Azure AI Content Safety](../concepts.md/content-filtering). This safety system works by running both the prompt and completion for your model through an ensemble of classification models aimed at detecting and preventing the output of harmful content across a range of [categories](/azure/ai-services/content-safety/concepts/harm-categories):
+When you deploy your model through the model catalog or deploy your LLM applications to an endpoint, you can use [Azure AI Content Safety](../concepts/content-filtering.md). This safety system works by running both the prompt and completion for your model through an ensemble of classification models aimed at detecting and preventing the output of harmful content across a range of [categories](/azure/ai-services/content-safety/concepts/harm-categories):
 
 - Risky content containing hate, sexual, violence, and self-harm language with severity levels (safe, low, medium, and high).
 - Jailbreak attacks or indirect attacks (Prompt Shield)
@@ -104,7 +104,7 @@ Here we outline a set of best practices instructions you can use to augment your
 
 ## User experience layer
 
-We recommend implementing the following user-centered design and [user experience (UX) interventions, guidance, and best practices](https://www.microsoft.com/haxtoolkit/) to guide users to use the system as intended and to prevent overreliance on the AI system:
+We recommend implementing the following user-centered design and user experience (UX) interventions, guidance, and best practices to guide users to use the system as intended and to prevent overreliance on the AI system:
 
 - Review and edit interventions: Design the user experience (UX) to encourage people who use the system to review and edit the AI-generated outputs before accepting them (see HAX G9: Support efficient correction). 
 
