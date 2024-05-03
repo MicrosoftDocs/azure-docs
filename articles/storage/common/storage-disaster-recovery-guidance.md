@@ -55,8 +55,8 @@ For more information about redundancy for Azure Storage, see [Azure Storage redu
 Azure Storage accounts support three types of failover:
 
 - [**Customer-managed planned failover (preview)**](#customer-managed-planned-failover-preview) - Customers can manage storage account failover to test their disaster recovery plan.
-- [**Customer-managed (unplanned) failover**](#customer-managed-failover) - Customers can manage storage account failover if there's an unexpected service outage.
-- [**Microsoft-managed failover**](#microsoft-managed-failover) - Potentially initiated by Microsoft due to a severe disaster in the primary region. <sup>1,2</sup>
+- [**Customer-managed (unplanned) failover**](#customer-managed-unplanned-failover) - Customers can manage storage account failover if there's an unexpected service outage.
+- [**Microsoft-managed failover**](#customer-managed-unplanned-failover) - Potentially initiated by Microsoft due to a severe disaster in the primary region. <sup>1,2</sup>
 
 <sup>1</sup> Microsoft-managed failover can't be initiated for individual storage accounts, subscriptions, or tenants. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).<br/>
 <sup>2</sup> Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which would only be used in extreme circumstances.
