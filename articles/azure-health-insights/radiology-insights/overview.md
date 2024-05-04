@@ -19,7 +19,7 @@ The model ensures that critical findings are identified and communicated using t
 
 
 
-<!--- [!INCLUDE [Disclaimer](../includes/ri-disclaimer.md)] --->
+<!--- [!INCLUDE [Disclaimer](https://go.microsoft.com/fwlink/?linkid=2270272)] --->
 
 <!---
 > [!IMPORTANT]
@@ -34,8 +34,11 @@ Output from the Radiology insights service doesn't reflect the opinions of Micro
 
 
 > [!IMPORTANT]
-> The Radiology Insights model is a capability provided “AS IS” and “WITH ALL FAULTS”. The Radiology Insights model isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Radiology Insights model. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
+> The Radiology Insights model is a capability provided “AS IS” and “WITH ALL FAULTS”. The Radiology insights service is not intended, designed, or made available: (i) as a medical device, (ii) to be used in the diagnosis, cure, mitigation, monitoring, treatment or prevention of a disease, condition or illness, and no license or right is granted by Microsoft to use the healthcare add-on or online services for such purposes, and (iii) to be a substitute for professional medical advice, diagnosis, treatment, or judgment and should not be used to replace or as a substitute for professional medical advice, diagnosis, treatment, or judgment. The customer is solely responsible for testing and evaluating whether Radiology Insights is fit for purpose and identifying and mitigating any risks or harms to end users associated with its use. Output from the Radiology insights service does not reflect the opinions of Microsoft. The accuracy and reliability of the information provided by the Radiology insights service may vary and are not guaranteed.
 
+
+<!--- The Radiology Insights model is a capability provided “AS IS” and “WITH ALL FAULTS”. The Radiology Insights model isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Radiology Insights model. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
+--->
 
 
 
