@@ -14,7 +14,7 @@ A Log Analytics workspace retains data in two tiers:
 * **Interactive retention**: In this tier, data is available for [real-time interactive queries](../logs/get-started-queries.md).
 * **Auxiliary retention**: A cheap tier in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
 
-By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this from 30 days to 2 years. The Basic and Auxiliary plans have an interactive retention period of 30 days. You can set auxiliary retention to up to 12 years on all tables.
+By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. You can set auxiliary retention to up to 12 years on all tables.
 
 This article explains how to manage data retention at the Log Analytics workspace and table levels.
 
@@ -62,9 +62,11 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 |[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
 |[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you delete the table.|
 
-## Configure the default Analtyics retention period for tables in your workspace
+## Configure the default Analtyics retention period of Analytics tables in your workspace
 
-You can set a Log Analytics workspace's default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can apply a different setting to specific tables by [configuring retention and archive at the table level](#configure-retention-and-archive-at-the-table-level). If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
+By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days. 
+
+To change the default interactive retention period of Analytics tables within a Log Analytics workspace from 30 days to up to two years:
 
 > [!IMPORTANT]
 > Workspaces with a 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, configure the default workspace retention to 30 days using the API and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
