@@ -102,4 +102,4 @@ Now that you're familiar with face detection concepts, learn how to write a scri
 
 * [Call the detect API](./how-to/identity-detect-faces.md)
 
-[Detect]: https://learn.microsoft.com/rest/api/face/face-detection-operations/detect
+[Detect]: /rest/api/face/face-detection-operations/detect

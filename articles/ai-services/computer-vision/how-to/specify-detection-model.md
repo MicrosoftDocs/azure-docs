@@ -114,6 +114,6 @@ In this article, you learned how to specify the detection model to use with diff
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
 
-[Detect]: https://learn.microsoft.com/rest/api/face/face-detection-operations/detect
-[Identify From Person Group]: https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-person-group
-[Add Person Group Person Face]: https://learn.microsoft.com/rest/api/face/person-group-operations/add-person-group-person-face
+[Detect]: /rest/api/face/face-detection-operations/detect
+[Identify From Person Group]: /rest/api/face/face-recognition-operations/identify-from-person-group
+[Add Person Group Person Face]: /rest/api/face/person-group-operations/add-person-group-person-face

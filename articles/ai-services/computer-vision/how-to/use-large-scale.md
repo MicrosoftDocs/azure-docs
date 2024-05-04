@@ -65,8 +65,8 @@ Add all of the faces and persons from the **PersonGroup** to the new **LargePers
 | - | Train |
 | - | Get Training Status |
 
-The preceding table is a comparison of list-level operations between **FaceList** and **LargeFaceList**. As is shown, **LargeFaceList** comes with new operations, [Train](https://learn.microsoft.com/rest/api/face/face-list-operations/train-large-face-list) and [Get Training Status](https://learn.microsoft.com/rest/api/face/face-list-operations/get-large-face-list-training-status), when compared with **FaceList**. Training the **LargeFaceList** is a precondition of the 
-[FindSimilar](https://learn.microsoft.com/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) operation. Training isn't required for **FaceList**. The following snippet is a helper function to wait for the training of a **LargeFaceList**:
+The preceding table is a comparison of list-level operations between **FaceList** and **LargeFaceList**. As is shown, **LargeFaceList** comes with new operations, [Train](/rest/api/face/face-list-operations/train-large-face-list) and [Get Training Status](/rest/api/face/face-list-operations/get-large-face-list-training-status), when compared with **FaceList**. Training the **LargeFaceList** is a precondition of the 
+[FindSimilar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) operation. Training isn't required for **FaceList**. The following snippet is a helper function to wait for the training of a **LargeFaceList**:
 
 ```csharp
 /// <summary>
@@ -190,8 +190,8 @@ As previously shown, the data management and the **FindSimilar** part are almost
 
 ## Step 3: Train suggestions
 
-Although the **Train** operation speeds up [FindSimilar](https://learn.microsoft.com/rest/api/face/face-recognition-operations/find-similar-from-large-face-list)
-and [Identification](https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-large-person-group), the training time suffers, especially when coming to large scale. The estimated training time in different scales is listed in the following table.
+Although the **Train** operation speeds up [FindSimilar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list)
+and [Identification](/rest/api/face/face-recognition-operations/identify-from-large-person-group), the training time suffers, especially when coming to large scale. The estimated training time in different scales is listed in the following table.
 
 | Scale for faces or persons | Estimated training time |
 |:---:|:---:|

@@ -30,17 +30,17 @@ You can try out the capabilities of face recognition quickly and easily using Vi
 
 ### PersonGroup creation and training
 
-You need to create a [PersonGroup](https://learn.microsoft.com/rest/api/face/person-group-operations/create-person-group) or [LargePersonGroup](https://learn.microsoft.com/rest/api/face/person-group-operations/create-large-person-group) to store the set of people to match against. PersonGroups hold [Person](https://learn.microsoft.com/rest/api/face/person-group-operations/create-person-group-person) objects, which each represent an individual person and hold a set of face data belonging to that person.
+You need to create a [PersonGroup](/rest/api/face/person-group-operations/create-person-group) or [LargePersonGroup](/rest/api/face/person-group-operations/create-large-person-group) to store the set of people to match against. PersonGroups hold [Person](/rest/api/face/person-group-operations/create-person-group-person) objects, which each represent an individual person and hold a set of face data belonging to that person.
 
-The [Train](https://learn.microsoft.com/rest/api/face/person-group-operations/train-person-group) operation prepares the data set to be used in face data comparisons.
+The [Train](/rest/api/face/person-group-operations/train-person-group) operation prepares the data set to be used in face data comparisons.
 
 ### Identification
 
-The [Identify](https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-large-person-group) operation takes one or several source face IDs (from a DetectedFace or PersistedFace object) and a PersonGroup or LargePersonGroup. It returns a list of the Person objects that each source face might belong to. Returned Person objects are wrapped as Candidate objects, which have a prediction confidence value.
+The [Identify](/rest/api/face/face-recognition-operations/identify-from-large-person-group) operation takes one or several source face IDs (from a DetectedFace or PersistedFace object) and a PersonGroup or LargePersonGroup. It returns a list of the Person objects that each source face might belong to. Returned Person objects are wrapped as Candidate objects, which have a prediction confidence value.
 
 ### Verification
 
-The [Verify](https://learn.microsoft.com/rest/api/face/face-recognition-operations/verify-face-to-face) operation takes a single face ID (from a DetectedFace or PersistedFace object) and a Person object. It determines whether the face belongs to that same person. Verification is one-to-one matching and can be used as a final check on the results from the Identify API call. However, you can optionally pass in the PersonGroup to which the candidate Person belongs to improve the API performance.
+The [Verify](/rest/api/face/face-recognition-operations/verify-face-to-face) operation takes a single face ID (from a DetectedFace or PersistedFace object) and a Person object. It determines whether the face belongs to that same person. Verification is one-to-one matching and can be used as a final check on the results from the Identify API call. However, you can optionally pass in the PersonGroup to which the candidate Person belongs to improve the API performance.
 
 ## Related data structures
 

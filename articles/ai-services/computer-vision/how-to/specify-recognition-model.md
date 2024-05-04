@@ -124,15 +124,15 @@ In this article, you learned how to specify the recognition model to use with di
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
 
-[Detect]: https://learn.microsoft.com/rest/api/face/face-detection-operations/detect
-[Verify Face To Face]: https://learn.microsoft.com/rest/api/face/face-recognition-operations/verify-face-to-face
-[Identify From Person Group]: https://learn.microsoft.com/rest/api/face/face-recognition-operations/identify-from-person-group
-[Find Similar]: https://learn.microsoft.com/rest/api/face/face-recognition-operations/find-similar-from-large-face-list
-[Create Person Group]: https://learn.microsoft.com/rest/api/face/person-group-operations/create-person-group
-[Get Person Group]: https://learn.microsoft.com/rest/api/face/person-group-operations/get-person-group
-[Train Person Group]: https://learn.microsoft.com/rest/api/face/person-group-operations/train-person-group
-[Add Person Group Person Face]: https://learn.microsoft.com/rest/api/face/person-group-operations/add-person-group-person-face
-[Create Large Person Group]: https://learn.microsoft.com/rest/api/face/person-group-operations/create-large-person-group
-[Create Face List]: https://learn.microsoft.com/rest/api/face/face-list-operations/create-face-list
-[Get Face List]: https://learn.microsoft.com/rest/api/face/face-list-operations/get-face-list
-[Create Large Face List]: https://learn.microsoft.com/rest/api/face/face-list-operations/create-large-face-list
+[Detect]: /rest/api/face/face-detection-operations/detect
+[Verify Face To Face]: /rest/api/face/face-recognition-operations/verify-face-to-face
+[Identify From Person Group]: /rest/api/face/face-recognition-operations/identify-from-person-group
+[Find Similar]: /rest/api/face/face-recognition-operations/find-similar-from-large-face-list
+[Create Person Group]: /rest/api/face/person-group-operations/create-person-group
+[Get Person Group]: /rest/api/face/person-group-operations/get-person-group
+[Train Person Group]: /rest/api/face/person-group-operations/train-person-group
+[Add Person Group Person Face]: /rest/api/face/person-group-operations/add-person-group-person-face
+[Create Large Person Group]: /rest/api/face/person-group-operations/create-large-person-group
+[Create Face List]: /rest/api/face/face-list-operations/create-face-list
+[Get Face List]: /rest/api/face/face-list-operations/get-face-list
+[Create Large Face List]: /rest/api/face/face-list-operations/create-large-face-list

@@ -23,7 +23,7 @@ ms.custom: devx-track-csharp
 
 This guide demonstrates how to use the face detection API to extract attributes from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
 
-The code snippets in this guide are written in C# by using the Azure AI Face client library. The same functionality is available through the [REST API](https://learn.microsoft.com/rest/api/face/face-detection-operations/detect).
+The code snippets in this guide are written in C# by using the Azure AI Face client library. The same functionality is available through the [REST API](/rest/api/face/face-detection-operations/detect).
 
 
 ## Setup
@@ -98,5 +98,5 @@ In this guide, you learned how to use the various functionalities of face detect
 
 ## Related articles
 
-- [Reference documentation (REST)](https://learn.microsoft.com/rest/api/face/operation-groups)
+- [Reference documentation (REST)](/rest/api/face/operation-groups)
 - [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/face-readme)

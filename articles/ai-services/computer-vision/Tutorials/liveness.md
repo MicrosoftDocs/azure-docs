@@ -294,4 +294,4 @@ See the Azure AI Vision SDK reference to learn about other options in the livene
 
 See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
 
-- [Liveness Session Operations](https://learn.microsoft.com/rest/api/face/liveness-session-operations)
+- [Liveness Session Operations](/rest/api/face/liveness-session-operations)
