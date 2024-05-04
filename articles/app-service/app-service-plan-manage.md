@@ -75,6 +75,11 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 5. When finished, select **OK**.
 
+## Move an app to a different subscription
+
+When you move an app to a different subscription, location of the app remains the same but its policy will be changed. For example, if your app is in Subscription1 located in Central US and has Policy1. And Subscription2 is in the UK South and has Policy2. If you move the app to Subscription2, the location of the app remains the same (Central US) however it will be under the new policy which is policy2.
+
+
 ## Move an app to a different region
 
 The region in which your app runs is the region of the App Service plan it's in. However, you cannot change an App Service plan's region. If you want to run your app in a different region, one alternative is app cloning. Cloning makes a copy of your app in a new or existing App Service plan in any region.
