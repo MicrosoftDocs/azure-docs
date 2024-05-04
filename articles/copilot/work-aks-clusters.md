@@ -75,6 +75,21 @@ You can say **"Install AKS backup"** to start the process of installing the AKS 
 
 ## Update AKS pricing tier
 
+Use Microsoft Copilot for Azure (preview) to make changes to your [AKS pricing tier](/azure/aks/free-standard-pricing-tiers). When you request an update to your pricing tier, you'll be prompted to confirm, and then Microsoft Copilot for Azure will make the change for you.
+
+You can also get information about different pricing tiers, helping you to make informed decisions before changing your clusters' pricing tier.
+
+## Sample prompts
+
+Here are a few examples of the kinds of prompts you can use to manage your AKS pricing tier.  Modify these prompts based on your real-life scenarios, or try additional prompts to make different kinds of changes.
+
+- "What is my AKS pricing tier?"
+- "Update my AKS cluster pricing tier"
+- "Upgrade AKS cluster pricing tier to Standard"
+- "Downgrade AKS cluster pricing tier to Free"
+- "What are the limitations of the Free pricing tier?"
+- "What do you get with the Premium AKS pricing tier?"
+
 ## Work with Kubernetes YAML files
 
 Microsoft Copilot for Azure (preview) can help you create [Kubernetes YAML files](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) to apply to AKS clusters.
