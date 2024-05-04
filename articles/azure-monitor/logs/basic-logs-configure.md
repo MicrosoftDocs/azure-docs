@@ -1,6 +1,6 @@
 ---
 title: Configure log plans for tables in Azure Monitor Logs
-description: Learn how to use the Auxiliary, Basic, and Analytics Logs plans to reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
+description: Learn how to use the Auxiliary, Basic, and Analytics Logs plans to reduce costs and take advantage of advanced analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
@@ -10,14 +10,14 @@ ms.date: 05/01/2024
 
 # Configure the data plan of a table in a Log Analytics workspace
 
-You can use one Log Analytics workspace to store various types of logs required for a range of purposes. For example:
+You can use one Log Analytics workspace to any type of log required for a any purposes. For example:
 
 - High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
 - App and resource data for **troubleshooting** by developers
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated data trends for **advanced analytics and machine learning** 
 
-Log plans let you manage data ingestion and retention costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each log plan offers, which use cases it's optimal for, and how to configure the log plan of a table in your Log Analytics workspace.
+Data plans let you manage data ingestion and retention costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each data plan offers, which use cases it's optimal for, and how to configure the log plan of a table in your Log Analytics workspace.
 
 ## Permissions required
 
@@ -26,7 +26,7 @@ Log plans let you manage data ingestion and retention costs based on how often y
 | View log plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Set log plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
-## Select the best data plan for the table based on your needs
+## Select a data plan for the table based usage needs
 
 This table compares the Analytics, Basic, and Auxiliary data plans:
 
@@ -41,7 +41,7 @@ This table compares the Analytics, Basic, and Auxiliary data plans:
 | Dashboards and alerts    | ✅                                                                                           | ❌                                                                                           | ❌                                                                                           |
 | [Search jobs](../logs/search-jobs.md) | ✅                                                                                   | ✅                                                                                           | ✅                                                                                           |
 | Summary rules            | ✅                                                                                           | ✅ KQL limited to a single table                                                      | ✅ KQL limited to a single table                                                        |
-|Pricing model|**Ingestion** - Standard cost.<br>**Interactive retention** - Unlimited queries. Prorated monthly charge for extended interactive retention.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. |**Ingestion** - Reduced cost.<br>**Interactive retention** - Pay-per-query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge.|**Ingestion** - Minimal cost.<br>**Interactive retention** - Pay-per-query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge.|
+|Pricing model|**Ingestion** - Standard cost.<br>**Interactive retention** - Unlimited queries. Prorated monthly retention charge for extended interactive retention.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. |**Ingestion** - Reduced cost.<br>**Interactive retention** - Pay-per-query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge.|**Ingestion** - Minimal cost.<br>**Interactive retention** - Pay-per-query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge.|
 
 > [!NOTE]
 > The Basic and Auxiliary log data plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
@@ -49,9 +49,9 @@ This table compares the Analytics, Basic, and Auxiliary data plans:
   
 ## Set the table's log plan
 
-When you change a table's plan from Analytics to Basic, Log Analytics immediately archives any data that's older than eight days and up to original data retention of the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the auxiliary retention period](../logs/data-retention-archive.md). 
+You can tranisition between the Analytics and Basic plans, and the changes take affect on existing data in the table immediately. You can't transition between the Auxiliary plan the Analytics and Basic plans.
 
-When you change a table's plan from Basic to Analytics, the changes take affect on existing data in the table immediately.
+The portal sets the data plan of all new tables to Analytics by default, but you can switch between the Analytics and Basic plans, as described in this section. To create a new custom table with an Auxiliary plan, see [Create a custom table](create-custom-table.md#create-a-custom-table).
 
 > [!NOTE]
 > You can switch a table's plan once a week. 
