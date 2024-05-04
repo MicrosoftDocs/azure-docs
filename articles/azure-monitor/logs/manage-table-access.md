@@ -1,7 +1,7 @@
 ---
-title: Manage table-level read access
+title: Manage read access to tables in a Log Analytics workspace
 description: This article explains how you can manage read access to specific tables in a Log Analytics workspace.
-ms.topic: conceptual
+ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
