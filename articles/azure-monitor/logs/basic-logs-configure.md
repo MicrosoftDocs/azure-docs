@@ -10,7 +10,7 @@ ms.date: 05/01/2024
 
 # Configure a table plan in Azure Monitor Logs
 
-You can use one Log Analytics workspace to any type of log required for a any purposes. For example:
+You can use one Log Analytics workspace to store any type of log required for any purpose. For example:
 
 - High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
 - App and resource data for **troubleshooting** by developers
@@ -32,9 +32,9 @@ This table compares the Analytics, Basic, and Auxiliary data plans:
 
 |                     | Analytics                                                                                   | Basic                                                                                       | Auxiliary (Preview)                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Best for                 | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch telemetry data needed for troubleshooting and incident response.              | Low-touch telemetry data, such as verbose logs, and data required for auditing and compliance.           |
+| Best for                 | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch data needed for troubleshooting and incident response.              | Low-touch data, such as verbose logs, and data required for auditing and compliance.           |
 | Supported [table types](../logs/manage-logs-tables.md)      | All table types                                                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-log-plan) and DCR-based custom tables                                                     | DCR-based custom tables                                                 |
-| Log queries             | Full query capabilities.                                                                                   | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).                                       | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).                                        |
+| Log queries             | Full query capabilities.                                                                                   | Full Kusto Query Language (KQL) on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).                                       | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).                                        |
 | Interactive retention | 31 days to two years                                                                     | 30 days                                                                                     | 30 days                                                                                     |
 | Total retention                | Up to 12 years                                                                             | Up to 12 years                                                                              | Up to 12 years                                                                              |
 | Query performance        | Fast                                                                                        | Fast                                                                                        | Slower                                                                                      |
@@ -49,7 +49,7 @@ This table compares the Analytics, Basic, and Auxiliary data plans:
   
 ## Configure the table plan
 
-You can tranisition between the Analytics and Basic plans, and the changes take affect on existing data in the table immediately. You can't transition between the Auxiliary plan the Analytics and Basic plans.
+You can transition between the Analytics and Basic plans, and the changes take effect on existing data in the table immediately. You can't transition between the Auxiliary plan the Analytics and Basic plans.
 
 The portal sets the data plan of all new tables to Analytics by default, but you can switch between the Analytics and Basic plans, as described in this section. To create a new custom table with an Auxiliary plan, see [Create a custom table](create-custom-table.md#create-a-custom-table).
 
@@ -96,7 +96,7 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 This example configures the `ContainerLogV2` table for Basic logs.
 
-Container insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic logs.
+Container Insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic logs.
 
 **Sample request**
 
@@ -182,7 +182,7 @@ These Azure tables currently support Basic logs:
 
 | Service | Table |
 |:---|:---|
-| Azure Active Directory | [AADDomainServicesDNSAuditsGeneral](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsGeneral)<br> [AADDomainServicesDNSAuditsDynamicUpdates](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsDynamicUpdates)<br>[AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/AADServicePrincipalSignInLogs) |
+| Microsoft Entra ID | [AADDomainServicesDNSAuditsGeneral](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsGeneral)<br> [AADDomainServicesDNSAuditsDynamicUpdates](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsDynamicUpdates)<br>[AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/AADServicePrincipalSignInLogs) |
 | Azure Databricks | [DatabricksBrickStoreHttpGateway](/azure/azure-monitor/reference/tables/databricksbrickstorehttpgateway)<br>[DatabricksDataMonitoring](/azure/azure-monitor/reference/tables/databricksdatamonitoring)<br>[DatabricksFilesystem](/azure/azure-monitor/reference/tables/databricksfilesystem)<br>[DatabricksDashboards](/azure/azure-monitor/reference/tables/databricksdashboards)<br>[DatabricksCloudStorageMetadata](/azure/azure-monitor/reference/tables/databrickscloudstoragemetadata)<br>[DatabricksPredictiveOptimization](/azure/azure-monitor/reference/tables/databrickspredictiveoptimization)<br>[DatabricksIngestion](/azure/azure-monitor/reference/tables/databricksingestion)<br>[DatabricksMarketplaceConsumer](/azure/azure-monitor/reference/tables/databricksmarketplaceconsumer)<br>[DatabricksLineageTracking](/azure/azure-monitor/reference/tables/databrickslineagetracking)
 | API Management | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/ApiManagementGatewayLogs)<br>[ApiManagementWebSocketConnectionLogs](/azure/azure-monitor/reference/tables/ApiManagementWebSocketConnectionLogs) |
 | Application Gateways | [AGWAccessLogs](/azure/azure-monitor/reference/tables/AGWAccessLogs)<br>[AGWPerformanceLogs](/azure/azure-monitor/reference/tables/AGWPerformanceLogs)<br>[AGWFirewallLogs](/azure/azure-monitor/reference/tables/AGWFirewallLogs) |
