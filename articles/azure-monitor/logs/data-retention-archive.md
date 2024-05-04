@@ -11,7 +11,7 @@ ms.date: 6/28/2023
 
 A Log Analytics workspace retains data in two tiers:
 
-* **Interactive retention**: In this tier, data is available for [real-time interactive queries](../logs/get-started-queries.md).
+* **Interactive retention**: In this tier, data is available for monitoring, troubleshooting, and near-real-time analytics.
 * **Auxiliary retention**: A cheap tier in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
 
 By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
@@ -29,21 +29,6 @@ This article explains how to manage data retention at the Log Analytics workspac
 | Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
 ## How retention works
-
-Each workspace has a default interactive retention setting that's applied to all tables. You can configure a different retention setting on individual tables.
-
-:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
-
-During the interactive retention period, data is available for monitoring, troubleshooting, and analytics. 
-
-During the auxiliary retention period, data stays in the same table, alongside the data that's available for interactive queries. 
-
-When you set a total retention period that's longer than the interactive retention period, the auxliary retention period begins immediately at the end of the interactive retention period.
-
-You can access auxiliary data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md).
-
-> [!NOTE]
-> The archive period can only be set at the table level, not at the workspace level.
 
 ### Adjustments to retention and archive settings
 
@@ -163,8 +148,12 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 
 By default, all tables with the Analtyics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no auxiliary retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). 
 
+> [!NOTE]
+> You can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs.
 
-If needed, you can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs. You can set the archive period to a total retention time of up to 4,383 days (12 years).
+To add auxiliary retention, set **total retention** to up to 12 years (4,383 days).
+
+:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
 
 > [!NOTE]
 > Currently, you can set total retention to up to 12 years through the Azure portal and API. CLI and PowerShell are limited to seven years; support for 12 years will follow.
