@@ -1,7 +1,7 @@
 ---
 ms.date: 05/08/2024
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual

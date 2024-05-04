@@ -4,7 +4,7 @@ description: This article explains how to subscribe to events published by Micro
 ms.topic: how-to
 ms.custom: build-2024
 ms.date: 05/08/2024
-ms.author: jafernan
+ms.author: robece
 ---
 
 # Subscribe to events published by Microsoft Entra ID

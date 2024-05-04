@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.custom:
   - build-2024
 ms.date: 05/08/2024
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 ---
 
 # Message push delivery and retry with namespace topics
