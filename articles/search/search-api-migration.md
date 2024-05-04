@@ -10,27 +10,27 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/04/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
 
 Use this article to migrate data plane calls to newer versions of the [**Search REST API**](/rest/api/searchservice/).
 
-+ [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and support for indexing and querying vectors are generally available in this version.
++ [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and support for vector indexing and queries are generally available in this version.
 
-+ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Preview features include [built-in query vectorization](vector-search-how-to-configure-vectorizer.md), [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) (uses the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill). Refer to [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md) for help with new features.
++ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Preview features include [built-in query vectorization](vector-search-how-to-configure-vectorizer.md), [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) (uses the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill). 
 
 + **2023-07-01-preview** was the first REST API for vector support. It's now deprecated and you should migrate to either **2023-11-01** or **2023-10-01-preview** immediately.
 
 > [!NOTE]
-> API reference docs are now versioned. To get the right content, open a reference page and then filter by version, using the selector located above the table of contents.
+> REST API reference docs are now versioned. To get the right content, open a reference page and then filter by version, using the selector located above the table of contents.
 
 ## When to upgrade
 
 Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
-+ Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include 2023-07-10-preview for vectors and [2019-05-06](#upgrade-to-2019-05-06). 
++ Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include [2023-07-10-preview](/rest/api/searchservice/index-preview) for vectors and [2019-05-06](#upgrade-to-2019-05-06). 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
@@ -48,9 +48,17 @@ Effective March 29, 2024 and applies to all [supported REST APIs](/rest/api/sear
 
 ## Upgrade to 2023-10-01-preview
 
-This version is identical to 2023-11-01 but has extra features in public preview: [built-in query vectorizer](vector-search-how-to-configure-vectorizer.md) and [vector prefilter mode](vector-search-filters.md). If you want to use those features, you should upgrade to the latest preview version.
+This section explains the migration path from 2023-07-01-preview to 2023-10-01-preview. You should migrate to 2023-10-01 if you want to continue using vector features that are still in public preview. If you don't need the preview features, we recommend upgrading to the stable release, 2023-11-01.
 
-The vector search algorithm configuration inside a search index is identical to 2023-11-01. To fix breaking changes from 2023-07-01-preview, follow the instructions in the next section.
+Preview features include:
+
++ [built-in text-to-vector indexing](search-get-started-portal-import-vectors.md)
++ [built-in text-to-vector queries](vector-search-how-to-configure-vectorizer.md)
++ [vector prefilter mode](vector-search-filters.md). 
+
+Because these features are new in 2023-10-01-preview, there's no migration path and you should add these capabilities to your code if you want to use them. To learn more about the preview  features, see [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md).
+
+In contrast, the vector field definitions, vector search algorithm configuration, and vector query syntax that were first introduced in 2023-07-01-preview have changed. The 2023-10-01-preview syntax for vector fields, algorithms, and vector queries is identical to the 2023-11-01 syntax. Migration steps for vectors are explained in [upgrade to 2023-11-01](#upgrade-to-2023-11-01).
 
 ## Upgrade to 2023-11-01
 
