@@ -1,7 +1,7 @@
 ---
-title: Generate Kubernetes YAML files using Microsoft Copilot for Azure (preview)
-description: Learn how Microsoft Copilot for Azure (preview) can generate Kubernetes YAML files for you to customize and use.
-ms.date: 04/26/2024
+title:  Create Kubernetes YAML files for AKS clusters using Microsoft Copilot for Azure (preview)
+description: Learn how Microsoft Copilot for Azure (preview) can help you create Kubernetes YAML files for you to customize and use.
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -11,17 +11,29 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Generate Kubernetes YAML files using Microsoft Copilot for Azure (preview)
+# Create Kubernetes YAML files
 
-Microsoft Copilot for Azure (preview) can generate Kubernetes YAML files to apply to your [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster.
+Microsoft Copilot for Azure (preview) can help you create [Kubernetes YAML files](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) to apply to your [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster. Generated YAML files adhere to best practices, simplifying the deployment and management of containerized applications on AKS. This lets you focus more on your applications and less on the underlying infrastructure. You can also get help when authoring your own YAML files by asking Microsoft Copilot to make changes, fix problems, or explain elements in the context of your specific scenario.
 
-You provide your application specifications, such as container images, resource requirements, and networking preferences. Microsoft Copilot for Azure (preview) uses your input to generate comprehensive YAML files that define the desired Kubernetes deployments, services, and other resources, effectively encapsulating the infrastructure as code. The generated YAML files adhere to best practices, simplifying the deployment and management of containerized applications on AKS. This lets you focus more on your applications and less on the underlying infrastructure.
+When you ask Microsoft Copilot for Azure for help with Kubernetes YAML files, it prompts you to open the YAML deployment editor. From there, you can use Microsoft Copilot for Azure help you create, edit, and format the desired YAML file to create your cluster.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 
-## Sample prompts
+## Generate Kubernetes YAML files using Microsoft Copilot for Azure (preview)
+
+Microsoft Copilot for Azure (preview) can help you generate Kubernetes YAML files to apply to your AKS cluster pr create a new deployment. You provide your application specifications, such as container images, resource requirements, and networking preferences. Microsoft Copilot for Azure uses your input to generate comprehensive YAML files that define the desired Kubernetes deployments, services, and other resources, effectively encapsulating the infrastructure as code.
+
+When you ask Microsoft Copilot for Azure for help with Kubernetes YAML files, it asks if you'd like to open the YAML deployment editor.
+
+ :::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-question.png" alt-text="Screenshot of a prompt for help generating an AKS YAML file in Microsoft Copilot for Azure (preview)":::
+
+After you confirm, the YAML deployment editor appears. From here, you can enter **ALT + I** to open an inline Copilot prompt. Enter your question here to see YAML based on your requirements.
+
+:::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-editor.png" alt-text="Screenshot showing the YAML editor with a prompt to create an AKS deployment.":::
+
+### Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to generate Kubernetes YAML files. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of Kubernetes YAML files.
 
@@ -30,11 +42,47 @@ Here are a few examples of the kinds of prompts you can use to generate Kubernet
 - "Generate a Kubernetes Deployment YAML file for a web application named 'my-web-app'. It should run three replicas and expose port 80."
 - "Generate a Kubernetes Ingress YAML file that routes traffic to my frontend and backend services based on hostnames."
 
-## Examples
+## Get help working with Kubernetes files in the YAML deployment editor
 
-In this example, Microsoft Copilot for Azure (preview) generates a YAML file based on the prompt "**Help me generate a Kubernetes YAML file for a "frontend" service using port 8080**."
+Rather than have Microsoft Copilot for Azure (preview) generate a complete YAML file for you, you can also enter your own content in the YAML editor and get assistance. Microsoft Copilot for Azure offers a number of features that help you quickly create valid YAML files. When working with a Kubernetes YAML file, enter **ALT + I** to open an inline Copilot prompt.
 
-:::image type="content" source="media/generate-kubernetes-yaml/kubernetes-yaml-file.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a Kubernetes YAML file.":::
+### Autocomplete
+
+Microsoft Copilot for Azure will automatically provide autocomplete suggestions based on your input.
+
+:::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-autocomplete.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing autocomplete suggestions in an AKS YAML file.":::
+
+### Natural language questions
+
+You can use the inline Copilot control to request specific changes using natural languages. For example, you can say **Update to use the latest nginx**.
+
+:::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-update-request.png" alt-text="Screenshot of a request for Microsoft Copilot for Azure to update an AKS YAML file. ":::
+
+Based on your request, Microsoft Copilot for Azure makes changes to your YAML, with differences highlighted.
+
+:::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-update-result.png" alt-text="Screenshot showing the changes Microsoft Copilot for Azure made to the YAML file.":::
+
+Select **Accept** to save these changes, or select the **X** to reject them. To make further changes before accepting, you can enter a different query and then select the **Refresh** button to see the new changes.
+
+You can also select the **Diff** button to toggle the diff view between inline and side-by-side.
+
+:::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-diff.png" alt-text="Screenshot showing the side-by-side diff view in the AKS YAML editor, with the toggle button highlighted.":::
+
+### Built-in commands
+
+When working with YAML files, Microsoft Copilot for Azure provides a number of built-in commands. To access these commands, type **/** into the inline Copilot control.
+
+ :::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-commands.png" alt-text="Screenshot showing the commands available in the inline Microsoft Copilot for Azure control in an AKS YAML file.":::
+
+The following commands are currently available:
+
+- **/explain**: Get more information about a section or element of your YAML file.
+- **/format**: Apply standard indentation or fix other formatting issues.
+- **fix**: Resolve problems with invalid YAML.
+- **/discard**: Discard previously-made changes.
+- **/chat**: Open a full Microsoft Copilot for Azure pane.
+- **/close**: Closes the inline Copilot control.
+- **/retry**: Tries the previous prompt again.
 
 ## Next steps
 
