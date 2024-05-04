@@ -34,7 +34,7 @@ The virtual machines in the standby pool can be kept in a running state or a dea
 
 **Deallocated:** Deallocated virtual machines are shut down and keep any associated disks, network interfaces, and any static IPs remain unchanged. [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md) don't support the deallocated state. 
 
-:::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated virtual machine pools pools.":::
+:::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated virtual machine pools.":::
 
 **Running:** Using virtual machines in a running state is recommended when latency and reliability requirements are strict. 
 
