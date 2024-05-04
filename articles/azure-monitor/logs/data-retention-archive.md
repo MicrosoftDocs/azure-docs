@@ -355,7 +355,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-The charge for maintaining archived logs is calculated based on the volume of data you archive, in GB, and the number or days for which you archive the data. Log data that has `_IsBillable == false` is not subject to retention or archive charges. 
+The charge for extended analytics retention and auxiliary retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` is not subject to retention  charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -364,5 +364,5 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 Learn more about:
 
 - [Managing personal data in Azure Monitor Logs](../logs/personal-data-mgmt.md)
-- [Creating a search job to retrieve archive data matching particular criteria](search-jobs.md)
-- [Restore archive data within a particular time range](restore.md)
+- [Creating a search job to retrieve auxiliary data matching particular criteria](search-jobs.md)
+- [Restore data from the auxiliary tier for a specific time range](restore.md)
