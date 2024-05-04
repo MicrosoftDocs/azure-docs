@@ -60,7 +60,7 @@ Because these features didn't exist in previous API versions, there's no migrati
 
 In contrast, the vector field definitions, vector search algorithm configuration, and vector query syntax that were first introduced in 2023-07-01-preview have changed. The 2023-10-01-preview syntax for vector fields, algorithms, and vector queries is identical to the 2023-11-01 syntax. Migration steps for these vector constructs are explained in [upgrade to 2023-11-01](#upgrade-to-2023-11-01).
 
-### Upgrade using the portal
+### Portal upgrade for vector indexes
 
 Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. The portal detects 2023-07-01-preview vector fields and provides a **Migrate** button. 
 
