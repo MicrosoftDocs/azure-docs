@@ -76,13 +76,11 @@ Before selecting **Migrate**, select **Edit JSON** to review the updated schema 
 
 This version has breaking changes and behavioral differences for semantic ranking and vector search support. 
 
-+ [Semantic ranking](semantic-search-overview.md) is generally available in 2023-11-01 and has an updated configuration. It no longer uses the `queryLanguage` property. It also requires a `semanticConfiguration` definition. A `semanticConfiguration` replaces `searchFields` in previous version. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) for steps.
++ [Semantic ranking](semantic-search-overview.md) is generally available in 2023-11-01. It no longer uses the `queryLanguage` property. It also requires a `semanticConfiguration` definition. A `semanticConfiguration` replaces `searchFields` in previous versions. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) for steps.
 
-+ [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index).
++ [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). Upgrading from 2023-07-01-preview requires renaming and restructuring the vector configuration in the index. It also requires rewriting your vector queries. Use the instructions in this section to migrate vector fields, configuration, and queries.
 
-   Upgrading from 2023-07-01-preview requires renaming and restructuring the vector configuration in the index. It also requires rewriting your vector queries. Use the instructions in this section to migrate vector fields, configuration, and queries.
-
-   IF you're upgrading from 2023-10-01-preview, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). If your 2023-10-01-preview code doesn't set `vectorFilterMode` explicitly, make sure you understand the new behavior, or set the mode to postfilter to retain the old behavior. 
+   If you're upgrading from 2023-10-01-preview to 2023-11-01, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). If your 2023-10-01-preview code doesn't set `vectorFilterMode` explicitly, make sure you understand the new default behavior, or explicity set `vectorFilterMode` to postfilter to retain the old behavior. 
 
 Here are the steps for migrating from 2023-07-01-preview to 2023-11-01:
 
