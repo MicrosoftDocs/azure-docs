@@ -14,7 +14,9 @@ A Log Analytics workspace retains data in two tiers:
 * **Interactive retention**: In this tier, data is available for [real-time interactive queries](../logs/get-started-queries.md).
 * **Auxiliary retention**: A cheap tier in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
 
-By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. You can set auxiliary retention to up to 12 years on all tables.
+By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
+
+You can set auxiliary retention to up to 12 years on all tables.
 
 This article explains how to manage data retention at the Log Analytics workspace and table levels.
 
