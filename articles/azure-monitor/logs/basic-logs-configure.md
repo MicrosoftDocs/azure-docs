@@ -1,5 +1,5 @@
 ---
-title: Configure the data plan of a table in a Log Analytics workspace
+title: Configure a table plan in Azure Monitor Logs
 description: Learn how to use the Auxiliary, Basic, and Analytics Logs plans to reduce costs and take advantage of advanced analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/01/2024
 ---
 
-# Configure the data plan of a table in a Log Analytics workspace
+# Configure a table plan in Azure Monitor Logs
 
 You can use one Log Analytics workspace to any type of log required for a any purposes. For example:
 
