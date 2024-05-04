@@ -14,7 +14,7 @@ A Log Analytics workspace retains data in two tiers:
 * **Interactive retention**: In this tier, data is available for monitoring, troubleshooting, and near-real-time analytics.
 * **Auxiliary retention**: A cheap tier in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
 
-By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
+By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this default from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
 
 You can set auxiliary retention to up to 12 years on all tables.
 
@@ -38,7 +38,7 @@ You can set the total retention on all tables to up to 12 years (4,383 days).
 
 When you shorten a table's total retention, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately, if needed. 
 
-When you increase total retention, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
+When you increase total retention, the new retention period applies to all data was already ingested into the table and wasn't yet purged or removed.   
 
 When you change the auxiliary retention settings of a table with existing data, the change is effective immediately. 
 
@@ -54,7 +54,7 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 
 |Table type|Data retention|Recommendations|
 |-|-|-|
-|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and cannot be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table or for the default workspace retention, if you do not define table-level retention. |To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you stop streaming logs to the table.|
+|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and can't be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table. |To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you stop streaming logs to the table.|
 |[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.||
 |[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
 |[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you delete the table.|
@@ -96,12 +96,12 @@ The request body includes the values in the following table.
 | --- | --- | --- |
 |`properties.retentionInDays` | integer  | The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
 |`location`|string| The geo-location of the resource.|
-|`immediatePurgeDataOn30Days`|boolean|Flag that indicates whether data is immediately removed after 30 days and is non-recoverable. Applicable only when workspace retention is set to 30 days.|
+|`immediatePurgeDataOn30Days`|boolean|Flag that indicates whether data is immediately removed after 30 days and is nonrecoverable. Applicable only when workspace retention is set to 30 days.|
 
 
 **Example**
 
-This example sets the workspace's retention to the workspace default of 30 days and ensures that data is immediately removed after 30 days and is non-recoverable.
+This example sets the workspace's retention to the workspace default of 30 days and ensures that data is immediately removed after 30 days and is nonrecoverable.
 
 **Request**
 
@@ -156,7 +156,7 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 
 ## Configure table-level retention
 
-By default, all tables with the Analtyics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no auxiliary retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). 
+By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no auxiliary retention. You can increase the interactive retention period to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
 
 > [!NOTE]
 > You can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs.
@@ -355,7 +355,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-The charge for extended interactive retention and auxiliary retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` is not subject to retention  charges. 
+The charge for extended interactive retention and auxiliary retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` isn't subject to retention charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
