@@ -26,7 +26,7 @@ Data plans let you manage data ingestion and retention costs based on how often 
 | View log plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Set log plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
-## Select a data plan for the table based usage needs
+## Select the table's data plan based on usage needs
 
 This table compares the Analytics, Basic, and Auxiliary data plans:
 
