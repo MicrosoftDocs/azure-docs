@@ -28,15 +28,27 @@ This article explains how to manage data retention at the Log Analytics workspac
 | Get retention setting by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 
 
-## Adjustments to retention settings
+## What is total retention and how do retention modifications work?
 
-When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss in the event of an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately when required. 
+**Total retention** is the sum of analytics and auxiliary retention.
 
-When you increase the retention setting, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
+:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
 
-If you change the auxiliary retention settings on a table with existing data, the relevant data in the table is affected immediately. For example, you might have an existing table with 180 days of interactive retention and no auxiliary retention. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately adds auxiliary retention of 90 days, so data that's between 90-180 days isn't deleted.
+You can set the total retention on all tables to up to 12 years (4,383 days).
 
-## What happens to data when you delete a table in a Log Analytics workspace
+When you shorten the total retention of a table, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately, if needed. 
+
+When you increase total retention, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
+
+If you change the auxiliary retention settings of a table with existing data, the change is effective immediately. 
+
+*Example*: 
+
+- You have an existing table with 180 days of interactive retention and no auxiliary retention. 
+- You change the interactive retention to 90 days without changing the total retention period of 180 days. 
+- Azure Monitor automatically converts the remaining 90 days of total retention to auxiliary retention, so that data that's 90-180 days old isn't lost.
+
+## What happens to data when you delete a table in a Log Analytics workspace?
 
 A Log Analytics workspace can contain several [types of tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
 
@@ -47,7 +59,7 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 |[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
 |[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you delete the table.|
 
-## Configure the default Analtyics retention period of Analytics tables in your workspace
+## Configure the default Analytics retention period of Analytics tables in your workspace
 
 By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days. 
 
