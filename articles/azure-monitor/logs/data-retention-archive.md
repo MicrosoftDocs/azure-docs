@@ -42,7 +42,7 @@ When you increase total retention, the new retention period applies to all data 
 
 If you change the auxiliary retention settings of a table with existing data, the change is effective immediately. 
 
-*Example*: 
+***Example***: 
 
 - You have an existing table with 180 days of interactive retention and no auxiliary retention. 
 - You change the interactive retention to 90 days without changing the total retention period of 180 days. 
@@ -59,7 +59,7 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 |[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
 |[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you delete the table.|
 
-## Configure the default Analytics retention period of Analytics tables in your workspace
+## Configure the default Analytics retention period of Analytics tables
 
 By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days. 
 
