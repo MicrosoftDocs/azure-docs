@@ -24,9 +24,9 @@ This article explains how to manage data retention at the Log Analytics workspac
 
 | Action | Permissions required |
 |:-------|:---------------------|
-| Configure data retention and archive policies for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
-| Get the retention and archive policy by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
-| Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Configure default analytics retention period for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Get retention setting by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
+
 
 ## Adjustments to retention settings
 
@@ -34,7 +34,7 @@ When you shorten an existing retention setting, Azure Monitor waits 30 days befo
 
 When you increase the retention setting, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
 
-If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
+If you change the auxiliary retention settings on a table with existing data, the relevant data in the table is affected immediately. For example, you might have an existing table with 180 days of interactive retention and no auxiliary retention. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately adds auxiliary retention of 90 days, so data that's between 90-180 days isn't deleted.
 
 ## What happens to data when you delete a table in a Log Analytics workspace
 
@@ -271,13 +271,13 @@ Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Co
 
 ---
 
-## Get retention and archive settings by table
+## Get retention settings by table
 
 # [Portal](#tab/portal-2)
 
-To view the retention and archive duration for a table in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables**.
+To view the retention settings of a table in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables**.
 
-The **Tables** screen shows the interactive retention and archive period for all the tables in the workspace.
+The **Tables** screen shows the interactive retention and auxiliary retention periods for all the tables in the workspace.
 
 :::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
 

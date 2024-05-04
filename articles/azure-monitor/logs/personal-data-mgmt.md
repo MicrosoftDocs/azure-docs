@@ -18,6 +18,12 @@ In this article, _log data_ refers to data sent to a Log Analytics workspace, wh
 
 [!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
+## Permissions required
+
+| Action | Permissions required |
+|:-------|:---------------------|
+| Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+
 
 ## Strategy for personal data handling
 
