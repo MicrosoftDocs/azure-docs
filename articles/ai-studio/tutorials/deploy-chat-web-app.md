@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 4/8/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: aahi
 author: aahill
@@ -15,9 +15,9 @@ author: aahill
 
 # Tutorial: Deploy an enterprise chat web app
 
-In this article, you deploy a chat web app that uses your own data with an Azure OpenAI Service model.
+In this article, you deploy an enterprise chat web app that uses your own data with a large language model in AI Studio.
 
-You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
+Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your original data source
 
 The steps in this tutorial are:
 
@@ -38,91 +38,35 @@ The steps in this tutorial are:
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
-## Deploy and test a chat model without your data
 
-Follow these steps to deploy a chat model and test it without your data. 
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
-1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
-    
-    :::image type="content" source="../media/tutorials/chat-web-app/deploy-create.png" alt-text="Screenshot of the deployments page without deployments." lightbox="../media/tutorials/chat-web-app/deploy-create.png":::
+## Deploy a chat model
 
-1. On the **Select a model** page, select the model you want to deploy from the **Model** dropdown. For example, select **gpt-35-turbo-16k**. Then select **Confirm**.
+[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
 
-    :::image type="content" source="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k.png":::
+## Chat in the playground without your data
 
-1. On the **Deploy model** page, enter a name for your deployment, and then select **Deploy**. After the deployment is created, you see the deployment details page. Details include the date you created the deployment and the created date and version of the model you deployed.
-1. On the deployment details page from the previous step, select **Open in playground**.
+In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
 
-    :::image type="content" source="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k-details.png":::
+[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
 
-1. In the playground, make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT chat model from the **Deployment** dropdown. 
+## Add your data and try the chat model again
 
-    :::image type="content" source="../media/tutorials/chat-web-app/playground-chat.png" alt-text="Screenshot of the chat playground with the chat mode and model selected." lightbox="../media/tutorials/chat-web-app/playground-chat.png":::
+[!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
 
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You're an AI assistant that helps people find information." You can tailor the prompt for your scenario. 
-1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
-1. In the chat session pane, enter the following question: "How much are the TrailWalker hiking shoes", and then select the right arrow icon to send.
+## Deploy a chat model
 
-    :::image type="content" source="../media/tutorials/chat-web-app/chat-without-data.png" alt-text="Screenshot of the first chat question without grounding data." lightbox="../media/tutorials/chat-web-app/chat-without-data.png":::
+[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
 
-1. The assistant replies that it doesn't know the answer. This is because the model doesn't have access to product information about the TrailWalker hiking shoes. 
+## Chat in the playground without your data
 
-    :::image type="content" source="../media/tutorials/chat-web-app/assistant-reply-not-grounded.png" alt-text="Screenshot of the assistant's reply without grounding data." lightbox="../media/tutorials/chat-web-app/assistant-reply-not-grounded.png":::
+In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
 
-In the next section, you'll add your data to the model to help it answer questions about your products.
+[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
 
-## Add your data
+## Add your data and try the chat model again
 
-Follow these steps to add your data to the playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
-
-1. If you aren't already in the playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. On the **Assistant setup** pane, select **Add your data (preview)** > **+ Add a data source**.
-
-    :::image type="content" source="../media/tutorials/chat-web-app/add-your-data.png" alt-text="Screenshot of the chat playground with the option to add a data source visible." lightbox="../media/tutorials/chat-web-app/add-your-data.png":::
-
-1. In the **Select or add data source** page that appears, select **Upload files** from the **Select data source** dropdown. 
-
-    :::image type="content" source="../media/tutorials/chat-web-app/add-your-data-source.png" alt-text="Screenshot of the data source selection options." lightbox="../media/tutorials/chat-web-app/add-your-data-source.png":::
-
-    > [!TIP]
-    > For data source options and supported file types and formats, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
-
-1. Enter your data source details:
-
-    :::image type="content" source="../media/tutorials/chat-web-app/add-your-data-source-details.png" alt-text="Screenshot of the resources and information required to upload files." lightbox="../media/tutorials/chat-web-app/add-your-data-source-details.png":::
-
-    > [!NOTE]
-    > Azure OpenAI needs both a storage resource and a search resource to access and index your data. Your data is stored securely in your Azure subscription. 
-
-    - **Subscription**: Select the Azure subscription that contains the Azure OpenAI resource you want to use.
-    - **Storage resource**: Select the Azure Blob storage resource where you want to upload your files. 
-    - **Data source**: Select an existing Azure AI Search index, Azure Storage container, or upload local files as the source we'll build the grounding data from. Your data is stored securely in your Azure subscription.
-    - **Index name**: Select the Azure AI Search resource where the index used for grounding is created. A new search index with the provided name is generated after data ingestion is complete.
-
-1. Select your Azure AI Search resource, and select the acknowledgment that connecting it incurs usage on your account. Then select **Next**.
-1. On the **Upload files** pane, select **Browse for a file** and select the files you want to upload. Select the `product_info_11.md` file you downloaded or created earlier. See the [prerequisites](#prerequisites). If you want to upload more than one file, do so now. You won't be able to add more files later in the same playground session.
-1. Select **Upload** to upload the file to your Azure Blob storage account. Then select **Next**.
-
-   :::image type="content" source="../media/tutorials/chat-web-app/add-your-data-uploaded.png" alt-text="Screenshot of the dialog to select and upload files." lightbox="../media/tutorials/chat-web-app/add-your-data-uploaded.png":::
-
-1. On the **Data management** pane under **Search type**, select **Keyword**. This setting helps determine how the model responds to requests. Then select **Next**.
-    
-    > [!NOTE]
-    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data).
-    
-1. Review the details you entered, and select **Save and close**. You can now chat with the model and it uses information from your data to construct the response.
-
-    :::image type="content" source="../media/tutorials/chat-web-app/add-your-data-review-finish.png" alt-text="Screenshot of the review and finish page for adding data." lightbox="../media/tutorials/chat-web-app/add-your-data-review-finish.png":::
-
-1. Now on the **Assistant setup** pane, you can see that your data ingestion is in progress. Before proceeding, wait until you see the data source and index name in place of the status.
-
-   :::image type="content" source="../media/tutorials/chat-web-app/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/chat-web-app/add-your-data-ingestion-in-progress.png":::
-
-1. You can now chat with the model asking the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.
-
-   :::image type="content" source="../media/tutorials/chat-web-app/chat-with-data.png" alt-text="Screenshot of the assistant's reply with grounding data." lightbox="../media/tutorials/chat-web-app/chat-with-data.png":::
+[!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
 
 ## Deploy your web app
 
@@ -137,11 +81,11 @@ Follow these steps to navigate from Azure AI Studio to your resource group in th
 1. In Azure AI Studio, select **Manage** from the top menu and then select **Details**. If you have multiple hubs, select the one you want to use in order to see its details.
 1. In the **Resource configuration** pane, select the resource group name to open the resource group in the Azure portal. In this example, the resource group is named `rg-docsazureairesource`.
 
-    :::image type="content" source="../media/tutorials/chat-web-app/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat-web-app/resource-group-manage-page.png":::
+    :::image type="content" source="../media/tutorials/chat/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat/resource-group-manage-page.png":::
 
 1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub.
 
-    :::image type="content" source="../media/tutorials/chat-web-app/resource-group-azure-portal.png" alt-text="Screenshot of the resource group in the Azure portal." lightbox="../media/tutorials/chat-web-app/resource-group-azure-portal.png":::
+    :::image type="content" source="../media/tutorials/chat/resource-group-azure-portal.png" alt-text="Screenshot of the resource group in the Azure portal." lightbox="../media/tutorials/chat/resource-group-azure-portal.png":::
 
     Keep this page open in a browser tab - you return to it later.
 
@@ -159,7 +103,7 @@ To deploy the web app:
 
 1. Select **Deploy** > **A new web app**.
 
-    :::image type="content" source="../media/tutorials/chat-web-app/deploy-web-app.png" alt-text="Screenshot of the deploy new web app button." lightbox="../media/tutorials/chat-web-app/deploy-web-app.png":::
+    :::image type="content" source="../media/tutorials/chat/deploy-web-app.png" alt-text="Screenshot of the deploy new web app button." lightbox="../media/tutorials/chat/deploy-web-app.png":::
 
 1. On the **Deploy to a web app** page, enter the following details:
     - **Name**: A unique name for your web app.
@@ -172,7 +116,7 @@ To deploy the web app:
 
 1. Wait for the app to be deployed, which might take a few minutes. 
 
-    :::image type="content" source="../media/tutorials/chat-web-app/deploy-web-app-in-progress.png" alt-text="Screenshot of the playground with notification that the web app deployment is in progress." lightbox="../media/tutorials/chat-web-app/deploy-web-app-in-progress.png":::
+    :::image type="content" source="../media/tutorials/chat/deploy-web-app-in-progress.png" alt-text="Screenshot of the playground with notification that the web app deployment is in progress." lightbox="../media/tutorials/chat/deploy-web-app-in-progress.png":::
 
 1. When it's ready, the **Launch** button is enabled on the toolbar. But don't launch the app yet and don't close the **Playground** page - you return to it later.
 
@@ -186,7 +130,7 @@ By default, the web app will only be accessible to you. In this tutorial, you ad
 
 1. From the collapsible left menu under **Settings**, select **Authentication**. 
 
-    :::image type="content" source="../media/tutorials/chat-web-app/azure-portal-app-service.png" alt-text="Screenshot of web app authentication menu item under settings in the Azure portal." lightbox="../media/tutorials/chat-web-app/azure-portal-app-service.png":::
+    :::image type="content" source="../media/tutorials/chat/azure-portal-app-service.png" alt-text="Screenshot of web app authentication menu item under settings in the Azure portal." lightbox="../media/tutorials/chat/azure-portal-app-service.png":::
 
 1. Add an identity provider with the following settings:
     - **Identity provider**: Select Microsoft as the identity provider. The default settings on this page restrict the app to your tenant only, so you don't need to change anything else here. 
@@ -209,7 +153,7 @@ You're almost there! Now you can test the web app.
 
 1. In your web app, you can ask the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.
 
-   :::image type="content" source="../media/tutorials/chat-web-app/chat-with-data-web-app.png" alt-text="Screenshot of the chat experience via the deployed web app." lightbox="../media/tutorials/chat-web-app/chat-with-data-web-app.png":::
+   :::image type="content" source="../media/tutorials/chat/chat-with-data-web-app.png" alt-text="Screenshot of the chat experience via the deployed web app." lightbox="../media/tutorials/chat/chat-with-data-web-app.png":::
 
 ## Clean up resources
 
@@ -223,7 +167,7 @@ With the chat history feature, your users will have access to their individual p
 
 You can enable chat history when you [deploy the web app](#deploy-the-web-app). Select the **Enable chat history in the web app** checkbox.
 
-:::image type="content" source="../media/tutorials/chat-web-app/deploy-web-app-chat-history.png" alt-text="Screenshot of the option to enable chat history when deploying a web app." lightbox="../media/tutorials/chat-web-app/deploy-web-app-chat-history.png":::
+:::image type="content" source="../media/tutorials/chat/deploy-web-app-chat-history.png" alt-text="Screenshot of the option to enable chat history when deploying a web app." lightbox="../media/tutorials/chat/deploy-web-app-chat-history.png":::
 
 > [!IMPORTANT]
 > Enabling chat history will create a [Cosmos DB instance](/azure/cosmos-db/introduction) in your resource group, and incur [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage used.

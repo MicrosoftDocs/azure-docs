@@ -49,97 +49,17 @@ Your project is used to organize your work and save state while building your co
 
 ## Deploy a chat model
 
-Follow these steps to deploy an Azure OpenAI chat model for your copilot. 
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
-1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
-    
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-create.png" alt-text="Screenshot of the deployments page with a button to create a new project." lightbox="../media/tutorials/copilot-deploy-flow/deploy-create.png":::
-
-1. On the **Select a model** page, select the model you want to deploy from the list of models. For example, select **gpt-35-turbo-16k**. Then select **Confirm**.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png":::
-
-1. On the **Deploy model** page, enter a name for your deployment, and then select **Deploy**. After the deployment is created, you see the deployment details page. Details include the date you created the deployment and the created date and version of the model you deployed.
-1. On the deployment details page from the previous step, select **Open in playground**.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png":::
-
-For more information about deploying models, see [how to deploy models](../how-to/deploy-models-openai.md).
+[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
 
 ## Chat in the playground without your data
 
 In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
 
-1. In the playground, make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT chat model from the **Deployment** dropdown. 
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/playground-chat.png" alt-text="Screenshot of the chat playground with the chat mode and model selected." lightbox="../media/tutorials/copilot-deploy-flow/playground-chat.png":::
-
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [the prompt catalog](../what-is-ai-studio.md#prompt-catalog). 
-1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
-1. In the chat session pane, enter the following question: "How much do the TrailWalker hiking shoes cost", and then select the right arrow icon to send.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/chat-without-data.png" alt-text="Screenshot of the first chat question without grounding data." lightbox="../media/tutorials/copilot-deploy-flow/chat-without-data.png":::
-
-1. The assistant replies that it doesn't know the answer. The model doesn't have access to product information about the TrailWalker hiking shoes. 
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/assistant-reply-not-grounded.png" alt-text="Screenshot of the assistant's reply without grounding data." lightbox="../media/tutorials/copilot-deploy-flow/assistant-reply-not-grounded.png":::
-
-In the next section, you'll add your data to the model to help it answer questions about your products.
+[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
 
 ## Add your data and try the chat model again
 
-You need a local copy of example product information. For more information and links to example data, see the [prerequisites](#prerequisites).
-
-You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
-
-Follow these steps to add your data to the playground to help the assistant answer questions about your products. 
-
-1. If you aren't already in the [Azure AI Studio](https://ai.azure.com) playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. On the **Assistant setup** pane, select **Add your data (preview)** > **+ Add a data source**.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data.png" alt-text="Screenshot of the chat playground with the option to add a data source visible." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data.png":::
-
-1. In the **Data source** page that appears, select **Upload files** from the **Select data source** dropdown. 
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-source.png" alt-text="Screenshot of the product data source selection options." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-source.png":::
-
-    > [!TIP]
-    > For data source options and supported file types and formats, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
-
-1. Enter *product-info* as the name of your product information index. 
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-source-details.png" alt-text="Screenshot of the resources and information required to upload files." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-source-details.png":::
-
-1. Select or create an Azure AI Search resource named *contoso-outdoor-search* and select the acknowledgment that connecting it incurs usage on your account. 
-
-    > [!NOTE]
-    > You use the *product-info* index and the *contoso-outdoor-search* Azure AI Search resource in prompt flow later in this tutorial. If the names you enter differ from what's specified here, make sure to use the names you entered in the rest of the tutorial.
-
-1. Select the Azure subscription that contains the Azure OpenAI resource you want to use. Then select **Next**.
-
-1. On the **Upload files** page, select **Browse for a file** and select the files you want to upload. Select the product info files that you downloaded or created earlier. See the [prerequisites](#prerequisites). If you want to upload more than one file, do so now. You can't add more files later in the same playground session.
-1. Select **Upload** to upload the file to your Azure Blob storage account. Then select **Next** from the bottom of the page.
-
-   :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-uploaded-product-info.png" alt-text="Screenshot of the dialog to select and upload files." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-uploaded-product-info.png":::
-
-1. On the **Data management** page under **Search type**, select **Keyword**. This setting helps determine how the model responds to requests. Then select **Next**.
-    
-    > [!NOTE]
-    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data).
-    
-1. Review the details you entered, and select **Save and close**. You can now chat with the model and it uses information from your data to construct the response.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-review-finish.png" alt-text="Screenshot of the review and finish page for adding data." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-review-finish.png":::
-
-1. Now on the **Assistant setup** pane, you can see that your data ingestion is in progress. Before proceeding, wait until you see the data source and index name in place of the status.
-
-   :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-ingestion-in-progress.png":::
-
-1. You can now chat with the model asking the same question as before ("How much do the TrailWalker hiking shoes cost"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.
-
-   :::image type="content" source="../media/tutorials/copilot-deploy-flow/chat-with-data.png" alt-text="Screenshot of the assistant's reply with grounding data." lightbox="../media/tutorials/copilot-deploy-flow/chat-with-data.png":::
-
+[!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
 
 ## Create compute and compute sessions that are needed for prompt flow
 
