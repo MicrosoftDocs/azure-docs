@@ -62,8 +62,8 @@ In this tutorial, your web app is deployed to the same resource group as your AI
 
 Follow these steps to navigate from Azure AI Studio to your resource group in the Azure portal:
 
-1. In Azure AI Studio, select **Manage** from the top menu and then select **Details**. If you have multiple hubs, select the one you want to use in order to see its details.
-1. In the **Resource configuration** pane, select the resource group name to open the resource group in the Azure portal. In this example, the resource group is named `rg-docsazureairesource`.
+1. Go to your project in [Azure AI Studio](https://ai.azure.com). Then select **Settings** from the left pane.
+1. Select the resource group name to open the resource group in the Azure portal. In this example, the resource group is named `rg-contoso`.
 
     :::image type="content" source="../media/tutorials/chat/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat/resource-group-manage-page.png":::
 
@@ -85,7 +85,7 @@ To deploy the web app:
     > [!NOTE]
     > You can deploy a web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#deploy-and-test-a-chat-model-without-your-data).
 
-1. Select **Deploy** > **A new web app**.
+1. Select **Deploy to a web app**.
 
     :::image type="content" source="../media/tutorials/chat/deploy-web-app.png" alt-text="Screenshot of the deploy new web app button." lightbox="../media/tutorials/chat/deploy-web-app.png":::
 
@@ -96,13 +96,12 @@ To deploy the web app:
     - **Location**: Select a location in which to deploy the web app. You can use the same location as the hub.
     - **Pricing plan**: Choose a pricing plan for the web app.
     - **Enable chat history in the web app**: For the tutorial, the chat history box isn't selected. If you enable the feature, your users will have access to their individual previous queries and responses. For more information, see [chat history remarks](#chat-history).
-    - **I acknowledge that web apps will incur usage to my account**: Selected
+
+1. Select **Deploy**.
 
 1. Wait for the app to be deployed, which might take a few minutes. 
 
-    :::image type="content" source="../media/tutorials/chat/deploy-web-app-in-progress.png" alt-text="Screenshot of the playground with notification that the web app deployment is in progress." lightbox="../media/tutorials/chat/deploy-web-app-in-progress.png":::
-
-1. When it's ready, the **Launch** button is enabled on the toolbar. But don't launch the app yet and don't close the **Playground** page - you return to it later.
+1. When it's ready, the **Launch** button is enabled on the toolbar. But don't launch the app yet and don't close the chat playground page - you return to it later.
 
 ### Configure web app authentication
 
@@ -130,10 +129,10 @@ By default, the web app will only be accessible to you. In this tutorial, you ad
 You're almost there! Now you can test the web app.
 
 1. Wait 10 minutes or so for the authentication settings to take effect.
-1. Return to the browser tab containing the **Playground** page in Azure AI Studio.
+1. Return to the browser tab containing the chat playground page in Azure AI Studio.
 1. Select **Launch** to launch the deployed web app. If prompted, accept the permissions request.
 
-    *If the authentication settings haven't yet taken effect, close the browser tab for your web app and return to the **Playground** page in Azure AI Studio. Then wait a little longer and try again.*
+    *If the authentication settings haven't yet taken effect, close the browser tab for your web app and return to the chat playground in Azure AI Studio. Then wait a little longer and try again.*
 
 1. In your web app, you can ask the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.
 
