@@ -28,9 +28,7 @@ This article explains how to manage data retention at the Log Analytics workspac
 | Get the retention and archive policy by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
-## How retention works
-
-### Adjustments to retention and archive settings
+## Adjustments to retention settings
 
 When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss in the event of an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately when required. 
 
@@ -38,7 +36,7 @@ When you increase the retention setting, the new retention period applies to all
 
 If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
 
-### What happens to data when you delete a table in a Log Analytics workspace
+## What happens to data when you delete a table in a Log Analytics workspace
 
 A Log Analytics workspace can contain several [types of tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
 
