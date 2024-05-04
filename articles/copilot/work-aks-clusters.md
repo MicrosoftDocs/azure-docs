@@ -22,27 +22,27 @@ When you ask Microsoft Copilot for Azure (preview) for help with AKS, it automat
 
 You can use Microsoft Copilot for Azure (preview) to run kubectl commands based on your prompts. When you make a request that can be achieved by a kubectl command, you'll see the command along with the option to execute it directly in the **Run command** pane. This pane lets you [run commands on your cluster through the Azure API](/azure/aks/access-private-cluster?tabs=azure-portal), without directly connecting to the cluster. You can also copy the generated command and run it directly.
 
-### Sample prompts
+### Cluster command sample prompts
 
 Here are a few examples of the kinds of prompts you can use to run kubectl commands on an AKS cluster. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 
 - "List all of my failed pods in this cluster"
 - "Check the rollout status for deployment `aksdeployment`"
-- "Get all pods which are in pending states in all namespaces"
+- "Get all pods that are in pending states in all namespaces"
 - "Can you delete my deployment named `my-deployment` in namespace `my-namespace`?"
 - "Scale the number of replicas of my deployment `my-deployment` to 5"
 
-### Example
+### Cluster command example
 
-You can say **"List all namespaces in my cluster."** If you're not already working with a cluster, you'll be prompted to select one. Microsoft Copilot for Azure (preview) will show you the kubectl command to perform your request, and ask if you'd like to execute the command. When you confirm, the **Run command** pane opens with the generated command included.
+You can say **"List all namespaces in my cluster."** If you're not already working with a cluster, you'll be prompted to select one. Microsoft Copilot for Azure (preview) shows you the kubectl command to perform your request, and ask if you'd like to execute the command. When you confirm, the **Run command** pane opens with the generated command included.
 
 :::image type="content" source="media/work-aks-clusters/aks-kubectl-command.png" alt-text="Screenshot of a prompt for Microsoft Copilot for Azure (preview) to run a kubectl command.":::
 
 ## Enable IP address authorization
 
-Use Microsoft Copilot for Azure (preview) to quickly make changes to the IP addresses that are allowed to access an AKS cluster. When you reference your own IP address, Microsoft Copilot for Azure can add it to the authorized IP ranges, without your having to enter the exact address. If you want to include alternative IP addresses, Microsoft Copilot for Azure asks if you want to open the **Networking** pane for your AKS cluster and helps you edit the relevant field.
+Use Microsoft Copilot for Azure (preview) to quickly make changes to the IP addresses that are allowed to access an AKS cluster. When you reference your own IP address, Microsoft Copilot for Azure can add it to the authorized IP ranges, without your providing the exact address. If you want to include alternative IP addresses, Microsoft Copilot for Azure asks if you want to open the **Networking** pane for your AKS cluster and helps you edit the relevant field.
 
-## Sample prompts
+## IP address sample prompts
 
 Here are a few examples of the kinds of prompts you can use to manage the IP addresses that can access an AKS cluster. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 
@@ -54,11 +54,11 @@ Here are a few examples of the kinds of prompts you can use to manage the IP add
 
 ## Manage cluster backups
 
-Microsoft Copilot for Azure can help streamlines the process of installing the Azure [Backup extension](/azure/backup/azure-kubernetes-service-backup-overview) to an AKS cluster. On clustesr where the extension has already been installed, it helps you [configure backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups) and view existing backups.
+Microsoft Copilot for Azure can help streamlines the process of installing the Azure [Backup extension](/azure/backup/azure-kubernetes-service-backup-overview) to an AKS cluster. On clusters where the extension is already installed, it helps you [configure backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups) and view existing backups.
 
-When you ask for help with backups, you'll be prompted to select a cluster. From there, Microsoft Copilot for Azure will prompt you to open the **Backup** pane for that cluster, where you can proceed with installing the extension, configuring backups, or viewing existing backups.
+When you ask for help with backups, you'll be prompted to select a cluster. From there, Microsoft Copilot for Azure prompts you to open the **Backup** pane for that cluster, where you can proceed with installing the extension, configuring backups, or viewing existing backups.
 
-## Sample prompts
+## Backup sample prompts
 
 Here are a few examples of the kinds of prompts you can use to manage AKS cluster backups.  Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 
@@ -67,19 +67,19 @@ Here are a few examples of the kinds of prompts you can use to manage AKS cluste
 - "Manage backup extension on my AKS cluster"
 - "I want to view the backups on my AKS cluster"
 
-## Example
+## Backup example
 
-You can say **"Install AKS backup"** to start the process of installing the AKS backup extension. After you select a cluster, you'll be prompted to open its **Backup** pane. From there, select **Launch install backup** to open the experience. You'll see the prerequisites for the extension and can then step through the installation process.
+You can say **"Install AKS backup"** to start the process of installing the AKS backup extension. After you select a cluster, you'll be prompted to open its **Backup** pane. From there, select **Launch install backup** to open the experience. After reviewing the prerequisites for the extension, you can step through the installation process.
 
-:::image type="content" source="media/work-aks-clusters/aks-backup.png" alt-text="Screenshot showing MIcrosoft Copilot for Azure (preview) starting the backup extension install process for an AKS cluster.":::
+:::image type="content" source="media/work-aks-clusters/aks-backup.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) starting the backup extension install process for an AKS cluster.":::
 
 ## Update AKS pricing tier
 
-Use Microsoft Copilot for Azure (preview) to make changes to your [AKS pricing tier](/azure/aks/free-standard-pricing-tiers). When you request an update to your pricing tier, you'll be prompted to confirm, and then Microsoft Copilot for Azure will make the change for you.
+Use Microsoft Copilot for Azure (preview) to make changes to your [AKS pricing tier](/azure/aks/free-standard-pricing-tiers). When you request an update to your pricing tier, you're prompted to confirm, and then Microsoft Copilot for Azure makes the change for you.
 
 You can also get information about different pricing tiers, helping you to make informed decisions before changing your clusters' pricing tier.
 
-## Sample prompts
+## Pricing tier sample prompts
 
 Here are a few examples of the kinds of prompts you can use to manage your AKS pricing tier.  Modify these prompts based on your real-life scenarios, or try additional prompts to make different kinds of changes.
 
