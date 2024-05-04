@@ -36,7 +36,7 @@ This article explains how to manage data retention at the Log Analytics workspac
 
 You can set the total retention on all tables to up to 12 years (4,383 days).
 
-When you shorten a table's total retention, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately, if needed. 
+When you shorten a table's total retention, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately from tables with the Analytics and Basic data plans, if needed. You can't purge data from tables with the Auxiliary plan.
 
 When you increase total retention, the new retention period applies to all data was already ingested into the table and wasn't yet purged or removed.   
 
