@@ -142,7 +142,7 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 ```
 ---
 
-## Configure table-level data retention
+## Configure table-level retention
 
 By default, all tables with the Analtyics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no auxiliary retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). 
 
