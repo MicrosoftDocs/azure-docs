@@ -1,7 +1,7 @@
 ---
 title: How to add a new connection in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to add a new connection in Azure AI Studio
+description: Learn how to add a new connection in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
@@ -17,11 +17,11 @@ author: Blackmist
 
 In this article, you learn how to add a new connection in Azure AI Studio.
 
-Connections are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI Studio projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI Studio hub. 
+Connections are a way to authenticate and consume both Microsoft and other resources within your Azure AI Studio projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI Studio hub. 
 
 ## Connection types
 
-Here's a table of the available connection types in Azure AI Studio with descriptions:
+Here's a table of some of the available connection types in Azure AI Studio:
 
 | Service connection type | Description |
 | --- | --- |
@@ -32,7 +32,7 @@ Here's a table of the available connection types in Azure AI Studio with descrip
 | Azure OpenAI | Azure OpenAI is a service that provides access to the OpenAI GPT-3 model. |
 | Microsoft OneLake | Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs.<br/><br/>In Azure AI Studio you can set up a connection to your OneLake data using a OneLake URI. You can find the information that Azure AI Studio requires to construct a **OneLake Artifact URL** (workspace and item GUIDs) in the URL on the Fabric portal. For information about the URI syntax, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api). |
 | Git | Git is a distributed version control system that allows you to track changes to files.<br/><br/>Personal access tokens are an alternative to using passwords for authentication to GitHub when using the GitHub API or the command line. In Azure AI Studio you can set up a connection to your GitHub account using a personal access token. For more information, see [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). |
-| API key | API Key connections handle authentication to your specified target on an individual basis. The API key is the most common third-party connection type. For example, you can use this connection with the SerpApi tool in prompt flow.  |
+| API key | API Key connections handle authentication to your specified target on an individual basis. For example, you can use this connection with the SerpApi tool in prompt flow.  |
 | Custom | Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you have to manage authentication on your own. |
 
 ## Create a new connection
@@ -78,7 +78,7 @@ To create an outbound private endpoint rule to the data source, use the followin
     - **Resource name**: The name of the Azure resource (storage account).
     - **Sub Resource**: The sub-resource of the Azure resource. Select `blob` in the case of Azure Blob storage. Select `dfs` for Azure Data Lake Storage Gen2 and Microsoft OneLake. 
   
-  Select **Save** to create the rule.
+1. Select **Save** to create the rule.
 
 1. Select **Save** at the top of the page to save the changes to the managed network configuration.
 
