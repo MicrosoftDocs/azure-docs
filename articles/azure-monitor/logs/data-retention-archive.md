@@ -24,7 +24,7 @@ This article explains how to manage data retention at the Log Analytics workspac
 
 | Action | Permissions required |
 |:-------|:---------------------|
-| Configure default analytics retention period for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Configure default interactive retention for Analytics tables in a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 | Get retention setting by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 
 
@@ -36,11 +36,11 @@ This article explains how to manage data retention at the Log Analytics workspac
 
 You can set the total retention on all tables to up to 12 years (4,383 days).
 
-When you shorten the total retention of a table, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately, if needed. 
+When you shorten a table's total retention, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately, if needed. 
 
 When you increase total retention, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
 
-If you change the auxiliary retention settings of a table with existing data, the change is effective immediately. 
+When you change the auxiliary retention settings of a table with existing data, the change is effective immediately. 
 
 ***Example***: 
 
@@ -54,12 +54,12 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 
 |Table type|Data retention|Recommendations|
 |-|-|-|
-|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and cannot be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table or for the default workspace retention, if you do not define table-level retention. |To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you stop streaming logs to the table.|
+|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and cannot be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table or for the default workspace retention, if you do not define table-level retention. |To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you stop streaming logs to the table.|
 |[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.||
 |[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
-|[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you delete the table.|
+|[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you delete the table.|
 
-## Configure the default Analytics retention period of Analytics tables
+## Configure the default interactive retention period of Analytics tables
 
 By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days. 
 
@@ -70,7 +70,7 @@ To change the default interactive retention period of Analytics tables within a 
 
 # [Portal](#tab/portal-3)
 
-To set the default workspace retention:
+To set the default interactive retention period of Analytics tables within a Log Analytics workspace:
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select your workspace.
 1. Select **Usage and estimated costs** in the left pane.
@@ -82,7 +82,7 @@ To set the default workspace retention:
 
 # [API](#tab/api-3)
 
-To set the retention and archive duration for a table, call the [Workspaces - Create Or Update API](/rest/api/loganalytics/workspaces/create-or-update):
+To set the default interactive retention period of Analytics tables within a Log Analytics workspace, call the [Workspaces - Create Or Update API](/rest/api/loganalytics/workspaces/create-or-update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2023-09-01
@@ -137,9 +137,9 @@ Status code: 200
 
 # [CLI](#tab/cli-3)
 
-To set the retention and archive duration for a table, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time` parameter.
+To set the default interactive retention period of Analytics tables within a Log Analytics workspace, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time` parameter.
 
-This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months:
 
 ```azurecli
 az monitor log-analytics workspace update --resource-group myresourcegroup --retention-time 30 --workspace-name myworkspace
@@ -147,7 +147,7 @@ az monitor log-analytics workspace update --resource-group myresourcegroup --ret
 
 # [PowerShell](#tab/PowerShell-3)
 
-Use the [Set-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/Set-AzOperationalInsightsWorkspace) cmdlet to set the retention for a workspace. This example sets the workspace's retention to 30 days:
+Use the [Set-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/Set-AzOperationalInsightsWorkspace) cmdlet to set the default interactive retention period of Analytics tables within a Log Analytics workspace. This example sets the default interactive retention period to 30 days:
 
 ```powershell
 Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "MyWorkspace" -RetentionInDays 30
@@ -170,7 +170,7 @@ To add auxiliary retention, set **total retention** to up to 12 years (4,383 day
 
 # [Portal](#tab/portal-1)
 
-To set the retention and archive duration for a table in the Azure portal:
+To modify the retention setting for a table in the Azure portal:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.
 
@@ -180,20 +180,20 @@ To set the retention and archive duration for a table in the Azure portal:
 
     :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
 
-1. Configure the retention and archive duration in the **Data retention settings** section of the table configuration screen.
+1. Configure the interactive retention and total retention settings in the **Data retention settings** section of the table configuration screen.
 
     :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" alt-text="Screenshot that shows the data retention settings on the table configuration screen.":::
 
 # [API](#tab/api-1)
 
-To set the retention and archive duration for a table, call the [Tables - Update API](/rest/api/loganalytics/tables/update):
+To modify the retention setting for a table, call the [Tables - Update API](/rest/api/loganalytics/tables/update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2022-10-01
 ```
 
 > [!NOTE]
-> You don't explicitly specify the archive duration in the API call. Instead, you set the total retention, which is the sum of the interactive retention plus the archive duration.
+> You don't explicitly specify the auxiliary duration in the API call. Instead, you set the total retention, which is the sum of the interactive and auxiliary retention periods.
 
 You can use either PUT or PATCH, with the following difference:
 
@@ -207,11 +207,11 @@ The request body includes the values in the following table.
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730. <br/>Setting this property to null applies the workspace retention period. For a Basic Logs table, the value is always 8. |
-|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, 2556, 2922, 3288, 3653, 4018, or 4383. Set this property to null if you don't want to archive data.  |
+|properties.totalRetentionInDays | integer  | The table's total data retention including auxiliary retention. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, 2556, 2922, 3288, 3653, 4018, or 4383. Set this property to null if you don't want auxiliary retention.  |
 
 **Example**
 
-This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years, which means that the archive duration is 23 months.
+This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months.
 
 **Request**
 
@@ -248,9 +248,9 @@ Status code: 200
 
 # [CLI](#tab/cli-1)
 
-To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` parameters.
+To modify a table's retention settings, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` parameters.
 
-This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months:
 
 ```azurecli
 az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
@@ -266,7 +266,7 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 
 # [PowerShell](#tab/PowerShell-1)
 
-Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to modify a table's retention settings. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months:
 
 ```powershell
 Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName AzureMetrics -RetentionInDays 30 -TotalRetentionInDays 730
@@ -287,7 +287,7 @@ Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Co
 
 # [Portal](#tab/portal-2)
 
-To view the retention settings of a table in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables**.
+To view a table's retention settings in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables**.
 
 The **Tables** screen shows the interactive retention and auxiliary retention periods for all the tables in the workspace.
 
@@ -355,7 +355,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-The charge for extended analytics retention and auxiliary retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` is not subject to retention  charges. 
+The charge for extended interactive retention and auxiliary retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` is not subject to retention  charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
