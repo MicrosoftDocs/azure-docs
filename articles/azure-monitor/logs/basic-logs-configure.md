@@ -1,5 +1,5 @@
 ---
-title: Configure log plans for tables in Azure Monitor Logs
+title: Configure the data plan of a table in a Log Analytics workspace
 description: Learn how to use the Auxiliary, Basic, and Analytics Logs plans to reduce costs and take advantage of advanced analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
@@ -173,7 +173,7 @@ Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WOR
 
 ---
 
-## Azure tables that support the Basic log plan
+## Azure tables that support the Basic data plan
 
 All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API](logs-ingestion-api-overview.md) support Basic logs. 
 
