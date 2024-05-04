@@ -168,10 +168,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pet-supplies-ingress
-  annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
-
 spec:
+  ingressClassName: azure-application-gateway
   rules:
   - http:
       paths:
