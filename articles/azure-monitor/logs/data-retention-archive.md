@@ -1,40 +1,26 @@
 ---
-title: Data retention and retention tiers in Azure Monitor Logs
+title: Manage data retention in a Log Analytics workspace
 description: Configure retention settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
 ms.date: 6/28/2023
-# Customer intent: As an Azure account administrator, I want to use data tiers to manage data based on my account's data usage and retention needs in one Log Analytics workspace.
+# Customer intent: As an Azure account administrator, I want to manage data retention for each table in my Log Analytics workspace based on my account's data usage and retention needs.
 ---
 
-# Data retention and retention tiers in Azure Monitor Logs
+# Manage data retention in a Log Analytics workspace
 
-Data tiers let you manage your Log Analytics workspace to meet the data analysis and retention needs of all your users. You don't have to manage a separate storage account for cheap retention of high-volume verbose logs you rarely access - just use the Auxiliary tier. Use the data tiers to manage all of your log data in one Log Analytics workspace, without ever having to move your data, and always have easy access to your logs.  
+A Log Analytics workspace retains data in two tiers:
 
-This article describes how to use Azure Monitor Logs data tiers to manage data based on your account's data usage and retention needs in one Log Analytics workspace.
+* **Interactive retention**: In this tier, data is available for [real-time interactive queries](../logs/get-started-queries.md).
+* **Auxiliary retention**: A cheap tier in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
 
-## Use data tiers and data plans
+You can configure a default rention period for your Log Analytics workspace, and control retention more granularly at the table level. This article explains how to manage data retention at the Log Analytics workspace and table levels.
 
-The three Azure Monitor Logs are:
-
-|Tier|Use|
-|-|-|
-|**Analytics**|Real-time monitoring, alerts, analytics, complex queries, and dashboards.|
-|**Basic**|Developer incident response and troubleshooting.|
-|**Auxiliary**|Verbose logs for audit and compliance, which rarely used directly.|
-
-retains data in two states:
-
-* **Interactive retention**: Lets you retain Analytics logs for [interactive queries](../logs/get-started-queries.md) of up to 2 years.
-* **Archive**: Lets you keep older, less used data in your workspace at a reduced cost. You can access data in the archived state by using [search jobs](../logs/search-jobs.md) and [restore](../logs/restore.md). You can keep data in archived state for up to 12 years. 
-
-This article describes how to configure data retention and archiving.
-
-## How retention and archiving work
+## How retention works
 
 Each workspace has a default retention setting that's applied to all tables. You can configure a different retention setting on individual tables.
 
-:::image type="content" source="media/data-retention-configure/retention-archive.png" lightbox="media/data-retention-configure/retention-archive.png" alt-text="Diagram that shows an overview of data retention and archive periods.":::
+:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
 
 During the interactive retention period, data is available for monitoring, troubleshooting, and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs.
 
@@ -71,6 +57,7 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 | Configure data retention and archive policies for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 | Get the retention and archive policy by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+
 ## Configure the default workspace retention
 
 You can set a Log Analytics workspace's default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can apply a different setting to specific tables by [configuring retention and archive at the table level](#configure-retention-and-archive-at-the-table-level). If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
