@@ -10,9 +10,14 @@ ms.date: 2/22/2024
 ms.custom: include
 ---
 
-Follow these steps to add your data to the playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
+Follow these steps to add your data in the chat playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
 
-1. If you aren't already in the playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
+1. Go to your project in [Azure AI Studio](https://ai.azure.com). 
+1. Select **Playgrounds** > **Chat** from the left pane.
+1. Select your deployed chat model from the **Deployment** dropdown. 
+
+    :::image type="content" source="../media/tutorials/chat/playground-chat.png" alt-text="Screenshot of the chat playground with the chat mode and model selected." lightbox="../media/tutorials/chat/playground-chat.png":::
+ 
 1. On the **Assistant setup** pane, select **Add your data (preview)** > **+ Add a data source**.
 
     :::image type="content" source="../media/tutorials/chat/add-your-data.png" alt-text="Screenshot of the chat playground with the option to add a data source visible." lightbox="../media/tutorials/chat/add-your-data.png":::

@@ -38,22 +38,6 @@ The steps in this tutorial are:
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
-
-
-## Deploy a chat model
-
-[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
-
-## Chat in the playground without your data
-
-In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
-
-[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
-
-## Add your data and try the chat model again
-
-[!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
-
 ## Deploy a chat model
 
 [!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
