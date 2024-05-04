@@ -9,9 +9,9 @@ ms.date: 05/01/2024
 
 # Continuous deployment for Azure Functions
 
-Azure Functions enables you to continuously deploy the updates you make in a source control repository to your function app. This [source control integration](functions-deployment-technologies.md#source-control) enables a workflow in which a code update triggers build, packaging, and deployment from your project to Azure. 
+Azure Functions enables you to continuously deploy the changes made in a source control repository to a connected function app. This [source control integration](functions-deployment-technologies.md#source-control) enables a workflow in which a code update triggers build, packaging, and deployment from your project to Azure. 
 
-You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots).
+You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots). If you connect to a production slot, make sure that only production-quality code makes it into the integrated code branch.
 
 Steps in this article show you how to configure continuous code deployments to your function app in Azure by using the Deployment Center in the Azure portal. You can also [configure continuous integration using the Azure CLI](/cli/azure/functionapp/deployment). These steps can target either a staging or a production slot. 
 
@@ -62,11 +62,11 @@ Functions supports these build providers:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Pipelines to build projects from GitHub. In Pipelines, there's an [`AzureFunctionApp`](/devops/pipelines/tasks/reference/azure-function-app-v2) task designed specifically for deploying to Azure Functions. This task provides you with control over how the project gets built, packaged, and deployed. Supports managed identies. 
+Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Pipelines to build projects from GitHub. In Pipelines, there's an [`AzureFunctionApp`](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task designed specifically for deploying to Azure Functions. This task provides you with control over how the project gets built, packaged, and deployed. Supports managed identities. 
 
 ### [GitHub Actions](#tab/github-actions)
 
-GitHub Actions is the default build provider for GitHub projects. GitHub Actions provides you with control over how the project gets built, packaged, and deployed. Supports managed identies. 
+GitHub Actions is the default build provider for GitHub projects. GitHub Actions provides you with control over how the project gets built, packaged, and deployed. Supports managed identities. 
 
 ### [App Service (Kudu) service](#tab/app-service)
 
