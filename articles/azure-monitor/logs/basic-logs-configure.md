@@ -236,6 +236,5 @@ These Azure tables currently support Basic logs:
 
 ## Next steps
 
-- [View table properties](../logs/manage-logs-tables.md#view-table-properties)
-- [Set retention and archive policies](../logs/data-retention-archive.md)
-- [Query data in Basic logs](basic-logs-query.md)
+- [Manage data retention](../logs/data-retention-archive.md)
+
