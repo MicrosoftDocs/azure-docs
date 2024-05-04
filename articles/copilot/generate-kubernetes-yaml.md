@@ -11,9 +11,9 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Create Kubernetes YAML files
+# Create Kubernetes YAML files using Microsoft Copilot for Azure (preview)
 
-Microsoft Copilot for Azure (preview) can help you create [Kubernetes YAML files](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) to apply to your [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster. Generated YAML files adhere to best practices so that you can focus more on your applications and less on the underlying infrastructure. You can also get help when authoring your own YAML files by asking Microsoft Copilot to make changes, fix problems, or explain elements in the context of your specific scenario.
+Microsoft Copilot for Azure (preview) can help you create [Kubernetes YAML files](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) to apply [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) clusters. Generated YAML files adhere to best practices so that you can focus more on your applications and less on the underlying infrastructure. You can also get help when authoring your own YAML files by asking Microsoft Copilot to make changes, fix problems, or explain elements in the context of your specific scenario.
 
 When you ask Microsoft Copilot for Azure for help with Kubernetes YAML files, it prompts you to open the YAML deployment editor. From there, you can use Microsoft Copilot for Azure help you create, edit, and format the desired YAML file to create your cluster.
 
@@ -79,6 +79,7 @@ The following commands are currently available:
 
 ## Next steps
 
+- Learn about more ways that Microsoft Copilot for Azure (preview) can [help you work with AKS](work-aks-clusters.md).
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
 - Learn more about [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
 - [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
