@@ -4,7 +4,7 @@ description: This article describes how to authenticate Azure Event Grid clients
 ms.topic: conceptual
 ms.custom: build-2024
 ms.date: 05/08/2024
-ms.author: jafernan
+ms.author: robece
 ---
 
 # Authenticate Azure Event Grid clients using access keys or shared access signatures

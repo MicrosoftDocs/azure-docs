@@ -1,8 +1,8 @@
 ---
 title: Receive Microsoft Graph change notifications through Azure Event Grid 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.date: 12/08/2023
@@ -211,7 +211,7 @@ Web application samples are available for the following languages:
 
 - [C# sample](https://github.com/microsoftgraph/msgraph-sample-eventgrid-notifications-dotnet). It's an up-to-date sample that includes how to create and renew Graph API subscriptions and walks you through some of the steps to enable the flow of events.
 - [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample)
-  - [GraphAPIController](https://github.com/jfggdl/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application.
+  - [GraphAPIController](https://github.com/robece/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application.
 - [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 
 > [!IMPORTANT]
