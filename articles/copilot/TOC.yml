@@ -42,6 +42,8 @@
     href: understand-service-health.md
   - name: Analyze costs
     href: analyze-cost-management.md
+  - name: Query attack surface
+    href: query-attack-surface.md
 - name: Resources
   items:
   - name: Azure updates
