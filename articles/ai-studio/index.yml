@@ -36,6 +36,8 @@ landingContent:
             url: how-to/create-projects.md
           - text: Get started with prompt flow
             url: how-to/flow-develop.md
+          - text: Connect to AI services
+            url: ai-services/connect-ai-services.md
   # Card
   - title: 10-minute quickstarts
     linkLists:

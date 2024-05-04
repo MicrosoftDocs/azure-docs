@@ -24,14 +24,14 @@ items:
     href: quickstarts/content-safety.md
   - name: Analyze images and video with GPT-4 for Vision in the playground
     href: quickstarts/multimodal-vision.md
+  - name: Use Azure AI Studio with a screen reader
+    href: tutorials/screen-reader.md
 - name: Tutorials
   items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
-  - name: Use Azure AI Studio with a screen reader
-    href: tutorials/screen-reader.md
 - name: How-to
   expanded: true
   items:
