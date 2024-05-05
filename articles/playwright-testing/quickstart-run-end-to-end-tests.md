@@ -307,8 +307,9 @@ We will let you know when we are ready to onboard you. After recieving the confi
 
 7.  Run Playwright tests
 
-    You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal. 
-    
+    You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal.
+    ![Test-Run-page](https://github.com/vvs11/azure-docs-pr/assets/4140290/391bee96-b65f-4c67-920d-9d2fbadffdb3)
+
     > [!TIP]
     > You can use Microsoft Playwright Testing service to publish test results to the portal independent of the cloud-hosted browsers feature.
 
