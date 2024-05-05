@@ -93,7 +93,7 @@ Consider a function app hosted a Flex Consumption plan that has these function:
 In this example:
 
 + The two HTTP triggered functions (`function1` and `function2`) both run together on their own instances and scale together according to [HTTP concurrency settings]().
-+ The two Durable functions (`function3` and `function4`) both run together on their own instances and scale together based on [configured concurrency throttles](./durable/durable-functions-perf-and-scale.md#concurrency-throttles.)
++ The two Durable functions (`function3` and `function4`) both run together on their own instances and scale together based on [configured concurrency throttles](./durable/durable-functions-perf-and-scale.md#concurrency-throttles).
 + Each of the two Service bus triggers (`function5` and `function6`) runs on separate instances, where each is scaled independently according to the [target-based scaling rules for Service Bus queues and topics](functions-target-based-scaling.md#service-bus-queues-and-topics).
 + The Event Hubs trigger (`function7`) runs in its own instances and is scaled independently according to the [target-based scaling rules for Event Hubs](functions-target-based-scaling.md#event-hubs).
 

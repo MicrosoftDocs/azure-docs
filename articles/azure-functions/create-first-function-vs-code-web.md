@@ -35,15 +35,15 @@ Use these steps to create your function app and related Azure resources.
 
 At this point, under **Create functions in your preferred environment** select your choice of local development environments. This link takes you to one of these quickstart articles, the first part of which tells you how to create a code project with an HTTP triggered function:
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
+    ::: zone pivot="programming-language-csharp"  
     + [Create an Azure Functions project from the command line](create-first-function-cli-csharp.md)  
     + [Create an Azure Functions project using Visual Studio](./functions-create-your-first-function-visual-studio.md)  
     + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-csharp.md) 
-::: zone-end  
-::: zone pivot="programming-language-java" 
+    ::: zone-end  
+    ::: zone pivot="programming-language-java" 
     + [Create an Azure Functions project from the command line](create-first-function-cli-java.md)  
     + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-java.md)
-::: zone-end
+    ::: zone-end
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"
 Next, create a function in the new function app in the portal using Visual Studio Code for Web.
 
