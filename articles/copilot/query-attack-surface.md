@@ -1,6 +1,6 @@
 ---
-title: Query your attack surface using Microsoft Copilot for Azure (preview)
-description: Learn how Microsoft Copilot for Azure (preview) can improve the security posture and data resiliency of storage accounts.
+title: Query your attack surface with Defender EASM using Microsoft Copilot for Azure (preview)
+description: Learn how Microsoft Copilot for Azure (preview) can help query Attack Surface Insights from Defender EASM.
 ms.date: 04/25/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
@@ -11,7 +11,7 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Improve security and resiliency of storage accounts using Microsoft Copilot for Azure (preview)
+# Query your attack surface with Defender EASM using Microsoft Copilot for Azure (preview)
 
 [Microsoft Defender External Attack Surface Management (Defender EASM)](/azure/external-attack-surface-management/overview) scans inventory assets and collects robust contextual metadata that powers Attack Surface Insights. These insights help an organization understand what their attack surface looks like, where the risk resides, and what assets they need to focus on.
 
