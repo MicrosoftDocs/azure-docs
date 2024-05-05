@@ -56,7 +56,7 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-  - name: Create generative AI projects and resources
+  - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
       href: concepts/ai-resources.md
