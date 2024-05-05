@@ -72,7 +72,7 @@ Before you can start a chat session, you need to configure the chat playground t
 
 In this chat session, you use both speech to text and text to speech. You use the speech to text feature to speak to the assistant, and the text to speech feature to hear the assistant's response. 
 
-1. Complete the steps in the [Configure the playground](#configure-the-playground) section if you haven't already done so. To complete this quickstart you need to enable the speech to text and text to speech features.
+1. Complete the steps in the [Configure the playground](#configure-the-chat-playground) section if you haven't already done so. To complete this quickstart you need to enable the speech to text and text to speech features.
 1. Select the microphone button and speak to the assistant. For example, you can say "Do you know where I can get an Xbox".
 
     :::image type="content" source="../media/quickstarts/hear-speak/chat-session-speaking.png" alt-text="Screenshot of the chat session with the enabled microphone icon and send button highlighted." lightbox="../media/quickstarts/hear-speak/chat-session-speaking.png":::
