@@ -27,7 +27,7 @@ Microsoft Copilot for Azure (preview) can help you generate Kubernetes YAML file
 
 When you ask Microsoft Copilot for Azure for help with Kubernetes YAML files, it asks if you'd like to open the YAML deployment editor.
 
- :::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-question.png" alt-text="Screenshot of a prompt for help generating an AKS YAML file in Microsoft Copilot for Azure (preview)":::
+ :::image type="content" source="media/generate-kubernetes-yaml/aks-yaml-question.png" alt-text="Screenshot of a prompt for help generating an AKS YAML file in Microsoft Copilot for Azure (preview).":::
 
 After you confirm, the YAML deployment editor appears. From here, you can enter **ALT + I** to open an inline Copilot prompt. Enter prompts here to see generated YAML based on your requirements.
 
