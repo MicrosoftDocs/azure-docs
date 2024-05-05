@@ -1,16 +1,24 @@
 ---
 title: Event-driven scaling in Azure Functions
 description: Explains the scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 06/16/2023
+ms.date: 05/04/2024
 ms.topic: conceptual
 ms.service: azure-functions
 
 ---
 # Event-driven scaling in Azure Functions
 
-In the Consumption and Premium plans, Azure Functions scales CPU and memory resources by adding more instances of the Functions host. The number of instances is determined on the number of events that trigger a function. 
+In the Consumption, Flex Consumption, and Premium plans, Azure Functions scales CPU and memory resources by adding more instances of the Functions host. The number of instances is determined on the number of events that trigger a function. 
 
-Each instance of the Functions host in the Consumption plan is limited, typically to 1.5 GB of memory and one CPU. An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same Consumption plan scale independently.  In the Premium plan, the plan size determines the available memory and CPU for all apps in that plan on that instance.  
+[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
+
+The way in which your function app scales depends on the hosting plan: 
+
++ **Consumption plan:** Each instance of the Functions host in the Consumption plan is limited, typically to 1.5 GB of memory and one CPU. An instance of the host supports the entire function app. As such, all functions within a function app share resource in an instance are scaled at the same time. When function apps share the same Consumption plan, they're still scaled independently. 
+
++ **Flex Consumption plan:** The Flex Consumption plan uses a per-function scaling strategy, where each function is scaled independently, except for HTTP triggers and Durable Functions triggers. All HTTP triggered functions in an app and all Durable Functions triggers in an app are respectively scaled together as groups. For more information, see [Per-function scaling](#per-function-scaling). 
+
++ **Premium plan:** The specific size of the Premium plan determines the available memory and CPU for all apps in that plan on that instance.  
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and can't be recovered.
 
@@ -24,19 +32,26 @@ The unit of scale for Azure Functions is the function app. When the function app
 
 ## Cold Start
 
-After your function app has been idle for a number of minutes, the platform may scale the number of instances on which your app runs down to zero. The next request has the added latency of scaling from zero to one. This latency is referred to as a _cold start_. The number of dependencies required by your function app can affect the cold start time. Cold start is more of an issue for synchronous operations, such as HTTP triggers that must return a response. If cold starts are impacting your functions, consider running in a [Premium plan](functions-premium-plan.md#eliminate-cold-starts) or in a Dedicated plan with the **Always on** setting enabled.
+After your function app has been idle for a number of minutes, the platform might decide to scale the number of instances on which your app runs down to zero. The next request has the added latency of scaling from zero to one. This latency is referred to as a _cold start_. The number of dependencies required by your function app can affect the cold start time. Cold start is more of an issue for synchronous operations, such as HTTP triggers that must return a response. If cold starts are impacting your functions, consider using a plan other than the Consumption. The other plans offer these strategies to mitigate or eliminate cold starts:
+
++ [Premium plan](functions-premium-plan.md#eliminate-cold-starts): supports both always ready and prewarmed instances. 
+
++ [Flex Consumption plan]: supports always ready instances. 
+
++ [Dedicated plan](./dedicated-plan.md#always-on): the plan itself doesn't scale dynamically, but you can run your app continuously with the **Always on** setting is enabled.
 
 ## Understanding scaling behaviors
 
 Scaling can vary based on several factors, and apps scale differently based on the triggers and language selected. There are a few intricacies of scaling behaviors to be aware of:
 
-* **Maximum instances:** A single function app only scales out to a [maximum allowed by the plan](functions-scale.md#scale). A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.  You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
+* **Maximum instances:** A single function app only scales out to a [maximum allowed by the plan](functions-scale.md#scale). However, a single instance can process more than one message or request at a time, so therme isn't a set limit on number of concurrent executions.  You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
 * **New instance rate:** For HTTP triggers, new instances are allocated, at most, once per second. For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](functions-premium-plan.md).
-* **Target-based scaling:** Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus Queues and Topics, Storage Queues, Event Hubs, and Cosmos DB extensions. Make sure to review target-based scaling to understand their scaling behavior.
+* **Target-based scaling:** Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus queues and topics, Storage queues, Event Hubs, and Azure Cosmos DB extensions. Make sure to review [target-based scaling](./functions-target-based-scaling.md) to understand their scaling behavior.
+* **Per-function scaling:** The Flex Consumption plan scales all HTTP triggered and Durable functions together, and it scales all other types of function independently. For more information, see [per-function scaling](#per-function-scaling). 
 
 ## Limit scale-out
 
-You may wish to restrict the maximum number of instances an app used to scale out. This is most common for cases where a downstream component like a database has limited throughput. By default, Consumption plan functions scale out to as many as 200 instances, and Premium plan functions will scale out to as many as 100 instances.  You can specify a lower maximum for a specific app by modifying the `functionAppScaleLimit` value. The `functionAppScaleLimit` can be set to `0` or `null` for unrestricted, or a valid value between `1` and the app maximum.
+You might decide to restrict the maximum number of instances an app can use for scale-out. This is most common for cases where a downstream component like a database has limited throughput. By default, Consumption plan functions scale out to as many as 200 instances, and Premium plan functions can scale out to as many as 100 instances. You can specify a lower maximum for a specific app by modifying the `functionAppScaleLimit` value. The `functionAppScaleLimit` can be set to `0` or `null` for unrestricted, or a valid value between `1` and the app maximum.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -60,12 +75,31 @@ Event-driven scaling automatically reduces capacity when demand for your functio
 
 The following considerations apply for scale-in behaviors: 
 
-* For Consumption plan function apps running on Windows, only apps created after May 2021 have drain mode behaviors enabled by default.
+* For app running on Windows in a Consumption plan, only apps created after May 2021 have drain mode behaviors enabled by default.
 * To enable graceful shutdown for functions using the Service Bus trigger, use version 4.2.0 or a later version of the [Service Bus Extension](functions-bindings-service-bus.md).
+
+## Per-function scaling
+
+_Applies only to the Flex Consumption plan (preview)_
+
+The [Flex Consumption plan] is unique in that it implements a _per-function scaling_ behavior. In per-function scaling, except for HTTP triggers and Durable Functions, all other function trigger types in your app scale on independent instances. HTTP triggers in your app all scale together as a group on the same instances, as do all Durable Functions triggers, which have their own shared instances.
+
+Consider a function app hosted a Flex Consumption plan that has these function:
+
+| function1 | function2 | function3 | function4 | function5 | function6 | function7 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
+| HTTP trigger | HTTP trigger | Orchestration trigger (Durable) | Activity trigger (Durable) | Service Bus trigger | Service Bus trigger | Event Hubs trigger |
+
+In this example:
+
++ The two HTTP triggered functions (`function1` and `function2`) both run together on their own instances and scale together according to [HTTP concurrency settings]().
++ The two Durable functions (`function3` and `function4`) both run together on their own instances and scale together based on [configured concurrency throttles](./durable/durable-functions-perf-and-scale.md#concurrency-throttles.)
++ Each of the two Service bus triggers (`function5` and `function6`) runs on separate instances, where each is scaled independently according to the [target-based scaling rules for Service Bus queues and topics](functions-target-based-scaling.md#service-bus-queues-and-topics).
++ The Event Hubs trigger (`function7`) runs in its own instances and is scaled independently according to the [target-based scaling rules for Event Hubs](functions-target-based-scaling.md#event-hubs).
 
 ## Best practices and patterns for scalable apps
 
-There are many aspects of a function app that impacts how it scales, including host configuration, runtime footprint, and resource efficiency.  For more information, see the [scalability section of the performance considerations article](performance-reliability.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
+There are many aspects of a function app that impacts how it scales, including host configuration, runtime footprint, and resource efficiency. For more information, see the [scalability section of the performance considerations article](performance-reliability.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
 
 For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-performance) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 
@@ -78,7 +112,7 @@ Billing for the different plans is described in detail on the [Azure Functions p
 
 Useful queries and information on how to understand your consumption bill can be found [on the billing FAQ](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
-[Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
+To learn more about Flex Consumption plan billing, see [Billing](flex-consumption-plan.md#billing) in the Flex Consumption plan documentation.
 
 ## Next steps
 
@@ -88,3 +122,7 @@ To learn more, see the following articles:
 + [Azure Functions reliable event processing](./functions-reliable-event-processing.md)
 + [Azure Functions hosting options](functions-scale.md)
 
+[Flex Consumption plan]: flex-consumption-plan.md
+[Consumption plan]: consumption-plan.md
+[Premium plan]: functions-premium-plan.md
+[Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
