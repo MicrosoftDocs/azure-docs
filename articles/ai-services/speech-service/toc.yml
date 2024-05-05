@@ -182,7 +182,7 @@ items:
             href: professional-voice-deploy-endpoint.md
         - name: Custom neural voice lite (preview)
           href: custom-neural-voice-lite.md
-        - name: Personal voice (preview)
+        - name: Personal voice
           items:
           - name: Personal voice overview
             href: personal-voice-overview.md
