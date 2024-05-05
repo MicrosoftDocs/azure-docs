@@ -17,7 +17,7 @@ author: JnHs
 
 With Microsoft Copilot for Azure (preview), you can use natural language to ask questions and better understand your organization's attack surface. Through Defender EASM's extensive querying capabilities, you can extract asset metadata and key asset information, even if you don't have an advanced Defender EASM querying skillset.
 
-When you ask Microsoft Copilot for Azure (preview) about your attack surface, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the Defemder EASM resource to use.
+When you ask Microsoft Copilot for Azure (preview) about your attack surface, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify which Defender EASM resource to use.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -25,11 +25,11 @@ When you ask Microsoft Copilot for Azure (preview) about your attack surface, it
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to improve and protect your storage accounts. Modify these prompts based on your real-life scenarios, or try additional prompts to get advice on specific areas.
+Here are a few examples of the kinds of prompts you can use to query attack surface data collected by Defender EASM. Modify these prompts based on your real-life scenarios, or try additional prompts to get advice on specific areas.
 
 - "Tell me about Defender EASM high priority attack surface insights."
 - "What are my externally facing assets?"
-- "Find all the page and host assets in my inventory with the IP address *address*"
+- "Find all the page and host assets in my inventory with the IP address `<address>`"
 - "Show me all assets that require investigation."
 - "Do I have any domains that are expiring within 30 days?"
 
