@@ -1,8 +1,8 @@
 # Use Microsoft Playwright Testing Reporting (invite-only preview) with Playwright sharding
 
-In this article you learn how to use the Microsoft Playwright Testing service's reporting feature (invite-only preview) with test runs that use the sharding feature of Playwright. 
+In this article, you learn how to use the Microsoft Playwright Testing service's reporting feature (invite-only preview) with test runs that use the sharding feature of Playwright. 
 
-Playwright's sharding enables you to split your test suite and run across multiple machines simultaneously. This helps running tests in parallel. You can learn more about the feature [here](https://playwright.dev/docs/test-sharding)
+Playwright's sharding enables you to split your test suite and run across multiple machines simultaneously. This feature helps running tests in parallel. You can learn more about the feature [here](https://playwright.dev/docs/test-sharding).
 
 You can use Playwright Testing's reporting feature to get a consolidated report of the test run with sharding. You need to make sure you set the variable `PLAYWRIGHT_SERVICE_RUN_ID` and it remains same across all shards. 
 
@@ -14,12 +14,12 @@ You can use Playwright Testing's reporting feature to get a consolidated report 
 
 `PLAYWRIGHT_SERVICE_RUN_ID` is an identifier that is used by Playwright Testing service to distinguish between test runs. The results from multiple runs with same RUN_ID are reported to the same run on the Playwright portal. 
 
-By default, a test run that uses reporting feature always generates a unique RUN_ID unless the variable is set by the user, in which case, the set value is used. If the value of the variable remains same across runs, the results are reported together in the same run on the Playwright portal. 
+By default, a test run that uses reporting feature always generates a unique RUN_ID unless the user sets it, in which case, the set value is used. If the value of the variable remains same across runs, the results are reported together in the same run on the Playwright portal. 
 
 > [!Tip]
 > If you are using the cloud-hosted browsers provided by Microsoft Playwright Testing service to run your tests, you might already be setting this variable. Make sure you are using it properly to avoid overwrites. 
 
-While using sharding, please make sure the same RUN_ID is set across all the shards for the results to be reported together. 
+While using sharding, make sure the same RUN_ID is set across all the shards for the results to be reported together. 
 
 Here's an example of how you can set it in your pipeline. 
 
