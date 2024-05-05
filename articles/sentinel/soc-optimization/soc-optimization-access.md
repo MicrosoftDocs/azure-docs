@@ -158,9 +158,9 @@ This section provides a sample flow for using SOC optimizations, from either the
       - Observe the top metrics for overall optimization status.
       - Review optimization recommendations for data value and threat-based coverage.
 
-1. Use the optimization recommendations to identify tables with low usage, incidating that they're not being used for detections. Select **View full details** to see the size and cost of unused data. Consider one of the following actions:
+1. Use the optimization recommendations to identify tables with low usage, indicating that they're not being used for detections. Select **View full details** to see the size and cost of unused data. Consider one of the following actions:
 
-      - Add analytics rules to use the table for enhnaced protection. To use this option, select **Go to the Content Hub** to view and configure specific out-of-the-box analytic rule templates that use the selected table. In the Content hub, you don't need to search for the relevant rule, as you're taken directly to the relevant rule.
+      - Add analytics rules to use the table for enhanced protection. To use this option, select **Go to the Content Hub** to view and configure specific out-of-the-box analytic rule templates that use the selected table. In the Content hub, you don't need to search for the relevant rule, as you're taken directly to the relevant rule.
 
         If new analytic rules require additional log sources, consider ingesting them to improve threat coverage.
 
@@ -171,7 +171,9 @@ This section provides a sample flow for using SOC optimizations, from either the
 1. Use the optimization recommendations to improve coverage against specific threats. For example, for a human-operated ransomware optimization:
 
       1. Select **View full details** to see the current coverage and suggested improvements.
+
       1. Select **View all MITRE ATT&CK technique improvement** to drill down and analyze the relevant tactics and techniques, helping you understand the coverage gap.
+
       1. Select **Go to Content hub** to view all recommended security content, filtered specifically for this optimization.
 
 1. After configuring new rules or making changes, mark the recommendation as completed or let the system update automatically.
