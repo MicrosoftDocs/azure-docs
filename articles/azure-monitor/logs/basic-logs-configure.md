@@ -53,7 +53,10 @@ This table compares the Analytics, Basic, and Auxiliary data plans:
 
 You can transition between the Analytics and Basic plans, and the changes take effect on existing data in the table immediately. You can't transition between the Auxiliary plan the Analytics and Basic plans.
 
+When you change a table's plan from Analytics to Basic, Azure monitor automatically converts any data that's older than 30 days to auxiliary retention based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the auxiliary retention period](../logs/data-retention-archive.md). 
+
 The portal sets the data plan of all new tables to Analytics by default, but you can switch between the Analytics and Basic plans, as described in this section. To create a new custom table with an Auxiliary plan, see [Create a custom table](create-custom-table.md#create-a-custom-table).
+
 
 > [!NOTE]
 > You can switch a table's plan once a week. 
