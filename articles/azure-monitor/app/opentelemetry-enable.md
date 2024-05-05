@@ -259,8 +259,8 @@ To paste your Connection String, select from the following options:
   Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.2.jar` with the following content:
 
    ```json
-   {
-     "connectionString": "<Your Connection String>"
+   "AzureMonitor": {
+     "ConnectionString": "<Your Connection String>"
    }
    ```
 
