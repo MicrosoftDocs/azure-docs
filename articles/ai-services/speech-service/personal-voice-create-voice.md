@@ -10,9 +10,7 @@ ms.date: 2/7/2024
 ms.author: eur
 ---
 
-# Get a speaker profile ID for the personal voice (preview) 
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
+# Get a speaker profile ID for the personal voice
 
 To use personal voice in your application, you need to get a speaker profile ID. The speaker profile ID is used to generate synthesized audio with the text input provided.
 
