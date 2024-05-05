@@ -46,12 +46,12 @@ Before you can start a chat session, you need to configure the chat playground t
 
     :::image type="content" source="../media/quickstarts/hear-speak/playground-config-deployment.png" alt-text="Screenshot of the chat playground with mode and deployment highlighted." lightbox="../media/quickstarts/hear-speak/playground-config-deployment.png":::
 
-1. Select the **Playground Settings** button. 
+1. Select the **Playground settings** button. 
 
     :::image type="content" source="../media/quickstarts/hear-speak/playground-settings-select.png" alt-text="Screenshot of the chat playground with options to get to the playground settings." lightbox="../media/quickstarts/hear-speak/playground-settings-select.png":::
 
     > [!NOTE]
-    > You should also see the options to select the microphone or speaker buttons. If you select either of these buttons, but haven't yet enabled speech to text or text to speech, you are prompted to enable them in **Playground Settings**. 
+    > You should also see the options to select the microphone or speaker buttons. If you select either of these buttons, but haven't yet enabled speech to text or text to speech, you are prompted to enable them in **Playground settings**. 
 
 1. On the **Playground Settings** page, select the box to acknowledge that usage of the speech feature will incur additional costs. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -100,7 +100,11 @@ In this chat session, you use both speech to text and text to speech. You use th
 
 ## View sample code
 
-You can select the **View Code** button to view and copy the sample code, which includes configuration for Azure OpenAI and Speech services. You can use the sample code to enable speech to text and text to speech in your application.
+You can select the **View Code** button to view and copy the sample code, which includes configuration for Azure OpenAI and Speech services. 
+
+:::image type="content" source="../media/quickstarts/hear-speak/chat-session-view-code-button.png" alt-text="Screenshot of the button to view sample code in the playground." lightbox="../media/quickstarts/hear-speak/chat-session-view-code-button.png":::
+
+You can use the sample code to enable speech to text and text to speech in your application.
 
 :::image type="content" source="../media/quickstarts/hear-speak/chat-session-view-code.png" alt-text="Screenshot of viewing the code in the playground." lightbox="../media/quickstarts/hear-speak/chat-session-view-code.png":::
 
