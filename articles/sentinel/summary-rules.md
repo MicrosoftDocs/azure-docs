@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to #Don't change
 ms.date: 05/05/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
 #customer intent: As a SOC engineer, I want to create summary rules in Microsoft Sentinel to aggregate large sets of data for use across my SOC team activities.
 
@@ -34,12 +38,15 @@ To use summary rules in Microsoft Sentinel:
 - Microsoft Sentinel must be enabled in at least one workspace, and actively consume logs.
 - You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 - **SummaryLogs** diagnostic settings must be enabled on your workspace. If this isn't done ahead of time, you'll be prompted to enable this when creating your first rule. For more information, see TBD xref.<!--fix xref-->
+- To use summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Create a summary rule
 
 Create a new summary rule to aggregate a specific large set of data into a dynamic table. Configure your rule frequency to determine how often your aggregated data set is updated from the raw data.
 
-1. From the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**.
+1. In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**.
+
+    <!--TBD screenshots-->
 
 1. Select **+ Create** and enter the following details:
 
@@ -88,7 +95,7 @@ To delete a rule, select the rule row and then select **Delete** in the toolbar 
 
 The following sections describe sample scenarios where we'd recommend using summary rules to create large sets of aggregated data.
 
-TBD
+TBD <!--yael pick 3-->
 
 ## Related content
 
