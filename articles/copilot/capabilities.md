@@ -1,7 +1,7 @@
 ---
 title:  Microsoft Copilot for Azure (preview) capabilities
 description: Learn about the things you can do with Microsoft Copilot for Azure (preview).
-ms.date: 03/18/2024
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -44,13 +44,19 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
 
 ## Get information
 
-From anywhere in the Azure portal, you can ask Microsoft Copilot for Azure (preview) to explain more about Azure concepts, services, or offerings. You can ask questions to learn which services are best suited for your workloads, or learn which configurations best meet your budgets, security, and scale requirements. Copilot can guide you to the right user experience or even author scripts and other artifacts that you can use to deploy your solutions. Answers are grounded in the latest Azure documentation, so you can get up-to-date guidance just by asking a question.
+From anywhere in the Azure portal, you can ask Microsoft Copilot for Azure (preview) to explain more about Azure concepts, services, or offerings. You can ask questions to learn how a feature works, or which configurations best meet your budgets, security, and scale requirements. Copilot can guide you to the right user experience or even author scripts and other artifacts that you can use to deploy your solutions. Answers are grounded in the latest Azure documentation, so you can get up-to-date guidance just by asking a question.
 
 Asking questions to understand more can be especially helpful when you're troubleshooting problems. Describe the problem, and Microsoft Copilot for Azure (preview) will provide some suggestions on how you might be able to resolve the issue. For example, you can say things like "Cluster stuck in upgrading state while performing update operation" or "Azure database unable to connect from Power BI". You'll see information about the problem and possible resolution options.
 
+Microsoft Copilot for Azure can also help you understand more about information presented in Azure. This can be especially helpful when looking at diagnostic details. For example, when viewing diagnostics for a resource, you can say "Give me a summary of this page" or "What is the issue with my app?" You can ask what an error means, or ask what the next steps would be to implement a recommended solution.
+
+## Find recommended services
+
+Ask questions to learn which services are best suited for your workloads, or get ideas about additional services that might help support your objectives. For instance, you can ask "What service would you recommend to implement distributed caching?" or "What are popular services used with Azure Container Apps?" Where applicable, Microsoft Copilot for Azure provides links to start working with the service or learn more. In some cases, you'll also see metrics about how often a service is used. You can also ask additional questions to find out more about the service and whether it's right for your needs.
+
 ## Navigation
 
-Rather than searching for a service to open, simply ask Microsoft Copilot for Azure (preview) to open the service for you. If you can't remember the exact name, you'll see some suggestions and can choose the right one, or ask Microsoft Copilot for Azure (preview) to explain more.
+Rather than searching for a service to open, simply ask Microsoft Copilot for Azure to open the service for you. If you can't remember the exact name, you'll see some suggestions and can choose the right one, or ask Microsoft Copilot for Azure to explain more.
 
 ## Manage portal settings
 
