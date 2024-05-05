@@ -161,9 +161,7 @@ By default, all tables with the Analytics data plan inherit the [Log Analytics w
 > [!NOTE]
 > You can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs.
 
-To add auxiliary retention, set **total retention** to up to 12 years (4,383 days).
-
-:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
+To add auxiliary retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days).
 
 > [!NOTE]
 > Currently, you can set total retention to up to 12 years through the Azure portal and API. CLI and PowerShell are limited to seven years; support for 12 years will follow.
