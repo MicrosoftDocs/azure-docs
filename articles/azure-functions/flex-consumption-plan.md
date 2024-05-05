@@ -43,16 +43,22 @@ For a complete comparison of the Flex Consumption plan against the Consumption p
 
 ## Instance memory
 
+When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. This _instance memory_ setting directly affects the costs of your function executions and the cost of maintaining alwsays ready instances. 
 
+Currently, Flex Consumption offers these instance memory size options: 512 MB, 2048 MB, and 4096 MB.
+
+When deciding on which instance memory size to use with your apps, here are some things to consider:
+
++ The 2048 MB instance memory size is used when creating new apps, unless a different option is specifically requested. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
++ You can change the instance memory size at any time. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory).
++ Instance memory is shared between your function code and the Functions host.
++ The larger the size you set, the heavier the load (executions and concurrency) your instance can handle before it might need to scale. Specific scale decisions are workload-specific.
++ Available CPUs and network bandwidth are provided proportional to a specific instance size.
++ When your instance count scales from one to two instances, the total execution cost of running your functions doubles. For more information, see [Billing](#billing).   
 
 ## Virtual network integration
 
 Flex Consumption expands on the traditional benefits of Consumption plan by adding support for virtual network integration. By running in a Flex Consumption plan, you apps can connect to other Azure services secured inside a virtual network. All while still allowing you to take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan.
-
-## Billing
-
-
-
 
 ## Always ready instances
 
@@ -60,13 +66,17 @@ Flex Consumption includes an _always ready_ feature that lets you choose a numbe
 
 For example, if you set always ready to 2 for your HTTP group of functions, the platform will keep 2 instances always running and assigned to your app for your HTTP functions in the app. Those instances will be processing your function executions, but depending on concurrency settings, the platform will scale beyond those two instances with on-demand instances.
 
-## Required language stack versions
+## Billing
 
-This table shows language stack versions that are currently supported:
+
+
+## Supported language stack versions
+
+This table shows the language stack versions that are currently supported for Flex Consumption apps:
 
 | Runtime/language stack  | Required version  |
 | --- | :-----: |
-| C# (isolated process mode)<sup>*</sup> | .NET 6:<br/> |
+| C# (isolated process mode)<sup>*</sup> | .NET 8 |
 | Java | Java 17 |
 | Node.js | Node 18   |
 | PowerShell | PowerShell 7.2   |
@@ -75,18 +85,13 @@ This table shows language stack versions that are currently supported:
 <sup>1</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't currently supported.  
 <sup>2</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't currently supported.
 
-## Supported regions
-
 ## Considerations
 
 The following are considerations when using Flex Consumption plan during the current preview:
 
  | Feature                       | Values |
  | :---------------------------: | :----: |
- | Function runtime host version | Functions runtime v4.x is required |
- | Language Runtimes             | Only the following languages and versions are support .NET Core 6 Isolated, Python 3.10,  Java 17, Node 18, PowerShell 7.2 |
  | .NET Worker                   | The .NET Isolated worker [Microsoft.Azure.Functions.Worker version 1.20.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.20.0) and the .NET Isolated worker SDK [Microsoft.Azure.Functions.Worker.Sdk version 1.16.2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.16.2) or newer are required |
- | Instance sizes                | 512 MiB, 2048 MiB (Default), 4096 MiB |
  | App scale                     | Apps scale to zero unless Always Ready is configured. The lowest maximum scale we recommend in private preview is 40. The highest value that can be set is 1000.  |
  | Triggers                      | All triggers except Kafka, Azure SQL, and SignalR are supported. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). |
  | HTTP Concurrency              | Current default is 16. Minimum of 1. |

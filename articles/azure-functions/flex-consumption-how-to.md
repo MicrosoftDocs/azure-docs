@@ -58,16 +58,17 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 ## View currently supported regions
 
-During the preview, you are only able to run on the Flex Consumption plan in selected regions. Use this Azure CLI command to review the currently list of supported regions. 
+During the preview, you are only able to run on the Flex Consumption plan in selected regions. Use this Azure CLI command to review the list of regions that currently support Flex Consumption. 
 
 ```azurecli-interactive
 az functionapp list-flexconsumption-locations --output table
 ```
 
 You need to first run `az login` when you aren't already signed-in to your Azure account. 
-When creating an app in the Azure portal, currently unsupported regions are filtered out opf the region list.
 
-## Create an app in the Flex Consumption plan
+When creating an app in the Azure portal, currently unsupported regions are filtered out of the region list.
+
+## Create a Flex Consumption app
 
 This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
@@ -140,7 +141,7 @@ To support your function code, you need to create three resources:
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.2 
     ```
     ::: zone-end 
-    In the previous example, replace `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
+    In this example, replace `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
 
@@ -263,6 +264,36 @@ You can use Maven to create a Flex Consumption hosted function app and required 
     
     Maven uses settings in the pom.xml template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. When these resources already exist, the code is simply redeployed to your app, overwriting any existing code.
 ::: zone-end  
+
+## Configure instance memory
+
+The instance memory size used by your Flex Consumption plan can be explicitly set when you create your app. For more information about supported sizes, see [Instance memory](flex-consumption-plan.md#instance-memory).  
+
+To set an instance memory size that's different from the default when creating your app:
+
+### [Azure CLI](#tab/azure-cli)
+
+Specify the `--instance-memory` parameter your `az functionapp create` command. This example creates a C# app with an instance size of `4096`:
+
+```azurecli
+az functionapp create --instance-memory 4096 --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime dotnet-isolated --runtime-version 8.0
+```
+
+### [Azure portal](#tab/azure-portal)
+
+When you create your app in a Flex Consumption plan in the Azure portal, you can choose your instance memory size in the **Instance size** field in the **Basics** tab. For more information, see [Create an app in the Flex Consumption plan](#create-an-app-in-the-flex-consumption-plan).
+
+### [Visual Studio Code](#tab/vs-code)
+
+You can't currently control the instance memory size when you use Visual Studio Code to create your app. The default size is used.
+
+---
+
+At any point, you can change the instance memory size setting for your app by using the Azure CLI. This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB: 
+
+```azurecli
+az functionapp scale config set -g <resourceGroup> -n <functionAppName> --instance-memory 512
+```
 
 ## Change concurrency behaviors
 
