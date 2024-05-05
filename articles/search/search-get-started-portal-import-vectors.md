@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/02/2024
+ms.date: 05/05/2024
 ---
 
 # Quickstart: Integrated vectorization (preview)

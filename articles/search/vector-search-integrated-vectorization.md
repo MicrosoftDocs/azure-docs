@@ -9,27 +9,29 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/27/2024
+ms.date: 05/05/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
+> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) provides this feature.
 
 *Integrated vectorization* adds data chunking and text-to-vector embedding to skills in indexer-based indexing. It also adds text-to-vector conversions to queries. 
 
-This capability is preview-only. In the generally available version of [vector search](vector-search-overview.md) and in previous preview versions, data chunking and vectorization rely on external components for chunking and vectors, and your application code must handle and coordinate each step. In this preview, chunking and vectorization are built into indexing through skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. Any vectorizers used during indexing can also be called on queries to convert text to vectors.
+<!-- This capability is preview-only. In the generally available version of [vector search](vector-search-overview.md) and in previous preview versions, data chunking and vectorization rely on external components for chunking and vectors, and your application code must handle and coordinate each step. In this preview, chunking and vectorization are built into indexing through skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. Any vectorizers used during indexing can also be called on queries to convert text to vectors. -->
 
-For indexing, integrated vectorization requires:
+For text-to-vector conversions during indexing:
 
-+ [An indexer](search-indexer-overview.md) retrieving data from a supported data source.
-+ [A skillset](cognitive-search-working-with-skillsets.md)  that calls the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data, and either [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) or a [custom skill](cognitive-search-custom-skill-web-api.md) to vectorize the data.
-+ [One or more indexes](search-what-is-an-index.md) to receive the chunked and vectorized content.
++ [An indexer](search-indexer-overview.md) retrieves data from a supported data source.
++ [A skillset](cognitive-search-working-with-skillsets.md) calls the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data.
++ The same skillset also calls a vectorizer. The vectorizer is either the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) for text-embedding-ada-002 on Azure OpenAI, or a [custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model, for example test-embedding-ada-002 on OpenAI.
++ You also need a [vector index](search-what-is-an-index.md) to receive the chunked and vectorized content.
 
-For queries:
+For text-to-vector queries:
 
 + [A vectorizer](vector-search-how-to-configure-vectorizer.md) defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
++ A query that specifies one or more vector fields, and a query string providing text that's converted to a vector at query
 
 Vector conversions are one-way: text-to-vector. There's no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
 
