@@ -16,7 +16,7 @@ The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender
 - Strengthening generative AI application security posture with built-in recommendations and by exploring and remediating security risks.
 - Using the attack path analysis to identify and remediate risks.
 
-:::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="An image of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
+:::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="Diagram of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
 ## Discovering generative AI apps
 
