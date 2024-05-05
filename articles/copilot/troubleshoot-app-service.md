@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot your apps faster with App Service using Microsoft Copilot for Azure (preview)
 description: Learn how Microsoft Copilot for Azure (preview) can help you troubleshoot your web apps hosted with App Service.
-ms.date: 04/26/2024
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.author: jenhayes
@@ -10,11 +10,11 @@ author: JnHs
 
 # Troubleshoot your apps faster with App Service using Microsoft Copilot for Azure (preview)
 
-Microsoft Copilot for Azure (preview) can act as your expert companion for [Azure App Service](/azure/app-service/overview) diagnostics and solutions.
+Microsoft Copilot for Azure (preview) can act as your expert companion for [Azure App Service](/azure/app-service/overview) and [Azure Functions](/azure/azure-functions/functions-overview) diagnostics and solutions.
 
-App Service offers more than sixty troubleshooting tools for different types of issues. Rather than figure out which tool to use, you can ask Microsoft Copilot for Azure (preview) about the problem you're experiencing. Microsoft Copilot for Azure (preview) will determine which tool is best suited to your question, whether it's related to high CPU usage, networking issues, getting a memory dump, or more. You'll see relevant diagnostics to help you resolve any problems you're experiencing.
+Azure offers many troubleshooting tools for different types of issues with web apps and function apps. Rather than figure out which tool to use, you can ask Microsoft Copilot for Azure (preview) about the problem you're experiencing. Microsoft Copilot for Azure (preview) will determine which tool is best suited to your question, whether it's related to high CPU usage, networking issues, getting a memory dump, or more. You'll see relevant diagnostics to help you resolve any problems you're experiencing.
 
-When you ask Microsoft Copilot for Azure (preview) for App Service troubleshooting help, it automatically pulls context when possible, based on the current conversation or the app you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
+When you ask Microsoft Copilot for Azure (preview) for troubleshooting help, it automatically pulls context when possible, based on the current conversation or the app you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -28,6 +28,9 @@ Here are a few examples of the kinds of prompts you can use to get help with App
 - "My web app is slow"
 - "Enable auto heal"
 - "Take a memory dump"
+- "High CPU issue"
+- "Troubleshoot performance issues with my app"
+- "Analyze app latency?"
 
 ## Examples
 
