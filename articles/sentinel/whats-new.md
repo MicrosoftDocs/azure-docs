@@ -18,6 +18,20 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## May 2024
+
+### Dyanmic summaries
+
+Microsoft Sentinel now provides the ability to create dynamic summaries, which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
+
+- Access dynamic summary data via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
+- Run high performance Kusto Query Language (KQL) queries on summarized data.
+- Use dynamic summary data for longer in historical investigations, hunting, and compliance activities. Dynamic summaries are stored separately from the raw data, and can therefore be retained for longer periods of time. While raw data is stored in low-cost data lake logs, summarized data is stored in analytics log data for high performance and full feature support.
+
+For more information, see:
+
+[Aggregate Microsoft Sentinel data with summary rules](summary-rules.md)
+
 ## April 2024
 
 - [Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
