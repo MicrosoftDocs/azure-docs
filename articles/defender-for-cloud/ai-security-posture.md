@@ -26,7 +26,7 @@ Defenders for Cloud automatically and continuously discover deployed AI workload
 
 - Azure OpenAI Service
 - Azure Machine Learning
-- Amazon Bedrock.
+- Amazon Bedrock
 
 Defender for Cloud can also discover vulnerabilities within generative AI library dependencies such as TensorFlow, PyTorch, and Langchain, by scanning source code for Infrastructure as Code (IaC) misconfigurations and container images for vulnerabilities. Regularly updating or patching the libraries can prevent exploits, protecting generative AI applications and maintaining their integrity.
 

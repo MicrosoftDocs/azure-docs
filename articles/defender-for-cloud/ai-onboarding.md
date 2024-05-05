@@ -1,13 +1,13 @@
 ---
-title: Onboard threat protection for AI workloads
+title: Enable threat protection for AI workloads (preview)
 description: Learn how to enable threat protection for AI workloads on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 05/05/2024
 ---
 
-# Onboard threat protection for AI workloads
+# Enable threat protection for AI workloads (preview)
 
-Threat protection for AI workloads in Microsoft Defender for Cloud assists you in the identification and response process in real time, for security issues that might exist in your generative AI applications.
+Threat protection for AI workloads in Microsoft Defender for Cloud protects AI workloads on an Azure subscription by providing insights to threats that might affect your generative AI applications.
 
 > [!IMPORTANT]
 > Threat protection for AI workloads is currently in preview.
@@ -25,9 +25,7 @@ Threat protection for AI workloads in Microsoft Defender for Cloud assists you i
 
 ## Enroll in the limited preview
 
-To get started, you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) and be accepted to the limited preview. 
-
-Once accepted, you can onboard threat protection for AI workloads in Defender for Cloud to provide threat protection for AI workloads in your Azure environment.
+To get started, you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) and be accepted to the limited preview, you can start onboarding threat protection for AI workloads.
 
 1. Fill out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
@@ -37,7 +35,7 @@ If you're accepted into the limited preview, you can enable threat protection fo
 
 ## Enable threat protection for AI workloads
 
-Threat protection for AI workloads on an Azure subscription provides insights to threats that might affect your generative AI applications.
+Enable threat protection for AI workloads.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -47,7 +45,7 @@ Threat protection for AI workloads on an Azure subscription provides insights to
 
 1. Select the relevant Azure subscription.
 
-1. On the Defender plans page, toggle the AI Workloads plan to **On**.
+1. On the Defender plans page, toggle the AI workloads to **On**.
 
     :::image type="content" source="media/ai-onboarding/enable-ai-workloads-plan.png" alt-text="Screenshot that shows you how to toggle threat protection for AI workloads to on." lightbox="media/ai-onboarding/enable-ai-workloads-plan.png":::
 

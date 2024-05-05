@@ -10,7 +10,7 @@ author: Elazark
 
 # Overview - AI threat protection
 
-Threat protection for AI workloads in Microsoft Defender for Cloud provides assists you in the identification and response process in real time, for security issues that might exist in your generative AI applications.
+Threat protection for AI workloads in Microsoft Defender for Cloud continually identifies threats to generative AI applications in real time and assists in the response process, for security issues that might exist in generative AI applications.
 
 > [!IMPORTANT]
 > Threat protection for AI workloads is currently in preview.
@@ -25,7 +25,7 @@ Defender for Cloud's AI threat protection integrates with [Azure AI Content Safe
 
 ## Defender XDR integration
 
-Defenders for Cloud's threat protection for AI workloads security alerts are integrated into [Defender XDR](concept-integration-365.md), enabling security teams to centralize alerts on AI workloads within the Defender XDR portal.
+Threat protection for AI workloads integrates with [Defender XDR](concept-integration-365.md), enabling security teams to centralize alerts on AI workloads within the Defender XDR portal.
 
 Security teams can correlate AI workloads alerts and incidents within the Defender XDR portal, and gain an understanding of the full scope of an attack, including malicious activities associated with their generative AI applications from the XDR dashboard.
 
@@ -35,5 +35,5 @@ To use threat protection for AI workloads, you must enroll in the limited public
 
 ## Related content
 
-- [Onboard threat protection for AI workloads (Preview)](ai-onboarding.md).
+- [Enable threat protection for AI workloads (preview) (Preview)](ai-onboarding.md).
 - [Alerts for AI workloads](alerts-reference.md#alerts-for-ai-workloads)
