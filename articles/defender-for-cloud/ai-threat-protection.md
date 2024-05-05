@@ -18,7 +18,7 @@ Threat protection for AI workloads in Microsoft Defender for Cloud continually i
 
 Defender for Cloud's AI threat protection integrates with [Azure AI Content Safety Prompt Shields](../ai-services/content-safety/concepts/jailbreak-detection.md) and Microsoft's threat intelligence signals to deliver contextual and actionable security alerts associated with a range of threats such as sensitive data leakage, data poisoning, jailbreak, and credentials theft.
 
-:::image type="content" source="media/ai-threat-protection/threat-protection-ai.png" alt-text="Conceptual image that shows how enabling, detection, and response works for threat protection." lightbox="media/ai-threat-protection/threat-protection-ai.png":::
+:::image type="content" source="media/ai-threat-protection/threat-protection-ai.png" alt-text="Diagram that shows how enabling, detection, and response works for threat protection." lightbox="media/ai-threat-protection/threat-protection-ai.png":::
 
 > [!NOTE]
 > Threat protection for AI workloads relies on [Azure Open AI content filtering](../ai-services/openai/concepts/content-filter.md) for prompt-base triggered alert. If you opt out of prompt-based trigger alerts and removed that capability, it can affect Defender for Cloud's ability to monitor and detect such attacks.
