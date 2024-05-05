@@ -24,14 +24,14 @@ items:
     href: quickstarts/content-safety.md
   - name: Analyze images and video with GPT-4 for Vision in the playground
     href: quickstarts/multimodal-vision.md
+  - name: Use Azure AI Studio with a screen reader
+    href: tutorials/screen-reader.md
 - name: Tutorials
   items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
-  - name: Use Azure AI Studio with a screen reader
-    href: tutorials/screen-reader.md
 - name: How-to
   expanded: true
   items:
@@ -136,28 +136,6 @@ items:
             href: how-to/prompt-flow-tools/embedding-tool.md
           - name: Serp API tool
             href: how-to/prompt-flow-tools/serp-api-tool.md
-    - name: Evaluate apps in AI Studio
-      items:
-      - name: Evaluations concepts
-        items:
-        - name: Approach to generative AI evaluations
-          href: concepts/evaluation-approach-gen-ai.md
-        - name: Evaluation and monitoring metrics for generative AI
-          href: concepts/evaluation-metrics-built-in.md
-        - name: Harms mitigation strategies with Azure AI
-          href: concepts/evaluation-improvement-strategies.md
-      - name: Manually evaluate prompts in Azure AI Studio playground
-        href: how-to/evaluate-prompts-playground.md
-      - name: Evaluate with Azure AI Studio
-        href: how-to/evaluate-generative-ai-app.md
-      - name: View evaluation results in Azure AI Studio
-        href: how-to/evaluate-flow-results.md
-      - name: Evaluate flows in AI Studio
-        items:
-          - name: Submit batch run and evaluate a flow
-            href: how-to/flow-bulk-test-evaluation.md
-          - name: Develop an evaluation flow in Prompt flow
-            href: how-to/flow-develop-evaluation.md
     - name: Deploy and monitor generative AI apps
       items:
       - name: Deploy a flow for real-time inference
@@ -167,6 +145,28 @@ items:
         href: how-to/monitor-quality-safety.md
       - name: Troubleshoot deployments and monitoring
         href: how-to/troubleshoot-deploy-and-monitor.md
+  - name: Evaluate apps in AI Studio
+    items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: concepts/evaluation-metrics-built-in.md
+      - name: Harms mitigation strategies with Azure AI
+        href: concepts/evaluation-improvement-strategies.md
+    - name: Manually evaluate prompts in Azure AI Studio playground
+      href: how-to/evaluate-prompts-playground.md
+    - name: Evaluate with Azure AI Studio
+      href: how-to/evaluate-generative-ai-app.md
+    - name: View evaluation results in Azure AI Studio
+      href: how-to/evaluate-flow-results.md
+    - name: Evaluate flows in AI Studio
+      items:
+        - name: Submit batch run and evaluate a flow
+          href: how-to/flow-bulk-test-evaluation.md
+        - name: Develop an evaluation flow in Prompt flow
+          href: how-to/flow-develop-evaluation.md
   - name: Azure AI services
     items:
     - name: What are AI services?
