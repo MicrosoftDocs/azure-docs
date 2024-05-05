@@ -2,7 +2,7 @@
 title: Explore risks to pre-deployment generative AI artifacts
 description: Learn how to discover potential security risks for your generative AI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/05/2024
 # customer intent: As a user, I want to learn how to identify potential security risks for my generative AI applications in Microsoft Defender for Cloud so that I can enhance their security.
 ---
 

@@ -2,13 +2,13 @@
 title: Discover generative AI workloads
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/05/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 
 # Discover generative AI workloads
 
-The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AI BOM). Use instructions in this article to use the cloud security explorer to identify the AI workloads and models that are running in your environment and assess their security posture.
+The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender for Cloud provides a comprehensive view of your organization's AI Bill of Materials (AI BOM). The instructions in this article explain how to use the cloud security explorer to identify the AI workloads and models that are running in your environment. With the results, you can assess the security posture of the scanned AI workloads.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
-- Have at least one environment with AI supported workloads (Azure Open AI, AWS account).
+- Have at least one environment with AI supported workloads (Azure OpenAI, AWS account).
 
 ## Discover AI workloads and models in use
 

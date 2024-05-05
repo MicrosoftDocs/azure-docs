@@ -2,12 +2,12 @@
 title: Onboard threat protection for AI workloads
 description: Learn how to enable threat protection for AI workloads on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 05/02/2024
+ms.date: 05/05/2024
 ---
 
 # Onboard threat protection for AI workloads
 
-Threat protection for AI workloads in Microsoft Defender for Cloud provides AI threat protection capabilities that can help you identify and respond in real time to security issues in your generative AI applications.
+Threat protection for AI workloads in Microsoft Defender for Cloud assists you in the identification and response process in real time, for security issues that might exist in your generative AI applications.
 
 > [!IMPORTANT]
 > Threat protection for AI workloads is currently in preview.
@@ -25,19 +25,19 @@ Threat protection for AI workloads in Microsoft Defender for Cloud provides AI t
 
 ## Enroll in the limited preview
 
-To get started, you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) for the plan and be accepted. 
+To get started, you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) and be accepted to the limited preview. 
 
-Once accepted, you can onboard threat protection for AI workloads  in Defender for Cloud to provide threat protection for AI workloads in your Azure environment.
+Once accepted, you can onboard threat protection for AI workloads in Defender for Cloud to provide threat protection for AI workloads in your Azure environment.
 
 1. Fill out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
-1. Wait to receive an email that confirms your acceptance or rejection from the preview program.
+1. Wait to receive an email that confirms your acceptance or rejection from the limited preview.
 
-If you're accepted into the preview program, you can enable  threat protection for AI workloads to your Azure subscription.
+If you're accepted into the limited preview, you can enable threat protection for AI workloads on your Azure subscription.
 
 ## Enable threat protection for AI workloads
 
-You can enable threat protection for AI workloads on an Azure subscription.
+Threat protection for AI workloads on an Azure subscription provides insights to threats that might affect your generative AI applications.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
