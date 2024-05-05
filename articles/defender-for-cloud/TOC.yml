@@ -255,6 +255,11 @@
       items:
         - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
+    - name: Improve your AI security posture management
+      items:
+      - name: AI security posture management
+        displayName: AI, security, posture, management
+        href: ai-security-posture.md
     - name: Security recommendations
       items:
         - name: Reference list of Azure recommendations
@@ -314,6 +319,14 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+    - name: AI security posture
+      items:
+        - name: Discover generative AI workloads
+          displayName: AI, workloads, models, applications, apps, AI BOM
+          href: identify-ai-workload-model.md
+        - name: Explore risks to pre-deployment generative AI artifacts
+          displayName: AI, risks, generative, applications, apps
+          href: explore-ai-risk.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -914,6 +927,14 @@
             href: review-pull-request-annotations.md
       - name: Common questions about DevOps security
         href: faq-defender-for-devops.yml
+  - name: Threat protection for AI workloads (preview)
+    items:
+      - name: Overview
+        displayName: AI, Defender for AI
+        href: ai-threat-protection.md
+      - name: Enable threat protection for AI workloads (preview)
+        displayName: AI, Defender for AI
+        href: ai-onboarding.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)
