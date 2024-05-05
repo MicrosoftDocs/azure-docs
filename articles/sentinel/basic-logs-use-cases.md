@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
-# Log sources to use for Basic Logs ingestion
+# Log sources to use for Basic Logs or Auxiliary Logs ingestion
 
 Log collection is critical to a successful security analytics program. The more log sources you have for an investigation or threat hunt, the more you might accomplish.
 
