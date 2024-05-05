@@ -42,12 +42,12 @@ You can say **"List all namespaces in my cluster."** If you're not already worki
 
 Use Microsoft Copilot for Azure (preview) to quickly make changes to the IP addresses that are allowed to access an AKS cluster. When you reference your own IP address, Microsoft Copilot for Azure can add it to the authorized IP ranges, without your providing the exact address. If you want to include alternative IP addresses, Microsoft Copilot for Azure asks if you want to open the **Networking** pane for your AKS cluster and helps you edit the relevant field.
 
-## IP address sample prompts
+### IP address sample prompts
 
 Here are a few examples of the kinds of prompts you can use to manage the IP addresses that can access an AKS cluster. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 
 - "Allow my IP to access my AKS cluster"
-- "Add my IP address to the allow list of my AKS cluster's network policies"
+- "Add my IP address to the allowlist of my AKS cluster's network policies"
 - "Add my IP address to the authorized IP ranges of AKS cluster's networking configuration"
 - "Add IP CIDR to my AKS cluster’s authorized IP ranges"
 - "Update my AKS cluster's authorized IP ranges"
@@ -58,7 +58,7 @@ Microsoft Copilot for Azure can help streamlines the process of installing the A
 
 When you ask for help with backups, you'll be prompted to select a cluster. From there, Microsoft Copilot for Azure prompts you to open the **Backup** pane for that cluster, where you can proceed with installing the extension, configuring backups, or viewing existing backups.
 
-## Backup sample prompts
+### Backup sample prompts
 
 Here are a few examples of the kinds of prompts you can use to manage AKS cluster backups.  Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 
@@ -67,7 +67,7 @@ Here are a few examples of the kinds of prompts you can use to manage AKS cluste
 - "Manage backup extension on my AKS cluster"
 - "I want to view the backups on my AKS cluster"
 
-## Backup example
+### Backup example
 
 You can say **"Install AKS backup"** to start the process of installing the AKS backup extension. After you select a cluster, you'll be prompted to open its **Backup** pane. From there, select **Launch install backup** to open the experience. After reviewing the prerequisites for the extension, you can step through the installation process.
 
@@ -79,7 +79,7 @@ Use Microsoft Copilot for Azure (preview) to make changes to your [AKS pricing t
 
 You can also get information about different pricing tiers, helping you to make informed decisions before changing your clusters' pricing tier.
 
-## Pricing tier sample prompts
+### Pricing tier sample prompts
 
 Here are a few examples of the kinds of prompts you can use to manage your AKS pricing tier.  Modify these prompts based on your real-life scenarios, or try additional prompts to make different kinds of changes.
 
