@@ -20,7 +20,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 + An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-+ **[Azure CLI](/cli/azure/install-azure-cli)**: used to create and manage resources in Azure. When using the Azure CLI on your local computer, make sure to use version 2.60.0, or a later version. You can also use [Azure Cloud Shell](../../cloud-shell/overview.md), which has the correct Azure CLI version.  
++ **[Azure CLI](/cli/azure/install-azure-cli)**: used to create and manage resources in Azure. When using the Azure CLI on your local computer, make sure to use version 2.60.0, or a later version. You can also use [Azure Cloud Shell](../cloud-shell/overview.md), which has the correct Azure CLI version.  
 
 + **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), version 1.14.2, or a later version. You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). To create and manage apps in the Flex Consumption plan, you also need to [Enable Flex Consumption in Visual Studio Code](#enable-flex-consumption-in-visual-studio-code).
 
@@ -105,7 +105,7 @@ To support your function code, you need to create three resources:
     az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group <RESOURCE_GROUP> --sku Standard_LRS --allow-blob-public-access false
     ``` 
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements). The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
+    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
 
     [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]    
 
@@ -182,7 +182,7 @@ You can skip this section if you choose to instead [create and deploy your app u
 
 You can choose to deploy your project code to an existing function app using various tools:
 
-### [Visual Studio Code](#tab/vs-code)
+### [Visual Studio Code](#tab/vs-code-publish)
 
 If you haven't already done so, make sure to [enable Flex Consumption in Visual Studio Code](#enable-flex-consumption-in-visual-studio-code) before publishing. 
 
@@ -191,10 +191,6 @@ If you haven't already done so, make sure to [enable Flex Consumption in Visual 
 ### [Core Tools](#tab/core-tools)
 
 [!INCLUDE [functions-publish-project-cli-clean](../../includes/functions-publish-project-cli-clean.md)]
-
-### [Azure CLI](#tab/azure-cli)
-
-{{TBD}} 
 
 ---
 
@@ -283,7 +279,7 @@ az functionapp create --instance-memory 4096 --resource-group <RESOURCE_GROUP> -
 
 ### [Azure portal](#tab/azure-portal)
 
-When you create your app in a Flex Consumption plan in the Azure portal, you can choose your instance memory size in the **Instance size** field in the **Basics** tab. For more information, see [Create an app in the Flex Consumption plan](#create-an-app-in-the-flex-consumption-plan).
+When you create your app in a Flex Consumption plan in the Azure portal, you can choose your instance memory size in the **Instance size** field in the **Basics** tab. For more information, see [Create a Flex Consumption app](#create-a-flex-consumption-app).
 
 ### [Visual Studio Code](#tab/vs-code)
 

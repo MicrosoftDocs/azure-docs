@@ -85,16 +85,16 @@ Unlike other plans, project code is deployed to apps in a Flex Consumption plan 
 
 ## Billing
 
-:::image type="content" source="media/flex-consumption-plan/billing-graph.png" alt-text="Chart that represents Flex Consumption plan on-demand billing based on both load and time.":::
+:::image type="content" source="media/flex-consumption-plan/billing-graph.png" alt-text="Graph of Flex Consumption plan on-demand billing as a function of both load and time.":::
 
 ## Supported language stack versions
 
 This table shows the language stack versions that are currently supported for Flex Consumption apps:
 
-| Language stack  | Required version  |
+| Language stack  | Required version |
 | --- | :-----: |
 | C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup> |
-| Java | Java 17 |:::image type="content" source="media/flex-consumption-plan/billing-graph.png" alt-text="Graph of Flex Consumption plan on-demand billing as a function of both load and time.":::
+| Java | Java 17 |
 | Node.js | Node 18   |
 | PowerShell | PowerShell 7.2   |
 | Python | Python 3.10   | 
@@ -114,22 +114,21 @@ Keep these considerations in mind when using Flex Consumption plan during the cu
  | App scale                     | Apps scale to zero unless Always Ready is configured. The lowest maximum scale we recommend in private preview is 40. The highest value that can be set is 1000.  |
  | Triggers                      | All triggers except Kafka, Azure SQL, and SignalR are supported. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). |
  | HTTP Concurrency              | Current default is 16. Minimum of 1. |
- | Non-HTTP Concurrency          | As per [Target Based Scaling](https://learn.microsoft.com/azure/azure-functions/functions-target-based-scaling?#customizing-target-based-scaling) |
- | Durable Functions Concurrency | As per [Durable Functions configurations](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-perf-and-scale#configuration-of-throttles) |
+ | Non-HTTP Concurrency          | As per [Target Based Scaling](functions-target-based-scaling.md#customizing-target-based-scaling) |
+ | Durable Functions Concurrency | As per [Durable Functions configurations](./durable/durable-functions-perf-and-scale.md#configuration-of-throttles) |
 
 
 Further restrictions:
 
 - Apps There is limited support for Flex Consumption apps after they have been created via the CLI.
 - The available capacity for the 4096 instance size is more limited than 512 and 2048. Likewise, the available capacity for Node and PowerShell is more limited. If you are running larger scale testing of the 4096 instance size, or are planning scale testing of Node or PowerShell apps, please contact the team at [flexconsumptionprev@microsoft.com](mailto:flexconsumptionprev@microsoft.com).
-- Both `Microsoft.Web` and `Microsoft.App` resource providers [must be enabled](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) on your subscription.
-
+- Both `Microsoft.Web` and `Microsoft.App` resource providers [must be enabled](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider) on your subscription.
 
 ## Deprecated properties and settings
 
 In Flex Consumption, many of the standard application settings and site configuration properties used in Bicep and ARM template deployments are deprecated and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations). 
 
-## Next step
+## Related articles 
+
 TODO: Add your next step link(s)
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+

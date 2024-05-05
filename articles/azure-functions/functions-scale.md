@@ -48,7 +48,7 @@ The following is a summary of the benefits of the various options for Azure Func
 
 The remaining tables in this article compare the plans on various features and behaviors. For a cost comparison between dynamic hosting plans (Consumption, Flex Consumption, and Premium), see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). For pricing of the various Dedicated plan options, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 
 
-## Operating system support
+## <a name="operating-systemruntime"></a>Operating system support
 
 This table shows operating system support for the hosting plans. 
 
@@ -77,7 +77,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
 | **[Consumption plan]** | [Event driven](event-driven-scaling.md). Scales out automatically, even during periods of high load. Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | **Windows:** 200<br/>**Linux:** 100<sup>1</sup>  | 
-| **[Flex Consumption plan]** | [Event driven](event-driven-scaling.md). Scales out automatically, even during periods of high load. Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | Limited only by total memory usage of all instances across a given region. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).  | 
+| **[Flex Consumption plan]** | [Event driven](event-driven-scaling.md). Scales out automatically, even during periods of high load. Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | Limited only by total memory usage of all instances across a given region. For more information, see [Instance memory](flex-consumption-plan.md#instance-memory).  | 
 | **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
 | **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-30| 
 | **[ASE][Dedicated plan]**<sup>3</sup> | Manual/autoscale |100 | 
