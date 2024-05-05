@@ -310,8 +310,12 @@
           items:
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
-            - name: Use Azure Cosmos DB Explorer
-              href: ../data-explorer.md
+            - name: Azure Cosmos DB Explorer
+              items:
+                - name: Use explorer
+                  href: ../data-explorer.md
+                - name: Keyboard shorcuts
+                  href: ../data-explorer-shortcuts.md
         - name: Troubleshooting and performance
           items:
             - name: Troubleshoot common issues

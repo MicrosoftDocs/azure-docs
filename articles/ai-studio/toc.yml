@@ -153,7 +153,7 @@ items:
         href: concepts/evaluation-approach-gen-ai.md
       - name: Evaluation and monitoring metrics for generative AI
         href: concepts/evaluation-metrics-built-in.md
-      - name: Harms mitigation strategies with Azure AI
+      - name: Content risk mitigation strategies with Azure AI
         href: concepts/evaluation-improvement-strategies.md
     - name: Manually evaluate prompts in Azure AI Studio playground
       href: how-to/evaluate-prompts-playground.md
