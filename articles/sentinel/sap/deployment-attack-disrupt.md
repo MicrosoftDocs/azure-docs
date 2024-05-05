@@ -39,7 +39,7 @@ To use attack disruption for SAP, deploy a new agent, or update your current age
 For more information, see:
 
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md#), especially [Update your system for automatic attack disruption](update-sap-data-connector.md#update-your-data-connector-agent-for-attack-disruption).
+- [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md#), especially [Update your system for attack disruption](update-sap-data-connector.md#update-your-system-for-attack-disruption)
 
 ## Related content
 

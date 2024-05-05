@@ -89,7 +89,7 @@ Automatic attack disurption for SAP is supported with the unified security opera
 
 - The identity of your data connector agent VM assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role. If this role isn't assigned, make sure to [assign these roles manually](#assign-required-azure-roles-manually).
 
-- The **/MSFTSEN/SENTINEL_RESPONDER** SAP role [applied to your SAP system and assigned to the SAP user account](#apply-and-assign-the-sentinel-responder-sap-role-to-your-sap-system) used by Microsoft Sentinel's SAP data connector agent.
+- The **/MSFTSEN/SENTINEL_RESPONDER** SAP role [applied to your SAP system and assigned to the SAP user account](#apply-and-assign-the-sentinel_responder-sap-role-to-your-sap-system) used by Microsoft Sentinel's SAP data connector agent.
 
 ### Verify your current data connector agent version
 
