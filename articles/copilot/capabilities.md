@@ -48,7 +48,7 @@ From anywhere in the Azure portal, you can ask Microsoft Copilot for Azure (prev
 
 Asking questions to understand more can be especially helpful when you're troubleshooting problems. Describe the problem, and Microsoft Copilot for Azure (preview) will provide some suggestions on how you might be able to resolve the issue. For example, you can say things like "Cluster stuck in upgrading state while performing update operation" or "Azure database unable to connect from Power BI". You'll see information about the problem and possible resolution options.
 
-Microsoft Copilot for Azure can also help you understand more about information presented in Azure. This can be especially helpful when looking at diagnostic details. For example, when viewing diagnostics for a resource, you can say "Give me a summary of this page" or "What is the issue with my app?" You can ask what an error means, or ask what the next steps would be to implement a recommended solution.
+Microsoft Copilot for Azure can also help you understand more about information presented in Azure. This can be especially helpful when looking at diagnostic details. For example, when viewing diagnostics for a resource, you can say "Give me a summary of this page" or "What's the issue with my app?" You can ask what an error means, or ask what the next steps would be to implement a recommended solution.
 
 ## Find recommended services
 
@@ -78,4 +78,5 @@ Keep in mind these current limitations:
 
 ## Next steps
 
+- [Get tips for writing effective prompts](write-effective-prompts.md) to use with Microsoft Copilot for Azure (preview).
 - [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).

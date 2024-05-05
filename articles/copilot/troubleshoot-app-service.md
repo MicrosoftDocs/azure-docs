@@ -29,7 +29,7 @@ Here are a few examples of the kinds of prompts you can use to get help with App
 - "Enable auto heal"
 - "Take a memory dump"
 - "High CPU issue"
-- "Troubleshoot performance issues with my web app"
+- "Troubleshoot performance issues with my app"
 - "Analyze app latency?"
 
 ## Examples
