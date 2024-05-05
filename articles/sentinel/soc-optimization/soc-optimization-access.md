@@ -11,7 +11,7 @@ ms.collection:
   - tier1
   - usx-security
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 05/05/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -29,6 +29,10 @@ SOC optimizations are high-fidelity and actionable recommendations to help you i
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+
+Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br>
+
+> [!VIDEO https://www.youtube.com/embed/b0rbPZwBuc0?si=DuYJQewK8IZz8T0Y]
 
 ## Prerequisites
 
@@ -115,8 +119,10 @@ In each optimization card, select **View full details** to see a full descriptio
 
 Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
 
-- If an optimization includes recommendations to add analytics rules, select **Got to Content Hub**.
+- If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
 - If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
+
+If you choose to install an analytics rule template from the Content Hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
 ### Manage optimizations
 
@@ -143,6 +149,29 @@ From here, either select the options menu or select **View full details** to tak
 
 - **Provide further feedback** to the Microsoft team. When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
+## SOC optimization usage flow
+
+This section provides a sample flow for using SOC optimizations, from either the Defender or Azure portal:
+
+1. On the **SOC optimization** page, start by understanding the dashboard:
+
+      - Observe the top metrics for overall optimization status.
+      - Review optimization recommendations for data value and threat-based coverage.
+
+1. Use the optimization recommendations to identify tables with low usage, incidating that they're not being used for detections. Select **View full details** to see the size and cost of unused data. Consider one of the following actions:
+
+      - Add analytics rules to use the table for enhnaced protection. If you choose this option, go to the Content Hub to view and configure out-of-the-box analytic rule templates that use the selected table. If new analytic rules require additional log sources, consider ingesting them to improve threat coverage.
+
+          For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md) and [Detect threats out-of-the-box](../detect-threats-built-in.md).
+
+      - Change your commitment  tier for cost savings. For more information, see [Reduce costs for Microsoft Sentinel](../billing-reduce-costs.md).
+
+1. Use the optimization recommendations to improve coverage against specific threats. For example, for a human-operated ransomware optimization:
+
+      1. Select **View full details** to see the current coverage and suggested improvements.
+      1. Select **View all MITRE ATT&CK technique improvement** to drill down and analyze the relevant tactics and techniques, helping you understand the coverage gap.
+
+1. After configuring new rules or making changes, mark the recommendation as completed or let the system update automatically.
 
 ## Related content
 
