@@ -4379,7 +4379,7 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 ### A Jailbreak attempt on an Azure Open AI model deployment was blocked by Prompt Shields
 
-**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were blocked by Azure Responsible AI Content Filtering (AKA Prompt Sheilds), ensuring the integrity of the AI resources and the data security.
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were blocked by Azure Responsible AI Content Filtering (AKA Prompt Shields), ensuring the integrity of the AI resources and the data security.
 
 **[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion 
 
@@ -4387,7 +4387,7 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 ### A Jailbreak attempt on an Azure Open AI model deployment was detected by Prompt Shields 
 
-**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were detected by Azure Responsible AI Content Filtering (AKA Prompt Sheilds), but were not blocked due to content filtering settings or due to low confidence.
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were detected by Azure Responsible AI Content Filtering (AKA Prompt Shields), but were not blocked due to content filtering settings or due to low confidence.
 
 **[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion
 
