@@ -44,7 +44,7 @@ To create a new hub, follow these steps:
 
 1. You can view the progress of the hub creation in the wizard. 
 
-    :::image type="content" source="../../../../media/ai-studio/speech-analytics/hub-new-creating-resources.png" alt-text="Screenshot of the dialog to review the progress of hub resources creation." lightbox="../../../../media/ai-studio/speech-analytics/hub-new-creating-resources.png":::
+    :::image type="content" source="../../../../media/ai-studio/speech-analytics/hub-new-create-resources.png" alt-text="Screenshot of the dialog to review the progress of hub resources creation." lightbox="../../../../media/ai-studio/speech-analytics/hub-new-create-resources.png":::
 
 ## Deploy a GPT chat model in the hub
 
@@ -114,7 +114,7 @@ To create a speech analytics project in the hub, follow these steps:
 
 1. You can view the progress of the speech analytics project creation in the wizard. The prompt flow deployment might take several minutes to complete.
 
-    :::image type="content" source="../../../../media/ai-studio/speech-analytics/speech-analytics-project-new-creating-resources.png" alt-text="Screenshot of the dialog to review the progress of speech analytics project resources creation." lightbox="../../../../media/ai-studio/speech-analytics/speech-analytics-project-new-creating-resources.png":::
+    :::image type="content" source="../../../../media/ai-studio/speech-analytics/speech-analytics-project-new-create-resources.png" alt-text="Screenshot of the dialog to review the progress of speech analytics project resources creation." lightbox="../../../../media/ai-studio/speech-analytics/speech-analytics-project-new-create-resources.png":::
 
 ## Add a role assignment in the Azure portal
 
@@ -257,7 +257,7 @@ Now when you add files to the transcription container in Azure portal (or via Az
 1. On the **Hub overview** page, select the speech analytics project (not the generative AI project) that you created previously. 
 1. Go to the **Upload and monitor** page to see the status of processing the audio file that you uploaded from the Azure portal.
 
-    :::image type="content" source="../../../../media/ai-studio/speech-analytics/upload-monitor-processing-from-container.png" alt-text="Screenshot of the progress for speech analytics of the file uploaded in the Azure portal." lightbox="../../../../media/ai-studio/speech-analytics/upload-monitor-processing-from-container.png":::
+    :::image type="content" source="../../../../media/ai-studio/speech-analytics/upload-monitor-process-from-container.png" alt-text="Screenshot of the progress for speech analytics of the file uploaded in the Azure portal." lightbox="../../../../media/ai-studio/speech-analytics/upload-monitor-process-from-container.png":::
 
 1. When the transcript is ready, select the name of the audio file to access the transcript. 
 1. Under the **Transcription results** label, select **Result** to download the transcription file to your local machine. 
