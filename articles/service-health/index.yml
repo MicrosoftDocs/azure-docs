@@ -6,7 +6,6 @@ summary: Azure Service Health is a suite of experiences that provide personalize
 metadata:
   title: Azure Service Health documentation
   description: Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. Azure Service Health can notify you, help you understand the effect of an issue, and keep you updated as the issue resolves. Azure Service Health also can help you prepare for planned maintenance and changes that could affect the availability of your resources.
-  services: service-health
   ms.service: service-health
   ms.topic: landing-page
   author: rboucher

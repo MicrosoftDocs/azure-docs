@@ -3,7 +3,7 @@ title: Turn on Managed SNAT for Azure VMware Solution workloads
 description: Learn how to turn on Managed SNAT for Azure VMware Solution workloads.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/21/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -43,6 +43,6 @@ To set up outbound internet access via Managed SNAT, use the Azure portal:
 
 ## Related content
 
-- [Internet connectivity design considerations](concepts-design-public-internet-access.md)
+- [Internet connectivity design considerations](architecture-design-public-internet-access.md)
 - [Turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md)
 - [Set a default internet route or disable internet access](disable-internet-access.md)

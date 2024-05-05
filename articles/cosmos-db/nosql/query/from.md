@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -26,7 +27,7 @@ The ``FROM`` clause enforces the following rules per query:
 
 ## Syntax
 
-```sql  
+```nosql  
 FROM <from_specification>  
   
 <from_specification> ::=
@@ -78,13 +79,13 @@ A container expression may be container-scoped or item-scoped:
 
 In this first example, the ``FROM`` clause is used to specify the current container as a source, give it a unique name, and then alias it. The alias is then used to project specific fields in the query results.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/from/query.sql" range="1-6" highlight="5-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/from/query.sql" range="1-6" highlight="5-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/from/result.json":::
 
 In this next example, the ``FROM`` clause can also reduce the source to a smaller subset. To enumerate only a subtree in each item, the subroot can become the source. An array or object subroot can be used as a source.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/from-field/query.sql" range="1-4" highlight="3-4":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/from-field/query.sql" range="1-4" highlight="3-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/from-field/result.json":::
 

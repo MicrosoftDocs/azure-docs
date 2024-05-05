@@ -1,16 +1,16 @@
 ---
-title: Azure Data Factory Managed Airflow with Apache Flink® on HDInsight on AKS
-description: Learn how to perform Apache Flink® job orchestration using Azure Data Factory Managed Airflow
+title: Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) with Apache Flink® on HDInsight on AKS
+description: Learn how to perform Apache Flink® job orchestration using Azure Data Factory Workflow Orchestration Manager
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 10/28/2023
 ---
 
-# Apache Flink® job orchestration using Azure Data Factory Managed Airflow
+# Apache Flink® job orchestration using Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow)
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This article covers managing a Flink job using [Azure REST API](flink-job-management.md#arm-rest-api) and orchestration data pipeline with Azure Data Factory Managed Airflow. [Azure Data Factory Managed Airflow](/azure/data-factory/concept-managed-airflow) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily. 
+This article covers managing a Flink job using [Azure REST API](flink-job-management.md#arm-rest-api) and orchestration data pipeline with Azure Data Factory Workflow Orchestration Manager. [Azure Data Factory Workflow Orchestration Manager](/azure/data-factory/concepts-workflow-orchestration-manager) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily.
 
 Apache Airflow is an open-source platform that programmatically creates, schedules, and monitors complex data workflows. It allows you to define a set of tasks, called operators that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. 
 
@@ -37,7 +37,7 @@ It is recommended to rotate access keys or secrets periodically.
     ```
 
 
-1. Create Managed Airflow enable with [Azure Key Vault](/azure/data-factory/enable-azure-key-vault-for-managed-airflow) to store and manage your sensitive information in a secure and centralized manner. By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hdinsight-aks-variables then for a variable key of hello, you would want to store your Variable at hdinsight-aks-variable -hello. 
+1. Enable [Azure Key Vault for Workflow Orchestration Manager](/azure/data-factory/enable-azure-key-vault) to store and manage your sensitive information in a secure and centralized manner. By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hdinsight-aks-variables then for a variable key of hello, you would want to store your Variable at hdinsight-aks-variable -hello.
 
     - Add the following settings for the Airflow configuration overrides in integrated runtime properties: 
 
@@ -101,7 +101,7 @@ You can read more details about DAGs, Control Flow, SubDAGs, TaskGroups, etc. di
 
 ## DAG execution 
 
-Example code is available on the [git](https://github.com/Azure-Samples/hdinsight-aks/blob/main/flink/airflow-python-sample-code); download the code locally on your computer and upload the wordcount.py to a blob storage. Follow the [steps](/azure/data-factory/how-does-managed-airflow-work#steps-to-import) to import DAG into your Managed Airflow created during setup. 
+Example code is available on the [git](https://github.com/Azure-Samples/hdinsight-aks/blob/main/flink/airflow-python-sample-code); download the code locally on your computer and upload the wordcount.py to a blob storage. Follow the [steps](/azure/data-factory/how-does-workflow-orchestration-manager-work#steps-to-import) to import DAG into your workflow created during setup.
 
 The wordcount.py is an example of orchestrating a Flink job submission using Apache Airflow with HDInsight on AKS. The example is based on the wordcount example provided on [Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/dataset/examples/).  
 
@@ -115,9 +115,9 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 ### Execution steps 
 
-1. Execute the DAG from the [Airflow UI](https://airflow.apache.org/docs/apache-airflow/stable/ui.html), you can open the Azure Data Factory Managed Airflow UI by clicking on Monitor icon. 
+1. Execute the DAG from the [Airflow UI](https://airflow.apache.org/docs/apache-airflow/stable/ui.html), you can open the Azure Data Factory Workflow Orchestration Manager UI by clicking on Monitor icon. 
 
-    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-1.png" alt-text="Screenshot shows open the Azure data factory managed airflow UI by clicking on monitor icon." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-1.png":::
+    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-1.png" alt-text="Screenshot shows open the Azure Data Factory Workflow Orchestration Manager UI by clicking on monitor icon." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-1.png":::
 
 1. Select the “FlinkWordCountExample” DAG from the “DAGs” page.  
 

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 11/19/2021
-ms.custom: template-how-to, ignite-2022
+ms.custom: template-how-to
 ---
 
 # Azure Cosmos DB for Apache Cassandra Lightweight Transactions with Conditions

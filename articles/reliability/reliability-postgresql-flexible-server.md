@@ -250,6 +250,15 @@ Application downtime is expected to start after step #1 and persists until step 
 
 - It's recommended that you perform a forced failover during a low-activity period to reduce downtime.
 
+
+#### Best practices for PostgreSQL statistics after failover
+
+After a PostgreSQL failover, the primary mechanism for maintaining optimal database performance involves understanding the distinct roles of [pg_statistic](https://www.postgresql.org/docs/current/catalog-pg-statistic.html) and the [pg_stat_*](https://www.postgresql.org/docs/current/monitoring-stats.html) tables. The `pg_statistic` table houses optimizer statistics, which are crucial for the query planner. These statistics include data distributions within tables and remain intact after a failover, ensuring that the query planner can continue to optimize query execution effectively based on accurate, historical data distribution information.
+
+In contrast, the `pg_stat_*` tables, which record activity statistics such as the number of scans, tuples read, and updates, are reset upon failover. An example of such a table is `pg_stat_user_tables`, which tracks activity for user-defined tables. This reset is designed to accurately reflect the new primary's operational state but also means the loss of historical activity metrics that could inform the autovacuum process and other operational efficiencies.
+
+Given this distinction, the best practice following a PostgreSQL failover is to run `ANALYZE`. This action updates the `pg_stat_*` tables, like `pg_stat_user_tables`, with fresh activity statistics, helping the autovacuum process and ensuring that the database performance remains optimal in its new role. This proactive step bridges the gap between preserving essential optimizer statistics and refreshing activity metrics to align with the database's current state.
+
 ### Zone-down experience
 
 **Zonal**: To recover from a zone-level failure, you can [perform point-in-time restore](#point-in-time-restore-of-high-availability-servers) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another nonaffected zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.

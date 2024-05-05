@@ -1,0 +1,112 @@
+### YamlMime:Landing
+
+title: Azure Spring Apps Basic/Standard plan documentation # < 60 chars
+summary: "Azure Spring Apps is a managed service for hosting Spring apps. The Basic and Standard plans use resource-based pricing with initial resource quotas."
+
+metadata:
+  title: Azure Spring Apps Basic/Standard plan
+  description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
+  services: spring-cloud
+  ms.service: spring-apps
+  ms.custom: devx-track-java
+  ms.topic: landing-page
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 12/14/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card (optional)
+  - title: Documentation for other plans
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Enterprise plan
+            url: ../enterprise/index.yml
+          - text: Consumption and dedicated plan
+            url: ../consumption-dedicated/index.yml
+  
+  # Card (optional)
+  - title: About Azure Spring Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Spring Apps?
+            url: ../enterprise/overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Version support for Java, Spring Boot, and more
+            url: ../enterprise/concept-app-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: What's new in Azure Spring Apps?
+            url: ../enterprise/whats-new.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Manage costs
+            url: ../enterprise/cost-management.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Compare Java hosting options
+            url: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Launch your first app
+            url: ../enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Launch your first web app
+            url: ../enterprise/quickstart-deploy-web-app.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Launch your first RESTful API app
+            url: ../enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Launch your first microservice apps
+            url: ../enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Launch your first event-driven app
+            url: ../enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+
+  # Card (optional)
+  - title: Develop and deploy apps
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: App and deployment
+            url: ../enterprise/concept-understand-app-and-deployment.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Blue-green deployment strategies
+            url: ../enterprise/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: CI/CD with Azure DevOps
+            url: ../enterprise/how-to-cicd.md?pivots=programming-language-java&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: CI/CD with GitHub Actions
+            url: ../enterprise/how-to-github-actions.md?pivots=programming-language-java&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Deploy in a virtual network
+            url: ../enterprise/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Enable service registration
+            url: how-to-service-registration.md?pivots=programming-language-java
+
+  # Card (optional)
+  - title: Manage and monitor apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Start or stop a service
+            url: ../enterprise/how-to-start-stop-service.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Use structured application logs
+            url: ../enterprise/structured-app-log.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Analyze logs and metrics
+            url: ../enterprise/diagnostic-services.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Application Insights using Java In-Process Agent
+            url: ../enterprise/how-to-application-insights.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Elastic APM Java Agent
+            url: how-to-elastic-apm-java-agent-monitor.md
+          - text: Use Circuit Breaker Dashboard
+            url: ../enterprise/tutorial-circuit-breaker.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+
+  # Card (optional)
+  - title: Migrate apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Migrate Spring Boot to Azure Spring Apps
+            url: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Migrate Spring Cloud to Azure Spring Apps
+            url: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json

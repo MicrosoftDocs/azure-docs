@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/02/2021
-ms.custom: template-how-to, ignite-2022
+ms.custom: template-how-to
 ---
 
 # Run Glowroot on Azure Cosmos DB for Apache Cassandra

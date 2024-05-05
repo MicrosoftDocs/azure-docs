@@ -7,7 +7,6 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/20/2021
 ms.author: cshoe
-ms.custom: contperf-fy21q4
 ---
 
 # Build configuration for Azure Static Web Apps

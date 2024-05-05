@@ -7,9 +7,11 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
 ms.service: cosmos-db
+ms.custom: devx-track-azurecli
 ms.date: 04/28/2023
-ms.custom: event-tier1-build-2022, ignite-2022
 ---
+
+
 
 # Merge partitions in Azure Cosmos DB (preview)
 
@@ -92,16 +94,6 @@ Install-Module @parameters
 
 Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
 
-
-
-
-
-
-
-
-
-
-
 ```azurecli-interactive
 az extension add \
     --name cosmosdb-preview
@@ -111,11 +103,13 @@ az extension add \
 
 
 
+
+
 ---
 
 #### [API for NoSQL](#tab/nosql/azure-powershell)
 
-Use `Invoke-AzCosmosDBSqlContainerMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
+For **provisioned throughput** containers, use `Invoke-AzCosmosDBSqlContainerMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
 
 ```azurepowershell-interactive
 $parameters = @{
@@ -142,7 +136,7 @@ Invoke-AzCosmosDBSqlContainerMerge @parameters
 
 #### [API for NoSQL](#tab/nosql/azure-cli)
 
-Start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
+For **provisioned throughput** containers, start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
 
 ```azurecli-interactive
 az cosmosdb sql container merge \
@@ -154,27 +148,41 @@ az cosmosdb sql container merge \
 
 For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
 
-
-
-
-
-```azurecli
-az cosmosdb sql database merge \
-	--account-name '<cosmos-account-name>'                               
-	--name '<cosmos-database-name>'                                
-	--resource-group '<resource-group-name>'
+```azurecli-interactive
+az cosmosdb sql database merge `
+    --resource-group "<resource-group-name>" `         
+    --name "<database-name>"  `
+    --account-name "<cosmos-db-account-name>" 
 ```
 
 
-```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
+```azurecli-interactive
+databaseId=$(az cosmosdb sql database show `
+    --resource-group "<resource-group-name>" `
+    --name "<database-name>" `
+    --account-name "<cosmos-db-account-name>" `
+    --query "id" `
+    --output "tsv"
+)
+
+endpoint="https://management.azure.com$databaseId/partitionMerge?api-version=2023-11-15-preview"
+
+az rest `
+    --method "POST" `
+    --url $endpoint `
+    --body "{}"
+
 ```
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
 
-Use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
+
+For **provisioned throughput** containers, use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
+
+
 
 ```azurepowershell-interactive
+
 $parameters = @{
     ResourceGroupName = "<resource-group-name>"
     AccountName = "<cosmos-account-name>"
@@ -182,10 +190,12 @@ $parameters = @{
     Name = "<cosmos-container-name>"
     WhatIf = $true
 }
+
 Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 ```
 
 Start the merge by running the same command without the `-WhatIf` parameter.
+
 
 ```azurepowershell-interactive
 $parameters = @{
@@ -199,23 +209,9 @@ Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 
 #### [API for MongoDB](#tab/mongodb/azure-cli)
 
-For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
-
-
-
-```azurecli
-az cosmosdb mongodb database merge \
-	--account-name '<cosmos-account-name>'                               
-	--name '<cosmos-database-name>'                                
-	--resource-group '<resource-group-name>'
-```
-
-
-```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
-```
-
 For **provisioned containers**, start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
+
+
 
 ```azurecli-interactive
 az cosmosdb mongodb collection merge \
@@ -228,6 +224,17 @@ az cosmosdb mongodb collection merge \
 
 
 
+---
+For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database).
+
+```azurecli-interactive
+az cosmosdb mongodb database merge \
+	--account-name '<cosmos-account-name>'                               
+	--name '<cosmos-database-name>'                                
+	--resource-group '<resource-group-name>'
+```
+
+
 
 ---
 
@@ -235,7 +242,7 @@ az cosmosdb mongodb collection merge \
 
 Partition merge is a long-running operation and there's no SLA on how long it takes to complete. The time depends on the amount of data in the container and the number of physical partitions. It's recommended to allow at least 5-6 hours for merge to complete.
 
-While partition merge is running on your container, if you change container settings (TTL, indexing policy, unique keys, etc.), the ongoing merge operation will be cancelled. If you increase your RU/s while a merge is running, the ongoing merge operation will be cancelled and your container's RU/s will be updated with your new value. Depending on the RU/s requested, your [scale-up may be instant or take longer](scaling-provisioned-throughput-best-practices.md#step-2-calculate-the-default-maximum-throughput). If you decrease your RU/s while a merge is running, the RU/s will be instantly updated to the new RU/s. The in-progress merge will continue, with the same target partition count based on the RU/s set at the time the merge was triggered. As a best practice, it is recommended to wait until the merge operation completes before changing your container or throughput settings. 
+While partition merge is running on your container, if you change container settings (TTL, indexing policy, unique keys, etc.), the ongoing merge operation will be canceled. If you increase your RU/s while a merge is running, the ongoing merge operation will be canceled and your container's RU/s will be updated with your new value. Depending on the RU/s requested, your [scale-up may be instant or take longer](scaling-provisioned-throughput-best-practices.md#step-2-calculate-the-default-maximum-throughput). If you decrease your RU/s while a merge is running, the RU/s will be instantly updated to the new RU/s. The in-progress merge will continue, with the same target partition count based on the RU/s set at the time the merge was triggered. As a best practice, it is recommended to wait until the merge operation completes before changing your container or throughput settings. 
 
 You can track whether merge is still in progress by checking the **Activity Log** and filtering for the events **Merge the physical partitions of a MongoDB collection** or **Merge the physical partitions of a SQL container**.
 
@@ -251,10 +258,9 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
 - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Merge doesn't apply to serverless accounts.
 - Your Azure Cosmos DB account is a single-write region account (merge isn't currently supported for multi-region write accounts).
 - Your Azure Cosmos DB account doesn't use any of the following features:
-  - [Point-in-time restore](continuous-backup-restore-introduction.md)
-  - [Customer-managed keys](how-to-setup-cmk.md)
-  - [Analytical store](analytical-store-introduction.md)
-- Your Azure Cosmos DB account uses bounded staleness, session, consistent prefix, or eventual consistency (merge isn't currently supported for strong consistency).
+   - [Point-in-time restore](continuous-backup-restore-introduction.md)
+   - [Customer-managed keys](how-to-setup-cmk.md)
+   - [Analytical store](analytical-store-introduction.md)
 - If you're using API for NoSQL, your application must use the Azure Cosmos DB .NET v3 SDK (version 3.27.0 or higher) or Java v4 SDK (version 4.42.0 or higher). When merge preview is enabled on your account, the account doesn't accept requests sent from non .NET/Java SDKs or older .NET/Java SDK versions.
   - There are no SDK or driver requirements to use the feature with API for MongoDB.
 - Your Azure Cosmos DB account doesn't use any currently unsupported connectors:
@@ -271,11 +277,9 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
 - Merge is only available for API for NoSQL and MongoDB accounts. For API for MongoDB accounts, the MongoDB account version must be 3.6 or greater.
 - Merge is only available for single-region write accounts. Multi-region write account support isn't available.
 - Accounts using merge functionality can't also use these features (if these features are added to a merge enabled account, the account can't merge resources):
-  - [Point-in-time restore](continuous-backup-restore-introduction.md)
-  - [Customer-managed keys](how-to-setup-cmk.md)
-  - [Analytical store](analytical-store-introduction.md)
-- Containers using merge functionality must have their throughput provisioned at the container level. Database-shared throughput support isn't available.
-- Merge is only available for accounts using bounded staleness, session, consistent prefix, or eventual consistency. It isn't currently supported for strong consistency.
+   - [Point-in-time restore](continuous-backup-restore-introduction.md)
+   - [Customer-managed keys](how-to-setup-cmk.md)
+   - [Analytical store](analytical-store-introduction.md)
 - After a container has been merged, it isn't possible to read the change feed with start time. Support for this feature is planned for the future.
 
 ### SDK requirements (API for NoSQL only)
@@ -317,4 +321,3 @@ If you enroll in the preview, the following connectors fail.
 - Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db)
 - Learn more about [using Azure PowerShell with Azure Cosmos DB.](/powershell/module/az.cosmosdb/)
 - Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
-

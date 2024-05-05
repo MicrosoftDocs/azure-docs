@@ -1,12 +1,12 @@
 ---
 title: Configure Azure Private Link for Azure Cosmos DB
-description: Learn how to set up Azure Private Link to access an Azure Cosmos DB account by using a private IP address in a virtual network. 
+description: Learn how to set up Azure Private Link to access an Azure Cosmos DB account by using a private IP address in a virtual network.
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/24/2023
-ms.author: sidandrews 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
+ms.author: sidandrews
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure Azure Private Link for an Azure Cosmos DB account

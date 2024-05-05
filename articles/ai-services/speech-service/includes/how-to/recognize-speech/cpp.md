@@ -171,7 +171,7 @@ speechRecognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArg
     });
 ```
 
-With everything set up, call [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
+With everything set up, call [`StartContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -196,13 +196,13 @@ speechConfig->SetSpeechRecognitionLanguage("de-DE");
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text).
 
 ## Use a custom endpoint
 
-With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+With [custom speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");

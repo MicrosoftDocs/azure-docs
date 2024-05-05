@@ -135,7 +135,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 Run the following command to bundle your application host on a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx webpack serve --config webpack.config.js
 ```
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:

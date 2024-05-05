@@ -14,7 +14,7 @@ ms.custom:
 
 # MySQL to Azure Database for MySQL Data Migration - MySQL Replicate Changes
 
-Running a Replicate changes Migration, with our offline scenario with "Enable Transactional Consistency," enables businesses to migrate their databases to Azure while the databases remain operational. In other words, migrations can be completed with minimum downtime for critical applications, limiting the impact on service level availability and inconvenience to their end customers.
+Running a Replicate changes Migration, with our offline scenario with "Enable Transactional Consistency" enables businesses to migrate their databases to Azure while the databases remain operational. In other words, migrations can be completed with minimum downtime for critical applications, limiting the impact on service level availability and inconvenience to their end customers.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
@@ -51,7 +51,7 @@ To complete the replicate changes migration successfully, ensure that the follow
 
 - When performing a replicate changes migration, the name of the database on the target server must be the same as the name on the source server.
 - Support is limited to the ROW binlog format.
-- DDL changes replication is supported only when migrating to a v8.0 Azure Database for MySQL Flexible Server target server and when you have selected the option for **Replicate data definition and administration statements for selected objects** on DMS UI. The replication feature supports replicating data definition and administration statements that occur after the initial load and are logged in the binary log to the target.
+- DDL changes replication is supported only when you have selected the option for **Replicate data definition and administration statements for selected objects** on DMS UI. The replication feature supports replicating data definition and administration statements that occur after the initial load and are logged in the binary log to the target.
 - Renaming databases or tables is not supported when replicating changes.
 
 ## Next steps

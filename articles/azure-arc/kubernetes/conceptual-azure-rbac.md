@@ -1,19 +1,19 @@
 ---
 title: "Azure RBAC on Azure Arc-enabled Kubernetes (preview)"
-ms.date: 05/04/2023
+ms.date: 02/28/2024
 ms.topic: conceptual
 description: "This article provides a conceptual overview of the Azure RBAC capability on Azure Arc-enabled Kubernetes."
 ---
 
 # Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Microsoft Entra ID and role assignments in Azure to control authorization checks on the cluster. This allows the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource, to be used with your Azure Arc-enabled Kubernetes cluster.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure role-based access control (Azure RBAC), you can use Microsoft Entra ID and role assignments in Azure to control authorization checks on the cluster. This allows the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource, to be used with your Azure Arc-enabled Kubernetes cluster.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Architecture
 
-[ ![Diagram showing Azure RBAC architecture.](./media/conceptual-azure-rbac.png) ](./media/conceptual-azure-rbac.png#lightbox)
+:::image type="content" source="media/conceptual-azure-rbac.png" alt-text="Diagram showing Azure RBAC architecture.":::
 
 In order to route all authorization access checks to the authorization service in Azure, a webhook server ([guard](https://github.com/appscode/guard)) is deployed on the cluster.
 

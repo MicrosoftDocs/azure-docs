@@ -1,82 +1,81 @@
 ---
 title: Data ingestion tools
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the data ingestion tools and utilities that are preinstalled on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 
 author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.reviewer: franksolomon
+ms.date: 04/19/2024
 ---
 
 # Data Science Virtual Machine data ingestion tools
 
-As one of the first technical steps in a data science or AI project, you must identify the datasets to be used and bring them into your analytics environment. The Data Science Virtual Machine (DSVM) provides tools and libraries to bring data from different sources into analytical data storage locally on the DSVM, or into a data platform either on the cloud or on-premises.
+At an early stage in a data science or AI project, you must identify the needed datasets, and then bring them into your analytics environment. The Data Science Virtual Machine (DSVM) provides tools and libraries to bring data from different sources into local analytical data storage resources on the DSVM. The DSVM can also bring data into a data platform located either on the cloud or on-premises.
 
-Here are some data movement tools that are available in the DSVM.
+The DSVM offers these data movement tools:
 
 ## Azure CLI
 
 | Category | Value |
 |--|--|
-| What is it? | A management tool for Azure. It also contains command verbs to move data from Azure data platforms like Azure Blob storage and Azure Data Lake Store. |
+| What is it? | A management tool for Azure. It offers command verbs to move data from Azure data platforms - for example, Azure Blob storage and Azure Data Lake Store |
 | Supported DSVM versions | Windows, Linux |
-| Typical uses | Importing and exporting data to and from Azure Storage and Azure Data Lake Store. |
-| How to use / run it? | Open a command prompt and type `az` to get help. |
+| Typical uses | Import and export data between Azure Storage and Azure Data Lake Store |
+| How to use / run it? | Open a command prompt, and type `az` to get help. |
 | Links to samples | [Using Azure CLI](/cli/azure) |
-
 
 ## AzCopy
 
 | Category | Value |
 |--|--|
-| What is it? | A tool to copy data to and from local files, Azure Blob storage, files, and tables. |
+| What is it? | A tool to copy data between local files, Azure Blob storage, files, and tables |
 | Supported DSVM versions | Windows |
-| Typical uses | Copying files to Azure Blob storage and copying blobs between accounts. |
-| How to use / run it? | Open a command prompt and type `azcopy` to get help. |
+| Typical uses | Copy files to Azure Blob storage<br>Copy blobs between accounts |
+| How to use / run it? | Open a command prompt, and type `azcopy` to get help. |
 | Links to samples | [AzCopy on Windows](../../storage/common/storage-use-azcopy-v10.md) |
-
 
 ## Azure Cosmos DB Data Migration tool
 
-|--|--|
+| Category | Value |
 | ------------- | ------------- |
-| What is it? | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB for NoSQL collections. |
+| What is it? | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files<br>CSV files<br>SQL<br>MongoDB<br>Azure Table storage<br>Amazon DynamoDB<br>Azure Cosmos DB for NoSQL collections |
 | Supported DSVM versions | Windows |
-| Typical uses | Importing files from a VM to Azure Cosmos DB, importing data from Azure table storage to Azure Cosmos DB, and importing data from a Microsoft SQL Server database to Azure Cosmos DB. |
-| How to use / run it? | To use the command-line version, open a command prompt and type `dt`. To use the GUI tool, open a command prompt and type `dtui`. |
+| Typical uses | Import files from a VM to Azure Cosmos DB<br>import data from Azure table storage to Azure Cosmos DB<br>import data from a Microsoft SQL Server database to Azure Cosmos DB |
+| How to use / run it? | To use the command-line version, open a command prompt and type `dt`. To use the GUI tool, open a command prompt and type `dtui` |
 | Links to samples | [Import data into Azure Cosmos DB](../../cosmos-db/import-data.md) |
 
 ## Azure Storage Explorer
 
 | Category | Value |
 |--|--|
-| What is it? | Graphical User Interface for interacting with files stored in the Azure cloud. |
+| What is it? | Graphical User Interface to interact with files stored in the Azure cloud |
 | Supported DSVM versions | Windows |
-| Typical uses | Importing and exporting data from the DSVM. |
-| How to use / run it? | Search for "Azure Storage Explorer" in the Start menu. |
+| Typical uses | Import data to and export data from the DSVM |
+| How to use / run it? | Search for "Azure Storage Explorer" in the Start menu |
 | Links to samples | [Azure Storage Explorer](vm-do-ten-things.md#access-azure-data-and-analytics-services) |
 
 ## bcp
 
 | Category | Value |
 |--|--|
-| What is it? | SQL Server tool to copy data between SQL Server and a data file. |
+| What is it? | SQL Server tool to copy data between SQL Server and a data file |
 | Supported DSVM versions | Windows |
-| Typical uses | Importing a CSV file into a SQL Server table and exporting a SQL Server table to a file. |
-| How to use / run it? | Open a command prompt and type `bcp` to get help. |
+| Typical uses | Import a CSV file into a SQL Server table<br>Export a SQL Server table to a file |
+| How to use / run it? | Open a command prompt, and type `bcp` to get help |
 | Links to samples | [bcp utility](/sql/tools/bcp-utility) |
 
 ## blobfuse
 
 | Category | Value |
 |--|--|
-| What is it? | A tool to mount an Azure Blob storage container in the Linux file system. |
+| What is it? | A tool to mount an Azure Blob storage container in the Linux file system |
 | Supported DSVM versions | Linux |
-| Typical uses | Reading and writing to blobs in a container. |
-| How to use and run it? | Run _blobfuse_ at a terminal. |
+| Typical uses | Read from and write to blobs in a container |
+| How to use and run it? | Run _blobfuse_ at a terminal |
 | Links to samples | [blobfuse on GitHub](https://github.com/Azure/azure-storage-fuse) |

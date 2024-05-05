@@ -12,7 +12,7 @@ ms.author: banders
 
 # Automatically renew reservations
 
-You can renew reservations to automatically purchase a replacement when an existing reservation expires. Automatic renewal provides an easy way to continue getting reservation discounts. It also saves you from having to closely monitor a reservation's expiration. With automatic renewal, you prevent savings benefits loss by not having to manually renew. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing reservation.
+You can renew reservations to automatically purchase a replacement when an existing reservation expires. Automatic renewal provides an easy way to continue getting reservation discounts. It also saves you from having to closely monitor a reservation's expiration. With automatic renewal, you prevent savings benefits loss by not having to manually renew. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing reservation. You can also opt in to automatically renew at time of purchase.
 
 Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation.
 
@@ -27,7 +27,7 @@ Go to Azure portal > **Reservations**.
 1. Select the reservation.
 2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
-  ![Example showing reservation renewal](./media/reservation-renew/reservation-renewal.png)
+  :::image type="content" border="true" source="./media/reservation-renew/reservation-renewal.png" alt-text="Screenshot showing reservation renewal.":::
 
 ## If you don't renew
 

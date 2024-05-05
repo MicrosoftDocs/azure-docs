@@ -19,4 +19,4 @@ Clear the selection if you don't want new files in the datastore to automaticall
 >
 > Also, don't remove data. Removing data from the dataset your project uses causes an error in the project. 
 
-After the project is created, use the [**Details**](#details-tab) tab to change incremental refresh, view the time stamp for the last refresh, and request an immediate refresh of data.
+After the project is created, use the [**Details**](../how-to-manage-labeling-projects.md#change-project-details) tab to change incremental refresh, view the time stamp for the last refresh, and request an immediate refresh of data.

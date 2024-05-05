@@ -34,7 +34,7 @@ Any management group and shared scope reservations include any development and t
 
 The Azure reservation discount is applied to running Premium v3 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Premium v3 instances to apply the reservation discount. For Premium v3 Instances that may not run the full hour, the reservation is filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. A reservation is underutilized when it doesn't run for an hour or when concurrent instances within the hour don't fill the hour of the reservation. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
-![Image showing the application of a reservation to billable VM usage](./media/reservation-discount-app-service/reserved-premium-v3-instance-application.png)
+:::image type="content" border="true" source="./media/reservation-discount-app-service/reserved-premium-v3-instance-application.png" alt-text="Screenshot showing the application of a reservation to billable VM usage.":::
 
 1.	Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charged for any usage below the reservations line, since it has been already paid as part of reservation purchase.
 2.	In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.

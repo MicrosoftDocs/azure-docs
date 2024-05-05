@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 2/1/2024
 ms.author: eur
 ---
 
@@ -30,7 +30,7 @@ Follow these steps to synthesize speech in a macOS application.
 
 1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Synthesize audio in Swift on macOS using the Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech) sample project. The repository also has iOS samples.
 1. Navigate to the directory of the downloaded sample app (`helloworld`) in a terminal.
-1. Run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency.
+1. Run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace that contains both the sample app and the Speech SDK as a dependency.
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
 1. Open the file named *AppDelegate.swift* and locate the `applicationDidFinishLaunching` and `synthesize` methods as shown here.
 
@@ -88,7 +88,7 @@ Follow these steps to synthesize speech in a macOS application.
                speechConfig = nil
            }
 
-           speechConfig?.speechSynthesisVoiceName = "en-US-JennyNeural";
+           speechConfig?.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";
 
            let synthesizer = try! SPXSpeechSynthesizer(speechConfig!)
            let result = try! synthesizer.speakText(inputText)
@@ -118,27 +118,33 @@ Follow these steps to synthesize speech in a macOS application.
 1. Optionally in *AppDelegate.m*, include a speech synthesis voice name as shown here:
 
    ```swift
-   speechConfig?.speechSynthesisVoiceName = "en-US-JennyNeural";
+   speechConfig?.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";
    ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
+1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
    All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. To make the debug output visible, select **View** > **Debug Area** > **Activate Console**.
-1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
+1. To build and run the example code, select **Product** > **Run** from the menu or select the **Play** button.
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 After you input some text and select the button in the app, you should hear the synthesized audio played.
 
 ## Remarks
 
-This quickstart uses the `SpeakText` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+### More speech synthesis options
 
-- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
-- For information about synthesizing long-form text to speech, see [Batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md).
+This quickstart uses the `SpeakText` operation to synthesize a short block of text that you enter. You can also use long-form text from a file and get finer control over voice styles, prosody, and other settings.
+
+- See [how to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md) for information about speech synthesis from a file and finer control over voice styles, prosody, and other settings.
+- See [batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md) for information about synthesizing long-form text to speech.
+
+### OpenAI text to speech voices in Azure AI Speech
+
+OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 

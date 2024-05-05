@@ -4,6 +4,7 @@ ms.date: 01/25/2022
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
@@ -83,4 +84,3 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
 
    After a successful deployment, you are ready to provision your device.
-

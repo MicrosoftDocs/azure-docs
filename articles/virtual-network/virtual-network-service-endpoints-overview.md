@@ -6,7 +6,6 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/27/2023
 ms.author: allensu
 ms.custom:
@@ -34,7 +33,6 @@ Service endpoints are available for the following Azure services and regions. Th
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault*): Generally available in all Azure regions.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*): Generally available in all Azure regions.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): Generally available in all Azure regions.
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Generally available in all Azure regions where ADLS Gen1 is available.
 - **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft.Web*): Generally available in all Azure regions where App service is available.
 - **[Azure Cognitive Services](../ai-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
 

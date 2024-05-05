@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 01/16/2024
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -54,8 +54,8 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 
 <sup>1</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It's possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
-> [!Note]  
-> We always recommend taking the most recent KB for your version of Windows.
+> [!NOTE]
+> We recommend taking the most recent KB for your version of Windows.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 
 ### Mount the Azure file share
 
-The Azure portal provides a script that you can use to mount your file share directly to a host using the storage account key. We recommend using this provided script.
+The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. Unless you're mounting the file share using identity-based authentication, we recommend using this provided script.
 
 To get this script:
 
@@ -97,7 +97,7 @@ You have now mounted your Azure file share.
 
 ### Mount the Azure file share with File Explorer
 
-> [!Note]  
+> [!NOTE]
 > Note that the following instructions are shown on Windows 10 and may differ slightly on older releases.
 
 1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
@@ -122,15 +122,15 @@ You have now mounted your Azure file share.
 
 ### Access an Azure file share via its UNC path
 
-You don't need to mount the Azure file share to a particular drive letter to use it. You can directly access your Azure file share using the [UNC path](/windows/win32/fileio/naming-a-file) by entering the following into File Explorer. Be sure to replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
+You don't need to mount the Azure file share to a drive letter to use it. You can directly access your Azure file share using the [UNC path](/windows/win32/fileio/naming-a-file) by entering the following into File Explorer. Be sure to replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
 
 `\\storageaccountname.file.core.windows.net\myfileshare`
 
-You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share. If you do not get prompted for credentials you can add the credentials using the following command:
+You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share. If you don't get prompted for credentials, you can add the credentials using the following command:
 
 `cmdkey /add:StorageAccountName.file.core.windows.net /user:localhost\StorageAccountName /pass:StorageAccountKey`
 
-For Azure Government Cloud, simply change the servername to:
+For Azure Government Cloud, change the servername to:
 
 `\\storageaccountname.file.core.usgovcloudapi.net\myfileshare`
 
@@ -148,7 +148,7 @@ Select **Previous Versions** to see the list of share snapshots for this directo
 
 ![Previous Versions tab](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
 
-You can select **Open** to open a particular snapshot. 
+You can select **Open** to open a particular snapshot.
 
 ![Opened snapshot](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
 
@@ -156,11 +156,11 @@ You can select **Open** to open a particular snapshot.
 
 Select **Restore** to copy the contents of the entire directory recursively at the share snapshot creation time to the original location.
 
- ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png)
 
 ## Enable SMB Multichannel
 
-Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied to be up-to-date. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you're running a version of Windows that is newer than these three versions, no additional action is required.
+Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you're running a version of Windows that's newer than these three versions, no additional action is required.
 
 ### Windows Server 2016 and Windows 10 version 1607
 
@@ -189,6 +189,7 @@ Set-ItemProperty `
 ## Next steps
 
 See these links for more information about Azure Files:
+
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [FAQ](storage-files-faq.md)
 - [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)

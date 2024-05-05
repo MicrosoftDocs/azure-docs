@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 11/07/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 When you no longer need the API for NoSQL account, you can delete the corresponding resource group.

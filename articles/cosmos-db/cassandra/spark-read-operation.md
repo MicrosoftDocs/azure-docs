@@ -9,8 +9,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.devlang: scala
-ms.custom: seodec18, ignite-2022
+ms.devlang: spark-scala
 ---
 
 # Read data from Azure Cosmos DB for Apache Cassandra tables using Spark

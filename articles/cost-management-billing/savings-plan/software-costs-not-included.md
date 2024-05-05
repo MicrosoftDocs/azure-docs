@@ -7,7 +7,6 @@ ms.author: banders
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/17/2023
 ---
@@ -57,7 +56,7 @@ Savings plan discounts apply only to the infrastructure costs and not to the sof
 
 ## Get rates for Azure meters
 
-You can get the pay-as-you-go cost of each of the meters with the Azure Retail Prices API. For information on how to get the rates for an Azure meter, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
+For information on how to get the pay-as-you-go rates for each Azure meter, see [Download Azure price sheet](download-savings-plan-price-sheet.md). EA customers should follow the first 7 steps in their section, while MCA customers should follow the first 5 steps in their sections.
 
 ## Need help? Contact us.
 

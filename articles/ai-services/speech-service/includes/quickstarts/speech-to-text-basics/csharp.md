@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -26,11 +26,13 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project. Create a console application with the .NET CLI, which creates the *Program.cs* file in the project directory.
+1. Open a command prompt window in the folder where you want the new project. Run this command to create a console application with the .NET CLI.
 
    ```dotnetcli
    dotnet new console
    ```
+
+   This command creates the *Program.cs* file in your project directory.
 
 1. Install the Speech SDK in your new project with the .NET CLI.
 
@@ -101,7 +103,7 @@ Follow these steps to create a console application and install the Speech SDK.
    ```
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. Speak into your microphone when prompted. What you speak should appear as text:
 

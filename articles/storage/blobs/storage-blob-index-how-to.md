@@ -299,3 +299,4 @@ N/A
 
 - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
+- Learn more about how to set index tags on objects at scale across multiple storage accounts. See [What is Azure Storage Actions?](../../storage-actions/overview.md)

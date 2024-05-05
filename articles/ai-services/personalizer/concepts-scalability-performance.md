@@ -7,7 +7,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 01/19/2024
 ---
 # Scalability and Performance
 

@@ -24,6 +24,8 @@ Following targets are **enabled/ON** by default - meaning you don't have to prov
 - `nodeexporter` (`job=node`)
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
+- `controlplane-apiserver` (`job=controlplane-apiserver`)
+- `controlplane-etcd` (`job=controlplane-etcd`)
 
 ## Metrics collected from default targets
 
@@ -151,6 +153,33 @@ The following metrics are collected by default from each default target. All oth
    - `kube_resource_labels` (ex - kube_pod_labels, kube_deployment_labels)
    - `kube_resource_annotations` (ex - kube_pod_annotations, kube_deployment_annotations)
 
+   **controlplane-apiserver (job=controlplane-apiserver)**<br>
+   - `apiserver_request_total`
+   - `apiserver_cache_list_fetched_objects_total`
+   - `apiserver_cache_list_returned_objects_total`
+   - `apiserver_flowcontrol_demand_seats_average`
+   - `apiserver_flowcontrol_current_limit_seats`
+   - `apiserver_request_sli_duration_seconds_bucket`
+   - `apiserver_request_sli_duration_seconds_count`
+   - `apiserver_request_sli_duration_seconds_sum`
+   - `process_start_time_seconds`
+   - `apiserver_request_duration_seconds_bucket`
+   - `apiserver_request_duration_seconds_count`
+   - `apiserver_request_duration_seconds_sum`
+   - `apiserver_storage_list_fetched_objects_total`
+   - `apiserver_storage_list_returned_objects_total`
+   - `apiserver_current_inflight_requests`
+
+   **controlplane-etcd (job=controlplane-etcd)**<br>
+   - `etcd_server_has_leader`
+   - `rest_client_requests_total`
+   - `etcd_mvcc_db_total_size_in_bytes`
+   - `etcd_mvcc_db_total_size_in_use_in_bytes`
+   - `etcd_server_slow_read_indexes_total`
+   - `etcd_server_slow_apply_total`
+   - `etcd_network_client_grpc_sent_bytes_total`
+   - `etcd_server_heartbeat_send_failures_total`
+
 ## Default targets scraped for Windows
 Following Windows targets are configured to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
 
@@ -159,7 +188,7 @@ Two default jobs can be run for Windows that scrape metrics required for the das
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
 
 > [!NOTE]
-> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview).
 
 ## Metrics scraped for Windows
 
@@ -225,7 +254,7 @@ The following default dashboards are automatically provisioned and configured by
 
 ## Recording rules
 
-The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
+The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
 
 - `cluster:node_cpu:ratio_rate5m`
 - `namespace_cpu:kube_pod_container_resource_requests:sum`

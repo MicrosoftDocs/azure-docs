@@ -7,7 +7,6 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 11/10/2023
 ms.author: godonnell
-ms.custom: 
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 

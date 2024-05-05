@@ -9,7 +9,8 @@ ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 09/06/2023
 ms.author: lajanuar
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups:  programming-languages-set-translator-sdk
 ---
@@ -32,7 +33,7 @@ In this quickstart, get started using the Translator service to [translate text]
 
 You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* Once you have your Azure subscription, create a [Translator resource](create-translator-resource.md) in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+* Once you have your Azure subscription, create a [Translator resource](create-translator-resource.yml) in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
 * After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 

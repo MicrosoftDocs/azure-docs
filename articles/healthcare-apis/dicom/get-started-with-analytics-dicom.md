@@ -1,6 +1,6 @@
 ---
 title: Get started using DICOM data in analytics workloads - Azure Health Data Services
-description: This article demonstrates how to use Azure Data Factory and Microsoft Fabric to perform analytics on DICOM data.
+description: Learn how to use Azure Data Factory and Microsoft Fabric to perform analytics on DICOM data.
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
@@ -21,7 +21,7 @@ Before you get started, complete these steps:
 * Create a [storage account with Azure Data Lake Storage Gen2 capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace:
     * Create a container to store DICOM metadata, for example, named `dicom`.
 * Deploy an instance of the [DICOM service](deploy-dicom-services-in-azure.md).
-   * (_Optional_) Deploy the [DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md) to enable direct access to DICOM files.
+   * (_Optional_) Deploy the [DICOM service with Data Lake Storage](deploy-dicom-services-in-azure-data-lake.md) to enable direct access to DICOM files.
 * Create a [Data Factory](../../data-factory/quickstart-create-data-factory.md) instance:
     * Enable a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md).
 * Create a [lakehouse](/fabric/data-engineering/tutorial-build-lakehouse) in Fabric.
@@ -105,15 +105,15 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 1. Select **Use this template** to create the new pipeline.
 
-### Create a pipeline for DICOM data (Preview)
+### Create a pipeline for DICOM data
 
-If you created the DICOM service with Azure Data Lake Storage (Preview), you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
+If you created the DICOM service with Azure Data Lake Storage, you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
 
-1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
+1. Download the [template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
 
 1. In Azure Data Factory, select **Author** from the left menu. On the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template**.
 
-1. In the **Open** window, select the preview template that you downloaded. Select **Open**.
+1. In the **Open** window, select the template that you downloaded. Select **Open**.
 
 1. In the **Inputs** section, select the linked services created for the DICOM service and Azure Data Lake Storage Gen2 account.
 
@@ -259,7 +259,7 @@ If you're using a [DICOM service with Data Lake Storage](dicom-data-lake.md), yo
 
 1. Enter a **Shortcut Name** that describes the DICOM data. For example, **contoso-dicom-files**.
 
-1. Enter the **Sub Path** that matches the name of the storage container and folder used by the DICOM service. For example, if you wanted to link to the root folder the Sub Path would be **/dicom/AHDS**.  Note, the root folder will always be `AHDS`, but you can optionally link to a child folder for a specific workspace or DICOM service instance.  
+1. Enter the **Sub Path** that matches the name of the storage container and folder used by the DICOM service. For example, if you wanted to link to the root folder the Sub Path would be **/dicom/AHDS**. Note that the root folder is always `AHDS`, but you can optionally link to a child folder for a specific workspace or DICOM service instance.  
 
 1. Select **Create** to create the shortcut.
 
@@ -289,7 +289,7 @@ After a few seconds, the results of the query appear in a table underneath the c
 
 #### Access DICOM file data in notebooks
 
-If you used the preview template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
+If you used the template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
 
 ``` SQL
 SELECT sopInstanceUid, filePath from instance
@@ -307,8 +307,6 @@ In this article, you learned how to:
 * Use notebooks to query for DICOM data in the lakehouse.
 
 ## Next steps
-
-Learn more about Data Factory pipelines:
 
 * [Pipelines and activities in Data Factory](../../data-factory/concepts-pipelines-activities.md)
 * [Use Microsoft Fabric notebooks](/fabric/data-engineering/how-to-use-notebook)

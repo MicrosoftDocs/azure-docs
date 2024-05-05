@@ -7,7 +7,6 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/03/2023
 ms.author: maquaran
-ms.custom: contperf-fy21q2, ignite-2022
 ---
 
 # Azure Cosmos DB SQL SDK connectivity modes

@@ -8,7 +8,6 @@ brand: azure
 metadata:
   title: Site reliability engineering documentation
   description: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products.
-  services: site-reliability-engineering
   ms.service: site-reliability-engineering
   ms.topic: hub-page
   author: dnblankedelman

@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As an identity app developer using Azure Active Directory B2C, I want to learn how to create and run my own custom policies, so that I can create complex user journeys and customize the behavior of the user experience to meet my business specific needs.
+
 ---
 
 # Create and run your own custom policies in Azure Active Directory B2C 

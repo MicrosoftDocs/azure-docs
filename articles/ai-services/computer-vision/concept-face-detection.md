@@ -11,13 +11,16 @@ ms.subservice: azure-ai-face
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
 ---
 
 # Face detection, attributes, and input data
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
+> [!IMPORTANT]
+> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data. Please refrain from using these attributes for anti-spoofing. Instead, we recommend using Face Liveness detection. For more information, please refer to [Tutorial: Detect liveness in faces](/azure/ai-services/computer-vision/tutorials/liveness). 
 
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
@@ -67,10 +70,7 @@ Attributes are a set of features that can optionally be detected by the [Face - 
     >[!NOTE]
     > The availability of each attribute depends on the detection model specified. QualityForRecognition attribute also depends on the recognition model, as it is currently only available when using a combination of detection model detection_01 or detection_03, and recognition model recognition_03 or recognition_04.
 
-> [!IMPORTANT]
-> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data.
-
-## Input data
+## Input requirements
 
 Use the following tips to make sure that your input images give the most accurate detection results:
 

@@ -3,9 +3,10 @@ title: Azure monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions, metric values, and activity logs.
 author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 03/11/2024
 ms.custom: has-adal-ref
-ms.reviewer: edbaynash
+ms.author: edbaynash
+ms.reviewer: priyamishra
 ---
 
 # Azure monitoring REST API walkthrough
@@ -16,7 +17,7 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 
 ## Authenticate Azure Monitor requests
 
-Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Microsoft Entra ID. One approach to authenticating the client application is to create a Microsoft Entra service principal and retrieve an authentication token. You can create a Microsoft Entra service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md)
+Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Microsoft Entra ID. One approach to authenticating the client application is to create a Microsoft Entra service principal and retrieve an authentication token. You can create a Microsoft Entra service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md).
 
 ### Retrieve a token
 Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
@@ -81,18 +82,18 @@ For example
 * **Azure Virtual Machines**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachines/\<vm-name>
 * **Azure Event Hubs**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.EventHub/namespaces/\<eventhub-namespace>
 
-Use the Azure portal, PowerShell or the Azure CLI to find the resource ID.
+Use the Azure portal, PowerShell, or the Azure CLI to find the resource ID.
 
 
 ### [Azure portal](#tab/portal)
 
 To find the resourceID in the portal, from the resource's overview page, select **JSON view**
-:::image type="content" source="./media/rest-api-walkthrough/json-view-azure-portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted.":::
+:::image type="content" source="./media/rest-api-walkthrough/json-view-azure-portal.png" lightbox="./media/rest-api-walkthrough/json-view-azure-portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted.":::
 
 
-The Resource JSON page is displayed. The resource ID can be copied using the icon on the right of the ID 
+The Resource JSON page is displayed. The resource ID can be copied using the icon on the right of the ID. 
 
-:::image type="content" source="./media/rest-api-walkthrough/resourceid-azure-portal.png" alt-text="A screenshot showing the Resource JSON page for a resource.":::
+:::image type="content" source="./media/rest-api-walkthrough/resourceid-azure-portal.png" lightbox="./media/rest-api-walkthrough/resourceid-azure-portal.png" alt-text="A screenshot showing the Resource JSON page for a resource.":::
 
 
 ### [PowerShell](#tab/powershell)
@@ -196,7 +197,7 @@ Authorization: Bearer <access token>
 
 ```
 
-For example, The following request retrieves the metric definitions for an Azure Storage account
+For example, The following request retrieves the metric definitions for an Azure Storage account.
 
 ```curl
 curl --location --request GET 'https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01'
@@ -489,7 +490,7 @@ In addition to querying for metrics on an individual resource, some resource typ
 
 There are some important differences between querying metrics for multiple and individual resources.
 + Metrics multi-resource APIs operate at the subscription level instead of the resource ID level. This restriction means users querying these APIs must have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permissions on the subscription itself.
-+ Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
++ Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metric namespace query parameter.
 + Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
 ### Querying metrics for multiple resources examples
@@ -505,7 +506,7 @@ The only changes are the subscription path instead of a resource ID path, and th
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
 ```
 
-The following is an example of an individual metrics request. 
+The following example shows an individual metrics request. 
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01
 ```
@@ -514,7 +515,8 @@ Below is an equivalent metrics request for multiple resources:
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
 ```
-Note that a `Microsoft.ResourceId eq '*'` filter is added for the multi resource metrics requests as well. The filter tells the API to return a separate time series per virtual machine resource in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value.
+> [!NOTE] 
+> A `Microsoft.ResourceId eq '*'` filter is added in the example for the multi resource metrics requests. The filter tells the API to return a separate time series per virtual machine resource in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value. If there are no resourceIds retrieved by this query an empty time series`"timeseries": []` is returned.
 
 ```JSON
 {
@@ -641,71 +643,23 @@ Note that a `Microsoft.ResourceId eq '*'` filter is added for the multi resource
 
 ### Troubleshooting querying metrics for multiple resources
 
-+ No data returned can be due to the wrong region being specified:
-    The multi resource APIs don't verify that any valid resources exist in the specified region and subscription combination. The only indicator that the region may be wrong is getting an empty time series data response. For example: `"timeseries": [],`
-+ 401 authorization errors:
++ Empty time series returned `"timeseries": []` 
+    - An empty time series is returned when no data is available for the specified time range and filter. The most common cause is specifying a time range that doesn't contain any data. For example, if the time range is set to a future date.
+    - Another common cause is specifying a filter that doesn't match any resources. For example, if the filter specifies a dimension value that doesn't exist on any resources in the subscription and region combination, `"timeseries": []` is returned. 
+    
++  Wildcard filters  
+    Using a wildcard filter such as `Microsoft.ResourceId eq '*'` causes the API to return a time series for every resourceId in the subscription and region. If the subscription and region combination contains no resources, an empty time series is returned. The same query without the wildcard filter would return a single time series, aggregating the requested metric over the requested dimensions, for example subscription and region. If there are no resources in the subscription and region combination, the API returns a single time series with a single data point of `0`.
+ 
++ 401 authorization errors:  
     The individual resource metrics APIs requires a user have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission on the resource being queried. Because the multi resource metrics APIs are subscription level APIs, users must have the  [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission for the queried subscription to use the multi resource metrics APIs. Even if users have Monitoring Reader on all the resources in a subscription, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
 
----
-## Retrieve activity log data
 
-Use the Azure Monitor REST API to query [activity log](/rest/api/monitor/activitylogs) data. 
-
-Use the following request format for activity log queries.
-
-```curl 
-GET /subscriptions/<subscriptionId>/providers/Microsoft.Insights/eventtypes/management/values \
-?api-version=2015-04-01 \
-&$filter=<filter> \
-&$select=<select>
-host: management.azure.com
-```
-
-**$filter** reduces the set of data collected.
-This argument is required and it also requires at least the start date/time.
-The $filter argument accepts the following patterns:
-- List events for a resource group: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceGroupName eq 'resourceGroupName'.
-- List events for resource: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceUri eq 'resourceURI'.
-- List events for a subscription in a time range: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z'.
-- List events for a resource provider: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and resourceProvider eq 'resourceProviderName'.
-- List events for a correlation ID: $filter=eventTimestamp ge '2014-07-16T04:36:37.6407898Z' and eventTimestamp le '2014-07-20T04:36:37.6407898Z' and correlationId eq 'correlationID'.
-
-
-**$select** is used to fetch a specified list of properties for the returned events.
-The $select argument is a comma separated list of property names to be returned. 
-Valid values are: 
-`authorization`, `claims`, `correlationId`, `description`, `eventDataId`, `eventName`, `eventTimestamp`, `httpRequest`, `level`, `operationId`, `operationName`, `properties`, `resourceGroupName`, `resourceProviderName`, `resourceId`, `status`, `submissionTimestamp`, `subStatus`, and `subscriptionId`.
-
-The following sample requests use the Azure Monitor REST API to query an activity log.
-### Get activity logs with filter:
-
-The following example gets the activity logs for resource group "MSSupportGroup" between the dates 2023-03-21T20:00:00Z and 2023-03-24T20:00:00Z
-
-``` HTTP
-GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-03-21T20:00:00Z' and eventTimestamp le '2023-03-24T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
-```
-### Get activity logs with filter and select:
-
-The following example gets the activity logs for resource group "MSSupportGroup", between the dates 2023-03-21T20:00:00Z and 2023-03-24T20:00:00Z, returning the elements eventName,operationName,status,eventTimestamp,correlationId,submissionTimestamp, and level
-```HTTP
-GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2023-03-21T20:00:00Z' and eventTimestamp le '2023-03-24T20:00:00Z'and resourceGroupName eq 'MSSupportGroup'&$select=eventName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
-```
-
-
-## Troubleshooting
-
-You may receive one of the following HTTP error statuses:
-* 429 Too Many Requests
-* 503 Service Unavailable
-* 504 Gateway Timeout
-* 529 Service Throttling
-
-If one of these statuses is returned, wait for at least 30 seconds and resend the request.
 
 ## Next steps
 
-* Review the [overview of monitoring](../overview.md).
-* View the [supported metrics with Azure Monitor](./metrics-supported.md).
-* Review the [Microsoft Azure Monitor REST API reference](/rest/api/monitor/).
-* Review the new [Azure Monitor Query client libraries](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-monitor-query-client-libraries/)
-* Review the [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
+- Review the [overview of monitoring](../overview.md).
+- View the [supported metrics with Azure Monitor](./metrics-supported.md).
+- Review the [Microsoft Azure Monitor REST API reference](/rest/api/monitor/).
+- Review the new [Azure Monitor Query client libraries](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-monitor-query-client-libraries/)
+- Review the [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
+- [Retrieve activity log data using Azure monitor REST API](./rest-activity-log.md).

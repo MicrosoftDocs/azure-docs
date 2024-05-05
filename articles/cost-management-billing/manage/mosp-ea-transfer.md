@@ -3,18 +3,17 @@ title: Transfer an Azure subscription to an Enterprise Agreement
 description: This article helps you understand the steps to transfer a Microsoft Customer Agreement subscription or MOSP subscription to an Enterprise Agreement.
 author: bandersmsft
 ms.reviewer: sgautam
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 03/21/2024
 ms.author: banders
 ms.custom:
 ---
 
 # Transfer an Azure subscription to an Enterprise Agreement (EA)
 
-This article helps you understand the steps needed to transfer an individual Microsoft Online Service Program (MOSP) subscription (Azure offer MS-AZR-003P pay-as-you-go) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+This article helps you understand the steps needed to transfer an individual Microsoft Online Service Program (MOSP) subscription (Azure offer MS-AZR-0003P pay-as-you-go) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
 
 [!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
@@ -31,7 +30,7 @@ The following sections help you identify your subscription account admin, requir
 
 Identify the subscription account admin by signing in to the Azure portal with an account that has at least the Azure RBAC reader role for the subscription. Then navigate to **Subscriptions** > Select the subscription > **Properties**. The subscription **Account Admin** is shown. Make a note of the user information.
 
-:::image type="content" source="./media/mosp-ea-transfer/subscription-account-admin.png" alt-text="Image showing subscription properties where you can view the Account Admin" lightbox="./media/mosp-ea-transfer/subscription-account-admin.png" :::
+:::image type="content" source="./media/mosp-ea-transfer/subscription-account-admin.png" alt-text="Screenshot showing subscription properties where you can view the Account Admin." lightbox="./media/mosp-ea-transfer/subscription-account-admin.png" :::
 
 > [!NOTE]
 > You must sign in later with the same Account Admin user account as described in the preceding information. If you don't have access to the account, you must get it before proceeding. For more information, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).
@@ -47,7 +46,7 @@ You must have one of the following roles to create an EA account owner. For more
 
 ### Set EA authentication level
 
-EAs have an authentication level set that determines which types of users can be added as EA account owners for the enrollment. There are four authentication levels available, as described at [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
+EAs have an authentication level set that determines which types of users can be added as EA account owners for the enrollment. There are four authentication levels available.
 
 Ensure that the authentication level set for the EA allows you to create a new EA account owner using the subscription account administrator noted previously. For example:
 
@@ -55,7 +54,7 @@ Ensure that the authentication level set for the EA allows you to create a new E
 - If the subscription account administrator has an email address domain of `@<YourAzureADTenantPrimaryDomain.com>`, then the EA must have its authentication level set to either **Work or School Account** or **Work or School Account Cross Tenant**. The ability to create a new EA account owner depends on whether the EA's default domain is the same as the subscription account administrator's email address domain.
 
 > [!NOTE]
-> When set correctly, changing the authentication level doesn't impact the transfer process. For more information, see [Authentication level types](ea-portal-troubleshoot.md#authentication-level-types).
+> When set correctly, changing the authentication level doesn't impact the transfer process.
 
 ## Transfer the subscription to the EA
 

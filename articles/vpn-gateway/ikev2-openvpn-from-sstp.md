@@ -17,7 +17,7 @@ A point-to-site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (macOS versions 10.13 and above).
+* **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above).
 
 * **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
 
@@ -29,7 +29,7 @@ Point-to-site VPN can use one of the following protocols:
 
 ## <a name="migrate"></a>Migrating from SSTP to IKEv2 or OpenVPN
 
-There may be cases when you want to support more than 128 concurrent P2S connection to a VPN gateway but are using SSTP. In such a case, you need to move to IKEv2 or OpenVPN protocol.
+There might be cases when you want to support more than 128 concurrent P2S connection to a VPN gateway but are using SSTP. In such a case, you need to move to IKEv2 or OpenVPN protocol.
 
 ### Option 1 - Add IKEv2 in addition to SSTP on the Gateway
 
@@ -55,9 +55,9 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/change-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with Open VPN selected." lightbox="./media/ikev2-openvpn-from-sstp/change-tunnel-type.png":::
 
-Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-cert-windows.md#view-openvpn).
+Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-cert-windows.md).
 
-If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-cert-windows.md#azurevpn).
+If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-cert-windows.md).
 
 ## <a name="faq"></a>Frequently asked questions
 

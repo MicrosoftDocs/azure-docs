@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand what data formats Data Processor supports so that I can serialize and deserialize messages in a pipeline.
 ---
 
-# Serialization and deserialization formats overview
+# Serialization and deserialization formats in Azure IoT Data Processor Preview pipelines
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

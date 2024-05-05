@@ -3,29 +3,26 @@ title: Immersive Reader Node.js client library quickstart
 titleSuffix: Azure AI services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 09/14/2020
-ms.author: rwaller
+ms.date: 02/14/2024
+ms.author: sharmas
 ms.custom: devx-track-js
 ---
 
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
-
-In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
+In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
-* [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
-* An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* An IDE such as [Visual Studio Code](https://code.visualstudio.com).
 
 ## Create a Node.js web app with Express
 
-Create a Node.js web app with the `express-generator` tool.
+Create a Node.js web app by using the `express-generator` tool.
 
 ```bash
 npm install express-generator -g
@@ -33,7 +30,7 @@ express --view=pug quickstart-nodejs
 cd quickstart-nodejs
 ```
 
-Install yarn dependencies, and add dependencies `request` and `dotenv`, which will be used later in the quickstart.
+Install yarn dependencies, and add dependencies `request` and `dotenv`.
 
 ```bash
 yarn
@@ -41,7 +38,7 @@ yarn add request
 yarn add dotenv
 ```
 
-Install the **axios** and **qs** libraries with the following command:
+Install the `axios` and `qs` libraries.
 
 ```bash
 npm install axios qs
@@ -49,10 +46,7 @@ npm install axios qs
 
 ## Set up authentication
 
-### Configure authentication values
-
-Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource.
-Do not include quotation marks or the "{" and "}" characters.
+Create a new file called *.env* in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource. Don't include quotation marks or the `{` and `}` characters.
 
 > [!IMPORTANT]
 > Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
@@ -64,9 +58,9 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Be sure not to commit this file into source control, as it contains secrets that should not be made public.
+Be sure not to commit this file into source control, since it contains secrets that shouldn't be made public.
 
-Next, open _app.js_ and add the following to the top of the file. This loads the properties defined in the .env file as environment variables into Node.
+Next, open *app.js* and add the following code to the top of the file. This loads the properties defined in the *.env* file as environment variables into Node.
 
 ```javascript
 require('dotenv').config();
@@ -74,9 +68,9 @@ require('dotenv').config();
 
 ### Update the router to acquire the token
 
-Open the _routes\index.js_ file and replace the automatically generated code with the following code.
+Open the *routes\index.js* file and replace the automatically generated code with the following code.
 
-This code creates an API endpoint that acquires a Microsoft Entra authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
+This code creates an API endpoint that acquires a Microsoft Entra ID authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
 
 ```javascript
 var axios = require('axios');
@@ -112,7 +106,7 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
         })
         .catch(function (response) {
             if (response.status !== 200) {
-                return res.send({error :  "Unable to acquire Azure AD token. Check the debugger for more information."})
+                return res.send({error :  "Unable to acquire Microsoft Entra token. Check the debugger for more information."})
             }
         });
     } catch (error) {
@@ -124,11 +118,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-The **GetTokenAndSubdomain** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this quickstart.
+The **GetTokenAndSubdomain** API endpoint should be secured behind some form of authentication, such as [OAuth](https://oauth.net/2/), to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this quickstart.
 
 ## Add sample content
 
-Now, we'll add sample content to this web app. Open _views\index.pug_ and replace the automatically generated code with this sample:
+Now add sample content to this web app. Open *views\index.pug* and replace the automatically generated code with this sample:
 
 ```pug
 doctype html
@@ -235,7 +229,7 @@ script(type="text/javascript").
     }
 ```
 
-Notice that all of the text has a **lang** attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
+Notice that all of the text has a `lang` attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
 
 ## Build and run the app
 
@@ -245,17 +239,17 @@ Our web app is now ready. Start the app by running:
 npm start
 ```
 
-Open your browser and navigate to _http://localhost:3000_. You should see the following:
+Open your browser and navigate to `http://localhost:3000`. You should see:
 
-![Sample app - Node.js](../../media/quickstart-nodejs/1-buildapp.png)
+:::image type="content" source="../../media/quickstart-nodejs/1-build-app.png" alt-text="Screenshot of the app in the browser.":::
 
-## Launch the Immersive Reader
+### Launch the Immersive Reader
 
-When you select the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
+When you select the **Immersive Reader** button, the Immersive Reader launches with the content on the page.
 
-![Immersive Reader - Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
+:::image type="content" source="../../media/quickstart-nodejs/2-view-immersive-reader.png" alt-text="Screenshot of the Immersive Reader app.":::
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
+> [Explore the Immersive Reader SDK reference](../../reference.md)

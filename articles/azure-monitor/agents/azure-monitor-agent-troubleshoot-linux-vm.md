@@ -5,9 +5,8 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 5/31/2023
-ms.custom: references_region
+ms.custom: references_region, linux-related-content
 ms.reviewer: shseth
-
 ---
 
 # Troubleshooting guidance for the Azure Monitor agent on Linux virtual machines and scale sets

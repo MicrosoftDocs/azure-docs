@@ -3,6 +3,7 @@ title: How to bring a Linux custom image from an Azure virtual machine.
 description: Describes how to bring a Linux custom image from an Azure virtual machine.
 ms.date: 07/27/2021
 ms.topic: how-to
+ms.custom: linux-related-content
 ---
 
 # Bring a Linux custom image from an Azure virtual machine

@@ -1,8 +1,8 @@
 ---
 title: Data collection and reporting | Azure Arc-enabled data services
 description: Explains the type of data that is transmitted by Azure Arc-enabled Data services to Microsoft. 
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

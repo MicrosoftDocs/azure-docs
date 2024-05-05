@@ -7,7 +7,6 @@ ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: chugugrace
-ms.custom: seo-lt-2019
 ms.date: 08/10/2023
 ---
 

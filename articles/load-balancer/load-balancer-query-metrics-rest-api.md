@@ -9,7 +9,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 05/08/2023
 ms.author: mbender
-ms.custom: REST, template-how-to, seodec18, engagement-fy23
+ms.custom: REST, template-how-to, engagement-fy23
 ---
 
 # Get Load Balancer usage metrics using the Azure REST API

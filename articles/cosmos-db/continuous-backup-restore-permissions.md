@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: subject-rbac-steps, ignite-2022, devx-track-azurecli
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account
@@ -29,7 +29,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

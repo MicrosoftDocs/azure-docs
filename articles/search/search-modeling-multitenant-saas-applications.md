@@ -2,13 +2,13 @@
 title: Multitenancy and content isolation
 titleSuffix: Azure AI Search
 description: Learn about common design patterns for multitenant SaaS applications while using Azure AI Search.
-author: mattmsft
+author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 04/23/2024
 ---
 
 # Design patterns for multitenant SaaS applications and Azure AI Search
@@ -40,15 +40,6 @@ Adding and removing partitions and replicas at will allow the capacity of the se
 
 There are a few different [pricing tiers](https://azure.microsoft.com/pricing/details/search/) in Azure AI Search, each of the tiers has different [limits and quotas](search-limits-quotas-capacity.md). Some of these limits are at the service-level, some are at the index-level, and some are at the partition-level.
 
-|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
-| --- | --- | --- | --- | --- | --- |
-| **Maximum Replicas per Service** |3 |12 |12 |12 |12 |
-| **Maximum Partitions per Service** |1 |12 |12 |12 |3 |
-| **Maximum Search Units (Replicas*Partitions) per Service** |3 |36 |36 |36 |36 (max 3 partitions) |
-| **Maximum Storage per Service** |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| **Maximum Storage per Partition** |2 GB |25 GB |100 GB |200 GB |200 GB |
-| **Maximum Indexes per Service** |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
-
 #### S3 High Density
 
 In Azure AI Search’s S3 pricing tier, there's an option for the High Density (HD) mode designed specifically for multitenant scenarios. In many cases, it's necessary to support a large number of smaller tenants under a single service to achieve the benefits of simplicity and cost efficiency.
@@ -67,7 +58,7 @@ Multitenant applications must effectively distribute resources among the tenants
 
 + *Ease of Operations:* When developing a multitenant architecture, the impact on the application's operations and complexity is an important consideration. Azure AI Search has a [99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-+ *Global footprint:* Multitenant applications may need to effectively serve tenants, which are distributed across the globe.
++ *Global footprint:* Multitenant applications often need to serve tenants who are distributed across the globe.
 
 + *Scalability:* Application developers need to consider how they reconcile between maintaining a sufficiently low level of application complexity and designing the application to scale with number of tenants and the size of tenants' data and workload.
 
@@ -95,7 +86,7 @@ A key attribute of the index-per-tenant model is the ability for the application
 
 The index-per-tenant model provides the basis for a variable cost model, where an entire Azure AI Search service is bought up-front and then subsequently filled with tenants. This allows for unused capacity to be designated for trials and free accounts.
 
-For applications with a global footprint, the index-per-tenant model may not be the most efficient. If an application's tenants are distributed across the globe, a separate service may be necessary for each region, which may duplicate costs across each of them.
+For applications with a global footprint, the index-per-tenant model might not be the most efficient. If an application's tenants are distributed across the globe, a separate service can be necessary for each region, duplicating costs across each of them.
 
 Azure AI Search allows for the scale of both the individual indexes and the total number of indexes to grow. If an appropriate pricing tier is chosen, partitions and replicas can be added to the entire search service when an individual index within the service grows too large in terms of storage or traffic.
 

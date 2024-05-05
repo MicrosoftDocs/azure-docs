@@ -2,15 +2,8 @@
 title: Storage hierarchy of Azure NetApp Files | Microsoft Docs
 description: Describes the storage hierarchy, including Azure NetApp Files accounts, capacity pools, and volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 07/27/2023
 ms.author: anfdocs
@@ -25,7 +18,7 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png" alt-text="Conceptual diagram of storage hierarchy." lightbox="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png":::
+:::image type="content" source="./media/azure-netapp-files-understand-storage-hierarchy/azure-netapp-files-storage-hierarchy.png" alt-text="Conceptual diagram of storage hierarchy." lightbox="./media/azure-netapp-files-understand-storage-hierarchy/azure-netapp-files-storage-hierarchy.png":::
 
 ## <a name="azure_netapp_files_account"></a>NetApp accounts
 
@@ -84,7 +77,7 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 
 ## Large volumes
 
-Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding the previous 100-TiB limit. Large volumes begin at a capacity of 102,401 GiB and scale up to 500 TiB. Regular Azure NetApp Files volumes are offered between 100 GiB and 102,400 GiB. 
+Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding the previous 100-TiB limit. Large volumes begin at a capacity of 50 TiB and scale up to 500 TiB. Regular Azure NetApp Files volumes are offered between 100 GiB and 102,400 GiB. 
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
 

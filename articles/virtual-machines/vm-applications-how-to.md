@@ -5,7 +5,6 @@ author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 09/08/2023
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

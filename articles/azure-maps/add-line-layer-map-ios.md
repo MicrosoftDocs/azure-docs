@@ -12,6 +12,12 @@ services: azure-maps
 
 # Add a line layer to the map in the iOS SDK (Preview)
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 A line layer can be used to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it with data to render.
 
 > [!TIP]

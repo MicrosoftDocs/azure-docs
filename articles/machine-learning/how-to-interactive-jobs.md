@@ -1,7 +1,7 @@
 ---
 title: Interact with your jobs (debug and monitor)
 titleSuffix: Azure Machine Learning
-description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice. 
+description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice.
 services: machine-learning
 ms.author: joburges
 author: joburges
@@ -9,10 +9,9 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: devplatv2, sdkv2, cliv2
 
 ms.date: 07/15/2023
-
 #Customer intent: I'm a data scientist with ML knowledge in the machine learning space, looking to build ML models using data in Azure Machine Learning with full control of the model training including debugging and monitoring of live jobs.
 ---
 
@@ -277,5 +276,3 @@ To submit a job with a debugger attached and the execution paused, you can use d
 ## Next steps
 
 + Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).
-
-

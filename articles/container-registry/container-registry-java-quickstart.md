@@ -115,7 +115,7 @@ Finally, you'll update your project configuration and use the command prompt to 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/install)
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/openjdk/jdk:11-ubuntu`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/install)
 
    ```xml
    <plugin>
@@ -124,7 +124,7 @@ Finally, you'll update your project configuration and use the command prompt to 
      <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
-            <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
+            <image>mcr.microsoft.com/openjdk/jdk:11-ubuntu</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>

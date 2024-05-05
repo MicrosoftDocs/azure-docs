@@ -8,7 +8,7 @@ ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ---
 
 <a name="HOLTop"></a>

@@ -407,6 +407,7 @@ The following table lists the error codes for the deployment script:
 | `DeploymentScriptStorageAccountAccessKeyNotSpecified` | The access key wasn't specified for the existing storage account.|
 | `DeploymentScriptContainerGroupContainsInvalidContainers` | A container group that the deployment script service created was externally modified, and invalid containers were added. |
 | `DeploymentScriptContainerGroupInNonterminalState` | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them hasn't finished its execution yet. |
+| `DeploymentScriptExistingStorageNotInSameSubscriptionAsDeploymentScript` | The existing storage provided in deployment is not found in the subscription where the script is being deployed. |
 | `DeploymentScriptStorageAccountInvalidKind` | The existing storage account of the `BlobBlobStorage` or `BlobStorage` type doesn't support file shares and can't be used. |
 | `DeploymentScriptStorageAccountInvalidKindAndSku` | The existing storage account doesn't support file shares. For a list of supported types of storage accounts, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). |
 | `DeploymentScriptStorageAccountNotFound` | The storage account doesn't exist, or an external process or tool deleted it. |

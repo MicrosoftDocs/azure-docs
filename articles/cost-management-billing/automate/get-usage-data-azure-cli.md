@@ -20,7 +20,7 @@ This article explains how you get cost and usage data with the Azure CLI. If you
 
 Start by preparing your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure an export job to export cost data to Azure storage
 

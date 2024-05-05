@@ -6,11 +6,14 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/20/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a web application developer, I want to embed the Azure AD B2C sign-in user interface directly into my web application using the <iframe> HTML element, so that I can provide a simpler sign-up or sign-in experience for my users without redirecting them to a separate page or generating pop-up windows.
+
 ---
 
 # Embedded sign-up or sign-in experience

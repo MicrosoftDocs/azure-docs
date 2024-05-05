@@ -1,6 +1,5 @@
 ---
-title: Send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka
-titleSuffix: Azure IoT MQ
+title: Send receive messages between Azure IoT MQ and Event Hubs or Kafka
 description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
 author: PatAltimore
 ms.author: patricka
@@ -8,16 +7,16 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
 
-# Send and receive messages between Azure IoT MQ and Kafka
+# Send and receive messages between Azure IoT MQ Preview and Azure Event Hubs or Kafka
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Kafka connector pushes messages from Azure IoT MQ's MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
+The Kafka connector pushes messages from Azure IoT MQ Preview MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
 
 ## Configure Event Hubs connector via Kafka endpoint
@@ -128,7 +127,7 @@ spec:
   image:
     pullPolicy: IfNotPresent
     repository: mcr.microsoft.com/azureiotoperations/kafka
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
@@ -142,7 +141,7 @@ spec:
       authType:
         systemAssignedManagedIdentity:
           # plugin in your Event Hubs namespace name
-          audience: "https://<EVENTHUBS_NAMESPACE>.servicebus.windows.net" 
+          audience: "https://<NAMESPACE>.servicebus.windows.net" 
   localBrokerConnection:
     endpoint: "aio-mq-dmqtt-frontend:8883"
     tls:
@@ -180,9 +179,9 @@ The `tls` field enables TLS encryption for the connection and optionally specifi
 | Field | Description | Required |
 | ----- | ----------- | -------- |
 | tlsEnabled | A boolean value that indicates whether TLS encryption is enabled or not. It must be set to true for Event Hubs communication. | Yes |
-| caConfigMap | The name of the config map that contains the CA certificate for verifying the server's identity. This field isn't required for Event Hubs communication, as Event Hubs uses well-known CAs that are trusted by default. However, you can use this field if you want to use a custom CA certificate. | No |
+| trustedCaCertificateConfigMap | The name of the config map that contains the CA certificate for verifying the server's identity. This field isn't required for Event Hubs communication, as Event Hubs uses well-known CAs that are trusted by default. However, you can use this field if you want to use a custom CA certificate. | No |
 
-When specifying a trusted CA is required, create a ConfigMap containing the public potion of the CA in PEM format, and specify the name in the `caConfigMap` property.
+When specifying a trusted CA is required, create a ConfigMap containing the public potion of the CA in PEM format, and specify the name in the `trustedCaCertificateConfigMap` property.
 
 ```bash
 kubectl create configmap ca-pem --from-file path/to/ca.pem
@@ -201,26 +200,53 @@ The authentication field supports different types of authentication methods, suc
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
-| sasl | The configuration for SASL authentication. Specify the `saslType`, which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
-| x509 | The configuration for X509 authentication. Specify the `secretName` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
+| sasl | The configuration for SASL authentication. Specify the `saslType`, which can be *plain*, *scramSha256*, or *scramSha512*, and `token` to reference the Kubernetes `secretName` or Azure Key Vault `keyVault` secret containing the password. | Yes, if using SASL authentication |
 | systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
+| x509 | The configuration for X509 authentication. Specify the `secretName` or `keyVault` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
 
-You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
-For Event Hubs, use plain SASL and `$ConnectionString` as the username and the full connection string as the password.
+##### Authenticate to Event Hubs
+
+To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. First create the Kubernetes secret:
 
 ```bash
-kubectl create secret generic cs-secret \
+kubectl create secret generic cs-secret -n azure-iot-operations \
   --from-literal=username='$ConnectionString' \
   --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY_NAME>;SharedAccessKey=<KEY>'
 ```
 
-For X.509, use Kubernetes TLS secret containing the public certificate and private key.
+Then, reference the secret in the configuration:
 
-```bash
-kubectl create secret tls my-tls-secret \
-  --cert=path/to/cert/file \
-  --key=path/to/key/file
+```yaml
+authentication:
+  enabled: true
+  authType:
+    sasl:
+      saslType: plain
+      token:
+        secretName: cs-secret
+```
+
+To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration.
+
+```yaml
+authentication:
+  enabled: true
+  authType:
+    sasl:
+      saslType: plain
+      token:
+        keyVault:
+          username: "$ConnectionString"
+          vault:
+            name: my-key-vault
+            directoryId: <AKV directory ID>
+            credentials:
+              servicePrincipalLocalSecretName: aio-akv-sp
+          vaultSecret:
+            name: my-cs # Endpoint=sb://..
+            # version: 939ecc2...
 ```
 
 To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
@@ -231,6 +257,57 @@ authentication:
   authType:
     systemAssignedManagedIdentity:
       audience: https://<NAMESPACE>.servicebus.windows.net
+```
+
+##### X.509
+
+For X.509, use Kubernetes TLS secret containing the public certificate and private key.
+
+```bash
+kubectl create secret tls my-tls-secret -n azure-iot-operations \
+  --cert=path/to/cert/file \
+  --key=path/to/key/file
+```
+
+Then specify the `secretName` in configuration.
+
+```yaml
+authentication:
+  enabled: true
+  authType:
+    x509:
+      secretName: my-tls-secret
+```
+
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
+
+```yaml
+authentication:
+  enabled: true
+  authType:
+    x509:
+      keyVault:
+        vault:
+          name: my-key-vault
+          directoryId: <AKV directory ID>
+          credentials:
+            servicePrincipalLocalSecretName: aio-akv-sp
+        vaultCert:
+          name: my-cert
+          # version: 939ecc2...
+        ## If presenting full chain also  
+        # vaultCaChainSecret:
+        #   name: my-chain
+```
+
+Or, if presenting the full chain is required, upload the full chain cert and key to AKV as a PFX file and use the `vaultCaChainSecret` field instead.
+
+```yaml
+# ...
+keyVault:
+  vaultCaChainSecret:
+    name: my-cert
+    # version: 939ecc2...
 ```
 
 ### Manage local broker connection
@@ -415,4 +492,4 @@ This connector only uses MQTT v5.
 
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)

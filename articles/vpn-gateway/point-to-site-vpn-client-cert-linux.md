@@ -4,6 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: cherylmc

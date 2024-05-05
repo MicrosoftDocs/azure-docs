@@ -3,7 +3,7 @@ title: Reliability in Azure Backup
 description: Learn about reliability in Azure Backup
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: backup
 ms.date: 10/18/2023

@@ -6,7 +6,6 @@ author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
-ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: oriwolman

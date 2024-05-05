@@ -8,11 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 03/09/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to define custom attributes in Azure AD B2C, so that I can manage specific scenarios and persist additional user data for customer-facing applications, identity providers, and custom user journeys.
+
 ---
 
 # Define custom attributes in Azure Active Directory B2C

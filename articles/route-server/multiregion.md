@@ -3,11 +3,12 @@ title: Multi-region designs with Azure Route Server
 description: Learn how Azure Route Server enables multi-region designs.
 services: route-server
 author: halkazwini
-ms.service: route-server
-ms.topic: conceptual
-ms.date: 03/31/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.service: route-server
+ms.topic: concept-article
+ms.date: 03/13/2024
+
+#CustomerIntent: As an Azure administrator, I want to use Azure Route Server in a multi-region topology where I have hub and spokes in each region and the Route Server exchange routes with NVAs and dynamically adapt to any topology changes.
 ---
 
 # Multi-region networking with Azure Route Server
@@ -45,7 +46,7 @@ The cross-region tunnels between the NVAs are required because otherwise a routi
 
 If UDRs are an option, you could disable BGP route propagation in the NVAs' subnets, and configure static UDRs instead of an overlay, so that Azure can route traffic to the remote spoke VNets. 
 
-## Next steps
+## Related content
 
-* Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
-* Learn how to [Configure peering between Azure Route Server and network virtual appliance](tutorial-configure-route-server-with-quagga.md)
+- Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md).
+- Learn how to [Configure peering between Azure Route Server and network virtual appliance](tutorial-configure-route-server-with-quagga.md).

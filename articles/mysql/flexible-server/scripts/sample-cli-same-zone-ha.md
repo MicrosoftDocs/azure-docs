@@ -7,7 +7,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
+ms.custom: mvc, devx-track-azurecli
 ms.date: 05/24/2022
 ---
 
@@ -20,7 +20,7 @@ Currently, Same-Zone high availability is supported only for the General purpose
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

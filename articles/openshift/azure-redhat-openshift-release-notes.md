@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 12/20/2023
+ms.date: 05/03/2024
 ms.custom: references_regions
 ---
 
@@ -13,9 +13,13 @@ ms.custom: references_regions
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
+## Version 4.14 - May 2024
+
+We're pleased to announce the launch of OpenShift 4.14 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.14](https://docs.openshift.com/container-platform/4.14/welcome/index.html). Version 4.12 will be outside of support after July 17th, 2024. Existing clusters on version 4.12 and below should be upgraded before then.
+
 ## Version 4.13 - December 2023
 
-We're pleased to announce the launch of OpenShift 4.13 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.13](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html). Version 4.11 will be outside of support after January 26, 2024.  Existing clusters version 4.11 and below should be upgraded before then.
+We're pleased to announce the launch of OpenShift 4.13 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.13](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html). Version 4.11 will be outside of support after February 10, 2024.  Existing clusters version 4.11 and below should be upgraded before then.
 
 ## Update - September 2023
 

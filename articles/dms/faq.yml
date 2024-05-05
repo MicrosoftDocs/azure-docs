@@ -3,11 +3,10 @@ metadata:
   title: FAQ - Azure Database Migration Service
   description: Frequently asked questions about using Azure Database Migration Service to perform database migrations.
   services: database-migration
-  author: croblesm
-  ms.author: roblescarlos
+  author: abhims14
+  ms.author: abhishekum
   ms.reviewer: randolphwest
   ms.service: dms
-  ms.workload: data-services
   ms.custom: mvc
   ms.topic: faq
   ms.date: 04/18/2023
@@ -59,6 +58,23 @@ sections:
           Does Database Migration Service store customer data?
         answer: |
           No. Database Migration Service doesn't store customer data.
+
+      - question: |
+          How can I ensure that DMS has migrated all the data from the source database to Azure SQL Targets?
+        answer: |
+          For Azure SQL VM and Azure SQL MI targets, DMS uses physical migration i.e., using backup and restore. As described below, the migration mode chosen determines how the data is kept consistent between source and target.
+
+          * Offline migration: During offline migration to Azure SQL VM and Azure SQL MI targets, application downtime starts when the migration starts. DMS will restore all the backup files to the Target, as long as the latest backup file/s from source have been transferred to SMB network storage or to Azure blob container (as per the migration configuration). If the backup is taken with the CHECKSUM option, DMS restore operation automatically performs the validation. In the absence of checksum, the integrity of the backup is explicitly checked before restoring. This ensures that the restore file is identical to the backup file and hence have the same data. You can verify all the backup files including the last backup file name from source with the backup file applied/restore on target shown on DMS migration monitoring page and validate their respective checksum.
+          
+          * Online migration: During online migration to Azure SQL VM and Azure SQL MI targets, downtime starts once  you initiate the migration cutover along with stopping the application. DMS will restore all the backup files to the Target, as long as the latest backup file/s from source have been transferred to SMB network storage or to Azure blob container (as per the migration configuration). After you press the cutover button, DMS shows the count for pending backup file/s (if any) which are present on the SMB network storage or Azure blob container and yet to be applied/restore on target. If the backup is taken with the CHECKSUM option, DMS restore operation automatically performs the validation. In the absence of checksum, the integrity of the backup is explicitly checked before restoring. This ensures that the restore file is identical to the backup file and hence have the same data. You can verify all the backup files including the last backup file name from source with the backup file applied/restore on target shown on DMS migration monitoring page and validate their respective checksum.
+          
+          For Azure SQL DB targets, DMS does logical migration in the case of Azure SQL DB i.e., it copies the data from source SQL database’s tables and writes it to the Target Azure SQL DB’s tables. As DMS only supports offline migration to Azure SQL DB, application downtime starts when the migration starts. You can monitor and validate the number of rows read (from source database table) and copied (written to target Azure SQL DB table) from the migration monitoring page. As additional confirmation, you can run the below TSQL to get checksum both at source and destination databases and validate the source and restore data being identical.
+                
+                "SELECT CHECKSUM_AGG(CHECKSUM(*)) FROM <table_name>"
+                
+          Note: Provided no application/s is/are writing to source or Target DB. You can also leverage tools like [Database Comparison tool](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/database-comparison-tool/ba-p/3249580) for data comparison.
+
+
 
   - name: Security
     questions:

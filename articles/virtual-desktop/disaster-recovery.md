@@ -8,8 +8,6 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: helohr
-manager: femila
-ms.custom: contperf-fy22q4
 ---
 
 # Azure Virtual Desktop disaster recovery
@@ -98,7 +96,7 @@ You also have the option to back up your data. You can choose one of the followi
 - For Compute data, we recommend only backing up personal host pools with [Azure Backup](../backup/backup-azure-vms-introduction.md). 
 - For Storage data, the backup solution we recommend varies based on the back-end storage you used to store user profiles:
   - If you used Azure Files Share, we recommend using [Azure Backup for File Share](../backup/azure-file-share-backup-overview.md). 
-  - If you used Azure NetApp Files, we recommend using either [Snapshots/Policies](../azure-netapp-files/snapshots-manage-policy.md) or [Azure NetApp Files Backup](../azure-netapp-files/backup-introduction.md).
+  - If you used Azure NetApp Files, we recommend using either [snapshots/policies](../azure-netapp-files/snapshots-manage-policy.md) or [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md).
 
 ## App dependencies
 

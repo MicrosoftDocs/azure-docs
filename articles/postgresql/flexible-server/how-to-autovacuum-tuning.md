@@ -1,18 +1,20 @@
 ---
-title: Autovacuum Tuning
-description: Troubleshooting guide for autovacuum in Azure Database for PostgreSQL - Flexible Server
+title: Autovacuum tuning
+description: Troubleshooting guide for autovacuum in Azure Database for PostgreSQL - Flexible Server.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 10/26/2023
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Autovacuum Tuning in Azure Database for PostgreSQL - Flexible Server
+# Autovacuum tuning in Azure Database for PostgreSQL - Flexible Server
 
-This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL - Flexible Server](overview.md) and the feature troubleshooting guides that are available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation.
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL flexible server](overview.md) and the feature troubleshooting guides that are available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation.
 
 ## What is autovacuum
 
@@ -51,7 +53,7 @@ That means in one-second autovacuum can do:
 
 Use the following queries to monitor autovacuum:
 
-```postgresql
+```sql
 select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0;
 ```
 
@@ -77,7 +79,7 @@ For example, analyze triggers after 60 rows change on a table that contains 100 
 
 Use the following query to list the tables in a database and identify the tables that qualify for the autovacuum process:
 
-```postgresql
+```sql
  SELECT *
       ,n_dead_tup > av_threshold AS av_needed
       ,CASE
@@ -146,7 +148,7 @@ Continuously running autovacuum might affect CPU and IO utilization on the serve
 
 Autovacuum daemon uses `autovacuum_work_mem` that is by default set to `-1` meaning `autovacuum_work_mem` would have the same value as the parameter `maintenance_work_mem`. This document assumes `autovacuum_work_mem` is set to `-1` and `maintenance_work_mem` is used by the autovacuum daemon.
 
-If `maintenance_work_mem` is low, it might be increased to up to 2 GB on Flexible Server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.
+If `maintenance_work_mem` is low, it might be increased to up to 2 GB on Azure Database for PostgreSQL flexible server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.
 
 #### Large number of databases
 
@@ -209,7 +211,7 @@ Any long-running transactions in the system won't allow dead tuples to be remove
 
 Long-running transactions can be detected using the following query:
 
-```postgresql
+```sql
     SELECT pid, age(backend_xid) AS age_in_xids,
     now () - xact_start AS xact_age,
     now () - query_start AS query_age,
@@ -226,7 +228,7 @@ Long-running transactions can be detected using the following query:
 If there are prepared statements that aren't committed, they would prevent dead tuples from being removed.  
 The following query helps find noncommitted prepared statements:
 
-```postgresql
+```sql
     SELECT gid, prepared, owner, database, transaction
     FROM pg_prepared_xacts
     ORDER BY age(transaction) DESC;
@@ -238,7 +240,7 @@ Use COMMIT PREPARED or ROLLBACK PREPARED to commit or roll back these statements
 
 Unused replication slots prevent autovacuum from claiming dead tuples. The following query helps identify unused replication slots:
 
-```postgresql
+```sql
     SELECT slot_name, slot_type, database, xmin
     FROM pg_replication_slots
     ORDER BY age(xmin) DESC;
@@ -254,7 +256,7 @@ Autovacuum parameters might be set for individual tables. It's especially import
 
 To set autovacuum setting per table, change the server parameters as the following examples:
 
-```postgresql
+```sql
     ALTER TABLE <table name> SET (autovacuum_analyze_scale_factor = xx);
     ALTER TABLE <table name> SET (autovacuum_analyze_threshold = xx);
     ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor = xx);
@@ -285,10 +287,10 @@ Autovacuum will run on tables with an insert-only workload. Two new server p
 
 ## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal it is possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound which helps to identify potential autovacuum blockers along with information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to set up the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL flexible server portal it is possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound which helps to identify potential autovacuum blockers along with information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to set up the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Related content
 
 - [High CPU Utilization](how-to-high-cpu-utilization.md)
 - [High Memory Utilization](how-to-high-memory-utilization.md)
-- [Server Parameters](howto-configure-server-parameters-using-portal.md)
+- [Server Parameters](how-to-configure-server-parameters-using-portal.md)

@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building an Azure Static Web App, I want to configure authentication using Azure AD B2C, so that users can sign up, sign in, and reset their passwords securely.
+
 ---
 
 # Configure authentication in an Azure Static Web App by using Azure AD B2C
@@ -33,7 +37,7 @@ When the access token expires or the app session is invalidated, Azure Static We
 - A premium Azure subscription. 
 - If you haven't created an app yet, follow the guidance how to create an [Azure Static Web App](../static-web-apps/overview.md).
 - Familiarize yourself with the Azure Static Web App [staticwebapp.config.json](../static-web-apps/configuration.md) configuration file.
-- Familiarize yourself with the Azure Static Web App [App Settings](../static-web-apps/application-settings.md).
+- Familiarize yourself with the Azure Static Web App [App Settings](../static-web-apps/application-settings.yml).
 
 ## Step 1: Configure your user flow
 
@@ -74,7 +78,7 @@ To register your application, follow these steps:
 
 ## Step 3: Configure the Azure Static App
 
-Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.md). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.md#configure-application-settings) article.
+Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.yml). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.yml#configure-application-settings) article.
 
 Add the following keys to the app settings:
 

@@ -2,8 +2,8 @@
 title: Introduction to Azure Stream Analytics geospatial functions
 description: This article describes geospatial functions that are used in Azure Stream Analytics jobs.
 ms.service: stream-analytics
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.topic: conceptual
 ms.date: 12/06/2018
 ---

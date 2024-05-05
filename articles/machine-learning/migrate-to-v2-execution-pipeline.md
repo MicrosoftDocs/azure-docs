@@ -229,18 +229,18 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`adla_step`|None|None|
 |`automl_step`|`automl` job|`automl` component|
 |`azurebatch_step`| None| None|
-|`command_step`| `command` job|`command` component|
-|`data_transfer_step`| coming soon | coming soon|
-|`databricks_step`| coming soon|coming soon|
-|`estimator_step`| command job|`command` component|
-|`hyper_drive_step`|`sweep` job| `sweep` component|
+|`command_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`data_transfer_step`| None | None |
+|`databricks_step`| None | None |
+|`estimator_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`hyper_drive_step`|[`sweep` job](reference-yaml-job-sweep.md)| None |
 |`kusto_step`| None|None|
-|`module_step`|None|command component|
-|`mpi_step`| command job|command component|
+|`module_step`|None| [`command` component](reference-yaml-component-command.md)|
+|`mpi_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
 |`parallel_run_step`|`Parallel` job| `Parallel` component|
-|`python_script_step`| `command` job|command component|
-|`r_script_step`| `command` job|`command` component|
-|`synapse_spark_step`| coming soon|coming soon|
+|`python_script_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`r_script_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`synapse_spark_step`| [`spark` job](reference-yaml-job-spark.md) | [`spark` component](reference-yaml-component-spark.md) |
 
 ## Published pipelines
 

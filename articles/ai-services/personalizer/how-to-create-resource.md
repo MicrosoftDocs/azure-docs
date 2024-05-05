@@ -6,7 +6,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: how-to
-ms.date: 03/26/2020 
+ms.date: 01/19/2024 
 ms.custom: devx-track-azurecli
 ---
 

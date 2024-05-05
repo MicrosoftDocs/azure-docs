@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Azure IoT Edge common errors 
+title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues encountered when using an IoT Edge solution
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 1/31/2023
+ms.date: 02/26/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,10 @@ ms.custom:  [amqp, mqtt]
 
 # Solutions to common issues for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use this article to identify and resolve common issues when using IoT Edge solutions. If you need information on how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -72,7 +75,8 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Cause
 
-By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+* By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+* If using a snap installation of IoT Edge, the Docker configuration file is a different location. See solution option 3.
 
 #### Solution
 
@@ -117,6 +121,12 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
+**Option 3: Pass the location of the docker configuration file to check command**
+
+If IoT Edge is installed as a snap, use the `--container-engine-config-file` parameter to specify the location of the Docker configuration file. For example, if the Docker configuration file is located at `/var/snap/docker/current/config/daemon.json`, run the following command: `iotedge check --container-engine-config-file '/var/snap/docker/current/config/daemon.json'`.
+
+Currently, the warning message continues to appear in the output of *iotedge check* even after you've set the configuration file location. Check reports the error because the IoT Edge snap doesn't have read access to the Docker snap. If you use *iotedge check* in your release process, you can suppress the warning message by using the `--ignore container-engine-dns container-engine-logrotate` parameter.
+
 ### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
 
 #### Symptoms
@@ -129,12 +139,12 @@ Some networks have packet overhead, which makes the default docker network MTU (
 
 #### Solution
 
-1. Check the MTU setting for your docker network. 
-    
+1. Check the MTU setting for your docker network.
+
    `docker network inspect <network name>`
 
 1. Check the MTU setting for the physical network adaptor on your device.
-   
+
     `ip addr show eth0`
 
 >[!NOTE]
@@ -174,6 +184,20 @@ The IoT Edge agent module doesn't have permissions to access a module's image.
 
 Make sure that your container registry credentials are correct your device deployment manifest.
 
+### IoT Edge agent makes excessive identity calls
+
+#### Symptoms
+
+IoT Edge agent makes excessive identity calls to Azure IoT Hub.
+
+#### Cause
+
+Device deployment manifest misconfiguration causes an unsuccessful deployment on the device. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls until the deployment is successful. For example, if the deployment manifest specifies a module URI that that doesn't exist in the container registry or is mistyped, the IoT Edge agent retries the deployment until the deployment manifest is corrected.
+
+#### Solution
+
+Verify the deployment manifest in the Azure portal. Correct any errors and redeploy the manifest to the device.
+
 ### IoT Edge hub fails to start
 
 #### Symptoms
@@ -192,7 +216,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -232,7 +256,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",
@@ -246,7 +270,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-         "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+         "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
          "status": "running",
          "type": "docker"
    }
@@ -266,11 +290,11 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 
 #### Cause
 
-The IoT Edge runtime enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it will reject the message with a 404 error message.
+The IoT Edge runtime enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it rejects the message with a 404 error message.
 
 #### Solution
 
-As of version 1.0.7, all module processes are authorized to connect. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+As of version 1.0.7, all module processes are authorized to connect. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/main/CHANGELOG.md#iotedged-1).
 
 If upgrading to 1.0.7 isn't possible, complete the following steps. Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file. The `CMD` command leads to one process ID for the module and another process ID for the bash command running the main program, but `ENTRYPOINT` leads to a single process ID.
 
@@ -292,15 +316,12 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. 
-1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*. 
-
-   :::image type="content" source="./media/troubleshoot/optimizeforperformance-false.png" alt-text="Screenshot that shows where to add the OptimizeForPerformance environment variable in the Azure portal.":::
-
-1. Select **Apply** to save changes, then select **Review + create**. 
+1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**.
+1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*.
+1. Select **Apply** to save changes, then select **Review + create**.
 
    The environment variable is now in the `edgeHub` property of the deployment manifest:
-   
+
    ```json
       "edgeHub": {
          "env": {
@@ -310,7 +331,7 @@ In the Azure portal:
          },
          "restartPolicy": "always",
          "settings": {
-               "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+               "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",
@@ -333,7 +354,7 @@ The security daemon fails to start and module containers aren't created. The `ed
 
 #### Cause
 
-For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself.
 
 #### Solution
 
@@ -451,7 +472,7 @@ Make sure the parent IoT Edge device can receive incoming requests from the down
 
 #### Symptoms
 
-When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`.
 
 #### Cause
 
@@ -460,7 +481,7 @@ The credentials for the downstream devices weren't updated properly when the mig
 #### Solution
 
 When migrating to the new IoT hub (assuming not using DPS), follow these steps in order:
-1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one 
+1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one
 1. Reconfigure all IoT Edge deployments and configurations in the new IoT hub
 1. Reconfigure all parent-child device relationships in the new IoT hub
 1. Update each device to point to the new IoT hub hostname (`iothub_hostname` under `[provisioning]` in `config.toml`)

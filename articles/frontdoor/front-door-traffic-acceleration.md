@@ -6,7 +6,6 @@ services: front-door
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 08/31/2023
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers
@@ -21,6 +20,8 @@ Front Door optimizes the traffic path from the end user to the origin server. Th
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Front Door optimizes the traffic path from the end user to the backend server. This article describes how traffic is routed from the user to Front Door and from Front Door to the backend.
 

@@ -4,6 +4,7 @@ description: This article explains how to configure a Linux OS provider for Azur
 author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: sujaj
@@ -47,7 +48,7 @@ For example - https://github.com/prometheus/node_exporter/releases/download/v1.6
 # Change to the directory where you want to install the node exporter.
 
 wget https://github.com/prometheus/node_exporter/releases/download/v<xxx>/node_exporter-<xxx>.linux-amd64.tar.gz
-tar xvfz node_exporter-<xxx>.linux-amd64.tar.gz
+tar xzvf node_exporter-<xxx>.linux-amd64.tar.gz
 cd node_exporter-<xxx>linux-amd64
 nohup ./node_exporter --web.listen-address=":9100" &
 ```

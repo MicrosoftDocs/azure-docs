@@ -15,8 +15,6 @@ ms.custom: template-how-to
 
 # Transfer calls
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 During an active call, you may want to transfer the call to another person or number. Let's learn how. 
 
 ## Prerequisites

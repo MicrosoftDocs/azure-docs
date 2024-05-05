@@ -29,7 +29,7 @@ The procedures that are described in the article use the following resources:
 
 This article uses the Azure CLI to work with IoT Hub and other Azure services. You can choose how you access the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### IoT Hub
 

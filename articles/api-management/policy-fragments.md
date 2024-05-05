@@ -2,17 +2,17 @@
 title: Reuse policy configurations in Azure API Management | Microsoft Docs
 description: Learn how to create and manage reusable policy fragments in Azure API Management. Policy fragments are XML elements containing policy configurations that can be included in any policy definition.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 04/28/2022
 ms.author: danlep
-ms.custom: event-tier1-build-2022
 ---
 
 # Reuse policy configurations in your API Management policy definitions
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows you how to create and use *policy fragments* in your API Management policy definitions. Policy fragments are centrally managed, reusable XML snippets containing one or more API Management [policy](api-management-howto-policies.md) configurations. 
 

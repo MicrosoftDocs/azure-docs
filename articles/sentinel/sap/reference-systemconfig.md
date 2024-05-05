@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications systemconfig.ini container configuration file reference
 description: Description of settings available in systemconfig.ini file
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.date: 06/03/2023
 ms.custom: devx-track-extended-java

@@ -5,10 +5,12 @@ services: chaos-studio
 author: prashabora
 ms.topic: conceptual
 ms.date: 10/26/2022
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
 ms.custom: devx-track-azurecli
 ---
+
 # Virtual network injection in Azure Chaos Studio
 
 Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) is the fundamental building block for your private network in Azure. A virtual network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. A virtual network is similar to a traditional network that you operate in your own datacenter. It brings other benefits of Azure's infrastructure, such as scale, availability, and isolation.
@@ -27,7 +29,7 @@ Currently, you can only enable certain resource types for Chaos Studio virtual n
 To use Chaos Studio with virtual network injection, you must meet the following requirements.
 1. The `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers must be registered with your subscription.
 1. The virtual network where Chaos Studio resources will be injected must have two subnets: a container subnet and a relay subnet. A container subnet is used for the Chaos Studio containers that will be injected into your private network. A relay subnet is used to forward communication from Chaos Studio to the containers inside the private network.
-    1. Both subnets need at least `/28` in the address space. An example is an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
+    1. Both subnets need at least `/28` for the size of the address space (in this case `/27` is larger than `/28`, for example). An example is an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
     1. The container subnet must be delegated to `Microsoft.ContainerInstance/containerGroups`.
     1. The subnets can be arbitrarily named, but we recommend `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`.
 1. When you enable the desired resource as a target so that you can use it in Chaos Studio experiments, the following properties must be set:

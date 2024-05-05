@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -24,7 +25,7 @@ The ``BETWEEN`` keyword evaluates to a boolean indicating whether the target val
 
 You can use the ``BETWEEN`` keyword with a ``WHERE`` clause to express queries that filters results against ranges of string or numerical values. For example, the following query returns all items in which the price is between ``17.25`` and ``25.50``, again inclusive.
 
-```sql
+```nosql
 SELECT VALUE
     p.price
 FROM
@@ -41,7 +42,7 @@ WHERE
 
 You can also use the ``BETWEEN`` keyword in the ``SELECT`` clause, as in the following example.
 
-```sql
+```nosql
 SELECT 
     (p.price BETWEEN 0 AND 10) AS booleanLessThanTen,
     p.price
@@ -71,7 +72,7 @@ The ``DISTINCT`` keyword eliminates duplicates in the projected query results.
 
 In this example, the query projects values for each product category. If two categories are equivalent, only a single occurrence returns in the results.
 
-```sql
+```nosql
 SELECT DISTINCT VALUE
     p.category
 FROM
@@ -87,7 +88,7 @@ FROM
 
 You can also project values even if the target field doesn't exist. In this case, the field doesn't exist in one of the items, so the query returns an empty object for that specific unique value.
 
-```sql
+```nosql
 SELECT DISTINCT
     p.category
 FROM
@@ -129,7 +130,7 @@ You can use the following wildcard characters with LIKE:
 
 The ``%`` character matches any string of zero or more characters. For example, by placing a ``%`` at the beginning and end of the pattern, the following query returns all items where the specified field contains the phrase as a substring:
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -140,7 +141,7 @@ WHERE
 
 If you only used a ``%`` character at the end of the pattern, you'd only return items with a description that started with `fruit`:
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -151,7 +152,7 @@ WHERE
 
 Similarly, the wildcard at the start of the pattern indicates that you want to match values with the specified value as a prefix:
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -162,7 +163,7 @@ WHERE
 
 The ``NOT`` keyword inverses the result of the ``LIKE`` keyword's expression evaluation. This example returns all items that do **not** match the ``LIKE`` expression.
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -173,7 +174,7 @@ WHERE
 
 You can search for patterns that include one or more wildcard characters using the ``ESCAPE`` clause. For example, if you wanted to search for descriptions that contained the string ``20%``, you wouldn't want to interpret the ``%`` as a wildcard character. This example interprets the ``^`` as the escape character so you can escape a specific instance of ``%``.
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -195,7 +196,7 @@ You can enclose wildcard characters in brackets to treat them as literal charact
 
 Use the ``IN`` keyword to check whether a specified value matches any value in a list. For example, the following query returns all items where the category matches at least one of the values in a list.
 
-```sql
+```nosql
 SELECT
     *
 FROM
@@ -213,7 +214,7 @@ The ``TOP`` keyword returns the first ``N`` number of query results in an undefi
 
 You can use ``TOP`` with a constant value, as in the following example, or with a variable value using parameterized queries.
 
-```sql
+```nosql
 SELECT TOP 10
     *
 FROM

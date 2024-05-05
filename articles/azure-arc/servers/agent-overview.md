@@ -151,8 +151,8 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
-* The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU on Windows machines and 30% of the CPU on Linux machines to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
+* The Machine Configuration (formerly Guest Configuration) service can use up to 5% of the CPU to evaluate policies.
+* The Extension service can use up to 5% of the CPU on Windows machines and 30% of the CPU on Linux machines to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
 
   | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
@@ -172,6 +172,24 @@ During normal operations, defined as the Azure Connected Machine agent being con
 | **Memory usage** | 57 MB | 42 MB |
 
 The performance data above was gathered in April 2023 on virtual machines running Windows Server 2022 and Ubuntu 20.04. Actual agent performance and resource consumption will vary based on the hardware and software configuration of your servers.
+
+### Custom resource limits
+
+The default resource governance limits are the best choice for most servers. However, small virtual machines and servers with limited CPU resources might encounter timeouts when managing extensions or evaluating policies because there aren't enough CPU resources to complete the tasks. Starting with agent version 1.39, you can customize the CPU limits applied to the extension manager and Machine Configuration services to help the agent complete these tasks faster.
+
+To see the current resource limits for the extension manager and Machine Configuration services, run the following command.
+
+```bash
+azcmagent config list
+```
+
+In the output, you'll see two fields, `guestconfiguration.agent.cpulimit` and `extensions.agent.cpulimit` with the current resource limit specified as a percentage. On a fresh install of the agent, both will show `5` because the default limit is 5% of the CPU.
+
+To change the resource limit for the extension manager to 80%, run the following command:
+
+```bash
+azcmagent config set extensions.agent.cpulimit 80
+```
 
 ## Instance metadata
 

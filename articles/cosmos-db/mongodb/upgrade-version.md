@@ -3,7 +3,6 @@ title: Upgrade the Mongo version of your Azure Cosmos DB's API for MongoDB accou
 description: How to upgrade the MongoDB wire-protocol version for your existing Azure Cosmos DB's API for MongoDB accounts seamlessly
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 02/23/2022
 author: gahl-levy

@@ -1,8 +1,7 @@
 ---
 title: Service Bus asynchronous messaging | Microsoft Docs
-description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions. 
+description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions.
 ms.topic: article
-ms.custom: ignite-2022
 ms.date: 04/23/2021
 ---
 

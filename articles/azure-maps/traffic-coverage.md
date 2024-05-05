@@ -59,7 +59,6 @@ The following tables provide information about what kind of traffic information 
 
 | Country/Region         | Incidents | Flow |
 |------------------------|:---------:|:----:|
-| Belarus                |     ✓     |  ✓  |
 | Belgium                |     ✓     |  ✓  |
 | Bosnia and Herzegovina |     ✓     |  ✓  |
 | Bulgaria               |     ✓     |  ✓  |
@@ -88,7 +87,6 @@ The following tables provide information about what kind of traffic information 
 | Poland                 |     ✓     |  ✓  |
 | Portugal               |     ✓     |  ✓  |
 | Romania                |     ✓     |  ✓  |
-| Russian Federation     |     ✓     |  ✓  |
 | San Marino             |     ✓     |  ✓  |
 | Serbia                 |     ✓     |  ✓  |
 | Slovakia               |     ✓     |  ✓  |
@@ -97,7 +95,6 @@ The following tables provide information about what kind of traffic information 
 | Sweden                 |     ✓     |  ✓  |
 | Switzerland            |     ✓     |  ✓  |
 | Türkiye                |     ✓     |  ✓  |
-| Ukraine                |     ✓     |  ✓  |
 | United Kingdom         |     ✓     |  ✓  |
 
 ## Middle East & Africa
@@ -106,7 +103,6 @@ The following tables provide information about what kind of traffic information 
 |----------------------|:---------:|:----:|
 | Bahrain              |     ✓     |  ✓  |
 | Egypt                |     ✓     |  ✓  |
-| Israel               |     ✓     |  ✓  |
 | Kenya                |     ✓     |  ✓  |
 | Kuwait               |     ✓     |  ✓  |
 | Lesotho              |     ✓     |  ✓  |

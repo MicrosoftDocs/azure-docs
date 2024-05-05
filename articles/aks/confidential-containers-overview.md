@@ -2,7 +2,11 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about Confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 11/13/2023
+ms.subservice: aks-security
+ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -11,16 +15,13 @@ Confidential Containers provide a set of features and capabilities to further se
 
 Confidential Containers builds on Kata Confidential Containers and hardware-based encryption to encrypt container memory. It establishes a new level of data confidentiality by preventing data in memory during computation from being in clear text, readable format. Trust is earned in the container through hardware attestation, allowing access to the encrypted data by trusted entities.
 
-Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads isolated in Azure to protect your data and workloads. Confidential Containers helps significantly reduce the risk of unauthorized access from:
+Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads isolated in Azure to protect your data and workloads. What makes a container confidential:
 
-* Your AKS cluster admin
-* The AKS control plane & daemon sets
-* The cloud and host operator
-* The AKS worker node operating system
-* Another pod running on the same VM node
-* Cloud Service Providers (CSPs) and from guest applications through a separate trust model
-
-Confidential Containers also enable application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
+* Transparency: The confidential container environment where your sensitive application is shared, you can see and verify if it's safe. All components of the Trusted Computing Base (TCB) are to be open sourced.
+* Auditability: You have the ability to verify and see what version of the CoCo environment package including Linux Guest OS and all the components are current. Microsoft signs to the guest OS and container runtime environment for verifications through attestation. It also releases a secure hash algorithm (SHA) of guest OS builds to build a string audibility and control story.
+* Full attestation: Anything that is part of the TEE shall be fully measured by the CPU with ability to verify remotely. The hardware report from AMD SEV-SNP processor shall reflect container layers and container runtime configuration hash through the attestation claims. Application can fetch the hardware report locally including the report that reflects Guest OS image and container runtime.
+* Code integrity: Runtime enforcement is always available through customer defined policies for containers and container configuration, such as immutable policies and container signing.
+* Isolation from operator: Security designs that assume least privilege and highest isolation shielding from all untrusted parties including customer/tenant admins. It includes hardening existing Kubernetes control plane access (kubelet) to confidential pods.
 
 With other security measures or data protection controls, as part of your overall architecture, these capabilities help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -47,7 +48,6 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 The following are considerations with this preview of Confidential Containers:
 
 * An increase in pod startup time compared to runc pods and kernel-isolated pods.
-* Pulling container images from a private container registry or container images that originate from a private container registry in a Confidential Containers pod manifest isn't supported in this release.
 * Version 1 container images aren't supported.
 * Updates to secrets and ConfigMaps aren't reflected in the guest.
 * Ephemeral containers and other troubleshooting methods like `exec` into a container,
@@ -85,3 +85,4 @@ With the local container filesystem backed by VM memory, writing to the containe
 [azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [deploy-confidential-containers-default-aks]: deploy-confidential-containers-default-policy.md
 [confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
+

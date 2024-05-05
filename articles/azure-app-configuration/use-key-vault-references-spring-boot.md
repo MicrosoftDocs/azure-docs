@@ -2,13 +2,8 @@
 title: Tutorial for using Azure App Configuration Key Vault references in a Java Spring Boot app | Microsoft Docs
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from a Java Spring Boot app
 services: azure-app-configuration
-documentationcenter: ''
 author: mrm9084
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/02/2022
@@ -99,10 +94,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```json
     {
-    "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-    "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-    "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-    "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
+    "clientId": "00000000-0000-0000-0000-000000000000",
+    "clientSecret": "00000000-0000-0000-0000-000000000000",
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "tenantId": "00000000-0000-0000-0000-000000000000",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",

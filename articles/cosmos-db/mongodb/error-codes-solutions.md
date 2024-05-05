@@ -3,7 +3,6 @@ title: Troubleshoot common errors in Azure Cosmos DB's API for MongoDB
 description: This doc discusses the ways to troubleshoot common issues encountered in Azure Cosmos DB's API for MongoDB.
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 author: gahl-levy
@@ -24,6 +23,7 @@ The following article describes common errors and solutions for deployments usin
 |------------|----------------------|--------------|-----------|
 | 2 | BadValue | One common cause is that an index path corresponding to the specified order-by item is excluded or the order by query doesn't have a corresponding composite index that it can be served from. The query requests a sort on a field that isn't indexed. | Create a matching index (or composite index) for the sort query being attempted. |
 | 2 | Transaction isn't active | The multi-document transaction surpassed the fixed 5-second time limit. | Retry the multi-document transaction or limit the scope of operations within the multi-document transaction to make it complete within the 5-second time limit. |
+| 9 | FailedToParse | Indicates that the Cosmos DB server was unable to interpret or process a parameter because the provided input did not conform to the expected or supported format. | Ensure only valid and supported parameters are included in your queries. 
 | 13 | Unauthorized | The request lacks the permissions to complete. | Ensure you're using the correct keys.  |
 | 26 | NamespaceNotFound | The database or collection being referenced in the query can't be found. | Ensure your database/collection name precisely matches the name in your query.|
 | 50 | ExceededTimeLimit | The request has exceeded the timeout of 60 seconds of execution. |  There can be many causes for this error. One of the causes is when the currently allocated request units capacity isn't sufficient to complete the request. This can be solved by increasing the request units of that collection or database. In other cases, this error can be worked-around by splitting a large request into smaller ones. Retrying a write operation that has received this error may result in a duplicate write. <br><br>If you're trying to delete large amounts of data without impacting RUs: <br>- Consider using TTL (Based on Timestamp): [Expire data with Azure Cosmos DB's API for MongoDB](time-to-live.md) <br>- Use Cursor/Batch size to perform the delete. You can fetch a single document at a time and delete it through a loop. This will help you slowly delete data without impacting your production application.|

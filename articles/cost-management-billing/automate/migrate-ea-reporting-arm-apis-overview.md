@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2023
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,7 @@ This article informs developers that have built custom solutions using the [Azur
 
 **Key points**:
 - Migration recommended - We strongly recommend that you consider migrating your custom solutions to the Microsoft Cost Management APIs. They're actively being developed and offer improved functionality.
-- Retirement date - The Azure Enterprise Reporting APIs will be retired on **May 1, 2024**. After this date, the APIs will stop responding to requests.
+- Retirement date - All Azure Enterprise Reporting APIs are **retired**.
 
 **This article provides**:
 - An overview of the differences between [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) and Cost Management APIs.
@@ -33,7 +33,7 @@ The following information describes the differences between the older Azure Ente
 
 | Use | Azure Enterprise Reporting APIs | Microsoft Cost Management APIs |
 | --- | --- | --- |
-| Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
+| Authentication | API key provisioned in the [Azure portal](../manage/enterprise-rest-apis.md#api-key-generation) | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
 | Development status | In maintenance mode. On the path to deprecation. | In active development |

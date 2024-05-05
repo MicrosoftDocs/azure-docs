@@ -1,25 +1,26 @@
 ---
-title: 'Manage server - Azure portal - Azure Database for PostgreSQL - Flexible Server'
-description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server from the Azure portal.
+title: Manage server - Azure portal
+description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server instance from the Azure portal.
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: how-to
-ms.date: 11/30/2021
-ms.custom: mvc
+ms.custom:
+  - mvc
 ---
 
-# Manage an Azure Database for PostgreSQL - Flexible Server using the Azure portal
+# Manage Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article shows you how to manage your Azure Database for PostgreSQL - Flexible Server. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+This article shows you how to manage your Azure Database for PostgreSQL flexible server instance. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Sign in
 
-Sign in to the [Azure portal](https://portal.azure.com). Go to your flexible server resource in the Azure portal.
+Sign in to the [Azure portal](https://portal.azure.com). Go to your Azure Database for PostgreSQL flexible server resource in the Azure portal.
 
 ## Scale compute and storage
 
@@ -32,10 +33,10 @@ After server creation you can scale between the various [pricing tiers](https://
 2. You can change the **Compute Tier** , **vCore**, **Storage** to scale up the server using higher compute tier or scale up within the same tier by increasing storage or vCores to your desired value.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/scale-server.png" alt-text="scaling storage flexible server":::
+> :::image type="content" source="./media/how-to-manage-server-portal/scale-server.png" alt-text="Scaling storage for Azure Database for PostgreSQL flexible server.":::
 
 > [!Important]
-> - Storage cannot be scaled down.
+> - Storage can't be scaled down.
 > - Scaling vCores causes a server restart.
 
 3. Select **OK** to save changes.
@@ -48,7 +49,7 @@ You can change the administrator role's password using the Azure portal.
 2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="reset your password for flexible server":::
+> :::image type="content" source="./media/how-to-manage-server-portal/reset-password.png" alt-text="Reset your password for Azure Database for PostgreSQL flexible server.":::
 
 3. Select **Save** to save the new password.
 
@@ -59,13 +60,11 @@ You can delete your server if you no longer need it.
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 2. Type the name of the server into the input box to confirm that you want to delete the server.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="delete the flexible server":::
+   :::image type="content" source="./media/how-to-manage-server-portal/delete-server.png" alt-text="Delete the Azure Database for PostgreSQL flexible server instance.":::
 
-   > [!IMPORTANT]
-   > Deleting a server is irreversible.
 
   > [!div class="mx-imgBorder"]
-  > ![delete the flexible server](./media/howto-manage-server-portal/delete-server.png)  
+  > ![Delete the Azure Database for PostgreSQL flexible server instance](./media/how-to-manage-server-portal/delete-server.png)  
 
 3. Select **Delete**.
 

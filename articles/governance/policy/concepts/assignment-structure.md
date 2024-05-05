@@ -3,8 +3,6 @@ title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
 ms.date: 10/03/2022
 ms.topic: conceptual
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 # Azure Policy assignment structure
 
@@ -22,8 +20,8 @@ You use JavaScript Object Notation (JSON) to create a policy assignment. The pol
 - [display name](#display-name-and-description)
 - [description](#display-name-and-description)
 - [metadata](#metadata)
-- [resource selectors (preview)](#resource-selectors-preview)
-- [overrides (preview)](#overrides-preview)
+- [resource selectors](#resource-selectors)
+- [overrides](#overrides)
 - [enforcement mode](#enforcement-mode)
 - [excluded scopes](#excluded-scopes)
 - [policy definition](#policy-definition-id)
@@ -79,7 +77,7 @@ characters and **description** a maximum length of _512_ characters.
 
 The optional `metadata` property stores information about the policy assignment. Customers can
 define any properties and values useful to their organization in `metadata`. However, there are some
-_common_ properties used by Azure Policy. Each `metadata` property has a limit of 1024 characters.
+_common_ properties used by Azure Policy. Each `metadata` property has a limit of 1,024 characters.
 
 ### Common metadata properties
 
@@ -130,13 +128,15 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
     ```
 
 
-## Resource selectors (preview)
+## Resource selectors
 
-The optional **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
-out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy will only evaluate resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be leveraged to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
+The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling
+you to gradually roll out policy assignments based on factors like resource location, resource type,
+or whether a resource has a location. When resource selectors are used, Azure Policy will only
+evaluate resources that are applicable to the specifications made in the resource selectors.
+Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
 
-In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
-either **East US** or **West US**.
+In the following example scenario, the new policy assignment is evaluated only if the resource's location is either **East US** or **West US**.
 
 ```json
 {
@@ -162,8 +162,7 @@ either **East US** or **West US**.
 }
 ```
 
-When you're ready to expand the evaluation scope for your policy, you just have to modify the assignment. The following example
-shows our policy assignment with two additional Azure regions added to the **SDPRegions** selector. Note, in this example, _SDP_ means to _Safe Deployment Practice_:
+When you're ready to expand the evaluation scope for your policy, you just have to modify the assignment. The following example shows our policy assignment with two more Azure regions added to the **SDPRegions** selector. Note, in this example, _SDP_ means to _Safe Deployment Practice_:
 
 ```json
 {
@@ -194,28 +193,27 @@ Resource selectors have the following properties:
 
 - `selectors`: (Optional) The property used to determine which subset of resources applicable to the policy assignment should be evaluated for compliance.
 
-  - `kind`: The property of a selector that describes what characteristic will narrow down the set of evaluated resources. Each kind can only be used once in a single resource selector. Allowed values are:
+  - `kind`: The property of a selector that describes which characteristic narrows down the set of evaluated resources. Each kind can only be used once in a single resource selector. Allowed values are:
 
-    - `resourceLocation`: This is used to select resources based on their type. Cannot be used in the same resource selector as `resourceWithoutLocation`.
+    - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 
-    - `resourceType`: This is used to select resources based on their type.
+    - `resourceType`: This property is used to select resources based on their type.
 
-    - `resourceWithoutLocation`: This is used to select resources at the subscription level which do not have a location. Currently only supports `subscriptionLevelResources`. Cannot be used in the same resource selector as `resourceLocation`.
+    - `resourceWithoutLocation`: This property is used to select resources at the subscription level that don't have a location. Currently only supports `subscriptionLevelResources`. Can't be used in the same resource selector as `resourceLocation`.
 
-  - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`. Can contain up to 50 values.
+  - `in`: The list of allowed values for the specified `kind`. Can't be used with `notIn`. Can contain up to 50 values.
 
-  - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`. Can contain up to 50 values.
-  
+  - `notIn`: The list of not-allowed values for the specified `kind`. Can't be used with `in`. Can contain up to 50 values.
+
 A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
 
-## Overrides (preview)
+## Overrides
 
-The optional **overrides** property allows you to change the effect of a policy definition without modifying
-the underlying policy definition or using a parameterized effect in the policy definition.
+The optional `overrides` property allows you to change the effect of a policy definition without modifying the underlying policy definition or using a parameterized effect in the policy definition.
 
 The most common use case for overrides is policy initiatives with a large number of associated policy definitions. In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time. Overrides can be used to simultaneously update the effects of multiple policy definitions within an initiative.
 
-Let's take a look at an example. Imagine you have a policy initiative named _CostManagement_ that includes a custom policy definition with `policyDefinitionReferenceId` _corpVMSizePolicy_ and a single effect of `audit`. Suppose you want to assign the _CostManagement_ initiative, but do not yet want to see compliance reported for this policy. This policy's 'audit' effect can be replaced by 'disabled' through an override on the initiative assignment, as shown below:
+Let's take a look at an example. Imagine you have a policy initiative named _CostManagement_ that includes a custom policy definition with `policyDefinitionReferenceId` _corpVMSizePolicy_ and a single effect of `audit`. Suppose you want to assign the _CostManagement_ initiative, but don't yet want to see compliance reported for this policy. This policy's 'audit' effect can be replaced by 'disabled' through an override on the initiative assignment, as shown in the following sample:
 
 ```json
 {
@@ -244,7 +242,7 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 Overrides have the following properties:
 - `kind`: The property the assignment will override. The supported kind is `policyEffect`.
 
-- `value`: The new value which will override the existing value. The supported values are [effects](effects.md).
+- `value`: The new value that overrides the existing value. The supported values are [effects](effects.md).
 
 - `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
 
@@ -252,11 +250,11 @@ Overrides have the following properties:
 
     - `policyDefinitionReferenceId`: This specifies which policy definitions within an initiative assignment should take on the effect override.
 
-  - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`. Can contain up to 50 values.
+  - `in`: The list of allowed values for the specified `kind`. Can't be used with `notIn`. Can contain up to 50 values.
 
-  - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`. Can contain up to 50 values.
+  - `notIn`: The list of not-allowed values for the specified `kind`. Can't be used with `in`. Can contain up to 50 values.
 
-Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they are specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](definition-structure.md#parameters)). 
+Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they're specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](./definition-structure-parameters.md)).
 
 ## Enforcement mode
 
@@ -297,7 +295,7 @@ after creation of the initial assignment.
 
 This field must be the full path name of either a policy definition or an initiative definition.
 `policyDefinitionId` is a string and not an array. The latest content of the assigned policy
-definition or initiative will be retrieved each time the policy assignment is evaluated. It's
+definition or initiative is retrieved each time the policy assignment is evaluated. It's
 recommended that if multiple policies are often assigned together, to use an
 [initiative](./initiative-definition-structure.md) instead.
 
@@ -340,7 +338,7 @@ the initiative definition. For details, see
 ## Parameters
 
 This segment of the policy assignment provides the values for the parameters defined in the
-[policy definition or initiative definition](./definition-structure.md#parameters). This design
+[policy definition or initiative definition](./definition-structure-parameters.md). This design
 makes it possible to reuse a policy or initiative definition with different resources, but check for
 different business values or outcomes.
 
@@ -362,7 +360,7 @@ reducing the duplication and complexity of policy definitions while providing fl
 
 ## Identity
 
-For policy assignments with effect set to **deployIfNotExist** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
+For policy assignments with effect set to **deployIfNotExist** or **modify**, it's required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
 
 > [!NOTE]
 > A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.

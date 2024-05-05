@@ -28,7 +28,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Sample prerequisites for Azure Digital Twins tutorial](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 

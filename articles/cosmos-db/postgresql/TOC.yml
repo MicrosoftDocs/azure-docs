@@ -185,7 +185,7 @@
           href: howto-monitoring.md
         - name: Create alerts on metrics
           href: howto-alert-on-metric.md
-          dispalyName: alerts
+          displayName: alerts
         - name: Access database logs
           href: howto-logging.md
           displayName: log
@@ -261,12 +261,12 @@
       href: reference-versions.md
     - name: PostgreSQL extensions
       items:
-        - name: Overview
+        - name: Supported extensions
           href: reference-extensions.md
-        - name: Pg_azure_storage
+        - name: pg_azure_storage extension
           href: reference-pg-azure-storage.md
           displayName: pg_azure_storage, extensions
-    - name: COPY
+    - name: COPY command support
       href: reference-copy-command.md
       displayName: pg_azure_storage, copy
     - name: Limits and limitations

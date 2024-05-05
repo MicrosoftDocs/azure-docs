@@ -3,7 +3,7 @@ title: Export template in Azure CLI
 description: Use Azure CLI to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ---
 
 # Use Azure CLI to export a template

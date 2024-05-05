@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the expression at the specified index of a list, or Undefined if the ind
 
 ## Syntax
 
-```sql
+```nosql
 CHOOSE(<numeric_expr>, <expr_1> [, <expr_N>])
 ```
 
@@ -40,13 +41,13 @@ Returns an expression, which could be of any type.
 
 The following example uses a static list to demonstrate various return values at different indexes.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/choose/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/choose/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose/result.json":::
 
 This example uses a static list to demonstrate various return values at different indexes.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/choose-indexes/query.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/choose-indexes/query.sql" highlight="2-7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose-indexes/result.json":::
 
@@ -56,7 +57,7 @@ This final example uses an existing item in a container with three relevant fiel
 
 This example selects an expression from existing paths in the item.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/choose-fields/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/choose-fields/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose-fields/result.json":::
 

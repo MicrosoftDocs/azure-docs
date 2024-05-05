@@ -2,15 +2,8 @@
 title: Cross-zone replication of Azure NetApp Files volumes | Microsoft Docs
 description: Describes what Azure NetApp Files cross-zone replication does.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: anfdocs
@@ -37,6 +30,7 @@ The preview of cross-zone replication is available in the following regions:
 * East US 2
 * France Central 
 * Germany West Central 
+* Israel Central
 * Japan East
 * Korea Central
 * North Europe
@@ -76,4 +70,3 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)
-

@@ -6,11 +6,12 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/13/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
-#Customer intent: As a developer, I want to manage resources in my Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
+
+#Customer intent: As a developer, I want to programmatically manage resources in my Azure AD B2C directory using Microsoft Graph API, so that I can automate user management tasks, such as creating, updating, and deleting users, identity providers, user flows, custom policies, and policy keys.
 
 ---
 # Manage Azure AD B2C with Microsoft Graph

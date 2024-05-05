@@ -1,7 +1,6 @@
 ---
 title: Access control in Synapse workspace how to 
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
-services: synapse-analytics  
 author: talk2rick
 ms.service: synapse-analytics 
 ms.topic: how-to 
@@ -91,7 +90,7 @@ Identify the following information about your storage:
 
 - Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -130,7 +129,7 @@ To run pipelines and perform system tasks, Azure Synapse requires managed servic
 - Locate the storage account, `storage1`, and then `container1`.
 - Select **Access control (IAM)**.
 - To open the **Add role assignment** page, select **Add** > **Add role assignment** .
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -153,7 +152,7 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users need an 
 - Locate the workspace, `workspace1`
 - Select **Access control (IAM)**.
 - To open the **Add role assignment** page, select **Add** > **Add role assignment**.
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

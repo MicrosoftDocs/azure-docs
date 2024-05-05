@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 01/19/2024
 ---
 
 # Combine LUIS and question answering capabilities

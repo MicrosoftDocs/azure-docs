@@ -4,7 +4,6 @@ description: Understand typical use case scenarios for Service Connector, and le
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
 ms.date: 10/19/2023
 ---
@@ -42,6 +41,7 @@ Once a service connection is created, developers can validate and check the heal
 * Azure Functions
 * Azure Spring Apps
 * Azure Container Apps
+* Azure Kubernetes Service (AKS)
 
 **Target Services:**
 

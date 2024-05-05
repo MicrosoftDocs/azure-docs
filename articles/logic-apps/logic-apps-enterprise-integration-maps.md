@@ -5,16 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 02/08/2024
 ---
 
 # Add maps for transformations in workflows with Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Transform XML** and **Liquid** require a map to perform their tasks. For example, the **Transform XML** action requires a map to convert XML between formats. A map is an XML document that uses [Extensible Stylesheet Language Transformation (XSLT)](https://www.w3.org/TR/xslt/) language to describe how to convert data from XML to another format and has the .xslt file name extension. The map consists of a source XML schema as input and a target XML schema as output. You can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations. You can manipulate or control data by using different built-in functions, such as string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs.
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
 
-This how-to guide shows how to add a map to your integration account. If you're working with a Standard logic app workflow, you can also add a map directly to your logic app resource.
+This guide shows how to add a map for your workflow to use. You can add maps either to your linked integration account, or if you have a Standard logic app, you can add maps directly to your logic app resource.
 
 ## Prerequisites
 
@@ -128,7 +130,7 @@ Your map must have the following attributes and a `CDATA` section that contains 
 
 * `namespace` is the namespace in your assembly that includes the custom code.
 
-The following example shows a map that references an assembly named `XslUtilitiesLib` and calls the `circumference` method from the assembly.
+The following example shows a map that references an assembly named **XslUtilitiesLib** and calls the `circumference` method from the assembly.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -244,7 +246,17 @@ After your assembly finishes uploading, the assembly appears in the **Assemblies
 
 ### [Standard](#tab/standard)
 
-A Standard logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps. For more information about this capability, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
+A Standard logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps:
+
+| Assembly type | Description |
+|---------------|-------------|
+| **Client/SDK Assembly (.NET Framework)** | This assembly type provides storage and deployment of client and custom SDK for the .NET Framework. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to load the SAP NCo non-redistributable DLL files. |
+| **Client/SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
+| **Custom Assembly (.NET Framework)** | This assembly type provides storage and deployment of custom DLLs. For example, the [**Transform XML** operation](logic-apps-enterprise-integration-transform.md) uses these assemblies for the custom transformation functions that are required during XML transformation. |
+
+For more information about this capability, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
+
+#### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and open your logic app resource.
 
@@ -252,17 +264,17 @@ A Standard logic app resource supports referencing external assemblies from maps
 
 1. On the **Assemblies** page toolbar, select **Add**. On the **Add Assembly** pane, under **Assembly Type**, select the following type for your assembly, based on your scenario:
 
-   | Assembly type | Description |
-   |---------------|-------------|
-   | **Client/SDK Assembly (.NET Framework)** | This assembly type provides storage and deployment of client and custom SDK for the .NET Framework. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to load the SAP NCo non-redistributable DLL files. |
-   | **Client/SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
-   | **Custom Assembly (.NET Framework)** | This assembly type provides storage and deployment of custom DLLs. For example, the [**Transform XML** operation](logic-apps-enterprise-integration-transform.md) uses these assemblies for the custom transformation functions that are required during XML transformation. | 
-
 1. Now, either drag-and-drop your assemblies to the **Upload Files** area, or browse to and select your assemblies.
 
 1. When you're done, select **Upload Files**.
 
    Your selected assemblies now appear on your logic app's **Assemblies** page.
+
+#### Visual Studio Code
+
+1. In your Standard logic app project, open the following folders: **Artifacts** > **lib** > **custom** > **net472**.
+
+1. Add your assemblies to the **net472** folder.
 
 ---
 
@@ -328,7 +340,7 @@ The following steps apply only if you want to add a map directly to your Standar
 
 1. On the **Maps** pane toolbar, select **Add**.
 
-1. On the **Add Map** pane, enter a unique name for your map and include the `.xslt` extension name.
+1. On the **Add Map** pane, enter a unique name for your map and include the **.xslt** extension name.
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
@@ -374,7 +386,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 1. On the **Maps** pane toolbar, select **Add**.
 
-1. Under **Add map**, enter a unique name for your map and include the `.xslt` extension name.
+1. Under **Add map**, enter a unique name for your map and include the **.xslt** extension name.
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 

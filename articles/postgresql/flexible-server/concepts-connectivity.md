@@ -1,19 +1,20 @@
 ---
-title: Handle transient connectivity errors - Azure Database for PostgreSQL - Flexible Server
+title: Handle transient connectivity errors
 description: Learn how to handle transient connectivity errors for Azure Database for PostgreSQL - Flexible Server.
-ms.author: olmoloce
 author: olmoloce
+ms.author: olmoloce
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 03/22/2023
 ---
 
 # Handling transient connectivity errors for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article describes how to handle transient errors connecting to Azure Database for PostgreSQL.
+This article describes how to handle transient errors connecting to Azure Database for PostgreSQL flexible server.
 
 ## Transient errors
 
@@ -27,7 +28,7 @@ Transient errors should be handled using retry logic. Situations that must be co
 * An idle connection is dropped on the server side. When you try to issue a command, it can't be executed
 * An active connection that currently is executing a command is dropped.
 
-The first and second cases are fairly straight forward to handle. Try to open the connection again. When you succeed, the transient error has been mitigated by the system. You can use your Azure Database for PostgreSQL again. We recommend having waits before retrying the connection. Back off if the initial retries fail. This way the system can use all resources available to overcome the error situation. A good pattern to follow is:
+The first and second cases are fairly straight forward to handle. Try to open the connection again. When you succeed, the transient error has been mitigated by the system. You can use your Azure Database for PostgreSQL flexible server instance again. We recommend having waits before retrying the connection. Back off if the initial retries fail. This way the system can use all resources available to overcome the error situation. A good pattern to follow is:
 
 * Wait for 5 seconds before your first retry.
 * For each following retry, increase the wait exponentially, up to 60 seconds.
@@ -37,6 +38,6 @@ When a connection with an active transaction fails, it is more difficult to hand
 
 One way of doing this, is to generate a unique ID on the client that is used for all the retries. You pass this unique ID as part of the transaction to the server and to store it in a column with a unique constraint. This way you can safely retry the transaction. It will succeed if the previous transaction was rolled back and the client generated unique ID does not yet exist in the system. It will fail indicating a duplicate key violation if the unique ID was previously stored because the previous transaction completed successfully.
 
-When your program communicates with Azure Database for PostgreSQL through third-party middleware, ask the vendor whether the middleware contains retry logic for transient errors.
+When your program communicates with Azure Database for PostgreSQL flexible server through third-party middleware, ask the vendor whether the middleware contains retry logic for transient errors.
 
-Make sure to test your retry logic. For example, try to execute your code while scaling up or down the compute resources of your Azure Database for PostgreSQL server. Your application should handle the brief downtime that is encountered during this operation without any problems.
+Make sure to test your retry logic. For example, try to execute your code while scaling up or down the compute resources of your Azure Database for PostgreSQL flexible server instance. Your application should handle the brief downtime that is encountered during this operation without any problems.

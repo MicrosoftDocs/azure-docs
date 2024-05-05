@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 09/12/2022
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 Use the Image Analysis REST API to analyze an image for tags.

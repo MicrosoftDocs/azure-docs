@@ -8,7 +8,7 @@ ms.author: thvankra
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 05/02/2020
-ms.custom: devx-track-dotnet, mode-api, ignite-2022
+ms.custom: devx-track-dotnet, mode-api
 ---
 
 # Quickstart: Build a Cassandra app with .NET Core and Azure Cosmos DB
@@ -72,30 +72,30 @@ This step is optional. If you're interested to learn how the code creates the da
 * Initialize the session by connecting to a Cassandra cluster endpoint. The API for Cassandra on Azure Cosmos DB supports only TLSv1.2. 
 
   ```csharp
-      var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-      options.SetHostNameResolver((ipAddress) => CASSANDRACONTACTPOINT);
-      Cluster cluster = Cluster
-          .Builder()
-          .WithCredentials(USERNAME, PASSWORD)
-          .WithPort(CASSANDRAPORT)
-          .AddContactPoint(CASSANDRACONTACTPOINT)
-          .WithSSL(options)
-          .Build()
-      ;
-      ISession session = await cluster.ConnectAsync();
-   ```
+  var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+  options.SetHostNameResolver((ipAddress) => CASSANDRACONTACTPOINT);
+  Cluster cluster = Cluster
+      .Builder()
+      .WithCredentials(USERNAME, PASSWORD)
+      .WithPort(CASSANDRAPORT)
+      .AddContactPoint(CASSANDRACONTACTPOINT)
+      .WithSSL(options)
+      .Build()
+  ;
+  ISession session = await cluster.ConnectAsync();
+  ```
 
 * Drop existing keyspace if it already exists.
 
-    ```csharp
-    await session.ExecuteAsync(new SimpleStatement("DROP KEYSPACE IF EXISTS uprofile")); 
-    ```
+  ```csharp
+  await session.ExecuteAsync(new SimpleStatement("DROP KEYSPACE IF EXISTS uprofile")); 
+  ```
 
 * Create a new keyspace.
 
-    ```csharp
-    await session.ExecuteAsync(new SimpleStatement("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"));
-    ```
+  ```csharp
+  await session.ExecuteAsync(new SimpleStatement("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"));
+  ```
 
 * Create a new table.
 

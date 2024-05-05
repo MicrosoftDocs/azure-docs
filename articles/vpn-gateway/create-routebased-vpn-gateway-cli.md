@@ -6,19 +6,26 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 03/12/2024
 ms.author: cherylmc
 ---
 
 # Create a route-based VPN gateway using CLI
 
-This article helps you quickly create a route-based Azure VPN gateway using the Azure CLI. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
+This article helps you quickly create a route-based Azure VPN gateway using the Azure CLI. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets. 
 
 In this article you'll create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription.
 
+A VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network.
+
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
+* The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
+* You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

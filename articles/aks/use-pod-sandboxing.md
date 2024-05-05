@@ -2,8 +2,12 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
+ms.subservice: aks-security
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 06/07/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -20,7 +24,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - Register the `KataVMIsolationPreview` feature in your Azure subscription.
 
-- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher.
+- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher with all AKS network plugins.
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
@@ -283,7 +287,7 @@ Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with y
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
 [cloud-hypervisor]: https://www.cloudhypervisor.org
-[kata-container]: https://katacontainers.io 
+[kata-container]: https://katacontainers.io
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure
@@ -309,3 +313,4 @@ Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with y
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [azurelinux-cluster-config]: cluster-configuration.md#azure-linux-container-host-for-aks
 [register-the-katavmisolationpreview-feature-flag]: #register-the-katavmisolationpreview-feature-flag
+

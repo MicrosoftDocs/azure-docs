@@ -1,9 +1,8 @@
 ---
-title: Maintenance notifications 
+title: Maintenance notifications
 description: Overview of maintenance notifications for virtual machines running in Azure.
 ms.service: virtual-machines
 ms.subservice: maintenance
-ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 #pmcontact: shants

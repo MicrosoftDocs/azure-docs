@@ -5,7 +5,7 @@ description: Use Microsoft Entra API connectors to customize and extend your use
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 01/11/2024
 
 ms.author: kengaderdus
 author: kengaderdus
@@ -13,7 +13,8 @@ manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer or IT administrator, I want to use API connectors to integrate your sign-up user flows with REST APIs.
+#Customer intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs.
+
 ---
 
 # Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources 

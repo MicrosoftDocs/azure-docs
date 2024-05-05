@@ -7,8 +7,7 @@ metadata:
   ms.author: dacurwin
   manager: raynew
   ms.topic: faq
-  ms.custom: ignite-2022
-  ms.date: 06/18/2023
+  ms.date: 02/08/2024
 title: Common questions - General questions
 summary: |
 
@@ -28,7 +27,11 @@ sections:
         answer: |
           Microsoft Defender for Cloud is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To access it, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Defender for Cloud**.
           
-          
+      - question: |
+          Is there a trial version of Defender for Cloud?
+        answer: |
+          Defender for Cloud is free for the first 30 days. Any usage beyond 30 days is automatically charged as per the pricing scheme. [Learn more](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Note that malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day.
+  
       - question: |
           Which Azure resources are monitored by Microsoft Defender for Cloud?
         answer: |
@@ -44,7 +47,7 @@ sections:
       - question: |
           How can I see the current security state of my Azure, multicloud, and on-premises resources?
         answer: |
-          The **Defender for Cloud Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing identified security vulnerabilities. Clicking each tile displays a list of security issues identified by Defender for Cloud, along with an inventory of the resources in your subscription.
+          The **Defender for Cloud Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing identified security vulnerabilities. Selecting each tile displays a list of security issues identified by Defender for Cloud, along with an inventory of the resources in your subscription.
           
           
           
@@ -73,7 +76,7 @@ sections:
           * [Network security groups](../virtual-network/network-security-groups-overview.md) and rules to control traffic to virtual machines
           * Provisioning of a web application firewall to help defend against attacks targeting your web applications
           * Deploying missing system updates
-          * Addressing OS configurations that do not match the recommended baselines
+          * Addressing OS configurations that don't match the recommended baselines
           
           Only recommendations that are enabled in Security Policies are shown here.
           
@@ -92,7 +95,7 @@ sections:
       - question: |
           What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Microsoft Defender for Cloud?
         answer: |
-          The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact is not specified.
+          The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data was accessed by an unlawful or unauthorized party or that the customer's use of Azure doesn't comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact isn't specified.
           
           Defender for Cloud is an Azure service that continuously monitors the customer's Azure, multicloud, and on-premises environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
 
@@ -107,12 +110,11 @@ sections:
           If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
           :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::
-
-
+    
       - question: |
           What happens when one recommendation is in multiple policy initiatives?
         answer: |
-          Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit.
+          Sometimes, a security recommendation appears in more than one policy initiative. If you have multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it affects all of the initiatives that you have permission to edit.
 
           If you try to create an exemption for this recommendation, you'll see one of the two following messages:
 
@@ -138,6 +140,9 @@ sections:
           - Containers sharing sensitive host namespaces should be avoided
           - Containers should listen on allowed ports only
           - Default IP Filter Policy should be Deny
+          - EDR configuration issues should be resolved on virtual machines
+          - EDR solution should be installed on Virtual Machines
+          - File integrity monitoring should be enabled on machines
           - Immutable (read-only) root filesystem should be enforced for containers
           - IoT Devices - Open Ports On Device
           - IoT Devices - Permissive firewall policy in one of the chains was found
@@ -149,7 +154,7 @@ sections:
           - Privileged containers should be avoided
           - Running containers as root user should be avoided
           - Services should listen on allowed ports only
-          - SQL servers should have an Microsoft Entra administrator provisioned
+          - SQL servers should have a Microsoft Entra administrator provisioned
           - Usage of host networking and ports should be restricted
           - Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
 
@@ -159,10 +164,11 @@ sections:
         answer: |
           To investigate why the recommendations are still being generated, verify the following configuration options in your MFA CA policy:
 
-          - You've included the accounts in the **Users** section of your MFA CA policy (or one of the groups in the **Groups** section)
+          - You included the accounts in the **Users** section of your MFA CA policy (or one of the groups in the **Groups** section)
           - The Azure Management app ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), or all apps, are included in the **Apps** section of your MFA CA policy
           - The Azure Management app ID isn't excluded in the **Apps** section of your MFA CA policy
           - OR condition is used with only MFA, or AND condition is used with MFA 
+          - A Conditional Access policy enforcing MFA through [Authentication Strengths](/entra/identity/authentication/concept-authentication-strengths) is currently not supported in our evaluation.
  
       - question: |
           We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
@@ -175,7 +181,7 @@ sections:
       - question: |
           Why does Defender for Cloud show user accounts without permissions on the subscription as "requiring MFA"?
         answer: |
-          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
+          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.yml) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
 
  
       - question: |
@@ -198,7 +204,7 @@ sections:
           1. Select an MFA recommendation associated with an unhealthy account.
           1. In the Accounts tab, select an account to exempt.
           1. Select the three dots button, then select **Exempt account**.
-          1. Select a scope and exemption reason. 
+          1. Select a scope and exemption reason.
 
           If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
 
@@ -211,7 +217,7 @@ sections:
         answer: |
           There are some limitations to Defender for Cloud's identity and access protections:
 
-          - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
+          - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions are listed under Not applicable tab.
           - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
           - Identity recommendations don't identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
           - Identity recommendations don't support Microsoft Entra conditional access policies with included Directory Roles instead of users and groups.
@@ -220,7 +226,7 @@ sections:
       - question: |
           What operating systems for my EC2 instances are supported?
         answer: |
-          For a list of the AMIs with the SSM Agent preinstalled see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
+          For a list of the AMIs with the SSM Agent preinstalled, see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
 
           For other operating systems, the SSM Agent should be installed manually using the following instructions:
 
@@ -246,7 +252,7 @@ sections:
           | CloudWatch logs | `logs:DescribeLogGroups` <br> `logs:DescribeMetricFilters` |
           | CodeBuild | `codebuild:DescribeCodeCoverages` <br> `codebuild:DescribeTestCases` <br> `codebuild:List*` |
           | Config Service | `config:Describe*` <br> `config:List*` |
-          | DMS – database migration service | `dms:Describe*` <br> `dms:List*` |
+          | DMS - database migration service | `dms:Describe*` <br> `dms:List*` |
           | DAX | `dax:Describe*` |
           | DynamoDB | `dynamodb:Describe*` <br> `dynamodb:List*` |
           | Ec2 | `ec2:Describe*` <br> `ec2:GetEbsEncryptionByDefault` |
@@ -255,9 +261,9 @@ sections:
           | EFS | `elasticfilesystem:Describe*` |
           | EKS | `eks:Describe*` <br> `eks:List*` |
           | Elastic Beanstalk | `elasticbeanstalk:Describe*` <br> `elasticbeanstalk:List*` |
-          | ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
+          | ELB - elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
           | Elastic search | `es:Describe*` <br> `es:List*` |
-          | EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
+          | EMR - elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
           | GuardDuty | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
           | IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
           | KMS | `kms:Describe*` <br> `kms:List*` |
@@ -268,7 +274,7 @@ sections:
           | S3 and S3Control | `s3:DescribeJob` <br> `s3:GetEncryptionConfiguration` <br> `s3:GetBucketPublicAccessBlock` <br> `s3:GetBucketTagging` <br> `s3:GetBucketLogging` <br> `s3:GetBucketAcl` <br> `s3:GetBucketLocation` <br> `s3:GetBucketPolicy` <br> `s3:GetReplicationConfiguration` <br> `s3:GetAccountPublicAccessBlock` <br> `s3:GetObjectAcl` <br> `s3:GetObjectTagging` <br> `s3:List*` |
           | SageMaker | `sagemaker:Describe*` <br> `sagemaker:GetSearchSuggestions` <br> `sagemaker:List*` <br> `sagemaker:Search` |
           | Secret manager | `secretsmanager:Describe*` <br> `secretsmanager:List*` |
-          | Simple notification service – SNS | `sns:Check*` <br> `sns:List*` |
+          | Simple notification service  SNS | `sns:Check*` <br> `sns:List*` |
           | SSM | `ssm:Describe*` <br> `ssm:List*` |
           | SQS | `sqs:List*` <br> `sqs:Receive*` |
           | STS | `sts:GetCallerIdentity` |
@@ -302,7 +308,7 @@ sections:
         answer: |
           There's no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there.
 
-          Many alerts are only provided when you've enabled Defender plans for your resources. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Defender for Cloud's pages in the Azure portal.
+          Many alerts are only provided when you enabled Defender plans for your resources. A good way to preview the alerts you get in your exported data is to see the alerts shown in Defender for Cloud's pages in the Azure portal.
 
           Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -316,7 +322,7 @@ sections:
         answer: |
           No. Continuous export is built for streaming of **events**:
 
-          - **Alerts** received before you enabled export won't be exported.
+          - **Alerts** received before you enabled export aren't exported.
           - **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
           - **Secure score** per security control or subscription is sent when a security control's score changes by 0.01 or more.
           - **Regulatory compliance status** is sent when the status of the resource's compliance changes.
@@ -340,6 +346,11 @@ sections:
           Continuous export can be helpful in to prepare for BCDR scenarios where the target resource is experiencing an outage or other disaster. However, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
 
           Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+
+      - question: |
+          Can I programmatically update multiple plans on a single subscription simultaneously?
+        answer: |
+          We don't recommend programmatically updating multiple plans on a single subscription simultaneously (via REST API, ARM templates, scripts, etc.). When using the [Microsoft.Security/pricings API](/rest/api/defenderforcloud/pricings), or any other programmatic solution, you should insert a delay of 10-15 seconds between each request.
 
 additionalContent: |
 

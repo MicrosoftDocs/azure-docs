@@ -3,7 +3,6 @@ title: Request access to Azure Cosmos DB previews
 description: Learn how to request access to Azure Cosmos DB previews
 author: gahl-levy
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/13/2022
 ms.author: gahllevy

@@ -5,8 +5,8 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.custom: devx-track-azurecli
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/07/2022
 ms.topic: how-to

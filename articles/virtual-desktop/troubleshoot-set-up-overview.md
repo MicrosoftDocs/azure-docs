@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 10/14/2021
 ms.author: helohr
-manager: femila
 ---
 # Troubleshooting overview, feedback, and support for Azure Virtual Desktop
 

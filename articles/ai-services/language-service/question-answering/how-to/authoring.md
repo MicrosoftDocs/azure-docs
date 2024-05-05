@@ -1,7 +1,7 @@
 ---
-title: Authoring API - question answering
+title: Authoring API - custom question answering
 titleSuffix: Azure AI services
-description: Use the question answering Authoring API to automate common tasks like adding new question answer pairs, and creating, and publishing projects. 
+description: Use the custom question answering Authoring API to automate common tasks like adding new question answer pairs, and creating, and publishing projects. 
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
@@ -11,7 +11,7 @@ ms.date: 12/19/2023
 
 # Authoring API
 
-The question answering Authoring API is used to automate common tasks like adding new question answer pairs, as well as creating, publishing, and maintaining projects. 
+The custom question answering Authoring API is used to automate common tasks like adding new question answer pairs, as well as creating, publishing, and maintaining projects. 
 
 > [!NOTE]
 > Authoring functionality is available via the REST API and [Authoring SDK (preview)](/dotnet/api/overview/azure/ai.language.questionanswering-readme). This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
@@ -29,7 +29,7 @@ To create a project programmatically:
 |--------------------------|-------------|
 | `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If the prior example was your endpoint in the code sample below, you would only need to add the region specific portion of `southcentral` as the rest of the endpoint path is already present.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively, you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. The key value is part of the sample request.|
-| `NEW-PROJECT-NAME` | The name for your new question answering project.|
+| `NEW-PROJECT-NAME` | The name for your new custom question answering project.|
 
 You can also adjust additional values like the project language, the default answer given when no answer can be found that meets or exceeds the confidence threshold, and whether this language resource will support multiple languages.
 

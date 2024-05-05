@@ -19,7 +19,7 @@ Azure IoT Hub supports [OASIS Advanced Message Queuing Protocol
 
 ### Connect and authenticate to an IoT hub (service client)
 
-To connect to an IoT hub by using AMQP, a client can use the [claims-based security (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) or [Simple Authentication and Security Layer (SASL) authentication](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
+To connect to an IoT hub by using AMQP, a client can use the [claims-based security (CBS)](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=60412) or [Simple Authentication and Security Layer (SASL) authentication](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
 
 The following information is required for the service client:
 
@@ -215,7 +215,7 @@ For a given device ID, the IoT hub uses a hash of the device ID to determine whi
 
 ### Connect and authenticate to an IoT hub (device client)
 
-To connect to an IoT hub by using AMQP, a device can use [claims based security (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) or [Simple Authentication and Security Layer (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) authentication.
+To connect to an IoT hub by using AMQP, a device can use [claims based security (CBS)](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=60412) or [Simple Authentication and Security Layer (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) authentication.
 
 The following information is required for the device client:
 

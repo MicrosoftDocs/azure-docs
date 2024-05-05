@@ -34,6 +34,10 @@ param location string = resourceGroup().location
 
 @description('Specify the capacity reservation value.')
 @allowed([
+  100
+  200
+  300
+  400
   500
   1000
   2000
@@ -87,6 +91,10 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
     "CommitmentTier": {
       "type": "int",
       "allowedValues": [
+        100,
+        200,
+        300,
+        400,
         500,
         1000,
         2000,

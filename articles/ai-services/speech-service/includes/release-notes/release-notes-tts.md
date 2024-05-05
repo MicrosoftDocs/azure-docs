@@ -2,9 +2,50 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 12/1/2023
+ms.date: 2/7/2024
 ms.author: eur
+ms.custom: references_regions
 ---
+
+### April 2024 release
+
+#### Text to speech avatar
+
+- You can now set a static background image for your avatars. To utilize this feature, simply use the `avatarConfig.backgroundImage` property and specify a URL pointing to the desired image. For detials, refer to [How to edit the background](../../text-to-speech-avatar/batch-synthesis-avatar-properties.md#how-to-edit-the-background).
+
+### March 2024 release
+
+#### Prebuilt neural voice
+
+- 9 multilingual voices are generally available in all regions: `en-US-AvaMultilingualNeural`, `en-US-AndrewMultilingualNeural`, `en-US-EmmaMultilingualNeural`, `en-US-BrianMultilingualNeural`, `de-DE-FlorianMultilingualNeural`, `de-DE-SeraphinaMultilingualNeural`, `fr-FR-RemyMultilingualNeural`, `fr-FR-VivienneMultilingualNeural`, and `zh-CN-XiaoxiaoMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts#multilingual-voices) for more information.
+  
+- Introducing a new multilingual voice for public preview: `ja-JP-MasaruMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts#multilingual-voices) for more information.
+
+- Additional updates:
+  - `en-US-RyanMultilingualNeural` is generally available in all regions.
+  - `en-US-JennyMultilingualV2Neural` is generally available in all regions, merged with `en-US-JennyMultilingualNeural`.
+  - Preview available for the updated `en-IN-NeerjaNeural` and `hi-IN-SwaraNeural` with 3 new styles in East US, West Europe, and Southeast Asia.
+  - Preview available for new female voices in Central India: `en-IN-KavyaNeural`, `en-IN-AnanyaNeural`, `en-IN-AashiNeural`, `hi-IN-KavyaNeural`, and `hi-IN-AnanyaNeural`.
+
+#### Text to speech avatar
+
+- Removed dependency on [Azure Communication Services (ACS) TURN](/azure/communication-services/quickstarts/relay-token) for real-time avatar. The [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) has been updated accordingly to reflect this change.
+- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+
+### February 2024 release
+
+#### OpenAI voices
+
+- The Azure AI Speech service supports OpenAI text to speech voices in the following regions: North Central US and Sweden Central. Like Azure AI Speech voices, OpenAI text to speech voices deliver high-quality speech synthesis to convert written text into natural sounding spoken audio. This unlocks a wide range of possibilities for immersive and interactive user experiences. For more information, see [What are OpenAI text to speech voices?](../../openai-voices.md).
+
+  > [!NOTE]
+  > OpenAI text to speech voices are also available in [Azure OpenAI Service](../../../openai/reference.md#text-to-speech). 
+  
+- With this update, we have adjusted the pricing of prebuilt neural voices with Azure AI Speech. Check the updated pricing [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+
+#### Personal voice
+
+The personal voice feature now supports `DragonLatestNeural` and `PhoenixLatestNeural` models. These new models enhance the naturalness of synthesized voices, better resembling the speech characteristics of the voice in the prompt. For more details, refer to [Integrate personal voice in your application](../../personal-voice-how-to-use.md#integrate-personal-voice-in-your-application).
 
 ### December 2023 release
 
@@ -15,6 +56,40 @@ The custom voice API is available for creating and managing [professional](../..
 #### Custom neural voice
 
 The newly trained voice models now support 48 kHz sample rate, irrespective of the model version. For previously trained voice models, it's necessary to [upgrade the engine version](../../how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model) to at least **2023.11.13.0** version to enhance the sample rate to 48 kHz.
+
+#### Prebuilt neural voice
+- Introducing new multilingual voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `de-DE-FlorianMultilingualNeural` (Male) |
+| `de-DE` | German (Germany) | `de-DE-SeraphinaMultilingualNeural` (Female) |
+| `en-US` | English (United States) | `en-US-AvaMultilingualNeural` (Female) |
+| `en-US` | English (United States) | `en-US-EmmaMultilingualNeural` (Female) |
+| `fr-FR` | French (France) | `fr-FR-RemyMultilingualNeural` (Male) |
+| `en-US` | English (United States) | `en-US-BrianMultilingualNeural` (Male) |
+| `en-US` | English (United States) | `en-US-AndrewMultilingualNeural` (Male) |
+| `fr-FR` | French (France) | `fr-FR-VivienneMultilingualNeural` (Female) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoMultilingualNeural` (Female) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaochenMultilingualNeural` (Female) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-YunyiMultilingualNeural` (Male) |
+
+- Introducing new `zh-CN-XiaoxiaoDialectsNeural` voices for public preview which support several Chinese dialects and accents:
+
+| Voicename | Secondary language | Dialect/Accent |
+| ----- | ----- | ----- |
+| `zh-CN-XiaoxiaoDialectsNeural` | `zh-CN-shaanxi` | Chinese (Zhongyuan Mandarin Shaanxi, Simplified) |
+|  | `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) |
+|  | `zh-CN-shanxi` | Chinese (Shanxi Accent Mandarin, Simplified) |
+|  | `nan-CN` | Chinese (Southern Min, Simplified) |
+|  | `zh-CN-anhui` | Chinese (Jianghuai Mandarin Anhui, Simplified) |
+|  | `zh-CN-hunan` | Chinese (Hunan Accent Mandarin, Simplified) |
+|  | `zh-CN-gansu` | Chinese (Lanyin Mandarin Gansu, Simplified) |
+|  | `zh-CN-shandong` | Chinese (Jilu Mandarin, Simplified) |
+|  | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) |
+|  | `zh-CN-liaoning` | Chinese (Northeastern Mandarin, Simplified) |
+|  | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) |
+
 
 ### November 2023 release
 

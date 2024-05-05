@@ -2,7 +2,7 @@
 title: Use a managed image to create a custom image pool
 description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 03/18/2024
 ms.devlang: csharp
 ---
 
@@ -38,10 +38,12 @@ To scale Batch pools reliably with a managed image, we recommend creating the ma
 
 ### Prepare a VM
 
-If you're creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
+If you're creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see [List Supported Images](/rest/api/batchservice/account/listsupportedimages).
 
 > [!NOTE]
-> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
+> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
+>
+> To use third-party image, you can use the Azure Compute Gallery. Please refer to [Use the Azure Compute Gallery to create a custom image pool](./batch-sig-images.md) for more information.
 
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
 - Don't install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a preinstalled extension, Azure may encounter problems when deploying the Batch pool.

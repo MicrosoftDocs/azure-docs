@@ -6,7 +6,6 @@ manager: rkarlin
 ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
-ms.custom: ignite-2022
 ms.topic: feature-availability
 ms.date: 08/31/2023
 ---
@@ -32,6 +31,10 @@ Azure Government uses the same underlying technologies as Azure (sometimes refer
 Azure Government is a physically isolated cloud environment dedicated to US federal, state, local, and tribal governments, and their partners. Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an extra layer of protection to customers through contractual commitments regarding storage of customer data in the United States and limiting potential access to systems processing customer data to screened US persons. These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
 
 For more information about Azure Government, see [What is Azure Government?](../../azure-government/documentation-government-welcome.md)
+
+> [!NOTE]
+> These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
+> For more information about specific availability for air-gapped clouds, please contact your account team.
 
 ## Microsoft 365 integration
 
@@ -146,7 +149,7 @@ The following table displays the current Defender for Cloud feature availability
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
 | **Microsoft Defender for Cloud free features**                                                                                                                                       |                |                                |
 | <li> [Continuous export](../../defender-for-cloud/continuous-export.md)                                                                                                                 | GA             | GA                             |
-| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.md)                                                                                                               | GA             | GA                             |
+| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.yml)                                                                                                               | GA             | GA                             |
 | <li> [Recommendation exemption rules](../../defender-for-cloud/exempt-resource.md)                                                                                                      | Public Preview | Not Available                  |
 | <li> [Alert suppression rules](../../defender-for-cloud/alerts-suppression-rules.md)                                                                                                    | GA             | GA                             |
 | <li> [Email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md)                                                            | GA             | GA                             |
@@ -167,7 +170,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)                                                         | GA             | Not Available                  |
 | <li> [Microsoft Defender for Key Vault](../../defender-for-cloud/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
 | <li> [Microsoft Defender for Resource Manager](../../defender-for-cloud/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
-| <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
+| <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA (activity monitoring)              |
 | <li> [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md)                                              | GA | Not Available                  |
 | <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
 | <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | Public Preview | Public Preview                 |
@@ -194,7 +197,7 @@ The following table displays the current Defender for Cloud feature availability
 
 <sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes.
 
-<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
+<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview. 
 
 <sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md).
 

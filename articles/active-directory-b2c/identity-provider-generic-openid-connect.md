@@ -13,6 +13,9 @@ ms.date: 12/28/2022
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Azure AD B2C with a custom OpenID Connect identity provider, I want to understand the steps to add the identity provider and configure the necessary settings, so that users can sign in securely using the custom identity provider.
+
 ---
 
 # Set up sign-up and sign-in with generic OpenID Connect using Azure Active Directory B2C

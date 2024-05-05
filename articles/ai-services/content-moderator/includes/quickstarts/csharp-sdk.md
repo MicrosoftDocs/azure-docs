@@ -7,10 +7,9 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 01/18/2024
 ms.author: pafarley
-ms.custom: "devx-track-dotnet, cog-serv-seo-aug-2020"
-
+ms.custom: devx-track-dotnet
 ---
 
 Get started with the Azure Content Moderator client library for .NET. Follow these steps to install the NuGet package and try out the example code for basic tasks. 

@@ -7,7 +7,6 @@ ms.date: 08/27/2018
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Manageability and monitoring with dedicated SQL pool in Azure Synapse Analytics

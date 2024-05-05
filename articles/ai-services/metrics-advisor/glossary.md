@@ -5,9 +5,9 @@ description: Key ideas and concepts for the Metrics Advisor service
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-metrics-advisor
-ms.custom: applied-ai-non-critical-metrics-advisor, ignite-2022
+ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 

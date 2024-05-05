@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -53,14 +53,14 @@ To create a custom neural voice lite project, follow these steps:
     > To create a custom neural voice Pro project, see [Create a project for custom neural voice](professional-voice-create-project.md).
 
 1. Follow the instructions provided by the wizard to create your project. 
-1. Select the new project by name or select **Go to project**. You'll see these menu items in the left panel: **Record and build**, **Review model**, and **Deploy model**.  
+1. Select the new project by name or select **Go to project**. You see these menu items in the left panel: **Record and build**, **Review model**, and **Deploy model**.  
     :::image type="content" source="media/custom-voice/lite/lite-project-get-started.png" alt-text="Screenshot with an overview of the CNV lite record, train, test, and deploy workflow.":::
 
 The CNV lite project expires after 90 days unless the [verbal statement](#submit-verbal-statement) recorded by the voice talent is submitted.
 
 ## Record and build a CNV lite model
 
-Record at least 20 voice samples (up to 50) with provided scripts online. Voice samples recorded here will be used to create a synthetic version of your voice.
+Record at least 20 voice samples (up to 50) with provided scripts online. Voice samples recorded here are used to create a synthetic version of your voice.
 
 Here are some tips to help you record your voice samples:
 - Use a good microphone. Increase the clarity of your samples by using a high-quality microphone. Speak about 8 inches away from the microphone to avoid mouth noises.
@@ -75,7 +75,7 @@ To record and build a CNV lite model, follow these steps:
 1. Select **Get started**. 
 1. Read the Voice talent terms of use carefully. Select the checkbox to acknowledge the terms of use.
 1. Select **Accept**
-1. Press the microphone icon to start the noise check. This noise check will take only a few seconds, and you won't need to speak during it. 
+1. Press the microphone icon to start the noise check. This noise check takes only a few seconds, and you don't need to speak during it. 
 1. If noise was detected, you can select **Check again** to repeat the noise check. If no noise was detected, you can select **Done** to proceed to the next step. 
     :::image type="content" source="media/custom-voice/lite/cnv-record-noise-check.png" alt-text="Screenshot of the noise check results when noise was detected.":::
 1. Review the recording tips and select **Got it**. For the best results, go to a quiet area without background noise before recording your voice samples.
@@ -113,7 +113,7 @@ To submit the voice talent verbal statement, follow these steps:
 
 ## Deploy model
 
-To deploy your voice model and use it in your applications, you must get the full access to custom neural voice. Request access on the [intake form](https://aka.ms/customneural). Within approximately 10 business days, you'll receive an email with the approval status. A [verbal statement](#submit-verbal-statement) recorded by the voice talent is also required before you can deploy the model for your business use.
+To deploy your voice model and use it in your applications, you must get the full access to custom neural voice. Request access on the [intake form](https://aka.ms/customneural). Within approximately 10 business days, you receive an email with the approval status. A [verbal statement](#submit-verbal-statement) recorded by the voice talent is also required before you can deploy the model for your business use.
 
 To deploy a CNV lite model, follow these steps:
 

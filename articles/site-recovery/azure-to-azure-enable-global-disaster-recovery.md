@@ -1,7 +1,6 @@
 ---
 title: Enable disaster recovery across Azure regions across the globe
 description: This article describes the global disaster recovery feature in Azure Site Recovery.
-manager: evansma
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/14/2023

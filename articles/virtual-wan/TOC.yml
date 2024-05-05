@@ -72,7 +72,7 @@
       href: about-virtual-hub-routing.md
     - name: About Route-maps
       href: route-maps-about.md
-    - name: Routing scenarios
+    - name: Scenarios
       items:
       - name: Virtual hub routing preference
         href: about-virtual-hub-routing-preference.md
@@ -136,8 +136,12 @@
   items:
   - name: Upgrade from Basic to Standard
     href: upgrade-virtual-wan.md
-  - name: Create an NVA in a virtual hub
-    href: How-to-nva-hub.md
+  - name: Integrated NVA in a virtual hub
+    items:
+    - name: Create a NVA in a virtual hub 
+      href: how-to-nva-hub.md
+    - name: Configure DNAT/Internet inbound
+      href: how-to-network-virtual-appliance-inbound.md
   - name: Connect a VNet to a virtual hub
     items:
     - name: Azure portal
@@ -292,8 +296,10 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Monitoring - best practices
+    - name: Monitoring - Best practices
       href: monitoring-best-practices.md
+    - name: Monitoring - Data reference
+      href: monitor-virtual-wan-reference.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
@@ -312,8 +318,6 @@
     href: customer-controlled-gateway-maintenance.md
 - name: Reference
   items:
-  - name: Monitoring data
-    href: monitor-virtual-wan-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#networking
   - name: REST

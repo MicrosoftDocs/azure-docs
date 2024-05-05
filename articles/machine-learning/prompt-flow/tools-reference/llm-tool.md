@@ -25,6 +25,8 @@ Prompt flow provides a few different large language model APIs:
 
 > [!NOTE]
 > We removed the `embedding` option from the LLM tool API setting. You can use an embedding API with the [embedding tool](embedding-tool.md).
+> Only key-based authentication is supported for Azure OpenAI connection.
+> Please don't use non-ascii characters in resource group name of Azure OpenAI resource, prompt flow didn't support this case.
 
 ## Prerequisites
 
@@ -46,7 +48,13 @@ Set up connections to provisioned resources in prompt flow.
 | Type        | Name     | API key  | API type | API version |
 |-------------|----------|----------|----------|-------------|
 | OpenAI      | Required | Required | -        | -           |
-| Azure OpenAI| Required | Required | Required | Required    |
+| Azure OpenAI - API key| Required | Required | Required | Required    |
+| Azure OpenAI - Microsoft Entra ID| Required | - | - | Required    |
+
+  > [!TIP]
+  > - To use Microsoft Entra ID auth type for Azure OpenAI connection, you need assign either the `Cognitive Services OpenAI User` or `Cognitive Services OpenAI Contributor role` to user or user assigned managed identity.
+  > - Learn more about [how to specify to use user identity to submit flow run](../how-to-create-manage-runtime.md#create-an-automatic-runtime-preview-on-a-flow-page).
+  > - Learn more about [How to configure Azure OpenAI Service with managed identities](../../../ai-services/openai/how-to/managed-identity.md).
 
 ## Inputs
 

@@ -43,7 +43,7 @@ Unless you're using [custom domain names](#mount-file-shares-using-custom-domain
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
 if ($connectTestResult.TcpTestSucceeded) {
     cmd.exe /C "cmdkey /add:`"<storage-account-name>.file.core.windows.net`" /user:`"localhost\<storage-account-name>`""
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<file-share-name>" -Persist
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<file-share-name>" -Persist -Scope global
 } else {
     Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
@@ -59,7 +59,7 @@ If you run into issues, see [Unable to mount Azure file shares with AD credentia
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials (username and password). The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
 
 To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name. This will allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
 

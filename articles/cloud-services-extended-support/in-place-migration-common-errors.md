@@ -8,7 +8,6 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
-ms.custom: 
 ---
 
 # Common errors and known issues when migrating to Azure Cloud Services (extended support)

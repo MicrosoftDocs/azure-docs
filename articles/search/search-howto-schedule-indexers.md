@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 01/17/2024
 ---
 
 # Schedule an indexer in Azure AI Search
 
-Indexers can be configured to run on a schedule when you set the "schedule" property. Some situations where indexer scheduling is useful include:
+Indexers can be configured to run on a schedule when you set the `schedule` property. Some situations where indexer scheduling is useful include:
 
 + Source data is changing over time, and you want the indexer to automatically process the difference.
 + Source data is very large, and you need a recurring schedule to index all of the content.
@@ -22,7 +22,7 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 When indexing can't complete within the [typical 2-hour processing window](search-howto-run-reset-indexers.md#indexer-execution), you can schedule the indexer to run on a 2-hour cadence to work through a large volume of data. As long as your data source supports [change detection logic](search-howto-create-indexers.md#change-detection-and-internal-state), indexers can automatically pick up where they left off on each run.
 
-Once an indexer is on a schedule, it remains on the schedule until you clear the interval or start time, or set "disabled" to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. Checking for changed content is a relatively fast operation.
+Once an indexer is on a schedule, it remains on the schedule until you clear the interval or start time, or set `disabled` to true. Leaving the indexer on a schedule when there's nothing to process won't impact system performance. Checking for changed content is a relatively fast operation.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Once an indexer is on a schedule, it remains on the schedule until you clear the
 
 ## Schedule definition
 
-A schedule is part of the indexer definition. If the "schedule" property is omitted, the indexer will only run on demand. The property has two parts.
+A schedule is part of the indexer definition. If the `schedule` property is omitted, the indexer will only run on demand. The property has two parts.
 
 | Property | Description |
 |----------|-------------|
@@ -45,7 +45,7 @@ The following example is a schedule that starts on January 1 at midnight and run
 {
     "dataSourceName" : "hotels-ds",
     "targetIndexName" : "hotels-idx",
-    "schedule" : { "interval" : "PT2H", "startTime" : "2022-01-01T00:00:00Z" }
+    "schedule" : { "interval" : "PT2H", "startTime" : "2024-01-01T00:00:00Z" }
 }
 ```
 
@@ -56,23 +56,25 @@ Schedules are specified in an indexer definition. To set up a schedule, you can 
 ### [**Azure portal**](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
-1. On the **Overview** page, select the **Indexers** tab.
-1. Select an indexer.
+1. On the left navigation pane, select **Indexers**.
+1. Open an indexer.
 1. Select **Settings**.
 1. Scroll down to **Schedule**, and then choose Hourly, Daily, or Custom to set a specific date, time, or custom interval.
 
+Switch to the **Indexer Definition (JSON)** tab at the top of the index to view the schedule definition in XSD format.
+
 ### [**REST**](#tab/rest)
 
-1. Call [Create Indexer](/rest/api/searchservice/create-indexer) or [Update Indexer](/rest/api/searchservice/update-indexer).
+1. Call [Create Indexer](/rest/api/searchservice/indexers/create) or [Create or Update Indexer](/rest/api/searchservice/indexers/create-or-update).
 
 1. Set the schedule property in the body of the request:
 
     ```http
-    PUT /indexers/<indexer-name>?api-version=2020-06-30
+    PUT /indexers/<indexer-name>?api-version=2023-11-01
     {
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "my-target-index-name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
+        "schedule" : { "interval" : "PT10M", "startTime" : "2024-01-01T00:00:00Z" }
     }
     ```
 
@@ -103,17 +105,17 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 
 ## Scheduling behavior
 
-For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you can generally have 12 indexer jobs in active execution, whether initiated on demand or on a schedule.
+For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you can have 12 indexer jobs in active execution, whether initiated on demand or on a schedule.
 
 Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution). For this reason, the number of service units has no bearing on the number of skills-based indexer jobs you can run. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the execution environment.
 
 Although multiple indexers can run simultaneously, a given indexer is single instance. You can't run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
 
-Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an interval of hourly and a start time of June 1, 2022 at 8:00:00 AM UTC. Here's what could happen when an indexer run takes longer than an hour:
+Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an interval of hourly and a start time of January 1, 2024 at 8:00:00 AM UTC. Here's what could happen when an indexer run takes longer than an hour:
 
-+ The first indexer execution starts at or around June 1, 2022 at 8:00 AM UTC. Assume this execution takes 20 minutes (or any amount of time that's less than 1 hour).
++ The first indexer execution starts at or around January 1, 2024 at 8:00 AM UTC. Assume this execution takes 20 minutes (or any amount of time that's less than 1 hour).
 
-+ The second execution starts at or around June 1, 2022 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
++ The second execution starts at or around January 1, 2022 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
 
 + The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer won't start until 11:00 AM UTC.
 

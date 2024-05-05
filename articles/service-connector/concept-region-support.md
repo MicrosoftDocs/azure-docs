@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 10/19/2023
-ms.custom: references_regions, event-tier1-build-2022
+ms.custom: references_regions
 ---
 
 # Service Connector region support

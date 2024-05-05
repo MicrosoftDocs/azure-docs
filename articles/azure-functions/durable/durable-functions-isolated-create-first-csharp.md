@@ -72,10 +72,10 @@ Add the following to your app project:
 
 ```xml
 <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.10.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" OutputItemType="Analyzer" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" OutputItemType="Analyzer" />
 </ItemGroup>
 ```
 ## Add functions to the app
@@ -154,8 +154,11 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
 
 1. To test your function, set a breakpoint in the `SayHello` activity function code and press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-    > [!NOTE]
-    > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
+> [!NOTE]
+> For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
+
+> [!NOTE]
+> If you encounter a "No job functions found" error, please [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Older versions of core tools do not support .NET isolated.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -255,10 +258,10 @@ Add the following to your app project:
 
 ```xml
 <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.10.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" OutputItemType="Analyzer" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" OutputItemType="Analyzer" />
 </ItemGroup>
 ```
 ## Add functions to the app

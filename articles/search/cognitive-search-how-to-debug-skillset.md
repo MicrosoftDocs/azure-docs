@@ -17,7 +17,9 @@ ms.date: 01/10/2024
 
 Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure AI Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure AI Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. When you're finished debugging, you can save your changes to the skillset. 
+
+For background on how a debug session works, see [Debug sessions in Azure AI Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 ## Prerequisites
 
@@ -42,6 +44,8 @@ Debug sessions work with all generally available [indexer data sources](search-d
 + For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, the debug session won't find the document.
 
 + For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
+
+The portal doesn't support customer-managed key encryption (CMK), which means that portal experiences like debug sessions can't have CMK-encrypted connection strings or other encrypted metadata. If your search service is configured for [CMK enforcement](search-security-manage-encryption-keys.md#6---set-up-policy), debug sessions won't work.
 
 ## Create a debug session
 
@@ -117,7 +121,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
 
-Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference enrichments in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 The following steps show you how to get information about a skill.
 
@@ -157,22 +161,30 @@ Custom skills can be more challenging to debug because the code runs externally,
 ### Get a public URL
 
 #### Using Tunnelmole
+
 Tunnelmole is an open source tunneling tool that can create a public URL that forwards requests to your local machine through a tunnel.
 
 1. Install Tunnelmole:
-   - npm:  `npm install -g tunnelmole`
-   - Linux: `curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash`
-   - Mac:  `curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh`
-   - Windows: Install by using npm. Or if you don't have NodeJS installed, download the [precompiled .exe file for Windows](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
 
-2. Run this command to create a new tunnel:
+   + npm:  `npm install -g tunnelmole`
+   + Linux: `curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash`
+   + Mac:  `curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh`
+   + Windows: Install by using npm. Or if you don't have NodeJS installed, download the [precompiled .exe file for Windows](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
+
+1. Run this command to create a new tunnel:
+
    ```console
-   ➜  ~ tmole 7071
+   tmole 7071
+   ```
+
+   You should see a response that looks like this:
+
+   ```console
    http://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
    https://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
    ```
 
-In the preceding example, `https://m5hdpb-ip-49-183-170-144.tunnelmole.net` forwards to port `7071` on your local machine, which is the default port where Azure functions are exposed.
+   In the preceding example, `https://m5hdpb-ip-49-183-170-144.tunnelmole.net` forwards to port `7071` on your local machine, which is the default port where Azure functions are exposed.
 
 #### Using ngrok
 
@@ -203,7 +215,7 @@ You can edit the skill definition in the portal.
 
 ### Test your code
 
-At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
+At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio Code to debug your code or run step by step.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-key-phrase, ignite-fall-2021
+ms.custom: language-service-key-phrase
 keywords: on-premises, Docker, container, natural language processing
 ---
 

@@ -1,0 +1,109 @@
+### YamlMime:Landing
+
+title: Defender External Attack Surface Management
+summary: Microsoft Defender External Attack Surface Management (Defender EASM) continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure. This visibility enables security and IT teams to identify unknowns, prioritize risk, eliminate threats, and extend vulnerability and exposure control beyond the firewall. 
+
+metadata:
+  title: Defender External Attack Surface Management 
+  description: Microsoft Defender External Attack Surface Management (Defender EASM) continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure. This visibility enables security and IT teams to identify unknowns, prioritize risk, eliminate threats, and extend vulnerability and exposure control beyond the firewall. 
+
+  ms.service: defender-easm
+  ms.topic: landing-page
+  author: danielledennis
+  ms.author: dandennis
+  ms.date: 02/27/2024
+  keywords: external-attack-surface-management 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Defender EASM
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: overview.md
+          - text: Understanding inventory assets
+            url: understanding-inventory-assets.md
+          - text: What is discovery?
+            url: what-is-discovery.md
+ 
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Defender EASM Azure resource
+            url: deploying-the-defender-easm-azure-resource.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use and manage discovery
+            url: using-and-managing-discovery.md 
+      - linkListType: tutorial
+        links:
+          - text: Discovering your attack surface
+            url: discovering-your-attack-surface.md  
+
+  # Card
+  - title: Understand concepts 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understanding asset details
+            url: understanding-asset-details.md
+          - text: Understanding dashboards
+            url: understanding-dashboards.md
+          - text:  Understand billable assets 
+            url: understanding-billable-assets.md
+
+  # Card
+  - title: How-to guide
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Using and managing discovery
+            url: using-and-managing-discovery.md 
+          - text: Modifying inventory assets
+            url: modifying-inventory-assets.md
+          - text: Leveraging data connections
+            url: data-connections.md
+
+  # Card
+  - title: Inventory filters 
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Inventory filters overview
+
+            url: inventory-filters.md
+          - text: Domain asset filters
+            url: domain-asset-filters.md
+          - text: Host asset filters
+            url: host-asset-filters.md
+          - text: Page asset filters
+            url: page-asset-filters.md
+          - text: Contact asset filters
+            url: contact-asset-filters.md
+          - text: SSL certificate asset filters
+            url: ssl-certificate-asset-filters.md
+          - text: IP address asset filters
+            url: ip-address-asset-filters.md
+          - text: IP block asset filters
+            url: ip-block-asset-filters.md
+          - text: ASN asset filters
+            url: asn-asset-filters.md
+
+
+
+  # Card
+  - title: Integrations
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Leveraging data connections
+            url: data-connections.md
+          - text: Microsoft Security Copilot (preview) and Defender EASM
+            url: easm-copilot.md 

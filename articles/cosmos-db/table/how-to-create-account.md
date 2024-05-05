@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Create an Azure Cosmos DB for Table account
