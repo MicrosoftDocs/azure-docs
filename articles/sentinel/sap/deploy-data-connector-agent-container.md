@@ -298,8 +298,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
-1. In the search bar, enter *SAP*.![Uploading image.png…]()
-
+1. In the search bar, enter *SAP*.
 
 1. Select **Microsoft Sentinel for SAP** from the search results, and select **Open connector page**.
 

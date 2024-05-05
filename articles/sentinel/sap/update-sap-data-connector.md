@@ -81,7 +81,7 @@ Be sure to check for any other available updates, such as:
 
 ## Update your system for attack disruption
 
-Automatic attack disurption for SAP is supported with the unified security operations platform in the Microsoft Defender portal, and requires:
+Automatic attack disruption for SAP is supported with the unified security operations platform in the Microsoft Defender portal, and requires:
 
 - A workspace [onboarded to the unified security operations platform](../microsoft-sentinel-defender-portal.md).
 
