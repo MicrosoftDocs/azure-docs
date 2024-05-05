@@ -203,9 +203,9 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 > ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
 
 ## Enable test results reporting (invite only preview) in your setup
-Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it is an invite only feature. If you want to get access to it, please sign up [here](https://aka.ms/mpt/reporting-signup). 
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it's an invite only feature. If you want to get access to it, sign up [here](https://aka.ms/mpt/reporting-signup). 
   
- We will let you know when we are ready to onboard you. After recieving the confirmation:
+ We'll let you know when we're ready to onboard you. After receiving the confirmation:
     
 1. Navigate to settings from the home page of the workspace
     ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
@@ -213,7 +213,7 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
 3. Select **General** from settings and make sure reporting is **Enabled**
    ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
 
-3. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You will need to provide `read:packages` permissions to the token.
+3. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You need to provide `read:packages` permissions to the token.
 
 1. Store the GitHub token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
 

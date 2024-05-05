@@ -239,9 +239,9 @@ The activity log lists for each test run the following details: the total test c
 
 ## View test results in the Playwright portal (invite only preview)
 
-Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it is an invite only feature. If you want to get access to it, please sign up [here](https://aka.ms/mpt/reporting-signup). 
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it's an invite only feature. If you want to get access to it, sign up [here](https://aka.ms/mpt/reporting-signup). 
 
-We will let you know when we are ready to onboard you. After recieving the confirmation:
+We'll let you know when we're ready to onboard you. After receiving the confirmation:
 
 1.  Navigate to settings from the home page of the workspace
     ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
@@ -249,11 +249,11 @@ We will let you know when we are ready to onboard you. After recieving the confi
 3. Select **General** from settings and make sure reporting is **Enabled**
    ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
 
-4. Make sure the environment is set up correctly as mentioned in the section **Set up your environment** above.
+4. Make sure the environment is set up correctly as mentioned in the section **Set up your environment**.
 
 5. Install reporting package
 
-    Since the feature is currently not public, you need to perform a few extra steps to install the package. These will not be needed once the feature becomes public.
+    Since the feature is currently not public, you need to perform a few extra steps to install the package. These steps won't be needed once the feature becomes public.
 
     1. Create a file with name `.npmrc` at the same location as your Playwight config file.
 
@@ -261,7 +261,7 @@ We will let you know when we are ready to onboard you. After recieving the confi
         ```bash
         @microsoft:registry=https://npm.pkg.github.com
         ```
-    1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You will need to provide `read:packages` permissions to the token.
+    1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You need to provide `read:packages` permissions to the token.
 
     1. Run the following command in your terminal, at the location of your Playwright config file. Replace `GITHUB_PAT_TOKEN` with the token generated in the previous step.
         ```bash
