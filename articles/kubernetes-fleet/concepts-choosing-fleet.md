@@ -26,7 +26,7 @@ The following table compares the two options.
 |**Workload orchestration**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
 |**Layer 4 load balancing**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
 |**Billing considerations**|No cost|You pay cost associated with the hub, which is a standard-tier AKS-cluster.|
-|**Convert fleets between hubless and hubful**|Can upgrade from a hubless fleet to a hubful fleet.|Can't downgrade from a hubful fleet to a hubless fleet.|
+|**Converting fleet types**|Can convert a hubless fleet to a hubful fleet.|Can't convert a hubful fleet to a hubless fleet.|
 
 ## Hubless fleets
 
