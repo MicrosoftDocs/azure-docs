@@ -162,7 +162,7 @@ procedureSection:
 
         Findings from third-party security tools will appear as 'Azure DevOps
         repositories should have code scanning findings resolved' assessments
-        associated with the repository the secuirty finding was identified in.
+        associated with the repository the security finding was identified in.
 
 relatedContent:
   - text: Create your first pipeline
