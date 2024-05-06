@@ -55,7 +55,7 @@ Select **Copy** to copy the blocks of code, paste them into Cloud Shell, and sel
    You can use either Azure CLI or the Azure portal to assign this role. See the following articles for steps:
 
    * [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
-   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 
 1. Run the following command to add the remote tenant subscription and the parent tenant subscription to the current session of console. If you're signed in to the parent, you need to run the command for only the remote tenant.
 

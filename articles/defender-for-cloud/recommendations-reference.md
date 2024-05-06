@@ -324,7 +324,7 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 **Severity**: Low
 
-### [EDR solution should be installed on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c) 
+### [EDR solution should be installed on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c)
 
 **Description**: Installing an Endpoint Detection and Response (EDR) solution on virtual machines is important for protection against advanced threats. EDRs aid in preventing, detecting, investigating, and responding to these threats. Microsoft Defender for Servers can be used to deploy Microsoft Defender for Endpoint.
 If a resource is classified as "Unhealthy", it indicates the absence of a supported EDR solution. If an EDR solution is installed but not discoverable by this recommendation, it can be exempted. Without an EDR solution, the virtual machines are at risk of advanced threats.
@@ -705,6 +705,22 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 ## Container recommendations
 
+### [[Preview] Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)
+
+**Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
+### [[Preview] Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)
+
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
 ### [(Enable if required) Container registries should be encrypted with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/af560c4d-9c05-e073-b9f1-f7a94958ff25)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
@@ -979,6 +995,9 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 ### [Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5)
 
+> [!IMPORTANT]
+> This recommendation is on a retirement path. It is being replaced by the recommendation [[[Preview] Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)](#preview-container-images-in-azure-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey33422d8f-ab1e-42be-bc9a-38685bb567b9).
+
 **Description**: Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.
 (Related policy: [Vulnerabilities in Azure Container Registry images should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f0f936f-2f01-4bf5-b6be-d423792fa562)).
 
@@ -986,16 +1005,10 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 **Type**: Vulnerability Assessment
 
-### [Azure running container images should have vulnerabilities resolved - (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c)
-
-**Description**: Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.
-(No related policy)
-
-**Severity**: High
-
-**Type**: Vulnerability Assessment
-
 ### [Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)
+
+> [!IMPORTANT]
+> This recommendation is on a retirement path. It is being replaced by the recommendation [[[Preview] Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)](#preview-containers-running-in-azure-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeye9acaf48-d2cf-45a3-a6e7-3caa2ef769e0).
 
 **Description**: Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.
 
@@ -1203,34 +1216,6 @@ Secure your storage account with greater flexibility using customer-managed keys
 (Related policy: [Synapse Workspaces should use only Azure Active Directory identities for authentication](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2158ddbe-fefa-408e-b43f-d4faef8ff3b8)).
 
 **Severity**: Medium
-
-### [Code repositories should have code scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c68a8c2a-6ed4-454b-9e37-4b7654f2165f)
-
-**Description**: Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
-(No related policy)
-
-**Severity**: Medium
-
-### [Code repositories should have Dependabot scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/822425e3-827f-4f35-bc33-33749257f851)
-
-**Description**: Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
-(No related policy)
-
-**Severity**: Medium
-
-### [Code repositories should have infrastructure as code scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2ebc815f-7bc7-4573-994d-e1cc46fb4a35)
-
-**Description**: Defender for DevOps has found infrastructure as code security configuration issues in repositories. The issues shown below have been detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
-(No related policy)
-
-**Severity**: Medium
-
-### [Code repositories should have secret scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27)
-
-**Description**: Defender for DevOps has found a secret in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
-(No related policy)
-
-**Severity**: High
 
 ### [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/cdcf4f71-60d3-540b-91e3-aa19792da364)
 
@@ -2139,6 +2124,12 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 **Description**: Key access (local authentication) is recommended to be disabled for security. Azure OpenAI Studio, typically used in development/testing, requires key access and will not function if key access is disabled. After disabling, Microsoft Entra ID becomes the only access method, which allows maintaining minimum privilege principle and granular control. [Learn more](https://aka.ms/AI/auth).
 
 **Severity**: Medium
+
+### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6)
+
+**Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
+
+**Severity**: Low
 
 ## Deprecated recommendations
 

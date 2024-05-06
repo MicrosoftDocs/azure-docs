@@ -3,6 +3,9 @@ title: Azure Kubernetes Service (AKS) Free, Standard and Premium pricing tiers f
 description: Learn about the Azure Kubernetes Service (AKS) Free, Standard, and Premium pricing plans and what features, deployment patterns, and recommendations to consider between each plan.
 ms.topic: conceptual
 ms.date: 04/07/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -141,3 +144,4 @@ This process takes several minutes to complete. You shouldn't experience any dow
 [long-term-support]: long-term-support.md
 [long-term-support-update]: long-term-support.md#enable-lts-on-an-existing-cluster
 [install-azure-cli]: /cli/azure/install-azure-cli
+

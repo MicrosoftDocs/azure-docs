@@ -13,9 +13,9 @@ ms.custom: engagement-fy23
 
 # Tutorial: Access and customize the developer portal
 
-In this tutorial, you'll get started with customizing the API Management *developer portal*. The developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, and request access.
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
+The *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
 
 In this tutorial, you learn how to:
 
@@ -35,7 +35,7 @@ For more information about developer portal features and options, see [Azure API
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 - [Import and publish](import-and-publish.md) an API.
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 
 ## Access the portal as an administrator
 

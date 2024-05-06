@@ -47,6 +47,12 @@ In the same subscription as the Azure resource that you want to access the clust
 
 The roles that you select depend on the Azure services that you want to access the AKS cluster. Azure services help create roles and role bindings that build the connection from the Azure service to AKS.
 
+To find the roles that you need, see the documentation for the Azure service that you want to connect to AKS. You can also use the Azure CLI to list the roles that are available for the Azure service. For example, to list the roles for Azure Machine Learning, use the following command:
+
+```azurecli-interactive
+az aks trustedaccess role list --location $LOCATION
+```
+
 ## Create a Trusted Access role binding
 
 After you confirm which role to use, use the Azure CLI to create a Trusted Access role binding in the AKS cluster. The role binding associates your selected role with the Azure service.
@@ -54,7 +60,7 @@ After you confirm which role to use, use the Azure CLI to create a Trusted Acces
 ```azurecli
 # Create a Trusted Access role binding in an AKS cluster
 
-az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <role binding name> -s <connected service resource ID> --roles <roleName1, roleName2>
+az aks trustedaccess rolebinding create  --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME --name $ROLE_BINDING_NAME --source-resource-id $SOURCE_RESOURCE_ID --roles $ROLE_NAME_1,$ROLE_NAME_2
 ```
 
 Here's an example:
@@ -62,11 +68,7 @@ Here's an example:
 ```azurecli
 # Sample command
 
-az aks trustedaccess rolebinding create \
--g myResourceGroup \
---cluster-name myAKSCluster -n test-binding \
---source-resource-id /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
---roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader,Microsoft.Compute/virtualMachineScaleSets/test-admin
+az aks trustedaccess rolebinding create --resource-group myResourceGroup --cluster-name myAKSCluster --name test-binding --source-resource-id /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning --roles Microsoft.MachineLearningServices/workspaces/mlworkload
 ```
 
 ## Update an existing Trusted Access role binding
@@ -76,39 +78,26 @@ For an existing role binding that has an associated source service, you can upda
 > [!NOTE]
 > The add-on manager updates clusters every five minutes, so the new role binding might take up to five minutes to take effect. Before the new role binding takes effect, the existing role binding still works.
 >
-> You can use `az aks trusted access rolebinding list --name <role binding name> --resource-group <resource group>` to check the current role binding.
+> You can use the `az aks trusted access rolebinding list` command to check the current role binding.
 
-```azurecli
-# Update the RoleBinding command
-
-az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing role binding name>  --roles <newRoleName1, newRoleName2>
-```
-
-Here's an example:
-
-```azurecli
-# Update the RoleBinding command with sample resource group, cluster, and roles
-
-az aks trustedaccess rolebinding update \
---resource-group myResourceGroup \
---cluster-name myAKSCluster -n test-binding \
---roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader,Microsoft.Compute/virtualMachineScaleSets/test-admin
+```azurecli-interactive
+az aks trustedaccess rolebinding update --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME --name $ROLE_BINDING_NAME --roles $ROLE_NAME_3,$ROLE_NAME_4
 ```
 
 ## Show a Trusted Access role binding
 
 Show a specific Trusted Access role binding by using the `az aks trustedaccess rolebinding show` command:
 
-```azurecli
-az aks trustedaccess rolebinding show --name <role binding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
+```azurecli=interactive
+az aks trustedaccess rolebinding show --name $ROLE_BINDING_NAME --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME
 ```
 
 ## List all the Trusted Access role bindings for a cluster
 
 List all the Trusted Access role bindings for a cluster by using the `az aks trustedaccess rolebinding list` command:
 
-```azurecli
-az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cluster-name <AKS cluster name>
+```azurecli-interactive
+az aks trustedaccess rolebinding list --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME
 ```
 
 ## Delete a Trusted Access role binding for a cluster
@@ -118,8 +107,8 @@ az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cl
 
 Delete an existing Trusted Access role binding by using the `az aks trustedaccess rolebinding delete` command:
 
-```azurecli
-az aks trustedaccess rolebinding delete --name <role binding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
+```azurecli-interactive
+az aks trustedaccess rolebinding delete --name $ROLE_BINDING_NAME --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME
 ```
 
 ## Related content
@@ -136,3 +125,4 @@ az aks trustedaccess rolebinding delete --name <role binding name> --resource-gr
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-azure-backup]: ../backup/azure-kubernetes-service-backup-overview.md
 [azure-cli-install]: /cli/azure/install-azure-cli
+

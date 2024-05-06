@@ -87,6 +87,8 @@ Coexistence of both VPN and ExpressRoute gateways in the same virtual network is
 
 Zone-redundant. With this configuration, the virtual network gateway instances are spread across Azure availability zones, removing a single Azure availability zone as a single point of failure.
 
+Zonal deployments should only be configured if the target application is highly latency-sensitive and requires all Azure resources to be deployed to the same Availability zone.
+
 ## Next steps
 
 [Create a zone-redundant virtual network gateway](create-zone-redundant-vnet-gateway.md)

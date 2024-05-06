@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/01/2024
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -132,4 +132,18 @@ For more information about this compliance standard, see
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Advanced Real-Timethreat Defenceand Management | |Advanced Real-Timethreat Defenceand Management-13.2 |[[Preview]: Azure Arc enabled Kubernetes clusters should have Microsoft Defender for Cloud extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |[6.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ASC_Azure_Defender_Arc_Extension_Audit.json) |
+
+## System and Organization Controls (SOC) 2
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for System and Organization Controls (SOC) 2](../../../../articles/governance/policy/samples/soc-2.md).
+For more information about this compliance standard, see
+[System and Organization Controls (SOC) 2](/azure/compliance/offerings/offering-soc-2).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Logical and Physical Access Controls | CC6.8 |Prevent or detect against unauthorized or malicious software |[Azure Arc enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b2122c1-8120-4ff5-801b-17625a355590) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ArcPolicyExtension_Audit.json) |
+|System Operations | CC7.2 |Monitor system components for anomalous behavior |[[Preview]: Azure Arc enabled Kubernetes clusters should have Microsoft Defender for Cloud extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |[6.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ASC_Azure_Defender_Arc_Extension_Audit.json) |
+|Change Management | CC8.1 |Changes to infrastructure, data, and software |[Azure Arc enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b2122c1-8120-4ff5-801b-17625a355590) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ArcPolicyExtension_Audit.json) |
 

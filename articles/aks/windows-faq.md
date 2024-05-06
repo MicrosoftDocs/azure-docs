@@ -5,6 +5,9 @@ description: See the frequently asked questions when you run Windows Server node
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli, linux-related-content
 ms.date: 03/27/2024
+author: schaffererin
+ms.author: schaffererin
+
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
@@ -253,3 +256,4 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+

@@ -7,9 +7,9 @@
       href: introduction.md
     - name: FAQ
       href: faq.yml
-    - name: 30-day free trial
+    - name: Try Azure Cosmos DB free
       href: try-free.md
-    - name: Azure AI Advantage offer 90-day free trial
+    - name: Azure AI Advantage free trial
       href: ai-advantage.md
     - name: Choose an API
       href: choose-api.md
@@ -19,8 +19,6 @@
       href: distributed-relational.md
     - name: Vector database
       href: vector-database.md
-    - name: Azure AI Advantage offer
-      href: ai-advantage.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB
