@@ -5,7 +5,7 @@ description: Learn how to deploy Cohere Embed models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/06/2024
 ms.reviewer: shubhiraj
 ms.author: mopeakande
 author: msakande
@@ -96,7 +96,7 @@ Alternatively, you can initiate a deployment by starting from your project in AI
 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Select **Open in playground** to start interacting with the model.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-models-deployed-as-a-service) section.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
 To learn about billing for the Cohere models deployed as a serverless API with pay-as-you-go token based billing, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
