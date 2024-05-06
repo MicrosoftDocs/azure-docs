@@ -21,9 +21,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 ### Developer SKU (Preview)
 
-The Bastion Developer SKU is a new, lower-cost, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs and that don't need additional features or scaling. You can connect to one Azure VM at a time directly through the Virtual Machine connect page.
-
-The Developer SKU has different requirements and limitations than the other SKU tiers. See [Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md) for more information and deployment steps.
+[!INCLUDE [Developer SKU description](../../includes/bastion-developer-sku-description.md)]
 
 [!INCLUDE [Developer SKU regions](../../includes/bastion-developer-sku-regions.md)]
 
@@ -102,7 +100,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Links | Requires Standard SKU or higher|
 | --- | --- | --- | ---|
-| Azure portal |Instance count  | [How-to](configure-host-scaling.md)| Yes
+| Azure portal |Instance count  | [How-to](configure-host-scaling.md)| Yes |
 | Azure PowerShell | ScaleUnit | [How-to](configure-host-scaling-powershell.md) | Yes |
 
 ## <a name="ports"></a>Custom ports
@@ -115,11 +113,19 @@ Custom port values are supported for the Standard SKU or higher only.
 
 The Bastion **Shareable Link** feature lets users connect to a target resource using Azure Bastion without accessing the Azure portal.
 
-When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
+When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
 
 | Method | Value | Links | Requires Standard SKU or higher |
 | --- | --- | --- | --- |
 | Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
+
+## Private-only deployment
+
+[!INCLUDE [Private-only deployments](../../includes/bastion-private-only-description.md)] For more information, see [Deploy Bastion as private-only](private-only-deployment.md).
+
+## Session recording
+
+[!INCLUDE [Session recording](../../includes/bastion-session-recording-description.md)] For more information, see [Bastion session recording](session-recording.md).
 
 ## Availability zones
 

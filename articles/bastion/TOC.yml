@@ -25,6 +25,8 @@
     href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
+  - name: Design architecture
+    href: design-architecture.md
   - name: Bastion configuration settings
     href: configuration-settings.md
   - name: VM connections and features
