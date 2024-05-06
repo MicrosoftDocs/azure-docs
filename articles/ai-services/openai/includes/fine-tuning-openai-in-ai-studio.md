@@ -19,6 +19,7 @@
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An [Azure AI hub resource](../../../ai-studio/how-to/create-azure-ai-resource.md).
 - An [Azure AI project](../../../ai-studio/how-to/create-projects.md) in Azure AI Studio.
+- Add an Azure OpenAI connection
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor** role on the Azure OpenAI resource.
 - If you don't already have access to view quota and deploy models in Azure AI Studio you need [more permissions](../how-to/role-based-access-control.md).
 
@@ -158,7 +159,9 @@ To fine-tune an Azure OpenAI model in an existing Azure AI Studio project, follo
 
 1. For `gpt-35-turbo` we have different versions available for fine-tuning, so please choose which version you'd like to fine-tune. We will choose (0125). 
 
-1. We also recommend including the `suffix` parameter to make it easier to distinguish between different iterations of your fine-tuned model. `suffix` takes a string, and is set to identify the fine-tuned model. With the OpenAI Python API a string of up to 18 characters is supported that will be added to your fine-tuned model name. 
+1. We also recommend including the `suffix` parameter to make it easier to distinguish between different iterations of your fine-tuned model. `suffix` takes a string, and is set to identify the fine-tuned model. With the OpenAI Python API a string of up to 18 characters is supported that will be added to your fine-tuned model name.
+
+If you have more than one Azure OpenAI connection enabled for fine-tuning, then choose which resource you'd like to use. Please note that all users with access to your Azure OpenAI resource will have access to this fine-tuned model.
 
 1. Then select **Next**.
 
@@ -173,7 +176,7 @@ The next step is to either choose existing prepared training data or upload new 
 
    - Select the file from the list shown in the **Training data** pane.
 
-- If your training data is already uploaded to the Azure OpenAI service, select your Azure OpenAI connection under **Existing connections**.
+- If your training data is already uploaded to the Azure OpenAI service, select your Azure OpenAI connection under **Azure OpenAI Connection**.
 
 - To upload training data to fine-tune your model, select **Upload data** and then select **Upload file**.  
    - Make sure all your training examples follow the expected format for inference. To fine-tune models effectively, ensure a balanced and diverse dataset. This involves maintaining data balance, including various scenarios, and periodically refining training data to align with real-world expectations, ultimately leading to more accurate and balanced model responses. See [data preparation](#prepare-your-training-and-validation-data) for more information.
