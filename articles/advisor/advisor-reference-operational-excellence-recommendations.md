@@ -516,7 +516,15 @@ Virtual Network flow log allows you to record IP traffic flowing in a virtual ne
 
 Learn more about [Resource - UpgradeNSGToVnetFlowLog (Upgrade NSG flow logs to VNet flow logs)](https://aka.ms/vnetflowlogspreviewdocs).
 
+### Migrate Azure Front Door (classic) to Standard/Premium tier
 
+On 31 March 2027, Azure Front Door (classic) will be retired for the public cloud, and you’ll need to migrate to Front Door Standard or Premium by that date.
+
+Beginning 1 April 2025, you’ll no longer be able to create new Front Door (classic) resources via the Azure portal, Terraform, or any command line tools. However, you can continue to make modifications to existing resources until Front Door (classic) is fully retired.
+
+Azure Front Door Standard and Premium combine the capabilities of static and dynamic content delivery with turnkey security, enhanced DevOps experiences, simplified pricing, and better Azure integrations
+
+Learn more about [Azure Front Door (classic) will be retired on 31 March 2027](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/).
 
 
 

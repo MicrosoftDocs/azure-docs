@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 08/03/2022
+ms.date: 05/05/2024
 ms.author: danlep
 ---
 > [!IMPORTANT]

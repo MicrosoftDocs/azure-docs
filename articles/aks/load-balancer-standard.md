@@ -139,10 +139,6 @@ Two different pool membership types are available:
 * The AKS cluster must be version 1.23 or newer.
 * The AKS cluster must be using standard load balancers and virtual machine scale sets.
 
-#### Limitations
-
-* Clusters using IP based backend pools are limited to 2500 nodes.
-
 #### Create a new AKS cluster with IP-based inbound pool membership
 
 ```azurecli-interactive
@@ -681,3 +677,4 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [maxsurge]: ./upgrade-aks-cluster.md#customize-node-surge-upgrade
 [az-lb]: ../load-balancer/load-balancer-overview.md
 [alb-outbound-rules]: ../load-balancer/outbound-rules.md
+

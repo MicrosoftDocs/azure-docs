@@ -52,7 +52,7 @@ Document Intelligence supports more sophisticated and modular analysis capabilit
 
 > [!NOTE]
 >
-> Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#analysis-features).
+> Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#model-analysis-features).
 
 The following add-on capabilities are available for`2024-02-29-preview`, `2024-02-29-preview`, and later releases:
 

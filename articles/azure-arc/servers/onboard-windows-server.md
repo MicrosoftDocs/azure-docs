@@ -1,7 +1,7 @@
 ---
 title: Connect Windows Server machines to Azure through Azure Arc Setup
 description: In this article, you learn how to connect Windows Server machines to Azure Arc using the built-in Windows Server Azure Arc Setup wizard.
-ms.date: 10/12/2023
+ms.date: 04/05/2024
 ms.topic: conceptual
 ---
 
@@ -11,9 +11,13 @@ Windows Server machines can be onboarded directly to [Azure Arc](https://azure.m
 
 Onboarding to Azure Arc is not needed if the Windows Server machine is already running in Azure.
 
+For Windows Server 2022, Azure Arc Setup is an optional component that can be removed using the **Remove Roles and Features Wizard**. For Windows Server 2025 and later, Azure Arc Setup is a [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities?view=windows-11). Essentially, this means that the procedures for removal and enablement differ between OS versions. See  for more information.
+
 > [!NOTE]
-> This feature only applies to Windows Server 2022 and later. It was released in the [Cumulative Update of 10/10/2023](https://support.microsoft.com/en-us/topic/october-10-2023-kb5031364-os-build-20348-2031-7f1d69e7-c468-4566-887a-1902af791bbc).
-> 
+> The Azure Arc Setup feature only applies to Windows Server 2022 and later. It was released in the [Cumulative Update of 10/10/2023](https://support.microsoft.com/en-us/topic/october-10-2023-kb5031364-os-build-20348-2031-7f1d69e7-c468-4566-887a-1902af791bbc).
+
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Prerequisites
 
 * Azure Arc-enabled servers - Review the [prerequisites](prerequisites.md) and verify that your subscription, your Azure account, and resources meet the requirements.
@@ -67,9 +71,12 @@ The Azure Arc system tray icon at the bottom of your Windows Server machine indi
 
 ## Uninstalling Azure Arc Setup
 
-To uninstall Azure Arc Setup, follow these steps:
+> [!NOTE]
+> Uninstalling Azure Arc Setup does not uninstall the Azure Connected Machine agent from the machine. For instructions on uninstalling the agent, see [Managing and maintaining the Connected Machine agent](manage-agent.md).
+>
+To uninstall Azure Arc Setup from a Windows Server 2022 machine:
 
-1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. (See [Remove roles, role services, and features by using the remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard) for more information.)
+1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. (See [Remove roles, role services, and features by using the Remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard) for more information.)
 
 1. On the Features page, uncheck the box for **Azure Arc Setup**.
 
@@ -81,9 +88,17 @@ To uninstall Azure Arc Setup through PowerShell, run the following command:
 Disable-WindowsOptionalFeature -Online -FeatureName AzureArcSetup
 ```
 
-> [!NOTE]
-> Uninstalling Azure Arc Setup does not uninstall the Azure Connected Machine agent from the machine. For instructions on uninstalling the agent, see [Managing and maintaining the Connected Machine agent](manage-agent.md).
->
+To uninstall Azure Arc Setup from a Windows Server 2025 machine:
+
+1. Open the Settings app on the machine and select **System**, then select **Optional features**.
+
+1. Select **AzureArcSetup**, and then select **Remove**.
+
+:::image type="content" source="media/onboard-windows-server/arc-setup-remove.png" alt-text="Screenshot of Optional feature menu showing Azure Arc Setup feature with Remove button.":::
+
+To uninstall Azure Arc Setup from a Windows Server 2025 machine from the command line, run the following line of code:
+
+`DISM /online /Remove-Capability /CapabilityName:AzureArcSetup~~~~`
 
 ## Next steps
 

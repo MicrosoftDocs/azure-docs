@@ -37,7 +37,7 @@ Output field mappings apply to:
 
 + In-memory content that's created by skills or extracted by an indexer. The source field is a node in an enriched document tree.
 
-+ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration. If you're populating a vector store, output field mappings aren't used.
++ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration. If you're populating vector fields, output field mappings aren't used.
 
 Output field mappings are applied after [skillset execution](cognitive-search-working-with-skillsets.md) or after document cracking if there's no associated skillset. 
 

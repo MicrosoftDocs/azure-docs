@@ -2,6 +2,7 @@
 title: Process images in prompt flow
 titleSuffix: Azure AI Studio
 description: Learn how to use images in prompt flow.
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 2/26/2024

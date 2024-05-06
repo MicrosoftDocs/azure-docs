@@ -11,6 +11,8 @@ ms.date: 07/21/2023
 
 # Import SAP OData metadata as an API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an OData service using its metadata description. In this article, [SAP Gateway Foundation](https://help.sap.com/viewer/product/SAP_GATEWAY) serves as an example. 
 
 In this article, you'll: 
@@ -120,7 +122,7 @@ Choose one of the following methods to import your API to API Management: import
 
     :::image type="content" source="media/sap-api/get-root-operation.png" alt-text="Get operation for service root":::
 
-Also, configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication policies](api-management-authentication-policies.md).
+Also, configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication and authorization policies](api-management-policies.md#authentication-and-authorization).
 
 ## Test your API
 

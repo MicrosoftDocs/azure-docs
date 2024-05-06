@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 05/05/2024
 ms.author: danlep
 ms.custom: devdivchpfy22
 ---

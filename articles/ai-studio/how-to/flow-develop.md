@@ -2,15 +2,15 @@
 title: How to build with prompt flow
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to build with prompt flow.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 2/24/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Develop a prompt flow
