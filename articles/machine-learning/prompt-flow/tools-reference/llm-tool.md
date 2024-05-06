@@ -16,7 +16,7 @@ ms.date: 11/02/2023
 
 # LLM tool
 
-The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../cognitive-services/openai/overview.md), and models in [Azure Machine Learning Studio model catalog](../../concept-model-catalog.md) for natural language processing.
+The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../ai-services/openai/overview.md), and models in [Azure Machine Learning Studio model catalog](../../concept-model-catalog.md) for natural language processing.
 > [!NOTE]
 > The previous version of the LLM tool is now being deprecated. Please upgrade to latest [promptflow-tools](https://pypi.org/project/promptflow-tools/) package to consume new llm tools.
 
@@ -26,7 +26,6 @@ Prompt flow provides a few different large language model APIs:
 - [Chat](https://platform.openai.com/docs/api-reference/chat): OpenAI's chat models facilitate interactive conversations with text-based inputs and responses.
 
 > [!NOTE]
-> Only key-based authentication is supported for Azure OpenAI connection.
 > Please don't use non-ascii characters in resource group name of Azure OpenAI resource, prompt flow didn't support this case.
 
 ## Prerequisites
@@ -44,7 +43,7 @@ Create OpenAI resources, Azure OpenAI resources or MaaS deployment with the LLM 
 
 - **MaaS deployment**:
 
-    Create MaaS deployment for models in Azure AI Studio model catalog. For example, learn how to [Deploy Meta Llama models with pay-as-you-go](../../how-to-deploy-models-llama.md#deploy-meta-llama-models-with-pay-as-you-go)
+    Create MaaS deployment for models in Azure AI Studio model catalog. For example, learn how to [Deploy Meta Llama models with pay-as-you-go](../../how-to-deploy-models-llama.md#deploy-meta-llama-models-with-pay-as-you-go).
 
     You can create serverless connection to use this MaaS deployment.
 

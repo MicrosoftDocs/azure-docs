@@ -19,12 +19,51 @@ author: lgayhardt
 
 To use large language models (LLMs) for natural language processing, you use the prompt flow LLM tool.
 
+The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../ai-services/openai/overview.md), and models in [Azure AI Studio model catalog](../model-catalog.md) for natural language processing.
 > [!NOTE]
-> For embeddings to convert text into dense vector representations for various natural language processing tasks, see [Embedding tool](embedding-tool.md).
+> The previous version of the LLM tool is now being deprecated. Please upgrade to latest [promptflow-tools](https://pypi.org/project/promptflow-tools/) package to consume new llm tools.
+
+Prompt flow provides a few different large language model APIs:
+
+- [Completion](https://platform.openai.com/docs/api-reference/completions): OpenAI's completion models generate text based on provided prompts.
+- [Chat](https://platform.openai.com/docs/api-reference/chat): OpenAI's chat models facilitate interactive conversations with text-based inputs and responses.
+
+> [!NOTE]
+> Please don't use non-ascii characters in resource group name of Azure OpenAI resource, prompt flow didn't support this case.
 
 ## Prerequisites
 
-Prepare a prompt as described in the [Prompt tool](prompt-tool.md#prerequisites) documentation. The LLM tool and Prompt tool both support [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templates. For more information and best practices, see [Prompt engineering techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md).
+Create OpenAI resources, Azure OpenAI resources or MaaS deployment with the LLM models (e.g.: llama2, mistral, cohere etc.) in Azure AI Studio model catalog:
+
+- **OpenAI**:
+
+    - Sign up your account on the [OpenAI website](https://openai.com/).
+    - Sign in and [find your personal API key](https://platform.openai.com/account/api-keys).
+
+- **Azure OpenAI**:
+
+    - Create Azure OpenAI resources with [these instructions](../../../ai-services/openai/how-to/create-resource.md).
+
+- **MaaS deployment**:
+
+    Create MaaS deployment for models in Azure AI Studio model catalog with [instruction](../../concepts/deployments-overview.md#deploy-models-with-model-as-a-service).
+
+    You can create serverless connection to use this MaaS deployment.
+
+## Connections
+
+Set up connections to provisioned resources in prompt flow.
+
+| Type        | Name     | API key  | API base | API type | API version |
+|-------------|----------|----------|----------|----------|-------------|
+| OpenAI      | Required | Required | -        | -        | -           |
+| Azure OpenAI| Required | Required | Required | Required | Required    |
+| Serverless  | Required | Required | Required | -        | -           |
+
+  > [!TIP]
+  > - To use Microsoft Entra ID auth type for Azure OpenAI connection, you need assign either the `Cognitive Services OpenAI User` or `Cognitive Services OpenAI Contributor role` to user or user assigned managed identity.
+  > - Learn more about [how to specify to use user identity to submit flow run](../create-manage-runtime.md#create-an-automatic-runtime-on-a-flow-page).
+  > - Learn more about [How to configure Azure OpenAI Service with managed identities](../../../ai-services/openai/how-to/managed-identity.md).
 
 ## Build with the LLM tool
 
@@ -35,7 +74,7 @@ Prepare a prompt as described in the [Prompt tool](prompt-tool.md#prerequisites)
 
 1. Select the connection to one of your provisioned resources. For example, select **Default_AzureOpenAI**.
 1. From the **Api** dropdown list, select **chat** or **completion**.
-1. Enter values for the LLM tool input parameters described in the [Text completion inputs table](#inputs). If you selected the **chat** API, see the [Chat inputs table](#chat-inputs). If you selected the **completion** API, see the [Text completion inputs table](#text-completion-inputs). For information about how to prepare the prompt input, see [Prerequisites](#prerequisites).
+1. Enter values for the LLM tool input parameters described in the [Text completion inputs table](#inputs). If you selected the **chat** API, see the [Chat inputs table](#chat-inputs). If you selected the **completion** API, see the [Text completion inputs table](#text-completion-inputs). For information about how to prepare the prompt input, see [How to write a prompt](#how-to-write-a-prompt).
 1. Add more tools to your flow, as needed. Or select **Run** to run the flow.
 1. The outputs are described in the [Outputs table](#outputs).
 
@@ -74,15 +113,85 @@ The following input parameters are available.
 | presence\_penalty      | float       | The value that controls the model's behavior regarding repeating phrases. Default is 0.      | No       |
 | frequency\_penalty     | float       | The value that controls the model's behavior regarding generating rare phrases. Default is 0. | No       |
 | logit\_bias            | dictionary  | The logit bias for the language model. Default is empty dictionary.                            | No       |
+| tool\_choice           | object      | value that controls which tool is called by the model. Default is null.                        | No       |
+| tools                  | list        | a list of tools the model may generate JSON inputs for. Default is null.                       | No       |
+| response_format        | object      | an object specifying the format that the model must output. Default is null.                   | No       |
 
 ## Outputs
 
 The output varies depending on the API you selected for inputs.
 
-| API        | Return type | Description                              |
-|------------|-------------|------------------------------------------|
-| Completion | string      | The text of one predicted completion.     |
-| Chat       | string      | The text of one response of conversation. |
+| Return type | Description                              |
+|-------------|------------------------------------------|
+| string      | Text of one predicted completion or response of conversation |
+
+## How to write a prompt?
+
+Prepare a prompt as described in the [Prompt tool](prompt-tool.md#prerequisites) documentation. The LLM tool and Prompt tool both support [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templates. For more information and best practices, see [Prompt engineering techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md).
+
+For example, for a chat prompt we offer a method to distinguish between different roles, such as "system", "user", "assistant". Each role can have "name" and "content" properties.
+
+### Sample 1
+```jinja
+# system:
+You are a helpful assistant.
+
+{% for item in chat_history %}
+# user:
+{{item.inputs.question}}
+# assistant:
+{{item.outputs.answer}}
+{% endfor %}
+
+# user:
+{{question}}
+```
+
+In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+
+```
+[
+    {
+        "role": "system",
+        "content": "You are a helpful assistant."
+    },
+    {
+        "role": "user",
+        "content": "<question-of-chat-history-round-1>"
+    },
+    {
+        "role": "assistant",
+        "content": "<answer-of-chat-history-round-1>"
+    },
+    ...
+    {
+        "role": "user",
+        "content": "<question>"
+    }
+]
+```
+
+### Sample 2
+```jinja
+# system:
+{# For role naming customization, the following syntax is used #}
+## name:
+Alice
+## content:
+You are a bot can tell good jokes.
+```
+
+In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+
+```
+[
+    {
+        "role": "system",
+        "name": "Alice",
+        "content": "You are a bot can tell good jokes."
+    }
+]
+```
 
 ## Next steps
 
