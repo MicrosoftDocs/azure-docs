@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-This article describes summary rules in Microsoft Sentinel, which you can use to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is pre-compiled to provide a fast query performance, including queries run on data derived from low-cost log tiers.
+This article describes summary rules in Microsoft Sentinel, which you can use to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is pre-compiled to provide a fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
 
 - Access dynamic summary data via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
@@ -86,7 +86,7 @@ Existing summary rules are listed on the **Summary rules (Preview)** page, where
 
 - View the rule's current data in the **Logs** page, as if you were to run the query immediately
 - View the run history for the selected rule
-- Disable or enable the rule
+- Disable or enable the rule.
 - Edit the rule configuration
  
 To delete a rule, select the rule row and then select **Delete** in the toolbar at the top of the page.
@@ -97,6 +97,24 @@ The following sections describe sample scenarios where we'd recommend using summ
 
 TBD <!--yael pick 3-->
 
+## Summary rules support scope
+
+|Title  |Description  |
+|---------|---------|
+|**Maximum number of enabled rules in each workspace**     | 10        |
+|**Maximum number of results per summary run**     | 500,000        |
+|**Maximum result volume per summary run**     | 100 MB        |
+|**Time out for each summary run** | 10 minutes. If the run times out and fails, the run is skipped and can't be re-run. |
+|**KQL language limits**     |  Depend on the log tier used in your query, as follows: <br><br>- **Analytics logs** suppport all KQL commands, except for the `bag unpack`, `narrow`, and `pivot` data reshaping plugins. <br><br>- **Auxillary logs** / **Basic logs** support all KQL commands on a single Basic log table, except for `summarize` and `join`. Instead, use `lookup` for up to five Analytics tables.<br><br>- **Functions** include support for system functions provided by Microsoft only. User-defined functions aren't supported.    |
+|**Input data**     |   Summary rules process only incoming data, and can't be configured on a historical time range.      |
+
+<!--where do aux logs fit in here?-->
+<!--what does it mean that it can't be re-run?-->
+<!-->. Cross-resource including workspaces(), app(), resource(), ADX() and arg() aren’t supported in the private preview. -->
+
+
 ## Related content
 
 - [Aggregate data in Log Analytics workspace with Summary rules](/azure/azure-monitor/logs/summary-rules)
+- [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md)
+- [Log sources to use for Basic Logs or Auxiliary Logs ingestion](basic-logs-use-cases.md)
