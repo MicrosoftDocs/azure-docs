@@ -14,7 +14,7 @@ ms.custom: [references_regions]
 
 # How to deploy Cohere Embed models with Azure AI Studio
 
-In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as Serverless APIs with pay-as-you-go token based billing.
+In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as serverless APIs with pay-as-you-go token based billing.
 
 Cohere offers two Embed models in [Azure AI Studio](https://ai.azure.com). These models are available as serverless APIs with pay-as-you-go token based billing. You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
 
