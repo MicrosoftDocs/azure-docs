@@ -16,8 +16,6 @@ This article steps through creating a standby pool for Virtual Machine Scale Set
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
-
-
 ## Prerequisites
 
 ### Feature Registration 
@@ -39,7 +37,7 @@ Alternatively, you can register directly in the Azure portal.
 
 
 ### Role-based Access Control Permissions
-In order for standby pools to successfully create Virtual Machines, you need to assign the appropriate RBAC permissions.
+To allow standby pools to create virtual machines, you need to assign the appropriate RBAC permissions.
  
 1) In the Azure portal, navigate to your subscriptions. 
 2) Select the subscription you want to adjust RBAC permissions. 
