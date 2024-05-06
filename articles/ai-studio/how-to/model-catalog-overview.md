@@ -129,10 +129,6 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see “offer availability region” in the table in the next section). If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable (see “hub/project region” columns in the table below). 
 
-### Regional availability of models
-
-If the Marketplace offer is available in the users' account region, they need to create a Hub/Project in the following Azure regions to be able to deploy a MaaS endpoint.
-
 Model | Hub/Project Region for Deployment | Hub/Project Region for Fine-uning
 --|--|--
 Llama-3-70B-Instruct <br> Llama-3-8B-Instruct  | East US 2 | Not available
