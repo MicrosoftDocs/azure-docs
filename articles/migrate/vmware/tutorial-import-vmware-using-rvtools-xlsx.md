@@ -65,19 +65,19 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
 1. Under **Migration goals**, select **Servers, databases and web apps**.
 1. On **Azure Migrate | Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
 
-    :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
+    :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
 
 1. In **Discover** page, in **File type**, select **VMware inventory (RVTools XLSX)**.
 1. In the **Step 1: Import the file** section, select the RVTools XLSX file and then select **Import**.
 
-    :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png" alt-text="Screenshot that shows to upload, check status and selecting import." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png":::
+    :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png" alt-text="Screenshot that shows to upload, check status and selecting import." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png":::
 
     We recommend that you don't close the browser tab or attempt to import again while the current import is in progress. The import status provides information on the following:
     - If there are warnings in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings. 
     - If the import status appears as **Failed**, you must fix the errors to continue with the import.
     
-      :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
+      :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
    
     - To view and fix errors, follow these steps:
         - Select *Download error details.XLSX* file. This operation downloads the XLSX with warnings included.
