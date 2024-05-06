@@ -43,12 +43,6 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - To deploy a Bicep file, you need to write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 :::zone-end
 
-:::zone target="docs" pivot="azure-portal"
-
-Register preview flag on Azure Portal
-
-:::zone-end
-
 ### Install the aks-preview Azure CLI extension
 
 [!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
