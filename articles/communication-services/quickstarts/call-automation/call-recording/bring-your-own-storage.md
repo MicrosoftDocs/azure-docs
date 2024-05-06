@@ -100,13 +100,8 @@ Refer to this example of the event schema.
 ### Folder Structure for Call Recording
 
 Recordings are stored in the following format as shown in the diagram.
-        /YYYYMMDD/
-            callId/
-                first_8_of_recordingId + '-' + unique guid/   
-                                0-acsmetadata.documentId.json
-                                0-audiomp3.documentId.mp3
-                                1-acsmetadata.documentId.json
-                                1-audiomp3.documentId.mp3
+        /YYYYMMDD/callId/first_8_of_recordingId + '-' + unique guid/[chunk-id]-acsmetadata.documentId.json
+        /YYYYMMDD/callId/first_8_of_recordingId + '-' + unique guid/[chunk-id]-audiomp3.documentId.mp3
 
 ![Diagram showing a Call Recording Folder structure](../media/call-recording-folder.png)
 
