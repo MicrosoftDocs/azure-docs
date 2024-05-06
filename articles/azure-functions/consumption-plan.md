@@ -16,6 +16,9 @@ The Consumption plan scales automatically, even during periods of high load. Whe
 
 For a comparison of the Consumption plan against the other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
+> [!TIP]  
+> If you want the benefits of dynamic scale and execution-only billing, but also need to integrate your app with virtual networks, you should instead consider hosting your app in the [Flex Consumption plan](./flex-consumption-plan.md).
+
 ## Billing
 
 Billing is based on number of executions, execution time, and memory used. Usage is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
