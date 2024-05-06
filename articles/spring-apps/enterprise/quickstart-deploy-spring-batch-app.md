@@ -71,7 +71,7 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 ### 3.3. Set up a log analytics workspace
 
-See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-analytics) to query data in logs.
+See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites) to query data in logs.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
