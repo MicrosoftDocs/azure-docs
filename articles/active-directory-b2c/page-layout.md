@@ -65,11 +65,8 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.30**
 - Removed Change Email for readonly scenarios (i.e. Change Phone Number). You will no longer be able to change the email if you are trying to change your phone number, it will now be read only.
-- Enhancements to Captcha Control
+- Implementation of Captcha Control
   
-**2.1.29**
-- Implement CAPTCHA Control.
-
 **2.1.26**
 - Replaced `Keypress` to `Key Down` event and avoid `Asterisk` for nonrequired in classic mode.
 
@@ -211,11 +208,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
 **2.1.18**
-- Enhancements to Captcha Control
+- Implementation of Captcha Control
  
 **2.1.17**
 - Include Aria-required for UnifiedSSP (Accessibility).
-- Implement CAPTCHA Control
 
 **2.1.14**
 - Replaced `Keypress` to `Key Down` event.
@@ -296,10 +292,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **1.2.16**
 - Fixes enter key for 'Phone only' mode.
-- Enhancements to Captcha Control
-
-**1.2.15**
-- Implementation of Captcha Control
+- Implementation to Captcha Control
 
 **1.2.12**
 - Replaced `KeyPress` to `KeyDown` event.
