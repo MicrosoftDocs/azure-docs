@@ -43,7 +43,7 @@ The v2 SKU includes the following enhancements:
 ## SKU types
 
 Application Gateway v2 is available under two SKUs: 
-- **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. 
+- **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. For information on how to register for the public preview of Application Gateway Basic SKU, see [Register for the preview](#register-for-the-preview).
 - **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It also includes auto scale that can automatically adjust the number of instances to match your traffic needs. 
 
 The following table displays a comparison between Basic and Standard_v2.
@@ -128,9 +128,21 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that the cookie can't be used by client for the subdomains.|
 |Microsoft Defender for Cloud integration|Not yet available.
 
+## Register for the preview
+
+Run the following Azure CLI commands in to register for the preview of Application Basic SKU. 
+
+```azurecli-interactive
+Set-AzContext -Subscription "<your subscription ID>"
+Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
+```
+
 ## Next steps
 
 Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI.
+
+
 
 - [Tutorial: Create an application gateway that improves web application access](tutorial-autoscale-ps.md)
 - [Learn module: Introduction to Azure Application Gateway](/training/modules/intro-to-azure-application-gateway)
