@@ -14,11 +14,11 @@ ms.reviewer: hmb
 
 Uploading files to Azure Storage through Azure Front Door brings certain advantages, including higher resiliency, scalability and extra security, such as scanning of uploaded content with WAF and using custom TLS certificate for storage accounts.
 
-In this reference architecture, you deploy multiple storage accounts and Front Door profile with a multiple origins. By using multiple storage accounts for uploaded content, you improve performance, reliability and able to achieve load distribution/sharding by having different clients use storage accounts in different orders.
+In this reference architecture, you deploy multiple storage accounts and Front Door profile with multiple origins. By using multiple storage accounts for uploaded content, you improve performance, reliability and able to achieve load distribution/sharding by having different clients use storage accounts in different orders.
 
 ## Architecture
 
-![Architecture diagram showing traffic flowing through Front Door to the storage accounts when uploading blobs](media/scenario-storage-blobs-upload/upload-blob-front-door-architecture-highres.png)
+![Architecture diagram showing traffic flowing through Front Door to the storage accounts when uploading blobs.](media/scenario-storage-blobs-upload/upload-blob-front-door-architecture-highres.png)
 
 In this reference architecture, you deploy multiple storage accounts and Azure Front Door profile with multiple origins. You deploy as well Azure App Service to host API, and Azure Service Bus queue.
 
@@ -26,7 +26,7 @@ In this reference architecture, you deploy multiple storage accounts and Azure F
 
 Data flows through the scenario as follows:
 
-1. The client app calls a web-based API and retrieve a list of multiple upload locations. For each file that the client uploads, the API generates a list of possible upload locations, with one in each of the existing storage accounts. Each URL contains a Shared Access Signature, ensuring that the URL can only be used to upload to the designated blob URL.
+1. The client app calls a web-based API and retrieves a list of multiple upload locations. For each file that the client uploads, the API generates a list of possible upload locations, with one in each of the existing storage accounts. Each URL contains a Shared Access Signature, ensuring that the URL can only be used to upload to the designated blob URL.
 2. The client app attempts to upload a blob using first URL from the list returned by API. The client establishes a secure connection to Azure Front Door by using a custom domain name and custom TLS certificate. 
 3. The Front Door web application firewall (WAF) scans the request. If the WAF determines the request's risk level is too high, it blocks the request and Front Door returns an HTTP 403 error response. Otherwise the request is routed to the desired storage account.
 4. File is uploaded into Azure Storage account. If this request fails, the client app will have to try to upload to an alternative storage account using next URL from the list returned by API.
@@ -60,15 +60,15 @@ Azure Front Door configuration includes the following steps:
 
 In the *origin configuration*, you need to specify the origin type as a blob storage account and select the appropriate storage account available within your subscription.
 
-![Screenshot showing origin configuration](media/scenario-storage-blobs-upload/origin.png)
+![Screenshot showing origin configuration.](media/scenario-storage-blobs-upload/origin.png)
 
 When configuring the *Origin group route*, you have to specify a path that will be processed for this origin group and make sure to select the newly created origin group and specify the path to the container inside the storage account.
 
-![Screenshot showing route configuration](media/scenario-storage-blobs-upload/route-configuration.png)
+![Screenshot showing route configuration.](media/scenario-storage-blobs-upload/route-configuration.png)
 
 Finally, you need to create a new Rule set configuration. It is important to configure *Preserve unmatched path* setting which allows to append the remaining path after the source pattern to the new path.
 
-![Screenshot showing rule set configuration](media/scenario-storage-blobs-upload/ruleset.png)
+![Screenshot showing rule set configuration.](media/scenario-storage-blobs-upload/rule-set.png)
 
 ## Considerations
 
