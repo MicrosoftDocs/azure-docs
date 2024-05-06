@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 04/17/2024
+ms.date: 05/06/2024
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -77,7 +77,12 @@ V2 storage account    |    750 disks    |    375 disks
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. The above table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
 
-Note that the above limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+> [!NOTE]
+> The cache limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+>
+> When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
+
+
 
 ## Replicated machine operating systems
 
