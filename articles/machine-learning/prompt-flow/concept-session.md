@@ -20,7 +20,7 @@ In Azure Machine Learning prompt flow, the execution of flows is facilitated by 
 
 ## Compute sessions
 
-In prompt flow, compute session serve as computing resources that enable customers to execute their flows seamlessly. A compute session is equipped with a prebuilt Docker image that includes our built-in tools, ensuring that all necessary tools are readily available for execution. Compute session is managed by Azure machine learning, providing users with a convenient and efficient way to execute their flows without the need to manage the underlying infrastructure.
+In prompt flow, compute sessions serve as computing resources that enable customers to execute their flows seamlessly. A compute session is equipped with a prebuilt Docker image that includes our built-in tools, ensuring that all necessary tools are readily available for execution. Compute session is managed by Azure Machine Learning, providing users with a convenient and efficient way to execute their flows without the need to manage the underlying infrastructure.
 
 Within the Azure Machine Learning workspace, users have the option to create a compute session using the predefined base image. This base image is set up to reference the prebuilt Docker image, providing users with a convenient and efficient way to get started. We regularly update the base image to ensure it aligns with the latest version of the Docker image. Customer can also add python packages to the base image via the `requirements.txt` file, which will be installed during the creation of the compute session and manually install them in running compute session.
 

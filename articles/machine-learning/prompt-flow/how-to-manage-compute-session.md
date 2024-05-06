@@ -48,7 +48,7 @@ One flow binds to one compute session. You can start a compute session on a flow
   - Select compute type. You can choose between serverless compute and compute instance. 
     - If you choose serverless compute, you can set following settings:
         - Customize the VM size that the compute session uses. Opt for VM series D and above. For more information, see the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
-        - Customize the idle time, which delete the compute session automatically if it isn't in use for a while.
+        - Customize the idle time, which deletes the compute session automatically if it isn't in use for a while.
         - Set the user-assigned managed identity. The compute session uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has enough permission. If you don't set this identity, we use the user identity by default. 
 
         :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings.png":::
@@ -85,7 +85,7 @@ One flow binds to one compute session. You can start a compute session on a flow
     - If you choose compute instance as compute type, you can only set idle shutdown time. 
         - As it's running on an existing compute instance the VM size is fixed and can't change in session side.
         - Identity used for this session is also defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../how-to-create-compute-instance.md#assign-managed-identity)
-        - For the idle shutdown time it's used to define life cycle of the compute session, if the session is idle for the time you set, it is deleted automatically. And of you have idle shut-down enabled on compute instance, then it takes effect from compute level.
+        - For the idle shutdown time it's used to define life cycle of the compute session, if the session is idle for the time you set, it's deleted automatically. And of you have idle shut-down enabled on compute instance, then it takes effect from compute level.
 
             :::image type="content" source="./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings-compute-instance.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting a compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/start-compute-session-with-advanced-settings-compute-instance.png":::
         - Learn more about [how to create and manage compute instance](../how-to-create-compute-instance.md)

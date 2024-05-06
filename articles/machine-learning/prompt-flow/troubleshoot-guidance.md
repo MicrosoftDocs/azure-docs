@@ -56,7 +56,8 @@ Prompt flow relies on a file share storage to store a snapshot of the flow. If t
 - If you're using a private storage account, see [Network isolation in prompt flow](./how-to-secure-prompt-flow.md) to make sure your workspace can access your storage account.
 - If the storage account is enabled for public access, check whether there's a datastore named `workspaceworkingdirectory` in your workspace. It should be a file share type.
 
-   ![Screenshot that shows workspaceworkingdirectory.](./media/faq/working-directory.png)
+    :::image type="content" source="./media/faq/working-directory.png" alt-text="Screenshot that shows workspaceworkingdirectory." lightbox = "./media/faq/working-directory.png":::
+  
     - If you didn't get this datastore, you need to add it in your workspace.
         - Create a file share with the name `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`.
         - Create a datastore with the name `workspaceworkingdirectory`. See [Create datastores](../how-to-datastore.md).
@@ -75,7 +76,7 @@ There are possible reasons for this issue:
 
     :::image type="content" source="./media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "./media/faq/datastore-with-wrong-account-key.png":::
  
-- If you're using AI studio, the storage account needs to set CORS to allow AI studio access the storage account, otherwise, you'll see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
+- If you're using AI studio, the storage account needs to set CORS to allow AI studio access the storage account, otherwise, you see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
     - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
     - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
     - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
@@ -97,9 +98,9 @@ You can view the serverless instance used by compute session in the compute sess
 
 #### Compute session start failure with requirements.txt or custom base image
 
-Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need follow the [Customize base image](./how-to-customize-session-base-image.md) to create build a new image base on top of promptflow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session](./how-to-manage-compute-session.md#change-the-base-image-for-compute-session)
+Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more than python packages, you need to follow the [Customize base image](./how-to-customize-session-base-image.md) to create build a new image base on top of prompt flow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session.](./how-to-manage-compute-session.md#change-the-base-image-for-compute-session)
 
-- You can not use arbitrary base image to create Compute session, you need use the base image provide by promptflow.
+- You cannot use arbitrary base image to create Compute session, you need to use the base image provide by prompt flow.
 - Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
 
 ## Flow run related issues

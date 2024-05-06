@@ -44,7 +44,7 @@ Similar to the integration of Langchain with prompt flow, Semantic Kernel, which
 
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png" alt-text="Screenshot of prompt flow with Semantic kernel." lightbox = "./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png":::
 
-#### Prerequisites: Setup compute session and connection
+#### Prerequisites: Set up compute session and connection
 
 > [!IMPORTANT]
 > Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your requirements.txt for executor. 
