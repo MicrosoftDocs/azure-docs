@@ -10,11 +10,11 @@ ms.date: 5/06/2024
 ---
 
 
-## Azure proactive resiliency recommendations for Azure Cosmos DB for NoSQL
+# Azure proactive resiliency recommendations for Azure Cosmos DB for NoSQL
 
 [!INCLUDE [Reliability recommendations](../includes/reliability-recommendations-include.md)]
  
-### Resiliency recommendations summary
+## Resiliency recommendations summary
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
