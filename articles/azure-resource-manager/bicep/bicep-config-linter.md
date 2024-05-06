@@ -3,7 +3,7 @@ title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/29/2023
+ms.date: 05/06/2024
 ---
 
 # Add linter settings in the Bicep config file
@@ -34,7 +34,7 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "explicit-values-for-loc-params": {
-          "level": "warning"
+          "level": "off"
         },
         "max-asserts": {
           "level": "warning"
@@ -64,10 +64,10 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "no-hardcoded-location": {
-          "level": "warning"
+          "level": "off"
         },
         "no-loc-expr-outside-params": {
-          "level": "warning"
+          "level": "off"
         },
         "no-unnecessary-dependson": {
           "level": "warning"
