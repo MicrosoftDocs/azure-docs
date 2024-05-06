@@ -113,7 +113,7 @@ The following tables compare features available in the following API Management 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ |
-| [Load-balanced backend pool](backends.md#load-balanced-pool-preview)  |  ✔️ | ✔️ | ✔️ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
