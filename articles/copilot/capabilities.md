@@ -25,9 +25,11 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
   - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
   - [Understand service health events and status](understand-service-health.md)
   - [Analyze, estimate, and optimize costs](analyze-cost-management.md)
+  - [Query your attack surface](query-attack-surface.md)
 - Work smarter with Azure services:
   - [Deploy virtual machines effectively](deploy-vms-effectively.md)
   - [Build infrastructure and deploy workloads](build-infrastructure-deploy-workloads.md)
+  - [Work with AKS clusters efficiently](work-aks-clusters.md)
   - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
   - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
   - [Secure and protect storage accounts](improve-storage-accounts.md)
