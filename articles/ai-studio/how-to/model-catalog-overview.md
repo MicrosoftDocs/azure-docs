@@ -57,7 +57,7 @@ Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22
 Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual
 Other models | Available | Not available
 
-:::image type="content" source="media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle. lightbox="media/explore/platform-service-cycle.png":::
+:::image type="content" source="..media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle. lightbox="..media/explore/platform-service-cycle.png":::
 
 ## Real-time endpoints
 
