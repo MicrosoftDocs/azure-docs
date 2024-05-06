@@ -137,9 +137,9 @@ This script automates the following steps:
 
 * Create the Azure resource group in your Azure subscription to store all the resources.
 
-* Connect the cluster to Azure Arc and registers the required Azure resource providers.
+* Connect the cluster to Azure Arc and register the required Azure resource providers.
 
-* Apply all the required configurations for Azure IoT Operations, including:
+* Apply all of the required configurations for Azure IoT Operations, including:
 
   * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations  broker.
 
@@ -245,7 +245,7 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
    | **KEYVAULT_NAME** | The name of your key vault. |
 
    ```azurecli
-   az iot ops init --simulate-plc --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id $(az keyvault show --name <KEYVAULT_NAME> -o tsv --query id)
+   az iot ops init --simulate-plc --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --kv-id $(az keyvault show --name $KEYVAULT_NAME -o tsv --query id)
    ```
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
@@ -275,9 +275,11 @@ To view your cluster on the Azure portal, use the following steps:
 
    :::image type="content" source="./media/quickstart-deploy/view-extensions.png" alt-text="Screenshot that shows the deployed extensions on your Arc-enabled cluster.":::
 
-   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
+   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service. These extensions have a unique suffix that identifies your deployment. In the previous screenshot, this suffix is **-z2ewy**.
 
    There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
+
+1. Make a note of the full name of the extension called **mq-...**. You use this name in the following quickstarts.
 
 ## How did we solve the problem?
 
@@ -297,7 +299,7 @@ If you want to delete the Azure IoT Operations deployment but plan on reinstalli
 
 1. Return to your resource group and select the custom location resource, then select **Delete**.
 
-If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contained the cluster.
+If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contained the cluster.
 
 ## Next step
 
