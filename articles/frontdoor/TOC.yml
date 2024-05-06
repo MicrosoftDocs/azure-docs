@@ -170,6 +170,8 @@
           href: scenarios.md
         - name: Azure Storage blobs
           href: scenario-storage-blobs.md
+        - name: Upload to Azure Storage blobs
+          href: scenario-upload-storage-blobs.md
     - name: Classic
       items:
         - name: Migrate to Standard or Premium Tier
