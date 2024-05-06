@@ -9,33 +9,6 @@ ms.author: greglin
 ms.service: application-gateway
 ---
 
-<!-- 
-IMPORTANT 
-
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_01
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-
-Your service should have the following two articles:
-
-1. The primary monitoring article (based on the template monitor-service-template.md)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-
-2. A reference article that lists all the metrics and logs for your service (based on this template).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
-
 # Azure Application Gateway monitoring data reference
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
@@ -52,8 +25,6 @@ The following table lists the metrics available for the Microsoft.Network/applic
 
 [!INCLUDE[Microsoft.Network/applicationgateways](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-network-applicationgateways-metrics-include.md)]
 
-<!-- Metrics material from original reference article starts here. -->
-
 ### Timing metrics
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds.
@@ -66,10 +37,6 @@ Application Gateway provides several built‑in timing metrics related to the re
 
 See [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways) for details.
 
-> [!NOTE]
->
-> If the Application Gateway has more than one listener, then always filter by the *Listener* dimension while comparing different latency metrics to get more meaningful inference.
-
 These metrics can be used to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size.
 
 For example, if there’s a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, then it can be inferred that the Application gateway to backend latency and the time taken to establish the connection is stable, and the spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, then it can be deduced that either the network between Application Gateway and backend server or the backend server TCP stack has saturated.
@@ -79,6 +46,8 @@ If you notice a spike in *Backend last byte response time* but the *Backend firs
 Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that the degradation is because of the network between client and Application Gateway.
 
 ### Application Gateway metrics
+
+For Application Gateway, the following metrics are available:
 
 - Bytes received
 - Bytes sent
@@ -115,7 +84,6 @@ Sample Request:
 POST
 https://management.azure.com/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/
 applicationGateways/appgw/backendhealth?api-version=2021-08-01
-After
 ```
 
 After sending this POST request, you should see an HTTP 202 Accepted response. In the response headers, find the Location header and send a new GET request using that URL.
@@ -131,16 +99,16 @@ Application Gateway supports TLS/TCP proxy monitoring.
 
 #### TLS/TCP proxy metrics
 
-With layer 4 proxy feature now available with Application Gateway, there are some Common metrics (apply to both layer 7 and layer 4), and some layer 4 specific metrics. The following list summarizes the metrics are the applicable for layer 4 usage.
+With layer 4 proxy feature now available with Application Gateway, there are some Common metrics that apply to both layer 7 and layer 4. There are some layer 4 specific metrics. The following list summarizes the metrics are the applicable for layer 4 usage.
 
-- | Current Connections
-- | New Connections per second
-- | Throughput
-- | Healthy host count
-- | Unhealthy host count
-- | Client RTT
-- | Backend Connect Time
-- | Backend First Byte Response Time
+- Current Connections
+- New Connections per second
+- Throughput
+- Healthy host count
+- Unhealthy host count
+- Client RTT
+- Backend Connect Time
+- Backend First Byte Response Time
 
 See [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways) for details.
 
@@ -189,9 +157,7 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 
 :::image type="content" source="./media/monitor-application-gateway-reference/backend-health.png" alt-text="Screenshot shows health for individual members of backend pools.":::
 
-## Application Gateway v1 metrics
-
-### Application Gateway metrics
+### Application Gateway v1 metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -206,8 +172,6 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 |**Web Application Firewall Total Rule Distribution**|Count|Number of requests received per each specific WAF rule group or WAF rule ID combination.|
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
-
-<!-- Metrics material from original reference article ends here. -->
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -233,13 +197,15 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 - RuleSetName
 - TlsProtocol
 
+> [!NOTE]
+>
+> If the Application Gateway has more than one listener, then always filter by the *Listener* dimension while comparing different latency metrics to get more meaningful inference.
+
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Network/applicationGateways
 
 [!INCLUDE [Microsoft.Network/applicationgateways](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-network-applicationgateways-logs-include.md)]
-
-<!-- begin content added from reference -->
 
 > [!NOTE]
 > The Performance log is available only for the v1 SKU. For the v2 SKU, use Application Gateway v2 metrics for performance data.
@@ -261,8 +227,6 @@ Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/refe
 | host_s | Host header of the client request|
 | requestQuery_s | Query string as part of the client request|
 | sslEnabled_s | Does the client request have SSL enabled|
-
-<!-- end content added from reference -->
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
