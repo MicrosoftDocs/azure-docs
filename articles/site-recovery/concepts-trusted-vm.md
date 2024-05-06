@@ -60,11 +60,13 @@ Review the following conditions for public preview:
 
 ## Azure Site Recovery for trusted VMs 
 
-You can follow the same steps for Azure Site Recovery with trusted virtual machines as for Azure Site Recovery with standard Azure virtual machines. To configure Azure Site Recovery on trusted virtual machines to another region, [follow the steps]() in the [Azure Site Recovery documentation]( ./azure-to-azure-tutorial-enable-replication.md).
+You can follow the same steps for Azure Site Recovery with trusted virtual machines as for Azure Site Recovery with standard Azure virtual machines. 
+
+- To configure Azure Site Recovery on trusted virtual machines to another region, [follow the steps](./azure-to-azure-tutorial-enable-replication.md).
+- To failover and failback trusted virtual machines, [follow the steps](./azure-to-azure-tutorial-failover-failback.md).
 
 
 
 ## Next steps
 
-- To failover and failback trusted virtual machines, [follow the steps](./azure-to-azure-tutorial-failover-failback.md).
-- To learn more about trusted virtual machines, see [trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+To learn more about trusted virtual machines, see [trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
