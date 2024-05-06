@@ -144,7 +144,7 @@ For detailed information regarding Azure AI Translator Service request limits, *
 Document Translation data residency depends on the Azure region where your Translator resource was created:
 
 ✔️ Feature: **Document Translation**</br>
-✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
+✔️ Service endpoint:  **Custom: `<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
 
 |Resource created region| Request processing data center |
 |----------------------------------|-----------------------|

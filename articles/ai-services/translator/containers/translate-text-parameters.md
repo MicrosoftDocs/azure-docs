@@ -1,5 +1,5 @@
 ---
-title: "Container: Translate text method"
+title: "Container: Translate text"
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body messages for the Azure AI Translator container translate document operation.
 author: laujan
