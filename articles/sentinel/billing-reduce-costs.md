@@ -39,9 +39,13 @@ Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enable
 
 When hunting or investigating threats in Microsoft Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Microsoft Sentinel is enabled on all the workspaces.
 
-## Turn on basic logs data ingestion for data that's high-volume low security value (preview)
+## Select low-cost log types for high-volume, low-value data
 
-Unlike analytics logs, [basic logs](../azure-monitor/logs/basic-logs-configure.md) are typically verbose. They contain a mix of high volume and low security value data that isn't frequently used or accessed on demand for ad-hoc querying, investigations, and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](../azure-monitor/logs/basic-logs-configure.md)&mdash;are more suited for ad-hoc querying and search of verbose, high-volume, low-value logs that aren't frequently needed or accessed on demand. Enable basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion (now in Preview) at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+
+- [Log sources to use for Basic Logs or Auxiliary Logs ingestion](basic-logs-use-cases.md)
+- [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+
 
 ## Optimize Log Analytics costs with dedicated clusters
 
