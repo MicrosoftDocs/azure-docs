@@ -80,8 +80,10 @@
       href: flexible-server/concepts-servers.md
     - name: Supported versions
       href: flexible-server/concepts-supported-versions.md
-    - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
+    - name: Compute  
+      href: flexible-server/concepts-compute.md
+    - name: Storage
+      href: flexible-server/concepts-storage.md
     - name: Scaling resources
       href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity

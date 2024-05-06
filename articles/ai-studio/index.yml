@@ -36,13 +36,15 @@ landingContent:
             url: how-to/create-projects.md
           - text: Get started with prompt flow
             url: how-to/flow-develop.md
+          - text: Connect to AI services
+            url: ai-services/connect-ai-services.md
   # Card
   - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
           - text: Use Azure OpenAI Assistants in the playground
-            url: quickstarts/assistants.md
+            url: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images

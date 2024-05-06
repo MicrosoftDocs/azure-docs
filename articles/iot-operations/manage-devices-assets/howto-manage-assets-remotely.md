@@ -45,7 +45,7 @@ To sign in to the Azure IoT Operations (preview) portal, navigate to the [Azure 
 
 ## Select your site
 
-After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](https://aka.ms/sitedocs) and granting access to OT users in your organization. Instances that aren't part of a site appear in the **Unassigned instances** node. Select the site that you want to use:
+After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Instances that aren't part of a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
 :::image type="content" source="media/howto-manage-assets-remotely/site-list.png" alt-text="Screenshot that shows a list of sites in the Azure IoT Operations (preview) portal.":::
 

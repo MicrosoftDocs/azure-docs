@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -30,8 +30,8 @@ As another example, you can [create a connection](../how-to/connections-add.md) 
 ## Connections to non-Microsoft services
 
 Azure AI Studio supports connections to non-Microsoft services, including the following:
-- The [API key connection](../how-to/connections-add.md?tabs=api-key#connection-details) handles authentication to your specified target on an individual basis. This is the most common non-Microsoft connection type.
-- The [custom connection](../how-to/connections-add.md?tabs=custom#connection-details) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you'll have to manage authentication on your own.
+- The [API key connection](../how-to/connections-add.md) handles authentication to your specified target on an individual basis. This is the most common non-Microsoft connection type.
+- The [custom connection](../how-to/connections-add.md) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you'll have to manage authentication on your own.
 
 ## Connections to datastores
 

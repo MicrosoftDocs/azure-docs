@@ -119,7 +119,7 @@ Choose a sample prompt to see how it works or as a starting point for your proje
 
 ### AI Services
 
-From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more. For more information about Azure AI services, see [What are Azure AI services?](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and [Try out AI services](how-to/models-foundation-azure-ai.md).
+From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more. For more information about Azure AI services, see [What are Azure AI services?](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and [Try out AI services](ai-services/connect-ai-services.md).
 
 :::image type="content" source="media/explore/home-ai-services.png" alt-text="Screenshot of the AI Services home page." lightbox= "media/explore/home-ai-services.png":::
 
@@ -165,8 +165,7 @@ You can also access the following pages:
 - Tools: This is where you can access tools for prompt flow, tracing, evaluations, and fine-tuning. You can also access the [Visual Studio Code (Web)](how-to/develop-in-vscode.md) experience from this page. 
 - Components: This is where you can view and manage components in the project. Components include data, indexes, deployments, and content filters.
 
-
-## AI Studio enterprise chat solution demo
+## Build your own copilot demo
 
 Learn how to build your own copilot with AI Studio in this [overview video from Microsoft Mechanics on YouTube](https://youtu.be/3hZorLy6JiA).
 > [!VIDEO https://www.youtube.com/embed/3hZorLy6JiA]

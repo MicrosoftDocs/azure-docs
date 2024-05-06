@@ -194,7 +194,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
+:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="9-29" highlight="11,24,27":::
 
 ### [Django](#tab/django)
 

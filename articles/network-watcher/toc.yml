@@ -197,9 +197,11 @@
         href: vnet-flow-logs-powershell.md
       - name: Azure CLI
         href: vnet-flow-logs-cli.md
+      - name: Built-in Policy
+        href: vnet-flow-logs-policy.md
     - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
-    - name: Read NSG flow logs
+    - name: Read flow logs
       href: flow-logs-read.md
     - name: Analyze NSG flow logs
       items:
