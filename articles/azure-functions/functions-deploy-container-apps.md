@@ -1,7 +1,7 @@
 ---
 title: Create your first containerized Azure Functions on Azure Container Apps
 description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
-ms.date: 03/28/2024
+ms.date: 05/06/2024
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content
 zone_pivot_groups: programming-languages-set-functions
@@ -14,8 +14,6 @@ In this article, you create a function app running in a Linux container and depl
 This article shows you how to create functions running in a Linux container and deploy the container to a Container Apps environment. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
-
-[!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
@@ -57,7 +55,7 @@ Use the following commands to create these items.
     az group create --name AzureFunctionsContainers-rg --location eastus
     ```
  
-    This [`az group create`](/cli/azure/group#az-group-create) command creates a resource group in the East US region. If you instead want to use a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command. You must modify subsequent commands to use your custom region instead of `eastus`. You can only use regions [currently supported in the preview](./functions-container-apps-hosting.md#considerations-for-container-apps-hosting).
+    This [`az group create`](/cli/azure/group#az-group-create) command creates a resource group in the East US region. If you instead want to use a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command. You must modify subsequent commands to use your custom region instead of `eastus`.
 
 1. Create Azure Container App environment with workload profiles enabled.
 

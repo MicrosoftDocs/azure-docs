@@ -11,8 +11,6 @@ ms.custom: references_regions, build-2023
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA.
 
-[!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
-
 Integration with Container Apps lets you use the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings with event-driven scaling. Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
 
 This integration also means that you can use existing Functions client tools and the Azure portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
@@ -82,12 +80,11 @@ Keep in mind the following considerations when deploying your function app conta
     + Azure Event Hubs 
     + Kafka<sup>*</sup>  
     + Timer  
-    <sup>*</sup>The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
+    <sup>*</sup>The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).   
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
-+ The Functions Dapr extension is also in preview, with help provided [in the repository](https://github.com/Azure/azure-functions-dapr-extension/issues).
 
 ## Next steps
 

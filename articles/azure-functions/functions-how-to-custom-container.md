@@ -10,7 +10,7 @@ zone_pivot_groups: functions-container-hosting
 # Working with containers and Azure Functions
 
 :::zone pivot="container-apps"
-This article demonstrates the support that Azure Functions provides for working with containerized function apps running in an Azure Container Apps environment. Support for hosting function app containers in Container Apps is currently in preview. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+This article demonstrates the support that Azure Functions provides for working with containerized function apps running in an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
 ::: zone-end
 :::zone pivot="azure-functions,azure-arc"
 This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. 
@@ -157,7 +157,7 @@ The following steps create and deploy an existing containerized function app fro
     This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md).  
 ::: zone-end   
 :::zone pivot="container-apps"  
-   <sup>*</sup>App name must be unique within the Azure Container Apps environment. Not all regions are supported in the preview. For more information, see [Considerations for Container Apps hosting](functions-container-apps-hosting.md#considerations-for-container-apps-hosting).
+   <sup>*</sup>App name must be unique within the Azure Container Apps environment. 
 
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. 
 
