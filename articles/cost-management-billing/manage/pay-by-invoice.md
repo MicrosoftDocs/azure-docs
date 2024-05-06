@@ -37,7 +37,8 @@ Customers who have a Microsoft Online Services Program (pay-as-you-go) account c
 > * An outstanding invoice is paid by your default payment method. In order to have it paid by wire transfer, you must change your default payment method to wire transfer after you've been approved.
 > * Currently, payment by wire transfer isn't supported for Global Azure in China.
 > * For Microsoft Online Services Program accounts, if you switch to pay by wire transfer, you can't switch back to paying by credit or debit card.
-> * Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated. 
+> * Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated.
+> * As of September 30, 2023 Microsoft no longer accepts checks as a payment method.
 
 ## Request to pay by wire transfer
 
