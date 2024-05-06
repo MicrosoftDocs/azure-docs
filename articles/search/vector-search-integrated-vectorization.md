@@ -23,7 +23,7 @@ For data chunking and text-to-vector conversions during indexing, you need:
 
 + [An indexer](search-indexer-overview.md) to retrieve data from a supported data source.
 + [A skillset](cognitive-search-working-with-skillsets.md) to call the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data.
-+ The same skillset, calling a vectorizer. The vectorizer is either the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) for text-embedding-ada-002 on Azure OpenAI, or a [custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model, for example test-embedding-ada-002 on OpenAI.
++ The same skillset, calling an embedding model. The embedding model is accessed through the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md), attached to text-embedding-ada-002 on Azure OpenAI, or a [custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model, for example any supported embedding model on OpenAI.
 + You also need a [vector index](search-what-is-an-index.md) to receive the chunked and vectorized content.
 
 For text-to-vector queries:
