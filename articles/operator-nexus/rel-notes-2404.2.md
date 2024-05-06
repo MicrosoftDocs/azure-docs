@@ -37,7 +37,7 @@ runtime patch.
 
 * Implement HTTP/2-related fixes.
 
-* Remove Key Vault from Cluster Manager MRG.
+* Remove Key Vault from Cluster Manager Managed Resource Group (MRG).
 
 ## Observability enhancements 
 
