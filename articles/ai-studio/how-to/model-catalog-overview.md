@@ -46,9 +46,9 @@ Model Catalog offers two distinct ways to deploy models from the catalog for you
 Features | Real-time inference with Managed Online Endpoints   | Pay-as-you-go with Models as a Service 
 --|--|-- 
 Deployment experience and billing |  Model weights are deployed to dedicated Virtual Machines with Managed Online Endpoints. The managed online endpoint, which can have one or more deployments, makes available a REST API for inference. You are billed for the Virtual Machine core hours used by the deployments.  | Access to models is through a deployment that provisions an API to access the model. The API provides access to the model hosted in a central GPU pool, managed by Microsoft, for inference. This mode of access is referred to as “Models as a Service”.   You are billed for inputs and outputs to the APIs, typically in tokens; pricing information is provided before you deploy.  
-| API authentication   | Keys and Microsoft Entra ID authentication. [Learn more.](concept-endpoints-online-auth.md) | Keys only.  
+| API authentication   | Keys and Microsoft Entra ID authentication.| Keys only.  
 Content safety | Use Azure Content Safety service APIs.  | Azure AI Content Safety filters are available integrated with inference APIs. Azure AI Content Safety filters may be billed separately.  
-Network isolation | Managed Virtual Network with Online Endpoints. [Learn more.](how-to-network-isolation-model-catalog.md)  | 
+Network isolation | Configure Managed Network. [Learn more.](./configure-managed-network.md)  | 
 
 Model | Real-time endpoints | Pay-as-you-go
 --|--|--
@@ -57,13 +57,13 @@ Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22
 Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual
 Other models | Available | Not available
 
-:::image type="content" source="media/concept-model-catalog/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle. lightbox="media/concept-model-catalog/platform-service-cycle.png":::
+:::image type="content" source="media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle. lightbox="media/explore/platform-service-cycle.png":::
 
 ## Real-time endpoints
 
 The capability to deploy models to real-time endpoints builds on platform capabilities of Azure Machine Learning to enable seamless integration, across the entire LLMOps lifecycle, of the wide collection of models in the Model Catalog. 
 
-:::image type="content" source="media/concept-model-catalog/llmops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle. lightbox="media/concept-model-catalog/llmops-life-cycle.png":::
+:::image type="content" source="media/explore/llmops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle. lightbox="media/explore/llmops-life-cycle.png":::
 
 ### How are models made available for Real-time endpoints   
 
@@ -104,7 +104,7 @@ Certain models in the Model Catalog can be deployed using Pay-as-you-go billing;
 
 ### How are third-party models made available in MaaS   
 
-:::image type="content" source="media/concept-model-catalog/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle. lightbox="media/concept-model-catalog/model-publisher-cycle.png":::
+:::image type="content" source="media/explore/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle. lightbox="media/explore/model-publisher-cycle.png":::
 
 Models that are available for pay-as-you-go deployment are offered by the model provider but hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models, while Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content output by models deployed via MaaS. Learn more about data processing for MaaS at the [data privacy](concept-data-privacy.md) article. 
 
@@ -122,7 +122,7 @@ For models that are available through MaaS and support fine-tuning, users can ta
 
 ### RAG with models deployed through MaaS 
 
-Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed via MaaS can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information refer to [Retrieval augmented generation and indexes](retrieval-augmented-generation.md). 
+Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed via MaaS can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information refer to [How to create a vector index](../ai-studio/how-to/index-add.md). 
 
 ### Regional availability of offers and models 
 
