@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 05/05/2024
 ms.author: danlep
 ---
 
@@ -41,7 +41,7 @@ The GraphQL specification explicitly solves common issues experienced by client 
 
 Using a GraphQL API, the client app can specify the data they need to render a page in a query document that is sent as a single request to a GraphQL service. A client app can also subscribe to data updates pushed from the GraphQL service in real time.
 
-## Schema and operation types
+## Schema and types
 
 In API Management, add a GraphQL API from a GraphQL schema, either retrieved from a backend GraphQL API endpoint or uploaded by you. A GraphQL schema describes:
 
