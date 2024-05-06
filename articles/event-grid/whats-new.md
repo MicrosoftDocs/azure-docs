@@ -32,5 +32,16 @@ The following features have been released as public preview features:
 - MQTT v3.1.1 and v5.0 support
 
 
+## May 2024 
+
+The following features of Event Grid namespaces have been moved from public preview to general availability (GA):
+
+- [Last Will and Testament (LWT)](mqtt-support.md#last-will-and-testament-lwt-messages)
+
+The following features of Event Grid namespaces have been released as public preview features:
+
+- [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md)
+- [Custom domain names support](custom-domains-namespaces.md)
+
 ## Next steps
 For an overview of the Azure Event Grid service, see [Azure Event Grid overview](overview.md).
