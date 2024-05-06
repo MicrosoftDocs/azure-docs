@@ -28,6 +28,7 @@ API Management supports pass-through with the following types of gRPC service me
 > [!NOTE]
 > * Currently, gRPC APIs are only supported in the self-hosted gateway, not the managed gateway for your API Management instance.
 > * Currently, testing gRPC APIs isn't supported in the test console of the Azure portal or in the API Management developer portal.
+> * Import is limited to a single Protobuff (.proto) file. 
 
 ## Prerequisites
 
