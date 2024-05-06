@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/14/2024
+ms.date: 05/05/2024
 ms.author: danlep 
 ms.custom:
 ---
@@ -75,7 +75,7 @@ For example, here is a policy to route traffic to another backend based on the g
 ```
 
 
-## Circuit breaker (preview)
+## Circuit breaker
 
 Starting in API version 2023-03-01 preview, API Management exposes a [circuit breaker](/rest/api/apimanagement/current-preview/backend/create-or-update?tabs=HTTP#backendcircuitbreaker) property in the backend resource to protect a backend service from being overwhelmed by too many requests.
 
@@ -91,14 +91,14 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in a day. The circuit breaker resets after one hour.
+Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in 1 hour. The circuit breaker resets after 1 hour.
 
 #### [Bicep](#tab/bicep)
 
 Include a snippet similar to the following in your Bicep template for a backend resource with a circuit breaker:
 
 ```bicep
-resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-preview' = {
+resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-preview' = {
   name: 'myAPIM/myBackend'
   properties: {
     url: 'https://mybackend.com'
@@ -111,7 +111,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
             errorReasons: [
               'Server errors'
             ]
-            interval: 'P1D'
+            interval: 'PT1H' 
             statusCodeRanges: [
               {
                 min: 500
@@ -120,7 +120,8 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
             ]
           }
           name: 'myBreakerRule'
-          tripDuration: 'PT1H'
+          tripDuration: 'PT1H'  
+          acceptRetryAfter: true
         }
       ]
     }
@@ -135,7 +136,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/backends",
-  "apiVersion": "2023-03-01-preview",
+  "apiVersion": "2023-05-01-preview",
   "name": "myAPIM/myBackend",
   "properties": {
     "url": "https://mybackend.com",
@@ -146,7 +147,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
           "failureCondition": {
             "count": "3",
             "errorReasons": [ "Server errors" ],
-            "interval": "P1D",
+            "interval": "PT1H",
             "statusCodeRanges": [
               {
                 "min": "500",
@@ -155,7 +156,8 @@ Include a JSON snippet similar to the following in your ARM template for a backe
             ]
           },
           "name": "myBreakerRule",
-          "tripDuration": "PT1H"
+          "tripDuration": "PT1H",
+          "acceptRetryAfter": true
         }
       ]
     }
@@ -165,9 +167,17 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ---
 
-## Load-balanced pool (preview)
+### Circuit breaker constraints
 
-Starting in API version 2023-05-01 preview, API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. Currently, the backend pool supports round-robin load balancing.
+* In `failureCondition`:
+    * Specify either `count` or `percentage`. 
+    * `interval` must be specified. It should be a valid ISO time span that is less than 1 day.
+    * Specify either `errorReasons` or `statusCodeRanges`.   
+* `tripDuration` must be specified. It should be a valid ISO time span less than 1 day. 
+
+## Load-balanced pool
+
+Starting in API version 2023-05-01 preview, API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. 
 
 Use a backend pool for scenarios such as the following:
 
@@ -227,10 +237,14 @@ Include a JSON snippet similar to the following in your ARM template for a backe
     "pool": {
       "services": [
         {
-          "id": "/backends/backend-1"
+          "id": "/backends/backend-1",
+          "priority": "1", 
+          "weight": "3" 
         },
         {
-          "id": "/backends/backend-2"
+          "id": "/backends/backend-2",
+          "priority": "1",
+          "weight": "1"    
         }
       ]
     }
@@ -239,6 +253,12 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 ```
 
 ---
+
+### Load-balanced pool constraints
+
+* At most 30 `services` can be configured in a pool. 
+* `priority` and `weight` are optional and are not mutually exclusive. Values must be between 0 and 100. If not specified, the pool uses round-robin load balancing.
+
 ## Limitation
 
 For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog. 
