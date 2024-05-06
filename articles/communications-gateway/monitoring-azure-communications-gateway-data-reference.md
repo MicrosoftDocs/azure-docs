@@ -1,67 +1,129 @@
 ---
-title: Monitoring Azure Communications Gateway data reference 
-description: Important reference material needed when you monitor Azure Communications Gateway 
+title: Monitoring data reference for [TODO-replace-with-service-name]
+description: This article contains important reference material you need when you monitor Azure Communications Gateway.
+ms.date: 05/08/2024
+ms.custom: horz-monitor
+ms.topic: reference
 author: rcdun
 ms.author: rdunstan
-ms.topic: reference
 ms.service: communications-gateway
 ms.custom: subject-monitoring
-ms.date: 02/01/2024
 ---
 
+<!-- 
+IMPORTANT 
 
-# Monitoring Azure Communications Gateway data reference
+According to the Content Pattern guidelines all comments must be removed before publication!!!
 
-Learn about the data and resources collected by Azure Monitor from your Azure Communications Gateway workspace. See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md) for details on collecting and analyzing monitoring data for Azure Communications Gateway.
+To make this template easier to use, first:
+1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
+2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
 
-## Metrics
+<!-- VERSION 3.0 2024_01_01
+For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
 
-This section lists all the automatically collected metrics collected for Azure Communications Gateway. The resource provider for these metrics is `Microsoft.VoiceServices/communicationsGateways`.
+<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
 
-### Error metrics
+Your service should have the following two articles:
 
-| Metric | Unit | Description |
-|:-------|:----|:------------|
-|Active Call Failures | Percentage| Percentage of active calls that fail. This metric includes, for example, calls where the media is dropped and calls that are torn down unexpectedly.|
+1. The primary monitoring article (based on the template monitor-service-template.md)
+   - Title: "Monitor [TODO-replace-with-service-name]"
+   - TOC title: "Monitor"
+   - Filename: "monitor-[TODO-replace-with-service-filename].md"
+
+2. A reference article that lists all the metrics and logs for your service (based on this template).
+   - Title: "[TODO-replace-with-service-name] monitoring data reference"
+   - TOC title: "Monitoring data reference"
+   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
+-->
+
+# Azure Communications Gateway monitoring data reference
+
+<!-- Intro. -->
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+
+Learn about the data and resources collected by Azure Monitor from your Azure Communications Gateway workspace. See [Monitor Azure Communications Gateway](monitor-azure-communications-gateway.md) for details on collecting and analyzing monitoring data for Azure Communications Gateway.
+
+<!-- ## Metrics -->
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+
+### Supported metrics for Microsoft.VoiceServices/communicationsGateways
+
+The following table lists the metrics available for the Microsoft.VoiceServices/communicationsGateways resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+
+[!INCLUDE [Microsoft.VoiceServices/communicationsGateways](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-voiceservices-communicationsgateways-metrics-include.md)]
+
+The automatically collected metrics collected for Azure Communications Gateway include the following types:
+
+- Error metrics: Errors.
+
+  - Active Call Failures
+
+- Traffic metrics: Metrics related to traffic.
+
+  - Active Calls
+  - Active Emergency Calls
+
+- Connectivity metrics: Metrics related to the connection between your network and the Communications Gateway resource.
+
+  - SIP 2xx Responses Received
+  - SIP 2xx Responses Sent
+  - SIP 3xx Responses Received
+  - SIP 3xx Responses Sent
+  - SIP 4xx Responses Received
+  - SIP 4xx Responses Sent
+  - SIP 5xx Responses Received
+  - SIP 5xx Responses Sent
+  - SIP 6xx Responses Received
+  - SIP 6xx Responses Sent
+
+<!-- ## Metric dimensions -->
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 
-### Traffic metrics
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-| Metric | Unit | Description |
-|:-------|:----|:------------|
-| Active Calls | Count | Count of the total number of active calls. |
-| Active Emergency Calls | Count | Count of the total number of active emergency calls.|
+ <!-- not what the table says - no OPTIONS or INVITE -->
 
-### Connectivity metrics
-
-The metrics in the following table refer to the connection between your network and the Azure Communications Gateway resource.
-
-| Metric | Unit | Description |
-|:-------|:----|:------------|
-| SIP 2xx Responses Received | Count | Count of the total number of SIP 2xx responses received for OPTIONS and INVITEs.|
-| SIP 2xx Responses Sent | Count | Count of the total number of SIP 2xx responses sent for OPTIONS and INVITEs.|
-| SIP 3xx Responses Received | Count | Count of the total number of SIP 3xx responses received for OPTIONS and INVITEs.|
-| SIP 3xx Responses Sent | Count | Count of the total number of SIP 3xx responses sent for OPTIONS and INVITEs.|
-| SIP 4xx Responses Received | Count | Count of the total number of SIP 4xx responses received for OPTIONS and INVITEs.|
-| SIP 4xx Responses Sent | Count | Count of the total number of SIP 4xx responses sent for OPTIONS and INVITEs.|
-| SIP 5xx Responses Received | Count | Count of the total number of SIP 5xx responses received for OPTIONS and INVITEs.|
-| SIP 5xx Responses Sent | Count | Count of the total number of SIP 5xx responses sent for OPTIONS and INVITEs.|
-| SIP 6xx Responses Received | Count | Count of the total number of SIP 6xx responses received for OPTIONS and INVITEs.|
-| SIP 6xx Responses Sent | Count | Count of the total number of SIP 6xx responses sent for OPTIONS and INVITEs.|
-
-## Metric Dimensions
-
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
-
-Azure Communications Gateway has the following dimensions associated with its metrics.
-
-| Dimension Name | Description |
+| Dimension name | Description |
 | ------------------- | ----------------- |
 | **Region** | The Service Locations defined in your Azure Communications Gateway resource. |
 | **OPTIONS or INVITE** | The SIP method for responses being sent and received:<br>- SIP OPTIONS responses sent and received by your Azure Communications Gateway resource to monitor its connectivity to its peers<br>- SIP INVITE responses sent and received by your Azure Communications Gateway resource. |
 
+<!-- ## Resource logs -->
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-## Next steps
+<!-- Repeat the following section for each resource type/namespace in your service. 
+<!-- Find the table(s) for the resource type in the Log Categories column at https://review.learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/metrics-index?branch=main#supported-metrics-and-log-categories-by-resource-type.
+-->
 
-- See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md) for a description of monitoring Azure Communications Gateway.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+<!-- NO LOG CATEGORIES FOR THIS SERVICE IN TABLE. 
+### Supported resource logs for \<ResourceType/namespace>  -->
+<!-- Uncomment the following line. Replace the <ResourceType/namespace> and <resourcetype> placeholders with the namespace name or address. -->
+<!-- [!INCLUDE [<ResourceType/namespace>](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/<resourcetype>-logs-include.md)]
+
+<!-- ## Log tables -->
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
+<!-- Repeat the following section for each resource type/namespace in your service. Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. 
+Replace the <ResourceType/namespace> and tablename placeholders with the namespace name. -->
+<!-- NO LOG TABLES 
+### [TODO-replace-with-service-name]
+<ResourceType/namespace>
+- [TableName](/azure/azure-monitor/reference/tables/tablename#columns)
+
+<!-- ## Activity log 
+
+NO ACTIVITY LOG
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and add the operations for your service. Repeat the link for each resource type/namespace in your service. Replace the <Namespace> and namespace placeholders with the namespace name or link. -->
+<!-- [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#namespace)
+--> 
+## Related content
+
+- See [Monitor Azure Communications Gateway](monitor-azure-communications-gateway.md) for a description of monitoring Communications Gateway.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
