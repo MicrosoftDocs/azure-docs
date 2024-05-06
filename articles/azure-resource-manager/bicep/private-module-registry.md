@@ -73,7 +73,7 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 
 ---
 
-With Azure PowerShell version 11.6 and Azure CLI version xxxx, you can publish the Bicep source code with a module. If a module is published with source code to a registry, you can use `F12` (Go to Definition) to see the Bicep Code from Visual Studio Code with the Bicep extension version 0.27 or later. 
+With Azure PowerShell version 11.6 and Azure CLI version xxxx, you can publish a module with the Bicep source code in addition to the compiled JSON template. If a module is published with the Bicep source code to a registry, you can press `F12` ([Go to Definition](./visual-studio-code.md#go-to-definition)) from Visual Studio Code to see the Bicep Code. The Bicep extension version 0.27 or new is required to see the Bicep file.
 
 # [PowerShell](#tab/azure-powershell)
 
