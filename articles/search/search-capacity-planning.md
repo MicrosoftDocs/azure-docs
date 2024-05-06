@@ -37,7 +37,6 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 |*Search unit* | A single increment of total available capacity (36 units). It's also the billing unit for an Azure AI Search service. A minimum of one unit is required to run the service.|
 |*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you have three copies of an index available for servicing query requests.|
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
-Azure AI Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
 
 Review the [partitions and replicas table](#partition-and-replica-combinations) for possible combinations that stay under the 36 unit limit. 
 
@@ -45,18 +44,13 @@ Review the [partitions and replicas table](#partition-and-replica-combinations) 
 
 Storage needs are determined by the size of the indexes you expect to build. There are no solid heuristics or generalities that help with estimates. The only way to determine the size of an index is [build one](search-what-is-an-index.md). Its size is based on tokenization and embeddings, and whether you enable suggesters, filtering, and sorting, or can take advantage of [vector compression](vector-search-how-to-configure-compression-storage.md).
 
-We recommend estimating on a billable tier, Basic or above. The Free tier is based on physical resources shared by multiple customers and is subject to factors beyond your control. Only the dedicated resources of a billable search service 
-can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. 
+We recommend estimating on a billable tier, Basic or above. The Free tier runs on physical resources shared by multiple customers and is subject to factors beyond your control. Only the dedicated resources of a billable search service can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. 
 
-1. [Review service limits at each tier](./search-limits-quotas-capacity.md#service-limits) to determine whether lower tiers can support the number of indexes you need. You need to consider object limits (maximum number of indexes, indexers, skillsets, etc.) and storage limits. Whichever limit is reached first is the effective limit.
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#service-limits) to determine whether lower tiers can support the number of indexes you need. Consider whether you need multiple copies of an index for active development, testing, and production. 
 
-   Here are some points to consider regarding index limits:
+   A search service is subect to object limits (maximum number of indexes, indexers, skillsets, etc.) and storage limits. Whichever limit is reached first is the effective limit. 
 
-   + Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
-
-   + Consider whether you need multiple copies of an index for active development, testing, and production.
-
-1. [Create a service at a billable tier](search-create-service-portal.md):
+1. [Create a service at a billable tier](search-create-service-portal.md). Tier are optimized for certain workloads. For example, Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
     + Start low, at Basic or S1, if you're not sure about the projected load.
 
@@ -66,7 +60,7 @@ can accommodate larger sampling and processing times for more realistic estimate
 
 1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size. Attributes on the field definitions affect physical storage requirements:
 
-   + For keyword or hybrid search, marking fields as filterable and sortable [increases physical storage requirements](search-what-is-an-index#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
+   + For keyword search, marking fields as filterable and sortable [increases index size](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
 
    + For vector search, you can [set parameters to reduce storage](vector-search-how-to-configure-compression-storage.md).
 
@@ -80,7 +74,7 @@ For an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), size and 
 
 Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience.
 
-**Service-level agreements**
+### Service-level agreement considerations
 
 The Free tier and preview features aren't covered by [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. 
 
@@ -119,7 +113,7 @@ Finally, larger indexes take longer to query. As such, you might find that every
 
 1. Under **Settings**, open the **Scale** page to modify replicas and partitions. 
 
-   The following screenshot shows a Basic service provisioned with one replica and partition. The formula at the bottom indicates how many search units are being used (1). If the unit price was $100 (not a real price), the monthly cost of running this service would be $100 on average.
+   The following screenshot shows a Standard service provisioned with one replica and partition. The formula at the bottom indicates how many search units are being used (1). If the unit price was $100 (not a real price), the monthly cost of running this service would be $100 on average.
 
    :::image type="content" source="media/search-capacity-planning/1-initial-values.png" alt-text="Scale page showing current values" border="true":::
 
