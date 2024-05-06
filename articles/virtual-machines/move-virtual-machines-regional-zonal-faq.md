@@ -1,25 +1,22 @@
 ---
-title: FAQ - Move Azure single instance Virtual Machines from regional to zonal availability zones
+title: FAQ - Move Azure single instance Virtual Machines from regional to zonal availability zones (preview)
 description: FAQs for single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 09/25/2023
+ms.date: 05/06/2024
 ms.author: ankitadutta
 ---
 
-# Frequently asked questions - Move Azure single instance virtual machines from regional to zonal target availability zones
+# Frequently asked questions - Move Azure single instance virtual machines from regional to zonal target availability zones (preview)
 
 This article answers common questions about Azure single instance virtual machines - regional to zonal move.
-
-> [!IMPORTANT]
-> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
 
 ## Regional to zonal move
 
 ### Can I move virtual machine(s) in all Azure regions?
 
-Currently, you can move virtual machine(s) across all public regions that are supported by Availability Zones. Learn more about the availability zone service and regional support.
+Currently, you can move virtual machine(s) across all public regions that are supported by Availability Zones. Learn more about the [availability zone service and regional support](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 ### Where is the metadata stored?
 
@@ -100,9 +97,11 @@ Customer data isn't stored during the move. The system only stores metadata info
 
 When you select **Move**, the following steps are performed on the source virtual machines:
 
-1.	The source virtual machines are stopped and left intact in their original configuration.
+1.	The source virtual machines are stopped and left intact in their original configuration. 
+    > [!NOTE]
+    > Stopping the VMs could lead to a brief downtime.
 2.	Virtual machine restore points of the source virtual machine are taken. These restore points contain a disk restore point for each of the attached disks and a disk restore point consists of a snapshot of an individual managed disk.
-3.	Using these restore points, a new virtual machine with its associated disks (a copy of the source) is created in the zonal configuration.
+3.	Using these restore points, a new virtual machine with its associated disks (a copy of the source VM) is created in the zonal configuration.
 4.	After the move is complete, you can choose to delete the source virtual machines.
 
 
