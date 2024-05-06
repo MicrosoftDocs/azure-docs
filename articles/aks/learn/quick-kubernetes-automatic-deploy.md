@@ -134,7 +134,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID RBAC for Kubernetes authorization][aks-entra-rbac]. When you create a cluster using the Azure CLI, your user is [assigned built-in roles][aks-entra-rbac-builtin-roles] for `Azure Kubernetes Service RBAC Admin` and `Azure Kubernetes Service RBAC Cluster Admin`. Your user is also assigned the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
@@ -148,7 +148,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticClu
 kubectl get nodes
 ```
 
-The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+The following sample output will show how you're asked to login.
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+```
+
+After you login, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
@@ -232,7 +238,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
   name: clusterName
   location: location  
   sku: {
-		name: 'Automatic',
+		name: 'Automatic'
   		tier: 'Standard'
   }
   properties: {
@@ -271,7 +277,7 @@ For more information about the resource defined in the Bicep file, see the [**Mi
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID RBAC for Kubernetes authorization][aks-entra-rbac]. When you create a cluster using Bicep, you need to [assign one of the built-in roles][aks-entra-rbac-builtin-roles] such as `Azure Kubernetes Service RBAC Reader`, `Azure Kubernetes Service RBAC Writer`, `Azure Kubernetes Service RBAC Admin`, or `Azure Kubernetes Service RBAC Cluster Admin` to your users, scoped to the cluster or a specific namespace. Also make sure your users have the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`, and then get the kubeconfig of your AKS cluster using the `az aks get-credentials` command.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
@@ -284,7 +290,13 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     kubectl get nodes
     ```
 
-    The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+    The following sample output will show how you're asked to login.
+
+    ```output
+    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+    ```
+
+    After you login, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
     ```output
     NAME                                STATUS   ROLES   AGE     VERSION
@@ -417,3 +429,5 @@ To learn more about AKS Automatic, continue to the introduction.
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [what-is-aks-automatic]: ../intro-aks-automatic.md
 [Azure-Policy-RBAC-permissions]: /azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
+[aks-entra-rbac]: /azure/aks/manage-azure-rbac#create-role-assignments-for-users-to-access-the-cluster
+[aks-entra-rbac-builtin-roles]: /azure/aks/manage-azure-rbac#create-role-assignments-for-users-to-access-the-cluster
