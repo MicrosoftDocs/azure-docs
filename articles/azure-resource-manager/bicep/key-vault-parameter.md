@@ -3,7 +3,7 @@ title: Key Vault secret with Bicep
 description: Shows how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
-ms.date: 04/29/2024
+ms.date: 05/06/2024
 ---
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
@@ -155,7 +155,7 @@ When using a key vault with the Bicep file for a [Managed Application](../manage
 
 You can use the [getSecret function](./bicep-functions-resource.md#getsecret) in Bicep files to obtain a key vault secret. Note that the `getSecret` function is exclusively applicable to a `Microsoft.KeyVault/vaults` resource. Additionally, it's restricted to usage within the `params` section of a module and can only be used with parameters with the `@secure()` decorator.
 
-Another function called `az.getSecret()` function can be used in Bicep parameter files to retrieve key vault secrets. For more information, see [Reference secrets in parameters file](#reference-secrets-in-parameters-file).
+Another function called `az.getSecret()` function can be used in Bicep parameter files to retrieve key vault secrets. For more information, see [Retrieve secrets in parameters file](#retrieve-secrets-in-parameters-file).
 
 Because the `getSecret` function can only be used in the `params` section of a module. Let's create a *sql.bicep* in the same directory as the *main.bicep* file with the following content:
 
