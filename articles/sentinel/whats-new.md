@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
-ms.date: 04/03/2024
+ms.date: 04/30/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,6 +20,10 @@ The listed features were released in the last three months. For information abou
 
 ## May 2024
 
+- [Create dyanmic summary tables for large sets of data](#create-dyanmic-summary-tables-for-large-sets-of-data)
+- [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
+
+
 ### Create dyanmic summary tables for large sets of data
 
 Microsoft Sentinel now provides the ability to create dynamic summaries, which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
@@ -29,6 +33,20 @@ Microsoft Sentinel now provides the ability to create dynamic summaries, which a
 - Use dynamic summary data for longer in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
+
+### Optimize your security operations with SOC optimizations (preview)
+
+Microsoft Sentinel now provides SOC optimizations, which are high-fidelity and actionable recommendations that help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing.
+
+Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
+
+If your workspace is onboarded to the unified security operations platform, SOC optimizations are also available in the Microsoft Defender portal.
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
+
 
 ## April 2024
 
