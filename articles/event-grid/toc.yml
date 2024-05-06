@@ -64,9 +64,13 @@ items:
           href: mqtt-support.md
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
+        - name: Custom domains for namespaces
+          href: custom-domains-namespaces.md
         - name: MQTT client authentication
           href: mqtt-client-authentication.md                
           items:
+          - name: OAuth 2.0 JSON Web Token authentication
+            href: oauth-json-web-token-authentication.md
           - name: MQTT client authentication using certificates
             href: mqtt-client-certificate-authentication.md        
           - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
@@ -104,7 +108,7 @@ items:
           href: mqtt-request-response-messages.md                
         - name: Assign custom domain name to a namespace
           href: assign-custom-domain-name.md
-        - name: Authenticate with namespaces using JSON Web Tokens
+        - name: Authenticate with MQTT broker using OAuth 2.0 authentication
           href: authenticate-with-namespaces-using-json-web-tokens.md
         - name: Monitor
           items:
@@ -186,7 +190,9 @@ items:
         - name: Delivery and retry
           href: namespace-delivery-retry.md
         - name: Event filtering
-          href: namespace-event-filtering.md            
+          href: namespace-event-filtering.md
+        - name: Custom domains for namespaces
+          href: custom-domains-namespaces.md
         - name: Security
           items:
           - name: Security baseline

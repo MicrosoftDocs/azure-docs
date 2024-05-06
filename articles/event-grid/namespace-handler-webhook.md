@@ -2,7 +2,7 @@
 title: Webhooks as event handler for namespace topics' push delivery
 description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics'push delivery.  
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 05/21/2024
 ms.author: robece
 ---
 
@@ -26,7 +26,7 @@ See the following articles for an overview and examples of using webhooks as eve
 
 |Title  |Description  |
 |---------|---------|
-| Quickstart: create and route custom events with - [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md), and [portal](custom-event-quickstart-portal.md). | Shows how to send custom events to a WebHook. |
+| [Deliver events to webhooks using namespace topics - Azure CLI](publish-deliver-events-with-namespace-topics-webhook.md). | The article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model. |
 
 
 ## Next steps
