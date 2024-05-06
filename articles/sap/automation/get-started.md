@@ -89,9 +89,9 @@ The SAP automation deployment framework can also use a user assigned identity (M
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the managed identity, you can't assign permissions using the automation framework.
 
-### Create an Application registration for the Web Application
+### Create an application registration for the web application
 
-The SAP automation deployment framework can leverage an Azure App Service for configuring the tfvars parameter files..
+The SAP automation deployment framework can leverage an Azure App Service for configuring the tfvars parameter files.
 
 1. Create the application registration.
 
@@ -188,10 +188,10 @@ You can use the following script to perform pre-flight checks. The script perfor
 
 - Checks if the service principal has the correct permissions to create resources in the subscription.
 - Checks if the service principal has user Access Administrator permissions.
-- Create a Azure Virtual Network.   
-- Create a Azure Virtual Key Vault with private end point.   
-- Create a Azure Files NSF share.   
-- Create a Azure Virtual Virtual Machine with data disk using Premium Storage v2.   
+- Create an Azure Virtual Network.   
+- Create an Azure Virtual Key Vault with private end point.   
+- Create an Azure Files NSF share.   
+- Create an Azure Virtual Machine with data disk using Premium Storage v2.   
 - Check access to the required URLs using the deployed virtual machine.
 
 ```powershell
