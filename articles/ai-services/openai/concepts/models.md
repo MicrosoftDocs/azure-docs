@@ -142,6 +142,9 @@ This table doesn't include fine-tuning regional availability, consult the dedica
 
 [!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
 
+> [!NOTE]
+> The provisioned version of `gpt-4` **Version:** `turbo-2024-04-09` is currently limited to text only.
+
 ### How do I get access to Provisioned?
 
 You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
