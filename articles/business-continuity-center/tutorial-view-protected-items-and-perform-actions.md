@@ -5,21 +5,21 @@ ms.topic: tutorial
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-ms.date: 03/29/2024
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# View protected items and perform actions
+# Tutorial: View protected items and perform actions
 
-This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Azure Business Continuity (ABC) center.
+This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Azure Business Continuity (ABC) Center.
 
 ## Prerequisites
 
 Before you start this tutorial:
 
-- [Review supported regions for ABC center](business-continuity-center-support-matrix.md).
-- You need to have permission on the resources to view them in ABC center.
+- [Review supported regions for ABC Center](business-continuity-center-support-matrix.md).
+- You need to have permission on the resources to view them in ABC Center.
 
 ## View protected items
 
@@ -70,7 +70,7 @@ Follow these steps to view your protected items:
 
 10.	The help provides guidance on the various security levels and the settings that are required to meet each level. 
 
-    :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png" alt-text="Screenshot shows learn more guidance pane." lightbox="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png":::
+    :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png" alt-text="Screenshot shows learn more guidance blade." lightbox="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png":::
 
 11.	The **Protected items details** table shows the protection status for each protected item in the primary and secondary regions.
     - **Resource name**: Lists the underlying resource that is protected.
@@ -154,4 +154,4 @@ With the protected items view, you can choose to perform actions from:
 
 ## Next steps
 
-For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC center](./tutorial-configure-protection-datasource.md).
+For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
