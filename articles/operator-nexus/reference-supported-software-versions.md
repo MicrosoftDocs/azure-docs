@@ -22,10 +22,9 @@ This document provides the list of software versioning supported in Azure Operat
 |                                          | MD5 checksum: 53899348f586d95effb8ab097837d32d |                          |
 |                                          | **4.31.2FX-NX**                          | 3.0.0                    |
 |                                          | MD5 Checksum: e5ee34d50149749c177bbeef3d10e363 |                          |
-| **Instance Cluster Azure Kubernetes cluster (AKS)** | 1.28.3                       |                          |
-| **Nexus AKS**                            | 1.23.5, 1.24.9, 1.25.4, 1.25.6, 1.25.11, |                          |
-|                                          | 1.26.3, 1.26.6, 1.27.1, 1.27.3, 1.28     |                          |
+| **Instance Cluster AKS** | 1.28.3                       |                          |
 | **Azure Linux**                          | 2.0.20240301                             |                          |
 | **Purity**                               | 6.5.1, 6.5.4                             |                          |
 
-
+### Supported K8S versions
+Versioning schema used for the Operator Nexus Kubernetes service, including the supported Kubernetes versions, are listed at [Supported Kubernetes versions in Azure Operator Nexus Kubernetes service](./reference-nexus-kubernetes-cluster-supported-versions.md).
