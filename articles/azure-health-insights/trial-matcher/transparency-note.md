@@ -57,19 +57,19 @@ The Trial Matcher algorithm is recall-optimized. It lists a patient as ineligibl
 Trial Matcher can be used in multiple scenarios. The system’s intended uses include:
 
 ##### One patient trial search (patient-centric): 
-Assist a single patient or a caregiver find potentially suitable clinical trials based on the patient’s clinical information. 
+Help a single patient or a caregiver find potentially suitable clinical trials based on the patient’s clinical information. 
 
 ##### Trial feasibility assessment: 
-Assist in a feasibility assessment of a single clinical trial based on patient data repositories. A pharmaceutical company or contract research organization (CRO) uses patient data repositories to identify patients who might be suitable for a single trial they are recruiting for. 
+Help in a feasibility assessment of a single clinical trial based on patient data repositories. A pharmaceutical company or contract research organization (CRO) uses patient data repositories to identify patients who might be suitable for a single trial they are recruiting for. 
 ##### Provider-site matching (trial-centric): 
 Match a list of clinical trials with multiple patients. Assist a provider or CRO to find patients from a database of multiple patients, who might be suitable for trials.   
 
 ##### Eligibility assessment: 
-Verify single-patient eligibility for a single trial and show the criteria that renders the patient ineligible  . Assists a trial coordinator to screen and qualify a single patient for a specific trial and to understand the gaps in the match.
+Verify single-patient eligibility for a single trial and show the criteria that render the patient ineligible. Assists a trial coordinator to screen and qualify a single patient for a specific trial and to understand the gaps in the match.
 
 
 #### Considerations when choosing other use cases
-We encourage customers to leverage Trial Matcher in their innovative solutions or applications. However, here are some considerations when you choose a use case: 
+We encourage customers to apply Trial Matcher in their innovative solutions or applications. However, here are some considerations when you choose a use case: 
 * Carefully consider the use of free text as input for the trial condition and location. Incorrect spelling of these parameters might reduce effectiveness and lead to   potential matching results that are less focused and/or less accurate.
 * Trial Matcher is not suitable for unsupervised decision making to determine whether a patient is eligible to participate   in a clinical trial. To avoid preventing access to possible treatment for eligible patients, Trial Matcher results should always be reviewed and interpreted by a human who makes any decisions related to participation in clinical trials.
 * Trial Material should not be used as a medical device, to provide clinical support, or as a diagnostic tool used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions without human intervention. A qualified medical professional should always do due diligence and verify the source data that might influence any decisions related to participation in clinical trials.
