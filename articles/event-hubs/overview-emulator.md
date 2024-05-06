@@ -2,7 +2,7 @@
 title: Overview of Event Hubs emulator
 description: This article provides an overview of Azure Event Hubs emulator
 ms.topic: article
-ms.author:Saglodha
+ms.author: Saglodha
 ms.date: 05/06/2024
 ---
 
