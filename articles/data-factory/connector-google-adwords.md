@@ -327,8 +327,8 @@ The table below shows the feature differences between Google Ads using the recom
 |:---|:---|
 |Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
 |ServiceAuthentication supports two properties: <br>• email<br>• privateKey |ServiceAuthentication supports four properties:<br>• email<br>• keyFilePath<br>• trustedCertPath<br>• useSystemTrustStore |
-|Selecting table in dataset is not supported.|Support selecting a table in dataset and querying the table in copy activity.|
-|Support GAQL syntax as query language.|Support SQL syntax as query language.|
+|Selecting a table in a dataset is not supported.|Support selecting a table in a dataset and querying the table in copy activities.|
+|Support GAQL syntax as the query language.|Support SQL syntax as the query language.|
 |The output column names are the same as Google Ads.|The output column names don't match Google Ads.|
 |The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
 
