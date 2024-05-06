@@ -70,3 +70,8 @@ az networkfabric nni update --resource-group "example-rg" --resource-name "<nni-
 | Parameter         | Description                                                                                                    |
 |-------------------|----------------------------------------------------------------------------------------------------------------|
 | --ingress-acl-id, --egress-acl-id | To apply both ingress and egress ACLs simultaneously, create two new ACLs and include their respective resource IDs. |
+
+
+## Next steps
+
+[Updating ACL on NNI or External Network](howto-update-access-control-list-for-network-to-network-interconnects.md)

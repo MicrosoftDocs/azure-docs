@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/15/2024
+ms.date: 05/06/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
@@ -16,42 +16,30 @@ ms.date: 04/15/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use the data lake connector to send data from Azure IoT MQ Preview broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2) and Microsoft Fabric OneLake. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
-
-## What's supported
-
-| Feature                                   | Supported |
-| ----------------------------------------- | --------- |
-| Send data to Azure Data Lake Storage Gen2 | Supported |
-| Send data to local storage                | Supported |
-| Send data Microsoft Fabric OneLake        | Supported |
-| Use SAS token for authentication          | Supported |
-| Use managed identity for authentication   | Supported |
-| Delta format                              | Supported |
-| Parquet format                            | Supported |
-| JSON message payload                      | Supported |
-| Create new container if it doesn't exist  | Supported |
-| Signed types support                      | Supported |
-| Unsigned types support                    | Not Supported |
+You can use the data lake connector to send data from Azure IoT MQ Preview broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2), Microsoft Fabric OneLake, and Azure Data Explorer. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
 
 ## Prerequisites
 
 - A Data Lake Storage account in Azure with a container and a folder for your data. For more information about creating a Data Lake Storage, use one of the following quickstart options:
     - Microsoft Fabric OneLake quickstart:
-        - [Create a workspace](/fabric/get-started/create-workspaces) since the default *my workspace* isn't supported.
-        - [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).
+      - [Create a workspace](/fabric/get-started/create-workspaces) since the default *my workspace* isn't supported.
+      - [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).
     - Azure Data Lake Storage Gen2 quickstart:
-        - [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+      - [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+    - Azure Data Explorer cluster:
+      - Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=full).
 
 - An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
-## Configure the data lake connector to send data to Microsoft Fabric OneLake using managed identity
+## Configure to send data to Microsoft Fabric OneLake using managed identity
 
 Configure a data lake connector to connect to Microsoft Fabric OneLake using managed identity.
 
 1. Ensure that the steps in prerequisites are met, including a Microsoft Fabric workspace and lakehouse. The default *my workspace* can't be used.
 
 1. Ensure that IoT MQ Arc extension is installed and configured with managed identity.
+
+1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for your IoT MQ extension name. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*.
 
 1. Get the *app ID* associated to the IoT MQ Arc extension managed identity, and note down the GUID value. The *app ID* is different than the object or principal ID. You can use the Azure CLI by finding the object ID of the managed identity and then querying the app ID of the service principal associated to the managed identity. For example:
 
@@ -90,7 +78,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
       protocol: v5
       image:
         repository: mcr.microsoft.com/azureiotoperations/datalake
-        tag: 0.1.0-preview
+        tag: 0.4.0-preview
         pullPolicy: IfNotPresent
       instances: 2
       logLevel: info
@@ -139,7 +127,7 @@ If your data shows in the *Unidentified* table:
 
 The cause might be unsupported characters in the table name. The table name must be a valid Azure Storage container name that means it can contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
 
-## Configure the data lake connector to send data to Azure Data Lake Storage Gen2 using SAS token
+## Configure to send data to Azure Data Lake Storage Gen2 using SAS token
 
 Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS Gen2) account using a shared access signature (SAS) token.
 
@@ -176,7 +164,7 @@ Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (A
       protocol: v5
       image:
         repository: mcr.microsoft.com/azureiotoperations/datalake
-        tag: 0.1.0-preview
+        tag: 0.4.0-preview
         pullPolicy: IfNotPresent
       instances: 2
       logLevel: "debug"
@@ -219,6 +207,138 @@ authentication:
     audience: https://my-account.blob.core.windows.net
 ```
 
+## Configure to send data to Azure Data Explorer using managed identity
+
+Configure the data lake connector to send data to an Azure Data Explorer endpoint using managed identity.
+
+1. Ensure that the steps in prerequisites are met, including a full Azure Data Explorer cluster. The "free cluster" option doesn't work.
+
+1. After the cluster is created, create a database to store your data. 
+
+1. You can create a table for given data via the Azure portal and create columns manually, or you can use [KQL](/azure/data-explorer/kusto/management/create-table-command) in the query tab. For example:
+
+    ```kql
+    .create table thermostat (
+        externalAssetId: string,
+        assetName: string,
+        CurrentTemperature: real,
+        Pressure: real,
+        MqttTopic: string,
+        Timestamp: datetime
+    )
+    ```
+    
+### Enable streaming ingestion
+
+Enable streaming ingestion on your table and database. In the query tab, run the following command, substituting `<DATABASE_NAME>` with your database name:
+
+```kql
+.alter database <DATABASE_NAME> policy streamingingestion enable
+```
+
+### Add the managed identity to the Azure Data Explorer cluster
+
+In order for the connector to authenticate to Azure Data Explorer, you must add the managed identity to the Azure Data Explorer cluster. 
+
+1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, look for the name of your IoT MQ extension. The name begins with `mq-` followed by five random characters. For example, *mq-4jgjs*. The IoT MQ extension name is the same as the MQ managed identity name.
+1. In your Azure Data Explorer database, select **Permissions** > **Add** > **Ingestor**. Search for the MQ managed identity name and add it.
+
+For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
+
+Now, you're ready to deploy the connector and send data to Azure Data Explorer.
+
+### Example deployment file
+
+Example deployment file for the Azure Data Explorer connector. Comments that beginning with `TODO` require you to replace placeholder settings with your information.
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+  name: my-adx-connector
+  namespace: azure-iot-operations
+spec:
+    repository: mcr.microsoft.com/azureiotoperations/datalake
+    tag: 0.4.0-preview
+    pullPolicy: Always
+  databaseFormat: adx
+  target:
+      # TODO: insert the ADX cluster endpoint
+      endpoint: https://<CLUSTER>.<REGION>.kusto.windows.net
+      authentication:
+        systemAssignedManagedIdentity:
+          audience: "https://api.kusto.windows.net"
+  localBrokerConnection:
+    endpoint: aio-mq-dmqtt-frontend:8883
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: aio-ca-trust-bundle-test-only
+    authentication:
+      kubernetes: {}
+---
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: DataLakeConnectorTopicMap
+metadata:
+  name: adx-topicmap
+  namespace: azure-iot-operations
+spec:
+  mapping:
+    allowedLatencySecs: 1
+    messagePayloadType: json
+    maxMessagesPerBatch: 10
+    clientId: id
+    mqttSourceTopic: azure-iot-operations/data/thermostat
+    qos: 1
+    table:
+      # TODO: add DB and table name
+      tablePath: <DATABASE_NAME>
+      tableName: <TABLE_NAME>
+      schema:
+      - name: externalAssetId
+        format: utf8
+        optional: false
+        mapping: $property.externalAssetId
+      - name: assetName
+        format: utf8
+        optional: false
+        mapping: DataSetWriterName
+      - name: CurrentTemperature
+        format: float32
+        optional: false
+        mapping: Payload.temperature.Value
+      - name: Pressure
+        format: float32
+        optional: true
+        mapping: "Payload.Tag 10.Value"
+      - name: MqttTopic
+        format: utf8
+        optional: false
+        mapping: $topic
+      - name: Timestamp
+        format: timestamp
+        optional: false
+        mapping: $received_time
+```
+
+This example accepts data from the `azure-iot-operations/data/thermostat` topic with messages in JSON format such as the following:
+
+```json
+{
+  "SequenceNumber": 4697,
+  "Timestamp": "2024-04-02T22:36:03.1827681Z",
+  "DataSetWriterName": "thermostat",
+  "MessageType": "ua-deltaframe",
+  "Payload": {
+    "temperature": {
+      "SourceTimestamp": "2024-04-02T22:36:02.6949717Z",
+      "Value": 5506
+    },
+    "Tag 10": {
+      "SourceTimestamp": "2024-04-02T22:36:02.6949888Z",
+      "Value": 5506
+    }
+  }
+}
+```
+
 ## DataLakeConnector
 
 A *DataLakeConnector* is a Kubernetes custom resource that defines the configuration and properties of a data lake connector instance. A data lake connector ingests data from MQTT topics into Delta tables in a Data Lake Storage account.
@@ -233,7 +353,7 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
 - `instances`: The number of replicas of the data lake connector to run.
 - `logLevel`: The log level for the data lake connector module. It can be one of `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
 - `databaseFormat`: The format of the data to ingest into the Data Lake Storage. It can be one of `delta` or `parquet`.
-- `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, or `localStorage`.
+- `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, `adx`, or `localStorage`.
     - `datalakeStorage`: Specifies the configuration and properties of the local storage Storage account. It has the following subfields:
         - `endpoint`: The URL of the Data Lake Storage account endpoint. Don't include any trailing slash `/`.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Data Lake Storage account. It can be one of the following.
@@ -276,7 +396,8 @@ The specification field of a DataLakeConnectorTopicMap resource contains the fol
             - `name`: The name of the column in the Delta table.
             - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, aren't fully supported, and are treated as signed types if specified here.
             - `optional`: A boolean value that indicates whether the column is optional or required. This field is optional and defaults to false.
-            - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
+            - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, `$properties`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
+                Use $properties for MQTT user properties. For example, $properties.assetId represents the value of the assetId property from the MQTT message.
 
 Here's an example of a *DataLakeConnectorTopicMap* resource:
 
@@ -287,13 +408,13 @@ metadata:
   name: datalake-topicmap
   namespace: azure-iot-operations
 spec:
-  dataLakeConnectorRef: "my-datalake-connector"
+  dataLakeConnectorRef: my-datalake-connector
   mapping:
     allowedLatencySecs: 1
-    messagePayloadType: "json"
+    messagePayloadType: json
     maxMessagesPerBatch: 10
     clientId: id
-    mqttSourceTopic: "azure-iot-operations/data/opc-ua-connector-de/thermostat-de"
+    mqttSourceTopic: `azure-iot-operations/data/thermostat`
     qos: 1
     table:
       tableName: thermostat
@@ -320,13 +441,15 @@ spec:
         mapping: $received_time
 ```
 
-Stringified JSON like `"{\"SequenceNumber\": 4697, \"Timestamp\": \"2024-04-02T22:36:03.1827681Z\", \"DataSetWriterName\": \"thermostat-de\", \"MessageType\": \"ua-deltaframe\", \"Payload\": {\"temperature\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949717Z\", \"Value\": 5506}, \"Tag 10\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949888Z\", \"Value\": 5506}}}"` isn't supported and causes the connector to throw a *convertor found a null value* error. An example message for the `dlc` topic that works with this schema:
+Stringified JSON like `"{\"SequenceNumber\": 4697, \"Timestamp\": \"2024-04-02T22:36:03.1827681Z\", \"DataSetWriterName\": \"thermostat-de\", \"MessageType\": \"ua-deltaframe\", \"Payload\": {\"temperature\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949717Z\", \"Value\": 5506}, \"Tag 10\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949888Z\", \"Value\": 5506}}}"` isn't supported and causes the connector to throw a *convertor found a null value* error. 
+
+An example message for the `azure-iot-operations/data/thermostat` topic that works with this schema:
 
 ```json
 {
   "SequenceNumber": 4697,
   "Timestamp": "2024-04-02T22:36:03.1827681Z",
-  "DataSetWriterName": "thermostat-de",
+  "DataSetWriterName": "thermostat",
   "MessageType": "ua-deltaframe",
   "Payload": {
     "temperature": {
@@ -345,7 +468,7 @@ Which maps to:
 
 | externalAssetId                      | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
 | ------------------------------------ | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
-| 59ad3b8b-c840-43b5-b79d-7804c6f42172 | thermostat-de   | 5506               | 5506     | dlc                           | 2024-04-02T22:36:03.1827681Z   |
+| xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | thermostat-de   | 5506               | 5506     | dlc                           | 2024-04-02T22:36:03.1827681Z   |
 
 > [!IMPORTANT]
 > If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.

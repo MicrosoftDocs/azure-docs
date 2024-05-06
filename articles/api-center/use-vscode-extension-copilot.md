@@ -1,10 +1,10 @@
 ---
-title: GitHub Copilot with VS Code extension - Azure API Center
-description: Discover APIs and API definitions from your Azure API center using GitHub Copilot Chat and the API Center extension for Visual Studio Code (preview)
+title: GitHub Copilot with VS Code extension to discover APIs
+description: Discover APIs and API definitions from your Azure API center using GitHub Copilot Chat and the Azure API Center extension for Visual Studio Code (preview)
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 04/23/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use GitHub Copilot Chat in my Visual Studio Code environment to discover and consume APIs in my organization's API centers.
@@ -12,19 +12,19 @@ ms.custom:
 
 # Discover APIs with GitHub Copilot Chat and Azure API Center extension for Visual Studio Code (preview)
 
-To discover APIs and API definitions in your Azure [API center](overview.md), you can use a GitHub Copilot Chat agent with the [API Center extension](use-vscode-extension.md) for Visual Studio Code. The `@apicenter` chat agent and other API Center extension capabilities help developers discover, try, and consume APIs from their API centers.
+To discover APIs and API definitions in your Azure [API center](overview.md), you can use a GitHub Copilot Chat agent with the [Azure API Center extension](use-vscode-extension.md) for Visual Studio Code. The `@apicenter` chat agent and other Azure API Center extension capabilities help developers discover, try, and consume APIs from their API centers.
 
 GitHub Copilot Chat provides a conversational interface for accomplishing developer tasks in Visual Studio Code. It uses GitHub Copilot to provide code completions and suggestions based on the context of your conversation. For more information, see [Getting started with GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot).
 
 
 > [!NOTE]
-> The API Center extension for Visual Studio Code and the `@apicenter` chat agent are in preview. Currently this feature is only available in the Visual Studio Code insiders build.
+> The Azure API Center extension for Visual Studio Code and the `@apicenter` chat agent are in preview. Currently this feature is only available in the Visual Studio Code insiders build.
 
 ## Prerequisites
 
 * One or more API centers in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-    Currently, you need to be assigned the Contributor role or higher permissions to the API centers to access API centers with the API Center extension.
+    Currently, you need to be assigned the Contributor role or higher permissions to the API centers to access API centers with the Azure API Center extension.
 
 * An active [GitHub Copilot subscription](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
 * [Visual Studio Code - Insiders](https://apps.microsoft.com/detail/XP8LFCZM790F6B) (version after 2024-01-19)
@@ -44,7 +44,7 @@ GitHub Copilot Chat provides a conversational interface for accomplishing develo
 
 Your API center resources appear in the tree view on the left-hand side. Expand an API center resource to see APIs, versions, definitions, environments, and deployments.
 
-:::image type="content" source="media/use-vscode-extension/explore-api-centers.png" alt-text="Screenshot of API Center tree view in Visual Studio Code.":::
+:::image type="content" source="media/use-vscode-extension/explore-api-centers.png" alt-text="Screenshot of Azure API Center tree view in Visual Studio Code.":::
 
 > [!NOTE]
 > Currently, all APIs and other entities shown in the tree view are read-only. You can't create, update, or delete entities in an API center from the extension.
