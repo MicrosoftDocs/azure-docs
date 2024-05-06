@@ -1,6 +1,6 @@
 ---
-title: Reliability in Azure Cosmos DB for NoSQL
-description: Learn about reliability in Azure Cosmos DB for NoSQL
+title: High availability (Reliability)  in Azure Cosmos DB for NoSQL
+description: Learn about high availability (Reliability) in Azure Cosmos DB for NoSQL
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -11,10 +11,10 @@ ms.date: 04/12/2024
 
 <!--#Customer intent:  I want to understand reliability support in Azure Cosmos DB for NoSQL so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
 
-#  Reliability in Azure Cosmos DB for NoSQL
+#  High availability (Reliability) in Azure Cosmos DB for NoSQL
 
 
-This article contains [specific reliability recommendations for Azure Cosmos DB for NoSQL](#reliability-recommendations), as well as detailed information on regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+This article contains [specific reliability recommendations for Azure Cosmos DB for NoSQL](#reliability-recommendations), as well as detailed information on high availability: regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 ## Reliability recommendations
 
@@ -224,7 +224,7 @@ When an Azure Cosmos DB account is deployed in a single region, generally no dat
 
 To help you protect against complete data loss that might result from catastrophic disasters in a region, Azure Cosmos DB provides two backup modes:
 
-- [Continuous backups](../cosmos-db/continuous-backup-restore-introduction.md) back up each region every 100 seconds. They enable you to restore your data to any point in time with 1-second granularity. In each region, the backup is dependent on the data committed in that region.
+- [Continuous backups](../cosmos-db/continuous-backup-restore-introduction.md) back up each region every 100 seconds. They enable you to restore your data to any point in time with 1-second granularity. In each region, the backup is dependent on the data committed in that region. If the region has availability zones enabled, then the backup is stored in zone-redundant storage accounts.
 - [Periodic backups](../cosmos-db/periodic-backup-restore-introduction.md) fully back up all partitions from all containers under your account, with no synchronization across partitions. The minimum backup interval is 1 hour.
 
 When an Azure Cosmos DB account is deployed in multiple regions, data durability depends on the consistency level that you configure on the account. The following table details, for all consistency levels, the RPO of an Azure Cosmos DB account that's deployed in at least two regions.
