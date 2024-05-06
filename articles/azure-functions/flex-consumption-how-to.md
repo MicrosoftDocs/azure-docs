@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you have to manage certain features of a Flex Consumption plan hosted app.
 
-Function app resources are langauge-specific. Make sure to choose your preferred code development langauge at the beginning of the article.
+Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
 [!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
@@ -24,7 +24,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 + **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), version 1.14.2, or a later version. You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). To create and manage apps in the Flex Consumption plan, you also need to [Enable Flex Consumption in Visual Studio Code](#enable-flex-consumption-in-visual-studio-code).
 
-+ While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles to create a code project with an HTTP triggered function:
++ While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you creat a code project with an HTTP triggered function:
 
     ::: zone pivot="programming-language-csharp"  
     + [Create an Azure Functions project from the command line](create-first-function-cli-csharp.md)  
@@ -54,11 +54,11 @@ Function app resources are langauge-specific. Make sure to choose your preferred
     + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-powershell.md) 
     ::: zone-end   
 
-    Return to this article after you have created and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
+    Return to this article after you create and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
 
 ## View currently supported regions
 
-During the preview, you are only able to run on the Flex Consumption plan in selected regions. Use this Azure CLI command to review the list of regions that currently support Flex Consumption. 
+During the preview, you're only able to run on the Flex Consumption plan in selected regions. Use this Azure CLI command to review the list of regions that currently support Flex Consumption. 
 
 ```azurecli-interactive
 az functionapp list-flexconsumption-locations --output table
@@ -66,7 +66,7 @@ az functionapp list-flexconsumption-locations --output table
 
 You need to first run `az login` when you aren't already signed-in to your Azure account. 
 
-When creating an app in the Azure portal, currently unsupported regions are filtered out of the region list.
+When you create an app in the Azure portal, currently unsupported regions are filtered out of the region list.
 
 ## Create a Flex Consumption app
 
@@ -89,7 +89,7 @@ To support your function code, you need to create three resources:
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
 1. Create a resource group in one of the [currently supported regions](#view-currently-supported-regions):
     
@@ -141,7 +141,7 @@ To support your function code, you need to create three resources:
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.2 
     ```
     ::: zone-end 
-    In this example, replace `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
+    In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
     This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
 
@@ -168,8 +168,8 @@ To support your function code, you need to create three resources:
     | Select a runtime stack. | Choose one of the supported language stack versions. |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](#view-currently-supported-regions).|
-    | Select a storage account. | Choose **Create new storage account** and at the prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
-    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt, type a name for the instance used to store runtime data from your functions.| 
+    | Select a storage account. | Choose **Create new storage account** and at the prompt provide a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
+    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
 
     A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
@@ -219,7 +219,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
     + `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-memory) size for the function app. The default value is `2048`.  
     + `<maximumInstances>` - sets the highest value for the maximum instances count of the function app.  
-    + `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`).  When you set any instance count greater than zero, you are chared for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
+    + `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you're charged for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
 
 1. Before you can deploy, sign in to your Azure subscription using the Azure CLI. 
 
@@ -227,7 +227,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
 1. Use the following command to deploy your code project to a new function app in Flex Consumption.
 
@@ -240,15 +240,15 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 ## Configure the deployment storage account
 
-In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a Blog storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) that's used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
+In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a Blog storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
 
-You can configure the deployment storage account when using the Azure CLI by setting these optional parameters when you use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command:  
+You can configure the deployment storage account when using the Azure CLI by setting these optional parameters when you use the [`az functionapp create`] command:  
 
 | Parameter | Description |
 |--|--|--|
 | `--deployment-storage-name` | The storage account name to use for your deployment package. | 
 | `--deployment-storage-container-name` | The name of the container in the account that contains the deployment package. | 
-| `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Currrently, only `storageAccountConnectionString` is supported.  |
+| `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Currently, only `storageAccountConnectionString` is supported. |
 | `--deployment-storage-auth-value` | When using  `storageAccountConnectionString`, this parameter is set to the name of the application setting that contains the storage account connection string used for deployment. |
 
 This example creates a function app in the Flex Consumption plan with a separate deployment storage account:
@@ -271,7 +271,7 @@ To set an instance memory size that's different from the default when creating y
 
 ### [Azure CLI](#tab/azure-cli)
 
-Specify the `--instance-memory` parameter your `az functionapp create` command. This example creates a C# app with an instance size of `4096`:
+Specify the `--instance-memory` parameter in your [`az functionapp create`] command. This example creates a C# app with an instance size of `4096`:
 
 ```azurecli
 az functionapp create --instance-memory 4096 --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime dotnet-isolated --runtime-version 8.0
@@ -290,76 +290,66 @@ You can't currently control the instance memory size when you use Visual Studio 
 At any point, you can change the instance memory size setting for your app by using the Azure CLI. This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB: 
 
 ```azurecli
-az functionapp scale config set -g <resourceGroup> -n <functionAppName> --instance-memory 512
+az functionapp scale config set -g <resourceGroup> --name <APP_NAME> --instance-memory 512
 ```
 
-## Set always ready instances
+## Set always ready instance counts
 
-{{todo}}
-When creating a new Flex Consumption app, you can set the number of desired always ready. To create an app with the default always ready of zero, you can leave out the optional parameters out:
+When creating an app in a Flex Consumption plan, you can set the always ready instance count for specific groups (HTTP or Durable triggers) and triggers by using the `--always-ready-instances` parameter. If you don't want any always ready instances, just leave this optional parameter out of your [`az functionapp create`] command. You can also change always ready instances on an existing app. 
+
+This example sets the always ready instance count for all HTTP triggered functions to `5`:
 
 ```azurecli
-az functionapp create -g <resourceGroupName> -n <functionAppName> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>"
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --always-ready-instances http=10
 ```
 
-To create your app with a different number of desired always ready instances, include the --always-ready-instances parameter. For example, to set always ready for all HTTP triggered functions to 5:
+This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
 
 ```azurecli
-az functionapp create -g <resourceGroupName> -n <functionAppName> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --always-ready-instances http=10
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --always-ready-instances durable=3 function5=2
 ```
 
-To set always ready for all Durable triggered functions to 3 and a service bus triggered function called function5 to 2:
+This example uses the [`az functionapp scale config always-ready set`](/cli/azure/functionapp/scale/config/always-ready#az-functionapp-scale-config-always-ready-set) command to change the always ready instance count for the HTTP triggers group to `10`:
 
 ```azurecli
-az functionapp create -g <resourceGroupName> -n <functionAppName> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --always-ready-instances durable=3 function5=2
+az functionapp scale config always-ready set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --settings http=10
 ```
 
-You can also change the always-ready instances count for your existing Flex Consumption app. For example, here's how to set the HTTP group to 10:
+To remove always ready instances, use the [`az functionapp scale config always-ready delete`](/cli/azure/functionapp/scale/config/always-ready#az-functionapp-scale-config-always-ready-delete) command, as in this example that removes all always ready instances from both the HTTP triggers group and also a function named `hello_world`:
 
 ```azurecli
-az functionapp scale config always-ready set -g <resourceGroupName> -n <functionAppName> --settings http=10
+az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP> --name <APP_NAME> --setting-names http hello_world
 ```
 
-To remove always ready configurations, use the always-ready delete command. For example, to delete configurations for the http group and the hello_world function:
+## Set maximum instance counts
+
+The default maximum instance count limit for Flex Consumption apps is 100 instances. Currently the lowest recommended maximum instance count value is `40`, and the highest supported maximum instance count value is `1000`.
+
+When creating an app in the Flex Consumption plan, you can use the `--maximum-instance-count` parameter to set the maximum instance count for of your app. If you want to just use the default (100), leave this optional parameter out of your [`az functionapp create`] command. You can also change always ready instances on an existing app. 
+
+This example creates an app with a maximum instance count of `200`:
 
 ```azurecli
-az functionapp scale config always-ready delete -g <resourceGroupName> -n <functionAppName> --setting-names http hello_world
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --maximum-instance-count 200
 ```
 
-## Set maxium instances
-
-{{todo}}
-The default maximum instance count limit for Flex Consumption apps is 100 instances. The lowest maximum instance count in public preview is 40, and the highest maximum instance count that can be set is 1000.
-
-When creating a new Flex Consumption app, you can set the maximum instances of your app. For example, to create an app with the default maximum instance count of 100, you can leave out the optional parameter:
+This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the maximum instance count for an existing app to `150`:
 
 ```azurecli
-az functionapp create -g <resourceGroupName> -n <functionAppName> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>"
-```
-
-To create your app with a different maximum instances count, include the --maximum-instance-count parameter. For example, to set it to 200 instances:
-
-```azurecli
-az functionapp create -g <resourceGroupName> -n <functionAppName> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --maximum-instance-count 200
-```
-
-You can also change the maximum instances count for your existing Flex Consumption app. For example, here's how to set it to 150:
-
-```azurecli
-az functionapp scale config set -g <resourceGroupName> -n <appName> --maximum-instance-count 150
+az functionapp scale config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --maximum-instance-count 150
 ```
 
 ## Set HTTP concurrency limits
 
 By default, HTTP concurrency defaults for Flex Consumption plan apps are determined based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
 
-You can use this command to set specific HTTP concurrency limits for your app, regarless of instance size.
+You can use the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to set specific HTTP concurrency limits for your app, regardless of instance size.
 
 ```azurecli
 az functionapp scale config set -resource-group <RESOURCE_GROUP> -name <APP_NAME> --trigger-type http --trigger-settings perInstanceConcurrency=10
 ```
 
-This example sets the HTTP trigger concurrency level to `10`. After you specifically set an HTTP concurrency value, that value is maintained despite changes in the instance size. 
+This example sets the HTTP trigger concurrency level to `10`. After you specifically set an HTTP concurrency value, that value is maintained despite any changes in your app's instance size setting. 
 
 ## Enable Flex Consumption in Visual Studio Code
 
@@ -373,3 +363,5 @@ Use these steps to make sure you can create and manage apps in a Flex Consumptio
 
 + [Azure Functions Flex Consumption plan hosting](flex-consumption-plan.md)
 + [Azure Functions hosting options](functions-scale.md)
+
+[`az functionapp create`]: /cli/azure/functionapp#az-functionapp-create
