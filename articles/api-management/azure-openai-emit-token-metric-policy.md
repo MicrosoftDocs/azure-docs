@@ -22,7 +22,7 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 
 ## Prerequisites
 
-* One or more Azure OpenAI Service APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI Service API to Azure API Management](./api-management-howto-add-openai-service-api.md).
+* One or more Azure OpenAI Service APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI Service API to Azure API Management](./azure-openai-api-from-specification.md).
 * Your API Management instance must be integrated with Application insights. Application Insights logging must be enabled for your Azure OpenAI APIs. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
 
 ## Policy statement
