@@ -23,7 +23,7 @@ Models are organized by Collections in the Model Catalog. There are three types 
 
 * **Models curated by Azure AI:** The most popular third-party open weight and propriety models packaged and optimized to work seamlessly on the Azure AI platform. Use of these models is subject to the model provider’s license terms provided with the model. When deployed in Azure ML, availability of the model is subject to the applicable Azure SLA, and Microsoft provides support for deployment issues. Models from partners such as Meta, NVIDIA, Mistral AI are examples of models available in the “Curated by Azure AI” collection on the Catalog. These models can be identified by a green checkmark on the model tiles in the catalog or you can filter by the “Curated by Azure AI” collection. 
 * **Azure OpenAI models, exclusively available on Azure:** Flagship Azure OpenAI models via the 'Azure OpenAI' collection though an integration with the Azure OpenAI Service. These models are supported by Microsoft and their use is subject to the product terms and [SLA for Azure OpenAI Service](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-* **Open models from the Hugging Face hub:** Thousands of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. Hugging face creates and maintains models listed in HuggingFace collection. Use [HuggingFace forum](https://discuss.huggingface.co) or [HuggingFace support](https://huggingface.co/support) for help. Learn more about [how to deploy models from Hugging Face](./how-to-deploy-models-from-huggingface.md).
+* **Open models from the Hugging Face hub:** Thousands of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. Hugging face creates and maintains models listed in HuggingFace collection. Use [HuggingFace forum](https://discuss.huggingface.co) or [HuggingFace support](https://huggingface.co/support) for help. Learn more in [Deploy open models](./deploy-models-open.md).
 
 **Suggesting additions to the Model Catalog**:** You can submit a request to add a model to the model catalog using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR_frVPkg_MhOoQxyrjmm7ZJUM09WNktBMURLSktOWEdDODBDRjg2NExKUy4u). 
 
@@ -41,7 +41,7 @@ For models **Curated by Azure AI** and **Open models from the Hugging Face hub**
 
 ## Model deployment: Real-time endpoints and Models as a Service (Pay-as-you-go)  
 
-Model Catalog offers two distinct ways to deploy models from the catalog for your use: real-time endpoints and pay-as-you go inferencing. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the tables below. Learn more about [data processing](concept-data-privacy.md) in connection with the deployment options. 
+Model Catalog offers two distinct ways to deploy models from the catalog for your use: real-time endpoints and pay-as-you go inferencing. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the tables below. Learn more about [data processing](./concept-data-privacy.md) in connection with the deployment options. 
 
 Features | Real-time inference with Managed Online Endpoints   | Pay-as-you-go with Models as a Service 
 --|--|-- 
@@ -81,9 +81,8 @@ You can evaluate and finetune in the “Curated by Azure AI” collection in Azu
 
 Models available for deployment to Real-time endpoints can be deployed to Azure ML Online Endpoints for real-time inference or can be used for Azure ML Batch Inference to batch process your data. Deploying to Online endpoints requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](how-to-use-foundation-models.md). Learn more about deploying models: 
 
-* [Deploy Meta Llama models](how-to-deploy-models-llama.md) 
-* [Deploy Open models Created by Azure AI](how-to-use-foundation-models.md)
-* [Deploy Hugging Face models](how-to-deploy-models-from-huggingface.md)
+* [Deploy Meta Llama models](./deploy-models-llama.md) 
+* [Deploy Open models Created by Azure AI](./deploy-models-open.md)
 
 ### Building Generative AI Apps with Real-time endpoints
 
