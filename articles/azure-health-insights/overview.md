@@ -7,11 +7,11 @@ author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
-# What is Azure AI Health Insights (Preview)?
+# What is Azure AI Health Insights?
 
 Azure AI Health Insights is an Azure AI service providing an API that serves insight models, which perform analysis to support a human decision. The AI models receive patient data input in different modalities, and return insight inferences including evidence as a result, for key high value scenarios in the health domain.
 
