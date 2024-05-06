@@ -39,7 +39,7 @@ The Cohere Command models are highly performant generative large language models
 
 - **Output:** Models generate text only.
 
-## Deploy with as a serverless API
+## Deploy as a serverless API
 
 Certain models in the model catalog can be deployed as as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
@@ -80,13 +80,13 @@ Alternatively, you can initiate a deployment by starting from your project in AI
  
     :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-starting-from-project.png"::: 
 
-1. Select **Confirm** to open a *Serverless API* deployment window for the model.
+1. Select **Confirm** to open a serverless API deployment window for the model.
 
     :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model as a serverless API." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png":::
 
 1. Select the project in which you want to deploy your model. To deploy the model your project must be in the *EastUS2* or *Sweden Central* region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. Select the **Pricings and terms** tab to learn about pricing for the selected model.
+1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
