@@ -1,6 +1,13 @@
-# Overview of Event Hubs emulator
+---
+title: Overview of Event Hubs emulator
+description: This article provides an overview of Azure Event Hubs emulator
+ms.topic: article
+ms.author:Saglodha
+ms.date: 05/06/2024
+---
 
-## What is Event Hubs emulator?
+
+# Overview of Event Hubs emulator
 
 Azure Event Hubs emulator is designed to offer a local development experience for Azure Event Hubs, enabling you to develop and test code against our services in isolation, free from cloud interference.
 
@@ -17,30 +24,35 @@ The primary advantages of using the emulator are:
 > Event Hubs emulator is licensed under End user License Agreement. For more details, refer: < Public GitHub Repo >
 
 ### What’s provided?
+
 Below section highlights what’s being offered with Emulator:
-- Containerization support (Linux Containers)
-- Cross Platform Support (Linux/Windows/MacOS)
-- Event-Hub configuration through user supplied JSON
-- Send and Receive Support with AMQP Protocol 
-- Observability support – Console/ File Logging
+- Containerized Deployment: The Emulator runs as a Docker container (Linux-based).
+- Cross-Platform Compatibility: It can be used on any platform, including Windows, macOS, and Linux.
+- Managing Entity Configuration: Users can manage number of event hubs, partition count etc. using JSON supplied Configuration.
+- Streaming Support: The Emulator supports streaming messages using the AMQP protocol.
+- Observability: It provides observability features, including console and file logging.
 
 ### Known Limitations
-- Kafka Support
-- SDK Support for on fly management operations
+
+Current version of emulator does have some known limitations. This includes the following:
+
+- It cannot stream messages using Kafka protocol.  
+- It does not support  on fly management operations using Client side SDK. 
 
 > [!NOTE]
 > In case of container restart,data and entities are not persisted in emulator.
 
-### What’s different than cloud service?
+### Difference between emulator and Event hubs cloud service?
 
-Since Emulator is aimed at fulfilling different user needs, there are some features which are not supported with Emulator and are only available in our cloud services. Below are high level features which aren’t supported in event hubs emulator: 
-1. Azure Goodness – VNet Integration/ Entra ID integration/ Activity Logs/ UI Portal etc.
-2. Event Hubs Capture
-3. Resource Governance features like Application Groups
-4. Auto scale capabilities
-5. Geo DR capabilities
-6. Schema Registry Integration.
-7. Visual Metrics/ Alerts
+Since Emulator is only mwant for development and test purpose, there are functional differences between emulator and cloud service. Below are high level features which aren’t supported in event hubs emulator: 
+
+-  Azure Goodness – VNet Integration/ Entra ID integration/ Activity Logs/ UI Portal etc.
+-  Event Hubs Capture
+-  Resource Governance features like Application Groups
+-  Auto scale capabilities
+-  Geo DR capabilities
+-  Schema Registry Integration.
+-  Visual Metrics/ Alerts
 
 >[!CAUTION]
 >The emulator is intended solely for development and testing scenarios.Any kind of Production use is strictly discouraged. There is no official support provided for emulator.
