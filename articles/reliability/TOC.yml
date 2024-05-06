@@ -94,7 +94,7 @@
     items:
       - name: Azure Cosmos DB for NoSQL
         items:
-        - name: Proactive resiliency recommendations
+        - name: Resiliency recommendations
           href: reliability-recommendations/recommend-cosmos-db-nosql.md
         - name: Reliability guide
           href: reliability-cosmos-db-nosql.md

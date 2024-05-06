@@ -1,6 +1,6 @@
 ---
-title: Azure proactive resiliency recommendations for Azure Cosmos DB for NoSQL
-description: Learn Azure proactive resiliency recommendations for Azure Cosmos DB for NoSQL
+title: Azure resiliency recommendations for Azure Cosmos DB for NoSQL
+description: Learn Azure resiliency recommendations for Azure Cosmos DB for NoSQL
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -10,7 +10,7 @@ ms.date: 5/06/2024
 ---
 
 
-# Azure proactive resiliency recommendations for Azure Cosmos DB for NoSQL
+# Azure resiliency recommendations for Azure Cosmos DB for NoSQL
 
 [!INCLUDE [Reliability recommendations](../includes/reliability-recommendations-include.md)]
  
