@@ -1,7 +1,7 @@
 ---
 title: Trial Matcher support and help options
 titleSuffix: Azure AI Health Insights
-description: How to obtain help and support for questions and problems when you create applications that use with Trial Matcher
+description: How to obtain help and support for questions and problems when you create applications that use with Trial Matcher.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -26,4 +26,4 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question on Microsoft Q&A
 
-For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
+For quick and reliable answers on your technical product questions from Microsoft Engineers or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
