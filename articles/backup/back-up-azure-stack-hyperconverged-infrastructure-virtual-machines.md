@@ -2,7 +2,7 @@
 title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 05/06/2024
 ms.service: backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -89,12 +89,12 @@ These are the prerequisites for backing up virtual machines with MABS:
      2. After the installation is complete, run the following command to configure the agent on the node:
 
         ```
-       .\SetDpmServer.exe -dpmServerName winvm01
-       ```
+        .\SetDpmServer.exe -dpmServerName winvm01
+        ```
 
      3. To add the agent to the MABS server, select **Attach agent**.
 
-   :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png" alt-text="Screenshot shows how to attach an agent." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png":::
+        :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png" alt-text="Screenshot shows how to attach an agent." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png":::
 
 4. On  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
 
@@ -156,7 +156,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
-   >[Note]
+   >[!Note]
    >- All the Clustered HA VMs are recoverd by selecting these Virtual machines under the cluster.
    >- Both Hyper-V and Clustered VMs are restored as Hyper-V Virtual Machines.
 
