@@ -18,7 +18,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Assign a secure value to the property with the property path `properties.osProfile.adminPassword` for resources of type `Microsoft.Compute/virtualMachines` or "Microsoft.Compute/virtualMachineScaleSets". Don't use a literal value. Instead, create a parameter with the [`@secure()` decorator](./parameters.md#secure-parameters) for the password and assign it to `adminPassword`.
+Assign a secure value to the property with the property path `properties.osProfile.adminPassword` for resources of type `Microsoft.Compute/virtualMachines` or `Microsoft.Compute/virtualMachineScaleSets`. Don't use a literal value. Instead, create a parameter with the [`@secure()` decorator](./parameters.md#secure-parameters) for the password and assign it to `adminPassword`.
 
 The following examples fail this test because the `adminPassword` is not a secure value.
 
