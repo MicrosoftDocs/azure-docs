@@ -33,7 +33,7 @@ Prompt flow provides a few different large language model APIs:
 
 ## Prerequisites
 
-Create OpenAI resources, Azure OpenAI resources or MaaS deployment with the LLM models (e.g.: llama2, mistral, cohere etc.) in Azure AI Studio model catalog:
+Create OpenAI resources, Azure OpenAI resources, or MaaS deployment with the LLM models (for example: llama2, mistral, cohere etc.) in Azure AI Studio model catalog:
 
 - **OpenAI**:
 
@@ -129,7 +129,7 @@ The output varies depending on the API you selected for inputs.
 
 Prepare a prompt as described in the [Prompt tool](prompt-tool.md#prerequisites) documentation. The LLM tool and Prompt tool both support [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templates. For more information and best practices, see [Prompt engineering techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md).
 
-For example, for a chat prompt we offer a method to distinguish between different roles, such as "system", "user", "assistant". Each role can have "name" and "content" properties.
+For example, for a chat prompt we offer a method to distinguish between different roles, such as "system," "user," "assistant." Each role can have "name" and "content" properties.
 
 ### Sample 1
 ```jinja
@@ -147,7 +147,7 @@ You are a helpful assistant.
 {{question}}
 ```
 
-In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+In LLM tool, the prompt is transformed to match the [OpenAI messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to OpenAI chat API.
 
 ```
 [

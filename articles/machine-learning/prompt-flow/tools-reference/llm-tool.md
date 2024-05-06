@@ -16,7 +16,7 @@ ms.date: 11/02/2023
 
 # LLM tool
 
-The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../ai-services/openai/overview.md), and models in [Azure Machine Learning Studio model catalog](../../concept-model-catalog.md) for natural language processing.
+The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../ai-services/openai/overview.md), and models in [Azure Machine Learning studio model catalog](../../concept-model-catalog.md) for natural language processing.
 > [!NOTE]
 > The previous version of the LLM tool is now being deprecated. Please upgrade to latest [promptflow-tools](https://pypi.org/project/promptflow-tools/) package to consume new llm tools.
 
@@ -30,7 +30,7 @@ Prompt flow provides a few different large language model APIs:
 
 ## Prerequisites
 
-Create OpenAI resources, Azure OpenAI resources or MaaS deployment with the LLM models (e.g.: llama2, mistral, cohere etc.) in Azure AI Studio model catalog:
+Create OpenAI resources, Azure OpenAI resources or MaaS deployment with the LLM models (for example: llama2, mistral, cohere etc.) in Azure AI Studio model catalog:
 
 - **OpenAI**:
 
@@ -115,9 +115,9 @@ The following sections show various inputs.
 
 ## How to write a chat prompt?
 
-_To grasp the fundamentals of creating a chat prompt, begin with [this section](prompt-tool.md#write-a-prompt) for an introductory understanding of jinja._
+_To grasp the fundamentals of creating a chat prompt, begin with [this section](prompt-tool.md#write-a-prompt) for an introductory understanding of Jinja._
 
-We offer a method to distinguish between different roles in a chat prompt, such as "system", "user", "assistant". Each role can have "name" and "content" properties.
+We offer a method to distinguish between different roles in a chat prompt, such as "system," "user," "assistant." Each role can have "name" and "content" properties.
 
 ### Sample 1
 ```jinja
@@ -135,7 +135,7 @@ You are a helpful assistant.
 {{question}}
 ```
 
-In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+In LLM tool, the prompt is transformed to match the [OpenAI messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to OpenAI chat API.
 
 ```
 [
