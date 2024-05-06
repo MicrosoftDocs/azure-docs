@@ -211,9 +211,13 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
       services: [
         {
           id: '/backends/backend-1'
+          priority: 1
+          weight: 3
         }
         {
           id: '/backends/backend-2'
+          priority: 1
+          weight: 1
         }
       ]
     }
