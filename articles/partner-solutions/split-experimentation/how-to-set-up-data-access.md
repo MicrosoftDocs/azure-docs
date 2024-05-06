@@ -11,9 +11,9 @@ ms.date: 05/01/2024
 
 Experimentation in Azure App Configuration uses Microsoft Entra to authorize requests for Split Experimentation Workspace resources. Microsoft Entra also enables the use of custom roles to grant permissions to security principals.
 
-## Overview
+## Data access control overview
 
-All requests made to Split Experimentation Workspace must be authorized. To set up an access control policy, create new or use existing Microsoft Entra Application registration. This application and registration provides the authentication policy, security principles, role definitions, etc., for allowing access to Split Experimentation Workspace.
+All requests made to Split Experimentation Workspace must be authorized. To set up an access control policy, create a new Microsoft Entra Application registration or use an existing one. The registered application provides the authentication policy, security principles, role definitions, etc., for allowing access to Split Experimentation Workspace.
 
 Optionally, a single Microsoft Entra Enterprise Application may be used to control access to multiple Split Experimentation workspaces.
 
@@ -21,7 +21,7 @@ To set up the Access Control policy for Split Experimentation Workspace, a contr
 
 With Microsoft Entra, access to a resource is set up in a two-step process:
 
-1. The security principal's identity is authenticated, and an OAuth 2.0 token is issued. The resource name to request a token is `https://login.microsoftonline.com/<tenantID>`, where `<tenantID>` matches the Microsoft Entra tenant ID to which the service principal belongs. Ensure the scope is `api://{Entra application ID>/.default`, where `<Entra application ID>` matches the application ID linked as access policy to the Split Experimentation Workspace resource.
+1. The security principal's identity is authenticated, and an OAuth 2.0 token is issued. The resource name used to request a token is `https://login.microsoftonline.com/<tenantID>`, where `<tenantID>` matches the Microsoft Entra tenant ID to which the service principal belongs. Ensure the scope is `api://{Entra application ID>/.default`, where `<Entra application ID>` matches the application ID linked as access policy to the Split Experimentation Workspace resource.
 1. The token is passed as part of a request to the App Configuration service to authorize access to the specified resource.
 
 ### Register an application
