@@ -17,8 +17,6 @@ author: lgayhardt
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
-To use large language models (LLMs) for natural language processing, you use the prompt flow LLM tool.
-
 The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../ai-services/openai/overview.md), and models in [Azure AI Studio model catalog](../model-catalog.md) for natural language processing.
 > [!NOTE]
 > The previous version of the LLM tool is now being deprecated. Please upgrade to latest [promptflow-tools](https://pypi.org/project/promptflow-tools/) package to consume new llm tools.
