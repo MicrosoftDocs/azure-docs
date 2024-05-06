@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 02/05/2024
+ms.date: 05/06/2024
 ms.author: radeltch
 ---
 
@@ -641,7 +641,32 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo systemctl enable sappong
     ```
 
-10. **[1]** Create the SAP cluster resources.
+10. **[1]** Create `SAPStartSrv` resource for ASCS and ERS by creating a file and then load the file.
+
+    ```bash
+    vi crm_sapstartsrv.txt
+    ```
+
+    Enter below primitive in `crm_sapstartsrv.txt` file and save
+
+    ```bash
+    primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
+     params InstanceName=NW1_ASCS00_sapascs
+
+    primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
+     params InstanceName=NW1_ERS01_sapers
+    ```
+
+    Load the file using below commmand.
+
+    ```bash
+    sudo crm configure load update crm_sapstartsrv.txt
+    ```
+
+    > [!NOTE]
+    > If you’ve set up a SAPStartSrv resource using the "crm configure primitive…" command on crmsh version 4.4.0+20220708.6ed6b56f-150400.3.3.1 or later, it’s important to review the configuration of the SAPStartSrv resource primitives. If a monitor operation is present, it should be removed. While SUSE also suggests removing the start and stop operations, but these are not as crucial as the monitor operation. For more information, see [recent changes to crmsh package can result in unsupported configuration of SAPStartSrv resource Agent in a SAP NetWeaver HA cluster](https://www.suse.com/support/kb/doc/?id=000021423).
+
+11. **[1]** Create the SAP cluster resources.
 
     Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 
@@ -649,12 +674,6 @@ The instructions in this section are applicable only if you're using Azure NetAp
 
     ```bash
     sudo crm configure property maintenance-mode="true"
-    
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_sapascs
-
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_sapers
 
     # If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -710,12 +729,6 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="true"
 
     sudo crm configure property priority-fencing-delay=30
-   
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_sapascs
-
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_sapers
 
     # If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
