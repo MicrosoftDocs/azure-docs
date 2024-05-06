@@ -133,9 +133,9 @@
       href: azure-to-azure-support-matrix.md
     - name: VMware/physical to Azure
       href: vmware-physical-azure-support-matrix.md
-    - name: Azure to Azure shared disks
-      href: concepts-trusted-vm.md
     - name: Azure trusted launch VMs
+      href: concepts-trusted-vm.md
+    - name: Azure to Azure shared disks
       href: shared-disk-support-matrix.md
     - name: On-premises Hyper-V VMs to Azure
       href: hyper-v-azure-support-matrix.md
