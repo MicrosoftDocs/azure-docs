@@ -27,7 +27,7 @@ App Service follows community support timelines for the lifecycle of the runtime
 
 End-of-support dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service. App Service sends reminder notifications to subscription owners for upcoming end-of-support runtime versions when they become available for each language.
 
-Those who receive notifications include account administrators, service administrators, and coadministrators.  Contributors, readers, or other roles don't directly receive notifications unless they opt in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
+Roles that receive notifications include account administrators, service administrators, and coadministrators. Contributors, readers, or other roles don't directly receive notifications unless they opt in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 
 ## Timelines for language runtime version support
 
@@ -92,7 +92,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | JBoss 8 Java 21         | Ubuntu        | MSFT OpenJDK 21           |
 
 
-\* Alpine 3.16 is the last supported Alpine distribution in App Service. It's recommended to pin to a version to avoid switching over to Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible.
+\* Alpine 3.16 is the last supported Alpine distribution in App Service. You should pin to a version to avoid switching over to Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible.
 
 # [Windows](#tab/windows)
 
@@ -104,7 +104,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 -----
 
-If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements is available only in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates are provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -112,11 +112,11 @@ Supported JDKs are automatically patched on a quarterly basis in January, April,
 
 ### Security updates
 
-Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
+Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability has a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8.5 reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
 
-While the runtimes are still available on Azure App Service, Azure won't apply security updates to Tomcat 8.5 or 10.0.
+While the runtimes are still available on Azure App Service, Tomcat 8.5 or 10.0 won'ts receive security updates.
 
 When possible, migrate your applications to Tomcat 9.0 or Tomcat 10.1. Tomcat 9.0 and Tomcat 10.1 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
 
@@ -124,7 +124,7 @@ Community support for Java 7 ended on July 29, 2022 and [Java 7 was retired from
 
 ### Deprecation and retirement
 
-If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
+If a supported Java runtime is retired, Azure developers using the affected runtime receives a deprecation notice at least six months before the runtime is retired.
 
 - [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 - [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
