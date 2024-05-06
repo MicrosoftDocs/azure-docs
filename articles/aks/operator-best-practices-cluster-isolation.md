@@ -4,7 +4,8 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for isolation in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/25/2023
-
+ms.author: schaffererin
+author: schaffererin
 ---
 
 # Best practices for cluster isolation in Azure Kubernetes Service (AKS)
@@ -47,6 +48,8 @@ For more information about these features, see [Best practices for advanced sche
 ### Networking
 
 *Networking* uses network policies to control the flow of traffic in and out of pods.
+
+For more information, see [Secure traffic between pods using network policies in AKS](./use-network-policies.md).
 
 ### Authentication and authorization
 
