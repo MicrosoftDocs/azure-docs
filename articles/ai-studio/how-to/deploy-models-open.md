@@ -5,7 +5,7 @@ description: Learn how to deploy open models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 05/06/2024
 ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
@@ -13,11 +13,11 @@ author: msakande
 
 # How to deploy large language models with Azure AI Studio 
 
-Deploying a large language model (LLM) makes it available for use in a website, an application, or other production environments. This typically involves hosting the model on a server or in the cloud, and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference for chat, copilot, or another generative AI application.
+Deployment of a large language model (LLM) makes it available for use in a website, an application, or other production environment. Deployment typically involves hosting the model on a server or in the cloud and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference of generative AI applications such as chat and copilot.
 
 ## Deploy open models
 
-Follow the steps below to deploy an open model such as `distilbert-base-cased` to a real-time endpoint in Azure AI Studio.
+Use the following steps to deploy an open model such as `distilbert-base-cased` to a real-time endpoint in Azure AI Studio.
 
 1. Choose a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog.md). Alternatively, you can initiate deployment by selecting **+ Create** from `your project`>`deployments` 
 
