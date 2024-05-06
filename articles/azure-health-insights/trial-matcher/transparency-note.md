@@ -1,7 +1,7 @@
 ---
 title: Transparency Note for Trial Matcher
 titleSuffix: Azure AI Health Insights
-description: Microsoft's Transparency Note for Trial Matcher intended to help understand how our AI technology works
+description: Microsoft's Transparency Note for Trial Matcher intended to help understand how our AI technology works.
 services: azure-health-insights
 author: adishachar
 manager: urieinav
@@ -41,9 +41,9 @@ Organizations can use the Trial Matcher model to match patients to potentially s
 
 ### System behavior
 Trial Matcher analyzes and matches clinical trial eligibility criteria and patients’ clinical information.
-Clinical trial eligibility criteria are extracted from clinical trials available on clinicaltrials.gov or provided by the service user as a custom trial. Patient clinical information is provided either as unstructured clinical note, FHIR  bundles or key-value schema.
+Clinical trial eligibility criteria are extracted from clinical trials available on clinicaltrials.gov or provided by the service user as a custom trial. Patient clinical information is provided either as unstructured clinical note, FHIR bundles, or key-value schema.
 
-Trial Matcher uses [Text Analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) to identify and extract medical entities in case the information provided is unstructured, either from clinical trial protocols from clinicaltrials.gov, custom trials and patient clinical notes.
+Trial Matcher uses [Text Analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) to identify and extract medical entities in case the information provided is unstructured, either from clinical trial protocols from clinicaltrials.gov, custom trials, and patient clinical notes.
 
 When Trial Matcher is in patient centric mode, it returns a list of potentially suitable clinical trials, based on the patient clinical information. When Trial Matcher is in trial centric mode, it     returns a list of patients who are potentially eligible for a clinical trial.   The Trial Matcher results should be reviewed by a human decision maker for a further full qualification.
 Trial Matcher results also include an explainability layer. When a patient appears to be ineligible for a trial, Trial Matcher provides evidence of why the patient is not eligible to meet the criteria of the specific trial.

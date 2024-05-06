@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# Trial Matcher support and help options
+# Trial Matcher - support and help options
 
-Are you just starting to explore the functionality of the Trial Matcher model? Perhaps you're implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for the Trial Matcher model.
+Are you just starting to explore the functionality of the Trial Matcher model? Perhaps you are implementing a new feature in your application? Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for the Trial Matcher model.
 
 ## Create an Azure support request
 
