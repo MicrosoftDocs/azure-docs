@@ -46,7 +46,7 @@ For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-appli
 
 The Application Gateway V1 SKU supports the following metrics.
 
-### Application Gateway metrics
+### Application Gateway metrics for Application Gateway V1 SKU
 
 For Application Gateway, the following metrics are available:
 
@@ -74,7 +74,7 @@ For Application Gateway, the following metrics are available:
 
   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-### Backend metrics
+### Backend metrics for Application Gateway V1 SKU
 
 For Application Gateway, the following metrics are available:
 
@@ -88,7 +88,7 @@ For Application Gateway, the following metrics are available:
 
 ### Web Application Firewall (WAF) metrics
 
-For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v1-metrics)
+For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v1-metrics).
 
 ## Metrics visualization
 
