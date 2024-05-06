@@ -295,7 +295,7 @@ No, Microsoft doesn't automatically enroll you if you have an academic Volume Li
 - Campus Agreement
 - School Agreement
 
-You must enroll in Azure Dev Tools for Teaching by using the appropriate promotional codes from the subscription welcome email that you receive for your academic volume license.
+You must enroll in Azure Dev Tools for Teaching by using the appropriate promotional code from the subscription welcome email that you receive for your academic volume license.
 
 You must also renew your subscription when it expires. It doesn't renew automatically.
 
