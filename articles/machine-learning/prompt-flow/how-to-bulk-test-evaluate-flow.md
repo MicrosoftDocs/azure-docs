@@ -18,7 +18,7 @@ ms.date: 11/06/2023
 
 To evaluate how well your flow performs with a large dataset, you can submit batch run and use built-in evaluation methods in prompt flow.
 
-In this article you'll learn to:
+In this article you learn to:
 
 - Submit a Batch Run and Use a Built-in Evaluation Method
 - View the evaluation result and metrics
@@ -33,12 +33,11 @@ You can quickly start testing and evaluating your flow by following this video t
 ## Prerequisites
 
 To run a batch run and use an evaluation method, you need to have the following ready:
-- A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. Further Reading: If you are building your own copilot, we recommend referring to [Guidance for creating Golden Datasets used for Copilot quality assurance](#further-reading-guidance-for-creating-golden-datasets-used-for-copilot-quality-assurance).
-- An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./how-to-create-manage-runtime.md).
+- A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. Further Reading: If you're building your own copilot, we recommend referring to [Guidance for creating Golden Datasets used for Copilot quality assurance](#further-reading-guidance-for-creating-golden-datasets-used-for-copilot-quality-assurance).
 
 ## Submit a batch run and use a built-in evaluation method
 
-A batch run allows you to run your flow with a large dataset and generate outputs for each data row. You can also choose an evaluation method to compare the output of your flow with certain criteria and goals. An evaluation method  **is a special type of flow**  that calculates metrics for your flow output based on different aspects. An evaluation run will be executed to calculate the metrics when submitted with the batch run.
+A batch run allows you to run your flow with a large dataset and generate outputs for each data row. You can also choose an evaluation method to compare the output of your flow with certain criteria and goals. An evaluation method  **is a special type of flow**  that calculates metrics for your flow output based on different aspects. An evaluation run is executed to calculate the metrics when submitted with the batch run.
 
 To start a batch run with evaluation, you can select on the **"Evaluate"** button on the top right corner of your flow page.
 
@@ -50,7 +49,7 @@ First, you're asked to give your batch run a descriptive and recognizable name. 
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-name.png" alt-text="Screenshot of batch run settings where you specify run name and description. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-name.png":::
 
-Second, you need to select or upload a dataset that you want to test your flow with. You also need to select an available runtime to execute this batch run. 
+Second, you need to select or upload a dataset that you want to test your flow with. 
 Prompt flow also  supports mapping your flow input to a specific data column in your dataset. This means that you can assign a column to a certain input. You can assign a column to an input by referencing with `${data.XXX}` format. If you want to assign a constant value to an input, you can directly type in that value.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-setting.png" alt-text="Screenshot of batch run settings where you select a test dataset. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-setting.png":::
@@ -63,9 +62,9 @@ Otherwise, if you want to run batch run with evaluation now, you can select one 
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
 
-Go to the next step and configure evaluation settings. In the  **"Evaluation input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
+Go to the next step and configure evaluation settings. In the  **"Evaluation input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. By default, evaluation uses the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
-Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"Evaluation input mapping"**  section.
+Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you see an  **"Evaluation input mapping"**  section.
 
 - If the data source is from your run output, the source is indicated as **"${run.output.[OutputName]}"**
 - If the data source is from your test dataset, the source is indicated as **"${data.[ColumnName]}"**
@@ -102,7 +101,7 @@ In the details panel, you can check the metadata of this run. You can also go to
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output.png" alt-text="Screenshot of batch run detail page on the outputs tab where you check batch run outputs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output.png":::
 
-You can  **select an evaluation run**  from the dropdown box and you'll see appended columns at the end of the table showing the evaluation result for each row of data. You can locate the result that is falsely predicted with the output column "grade".
+You can  **select an evaluation run**  from the dropdown box and you see appended columns at the end of the table showing the evaluation result for each row of data. You can locate the result that is falsely predicted with the output column "grade".
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-evaluation.png" alt-text="Screenshot of batch run detail page on the outputs tab where evaluation results are appended. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-evaluation.png":::
 
@@ -134,13 +133,13 @@ When multiple different evaluation runs are submitted for a batch run, you can g
 
 ## Check batch run history and compare metrics
 
-In some scenarios, you'll modify your flow to improve its performance. You can submit multiple batch runs to compare the performance of your flow with different versions. You can also compare the metrics calculated by different evaluation methods to see which one is more suitable for your flow.
+In some scenarios, you modify your flow to improve its performance. You can submit multiple batches runs to compare the performance of your flow with different versions. You can also compare the metrics calculated by different evaluation methods to see which one is more suitable for your flow.
 
-To check the batch run history of your flow, you can select the **"View batch run"** button on the top right corner of your flow page. You'll see a list of batch runs that you have submitted for this flow.
+To check the batch run history of your flow, you can select the **"View batch run"** button on the top right corner of your flow page. You see a list of batch runs that you have submitted for this flow.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-history.png" alt-text="Screenshot of Web Classification with the view bulk runs button selected." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-history.png":::
 
-You can select on each batch run to check the detail. You can also select multiple batch runs and select on the **"Visualize outputs"** to compare the metrics and the outputs of these batch runs.
+You can select on each batch run to check the detail. You can also select multiple batch runs and select on the **"Visualize outputs"** to compare the metrics and the outputs of this batch runs.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-history-list.png" alt-text="Screenshot of batch run runs showing the history." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-history-list.png":::
 
@@ -152,7 +151,7 @@ In the "Outputs" table, you can compare the selected batch runs by each line of 
 
 ## Understand the built-in evaluation metrics
 
-In prompt flow, we provide multiple built-in evaluation methods to help you measure the performance of your flow output. Each evaluation method calculates different metrics. Now we provide nine built-in evaluation methods available, you can check the following table for a quick reference:
+In prompt flow, we provide multiple built-in evaluation methods to help you measure the performance of your flow output. Each evaluation method calculates different metrics. Now we provide nine built-in evaluation methods available. You can check the following table for a quick reference:
 
 | Evaluation Method | Metrics  | Description | Connection Required | Required Input  | Score Value |
 |---|---|---|---|---|---|
@@ -183,9 +182,9 @@ System message, sometimes referred to as a metaprompt or [system prompt](../../c
 
 ## Further reading: Guidance for creating Golden Datasets used for Copilot quality assurance
 
-The creation of a copilot that use Large Language Models (LLMs) typically involves grounding the model in reality using source datasets. However, to ensure that the LLMs provide the most accurate and useful responses to customer queries, a "Golden Dataset" is necessary.
+The creation of a copilot that uses Large Language Models (LLMs) typically involves grounding the model in reality using source datasets. However, to ensure that the LLMs provide the most accurate and useful responses to customer queries, a "Golden Dataset" is necessary.
 
-A Golden Dataset is a collection of realistic customer questions and expertly crafted answers. It serves as a Quality Assurance tool for LLMs used by your copilot. Golden Datasets are not used to train an LLM or inject context into an LLM prompt. Instead, they are utilized to assess the quality of the answers generated by the LLM.
+A Golden Dataset is a collection of realistic customer questions and expertly crafted answers. It serves as a Quality Assurance tool for LLMs used by your copilot. Golden Datasets aren't used to train an LLM or inject context into an LLM prompt. Instead, they're utilized to assess the quality of the answers generated by the LLM.
 
 If your scenario involves a copilot or if you are in the process of building your own copilot, we recommend referring to this specific document: [Producing Golden Datasets: Guidance for creating Golden Datasets used for Copilot quality assurance](https://aka.ms/copilot-golden-dataset-guide) for more detailed guidance and best practices.
 

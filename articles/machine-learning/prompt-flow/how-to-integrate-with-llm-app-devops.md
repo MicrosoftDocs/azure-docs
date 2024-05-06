@@ -80,7 +80,7 @@ For more information about DevOps integration with Azure Machine Learning, see [
 
 - Complete the [Create resources to get started](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 
-- A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime. To learn more, see [how to manage runtime](how-to-create-manage-runtime.md) for prompt flow engineering.
+- A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at compute session. To learn more, see [how to manage compute session](how-to-manage-compute-session.md) for prompt flow engineering.
 
 ### Install prompt flow SDK
 
@@ -136,13 +136,14 @@ column_mapping:
   url: ${data.url}
 
 # define cloud resource
-# if omitted, it will use the automatic runtime, you can also specify the runtime name, specify automatic will also use the automatic runtime.
-runtime: <runtime_name> 
 
-
-# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# if using serverless compute type
 # resources:
-#   instance_type: <instance_type>
+#   instance_type: <instance_type> 
+
+# if using compute instance compute type
+# resources:
+#   compute: <compute_instance_name> 
 
 # overrides connections 
 connections:
@@ -179,9 +180,12 @@ data = "<path_to_flow>/data.jsonl"
 
 
 # define cloud resource
-runtime = <runtime_name>
-# define instance type
+
+# define instance type when using serverless compute type
 # resources = {"instance_type": <instance_type>}
+
+# specify the compute instance name when using compute instance compute type
+# resources = {"compute": <compute_instance_name>}
 
 # overrides connections 
 connections = {"classify_with_llm":
@@ -195,8 +199,7 @@ connections = {"classify_with_llm":
 base_run = pf.run(
     flow=flow,
     data=data,
-    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
-#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
+#    resources = resources,
     column_mapping={
         "url": "${data.url}"
     }, 
@@ -222,13 +225,15 @@ column_mapping:
   prediction: ${run.outputs.category}
 
 # define cloud resource
-# if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
-runtime: <runtime_name> 
 
-
-# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# if using serverless compute type
 # resources:
-#   instance_type: <instance_type>
+#   instance_type: <instance_type> 
+
+# if using compute instance compute type
+# resources:
+#   compute: <compute_instance_name> 
+
 
 # overrides connections 
 connections:
@@ -253,9 +258,12 @@ flow = "<path_to_flow>"
 data = "<path_to_flow>/data.jsonl"
 
 # define cloud resource
-runtime = <runtime_name>
-# define instance type
+
+# define instance type when using serverless compute type
 # resources = {"instance_type": <instance_type>}
+
+# specify the compute instance name when using compute instance compute type
+# resources = {"compute": <compute_instance_name>}
 
 # overrides connections 
 connections = {"classify_with_llm":
@@ -275,8 +283,7 @@ eval_run = pf.run(
         "groundtruth": "${data.answer}",
         "prediction": "${run.outputs.category}",
     },
-    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
-#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
+#    resources = resources, 
     connections=connections
 )
 ```

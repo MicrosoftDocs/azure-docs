@@ -97,7 +97,7 @@ export ARM_TENANT_ID=$ADE_TENANT_ID
 export ARM_SUBSCRIPTION_ID=$ADE_SUBSCRIPTION_ID
 ```
 
-If you have other variables to reference within your template that aren't specified in your environment's parameters, set environment variables using the prefix *TF_VAR*. A list of provided ADE environment variables is provided [here](insert link). An example of those commands could be;
+If you have other variables to reference within your template that aren't specified in your environment's parameters, set environment variables using the prefix *TF_VAR*. A list of provided ADE environment variables is provided [Azure Deployment Environment CLI variables reference](reference-deployment-environment-variables.md). An example of those commands could be;
 ```bash
 export TF_VAR_resource_group_name=$ADE_RESOURCE_GROUP_NAME
 export TF_VAR_ade_env_name=$ADE_ENVIRONMENT_NAME

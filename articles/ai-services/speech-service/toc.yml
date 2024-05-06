@@ -272,6 +272,12 @@ items:
       href: custom-keyword-basics.md
     - name: Recommendations and guidelines
       href: keyword-recognition-guidelines.md
+- name: Speech analytics
+  items:
+    - name: Speech analytics overview
+      href: speech-analytics-overview.md
+    - name: Post-call transcription and analytics
+      href: speech-analytics-post-call.md
 - name: Scenario deep-dives
   items:
     - name: Captioning

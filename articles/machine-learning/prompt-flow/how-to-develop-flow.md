@@ -46,13 +46,11 @@ On the bottom right, it's the graph view for visualization only. It shows the fl
 > [!NOTE]
 > You cannot edit the graph view directly, but you can select the node to locate to the corresponding node card in the flatten view, then do the inline editing.
 
-### Runtime: Select existing runtime or create a new one
+### Compute session
 
-Before you start authoring, you should first select a runtime. Runtime serves as the compute resource required to run the prompt flow, which includes a Docker image that contains all necessary dependency packages. It's a must-have for flow execution.
+Before you start authoring, you should first start compute session. compute session serves as the compute resource required to run the prompt flow, which includes a Docker image that contains all necessary dependency packages. It's a must-have for flow execution.
 
-You can select an existing runtime from the dropdown or select the **Add runtime** button. This will open up a Runtime creation wizard. Select an existing compute instance from the dropdown or create a new one. After this, you will have to select an environment to create the runtime. We recommend using default environment to get started quickly.
-
-:::image type="content" source="./media/how-to-develop-flow/runtime-creation.png" alt-text="Screenshot of runtime creation in studio." lightbox ="./media/how-to-develop-flow/runtime-creation.png":::
+:::image type="content" source="./media/how-to-develop-flow/start-compute-session.png" alt-text="Screenshot of start compute session in studio." lightbox ="./media/how-to-develop-flow/start-compute-session.png":::
 
 ### Flow input and output
 
@@ -101,9 +99,9 @@ If the condition isn't met, the node will be skipped. The node status is shown a
 
 You can test the flow in two ways: run single node or run the whole flow.
 
-To run a single node, select the **Run** icon on node in flatten view. Once running is completed, check output in node output section.
+To run a single node, select the **Run** icon on node in flatten view. Once running is completed, check result in node output section.
 
-To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, as well as the results of flow outputs defined in the flow. You can always change the flow input value and run the flow again.
+To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, as well as the results of flow results defined in the flow. You can always change the flow input value and run the flow again.
 
 :::image type="content" source="./media/how-to-develop-flow/view-flow-output.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/view-flow-output.png":::
 

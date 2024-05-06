@@ -35,7 +35,7 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 
 - **Variant and Hyperparameter Experimentation**: Experiment with multiple variants and hyperparameters, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
 
-- **Multiple Deployment Targets**: The repo supports deployment of flows to **Azure App Services, Kubernetes, Azure Managed computes** driven through configuration ensuring that your flows can scale as needed. It also generates **Docker images** infused with Flow runtime and your flows for deployment to **any target platform and Operating system** supporting Docker.
+- **Multiple Deployment Targets**: The repo supports deployment of flows to **Azure App Services, Kubernetes, Azure Managed computes** driven through configuration ensuring that your flows can scale as needed. It also generates **Docker images** infused with Flow compute session and your flows for deployment to **any target platform and Operating system** supporting Docker.
     :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/endpoints.png" alt-text="Screenshot of endpoints." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/endpoints.png":::
 
 - **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Just as in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow. This means you can effortlessly compare different versions of a flow in a real-world setting to determine which performs best.
@@ -123,7 +123,7 @@ From here on, you can learn **LLMOps with prompt flow** by following the end-to-
 
 ## Set up prompt flow
 
-Prompt flow uses connections resource to connect to endpoints like Azure OpenAI, OpenAI or Azure AI Search and uses runtime for the execution of the flows. These resources should be created before executing the flows in prompt flow.
+Prompt flow uses connections resource to connect to endpoints like Azure OpenAI, OpenAI or Azure AI Search and uses compute session for the execution of the flows. These resources should be created before executing the flows in prompt flow.
 
 ### Set up connections for prompt flow
 
@@ -136,22 +136,11 @@ Click on the link to know more about [connections](./concept-connections.md).
 > The sample flows use 'aoai' connection and connection named 'aoai' should be created to execute them.
 
 
-### Set up compute and runtime for prompt flow
-
-Runtime can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-runtime-for-prompt-flow) to set up compute and runtime for prompt flow. 
-
-Click on the link to know more about [runtime](./concept-runtime.md).
-
-> [!NOTE]
->
-> The same runtime name should be used in the LLMOps_config.json file explained later.
-
-
 ## Set up Azure Service Principal
 
 An **Azure Service Principal** is a security identity that applications, services, and automation tools use to access Azure resources. It represents an application or service that needs to authenticate with Azure and access resources on your behalf. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#create-azure-service-principal) to create Service Principal in Azure. 
 
-This Service Principal is later used to configure Azure DevOps Service connection and Azure DevOps to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both `experiment and evaluation runs` are under the identity of this Service Principal. Moreover, both the `compute` and `runtime` are created using the same Service Principal.
+This Service Principal is later used to configure Azure DevOps Service connection and Azure DevOps to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both `experiment and evaluation runs` are under the identity of this Service Principal. 
 
 > [!TIP]
 >
