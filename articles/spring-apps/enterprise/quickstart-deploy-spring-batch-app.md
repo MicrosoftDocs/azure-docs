@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 ms.author: v-muyaofeng
 ---
 
-# Quickstart: Deploy your first spring batch application to Azure Spring Apps
+# Quickstart: Deploy your first Spring Batch application to Azure Spring Apps
 
 > [!NOTE]
 > The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
@@ -200,7 +200,7 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 ---
 
-## 5. Validate the spring batch app
+## 5. Validate the Spring Batch app
 
 Now you can access the deployed job to see whether it works.
 
