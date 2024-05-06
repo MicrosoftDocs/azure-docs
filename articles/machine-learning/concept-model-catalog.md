@@ -87,7 +87,7 @@ Models available for deployment to Real-time endpoints can be deployed to Azure 
 
 ### Building Generative AI Apps with Real-time endpoints
 
-Prompt flow offers a great experience for proto. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](/prompt-flow/tools-reference/open-model-llm-tool).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure ML extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+Prompt flow offers capabilities for prototyping, experimenting, iterating, and deploying your AI applications. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure ML extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
 ### Content safety for models deployed as Real-time endpoints 
