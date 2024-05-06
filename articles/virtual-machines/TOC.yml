@@ -1742,6 +1742,8 @@
       href: boot-integrity-monitoring-overview.md
     - name: Trusted Launch FAQs
       href: trusted-launch-faq.md
+    - name: Secure Boot UEFI Keys 
+      href: trusted-launch-secure-boot-custom-uefi.md
 
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
