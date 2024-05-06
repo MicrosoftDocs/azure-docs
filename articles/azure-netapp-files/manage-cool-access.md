@@ -47,7 +47,12 @@ The standard storage with cool access feature provides options for the “coolne
 
 ## Register the feature
 
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+Cool access is currently in preview. You must register for the feature before using it for the first time. To register, follow the instructions for the [service level](azure-netapp-files-service-levels.md) of the capacity pool for which you want to enable cool access. 
+<!-- Cool access is generally available at the Standard service level. If you are using a capacity pool at the Premium or Ultra service level, you must register for the feature before using it for the first time. -->
+
+### [Standard](#tab/Standard)
+
+Standard storage with cool access is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
 
@@ -64,7 +69,7 @@ This feature is currently in preview. You need to register the feature before us
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-### Register for cool access with Premium service level 
+### [Premium](#tab/Premium)
 
 Cool access with the Premium service level is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
@@ -83,8 +88,7 @@ Cool access with the Premium service level is currently in preview. You need to 
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-### Register for cool access with Ultra service level
-
+### [Ultra](#tab/Ultra)
 
 Cool access with the Ultra service level is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
