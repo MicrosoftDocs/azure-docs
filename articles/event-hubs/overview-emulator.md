@@ -17,34 +17,35 @@ The primary advantages of using the emulator are:
 
 - Local Development: The Emulator provides a local development experience, enabling developers to work offline and avoid network latency.
 - Cost-Efficiency: With the Emulator, developers can test their applications without incurring any cloud usage costs.
-- Isolated Testing Environment: The Emulator allows developers to test their code in isolation, ensuring that their tests are not affected by other activities in the cloud.
+- Isolated Testing Environment: Developers can test their code in isolation, ensuring that the tests aren't impacted by other activities in the cloud.
 - Optimized Inner Development loop: Developers can use the Emulator to quickly prototype and test their applications before deploying them to the cloud.
 
 >[!NOTE]
 > Event Hubs emulator is licensed under End user License Agreement. For more details, refer: < Public GitHub Repo >
 
-### What’s provided?
+### Features of Emulator
 
-Below section highlights what’s being offered with Emulator:
+This section highlights different features provided with Emulator:
+
 - Containerized Deployment: The Emulator runs as a Docker container (Linux-based).
 - Cross-Platform Compatibility: It can be used on any platform, including Windows, macOS, and Linux.
 - Managing Entity Configuration: Users can manage number of event hubs, partition count etc. using JSON supplied Configuration.
-- Streaming Support: The Emulator supports streaming messages using the AMQP protocol.
+- Streaming Support: The Emulator supports streaming messages using AMQP (Advanced Message Queuing Protocol).
 - Observability: It provides observability features, including console and file logging.
 
 ### Known Limitations
 
-Current version of emulator does have some known limitations. This includes the following:
+Current version of emulator has the following limitations:
 
-- It cannot stream messages using Kafka protocol.  
-- It does not support  on fly management operations using Client side SDK. 
+- It can't stream messages using Kafka protocol.  
+- It doesn't support  on fly management operations using Client side SDK. 
 
 > [!NOTE]
 > In case of container restart,data and entities are not persisted in emulator.
 
 ### Difference between emulator and Event hubs cloud service?
 
-Since Emulator is only mwant for development and test purpose, there are functional differences between emulator and cloud service. Below are high level features which aren’t supported in event hubs emulator: 
+Since Emulator is only mwant for development and test purpose, there are functional differences between emulator and cloud service.Here are the high-level features that are not supported in the Event Hubs emulator:
 
 -  Azure Goodness – VNet Integration/ Entra ID integration/ Activity Logs/ UI Portal etc.
 -  Event Hubs Capture
@@ -72,21 +73,23 @@ Maximum size of event being published to event hub (be it batch/ non-batch) |1 M
 Maximum event retention time | 1hr | No
 
 
-## Making configuration changes
-Event Hubs emulator provides Config.Json to provide you with interface to configure quotas associated with Event Hubs. 
+### Making configuration changes
 
-By default, emulator would run with following [configuration](EventHub/Common/Config.json).Under the configuration file, you could make following edits as per needs: 
-- **Entities**: You could add additional entities (event hubs) , with customized partition count and consumer groups count as per supported quotas.
+You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](EventHub/Common/Config.json).Under the configuration file, you could make following edits as per needs: 
+
+- **Entities**: You could add more entities (event hubs) , with customized partition count and consumer groups count as per supported quotas.
 - **Logging**: Emulator supports Logging in file or console or both. You could set as per your personal preference.
 
-Note: You cannot create more than one namespace or change the namespace name in config file.
-
 >[!IMPORTANT]
-> Any changes in above configuration must be supplied before running emulator and isn't honoured on fly. For changes to take effect, container restart is required.
+> Any changes in JSON configuration must be supplied before running emulator and isn't honoured on fly. For subsequent changes to take effect, container restart is required.
+>You cannot rename the preset namespace ("name") in configuration file. 
 
-## Drill through available logs
+### Drill through available logs
 During testing phase,logs need to be reviewed to debug unexpected failures. For this reason, Emulator supports logging in forms of Console and File. Follow below steps to look at the logs: 
-- **Console Logs**: On docker desktop UI, click on the container name and the console logs will open.
+- **Console Logs**: On docker desktop UI, click on the container name to open Console Logs.
 - **File Logs**: Present at /home/app/EmulatorLogs within the container.
 
+### Next Steps
+
+For instructions on how to develop locally with Event Hubs emulator, see [test locally with event hubs emulator](test-locally-with-event-hub-emulator.md)
 
