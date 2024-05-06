@@ -51,7 +51,7 @@ The diagram shows the Bastion private-only deployment architecture. A user that'
 
 Considerations:
 
-[!INCLUDE [private-only bastion considerations](../../includes/bastion-private-only-considerations.md)].
+[!INCLUDE [private-only bastion considerations](../../includes/bastion-private-only-considerations.md)]
 
 For more information about private-only deployments, see [Deploy Bastion as private-only](private-only-deployment.md).
 
