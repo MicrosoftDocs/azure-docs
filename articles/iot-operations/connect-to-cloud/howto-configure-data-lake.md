@@ -265,7 +265,7 @@ spec:
       endpoint: https://<CLUSTER>.<REGION>.kusto.windows.net
       authentication:
         systemAssignedManagedIdentity:
-          audience: "https://api.kusto.windows.net"
+          audience: https://api.kusto.windows.net
   localBrokerConnection:
     endpoint: aio-mq-dmqtt-frontend:8883
     tls:
@@ -354,24 +354,29 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
 - `logLevel`: The log level for the data lake connector module. It can be one of `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
 - `databaseFormat`: The format of the data to ingest into the Data Lake Storage. It can be one of `delta` or `parquet`.
 - `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, `adx`, or `localStorage`.
-    - `datalakeStorage`: Specifies the configuration and properties of the local storage Storage account. It has the following subfields:
+    - `datalakeStorage`: Specifies the configuration and properties of the ADLSv2 account. It has the following subfields:
         - `endpoint`: The URL of the Data Lake Storage account endpoint. Don't include any trailing slash `/`.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Data Lake Storage account. It can be one of the following.
-        - `accessTokenSecretName`: The name of the Kubernetes secret for using shared access token authentication for the Data Lake Storage account. This field is required if the type is `accessToken`.
-        - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
-            - `audience`: A string in the form of `https://<my-account-name>.blob.core.windows.net` for the managed identity token audience scoped to the account level or `https://storage.azure.com` for any storage account.
+          - `accessTokenSecretName`: The name of the Kubernetes secret for using shared access token authentication for the Data Lake Storage account. This field is required if the type is `accessToken`.
+          - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
+              - `audience`: A string in the form of `https://<my-account-name>.blob.core.windows.net` for the managed identity token audience scoped to the account level or `https://storage.azure.com` for any storage account.
     - `fabricOneLake`: Specifies the configuration and properties of the Microsoft Fabric OneLake. It has the following subfields:
         - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. Don't include any trailing slash `/`. To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
         - `names`: Specifies the names of the workspace and the lakehouse. Use either this field or `guids`. Don't use both. It has the following subfields:
-        - `workspaceName`: The name of the workspace.
-        - `lakehouseName`: The name of the lakehouse.
+          - `workspaceName`: The name of the workspace.
+          - `lakehouseName`: The name of the lakehouse.
         - `guids`: Specifies the GUIDs of the workspace and the lakehouse. Use either this field or `names`. Don't use both. It has the following subfields:
-        - `workspaceGuid`: The GUID of the workspace.
-        - `lakehouseGuid`: The GUID of the lakehouse.
+          - `workspaceGuid`: The GUID of the workspace.
+          - `lakehouseGuid`: The GUID of the lakehouse.
         - `fabricPath`: The location of the data in the Fabric workspace. It can be either `tables` or `files`. If it's `tables`, the data is stored in the Fabric OneLake as tables. If it's `files`, the data is stored in the Fabric OneLake as files. If it's `files`, the `databaseFormat` must be `parquet`.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Microsoft Fabric OneLake. It can only be `systemAssignedManagedIdentity` for now. It has one subfield:
         - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
             - `audience`: A string for the managed identity token audience and it must be `https://storage.azure.com`.
+    - `adx`: Specifies the configuration and properties of the Azure Data Explorer database. It has the following subfields:
+        - `endpoint`: The URL of the Azure Data Explorer cluster endpoint like `https://<CLUSTER>.<REGION>.kusto.windows.net`. Don't include any trailing slash `/`.
+        - `authentication`: The authentication field specifies the type and credentials for accessing the Azure Data Explorer cluster. It can only be `systemAssignedManagedIdentity` for now. It has one subfield:
+          - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
+              - `audience`: A string for the managed identity token audience and it should be `https://api.kusto.windows.net`.        
     - `localStorage`: Specifies the configuration and properties of the local storage account. It has the following subfields:
         - `volumeName`: The name of the volume that's mounted into each of the connector pods.
 - `localBrokerConnection`: Used to override the default connection configuration to IoT MQ MQTT broker. See [Manage local broker connection](#manage-local-broker-connection).
@@ -392,6 +397,7 @@ The specification field of a DataLakeConnectorTopicMap resource contains the fol
     - `qos`: The quality of service level for subscribing to the MQTT topic. It can be one of 0 or 1.
     - `table`: The table field specifies the configuration and properties of the Delta table in the Data Lake Storage account. It has the following subfields:
         - `tableName`: The name of the Delta table to create or append to in the Data Lake Storage account. This field is also known as the container name when used with Azure Data Lake Storage Gen2. It can contain any **lower case** English letter, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
+        - `tablePath`: The name of the Azure Data Explorer database when using `adx` type connector.
         - `schema`: The schema of the Delta table, which should match the format and fields of the message payload. It's an array of objects, each with the following subfields:
             - `name`: The name of the column in the Delta table.
             - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, aren't fully supported, and are treated as signed types if specified here.
@@ -414,7 +420,7 @@ spec:
     messagePayloadType: json
     maxMessagesPerBatch: 10
     clientId: id
-    mqttSourceTopic: `azure-iot-operations/data/thermostat`
+    mqttSourceTopic: azure-iot-operations/data/thermostat
     qos: 1
     table:
       tableName: thermostat
