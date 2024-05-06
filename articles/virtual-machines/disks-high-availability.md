@@ -57,6 +57,8 @@ Multiple VMs have the highest [SLA](https://www.microsoft.com/licensing/docs/vie
 
 VMs deployed across multiple availability zones may have higher network latency than VMs deployed in a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider the methods described in [Deploy VMs across multiple fault domains](#deploy-vms-across-multiple-fault-domains).
 
+To deploy resources across availability zones, you can either use [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or [deploy resources across availability zones](#deploy-vms-and-disks-across-three-availability-zones).
+
 #### Use zone-redundant Virtual Machine Scale Sets with flexible orchestration
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed across multiple availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
@@ -76,6 +78,8 @@ There might be higher network latency between several availability zones than wi
 Fault domains define groups of VMs that share a common power source and a network switch. For details, see [How do availability sets work?](availability-set-overview.md#how-do-availability-sets-work).
 
 If you can't deploy your VMs and disks across availability zones or have ultra-low latency requirements, you can deploy them across fault domains instead. Multiple VMs have the second highest uptime SLA when deployed across fault domains. For VMs and disks deployed across fault domains, the storage fault domains of the disks are aligned with the fault domains of their respective parent VMs, which prevents multiple VMs from going down if a single storage fault domain experiences an outage. To learn more, see the Virtual Machines section of the [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+
+To deploy resources across multiple fault domains, you can either use [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).
 
 #### Use regional Virtual Machine Scale Sets with flexible orchestration
 
