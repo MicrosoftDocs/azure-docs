@@ -7,7 +7,7 @@ author: adishachar
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 05/28/2023
+ms.date: 05/05/2024
 ms.author: adishachar
 ---
 
