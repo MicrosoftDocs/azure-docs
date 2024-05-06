@@ -54,6 +54,8 @@ and the policy rule. The defined rule can use functions, parameters, logical ope
 and property [aliases](./concepts/definition-structure.md#aliases) to match exactly the scenario you
 want. The policy rule determines which resources in the scope of the assignment get evaluated.
 
+If you have multiple policies, **cumulative most restrictive** permission will be applied. A single Deny policy trumps all Allowed policies within the within scope hierarchy. For example, if you have a Deny policy in Tenant Management Group that prevents creation of virtual networks but its subordinate management groups and subscriptions have explicit Allowed policy for virtual networks, you won't be able to create any virtual network.
+
 ### Understand evaluation outcomes
 
 Resources are evaluated at specific times during the resource lifecycle, the policy assignment
