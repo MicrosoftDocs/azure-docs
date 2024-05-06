@@ -1,3 +1,10 @@
+---
+title: Azure Quickstart - Send and receive large messages with Azure Event Hubs (Preview)
+description: In this quickstart, you learn how to send and receive large messages with Azure Event Hubs.
+ms.topic: quickstart
+ms.date: 5/6/2024
+---
+
 # QuickStart: Send and receive large messages with Azure Event Hubs (Preview)
 
 In this QuickStart, you learn how to Send and receive large messages (up to 20 MB) using Azure Event Hubs.  
@@ -21,7 +28,9 @@ To stream large messages, you must configure your self-serve scalable dedicated 
 
 -  Create a self-serve dedicated cluster from Azure Portal. Follow for detailed steps:<link to cluster creation doc>. You could skip this step if you already have a self-serve scalable dedicated cluster.
 - After the cluster is successfully created, navigate to the ‘Settings’ section and select the ‘Quota’ tab under Settings.
-- < add image of Azure Portal UI- wip>
+  
+:::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/LMSconfigforCluster.png" alt-text="Screenshot showing the Quota blade for Dedicated Cluster":::
+
 - Validate that the value for read-only key **supportslargemessages** is set to true. 
 - You could update the key : **eventhubmaxmessagesizeinbytes** to suitable value in bytes. Acceptable range for this value is between 1048576 and 20971520 bytes.
 
