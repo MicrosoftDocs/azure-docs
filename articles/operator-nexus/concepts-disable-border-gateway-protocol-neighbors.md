@@ -59,9 +59,9 @@ Neighbor Status Codes: m - Under maintenance
   fda0:d59c:df06:d::f 4 65055         132189    171976    0    0   28d18h Estab   0      0
 ```
 
-```azurecli
-Apr  XX XXX:54 AR Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.XXX.30.18 (VRF gfab1-isd AS 650XX) 6/2 (Cease/administrative shutdown <Hard Reset>) reason:
-Apr  XX XXX:54 AR Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.XXX.30.18 (VRF gfab1-isd AS 650XX) 6/5 (Cease/connection rejected) 0 bytes 
+```Device logs
+Apr  XX XXX:54 AR Bgp: BGP-3-NOTIFICATION: sent to neighbor 10.XXX.30.18 (VRF gfab1-isd AS 650XX) 6/2 (Cease/administrative shutdown <Hard Reset>) reason:
+Apr  XX XXX:54 AR Bgp: BGP-3-NOTIFICATION: sent to neighbor 10.XXX.30.18 (VRF gfab1-isd AS 650XX) 6/5 (Cease/connection rejected) 0 bytes 
 ```
 
 Command with `--no-wait` `--debug`
@@ -171,10 +171,10 @@ Neighbor            V AS           MsgRcvd   MsgSent  In
   fda0:XXX:XXXX:d::f 4 65055       132196    171987    0    0   28d18h Estab   0      0
 ```
 
-```azurecli
-AR-CE1)#Apr  X XX-XX:09 AR-CE1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor **10.XXX.157.8** (VRF gfab1-isd AS 64512) 6/2 (Cease/administrative shutdown <Hard Reset>) reason: 
+```Device logs
+Apr  X XX-XX:09 AR-CE1 Bgp: BGP-3-NOTIFICATION: sent to neighbor **10.XXX.157.8** (VRF gfab1-isd AS 64512) 6/2 (Cease/administrative shutdown <Hard Reset>) reason: 
 
-Apr  8 13:24:11 AR-CE1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor **10.XXX.157.8** (VRF gfab1-isd AS 64512) 6/5 (Cease/connection rejected) 0 bytes 
+Apr  8 13:24:11 AR-CE1 Bgp: BGP-3-NOTIFICATION: sent to neighbor **10.XXX.157.8** (VRF gfab1-isd AS 64512) 6/5 (Cease/connection rejected) 0 bytes 
 ```
 
 Command with `--no-wait` `--debug`
