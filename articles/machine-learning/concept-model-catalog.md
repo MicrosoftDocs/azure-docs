@@ -87,12 +87,12 @@ Models available for deployment to Real-time endpoints can be deployed to Azure 
 
 ### Building Generative AI Apps with Real-time endpoints
 
-Prompt flow offers a great experience for proto. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](/prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure ML extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+Prompt flow offers a great experience for proto. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](/prompt-flow/tools-reference/open-model-llm-tool).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure ML extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
 ### Content safety for models deployed as Real-time endpoints 
 
-[Azure AI Content Safety (AACS)](https://learn.microsoft.com/azure/ai-services/content-safety/overview) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. Note that you will be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
+[Azure AI Content Safety (AACS)](/ai-services/content-safety/overview) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. Note that you will be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
 ### Working with models not in the Model Catalog 
 
@@ -111,7 +111,7 @@ Models that are available for pay-as-you-go deployment are offered by the model 
 
 ### Paying for model usage in MaaS    
 
-The discovery, subscription and consumption experience for models deployed via MaaS is in the Azure AI Studio and Azure ML Studio. Users accepted, during deployment. Models from third party providers are billed through Azure Marketplace, in accordance with the [Commercial Marketplace Terms of Use](https://learn.microsoft.com/legal/marketplace/marketplace-terms); models from Microsoft are billed using Azure meters as First Party Consumption Services. As described in the [Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), First Party Consumption Services are available for purchase using Azure meters but are not Azure products and the Azure terms do not apply; the license terms provided with the model apply. 
+The discovery, subscription and consumption experience for models deployed via MaaS is in the Azure AI Studio and Azure ML Studio. Users accepted, during deployment. Models from third party providers are billed through Azure Marketplace, in accordance with the [Commercial Marketplace Terms of Use](/legal/marketplace/marketplace-terms); models from Microsoft are billed using Azure meters as First Party Consumption Services. As described in the [Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), First Party Consumption Services are available for purchase using Azure meters but are not Azure products and the Azure terms do not apply; the license terms provided with the model apply. 
 
 ### Deploying models for inference through MaaS 
 
@@ -140,7 +140,7 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 ### Content safety for models deployed via MaaS  
 
-Azure ML implements a default configuration of [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) text moderation filters for harmful content (sexual content, violence, hate, and self-harm) for language models deployed via MaaS. Learn more about [content filtering](../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](../pricing/details/cognitive-services/content-safety.md) for such use. Complete this form to disable content filtering for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). 
+Azure ML implements a default configuration of [Azure AI Content Safety](/ai-services/content-safety/overview) text moderation filters for harmful content (sexual content, violence, hate, and self-harm) for language models deployed via MaaS. Learn more about [content filtering](../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](../pricing/details/cognitive-services/content-safety.md) for such use. Complete this form to disable content filtering for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). 
 
 ## Learn more
 
