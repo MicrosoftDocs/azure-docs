@@ -431,8 +431,6 @@ items:
         href: azure-monitor-operations-manager.md
       - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
     - name: Tutorials
