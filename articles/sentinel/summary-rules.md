@@ -23,7 +23,7 @@ This article describes summary rules in Microsoft Sentinel, which you can use to
 - **Use dynamic summary data for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
 
 
-Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](/azure/azure-monitor/logs/summary-rules?branch=pr-en-us-272706) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
+Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](https://aka.ms/summary-rules-azmon) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
