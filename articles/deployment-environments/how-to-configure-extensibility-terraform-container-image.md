@@ -13,11 +13,9 @@ ms.topic: how-to
 
 # Configure a container image to execute deployments with Terraform
 
-In this article, you learn how to build and utilize a custom image within your environment definitions for deployments in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
+In this article, you learn how to build custom Terraform container images to deploy your environment definitions in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a container registry. You can then reference these images in your environment definitions to deploy your environments.
-
-The ADE team provides a selection of images to get you started, which you can see in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like DockerHub. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
@@ -98,7 +96,7 @@ EnvironmentVars="/environment.tfvars.json"
 echo "$ADE_OPERATION_PARAMETERS" > $EnvironmentVars
 ```
 
-Additionally, to utilize ADE's privileges to deploy infrastructure inside your subscription, your script needs to use ADE's Managed Service Identity (MSI) when provisioning infrastructure by using the Terraform AzureRM provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses ADE's MSI:
+Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use the Managed Service Identity (MSI) when provisioning infrastructure by using the Terraform AzureRM provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses the ADE MSI:
 ```bash
 export ARM_USE_MSI=true
 export ARM_CLIENT_ID=$ADE_CLIENT_ID

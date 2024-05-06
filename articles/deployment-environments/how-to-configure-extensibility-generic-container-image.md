@@ -13,9 +13,11 @@ ms.topic: how-to
 
 # Configure a container image to execute deployments
 
-In this article, you learn how to build and utilize custom images within your environment definitions for deployments in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom container images to deploy your environment definitions in Azure Deployment Environments (ADE).
 
-ADE uses an extensibility model to enable you to create custom images to use in your environment definitions. By using the extensibility model, you can create your own custom images, and store them in a container registry like the [Azure Container Registry](/azure/container-registry/container-registry-intro). You can then reference these images in your environment definitions to deploy your environments.
+An environment definition comprises at least two files: a template file, like *azuredeploy.json*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the Azure Resource Manager (ARM) and Bicep IaC frameworks. 
+
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like DockerHub. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
@@ -40,7 +42,7 @@ To build an image configured for ADE, follow these steps:
 
 ### Select a sample container image by using the FROM statement
 
-To build a Docker image to utilize ADE deployments and access the ADE CLI, you should base your image on one of the ADE-authored images. Including a FROM statement within a created DockerFile for your new image that points to an ADE-authored sample image hosted on Microsoft Artifact Registry. When using ADE-authored images, it's recommended you build your custom image on the ADE core image.
+To build a Docker image to utilize ADE deployments and access the ADE CLI, you should base your image on one of the ADE-authored images. Including a FROM statement within a created DockerFile for your new image that points to an ADE-authored sample image hosted on Microsoft Artifact Registry. When using ADE-authored images, you should base your custom image on the ADE core image.
 
 Here's an example FROM statement, referencing the sample core image:
 
