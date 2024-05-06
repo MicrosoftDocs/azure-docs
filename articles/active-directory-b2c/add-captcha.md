@@ -5,7 +5,7 @@ author: kengaderdus
 manager: mwongerapk
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 05/03/2024
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -234,9 +234,9 @@ For the various page layouts, use the following page layout versions:
 
 |Page layout |Page layout version range |
 |---------|---------|
-| Selfasserted  | >=2.1.29 |
-| Unifiedssp  | >=2.1.17 |
-|  Multifactor  |    >=1.2.15  |
+| Selfasserted  | >=2.1.30 |
+| Unifiedssp  | >=2.1.18 |
+|  Multifactor  |    >=1.2.16  |
 
 **Example:**
 

@@ -29,79 +29,9 @@ The following screenshot shows the output from the album API service you deploy.
 | Java | Install the [JDK](/java/openjdk/install), recommend 17, or later|
 | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
 
-## Setup
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az login
-```
-
----
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az upgrade
-```
-
----
-
-Next, install, or update the Azure Container Apps extension for the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az extension add --name containerapp --upgrade
-```
-
----
-
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces they're not already registered in your Azure subscription.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az provider register --namespace Microsoft.App
-```
-
-```azurepowershell
-az provider register --namespace Microsoft.OperationalInsights
-```
-
----
+## Create environment variables
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
