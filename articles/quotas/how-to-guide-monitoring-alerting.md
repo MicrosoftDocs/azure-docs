@@ -126,7 +126,7 @@ You must have at least the **Reader** role for the subscription to query this da
 Query to view current usages, quota/limit, and usage percentage for a subscription, region, and VCM family:
 
 >[!Note]
->Currently, Compute is the only supported resource for NRT limit/quota data. Don't rely on the below queries to pull other resource types, such as Disks and/or Galleries. The current Usages API will provide you the latest snapshot for the said resources.
+>Currently, Compute is the only supported resource for NRT limit/quota data. Don't rely on the below queries to pull other resource types such as Disks and/or Galleries. You can get the latest snapshot for the said resoures with the current usages API.
 
 ```kusto
 QuotaResources
