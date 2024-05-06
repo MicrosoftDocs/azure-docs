@@ -1,5 +1,5 @@
 ---
-title: Deploy an enterprise chat web app in the Azure AI Studio playground
+title: Deploy an Azure AI Enterprise Chat web app in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Use this article to deploy an enterprise chat web app in the Azure AI Studio playground.
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 author: aahill
 ---
 
-# Tutorial: Deploy an enterprise chat web app
+# Tutorial: Deploy an Azure AI Enterprise Chat web app
 
 In this article, you deploy an enterprise chat web app that uses your own data with a large language model in AI Studio.
 
@@ -36,7 +36,7 @@ The steps in this tutorial are:
 
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md).
 
-- You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
+- You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
 ## Deploy a chat model
 

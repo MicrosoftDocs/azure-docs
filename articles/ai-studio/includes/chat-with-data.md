@@ -10,7 +10,7 @@ ms.date: 2/22/2024
 ms.custom: include
 ---
 
-To complete this section, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). The [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
+To complete this section, you need a local copy of product data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
 
 Follow these steps to add your data in the chat playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
 
@@ -30,7 +30,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
 1. Select **Upload** > **Upload files** to browse your local files. 
 
-1. Select the files you want to upload. Select the `product_info_11.md` file you downloaded or created earlier. If you want to upload more than one file, do so now. You won't be able to add more files later in the same playground session.
+1. Select the files you want to upload. Select the product information files ([3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info)) that you downloaded or created earlier. Add all of the files now. You won't be able to add more files later in the same playground session.
 
 1. Select **Upload** to upload the file to your Azure Blob storage account. Then select **Next**.
 
