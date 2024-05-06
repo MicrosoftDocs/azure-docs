@@ -26,7 +26,6 @@ To complete this QuickStart, you need the following prerequisites:
 
 To stream large messages, you must configure your self-serve scalable dedicated clusters. You could follow below steps below:
 
--  Create a self-serve dedicated cluster from Azure Portal. Follow for detailed steps:<link to cluster creation doc>. You could skip this step if you already have a self-serve scalable dedicated cluster.
 - After the cluster is successfully created, navigate to the ‘Settings’ section and select the ‘Quota’ tab under Settings.
   
 :::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/LMSconfigforCluster.png" alt-text="Screenshot showing the Quota blade for Dedicated Cluster":::
@@ -36,7 +35,6 @@ To stream large messages, you must configure your self-serve scalable dedicated 
 
 Once the configuration is saved, you're all set to stream Large messages with event hubs.
 
-
 > [!IMPORTANT]
 > Large message streaming is only supported with Self-serve scalable dedicated clusters built out of latest infrastructure. This capability is reflected by the “Supportslargemessages” key.
 > If its value is false, the cluster will not support large message streaming. To enable this feature, you must recreate the cluster.
@@ -44,9 +42,7 @@ Once the configuration is saved, you're all set to stream Large messages with ev
 ## Streaming Large messages with Azure Event hubs
 
 Being able to stream large messages or events requires no client code changes apart from the change in message or event itself. You could continue sending/receiving messages using any existing event hubs SDK/ Kafka API to stream large messages to event hub.This allows you to stream large messages to the event hub in the same manner as you would for messages of size less than 1 MB.
-
-Reference:
-[Send and Receive Quickstart ](articles/event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+Know more [here](./articles/event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 > [!NOTE]
 > Make sure to review any Event Hubs AMQP client or Kafka client configuration that could be limiting maximum message size that you stream into event hubs.You must update Client timeout to higher value to be able to stream large messages. 
 
