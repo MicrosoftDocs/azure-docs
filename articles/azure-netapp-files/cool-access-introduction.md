@@ -16,7 +16,7 @@ Using Azure NetApp Files standard storage with cool access, you can configure in
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
+Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra).
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
@@ -166,9 +166,9 @@ Cool access offers [performance metrics](azure-netapp-files-metrics.md#cool-acce
 
 ## Billing 
 
-You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you're billed is based on the following factors: 
+You can enable tiering at the volume level for a newly created capacity pool. How you're billed is based on the following factors: 
 
-* The capacity in the Standard service level
+* The capacity in the service level
 * Unallocated capacity within the capacity pool
 * The capacity in the cool tier (by enabling tiering for volumes in a Standard capacity pool)
 * Network transfer between the hot tier and the cool tier at the rate that is determined by the markup on top of the transaction cost (`GET` and `PUT` requests) on blob storage and private link transfer in either direction between the hot tiers.
