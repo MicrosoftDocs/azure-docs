@@ -79,7 +79,7 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 Customer-managed planned failover (preview) can be used to to test your disaster recovery plan. During the planned failover process, the primnary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary, while the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
-Customer-managed planned failover (preview) can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
+Planned failover can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when workloads in your primary region are disrupted but your storage service endpoints are available.
 
 During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. For more detail, see the [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies) article.
 
