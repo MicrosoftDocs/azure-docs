@@ -35,7 +35,7 @@ To create a private endpoint, a user with Role-based access control (RBAC) permi
 
 Private link is configured at the workspace level, and is automatically configured for all FHIR and DICOM services within the workspace.
 
-There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the workspace to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the workspace to request a that owners of the workspace or resource group approve the private endpoint.
+There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the workspace to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the workspace to request that owners of the workspace or resource group approve the private endpoint.
 
 > [!NOTE]
 > When an approved private endpoint is created for Azure Health Data Services, public traffic to it is automatically disabled. 
