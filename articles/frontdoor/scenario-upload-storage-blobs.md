@@ -1,6 +1,6 @@
 ---
 title: Reliable file uploading to Azure Storage Blob through Azure Front Door
-description: Learn how to use Front Door with storage blobs for mission critical content upload, enabling a secure, reliable and scalable architecture.
+description: Learn how to use Front Door with storage blobs for mission critical content upload, enabling a secure, reliable, and scalable architecture.
 services: front-door
 author: kostinams
 ms.service: frontdoor
@@ -12,7 +12,7 @@ ms.reviewer: hmb
 
 # Reliable file uploading to Azure Storage Blob through Azure Front Door
 
-Uploading files to Azure Storage through Azure Front Door brings certain advantages, including higher resiliency, scalability and additional security, such as scanning of uploaded content with WAF and using custom TLS certificate for storage accounts.
+Uploading files to Azure Storage through Azure Front Door brings certain advantages, including higher resiliency, scalability and extra security, such as scanning of uploaded content with WAF and using custom TLS certificate for storage accounts.
 
 In this reference architecture, you deploy multiple storage accounts and Front Door profile with a multiple origins. By using multiple storage accounts for uploaded content, you improve performance, reliability and able to achieve load distribution/sharding by having different clients use storage accounts in different orders.
 
@@ -26,7 +26,7 @@ In this reference architecture, you deploy multiple storage accounts and Azure F
 
 Data flows through the scenario as follows:
 
-1. The client app will call a web-based API and retrieve a list of multiple upload locations. For each file that the client uploads, the API generates a list of possible upload locations, with one in each of the existing storage accounts. Each URL contains a Shared Access Signature, ensuring that the URL can only be used to upload to the designated blob URL.
+1. The client app calls a web-based API and retrieve a list of multiple upload locations. For each file that the client uploads, the API generates a list of possible upload locations, with one in each of the existing storage accounts. Each URL contains a Shared Access Signature, ensuring that the URL can only be used to upload to the designated blob URL.
 2. The client app attempts to upload a blob using first URL from the list returned by API. The client establishes a secure connection to Azure Front Door by using a custom domain name and custom TLS certificate. 
 3. The Front Door web application firewall (WAF) scans the request. If the WAF determines the request's risk level is too high, it blocks the request and Front Door returns an HTTP 403 error response. Otherwise the request is routed to the desired storage account.
 4. File is uploaded into Azure Storage account. If this request fails, the client app will have to try to upload to an alternative storage account using next URL from the list returned by API.
@@ -42,11 +42,11 @@ Data flows through the scenario as follows:
 
 ## Scenario details
 
-Quite often the responsibility of file upload is put on the API or backend systems. By having the client app directly upload JSON files into blob storage, we make sure that the compute resource (the API layer handling the uploads from the client) is not the bottleneck in terms of performance, as well as we bring down the costs of the overall solution since now API is not spending compute time on uploading the files.
+Often the responsibility of file upload is put on the API or backend systems. By having the client app directly upload JSON files into blob storage, we make sure that the compute resource (the API layer handling the uploads from the client) is not the bottleneck in terms of performance, and we bring down the costs of the overall solution since now API is not spending compute time on uploading the files.
 
-It is the API's responsibility to make sure that the files are distributed evenly between storage accounts, so you will have to define logic to prioritize required storage accounts which should be used by client applications by default.
+It is the API's responsibility to make sure that the files are distributed evenly between storage accounts. That means that it's required to define logic to prioritize storage accounts which should be used by client applications by default.
 
-Utilizing Azure Front Door in conjunction with Azure Storage accounts enables customers to have a single point of entry (a single domain) for uploading content.
+Utilizing Azure Front Door with Azure Storage accounts enables customers to have a single point of entry (a single domain) for uploading content.
 
 ### Azure Front Door configuration with multiple origins as Azure Storage accounts
 
@@ -74,7 +74,7 @@ Finally, you need to create a new Rule set configuration. It is important to con
 
 ### Scalability and performance
 
-Proposed architecture allows to achieve horizontal scalability by using multiple storage accounts for uploaded content.
+Proposed architecture allows you to achieve horizontal scalability by using multiple storage accounts for uploaded content.
 
 ### Resiliency
 
@@ -83,11 +83,11 @@ By using multiple storage accounts in different regions this architecture increa
 
 ### Cost optimization
 
-The cost structure of Azure Storage allows to create as many storage accounts, as required without increasing the costs of the solution. The costs are affected by the amount and size of the files stored.
+The cost structure of Azure Storage allows you to create as many storage accounts, as required without increasing the costs of the solution. The costs are affected by the amount and size of the files stored.
 
 ### Security
 
-By using Azure Front Door you are benefiting from security features, such as DDoS protection (the default Azure infrastructure DDoS protection which monitors and mitigates network layer attacks in real-time by using the global scale and capacity of Front Door’s network), as well as Web Application Firewall (WAF) which defends your web services against common exploits and vulnerabilities. You can also use the Front Door WAF to perform rate limiting and geo-filtering if you require those capabilities.
+By using Azure Front Door you are benefiting from security features, such as DDoS protection (the default Azure infrastructure DDoS protection, which monitors and mitigates network layer attacks in real-time by using the global scale and capacity of Front Door’s network), as well as Web Application Firewall (WAF) which defends your web services against common exploits and vulnerabilities. You can also use the Front Door WAF to perform rate limiting and geo-filtering if you require those capabilities.
 
 It is also possible to secure Azure Storage accounts by using Private Link. The storage account can be configured to deny direct access from the internet, and to only allow requests through the private endpoint connection used by Azure Front Door. This configuration ensures that every request gets processed by Front Door, and avoids exposing the contents of your storage account directly to the internet. However, this configuration requires the premium tier of Azure Front Door. If you use the standard tier, your storage account must be publicly accessible.
 
