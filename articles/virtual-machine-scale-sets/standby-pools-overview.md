@@ -50,7 +50,7 @@ The number of virtual machines in a standby pool is calculated by the max ready 
 | Standby pool size | Standby pool size = `maxReadyCapacity`– `instanceCount`. |
 
 ### Example
-A Virtual Machine Scale Set with 10 instances and a standby pool with a max ready capacity of 15 would result in their being 5 instances in the standby pool.
+A Virtual Machine Scale Set with 10 instances and a standby pool with a max ready capacity of 15 would result in 5 instances in the standby pool.
 
 - Max ready capacity (15) - Virtual Machine Scale Set instance count (10) = Standby pool size (5)
 
