@@ -329,6 +329,8 @@ The *"wait-for-external-event"* API waits indefinitely for some input.  The func
 > [!NOTE]
 > If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting an external event task, no matter how long it waits.
 
+As with Activity Functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain conditions (like restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain some kind of ID that allows them to be manually de-duplicated in orchestrators.
+
 ## Send events
 
 You can use the *"raise-event"* API defined by the [orchestration client](durable-functions-bindings.md#orchestration-client) binding to send an external event to an orchestration. You can also use the built-in [raise event HTTP API](durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
