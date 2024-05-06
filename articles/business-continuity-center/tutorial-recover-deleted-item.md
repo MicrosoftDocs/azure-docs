@@ -2,7 +2,7 @@
 title: Recover deleted item
 description: Learn how to recover deleted item
 ms.topic: article
-ms.date: 11/15/2023
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.service: azure-business-continuity-center
@@ -10,11 +10,11 @@ ms.custom:
   - ignite-2023
 ---
 
-# Recover deleted item
+# Tutorial: Recover deleted item
 
 This tutorial describes the process to recover deleted items from the vault to ensure business continuity.
 
-Azure Business Continuity center allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
+Azure Business Continuity Center allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Before you start this tutorial:
 
 - [Review the supported regions](business-continuity-center-support-matrix.md).
 - [Review the supported actions](business-continuity-center-support-matrix.md).
-- You need to have permission on the resources to view them in ABC center and recover them. 
+- You need to have permission on the resources to view them in ABC Center and recover them. 
 
 ## Initiate recovery for Azure VM
 
@@ -32,7 +32,7 @@ Follow these steps to initiate the recovery for Azure VMs:
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-recover-from-menu.png" alt-text="Screenshot shows the recover selection on the menu." lightbox="./media/tutorial-recover-deleted-item/select-recover-from-menu.png":::
 
-2. On the Recover pane, choose **Resources managed by**, select the Datasource type for which you want to configure protection, and select the Solution (limited to Azure Backup and Azure Site Recovery) through which you want to recover the item.
+2. On the Recover blade, choose **Resources managed by**, select the Datasource type for which you want to configure protection, and select the Solution (limited to Azure Backup and Azure Site Recovery) through which you want to recover the item.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-data-source-type.png" alt-text="Screenshot shows the selection of datasource type." lightbox="./media/tutorial-recover-deleted-item/select-data-source-type.png":::
 
