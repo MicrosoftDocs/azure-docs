@@ -145,7 +145,7 @@ To support your function code, you need to create three resources:
 
     This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
 
-    Because you created the app without specifying an [always ready instances](#set-always-ready-instances) count, executions are free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), executions are free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 ### [Azure portal](#tab/azure-portal)
 
