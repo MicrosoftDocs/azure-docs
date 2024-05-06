@@ -4,32 +4,29 @@ description: include file
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: include
-ms.date: 04/23/2024
+ms.date: 05/03/2024
 ms.author: rogarana
 ms.custom: include file
 ---
 
-The following list contains Ultra Disks's limitations:
-- Can't be used as OS disks.
-- Doesn't support disk export.
-- Doesn't support VM images.
-- Doesn't support availability sets.
-- Doesn't support Azure Disk Encryption.
-    - Can't be attached to existing VMs previously encrypted with Azure Disk Encryption.
-- Doesn't support Azure Site Recovery.
-- Doesn't support disk caching.
-- Must deallocate your VM or detach your ultra disk in order to expand your Ultra Disk
-- Existing disks currently can't change their type to an Ultra Disk. They must be [migrated](../articles/virtual-machines/disks-convert-types.md#migrate-to-premium-ssd-v2-or-ultra-disk).
-- Currently only supports Single VM and Availability zone infrastructure options.
+The following list contains Ultra Disk's limitations:
+- Ultra Disk can't be used as an OS disk.
+- Currently, Ultra Disk only supports Single VM and Availability zone infrastructure options.
+- Ultra Disk doesn't support availability sets.
+- The size of an Ultra disk can't be expanded without either deallocating the VM or detaching the Ultra disk.
+- Existing disks currently can't change their type to an Ultra disk. They must be [migrated](../articles/virtual-machines/disks-convert-types.md#migrate-to-premium-ssd-v2-or-ultra-disk).
+- Azure Disk Encryption isn't supported for VMs with Ultra disks. We recommend you to use encryption at rest with platform-managed or customer-managed keys, which is supported for Ultra Disk.
+- Azure Site Recovery isn't supported for VMs with Ultra disks.
+- Ultra Disk doesn't support disk caching.
 - Snapshots are supported with [additional limitations](../articles/virtual-machines/disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks).
-- Azure Backup support for VMs with Ultra Disks is [generally available](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support). Azure Backup has limitations when using Ultra Disks, see [VM storage support](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support) for details.
+- Azure Backup support for VMs with Ultra disks is [generally available](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support). Azure Backup has limitations when using Ultra disks, see [VM storage support](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support) for details.
 
 Ultra disks support a 4k physical sector size by default but also supports a 512E sector size. Most applications are compatible with 4k sector sizes, but some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
 
-The following table outlines the regions ultra disks are available in, and their corresponding availability options.
+The following table outlines the regions Ultra disks are available in, and their corresponding availability options.
 
 > [!NOTE]
-> If a region in the following list lacks availability zones that support ultra disks, then a VM in that region must be deployed without infrastructure redundancy in order to attach an ultra disk.
+> If a region in the following list lacks availability zones that support Ultra disks, then a VM in that region must be deployed without infrastructure redundancy in order to attach an Ultra disk.
 
 | Redundancy options | Regions |
 |--------------------|---------|
@@ -38,7 +35,7 @@ The following table outlines the regions ultra disks are available in, and their
 | **Two availability zones** | South Africa North <br/> China North 3 <br/>France Central <br/>Italy North <br/>Qatar Central <br/> Switzerland North |
 | **Three availability zones** | Australia East<br/>Canada Central<br/>North Europe, West Europe<br/>Japan East<br/>Southeast Asia<br/>Sweden Central<br/>UK South<br/>Central US, East US, East US 2, West US 2, West US 3 |
 
-Not every VM size is available in every supported region with ultra disks. The following table lists VM series that are compatible with ultra disks.
+Not every VM size is available in every supported region with Ultra disks. The following table lists VM series that are compatible with Ultra disks.
 
 |VM Type     |Sizes    |Description  |
 |------------|---------|-------------|
