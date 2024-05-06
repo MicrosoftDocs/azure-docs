@@ -8,7 +8,7 @@ ms.date: 05/05/2024
 
 # Test locally with Event Hubs emulator 
 
-This article summarizes the steps to develop and test locally with Event hubs emulator. To read more about Event hubs read [here](event-hubs-about.md)
+This article summarizes the steps to develop and test locally with Event hubs emulator. To read more about Event hubs read [here.](event-hubs-about.md)
 
 ## Pre-Requisites
 
@@ -18,7 +18,7 @@ This article summarizes the steps to develop and test locally with Event hubs em
   - 2 GB RAM
   - 5 GB of Disk space
 - WSL Enablement (Only for Windows):
-  - [Install Windows Subsytem for Linux(WSL) | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/install)
+  - [Install Windows Subsytem for Linux (WSL) | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/install)
   -  [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart.)
 
 > [!NOTE]
@@ -32,8 +32,8 @@ This article summarizes the steps to develop and test locally with Event hubs em
 
 ### [Docker](#tab/Docker) 
 
-1. Event Hub emulator is available as docker container image. You can download the latest image from MCR endpoint
-2. Emulator has dependency on Azurite so we should spin up Azurite as well. 
+1. Event Hubs emulator is available as docker container image. You can download the latest image from MCR endpoint.
+2. SInce Event hubs emulator has dependency on Azurite, you must download Azurite as well. 
 
 ---
 ## Running the emulator 
@@ -43,31 +43,30 @@ This section highlights different steps to run Event Hubs emulator. Details are 
 ### [Automated Script](#tab/automated-script)
 
 ### Windows
-Once the prerequisites are complete, you could follow below manual steps to run Event Hubs emulator locally.
-
+After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 1. Before executing the setup script, we need to allow execution of unsigned scripts. Run the below command in the powershell window:
 
 `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser’`
 
-2. Download the repository and execute `~\Messaging-Emulator\EventHub\Execution_Scripts\Windows\LaunchEmulator.ps1`.Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
+2. Download the repository and execute `~\Messaging-Emulator\EventHub\Execution_Scripts\Windows\LaunchEmulator.ps1`. Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 3. Once the steps are successful, you could find containers running in Docker Desktop.
 
 ### Linux
-Once the prerequisites  are complete, you could follow below manual steps to run Event Hubs emulator locally. 
+After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
-1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` .Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
+1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` . Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 2. Once the steps are successful, you could find containers running in Docker.
 
 ### MacOS
-Once the prerequisites  are complete, you could follow below manual steps to run Event Hubs emulator locally. 
+After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
-1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` .Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
+1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` . Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 2. Once the steps are successful, you could find containers running in Docker.
 
 
 ### [Docker (Linux Container)](#tab/docker-linux-container)
 
-You could use below Yaml file to spin up EH emulator along with its dependencies. 
+Copy the following .Yaml file to spin up Event Hubs emulator along with its dependencies. 
 
 ```yaml
 version: '3'
