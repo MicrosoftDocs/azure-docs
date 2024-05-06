@@ -2,7 +2,7 @@
 ms.author: dbasantes
 title: Azure Communication Services Call Recording Bring Your Own Storage
 titleSuffix: An Azure Communication Services document
-description: Private Preview quickstart for Bring your own storage
+description: Quickstart for Bring your own storage
 author: dbasantes
 services: azure-communication-services
 ms.date: 03/17/2023
@@ -16,19 +16,19 @@ ms.custom: mode-api, devx-track-extended-java
 
 This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
 
-## Pre-requisite: Setting up Managed Identity and RBAC role assignments
+## Pre-requisite: Setting up Managed Identity and Role Based Access Controls(RBAC) role assignments
 
 ### 1. Enable system assigned managed identity for Azure Communication Services
 
 ![Diagram showing a communication service resource with managed identity disabled](../media/byos-managed-identity-1.png)
 
 1. Open your Azure Communication Services resource. Navigate to *Identity* on the left.
-2. System Assigned Managed Identity is disabled by default. Enable it and click on *Save*
+2. Enabled System Assigned Managed Identity and click on *Save*.
 3. Once completed, you're able to see the Object principal ID of the newly created identity.
 
 ![Diagram showing a communication service resource with managed identity enabled](../media/byos-managed-identity-2.png)
 
-4. Now that identity has been successfully created, click on *Azure role assignments* to start adding role assignments.
+4. Once the identity has been successfully created, click on *Azure role assignments* to start adding role assignments.
 
 ### 2. Add role assignment
 
@@ -63,7 +63,7 @@ Use the server call ID received during initiation of the call.
 
 ### Notification on successful export
 
-Use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action, to notify your services when the recorded media is ready and have been exported to the external storage location.
+Use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action, to notify your services when the recorded media is ready and exported to the external storage location.
 
 Refer to this example of the event schema.
 
