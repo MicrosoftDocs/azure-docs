@@ -17,7 +17,7 @@ ms.author: pafarley
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
+The [Find Similar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
 
 This guide demonstrates how to use the Find Similar feature in the different language SDKs. The following sample code assumes you have already authenticated a Face client object. For details on how to do this, follow a [quickstart](../quickstarts-sdk/identity-client-library.md).
 
