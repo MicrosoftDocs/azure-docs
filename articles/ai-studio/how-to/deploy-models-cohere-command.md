@@ -16,7 +16,7 @@ ms.custom: [references_regions]
 
 In this article, you learn how to use Azure AI Studio to deploy the Cohere Command models as Serverless APIs with pay-as-you-go token based billing.
 
-Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). These models are available as Serverless API with pay-as-you-go token based billing. You can browse the Cohere family of models in the [model catalog](model-catalog.md) by filtering on the Cohere collection.
+Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). These models are available as Serverless APIs with pay-as-you-go token based billing. You can browse the Cohere family of models in the [model catalog](model-catalog.md) by filtering on the Cohere collection.
 
 ## Cohere Command models 
 
