@@ -6,7 +6,7 @@ ms.date: 05/08/2024
 ms.author: robece
 ---
 
-# Webhooks event handlers for namespace topic's push delivery
+# Webhook event handler for namespace topic's push delivery (Preview)
 
 You can set up a webhook endpoint to handle events on a specific namespace topic by subscribing to it. Any public endpoint can be used as an event handler if it uses encryption in transit (`HTTPS`), can read events that use a supported [CloudEvents metadata format](concepts-event-grid-namespaces.md#cloudevents-support), and handle the webhook validation. 
 
