@@ -3,7 +3,7 @@ title: Language runtime support policy
 description: Learn about the language runtime support policy for Azure App Service.
 author: jeffwmartinez
 ms.topic: article
-ms.date: 12/23/2023
+ms.date: 05/06/2024
 ms.author: jefmarti
 ms.custom: devx-track-extended-java
 ---
@@ -60,59 +60,37 @@ To learn more about how to update language versions for your App Service applica
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). 
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, 17, and 21. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). 
 
 # [Linux](#tab/linux)
 
 | **Java stack name**       | **Linux distribution** | **Java distribution** |
 | ----------------------- | ------------- | ------------------------- |
-| Java 8, Java SE         | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
-| Java 11, Java SE        | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
-| Java 17, Java SE        | Ubuntu        | MSFT OpenJDK 17           |
-| Java 8, Tomcat 8.5      | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
-| Java 11, Tomcat 8.5     | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
-| Java 8, Tomcat 9.0      | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
-| Java 11, Tomcat 9.0     | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
-| Java 17, Tomcat 9.0     | Ubuntu        | MSFT OpenJDK 17           |
-| Java 8, Tomcat 10.0     | Ubuntu        | Adoptium Temurin 8        |
-| Java 11, Tomcat 10.0    | Ubuntu        | MSFT OpenJDK 11           |
-| Java 17, Tomcat 10.0    | Ubuntu        | MSFT OpenJDK 17           |
-| Java 11, Tomcat 10.1    | Ubuntu        | MSFT OpenJDK 11           |
-| Java 17, Tomcat 10.1    | Ubuntu        | MSFT OpenJDK 17           |
-| Java 8, JBoss 7.3       | Ubuntu        | Adoptium Temurin 8        |
-| Java 11, JBoss 7.3      | Ubuntu        | MSFT OpenJDK 11           |
-| Java 8, JBoss 7.4       | Ubuntu        | Adoptium Temurin 8        |
-| Java 11, JBoss 7.4      | Ubuntu        | MSFT OpenJDK 11           |
-| Java 17, JBoss 7.4      | Ubuntu        | MSFT OpenJDK 17           |
-
-<!-- | **Java stack name**       | **Linux distribution** | **Java distribution** |
-| ----------------------- | ------------- | ------------------------- |
 | Java 8                  | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
 | Java 11                 | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
 | Java 17                 | Ubuntu        | MSFT OpenJDK 17           |
-| Java 21\*\*             | Ubuntu        | MSFT OpenJDK 21           |
+| Java 21                 | Ubuntu        | MSFT OpenJDK 21           |
 | Tomcat 8.5 Java 8       | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
 | Tomcat 8.5 Java 11      | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
 | Tomcat 9.0 Java 8       | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
 | Tomcat 9.0 Java 11      | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
 | Tomcat 9.0 Java 17      | Ubuntu        | MSFT OpenJDK 17           |
-| Tomcat 9.0 Java 21\*\*  | Ubuntu        | MSFT OpenJDK 21           |
+| Tomcat 9.0 Java 21      | Ubuntu        | MSFT OpenJDK 21           |
 | Tomcat 10.0 Java 8      | Ubuntu        | Adoptium Temurin 8        |
 | Tomcat 10.0 Java 11     | Ubuntu        | MSFT OpenJDK 11           |
 | Tomcat 10.0 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
 | Tomcat 10.1 Java 11     | Ubuntu        | MSFT OpenJDK 11           |
 | Tomcat 10.1 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
-| Tomcat 10.1 Java 21\*\* | Ubuntu        | MSFT OpenJDK 21           |
-| Tomcat 11 Java 21 \*\*  | Ubuntu        | MSFT OpenJDK 21           |
+| Tomcat 10.1 Java 21     | Ubuntu        | MSFT OpenJDK 21           |
+| Tomcat 11 Java 21       | Ubuntu        | MSFT OpenJDK 21           |
 | JBoss 7.3 Java 8        | Ubuntu        | Adoptium Temurin 8        |
 | JBoss 7.3 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
 | JBoss 7.4 Java 8        | Ubuntu        | Adoptium Temurin 8        |
 | JBoss 7.4 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
 | JBoss 7.4 Java 17       | Ubuntu        | MSFT OpenJDK 17           |
-| JBoss 8 Java 17\*\*     | Ubuntu        | MSFT OpenJDK 17           |
-| JBoss 8 Java 21\*\*     | Ubuntu        | MSFT OpenJDK 21           |
+| JBoss 8 Java 17         | Ubuntu        | MSFT OpenJDK 17           |
+| JBoss 8 Java 21         | Ubuntu        | MSFT OpenJDK 21           |
 
-\*\* Upcoming versions  -->
 
 \* Alpine 3.16 is the last supported Alpine distribution in App Service. It's recommended to pin to a version to avoid switching over to Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible.
 
