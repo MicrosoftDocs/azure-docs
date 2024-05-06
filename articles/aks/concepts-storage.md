@@ -175,7 +175,7 @@ Unless you specify a StorageClass for a persistent volume, the default StorageCl
 >
 > The `default` class will be the same as `managed-csi`.
 >
-> Effective from Kubernetes version 1.29, when deploying Azure Kubernetes Service (AKS) clusters across multiple availability zones, AKS now utilizes zone-redundant storage (ZRS) to create Managed Disks within built-in storage classes. ZRS ensures synchronous replication of your Azure managed disk across three Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and safeguards your data against datacenter failures.
+> Effective starting with Kubernetes version 1.29, when you deploy Azure Kubernetes Service (AKS) clusters across multiple availability zones, AKS now utilizes zone-redundant storage (ZRS) to create managed disks within built-in storage classes. ZRS ensures synchronous replication of your Azure managed disk across three Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and safeguards your data against datacenter failures.
 
 However, it's important to note that zone-redundant storage (ZRS) comes at a higher cost compared to locally redundant storage (LRS). If cost optimization is a priority, consider adjusting the skuname parameter to use Azure LRS managed disks in the storage class associated with your Persistent Volume Claim (PVC).
 
