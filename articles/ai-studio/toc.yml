@@ -80,16 +80,14 @@ items:
     items:
     - name: Data for your copilot
       items:
-      - name: Retrieval augmented generation (RAG)
-        items:
-        - name: Overview of RAG
-          href: concepts/retrieval-augmented-generation.md
-          displayName: RAG
-        - name: Add data to your project
-          href: how-to/data-add.md
-          displayName: index
-        - name: Create a vector index
-          href: how-to/index-add.md
+      - name: Overview of retrieval augmented generation (RAG)
+        href: concepts/retrieval-augmented-generation.md
+        displayName: RAG
+      - name: Add data to your project
+        href: how-to/data-add.md
+        displayName: index
+      - name: Create a vector index
+        href: how-to/index-add.md
     - name: Build apps with prompt flow in AI Studio
       items:
       - name: Prompt flow overview
