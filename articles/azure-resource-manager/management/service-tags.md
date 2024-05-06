@@ -29,7 +29,7 @@ The Azure Resource Manager service tag helps you define network access, but it s
 * Doesn't provide granular control over individual IP addresses.
 * Shouldn't be relied upon as the sole method for securing a network.
 
-## Monitoring and Automation
+## Monitoring and automation
 
 When monitoring your infrastructure, use the specific IP address prefixes that are associated with a service tag in the Azure networking stack.
 
