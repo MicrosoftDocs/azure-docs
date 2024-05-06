@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 10/18/2023
-ms.custom: engagement-fy24
+ms.custom: vmware-scenario-422, engagement-fy24
 ---
 # Azure Migrate agentless migration of VMware virtual machines
 
@@ -17,7 +17,7 @@ This article describes the replication concepts when migrating VMware VMs using 
 
 The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from virtual machine disks. The following block diagram shows you various steps involved when you migrate your virtual machines using the Migration and modernization tool.
 
- ![Migration steps.](./media/concepts-vmware-agentless-migration/migration-phases.png)
+ ![Migration steps.](../media/concepts-vmware-agentless-migration/migration-phases.png)
 
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks is replicated to managed disks in your target subscription.
 
@@ -169,7 +169,7 @@ We use the following constraints to ensure that we don't exceed the IOPS limits 
 
 Azure Migrate supports concurrent replication of 500 virtual machines. When you're planning to replicate more than 300 virtual machines, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Migrate primary appliance but consists only of gateway agent to facilitate data transfer to Azure. The following diagram shows the recommended way to use the scale-out appliance.
 
-![Scale-out configuration.](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
+![Scale-out configuration.](../media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
 You can deploy the scale-out appliance anytime after configuring the primary appliance, but isn't required until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
@@ -199,7 +199,7 @@ You could create a policy on the Azure Migrate appliance to throttle replication
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
-You can also increase and decrease replication bandwidth based on a schedule using the [sample script](./common-questions-server-migration.md).
+You can also increase and decrease replication bandwidth based on a schedule using the [sample script](../common-questions-server-migration.md).
 
 ### Blackout window
 

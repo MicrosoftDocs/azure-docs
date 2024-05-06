@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 12/08/2022
-ms.custom: mvc, engagement-fy23
+ms.custom: vmware-scenario-422, mvc, engagement-fy23
 ---
 
 # Troubleshoot slow replication or stuck migration issues in agentless VMware migration 

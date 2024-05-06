@@ -7,12 +7,12 @@ ms.manager: kmadnani
 ms.topic: tutorial
 ms.date: 01/24/2024
 ms.service: azure-migrate
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Migrate VMware VMs to Azure (agentless) - PowerShell
 
-In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool).
+In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool).
 
 You learn how to:
 
@@ -78,7 +78,7 @@ Write-Output $MigrateProject
 
 ## Retrieve discovered VMs in an Azure Migrate project
 
-Azure Migrate and Modernize uses a lightweight [Azure Migrate appliance](migrate-appliance-architecture.md). As part of the prerequisites, you deployed the Azure Migrate appliance as a VMware VM.
+Azure Migrate and Modernize uses a lightweight [Azure Migrate appliance](../migrate-appliance-architecture.md). As part of the prerequisites, you deployed the Azure Migrate appliance as a VMware VM.
 
 To retrieve a specific VMware VM in an Azure Migrate project, specify the name of the Azure Migrate project (`ProjectName`), the resource group of the Azure Migrate project (`ResourceGroupName`), and the VM name (`DisplayName`).
 
@@ -109,7 +109,7 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 ## Initialize replication infrastructure
 
-[Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) uses multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
+[Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) uses multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
 
 - **Service bus**: Migration and modernization uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Migration and modernization uses the gateway storage account to store state information about the VMs being replicated.
@@ -323,7 +323,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## Update properties of a replicating VM
 
-[Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) allows you to change target properties, such as name, size, resource group, NIC configuration, and so on, for a replicating VM.
+[Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) allows you to change target properties, such as name, size, resource group, NIC configuration, and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 
@@ -504,13 +504,13 @@ Write-Output $MigrateJob.State
 ## Post-migration best practices
 
 - For increased resilience:
-    - Keep data secure by backing up Azure VMs by using Azure Backup. [Learn more](../backup/quick-backup-vm-portal.md).
-    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Azure Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+    - Keep data secure by backing up Azure VMs by using Azure Backup. [Learn more](../../backup/quick-backup-vm-portal.md).
+    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Azure Site Recovery. [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
-    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
-    - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../../update-manager/overview.md).
+    - Restrict network traffic to management endpoints with [network security groups](../../virtual-network/network-security-groups-overview.md).
+    - Deploy [Azure Disk Encryption](../../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
-   - Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
+   - Consider deploying [Microsoft Cost Management](../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 10/18/2022
-ms.custom: engagement-fy23
+ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 
@@ -20,7 +20,7 @@ This article helps you understand how to test replicating virtual machines. Test
 
 Before you get started, perform the following steps:
 
-- [Create](create-manage-projects.md) an Azure Migrate project.
+- [Create](../create-manage-projects.md) an Azure Migrate project.
 - Deploy the  appliance for your scenario and complete the discovery of virtual machines.
 - Configure replication for one or more virtual machines that are to be migrated.
 
@@ -29,8 +29,8 @@ Before you get started, perform the following steps:
 
 Review the following tutorials based on your environment:
 - [Migrating VMware VMs with agentless migration](./tutorial-migrate-vmware.md).
-- [Migrating Hyper-V VMs to Azure](./tutorial-migrate-hyper-v.md).
-- [Migrating machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md)
+- [Migrating Hyper-V VMs to Azure](../tutorial-migrate-hyper-v.md).
+- [Migrating machines as physical servers to Azure](../tutorial-migrate-physical-virtual-machines.md)
 
 
 ## Setting up your test environment
@@ -61,7 +61,7 @@ The test environment boundaries would  depend on the network setting of the VNet
 
  Select the VNet and subnet for test migration from the **Target settings** tab. These settings can be overridden later in the **Compute and Network** tab of the replicating VM or while starting test migration of the replicating VM.
 
-:::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-during-start-replication-flow.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
+:::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-during-start-replication-flow.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
 
 ## Changing test migration virtual network and subnet of a replicating machine (Agentless VMware migration)
 
@@ -69,23 +69,23 @@ You can change the VNet and subnet of a replicating machine by following the ste
 
 1. Select  the virtual machine from the list of currently replicating virtual machines
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-1.png" alt-text="Screenshot shows the contents of replicating machine screen. It contains a list of replicating machine.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-1.png" alt-text="Screenshot shows the contents of replicating machine screen. It contains a list of replicating machine.":::
 
 2. Select **Compute and Network** option under **General**.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine.":::
 
 3. Select the virtual network from the **Test migration** column. It's important to select the VNet in this drop down for test migration to be able to select subnet for each Network Interface Card (NIC) in the following steps.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-3.png" alt-text="Screenshot shows where to select VNet in replicating machine's network and compute options.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-3.png" alt-text="Screenshot shows where to select VNet in replicating machine's network and compute options.":::
 
 4. Select the NIC's name to check its settings. You can select the subnet for each of the NICs of the VM.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-4.png" alt-text="Screenshot shows how to select a subnet for each Network Interface Card of replicating machine in the network and compute options of replicating machine.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-4.png" alt-text="Screenshot shows how to select a subnet for each Network Interface Card of replicating machine in the network and compute options of replicating machine.":::
 
 5. To change the settings, select edit. Change the setting for the NIC in the new form. Select **OK**. 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after clicking the pencil icon next to Network Interface Card's name in the network and compute screen.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after clicking the pencil icon next to Network Interface Card's name in the network and compute screen.":::
 
 6. Select **Save**. Changes aren't saved until you can see the colored square next to the NIC's name.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-6.png" alt-text="Screenshot shows the network and compute options screen of replicating machine and highlights the save button.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-6.png" alt-text="Screenshot shows the network and compute options screen of replicating machine and highlights the save button.":::
