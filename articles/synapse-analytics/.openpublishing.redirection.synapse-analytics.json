@@ -2,7 +2,7 @@
     "redirections": [
         {
           "source_path": "/articles/synapse-analytics/quickstart-create-apache-gpu-pool-portal.md",
-          "redirect_url": "/azure/synapse-analytics/spark",
+          "redirect_url": "/azure/synapse-analytics/quickstart-apache-spark-notebook",
           "redirect_document_id": true
         },
         {
