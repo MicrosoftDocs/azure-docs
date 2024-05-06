@@ -16,20 +16,20 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-This article describes summary rules in Microsoft Sentinel, which you can use to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is pre-compiled to provide a fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
+This article describes summary rules in Microsoft Sentinel, which you can use to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled to provide a fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
 
-- Access dynamic summary data via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
-- Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use dynamic summary data for longer in historical investigations, hunting, and compliance activities.
+- **Access dynamic summary data via Kusto Query Language (KQL)** across detection, investigation, hunting, and reporting activities.
+- **Run high performance KQL queries** on summarized data.
+- **Use dynamic summary data for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
 
-Dynamic summaries are stored separately from the raw data, and can therefore be retained for longer periods of time. While raw data is stored in low-cost data lake logs, summarized data is stored in analytics log data for high performance and full feature support.
+
+Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](/azure/azure-monitor/logs/summary-rules?branch=pr-en-us-272706) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
-
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+>
 
 ## Prerequisites
 
@@ -37,7 +37,8 @@ To use summary rules in Microsoft Sentinel:
 
 - Microsoft Sentinel must be enabled in at least one workspace, and actively consume logs.
 - You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
-- **SummaryLogs** diagnostic settings must be enabled on your workspace. If this isn't done ahead of time, you'll be prompted to enable this when creating your first rule. For more information, see TBD xref.<!--fix xref-->
+- **SummaryLogs** diagnostic settings must be enabled on your workspace. If this isn't done ahead of time, you're prompted to enable SummaryLogs diagnostic settings when creating your first rule. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
+
 - To use summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Create a summary rule
@@ -92,30 +93,6 @@ Existing summary rules are listed on the **Summary rules (Preview)** page, where
 - Edit the rule configuration
  
 To delete a rule, select the rule row and then select **Delete** in the toolbar at the top of the page.
-
-## Sample summary rule usage
-
-The following sections describe sample scenarios where we'd recommend using summary rules to create large sets of aggregated data.
-
-TBD <!--yael pick 3-->
-
-## Summary rules support scope
-
-The following table lists scope limits for Microsoft Sentinel summary rules:
-
-|Title  |Description  |
-|---------|---------|
-|**Maximum number of enabled rules in each workspace**     | 10        |
-|**Maximum number of results per summary run**     | 500,000        |
-|**Maximum result volume per summary run**     | 100 MB        |
-|**Time out for each summary run** | 10 minutes. If the run times out and fails, the run is skipped and can't be re-run. |
-|**KQL language limits**     |  Depend on the log tier used in your query, as follows: <br><br>- **Analytics logs** suppport all KQL commands, except for the `bag unpack`, `narrow`, and `pivot` data reshaping plugins. <br><br>- **Auxillary logs** / **Basic logs** support all KQL commands on a single Basic log table, except for `summarize` and `join`. Instead, use `lookup` for up to five Analytics tables.<br><br>- **Functions** include support for system functions provided by Microsoft only. User-defined functions aren't supported.    |
-|**Input data**     |   Summary rules process only incoming data, and can't be configured on a historical time range.      |
-
-<!--where do aux logs fit in here?-->
-<!--what does it mean that it can't be re-run?-->
-<!--Cross-resource including workspaces(), app(), resource(), ADX() and arg() aren’t supported in the private preview. -->
-
 
 ## Related content
 

@@ -6,11 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-<<<<<<< HEAD
-ms.date: 05/05/2024
-=======
-ms.date: 04/11/2024
->>>>>>> 967784ba4892243ce69e1e0e620e1a44b1c8171c
+ms.date: 05/06/2024
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
