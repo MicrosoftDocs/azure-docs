@@ -67,7 +67,7 @@ Run an assessment as follows:
     
 1. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
+    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
  
 
 1. In **Assessment settings**, set the necessary values or retain the default values:
@@ -104,7 +104,7 @@ Run an assessment as follows:
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Assessment properties":::
+    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Assessment properties":::
 
 1. In **Assess Servers**, select **Next**.
 
@@ -112,7 +112,7 @@ Run an assessment as follows:
  
 1. In **Select or create a group** > select **Create New** and specify a group name. 
     
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
+    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
  
 1. Select the appliance and select the servers that you want to add to the group. Then select **Next**.
 
@@ -142,7 +142,7 @@ To view an assessment:
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
+    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
 
 1. Review the assessment summary.
  

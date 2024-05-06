@@ -27,7 +27,7 @@ Use the following steps to monitor the replication status for your virtual machi
 
 1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
   
-    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
+    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
 
 1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM**.
 

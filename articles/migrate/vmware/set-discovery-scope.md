@@ -39,7 +39,7 @@ You can't scope inventory discovery at the vCenter Server folder level. If you n
 1. On the appliance vCenter Server account you're using for discovery, apply the **Read-only** role for all parent objects that host servers you want to discover and assess (host, cluster, hosts folder, clusters folder, up to datacenter).
 2. Propagate these permissions  to child objects in the hierarchy.
 
-    ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
+    ![Assign permissions](../media/tutorial-assess-vmware/assign-perms.png)
 
 ### Assign a role for agentless migration
 

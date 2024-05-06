@@ -31,7 +31,7 @@ Agent-based migration is used to migrate on-premises VMware VMs and physical ser
 
 The diagram illustrates the components involved in agent-based migration.
 
-![Diagram shows the components for agent-based migration, which are explained in a table.](./media/agent-based-replication-architecture/architecture.png)
+![Diagram shows the components for agent-based migration, which are explained in a table.](../media/agent-based-replication-architecture/architecture.png)
 
 The table summarizes the components used for agent-based migration.
 

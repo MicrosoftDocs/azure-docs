@@ -54,11 +54,11 @@ Run an assessment as follows:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-   ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   ![Screenshot of Get started screen.](../media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess** and select **Azure VM**.
 
-    ![Screenshot of Discovery and assessment screen.](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
+    ![Screenshot of Discovery and assessment screen.](../media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
@@ -68,7 +68,7 @@ Run an assessment as follows:
     
 1. Select **Edit** to review the assessment properties.
 
-    ![Screenshot of View all button to review assessment properties.](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    ![Screenshot of View all button to review assessment properties.](../media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. In **Assessment properties** > **Target Properties**:
    - In **Target location**, specify the Azure region to which you want to migrate.
@@ -114,7 +114,7 @@ Run an assessment as follows:
 
 1. In **Select or create a group**, select **Create New** and specify a group name. 
     
-     ![Screenshot of adding VMs to a group.](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
+     ![Screenshot of adding VMs to a group.](../media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
 
 1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
@@ -173,7 +173,7 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
-![Screenshot of Confidence rating.](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
+![Screenshot of Confidence rating.](../media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
 
 The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
@@ -196,7 +196,7 @@ Confidence ratings are as follows.
 
 In the Assessment report, you can see a list of errors if there are any issues faced by the assessment service for any VM. To troubleshoot the issues, select **Details** in the **Issues** column to view errors corresponding to a VM. A context pane will open with detailed information about the errors. Use this information to resolve the issues.
 
-![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
+![Screenshot of issue details.](../media/tutorial-assess-vmware-azure-vm/issue-details.png)
 
 ## Next steps
 

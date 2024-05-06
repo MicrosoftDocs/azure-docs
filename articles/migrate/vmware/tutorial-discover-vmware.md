@@ -56,7 +56,7 @@ To set Contributor or Owner permissions in the Azure subscription:
 
 1. In the Azure portal, search for "subscriptions." Under **Services** in the search results, select **Subscriptions**.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Screenshot that shows how to search for an Azure subscription in the search box.":::
+    :::image type="content" source="../media/tutorial-discover-vmware/search-subscription.png" alt-text="Screenshot that shows how to search for an Azure subscription in the search box.":::
 
 1. In **Subscriptions**, select the subscription in which you want to create a project.
 
@@ -100,7 +100,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 1. Select the user account, and then select **Read-only** to assign the role to the account. Select **OK**.
 1. To be able to start discovery of installed applications and agentless dependency analysis, in the menu under **Access Control**, select **Roles**. In the **Roles** pane, under **Roles**, select **Read-only**. Under **Privileges**, select **Guest operations**. To propagate the privileges to all objects in the vCenter Server instance, select the **Propagate to children** checkbox.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Screenshot that shows the vSphere web client and how to create a new account and select user roles and privileges.":::
+    :::image type="content" source="../media/tutorial-discover-vmware/guest-operations.png" alt-text="Screenshot that shows the vSphere web client and how to create a new account and select user roles and privileges.":::
 
 > [!NOTE]
 > - For vCenter Server 7.x and above you must clone the Read Only system role and add the Guest Operations Privileges to the cloned role.  Assign the cloned role to the vCenter Account. Learn how to [create a custom role in VMware vCenter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html). 
@@ -244,7 +244,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
 1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
-    :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
+    :::image type="content" source="../media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
@@ -253,7 +253,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign in prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
-        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
+        :::image type="content" source="../media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]
         > If you close the sign in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
@@ -283,18 +283,18 @@ The appliance must connect to vCenter Server to discover the configuration and p
 
     Select **Add more** to save the previous details and add more vCenter Server details. **You can add up to 10 vCenter Servers per appliance.**
 
-    :::image type="content" source="./media/tutorial-discover-vmware/add-discovery-source.png" alt-text="Screenshot that allows to add more vCenter Server details.":::
+    :::image type="content" source="../media/tutorial-discover-vmware/add-discovery-source.png" alt-text="Screenshot that allows to add more vCenter Server details.":::
 
 1. The appliance attempts to validate the connection to the vCenter Server(s) added by using the credentials mapped to each vCenter Server. It displays the validation status with the vCenter Server(s) IP address or FQDN in the sources table.
 1. You can *revalidate* the connectivity to the vCenter Server(s) anytime before starting discovery.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Screenshot that shows managing credentials and discovery sources for vCenter Server in the appliance configuration manager.":::
+    :::image type="content" source="../media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Screenshot that shows managing credentials and discovery sources for vCenter Server in the appliance configuration manager.":::
 
 ### Provide server credentials
 
 In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of web apps in your VMware environment.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with vCenter Server discovery. You can change this option at any time.
 
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory, dependency analysis, and s q l server discovery.":::
+:::image type="content" source="../media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory, dependency analysis, and s q l server discovery.":::
 
 If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
 
@@ -321,7 +321,7 @@ In the configuration manager, in the credentials table, see the **Validation sta
 
 If validation fails, you can select a **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
 
-:::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+:::image type="content" source="../media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
 
 ### Start discovery
 
@@ -339,7 +339,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 * Web apps and SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses TLS to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
+    :::image type="content" source="../media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 
 To start vCenter Server discovery, select **Start discovery**. After the discovery is successfully initiated, you can check the discovery status by looking at the vCenter Server IP address or FQDN in the sources table.
 
@@ -349,7 +349,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 1. Select **Refresh** to view discovered data.
 1. Select the discovered servers count to review the discovered inventory. You can filter the inventory by selecting the appliance name and selecting one or more vCenter Servers from the **Source** filter.
 
-   :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
+   :::image type="content" source="../media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
 
 Details such as OS license support status, inventory, database instances, etc. are displayed. 
 
