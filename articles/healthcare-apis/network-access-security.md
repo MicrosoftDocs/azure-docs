@@ -6,7 +6,7 @@ author: timritzer
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 05/06/2024
 ms.author: jasteppe
 ---
 
