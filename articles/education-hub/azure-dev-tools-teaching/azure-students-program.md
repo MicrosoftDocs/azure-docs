@@ -14,7 +14,7 @@ Through the Azure Dev Tools for Teaching program, students who have a current an
 
 Azure for Students gives you a $100 credit for 12 months. It includes access to more than 25 free services, including compute, network, storage, and databases. Any charges that you incur during this period are deducted from the credit. You can see your remaining credit on the [Azure Sponsorships portal](https://www.microsoftazuresponsorships.com/).
 
-After you exhaust your available credit or reach the end of 12 months, your Azure subscription is disabled. If you reach the end of your 12 months and are still a student, you can renew your Azure for Students offer. We'll notify you shortly before your 12-month anniversary to let you know how to renew.
+After you exhaust your available credit or reach the end of 12 months, your Azure subscription is canceled. If you reach the end of your 12 months and are still a student, you can renew your Azure for Students offer. We'll notify you shortly before your 12-month anniversary to let you know how to renew.
 
 If your student status is no longer valid after the offer expires, you can't renew. In such a case, if you want to keep using Azure services, you can upgrade to a pay-as-you-go subscription in the Azure portal.
 

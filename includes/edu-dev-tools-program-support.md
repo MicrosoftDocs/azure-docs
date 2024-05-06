@@ -8,4 +8,4 @@ ms.date: 06/30/2020
 ms.service: azure
 ---
 
-If you need help with signing in, setting up, or using Azure Dev Tools for Teaching, go to [Plans Support](https://azureforeducation.microsoft.com/institutions/Contact) and locate your region.
+If you need help with signing in to, setting up, or using Azure Dev Tools for Teaching, go to [Plans Support](https://azureforeducation.microsoft.com/institutions/Contact) and locate your region.

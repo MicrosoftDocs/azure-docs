@@ -10,8 +10,7 @@ ms.service: azure-education
 
 # What is Azure Dev Tools for Teaching?
 
-Microsoft Azure Dev Tools for Teaching puts professional developer tools,
-software, and services from Microsoft in the hands of faculty and students. Plans in the program are part of various academic Volume Licensing agreements.
+Azure Dev Tools for Teaching puts professional developer tools, software, and services from Microsoft in the hands of faculty and students. Plans in the program are part of various academic Volume Licensing agreements.
 
 Students receive developer tools at no cost--everything they need to create apps, games, and websites. With this access, students can chase their dreams, create the next breakthrough in technology, or get a head start on their career.
 
@@ -26,13 +25,11 @@ We designed Azure Dev Tools for Teaching to help professors teach and help stude
 
 Your Azure Dev Tools for Teaching subscription gives you access to certain software developer tools. These tools are available to download for free. If you're a faculty member who is enrolled in an approved course, you're eligible to install Azure Dev Tools for Teaching software on your computer for noncommercial use.
 
+Students don't need to sign up for an Azure subscription to get their software benefits. Microsoft offers USD$100 in Azure credit for students, along with access to free Azure services. Students can sign up for the [Azure for Students offer](azure-students-program.md) without needing a credit card.
+
+The [Azure Education Hub](https://azureforeducation.microsoft.com/devtools) houses all products and services that are available to academic users. The Education Hub is built into the [Azure portal](https://portal.azure.com/). Students access software by signing in to the Azure portal with the same credentials that they use to access their Imagine subscription.
+
 Azure Dev Tools for Teaching is available in more than 140 countries/regions where Azure is commercially available. The Education Hub Store is available in the following languages: Arabic, Chinese Simplified, Chinese Traditional, Danish, Dutch, English, French, German, Hebrew, Italian, Japanese, Korean, Portuguese, Russian, Spanish, Swedish, and Turkish.
-
-## Student benefits
-
-Students don't need to sign up for an Azure subscription to access their software benefits. Microsoft offers USD$100 in Azure credit, plus access to free Azure services for students. Students can sign up for the [Azure for Students offer](azure-students-program.md) without needing a credit card.
-
-Software is accessible through an [Education Hub](https://azureforeducation.microsoft.com/devtools) that houses all products and services that are available to academic users. The Education Hub is built into the [Azure portal](https://portal.azure.com/). Students access software by signing in to the Azure portal with the same credentials that they use to access their Imagine subscription.
 
 ## Eligibility to purchase Azure Dev Tools for Teaching
 
