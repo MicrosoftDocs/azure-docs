@@ -70,11 +70,8 @@ To achieve the best performance with the `import` operation, consider these fact
 
 - Configure the FHIR server. The FHIR data must be stored in resource-specific files in FHIR NDJSON format on the Azure blob store. For more information, see [Configure import settings](configure-import-data.md).
 
-- All the resources in a file must be the same type. You can have multiple files for each resource type.
-
 - The data must be in the same tenant as the FHIR service.
 
-- The maximum number of files allowed for each `import` operation is 10,000.
 
 ### Make a call
 
@@ -312,6 +309,10 @@ Here are the error messages that occur if the `import` operation fails, along wi
 **Cause:** You reached the storage limit of the FHIR service.
 
 **Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
+## Limitations
+- The maximum number of files allowed for each `import` operation is 10,000.
+- The number of files ingested in the FHIR server with same lastUpdated field value upto milliseconds, cannot exceed beyond 10,000.
 
 ## Next steps
 

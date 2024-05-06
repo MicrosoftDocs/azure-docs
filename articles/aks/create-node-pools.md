@@ -125,7 +125,7 @@ The ARM64 processor provides low power compute for your Kubernetes workloads. To
 
 ### Limitations
 
-* ARM64 node pools aren't supported on Defender-enabled clusters.
+* ARM64 node pools aren't supported on Defender-enabled clusters with Kubernetes version less than 1.29.0.
 * FIPS-enabled node pools aren't supported with ARM64 SKUs.
 
 ### Add an ARM64 node pool
