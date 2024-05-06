@@ -56,8 +56,6 @@ For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/op
 
 ## Speech capabilities
 
-[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
-
 Azure AI Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
 
 ## Next steps
