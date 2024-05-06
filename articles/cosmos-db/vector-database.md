@@ -90,12 +90,14 @@ Retrieval-augmentated generation (RAG) is an architecture that augments the capa
 
 A simple RAG pattern using Azure Cosmos DB for NoSQL could be:
 
-1.	Insert data into an Azure Cosmos DB for NoSQL database and collection
-2.	Create embeddings from a data property using Azure OpenAI Embeddings
-3.	Link the Azure Cosmos DB for NoSQL to Azure Cognitive Search (for vector indexing/search)
-4.	Create a vector index over the embeddings properties
-5.	Create a function to perform vector similarity search based on a user prompt
-6.	Perform question answering over the data using an Azure OpenAI Completions model
+1. Enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](../how-to-vector-index-query.md)
+2. Setup a database and container with a container vector policy and vector index.
+3. Insert data into an Azure Cosmos DB for NoSQL database and container
+3.	Create embeddings from a data property using Azure OpenAI Embeddings
+4.	Link the Azure Cosmos DB for NoSQL.
+5.	Create a vector index over the embeddings properties
+6.	Create a function to perform vector similarity search based on a user prompt
+7.	Perform question answering over the data using an Azure OpenAI Completions model
 
 The RAG pattern, with prompt engineering, serves the purpose of enhancing response quality by offering more contextual information to the model. RAG enables the model to apply a broader knowledge base by incorporating relevant external sources into the generation process, resulting in more comprehensive and informed responses. For more information on "grounding" LLMs, see [grounding LLMs](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857). [[Go back](#vector-database-use-cases)]
 
@@ -104,6 +106,18 @@ Here are multiple ways to implement RAG on your data by using our integrated vec
 ## How to implement integrated vector database functionalities
 
 You can implement integrated vector database functionalities for the following [Azure Cosmos DB APIs](choose-api.md):
+
+### NoSQL API
+
+Store your vectors and data together in [Azure Cosmos DB NoSQL with built-in vector database capabilities](nosql/vector-search.md).  With Azure Cosmos DB NoSQL, you can create a vector index based on [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. 
+
+- [VectorDistance system function NoSQL queries](nosql/query/vectordistance.md)
+- [Vector indexing in Azure Cosmos DB for NoSQL](index-policy.md#vector-indexes)
+- [How to setup vector database capabilities in Azure Cosmos DB NoSQL](how-to-vector-index-query.md)
+- [Python notebook tutorial](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples)
+- [C# Solution accelerator for building AI apps](https://aka.ms/BuildModernAiAppsSolution)
+- [C# Azure Cosmos DB Chatbot with Azure OpenAI](https://aka.ms/cosmos-chatgpt-sample)
+
 
 ### API for MongoDB
 
@@ -131,12 +145,8 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 
 - Python: [Python notebook tutorial - food review chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-PostgreSQL_CognitiveSearch)
 
-### NoSQL API
 
-> [!NOTE]
-> For our NoSQL API, the native integration of a state-of-the-art vector indexing algorithm will be announced during Build in May 2024. Please stay tuned.
 
-The natively integrated vector databaseg in the NoSQL API is under development. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
 #### Code samples
 
