@@ -22,7 +22,7 @@ Microsoft’s Transparency Notes are part of a broader effort at Microsoft to pu
 
 ### Introduction
 
-Trial Matcher is a model that’s offered as part of Azure Health Insights cognitive service. You can use Trial Matcher to build solutions that help clinicians make decisions about whether further examination of potential eligibility for clinical trials should take place.
+Trial Matcher is a model that is part of Azure Health Insights service. You can use Trial Matcher to build solutions that help clinicians make decisions about whether further examination of potential eligibility for clinical trials should take place.
 Organizations can use the Trial Matcher model to match patients to potentially suitable clinical trials based on trial condition, site location, eligibility criteria, and patient details. Trial Matcher helps researchers and organizations match patients with trials based on the patient’s unique characteristics and find a group of potentially eligible patients to match to a list of clinical trials.
 
 
@@ -31,7 +31,7 @@ Organizations can use the Trial Matcher model to match patients to potentially s
 | Term | What is it |  
 |----------|---------------|
 | Patient centric | Trial Matcher, when powering a single patient trial search, helps a patient narrow down the list of potentially suitable clinical trials based on the patient’s clinical information. | 
-| Trial centric | Trial Matcher, when powering search for eligible patients to clinical trial, is   provided with list of clinical trials (one or more) and multiple patients’ information. The model is using the matching technology to find which patients could potentially be suitable for each trial. | 
+| Trial centric | Trial Matcher, when powering search for eligible patients to clinical trial, is provided with list of clinical trials (one or more) and multiple patients’ information. The model is using the matching technology to find which patients could potentially be suitable for each trial. | 
 | Evidence | For each trial that the model concludes the patient is not eligible for, the model returns the relevant patient information and the eligibility criteria that the model used to exclude the patient from trial eligibility. | 
 | Gradual matching | The model can provide patient information with gradual matching. In this mode, the user can send requests to Trial Matcher gradually, primarily via conversational intelligence or chat-like scenarios. | 
 
