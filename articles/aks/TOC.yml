@@ -246,6 +246,8 @@
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
+        - name: Delete an AKS cluster
+          href: delete-cluster.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -288,6 +290,8 @@
               href: manage-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
+            - name: Use generation 2 VMs
+              href: generation-2-vm.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Node pool snapshot
@@ -333,7 +337,11 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
-          href: availability-zones.md
+          items:
+            - name: Availability zones overview
+              href: availability-zones-overview.md
+            - name: Create a cluster with availability zones
+              href: availability-zones.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
@@ -550,23 +558,34 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
         - name: Block storage
           items:
-              - name: Provision Azure Disks storage
-                href: azure-csi-disk-storage-provision.md
-              - name: Azure Disks CSI driver
-                href: azure-disk-csi.md
-              - name: Use Azure Premium SSD v2 disks
-                href: use-premium-v2-disks.md
-              - name: Use Azure ultra disks
-                href: use-ultra-disks.md
-              - name: Bring your own keys for disks
-                href: azure-disk-customer-managed-keys.md
-              - name: Azure Container Storage 
-                href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Azure Disks
+                items:
+                    - name: Azure Disks CSI driver
+                      href: azure-disk-csi.md
+                    - name: Use Azure Premium SSD v2 disks
+                      href: use-premium-v2-disks.md
+                    - name: Use Azure ultra disks
+                      href: use-ultra-disks.md
+                    - name: Bring your own keys for disks
+                      href: azure-disk-customer-managed-keys.md
+                    - name: Move a persistent volume between clusters
+                      href: csi-disk-move-subscriptions.md
+                    - name: Use Azure Container Storage with Azure Disks
+                      href: ../storage/container-storage/use-container-storage-with-managed-disks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Azure Elastic SAN
+                items:
+                    - name: Use Azure Container Storage with Elastic SAN
+                      href: ../storage/container-storage/use-container-storage-with-elastic-san.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+                    - name: Use Kubernetes iSCSI CSI driver
+                      href: ../storage/elastic-san/elastic-san-connect-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Ephemeral Disk
+                items:
+                    - name: Use Azure Container Storage with Ephemeral Disk
+                      href: ../storage/container-storage/use-container-storage-with-local-disk.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
           items:
             - name: Azure Files storage
@@ -749,8 +768,6 @@
           href: use-windows-hpc.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
-        - name: Use generation 2 VMs
-          href: generation-2-vm-windows.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers

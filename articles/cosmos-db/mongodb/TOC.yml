@@ -16,6 +16,10 @@
           href: ru/introduction.md
         - name: API versions
           items:
+            - name: API version 6.0
+              href: feature-support-60.md
+            - name: API version 5.0
+              href: feature-support-50.md
             - name: API version 4.2
               href: feature-support-42.md
             - name: API version 4.0
@@ -227,7 +231,7 @@
                           href: ../latest-restore-timestamp-continuous-backup.md
                         - name: Auditing restore action with continuous backup
                           href: ../audit-restore-continuous.md
-                    - name: Restore in the same account (preview)
+                    - name: Restore in the same account
                       items:
                         - name: Introduction
                           href: ../restore-in-account-continuous-backup-introduction.md
@@ -331,8 +335,12 @@
                   href: connect-using-mongoose.md
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
-            - name: Use Azure Cosmos DB Explorer
-              href: ../data-explorer.md
+            - name: Azure Cosmos DB Explorer
+              items:
+                - name: Use explorer
+                  href: ../data-explorer.md
+                - name: Keyboard shorcuts
+                  href: ../data-explorer-shortcuts.md
         - name: Develop applications
           items:
             - name: JavaScript
@@ -478,7 +486,7 @@
                   items:
                     - name: Restore to a different account
                       href: ../restore-account-continuous-backup.md
-                    - name: Restore in the same account (preview)
+                    - name: Restore in the same account
                       href: ../how-to-restore-in-account-continuous-backup.md
                     - name: Get the latest restorable timestamp
                       href: ../get-latest-restore-timestamp.md

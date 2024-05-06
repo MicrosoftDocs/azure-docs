@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/germany/index.yml",
+      "redirect_url": "/previous-versions/azure/germany/index",
+      "redirect_document_id": false
+    },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
@@ -3987,7 +3992,7 @@
         },
         {
             "source_path_from_root":"/articles/trusted-signing/concept.md",
-            "redirect_url":"/azure/trusted-signing/concept-trustedsigning-resources-roles",
+            "redirect_url":"/azure/trusted-signing/concept-trusted-signing-resources-roles",
             "redirect_document_id":false 
         },
         {
@@ -3999,6 +4004,11 @@
 			"source_path_from_root":"/articles/service-connector/quickstart-cli-aks-connection.md",
 			"redirect_url":"/azure/service-connector/quickstart-portal-aks-connection",
 			"redirect_document_id":false
-		}
+		},
+        {
+            "source_path_from_root":"/articles/aks/generation-2-vm-windows.md",
+            "redirect_url":"/azure/aks/generation-2-vm",
+            "redirect_document_id":false
+        }
     ]
 }
