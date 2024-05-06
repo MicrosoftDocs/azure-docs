@@ -71,7 +71,7 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 ### 3.3. Set up a log analytics workspace
 
-See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-analytics?tabs=Azure-Portal#prerequisites) to query data in logs.
+See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-analytics) to query data in logs.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -202,15 +202,15 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 ## 5. Validate the spring batch app
 
-Now you can access the deployed app to see whether it works.
+Now you can access the deployed job to see whether it works.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
 Use the following steps to validate:
 
-1. In the “Executions” blade, check the job execution result.  Wait a few seconds and refresh to see the status turns to Completed. It means the job execution finishes successfully.
+1. In the “Executions” blade, check the job execution result.  Wait a few seconds and refresh to see the status turns to **Completed**. It means the job execution finishes successfully.
 
-1. Then click “View logs” to query the logs of the Job execution. .
+1. Then click “View logs” to query the logs of the Job execution.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/view-logs.png" alt-text="Diagram that view the logs." border="false" lightbox="media/quickstart-deploy-spring-batch-app/view-logs.png":::
 
