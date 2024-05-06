@@ -4,7 +4,7 @@ description: Learn how to analyze diagnostics logs in Azure Spring Apps using El
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java
 ---

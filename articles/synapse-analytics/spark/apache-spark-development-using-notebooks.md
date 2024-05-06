@@ -2,12 +2,12 @@
 title: How to use Synapse notebooks
 description: In this article, you learn how to create and develop Synapse notebooks to do data preparation and visualization.
 services: synapse analytics 
-author: ruixinxu 
+author: JeneZhang 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
 ms.date: 05/08/2021
-ms.author: ruxu 
+ms.author: jingzh 
 ms.custom: devx-track-python
 ---
 
@@ -561,7 +561,7 @@ You can use familiar Jupyter magic commands in Synapse notebooks. Review the fol
 
 
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](#view-the-history-of-input-commands), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-configuration-magic-command)
@@ -651,6 +651,22 @@ customizedLogger.warning("customized warning message")
 customizedLogger.error("customized error message")
 customizedLogger.critical("customized critical message")
 ```
+
+## View the history of input commands
+
+Synapse notebook support magic command ```%history``` to print the input command history that executed in the current session, comparing to the standard Jupyter Ipython command the ```%history``` works for multiple languages context in notebook. 
+
+``` %history [-n] [range [range ...]] ```
+
+For options:
+- **-n**: Print execution number.
+
+Where range can be:
+- **N**: Print code of **Nth** executed cell.
+- **M-N**: Print code from **Mth** to **Nth** executed cell.
+
+Example:
+- Print input history from 1st to 2nd executed cell: ``` %history -n 1-2 ```
 
 ## Integrate a notebook
 

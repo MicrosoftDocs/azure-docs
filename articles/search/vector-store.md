@@ -1,5 +1,5 @@
 ---
-title: Vector store
+title: Vector store database
 titleSuffix: Azure AI Search
 description: Describes concepts behind vector storage in Azure AI Search.
 

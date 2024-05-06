@@ -99,6 +99,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 | Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
+|Azure API Center | [Reliability in Azure API Center](reliability-api-center.md) | [Reliability in Azure API Center](reliability-api-center.md)|
 |Azure Application Gateway for Containers | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md) | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md)|
 |Azure Chaos Studio | [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)| [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
@@ -109,6 +110,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Deployment Environments| [Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|[Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|
 |Azure DevOps|| [Azure DevOps Data protection - data availability](/azure/devops/organizations/security/data-protection?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&preserve-view=true&#data-availability)|
 |Azure Elastic SAN|[Availability zone support](reliability-elastic-san.md#availability-zone-support)|[Disaster recovery and business continuity](reliability-elastic-san.md#disaster-recovery-and-business-continuity)|
+|Azure HDInsight on AKS |[Reliability in HDInsight on AKS](reliability-hdinsight-on-aks.md) | [Reliability in HDInsight on AKS](reliability-hdinsight-on-aks.md) |
 |Azure Health Data Services - Azure API for FHIR|| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Health Insights|[Reliability in Azure Health Insights](reliability-health-insights.md)|[Reliability in Azure Health Insights](reliability-health-insights.md)|
 |Azure IoT Hub| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
