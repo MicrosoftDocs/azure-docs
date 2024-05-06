@@ -7,7 +7,8 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 04/10/2024
-ms.custom: template-concept, references_regions
+ms.custom: template-concept
+localization_priority: Normal
 ---
 
 # Secure Boot UEFI Keys
