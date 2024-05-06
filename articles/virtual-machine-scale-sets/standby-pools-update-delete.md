@@ -166,13 +166,18 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/m
 Delete an existing standby pool using [az standbypool delete](/cli/azure/standby-pool).
 
 ```azurecli-interactive
-az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
+az standby-vm-pool delete \
+    --resource-group myResourceGroup \
+    --name myStandbyPool
 ```
 ### [PowerShell](#tab/powershell-3)
 Delete an existing standby pool using [Remove-AzStandbyVMPool](/powershell/module/az.standbypool/remove-azstandbyvmpool).
 
 ```azurepowershell-interactive
-Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowait
+Remove-AzStandbyVMPool `
+    -ResourceGroup myResourceGroup `
+    -Name myStandbyPool `
+    -Nowait
 ```
 
 ### [REST](#tab/rest-3)

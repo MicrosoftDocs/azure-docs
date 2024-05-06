@@ -30,27 +30,27 @@ Standby pools only give out virtual machines from the pool that match the desire
 
 ## Virtual machine states
 
-The virtual machines in the standby pool can be kept in a running state or a deallocated state. 
+The virtual machines in the standby pool can be kept in a running or deallocated state. 
 
 **Deallocated:** Deallocated virtual machines are shut down and keep any associated disks, network interfaces, and any static IPs. [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md) don't support the deallocated state. 
 
 :::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated virtual machine pools.":::
 
-**Running:** Using virtual machines in a running state is recommended when latency and reliability requirements are strict. Virtual machines in a running state are fully provisioned. 
+**Running:** Using virtual machines in a running state is recommended when latency and reliability requirements are strict. Virtual machines in a running state remain fully provisioned. 
 
 :::image type="content" source="media/standby-pools/running-vm-pool.png" alt-text="A screenshot showing the workflow when using running virtual machine pools.":::
 
 ## Standby pool size
-The number of virtual machines in a standby pool is calculated by the number of max ready capacity of the pool minus the virtual machines currently deployed in your scale set. 
+The number of virtual machines in a standby pool is calculated by the max ready capacity of the pool minus the virtual machines currently deployed in the scale set. 
 
 | Setting | Description | 
 |---|---|
-| maxReadyCapacity | The maximum number of virtual machines you want to have ready.|
-| instanceCount | The current number of virtual machines already deployed in your scale set.|
+| maxReadyCapacity | The maximum number of virtual machines to be created in the pool.|
+| instanceCount | The current number of virtual machines already deployed in the scale set.|
 | Standby pool size | Standby pool size = `maxReadyCapacity`– `instanceCount`. |
 
 ### Example
-A Virtual Machine Scale Set with 10 instances and a standby pool with a max ready capacity of 15 would result in their being 5 instances in the standby pool.
+A Virtual Machine Scale Set with 10 instances and a standby pool with a max ready capacity of 15 would result in 5 instances in the standby pool.
 
 - Max ready capacity (15) - Virtual Machine Scale Set instance count (10) = Standby pool size (5)
 
@@ -60,18 +60,13 @@ If the scale set reduces the instance count to 5, the standby pool would fill to
 
 
 ## Availability zones
-When using standby pools with a Virtual Machine Scale Set spanning [availability zones](virtual-machine-scale-sets-use-availability-zones.md), the instances in the pool will be spread the same zones the Virtual Machine Scale Set is using. 
+When using standby pools with a Virtual Machine Scale Set spanning [availability zones](virtual-machine-scale-sets-use-availability-zones.md), the instances in the pool will be spread across the same zones the Virtual Machine Scale Set is using. 
 
 When a scale out is triggered in one of the zones, a virtual machine in the pool in that same zone will be used. If a virtual machine is needed in a zone where you no longer have any pooled virtual machines left, the scale set creates a new virtual machine directly in the scale set. 
 
 ## Pricing
 
-Users are charged based on the resources deployed in the standby pool. For example, virtual machines in a running state incur compute, networking, and storage costs. Virtual machines in a deallocated state doesn't incur any compute costs, but any persistent disks or networking configurations continue incur cost. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
-
-| State | Description |
-|---|---|
-|**Deallocated:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. Virtual machines in the deallocated state don't incur any compute costs, only the associated persistent resources incur costs. |
-| **Running:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
+Users are charged based on the resources deployed in the standby pool. For example, virtual machines in a running state incur compute, networking, and storage costs. Virtual machines in a deallocated state doesn't incur any compute costs, but any persistent disks or networking configurations continue incur cost. Thus, a pool of running virtual machines will incur more cost than a pool of deallocated virtual machines. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
 
 ## Unsupported configurations
 - Creating or attaching a standby pool to a Virtual Machine Scale Set using Azure Spot instances.
