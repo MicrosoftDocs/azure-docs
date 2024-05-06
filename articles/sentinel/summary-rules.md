@@ -44,15 +44,17 @@ To use summary rules in Microsoft Sentinel:
 
 Create a new summary rule to aggregate a specific large set of data into a dynamic table. Configure your rule frequency to determine how often your aggregated data set is updated from the raw data.
 
-1. In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**.
+1. In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**. For example:
 
-    <!--TBD screenshots-->
+    :::image type="content" source="media/summary-rules/summary-rules-azure.png" alt-text="Screenshot of the Summary rules page in the Azure portal.":::
 
 1. Select **+ Create** and enter the following details:
 
     - **Name**. Enter a meaningful name for your rule.
     - **Description**. Enter an optional description.
-    - **Destination table**. Define the custom log table where your data is aggregated. If you select **Existing custom log table**, select the table you want to use. If you select **New custom log table**, enter a meaningful name for your table. Your full table name uses the following syntax: *<tableName>_CL*.
+    - **Destination table**. Define the custom log table where your data is aggregated:
+        - If you select **Existing custom log table**, select the table you want to use.
+        - If you select **New custom log table**, enter a meaningful name for your table. Your full table name uses the following syntax: *<tableName>_CL*.
 
 1. If **SummaryLogs** diagnostic settings aren't yet enabled, in the **Diagnostic settings** area, select **Enable**.
 
@@ -99,6 +101,8 @@ TBD <!--yael pick 3-->
 
 ## Summary rules support scope
 
+The following table lists scope limits for Microsoft Sentinel summary rules:
+
 |Title  |Description  |
 |---------|---------|
 |**Maximum number of enabled rules in each workspace**     | 10        |
@@ -110,7 +114,7 @@ TBD <!--yael pick 3-->
 
 <!--where do aux logs fit in here?-->
 <!--what does it mean that it can't be re-run?-->
-<!-->. Cross-resource including workspaces(), app(), resource(), ADX() and arg() aren’t supported in the private preview. -->
+<!--Cross-resource including workspaces(), app(), resource(), ADX() and arg() aren’t supported in the private preview. -->
 
 
 ## Related content
