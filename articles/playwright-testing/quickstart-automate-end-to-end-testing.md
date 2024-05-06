@@ -319,6 +319,7 @@ We'll let you know when we're ready to onboard you. After receiving the confirma
       env:
         PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN)
         PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+        PLAYWRIGHT_SERVICE_RUN_ID: $(Build.DefinitionName) - $(Build.BuildNumber) - $(System.JobAttempt)
       inputs:
         targetType: 'inline'
         script: 'npx playwright test -c playwright.service.config.ts --workers=20'
