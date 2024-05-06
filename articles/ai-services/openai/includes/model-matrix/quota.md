@@ -34,4 +34,5 @@ Quota for standard deployments is described in of terms of [Tokens-Per-Minute (T
 | westus           | -       | -           | 80 K          | 30 K            | 300 K          | -                       | 350 K                    | -                        | -                        | -             | -                        | -             | -                        | -                         | -                              | -                              |
 | westus3          | -       | -           | 80 K          | -               | -              | -                       | 350 K                    | -                        | -                        | -             | -                        | -             | -                        | -                         | -                              | -                              |
 
+
 1 K = 1000 Tokens-Per-Minute (TPM). The relationship between TPM and Requests Per Minute (RPM) is [currently defined as 6 RPM per 1000 TPM](../../how-to/quota.md#understanding-rate-limits).
