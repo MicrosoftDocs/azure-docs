@@ -58,6 +58,8 @@ landingContent:
             url: quickstart-deploy-web-app.md?pivots=sc-enterprise
           - text: Launch your first RESTful API app
             url: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+          - text: Launch your first Spring Batch app
+            url: quickstart-deploy-spring-batch-app.md
           - text: Launch your first microservice apps
             url: quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
           - text: Launch your first event-driven app

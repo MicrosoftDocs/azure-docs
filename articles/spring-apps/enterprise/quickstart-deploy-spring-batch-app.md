@@ -4,9 +4,9 @@ description: Describes how to deploy a spring batch application to Azure Spring 
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 04/26/2024
+ms.date: 05/06/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
-ms.author: xiada
+ms.author: v-muyaofeng
 ---
 
 # Quickstart: Deploy your first spring batch application to Azure Spring Apps
@@ -141,10 +141,6 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
    az spring show --name ${SPRING_APPS_SERVICE}
    ```
 
-### 3.4. Set up a log analytics workspace
-
-See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-analytics?tabs=Azure-CLI#prerequisites) to query data in logs.
-
 ---
 
 ## 4. Deploy the job sample to Azure Spring Apps
@@ -225,53 +221,31 @@ Use the following steps to validate:
 1. Query execution result according to job name and its execution name.
 
     ```azurecli
-    az spring job execution show \
+    az spring job logs \
         --service ${SPRING_APPS_SERVICE} \
-        --job football \
-        --execution ${EXECUTION_NAME}
-
-[//]: # (    az spring job execution show \)
-
-[//]: # (        --resource-group ${RESOURCE_GROUP} \)
-
-[//]: # (        --service ${SPRING_APPS_SERVICE} \)
-
-[//]: # (        --job football \)
-
-[//]: # (        --execution ${EXECUTION_NAME})
+        --name football \
+        --execution ${EXECUTION_NAME} \
+        --all-instances
     ```
 
-1. Fetch resource id of the log analytics workspace. The script below assumes the first
-   workspace is serving the current ASA service instance. If there are multiple workspaces,
-   please set the correct resource id to **WORKSPACE_ID**.
+1. Then you will see the job log streaming of the job execution like below.
 
-    ```azurecli
-    export SPRING_APPS_RESOURCE_ID=$(az spring show \
-        --name ${SPRING_APPS_SERVICE} \
-        --query id -o tsv)
+    ```bash
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.launch.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO com.microsoft.sample.FootballJobApplication - There is {} player summary before job execution
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.launch.support.SimpleJobLauncher - Job: [SimpleJob: [name=footballJob]] launched with the following parameters: [{}]
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.job.SimpleStepHandler - Executing step: [playerLoad]
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.step.AbstractStep - Step: [playerLoad] executed in 200ms
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.job.SimpleStepHandler - Executing step: [gameLoad]
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.step.AbstractStep - Step: [gameLoad] executed in 290ms
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.job.SimpleStepHandler - Executing step: [summarizationStep]
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.step.AbstractStep - Step: [summarizationStep] executed in 7ms
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.launch.support.SimpleJobLauncher - Job: [SimpleJob: [name=footballJob]] completed with the following parameters: [{}] and the following status: [COMPLETED] in 519ms
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO com.microsoft.sample.FootballJobApplication - There is 1 player summary after job execution
+    [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory - Shutting down embedded database: url='jdbc:hsqldb:mem:testdb'
+    ...
 
-    export WORKSPACE_ID=$(az monitor diagnostic-settings list \
-        --resource ${SPRING_APPS_SERVICE} \
-        --resource-type Microsoft.AppPlatform/Spring \
-        --query [0].workspaceId -o tsv)
     ```
-
-1. Query execution log from the log analytics workspace.
-
-   ```azurecli
-   export CUSTOMER_ID=$(az monitor log-analytics workspace show \
-        --ids ${WORKSPACE_ID} \
-        --query customerId -o tsv)
-
-   az monitor log-analytics query -w ${CUSTOMER_ID} \
-        --analytics-query "AppPlatformLogsforSpring | where AppName == 'football' and InstanceName startswith '${EXECUTION_NAME}' | order by TimeGenerated asc" \
-        --query '[].{Time:TimeGenerated, Log:Log}' \
-        --output table
-   ```
-
-1. Then you will see the log output of the job execution like below.
-
-[//]: # (   :::image type="content" source="media/quickstart-deploy-spring-batch-app/cli-logs.png" alt-text="Diagram that shows start a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/cli-logs.png":::)
 
 ---
 
