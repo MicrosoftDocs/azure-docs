@@ -106,9 +106,9 @@ Each relational database management system or service type has its own configura
 
 | Type | Parameter | Value |
 |--|--|--|
-| PostgreSQL and Aurora PostgreSQL | log_connections | 1| 
+| PostgreSQL and Aurora PostgreSQL | log_connections | 1|
 | PostgreSQL and Aurora PostgreSQL | log_disconnections | 1 |
-| Aurora MySQL cluster parameter group | server_audit_logging | 1 | 
+| Aurora MySQL cluster parameter group | server_audit_logging | 1 |
 | Aurora MySQL cluster parameter group | server_audit_events | - If it exists, expand the value to include CONNECT, QUERY, <br> - If it doesn't exist, add it with the value CONNECT, QUERY. |
 | Aurora MySQL cluster parameter group | server_audit_excl_users | If it exists, expand it to include rdsadmin. |
 | Aurora MySQL cluster parameter group | server_audit_incl_users | - If it exists with a value and rdsadmin as part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of include is empty. |
@@ -122,14 +122,15 @@ An option group is required for MySQL and MariaDB with the following options for
 | SERVER_AUDIT_INCL_USERS | If it exists with a value and rdsadmin is part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of include is empty. |
 
 > [!IMPORTANT]
-> You may need to reboot your instances to apply the changes.
+> You might need to reboot your instances to apply the changes.
 >
 > If you are using the default parameter group, a new parameter group will be created that includes the required parameter changes with the prefix `defenderfordatabases*`.
 >
 > If a new parameter group was created or if static parameters were updated, they won't take effect until the instance is rebooted.
 
 > [!NOTE]
-> - If a parameter group already exists it will be updated accordingly. 
+>
+> - If a parameter group already exists it will be updated accordingly.
 >
 > - MARIADB_AUDIT_PLUGIN is supported in MariaDB 10.2 and higher, MySQL 8.0.25 and higher 8.0 versions and All MySQL 5.7 versions.
 >
