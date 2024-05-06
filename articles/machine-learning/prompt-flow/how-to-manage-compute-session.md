@@ -273,7 +273,7 @@ By default, we use the latest prompt flow base image. If you want to use a diffe
 To use the new base image, you need to reset the compute session. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
 ## Manage serverless instance used by compute session
-When you using serverless compute as a compute session, you can manage the serverless instance. View the serverless instance in the compute session list tab on the compute page. 
+When you use serverless compute as a compute session, you can manage the serverless instance. View the serverless instance in the compute session list tab on the compute page. 
 
 :::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of list of serverless instance." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
 
