@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 05/01/2024
+ms.date: 05/05/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -22,9 +22,28 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## May 2024
 
-|Date | Update |
-|--|--|
+| Date  | Update                                                            |
+| ----- | ----------------------------------------------------------------- |
+| May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
+| May 6 | [Limited public preview of threat protection for AI workloads in Azure](#limited-public-preview-of-threat-protection-for-ai-workloads-in-azure) |
 | May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+
+### AI multicloud security posture management is publicly available for Azure and AWS
+
+May 6, 2024
+
+We are announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
+
+Learn more about [AI security posture management](ai-security-posture.md).
+
+### Limited public preview of threat protection for AI workloads in Azure
+
+May 6, 2024
+
+Threat protection for AI workloads in Defender for Cloud provides contextual insights into AI workload threat protection, integrating with [Responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Threat protection for AI workloads security alerts are integrated into Defender XDR in the Defender portal. 
+This plan helps you monitor your Azure OpenAI powered applications in runtime for malicious activity, identify and remediate security risks.
+
+Learn more about [threat protection for AI workloads](ai-threat-protection.md).
 
 ### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
 
