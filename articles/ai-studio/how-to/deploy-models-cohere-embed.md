@@ -69,16 +69,15 @@ To create a deployment:
     :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png":::
 
 1. Select **Deploy** to open a serverless API deployment window for the model.
+1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
 
-Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
+    1. From the left sidebar of your project, select **Components** > **Deployments**.
+    1. Select **+ Create deployment**.
+    1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
 
-1. From the left sidebar of your project, select **Components** > **Deployments**.
-1. Select **+ Create deployment**.
-1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
+        :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-starting-from-project.png"::: 
 
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-starting-from-project.png"::: 
-
-1. Select **Confirm** to open a serverless API deployment window for the model.
+    1. Select **Confirm** to open a serverless API deployment window for the model.
 
     :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png":::
 
