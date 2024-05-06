@@ -239,7 +239,10 @@ The activity log lists for each test run the following details: the total test c
 
 ## View test results in the Playwright portal (invite only preview)
 
-Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it's an invite only feature. If you want to get access to it, sign up [here](https://aka.ms/mpt/reporting-signup). 
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it's an invite only feature. If you are interested in trying it out and providing feedback, sign up [here](https://aka.ms/mpt/reporting-signup). 
+
+> [!Important]
+> Reporting feature of Microsoft Playwright Testing service is free of charge while it is in invite-only preview. The billing will be applicable at a later time. However, the existing functionality of cloud-hosted browsers will continue to be billed as per the pricing plan.
 
 We'll let you know when we're ready to onboard you. After receiving the confirmation:
 
@@ -263,9 +266,9 @@ We'll let you know when we're ready to onboard you. After receiving the confirma
         ```
     1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You need to provide `read:packages` permissions to the token.
 
-    1. Run the following command in your terminal, at the location of your Playwright config file. Replace `GITHUB_PAT_TOKEN` with the token generated in the previous step.
+    1. Run the following command in your terminal, at the location of your Playwright config file. Replace `PAT_TOKEN_PACKAGE` with the token generated in the previous step.
         ```bash
-            npm set //npm.pkg.github.com/:_authToken GITHUB_PAT_TOKEN
+            npm set //npm.pkg.github.com/:_authToken PAT_TOKEN_PACKAGE
         ```
 
     1. Update package.json file with the package.
