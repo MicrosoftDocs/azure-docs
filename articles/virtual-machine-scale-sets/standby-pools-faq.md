@@ -17,10 +17,10 @@ ms.reviewer: ju-shim
 Get answers to frequently asked questions about standby pools for Virtual Machine Scale Sets in Azure.
 
 ### What are standby pools for Virtual Machine Scale Sets? 
-Azure standby pools is a feature for Virtual Machine Scale Sets Flexible Orchestration that enables faster scaling out of resources by creating a pool of pre-provisioned virtual machines ready to service your workload. 
+Azure standby pools is a feature for Virtual Machine Scale Sets with Flexible Orchestration that enables faster scaling out of resources by creating a pool of pre-provisioned virtual machines ready to service your workload. 
 
 ### When should I use standby pools for Virtual Machine Scale Sets? 
-Using a standby pool with your Virtual Machine Scale set can help scale out performance by performing various pre and post provisioning steps in the pool before the VM is placed into the scale set. 
+Using a standby pool with your Virtual Machine Scale Set can help improve scale out performance by completing various pre and post provisioning steps in the pool before the instances are placed into the scale set. 
 
 ### What are the benefits of using Azure standby pools for Virtual Machine Scale Sets? 
 Standby pools is a powerful feature for accelerating your time to scale out and reducing the management needed for provisioning virtual machine resources and getting them ready to service your workload. If your applications are latency sensitive or have long initialization steps, standby pools can help with reducing that time and managing the steps to make your virtual machines ready on your behalf. 
@@ -49,11 +49,14 @@ Virtual machines in the standby pool inherit the same virtual machine profile as
 
 
 ### Can I change the size of my standby pool without needing to recreate it? 
-Yes. To change the size of your standby pool, simply update the max ready capacity setting.  
+Yes. To change the size of your standby pool update the max ready capacity setting.  
 
 
 ### I created a standby pool and I noticed that some virtual machines are coming up in a failed state. 
 Ensure you have enough quota to complete the standby pool creation. Insufficient quota results in the platform attempting to create the virtual machines in the standby pool but unable to successfully complete the create operation. Check for multiple types of quotas such as Cores, Network Interfaces, IP Addresses, etc.
+
+### I increased my scale set instance count but the virtual machines in my standby pool were not used. 
+Ensure that the virtual machines in your standby pool are in the desired state prior to attempting a scale out event. For example, if using a standby pool with the virtual machine state set to deallocated, the standby pool will only give out instances that are in the deallocated state. If instances are in any other state such as creating, running, updating, etc, the scale set will default to net new virtual machine creation. 
 
 
 ## Next steps

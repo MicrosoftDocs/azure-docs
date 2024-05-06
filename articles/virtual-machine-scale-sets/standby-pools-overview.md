@@ -21,22 +21,22 @@ Standby pools reduce the time to scale out by performing various initialization 
 
 ## Scaling
 
-When your scale set requires more instances, rather than creating new instances from scratch, the scale set can instead pull virtual machines from the standby pool. This saves significant time as the virtual machines in the standby pool have already completed all post-provisioning steps. 
+When your scale set requires more instances, rather than creating new instances from scratch, the scale set instead uses virtual machines from the standby pool. This saves significant time as the virtual machines in the standby pool have already completed all post-provisioning steps. 
 
-When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) and your standby pool will refill to meet the max ready capacity configured. If at any point in time your scale set needs to scale beyond the number of instances you have in your standby pool, the scale set defaults to standard scale-out methods and creates new instances directly in the Scale Set
+When scaling back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) and the standby pool refills to meet the max ready capacity configured. If at any point in time your scale set needs to scale beyond the number of instances you have in your standby pool, the scale set defaults to standard scale-out methods and creates new instances.
 
-Standby pools will only give out virtual machines from the pool that match the desired power state configured. For example, if your desired power state is set as deallocated, the standby pool will only give the Virtual Machine Scale Set instances matching that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead.
+Standby pools only give out virtual machines from the pool that match the desired power state configured. For example, if your desired power state is set as deallocated, the standby pool will only give the scale set instances matching that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead.
 
 
 ## Virtual machine states
 
 The virtual machines in the standby pool can be kept in a running state or a deallocated state. 
 
-**Deallocated:** Deallocated virtual machines are shut down and keep any associated disks, network interfaces, and any static IPs remain unchanged. [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md) don't support the deallocated state. 
+**Deallocated:** Deallocated virtual machines are shut down and keep any associated disks, network interfaces, and any static IPs. [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md) don't support the deallocated state. 
 
 :::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated virtual machine pools.":::
 
-**Running:** Using virtual machines in a running state is recommended when latency and reliability requirements are strict. 
+**Running:** Using virtual machines in a running state is recommended when latency and reliability requirements are strict. Virtual machines in a running state are fully provisioned. 
 
 :::image type="content" source="media/standby-pools/running-vm-pool.png" alt-text="A screenshot showing the workflow when using running virtual machine pools.":::
 
@@ -60,13 +60,13 @@ If the scale set reduces the instance count to 5, the standby pool would fill to
 
 
 ## Availability zones
-When using a standby pool with a Virtual Machine Scale Set using [availability zones](virtual-machine-scale-sets-use-availability-zones.md), the instances in the pool will be spread the same zones the Virtual Machine Scale Set is using. 
+When using standby pools with a Virtual Machine Scale Set spanning [availability zones](virtual-machine-scale-sets-use-availability-zones.md), the instances in the pool will be spread the same zones the Virtual Machine Scale Set is using. 
 
 When a scale out is triggered in one of the zones, a virtual machine in the pool in that same zone will be used. If a virtual machine is needed in a zone where you no longer have any pooled virtual machines left, the scale set creates a new virtual machine directly in the scale set. 
 
 ## Pricing
 
-There's no direct cost associated with using standby pools. Users are charged based on the resources deployed. For example, keeping virtual machines in a running state incurs compute, networking, and storage costs. While keeping virtual machines in a deallocated state doesn't incur any compute costs, but any persistent disks or networking configurations continue incur cost. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
+Users are charged based on the resources deployed in the standby pool. For example, virtual machines in a running state incur compute, networking, and storage costs. Virtual machines in a deallocated state doesn't incur any compute costs, but any persistent disks or networking configurations continue incur cost. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
 
 | State | Description |
 |---|---|
