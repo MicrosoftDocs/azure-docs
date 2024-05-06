@@ -1,5 +1,5 @@
 ---
-title: Disable the Border Gateway Protocol neighbors
+title: Disable the Border Gateway Protocol neighbors using read write commands
 description: Learn how to use read write commands in the Nexus Network Fabric to disable the Border Gateway Protocol.
 author: HollyCl
 ms.author: HollyCl
@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 05/03/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
-# Disable the Border Gateway Protocol neighbors
+# Disable the Border Gateway Protocol neighbors using read write commands
 
 This article provides examples demonstrating how a user can implement the read write (RW) commands to disable Border Gateway Protocol (BGP) neighbors.
 
