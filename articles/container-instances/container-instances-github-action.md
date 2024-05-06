@@ -252,8 +252,8 @@ jobs:
           uses: docker/login-action@v3
           with:
             registry: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            username: ${{ secrets.AZURE_CLIENT_ID }}
-            password: ${{ secrets.AZURE_CLIENT_SECRET }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
