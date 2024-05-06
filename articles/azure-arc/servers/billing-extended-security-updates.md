@@ -24,7 +24,7 @@ Licenses that are provisioned after the End of Support (EOS) date of October 10,
 
 If you deactivate and then later reactivate a license, you're billed for the window during which the license was deactivated. It isn't possible to evade charges by deactivating a license before a critical security patch and reactivating it shortly before.
 
-If the region of an ESU license is changed, this will be subject to back-billing charges.
+If the region or the tenant of an ESU license is changed, this will be subject to back-billing charges.
 
 > [!NOTE]
 > The back-billing cost appears as a separate line item in invoicing. If you acquired a discount for your core WS2012 ESUs enabled by Azure Arc, the same discount may or may not apply to back-billing. You should verify that the same discounting, if applicable, has been applied to back-billing charges as well.
@@ -42,7 +42,7 @@ Please note that estimates in the Azure Cost Management forecast may not accurat
 
 - **Core modification:** If cores are added to an existing ESU license, they're subject to back-billing (that is, charges for the time elapsed since EOS) and regularly billed from the calendar month in which they were added. If cores are reduced or decremented to an existing ESU license, the billing rate will reflect the reduced number of cores within 5 business days of the change.
 
-- **Activation:** Licenses are billed for their number and edition of cores from the point at which they're both activated and assigned to at least one Azure Arc-enabled server. Activation and reactivation are subject to back-billing.
+- **Activation:** Licenses are billed for their number and edition of cores from the point at which they're activated. The activated license doesn't need to be linked to any Azure Arc-enabled servers to initiate billing. Activation and reactivation are subject to back-billing. Note that licenses that were activated but not linked to any servers may be back-billed if they weren't billed upon creation. Customers are responsible for deletion of any activated but unlinked ESU licenses.
 
 - **Deactivation or deletion:** Licenses that are deactivated or deleted will be billed through up to five calendar days from the time of the change.
 

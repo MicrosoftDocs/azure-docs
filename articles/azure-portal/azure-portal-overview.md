@@ -18,8 +18,6 @@ In this topic, you learn about the different parts of the Azure portal.
 
 By default, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription. We include links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources.
 
-You can't customize the Home page, but you can change your settings to see your [Dashboard](#dashboard) as your default view. The first time you sign in, there's a prompt at the top of the page where you can save your preference. You can also [change your startup page selection at any time in **Portal settings**](set-preferences.md#startup-page).
-
 ## Portal elements and controls
 
 The portal menu and page header are global elements that are always present in the Azure portal. These persistent features are the "shell" for the user interface associated with each individual service or feature. The header provides access to global controls. The working pane for a resource or service may also have a resource menu specific to that area.
@@ -64,7 +62,7 @@ Dashboards provide a focused view of the resources in your subscription that mat
 
 You can create other dashboards for your own use, or publish customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
-As noted earlier, you can [set your startup page to Dashboard](set-preferences.md#startup-page) if you want to see your most recently used dashboard when you sign in to the Azure portal.
+As noted earlier, you can [set your startup page to Dashboard](set-preferences.md#choose-a-startup-page) if you want to see your most recently used dashboard when you sign in to the Azure portal.
 
 ## Get started
 

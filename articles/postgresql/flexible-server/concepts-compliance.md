@@ -3,12 +3,15 @@ title: Security and compliance certifications in Azure Database for PostgreSQL -
 description: Learn about compliance in the Flexible Server deployment option for Azure Database for PostgreSQL.
 author: gennadNY
 ms.author: gennadyk
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: mvc, mode-other
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/23/2024
+ms.custom:
+  - mvc
+  - mode-other
+ms.devlang: python
 ---
 
 # Security and compliance certifications in Azure Database for PostgreSQL - Flexible Server

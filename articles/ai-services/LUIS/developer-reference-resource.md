@@ -50,8 +50,8 @@ Both authoring and prediction endpoint APIS are available from REST APIs:
 
 |Type|Version|
 |--|--|
-|Authoring|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
-|Prediction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+|Authoring|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](/rest/api/cognitiveservices-luis/authoring/operation-groups)|
+|Prediction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)|
 
 ### REST Endpoints
 

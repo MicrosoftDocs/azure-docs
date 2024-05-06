@@ -63,7 +63,7 @@ For details, see [Docker Hub authenticated pulls on App Service](https://azure.g
 
 ## Configure Artifact Cache to consume public content
 
-The best practice for consuming public content is to combine registry authentication and the Artifact Cache feature. You can use Artifact Cache to cache your container artifacts into your Azure Container Registry even in private networks. Using Artifact Cache not only protects you from registry rate limits, but dramatically increases pull reliability when combined with Geo-replicated ACR to pull artifacts from whichever region is closest to your Azure resource. In addition, you can also use all the security features ACR has to offer, including private networks, firewall configuration, Service Principals, and more. For complete information on using public content with ACR Artifact Cache, check out the [Artifact Cache](/azure/container-registry/tutorial-artifact-cache.md) tutorial.
+The best practice for consuming public content is to combine registry authentication and the Artifact Cache feature. You can use Artifact Cache to cache your container artifacts into your Azure Container Registry even in private networks. Using Artifact Cache not only protects you from registry rate limits, but dramatically increases pull reliability when combined with Geo-replicated ACR to pull artifacts from whichever region is closest to your Azure resource. In addition, you can also use all the security features ACR has to offer, including private networks, firewall configuration, Service Principals, and more. For complete information on using public content with ACR Artifact Cache, check out the [Artifact Cache](tutorial-artifact-cache.md) tutorial.
 
 
 ## Import images to an Azure container registry

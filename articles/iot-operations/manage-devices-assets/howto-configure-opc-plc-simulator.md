@@ -1,8 +1,8 @@
 ---
 title: Configure an OPC PLC simulator
 description: How to configure an OPC PLC simulator to work with Azure IoT OPC UA Broker.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.subservice: opcua-broker
 ms.topic: how-to
 ms.date: 03/01/2024
@@ -54,12 +54,12 @@ The application instance certificate of the OPC PLC is a self-signed certificate
 
     ```bash
     kubectl -n azure-iot-operations get secret aio-opc-ua-opcplc-default-application-cert-000000 -o jsonpath='{.data.tls\.crt}' | \
-    xargs -I {} \
+    base64 -d | \
+    xargs -0 -I {} \
     az keyvault secret set \
         --name "opcplc-crt" \
         --vault-name <azure-key-vault-name> \
         --value {} \
-        --encoding base64 \
         --content-type application/x-pem-file
     ```
 
@@ -83,7 +83,6 @@ The application instance certificate of the OPC PLC is a self-signed certificate
               objectName: opcplc-crt
               objectType: secret
               objectAlias: opcplc.crt
-              objectEncoding: hex
     ```
 
 The projection of the Azure Key Vault secrets and certificates into the cluster takes some time depending on the configured polling interval.

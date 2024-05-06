@@ -1,5 +1,5 @@
 ---
-title: Azure AI SDK reference
+title: Azure AI services SDK reference
 titleSuffix: Azure AI services
 description: Provides an overview of available Azure AI client libraries and packages with links to reference documentation.
 author: eric-urban
@@ -11,7 +11,7 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-reference-ai-services
 ---
 
-# Azure AI SDK reference
+# Azure AI services SDK reference
 
 This article provides an overview of available Azure AI client libraries and packages with links to service and feature level reference documentation. 
 
