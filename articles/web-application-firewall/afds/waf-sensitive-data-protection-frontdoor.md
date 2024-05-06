@@ -31,7 +31,7 @@ The following fields can be scrubbed from the logs:
 -   Request Body Json Arg Names
 -   Query String Arg Names
 -   Request URI
--	Request URI
+-   Request IP Address
 
 ## Next steps
 
