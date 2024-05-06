@@ -54,6 +54,10 @@ Document Intelligence supports more sophisticated and modular analysis capabilit
 >
 > Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#model-analysis-features).
 
+> [!NOTE]
+>
+> Add-on capabilities are not supported for office file types.
+
 The following add-on capabilities are available for`2024-02-29-preview`, `2024-02-29-preview`, and later releases:
 
 * [`keyValuePairs`](#key-value-pairs)
