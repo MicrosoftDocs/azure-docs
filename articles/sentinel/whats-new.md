@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
-ms.date: 04/03/2024
+ms.date: 04/30/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -17,6 +17,24 @@ The listed features were released in the last three months. For information abou
 `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## May 2024
+
+- [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
+
+### Optimize your security operations with SOC optimizations (preview)
+
+Microsoft Sentinel now provides SOC optimizations, which are high-fidelity and actionable recommendations that help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing.
+
+Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
+
+If your workspace is onboarded to the unified security operations platform, SOC optimizations are also available in the Microsoft Defender portal.
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
+
 
 ## April 2024
 
