@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/06/2024
 
 #customer intent: As a network administrator, I want to configure multiple prefixes on a subnet in my Azure Virtual Network so that I can expand my address space capacity.
 
