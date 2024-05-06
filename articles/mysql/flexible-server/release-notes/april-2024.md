@@ -13,13 +13,18 @@ ms.topic: conceptual
 
 We're pleased to announce the April 2024 maintenance for Azure Database for MySQL Flexible Server. This maintenance incorporates several new features and improvement, along with known issue fix, minor version upgrade, and security patches.
 
+> [!NOTE]
+> We regret to inform our users that after a thorough assessment of our current maintenance processes, we have observed an unusually high failure rate across the board. Consequently, we have made the difficult decision to cancel the minor version upgrade maintenance scheduled for April. The rescheduling of the next minor version upgrade maintenance remains undetermined at this time. We commit to providing at least one month's notice prior to the rescheduled maintenance to ensure all users are adequately prepared.
+> 
+> Please notes that if your maintenance has already been completed, whether it was rescheduled to an earlier date or carried out as initially scheduled, and concluded successfully, your services are not affected by this cancellation. Your maintenance is considered successful and will not be impacted by the current round of cancellations.
+
 ## Engine version changes
 All existing engine version server upgrades to 8.0.36 engine version.
 
 To check your engine version, run `SELECT VERSION();` command at the MySQL prompt
 
 ## Features
-### [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-databases-introduction) 
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-databases-introduction) 
 - Introducing Defender for Cloud support to simplify security management with threat protection from anomalous database activities in Azure Database for MySQL flexible server instances.
   
 ## Improvement

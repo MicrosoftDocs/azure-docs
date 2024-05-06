@@ -18,6 +18,13 @@ items:
           href: quickstart-portal-app-service-connection.md
         - name: Azure CLI
           href: quickstart-cli-app-service-connection.md
+    - name: Azure Container Apps
+      expanded: false
+      items: 
+        - name: Azure portal
+          href: quickstart-portal-container-apps.md
+        - name: Azure CLI
+          href: quickstart-cli-container-apps.md    
     - name: Azure Functions
       expanded: false
       items:
@@ -25,6 +32,11 @@ items:
           href: quickstart-portal-functions-connection.md
         - name: Azure CLI
           href: quickstart-cli-functions-connection.md
+    - name: Azure Kubernetes Service (AKS)
+      expanded: false
+      items: 
+        - name: Azure portal
+          href: quickstart-portal-aks-connection.md
     - name: Azure Spring Apps
       expanded: false
       items: 
@@ -32,20 +44,6 @@ items:
           href: quickstart-portal-spring-cloud-connection.md
         - name: Azure CLI
           href: quickstart-cli-spring-cloud-connection.md
-    - name: Container Apps
-      expanded: false
-      items: 
-        - name: Azure portal
-          href: quickstart-portal-container-apps.md
-        - name: Azure CLI
-          href: quickstart-cli-container-apps.md
-    - name: Azure Kubernetes Service (AKS)
-      expanded: false
-      items: 
-        - name: Azure portal
-          href: quickstart-portal-aks-connection.md
-        - name: Azure CLI
-          href: quickstart-cli-aks-connection.md
 - name: Tutorials
   expanded: false
   items: 
@@ -116,6 +114,8 @@ items:
       href: how-to-provide-correct-parameters.md
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
+    - name: Store configuration in App Configuration
+      href: tutorial-portal-app-configuration-store.md
     - name: Connect a container app to Blob Storage
       href: ../container-apps/service-connector.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
     - name: Create passwordless connection to database

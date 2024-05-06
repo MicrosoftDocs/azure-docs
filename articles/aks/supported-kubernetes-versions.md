@@ -9,7 +9,7 @@ ms.author: nickoman
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)
 
-The Kubernetes community releases minor versions roughly every three months. Recently, the Kubernetes community has [increased the support window for each version from nine months to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), starting with version 1.19.
+The Kubernetes community [releases minor versions](https://kubernetes.io/releases/) roughly every four months. 
 
 Minor version releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
@@ -21,8 +21,8 @@ Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioni
 [major].[minor].[patch]
 
 Examples:
-  1.17.7
-  1.17.8
+  1.29.2
+  1.29.1
 ```
 
 Each number in the version indicates general compatibility with the previous version:
@@ -31,7 +31,7 @@ Each number in the version indicates general compatibility with the previous ver
 * **Minor versions** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch versions** change when backwards-compatible bug fixes are made.
 
-Aim to run the latest patch release of the minor version you're running. For example, if your production cluster is on **`1.17.7`**, **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
+Aim to run the latest patch release of the minor version you're running. For example, if your production cluster is on **`1.29.1`** and **`1.29.2`** is the latest available patch version available for the *1.29* minor version, you should upgrade to **`1.29.2`** as soon as possible to ensure your cluster is fully patched and supported.
 
 ## AKS Kubernetes release calendar
 
@@ -67,13 +67,13 @@ Note the following important changes before you upgrade to any of the available 
 | 1.26 | Azure policy 1.3.0<br>Metrics-Server 0.6.3<br>KEDA 2.10.1<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0<br>azurefile-csi-driver 1.26.10<br>| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|azurefile-csi-driver 1.26.10 |None
 | 1.27 | Azure policy 1.3.0<br>azuredisk-csi driver v1.28.5<br>azurefile-csi driver v1.28.7<br>blob-csi v1.22.4<br>csi-attacher v4.3.0<br>csi-resizer v1.8.0<br>csi-snapshotter v6.2.2<br>snapshot-controller v6.2.2<br>Metrics-Server 0.6.3<br>Keda 2.11.2<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>azurefile-csi-driver 1.28.7<br>KMS 0.5.0<br>CSI Secret store driver 1.3.4-1<br>|Cilium 1.13.10-1<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|Keda 2.11.2<br>Cilium 1.13.10-1<br>azurefile-csi-driver 1.28.7<br>azuredisk-csi driver v1.28.5<br>blob-csi v1.22.4<br>csi-attacher v4.3.0<br>csi-resizer v1.8.0<br>csi-snapshotter v6.2.2<br>snapshot-controller v6.2.2|Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
 | 1.28 | Azure policy 1.3.0<br>azurefile-csi-driver 1.29.2<br>csi-node-driver-registrar v2.9.0<br>csi-livenessprobe 2.11.0<br>azuredisk-csi-linux v1.29.2<br>azuredisk-csi-windows v1.29.2<br>csi-provisioner v3.6.2<br>csi-attacher v4.5.0<br>csi-resizer v1.9.3<br>csi-snapshotter v6.2.2<br>snapshot-controller v6.2.2<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.2.0<br>MDC Defender Security Publisher 1.0.68<br>CSI Secret store driver 1.3.4-1<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1|Cilium 1.13.10-1<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br>Tigera-Operator 1.28.13| OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|azurefile-csi-driver 1.29.2<br>csi-resizer v1.9.3<br>csi-attacher v4.4.2<br>csi-provisioner v4.4.2<br>blob-csi v1.23.2<br>azurefile-csi driver v1.29.2<br>azuredisk-csi driver v1.29.2<br>csi-livenessprobe v2.11.0<br>csi-node-driver-registrar v2.9.0|None
-| 1.29 | Azure policy 1.3.0<br>csi-provisioner v4.0.0<br>csi-attacher v4.5.0<br>csi-snapshotter v6.3.3<br>snapshot-controller v6.3.3<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.2.0<br>MDC Defender Security Publisher 1.0.68<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1<br>CSI Secret store driver 1.3.4-1<br>azurefile-csi-driver 1.29.3<br>|Cilium 1.13.5<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br>Tigera-Operator 1.30.7<br>| OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|Tigera-Operator 1.30.7<br>csi-provisioner v4.0.0<br>csi-attacher v4.5.0<br>csi-snapshotter v6.3.3<br>snapshot-controller v6.3.3 |None
+| 1.29 | Azure policy 1.3.0<br>csi-provisioner v4.0.0<br>csi-attacher v4.5.0<br>csi-snapshotter v6.3.3<br>snapshot-controller v6.3.3<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.2.0<br>MDC Defender Security Publisher 1.0.68<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1<br>CSI Secret store driver 1.3.4-1<br>azurefile-csi-driver 1.29.3<br>|Cilium 1.13.5<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br>Tigera-Operator 1.30.7<br>| OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>Azure Linux 2.0<br>Cgroups V2<br>ContainerD 1.6<br>|Tigera-Operator 1.30.7<br>csi-provisioner v4.0.0<br>csi-attacher v4.5.0<br>csi-snapshotter v6.3.3<br>snapshot-controller v6.3.3 |None
 ## Alias minor version
 
 > [!NOTE]
 > Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220401 or above. Use `az upgrade` to install the latest version of the CLI.
 
-AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster runs **`1.21.7`**, which is the latest GA patch version of *1.21*. If you want to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md).
+AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.29`** and **`1.29.2`** is the latest GA'd patch available, your cluster will be created with **`1.29.2`**. If you want to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md).
 
 To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
 
@@ -83,7 +83,7 @@ To see what patch you're on, run the `az aks show --resource-group myResourceGro
   "autoScalerProfile": null,
   "autoUpgradeProfile": null,
   "azurePortalFqdn": "myaksclust-myresourcegroup.portal.hcp.eastus.azmk8s.io",
-  "currentKubernetesVersion": "1.21.7",
+  "currentKubernetesVersion": "1.29.2",
 }
 ```
 
@@ -102,41 +102,38 @@ AKS provides platform support only for one GA minor version of Kubernetes after 
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it might take up to 10 business days for a new release or a new version to be available in all regions.
 
-The supported window of Kubernetes versions on AKS is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
+The supported window of Kubernetes minor versions on AKS is known as "N-2", where N refers to the latest release, meaning that two previous minor releases are also supported.
 
-For example, if AKS introduces *1.17.a* today, support is provided for the following versions:
+For example, on the day that AKS introduces version 1.29, support is provided for the following versions:
 
-New minor version    |    Supported Version List
+New minor version    |    Supported Minor Version List
 -----------------    |    ----------------------
-1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
+1.29                 |    1.29, 1.28, 1.27
 
-When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and removed. For example, let's say the current supported version list is:
+When a new minor version is introduced, the oldest minor version is deprecated and removed. For example, let's say the current supported minor version list is:
 
 ```
-1.17.a
-1.17.b
-1.16.c
-1.16.d
-1.15.e
-1.15.f
+1.29
+1.28
+1.27
 ```
 
-When AKS releases 1.18.\*, all the 1.15.\* versions go out of support 30 days later.
+When AKS releases 1.30, all the 1.27 versions go out of support 30 days later.
 
 AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
 
 ```
 Current Supported Version List
 ------------------------------
-1.17.8, 1.17.7, 1.16.10, 1.16.9
+1.29.2, 1.29.1, 1.28.7, 1.28.6, 1.27.11, 1.27.10
 ```
 
-If AKS releases `1.17.9` and `1.16.11`, the oldest patch versions are deprecated and removed, and the supported version list becomes:
+If AKS releases `1.29.3` and `1.28.8`, the oldest patch versions are deprecated and removed, and the supported version list becomes:
 
 ```
 New Supported Version List
 ----------------------
-1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
+1.29.3, 1.29.2, 1.28.8, 1.28.7, 1.27.11, 1.27.10
 ```
 
 ## Platform support policy
@@ -178,7 +175,7 @@ This table outlines support guidelines for Community Support compared to Platfor
 
 You can use one minor version older or newer of `kubectl` relative to your *kube-apiserver* version, consistent with the [Kubernetes support policy for kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-For example, if your *kube-apiserver* is at *1.17*, then you can use versions *1.16* to *1.18* of `kubectl` with that *kube-apiserver*.
+For example, if your *kube-apiserver* is at *1.28*, then you can use versions *1.27* to *1.29* of `kubectl` with that *kube-apiserver*.
 
 To install or update `kubectl` to the latest version, run:
 
@@ -229,7 +226,7 @@ Specific patch releases might be skipped or rollout accelerated, depending on th
 
 ## Azure portal and CLI versions
 
-When you deploy an AKS cluster with Azure portal, Azure CLI, Azure PowerShell, the cluster defaults to the N-1 minor version and latest patch. For example, if AKS supports *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e*, and *1.15.f*, the default version selected is *1.16.c*.
+When you deploy an AKS cluster with Azure portal, Azure CLI, Azure PowerShell, the cluster defaults to the N-1 minor version and latest patch. For example, if AKS supports *1.29.2*, *1.29.1*, *1.28.7*, *1.28.6*, *1.27.11*, and *1.27.10*, the default version selected is *1.28.7*.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -265,8 +262,8 @@ Starting with Kubernetes 1.19, the [open source community has expanded support t
 
 If you're on the *n-3* version or older, it means you're outside of support and will be asked to upgrade. When your upgrade from version n-3 to n-2 succeeds, you're back within our support policies. For example:
 
-* If the oldest supported AKS version is *1.15.a* and you're on *1.14.b* or older, you're outside of support.
-* When you successfully upgrade from *1.14.b* to *1.15.a* or higher, you're back within our support policies.
+* If the oldest supported AKS minor version is *1.27* and you're on *1.26* or older, you're outside of support.
+* When you successfully upgrade from *1.26* to *1.27* or higher, you're back within our support policies.
 
 Downgrades aren't supported.
 
@@ -295,22 +292,25 @@ For minor versions not supported by AKS, scaling in or out should continue to wo
 
 The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
+### What is the allowed difference in versions between control plane and node pool?
+The [version skew policy](https://kubernetes.io/releases/version-skew-policy/) now allows a difference of upto 3 versions between control plane and agent pools. AKS follows this skew version policy change starting from version 1.28 onwards. 
+
 ### Can I skip multiple AKS versions during cluster upgrade?
 
 When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. Kubernetes control planes [version skew policy](https://kubernetes.io/releases/version-skew-policy/) doesn't support minor version skipping. For example, upgrades between:
 
-* *1.12.x* -> *1.13.x*: allowed.
-* *1.13.x* -> *1.14.x*: allowed.
-* *1.12.x* -> *1.14.x*: not allowed.
+* *1.28.x* -> *1.29.x*: allowed.
+* *1.27.x* -> *1.28.x*: allowed.
+* *1.27.x* -> *1.29.x*: not allowed.
 
-To upgrade from *1.12.x* -> *1.14.x*:
+To upgrade from *1.27.x* -> *1.29.x*:
 
-1. Upgrade from *1.12.x* -> *1.13.x*.
-2. Upgrade from *1.13.x* -> *1.14.x*.
+1. Upgrade from *1.27.x* -> *1.28.x*.
+2. Upgrade from *1.28.x* -> *1.29.x*.
 
-Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.10.x* to a supported *1.15.x* if *1.15* is the minimum supported minor version.
+Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.25.x* to a supported *1.27.x* if *1.27* is the minimum supported minor version.
 
-When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, we recommend that you re-create the cluster.
+When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty.Clusters running _unsupported version_ has the flexibility of decoupling control plane upgrades with node pool upgrades. However if your version is significantly out of date, we recommend that you re-create the cluster.
 
 ### Can I create a new 1.xx.x cluster during its 30 day support window?
 
@@ -318,7 +318,7 @@ No. Once a version is deprecated/removed, you can't create a cluster with that v
 
 ### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
-No. You aren't allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version, but it might require you to update the control plane first.
+No. You aren't allowed to add node pools of the deprecated version to your cluster. Creation or upgrade of node pools upto the _unsupported version_ control plane version is allowed , irrespective of version difference between node pool and the control plane. Only alias minor upgrades are allowed.
 
 ### How often do you update patches?
 

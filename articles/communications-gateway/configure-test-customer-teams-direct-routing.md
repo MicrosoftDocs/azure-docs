@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 03/31/2024
 
 #CustomerIntent: As someone deploying Azure Communications Gateway, I want to test my deployment so that I can be sure that calls work.
 ---
@@ -34,7 +34,9 @@ You must complete the following procedures.
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
 
-Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
+You must provision Azure Communications Gateway with the details of your test customer tenant during this procedure.
+
+[!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
 
 You must be able to sign in to the Microsoft 365 admin center for your test customer tenant as a Global Administrator.
 
@@ -84,19 +86,40 @@ To route calls to a customer tenant, the customer tenant must be configured with
 1. (Production deployments only) Repeat the previous step for the second customer subdomain.
 
 > [!IMPORTANT]
-> Don't complete the verification process yet. You must carry out [Use Azure Communications Gateway's Provisioning API to configure the customer and generate DNS records](#use-azure-communications-gateways-provisioning-api-to-configure-the-customer-and-generate-dns-records) first.
+> Don't complete the verification process yet. You must carry out [Configure the customer on Azure Communications Gateway and generate DNS records](#configure-the-customer-on-azure-communications-gateway-and-generate-dns-records) first.
 
-## Use Azure Communications Gateway's Provisioning API to configure the customer and generate DNS records
+## Configure the customer on Azure Communications Gateway and generate DNS records
 
 Azure Communications Gateway includes a DNS server. You must use Azure Communications Gateway to create the DNS records required to verify the customer subdomains. To generate the records, provision the details of the customer tenant and the DNS TXT values on Azure Communications Gateway.
 
-1. Use Azure Communications Gateway's Provisioning API to configure the customer as an account. The request must:
+You can use Azure Communications Gateway's Number Management Portal (preview) or Provisioning API (preview).
+
+# [Number Management Portal (preview)](#tab/azure-portal)
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar.
+1. Select **Accounts**.
+1. Select **Create account**.
+1. Enter an **Account name** and select the **Enable Teams Direct Routing** checkbox.
+1. Set **Teams tenant ID** to the ID of your test customer tenant.
+1. Optionally, select **Enable call screening**. This screening ensures that customers can only place Direct Routing calls from numbers that you have assigned to them.
+1. Set **Subdomain** to the label for the subdomain that you chose in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer) (for example, `test`).
+1. Set the **Subdomain token region** fields to the TXT values that you obtained in [Start registering the subdomains in the customer tenant and get DNS TXT values](#start-registering-the-subdomains-in-the-customer-tenant-and-get-dns-txt-values).
+1. Select **Create**.
+1. Confirm that the DNS records have been generated.
+    1. On the **Accounts** pane, select the account name in the list.
+    1. Confirm that **Subdomain Provisioned State** is **Provisioned**.
+
+# [Provisioning API (preview)](#tab/api)
+
+1. Use the Provisioning API to configure an account for the customer. The request must:
     - Enable Direct Routing for the account.
-    - Specify the label for the subdomain that you chose (for example, `test`).
+    - Specify the label for the subdomain that you chose in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer) (for example, `test`).
     - Specify the DNS TXT values from [Start registering the subdomains in the customer tenant and get DNS TXT values](#start-registering-the-subdomains-in-the-customer-tenant-and-get-dns-txt-values). These values allow Azure Communications Gateway to generate DNS records for the subdomain.
 2. Use the Provisioning API to confirm that the DNS records have been generated, by checking the `direct_routing_provisioning_state` for the account.
 
 For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [View the details of the account](/rest/api/voiceservices/#view-the-details-of-the-account) in the _API Reference_ for the Provisioning API.
+
+---
 
 ## Finish verifying the domains in the customer tenant
 

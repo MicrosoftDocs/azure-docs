@@ -9,58 +9,50 @@ ms.date: 02/09/2024
 ms.custom: template-concept
 ---
 
-# Access Control Lists Overview
+# Access Control List in Azure Operator Nexus Network Fabric
 
-An Access Control List (ACL) is a list of rules that control the inbound and outbound flow of packets through an interface. The interface can be an Ethernet interface, a sub interface, a port channel interface, or the switch control plane itself.
+Access Control Lists (ACLs) are a set of rules that regulate inbound and outbound packet flow within a network. Azure's Nexus Network Fabric service offers an API-based mechanism to configure ACLs for network-to-network interconnects and layer 3 isolation domain external networks. These APIs enable the specification of traffic classes and performance actions based on defined rules and actions within the ACLs. ACL rules define the data against which packet contents are compared for filtering purposes.
 
-An ACL that is applied to incoming packets is called an **Ingress ACL**. An ACL that is applied to outgoing packets is called an **Egress ACL**.
+## Objective
 
-An ACL has a Traffic-Policy definition including a set of match criteria and respective actions. The Traffic-Policy can match various conditions and perform actions such as count, drop, log, or police.
+The primary objective of ACLs is to secure and regulate incoming and outgoing tenant traffic flowing through the Nexus Network Fabric via network-to-network interconnects (NNIs) or layer 3 isolation domain external networks. ACL APIs empower administrators to control data rates for specific traffic classes and take action when traffic exceeds configured thresholds. This safeguards tenants from network threats by applying ingress ACLs and protects the network from tenant activities through egress ACLs. ACL implementation simplifies network management by securing networks and facilitating the configuration of bulk rules and actions via APIs.
 
-The available match criteria depend on the ACL type:
+## Functionality
 
--   IPv4 ACLs can match IPv4 source or destination addresses, with L4 modifiers including protocol, port number, and DSCP value.
+ACLs utilize match criteria and actions tailored for different types of network resources, such as NNIs and external networks. ACLs can be applied in two primary forms:
 
--   IPv6 ACLs can match IPv6 source or destination addresses, with L4 modifiers including protocol, port number.
+- **Ingress ACL**: Controls inbound packet flow.
+- **Egress ACL**: Regulates outbound packet flow.
 
--   Standard IPv4 ACLs can match only on source IPv4 address.
+Both types of ACLs can be applied to NNIs or external network resources to filter and manipulate traffic based on various match criteria and actions.
 
--   Standard IPv6 ACLs can match only on source IPv6 address.
+### Supported network resources:
 
-ACLs can be either static or dynamic. Static ACLs are processed in order, beginning with the first rule and proceeding until a match is encountered. Dynamic ACLs use the payload keyword to turn an ACL into a group like PortGroups, VlanGroups, IPGroups for use in other ACLs. A dynamic ACL provides the user with the ability to enable or disable ACLs based on access session requirements.
+| Resource Name                  | Supported | SKU         |
+|--------------------------------|-----------|-------------|
+| NNI                            | Yes       | All         |
+| Isolation Domain External Network | Yes on External Network with option A | All         |
 
-ACLs can be applied to Network to Network interconnect (NNI) or External Network resources. An NNI is a child resource of a Network Fabric. ACLs can be created and linked to an NNI before the Network Fabric is provisioned. ACLs can be updated or deleted after the Network Fabric is deprovisioned.
+## Match configuration
 
-This table summarizes the resources that can be associated with an ACL:
+Match criteria are conditions used to match packets based on attributes such as IP address, protocol, port, VLAN, DSCP, ethertype, fragment, TTL, etc. Each match criterion has a name, a sequence number, an IP address type, and a list of match conditions. Match conditions are evaluated using the logical AND operator.
 
+- **dot1q**: Matches packets based on VLAN ID in the 802.1Q tag.
+- **Fragment**: Matches packets based on whether they are IP fragments or not.
+- **IP**: Matches packets based on IP header fields such as source/destination IP address, protocol, and DSCP.
+- **Protocol**: Matches packets based on the protocol type.
+- **Source/Destination**: Matches packets based on port number or range.
+- **TTL**: Matches packets based on the Time-To-Live (TTL) value in the IP header.
+- **DSCP**: Matches packets based on the Differentiated Services Code Point (DSCP) value in the IP header.
 
-| Resource Name                         | Supported                            | Default               |
-|--|--|--|
-| NNF                              | Yes                                  | All Production SKUs    |
-| Isolation Domain                      | Yes on External Network with optionA | NA                    |
-| Network to network interconnect(NNI) | Yes                                  | NA                    |
+## Action property of Access Control List
 
-## Traffic policy
+The action property of an ACL statement can have one of the following types:
 
-A traffic policy is a set of rules that control the flow of packets in and out of a network interface. This section explains the match criteria and actions available for distinct types of network resources.
+- **Permit**: Allows packets that match specified conditions.
+- **Drop**: Discards packets that match specified conditions.
+- **Count**: Counts the number of packets that match specified conditions.
 
--   **Match Configuration**: The conditions that are used to match packets. You can match on various attributes, including:
-    - IP address
-    - Transport protocol
-    - Port
-    - VLAN ID
-    - DSCP
-    - Ethertype
-    - IP fragmentation
-    - TTL
+## Next steps:
 
-    Each match criterion has a name, a sequence number, an IP address type, and a list of match conditions. A packet matches the configuration if it meets all the criteria. For example, a match configuration of `protocol tcp, source port 100, destination port 200` matches packets that use the TCP protocol, with source port 100 and destination port 200.
-
--   **Actions**: The operations that are performed on the matched packets, including:
-    - Count
-    - Permit
-    - Drop
-
-    Each match criterion can have one or more actions associated with it.
-
--   **Dynamic match configuration**: An optional feature that allows the user to define custom match conditions using field sets and user-defined fields. Field sets are named groups of values that can be used in match conditions, such as port numbers, IP addresses, VLAN IDs, etc. Dynamic match configuration can be provided inline or in a file stored in a blob container. For example, `field-set tcpport1 80, 443, 8080` defines a field set named tcpport1 with three port values, and `user-defined-field gtpv1-tid payload 0 32` defines a user-defined field named gtpv1-tid that matches the first 32 bits of the payload.
+[Creating Access Control List (ACL) management for NNI and layer 3 isolation domain external networks](howto-create-access-control-list-for-network-to-network-interconnects.md)

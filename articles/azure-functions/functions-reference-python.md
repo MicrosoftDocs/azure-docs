@@ -214,15 +214,24 @@ When you deploy your project to a function app in Azure, the entire contents of 
 
 ## Connect to a database
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is a fully managed NoSQL, relational, and vector database for modern app development including AI, digital commerce, Internet of Things, booking management, and other types of solutions. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Its various APIs can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
+Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction.md) for many [use cases](../cosmos-db/use-cases.md), including IoT, ecommerce, gaming, etc.
 
-To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md). You may also use the Python library for Cosmos DB, like so:
+For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
+
+:::image type="content" source="../cosmos-db/media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+
+To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
+
+To implement more complex app logic, you may also use the Python library for Cosmos DB. An aynchronous I/O implementation looks like this:
 
 ```python
-pip install azure-cosmos
+pip install azure-cosmos
+pip install aiohttp
 
-from azure.cosmos import CosmosClient, exceptions
+from azure.cosmos.aio import CosmosClient
+from azure.cosmos import exceptions
 from azure.cosmos.partition_key import PartitionKey
+import asyncio
 
 # Replace these values with your Cosmos DB connection information
 endpoint = "https://azure-cosmos-nosql.documents.azure.com:443/"
@@ -234,41 +243,53 @@ partition_key = "/partition_key"
 # Set the total throughput (RU/s) for the database and container
 database_throughput = 1000
 
-# Initialize the Cosmos client
-client = CosmosClient(endpoint, key)
+# Singleton CosmosClient instance
+client = CosmosClient(endpoint, credential=key)
 
-# Create or get a reference to a database
-try:
-    database = client.create_database_if_not_exists(id=database_id)
+# Helper function to get or create database and container
+async def get_or_create_container(client, database_id, container_id, partition_key):
+    database = await client.create_database_if_not_exists(id=database_id)
     print(f'Database "{database_id}" created or retrieved successfully.')
 
-except exceptions.CosmosResourceExistsError:
-    database = client.get_database_client(database_id)
-    print('Database with id \'{0}\' was found'.format(database_id))
+    container = await database.create_container_if_not_exists(id=container_id, partition_key=PartitionKey(path=partition_key))
+    print(f'Container with id "{container_id}" created')
+ 
+    return container
+ 
+async def create_products():
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    for i in range(10):
+        await container.upsert_item({
+            'id': f'item{i}',
+            'productName': 'Widget',
+            'productModel': f'Model {i}'
+        })
+ 
+async def get_products():
+    items = []
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    async for item in container.read_all_items():
+        items.append(item)
+    return items
 
-# Create or get a reference to a container
-try:
-    container = database.create_container(id=container_id, partition_key=PartitionKey(path='/partitionKey'))
-    print('Container with id \'{0}\' created'.format(container_id))
+async def query_products(product_name):
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    query = f"SELECT * FROM c WHERE c.productName = '{product_name}'"
+    items = []
+    async for item in container.query_items(query=query, enable_cross_partition_query=True):
+        items.append(item)
+    return items
 
-except exceptions.CosmosResourceExistsError:
-    container = database.get_container_client(container_id)
-    print('Container with id \'{0}\' was found'.format(container_id))
+async def main():
+    await create_products()
+    all_products = await get_products()
+    print('All Products:', all_products)
 
-# Sample document data
-sample_document = {
-    "id": "1",
-    "name": "Doe Smith",
-    "city": "New York",
-    "partition_key": "NY"
-}
+    queried_products = await query_products('Widget')
+    print('Queried Products:', queried_products)
 
-# Insert a document
-container.create_item(body=sample_document)
-
-# Query for documents
-query = "SELECT * FROM c where c.id = 1"
-items = list(container.query_items(query, enable_cross_partition_query=True))
+if __name__ == "__main__":
+    asyncio.run(main())
 ```
 
 ::: zone pivot="python-mode-decorators"

@@ -67,6 +67,14 @@ Change feed is available for partition key ranges of an Azure Cosmos DB containe
 
 Change feed items come in the order of their modification time. This sort order is guaranteed per partition key, and there's no guaranteed order across the partition key values.
 
+> [!NOTE]
+> For [multi-region write](multi-region-writes.md) accounts, there are two timestamps:
+> - The server epoch time at which the record was written in the local region. This is recorded as `_ts`.
+> - The epoch time at which the absence of a conflict was confirmed, or the conflict was resolved in the [hub region](multi-region-writes.md#hub-region) for that record. This is recorded as `crts`. 
+> 
+> Change feed items come in the order recorded by `crts`.
+
+
 ### Change feed in multi-region Azure Cosmos DB accounts
 
 In a multi-region Azure Cosmos DB account, changes in one region are available in all regions. If a write-region fails over, change feed works across the manual failover operation, and it's contiguous. For accounts with multiple write regions, there's no guarantee of when changes will be available. Incoming changes to the same document may be dropped in latest version mode if there was a more recent change in another region, and all changes will be captured in all versions and deletes mode.

@@ -7,7 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for JavaScript.
+This tutorial describes how to enable file attachment support using the Azure Communication Services Chat SDK for JavaScript.
 
 ## Sample code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
@@ -17,12 +17,12 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.5.0-beta.1 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.5.0 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
 
-## Goal
+## Goals
 
-1. Be able to render file attachment in the message thread. Each file attachment card has an "Open" button.
-2. Be able to render image attachments as inline images.
+- Render file attachment in the message thread. Each file attachment card has an **Open** button.
+- Render image attachments as inline images.
 
 ## Handle file attachments
 
@@ -60,7 +60,7 @@ export interface ChatAttachment {
 export type ChatAttachmentType = "image" | "file" | "unknown";
 ```
 
-As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
+For example, the following JSON shows what `ChatAttachment` might look like for an image attachment and a file attachment:
 
 ```json
 "attachments": [
@@ -80,7 +80,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 ]
 ```
 
-Now let's go back to event handler we have created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `attachmentType` of `file`: 
+Now let's go back to event handler we created in [Quickstart: Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md) and add some extra logic to handle attachments with `attachmentType` of `file`: 
 
 ```js
 chatClient.on("chatMessageReceived", (e) => {
@@ -124,7 +124,7 @@ function renderFileAttachments(attachment) {
 
 ```
 
-Let's make sure we add some CSS for the attachment card as well:
+Let's make sure we add some CSS for the attachment card:
 
 ```css
   /* let's make chat popup scrollable */
@@ -193,17 +193,17 @@ Let's make sure we add some CSS for the attachment card as well:
 
 ```
 
-That's it all we need for handling file attachments. Next let's run the code.
+That's all we need for handling file attachments. Next let's run the code.
 
 ## Run the code 
 
-Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+For Webpack, you can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-or
+Or:
 
 ```console
 npm start
@@ -211,26 +211,26 @@ npm start
 
 ## File attachment demo
 
-Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID.
+1. Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID.
 
-Now let's send some file attachments from Teams client like this:
+2. Now let's send some file attachments from Teams client like this:
 
-:::image type="content" source="./media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a sent message with three file attachments.":::
+    :::image type="content" source="./media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client showing a sent message with three file attachments.":::
 
-Then you should see the new message being rendered along with file attachments:
+3. Then you should see the new message being rendered along with file attachments:
 
-:::image type="content" source="./media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown a received incoming message with three file attachments.":::
+    :::image type="content" source="./media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app showing a received incoming message with three file attachments.":::
 
 
 ## Handle image attachments
 
-Image attachments need to be treated differently to standard `file` attachments. Image attachment have the `attachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
+Image attachments need to be treated differently than standard `file` attachments. Image attachments have the `attachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
 
-Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline image.
+Before continuing, complete the tutorial that demonstrates [how to enable inline image support in your chat app](../meeting-interop-features-inline-image.md). This tutorial describes how to fetch images that require a communication token in the request header. Upon receiving the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL into the `src` attribute of each inline image.
 
-Now you're familiar with how inline images work and it's easy to render image attachments just like a regular inline image. 
+Now you're familiar with how inline images work, and it's easy to render image attachments just like a regular inline image. 
 
-Firstly, we inject an image tag to message content whenever there's an image attachment:
+First, inject an `image` tag into message content whenever there's an image attachment:
 
 ```js
 async function renderReceivedMessage(event) {
@@ -264,7 +264,7 @@ function renderImageAttachments(attachment) {
 }
 ```
 
-Now let's borrow `fetchPreviewImages()` from the [tutorial](../meeting-interop-features-inline-image.md) and we should be able to use it as is without any changes:
+Now let's borrow `fetchPreviewImages()` from the [Tutorial: Enable Inline Image Support](../meeting-interop-features-inline-image.md), and use it as is without any changes:
 
 ```js
 function fetchPreviewImages(attachments) {
@@ -295,7 +295,7 @@ function fetchPreviewImages(attachments) {
     });
 }
 ```
-This function needs a `tokenString` so we need to have a global copy of it and initialize in `init()` as demonstrated in the following code snippet:
+This function needs a `tokenString` so we need a global copy initialized in `init()` as demonstrated in the following code snippet:
 
 ```js
 var tokenString = '';
@@ -312,19 +312,19 @@ async function init() {
 }
 ```
 
-That's it! Now we have added image attachment support as well. Now let's run the code and see it in action!
+Now you have image attachment support. Continue to run the code and see it in action.
 
 
 ## Image attachment demo
 
-Now let's send some image attachments from Teams client like this:
+1. Send some image attachments from Teams client like this:
 
-:::image type="content" source="./media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a send box with an image attachment uploaded.":::
+    :::image type="content" source="./media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client showing a send box with an image attachment uploaded.":::
 
-Upon sending the image attachment, you notice that it becomes an inline image on the Teams client side:
+2. Upon sending the image attachment, notice that it becomes an inline image on the Teams client side:
 
-:::image type="content" source="./media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client shown a message with the image attachment sent to the other participant.":::
+    :::image type="content" source="./media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client showing a message with the image attachment sent to the other participant.":::
 
-Let's go back to our sample app, the same image should be rendered as well:
+3. Return to the sample app and make sure the same image is rendered:
 
-:::image type="content" source="./media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app shown an incoming message with one inline image rendered.":::
+    :::image type="content" source="./media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app showing an incoming message with one inline image rendered.":::

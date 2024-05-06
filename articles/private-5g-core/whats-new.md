@@ -23,14 +23,23 @@ To help you stay up to date with the latest developments, this article covers:
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
 ## April 2024
+### Packet core 2403
+
+**Type:** New release
+
+**Date available:** April 4, 2024
+
+The 2403 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2403 release notes](azure-private-5g-core-release-notes-2403.md).
 
 ### TCP Maximum Segment Size (MSS) Clamping
 
-**Type:** New feature
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core now automatically sets this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
 
-**Date available:** April 04, 2024
+### Improved Packet Core Scaling 
 
-TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core will now automatically set this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario.
+
+For details, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
 
 ## March 2024
 

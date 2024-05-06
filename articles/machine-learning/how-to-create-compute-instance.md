@@ -10,7 +10,7 @@ ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: sgilley
-ms.date: 07/05/2023
+ms.date: 05/03/2024
 ---
 
 # Create an Azure Machine Learning compute instance
@@ -95,11 +95,11 @@ Where the file *create-instance.yml* is:
 1. Select **Compute instance** at the top.
 1. If you have no compute instances, select  **Create** in the middle of the page.
 
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Screenshot shows create in the middle of the page.":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-instance.png" alt-text="Screenshot shows create in the middle of the page.":::
 
 1. If you see a list of compute resources, select **+New** above the list.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Screenshot shows selecting new above the list of compute resources.":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new-instance.png" alt-text="Screenshot shows selecting new above the list of compute resources.":::
 
 1. Fill out the form:
 
@@ -142,11 +142,10 @@ A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter Kernel sessions (which translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
 * No active Jupyter terminal sessions
 * No active Azure Machine Learning runs or experiments
-* No SSH connections
 * No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are autoterminated if VS Code detects no activity for 3 hours.
 * No custom applications are running on the compute
 
-A compute instance won't be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days.
+A compute instance won't be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. We also don't track VS Code SSH connections to determine activity.
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock is reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock is reset to 0.
 
