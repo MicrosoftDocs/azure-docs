@@ -489,7 +489,7 @@ items:
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
-      - name: Map each REST operation to a practices
+      - name: Map each REST operation to a price
         href: map-rest-apis-transaction-categories.md
       - name: Estimate the cost of AzCopy transfers
         href: azcopy-cost-estimation.md
