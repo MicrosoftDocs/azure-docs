@@ -27,7 +27,7 @@ Currently, the following features are available to be used asynchronously:
 * Text Analytics for health
 * Personal Identifiable information (PII)
 
-When you send asynchronous requests, you will incur charges based on number of text records you include in your request, for each feature use. For example, if you send a text record for sentiment analysis and NER, it will be counted as sending two text records, and you will be charged for both according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/). 
+When you send asynchronous requests, you'll incur charges based on number of text records you include in your request, for each feature use. For example, if you send a text record for sentiment analysis and NER, it will be counted as sending two text records, and you'll be charged for both according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/). 
 
 ## Submit an asynchronous job using the REST API
 
@@ -44,7 +44,7 @@ Once you've created the JSON body for your request, add your key to the `Ocp-Api
 POST https://your-endpoint.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-05-01
 ```
 
-A successful call will return a 202 response code. The `operation-location` in the response header will be the URL you will use to retrieve the API results. The value will look similar to the following URL:
+A successful call will return a 202 response code. The `operation-location` in the response header will be the URL you'll use to retrieve the API results. The value will look similar to the following URL:
 
 ```http
 GET {Endpoint}/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-05-01
@@ -69,7 +69,7 @@ When using this feature asynchronously, the API results are available for 24 hou
 
 ## Automatic language detection
 
-Starting in version `2022-07-01-preview` of the REST API, you can request automatic [language detection](../language-detection/overview.md) on your documents. By setting the `language` parameter to `auto`, the detected language code of the text will be returned as a language value in the response. This language detection will not incur extra charges to your Language resource.
+Starting in version `2022-07-01-preview` of the REST API, you can request automatic [language detection](../language-detection/overview.md) on your documents. By setting the `language` parameter to `auto`, the detected language code of the text will be returned as a language value in the response. This language detection won't incur extra charges to your Language resource.
 
 ## Data limits
 
