@@ -23,7 +23,7 @@ For data chunking and text-to-vector conversions during indexing, you need:
 
 + [An indexer](search-indexer-overview.md) to retrieve data from a supported data source.
 + [A skillset](cognitive-search-working-with-skillsets.md) to call the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data.
-+ The same skillset, calling a vectorizer. The vectorizer is either the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) for text-embedding-ada-002 on Azure OpenAI, or a [custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model, for example test-embedding-ada-002 on OpenAI.
++ The same skillset, calling an embedding model. The embedding model is accessed through the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md), attached to text-embedding-ada-002 on Azure OpenAI, or a [custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model, for example any supported embedding model on OpenAI.
 + You also need a [vector index](search-what-is-an-index.md) to receive the chunked and vectorized content.
 
 For text-to-vector queries:
@@ -120,15 +120,7 @@ Here are some of the key benefits of the integrated vectorization:
 
 + Projecting chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
-  Secondary indexes are intended for data chunking and Retrieval Augmented Generation (RAG) apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response, especially in a chat-style search app.
-
-## Chunked indexes
-
-Chunking is a process of dividing content into smaller manageable parts (chunks) that can be processed independently. Chunking is required if source documents are too large for the maximum input size of embedding or large language models, but you might find it gives you a better index structure for [RAG patterns](retrieval-augmented-generation-overview.md) and chat-style search.
-
-The following diagram shows the components of chunked indexing.
-
-:::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png" alt-text="Diagram of chunking and vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png":::
+  Secondary indexes are intended for question and answer or chat style apps. The secondary index contains granular information for more specific matches, but the parent index has more information and can often produce a more complete answer. When a match is found in the secondary index, the query returns the parent document from the primary index. For example, assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), while a secondary index has chunks of searchable content. 
 
 ## Next steps
 
