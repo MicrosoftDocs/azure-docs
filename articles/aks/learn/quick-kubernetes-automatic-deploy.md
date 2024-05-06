@@ -429,5 +429,5 @@ To learn more about AKS Automatic, continue to the introduction.
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [what-is-aks-automatic]: ../intro-aks-automatic.md
 [Azure-Policy-RBAC-permissions]: /azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
-[aks-entra-rbac]: /azure/aks/manage-azure-rbac#create-role-assignments-for-users-to-access-the-cluster
+[aks-entra-rbac]: /azure/aks/manage-azure-rbac
 [aks-entra-rbac-builtin-roles]: /azure/aks/manage-azure-rbac#create-role-assignments-for-users-to-access-the-cluster
