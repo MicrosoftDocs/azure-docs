@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 01/29/2024
 ---
 
-# Tutorial: Write to a Delta Table stored in Azure Data Lake Storage Gen2 (Public Preview)
+# Tutorial: Write to a Delta Table stored in Azure Data Lake Storage Gen2
 
 This tutorial shows how you can create a Stream Analytics job to write to a Delta table in Azure Data Lake Storage Gen2. In this tutorial, you learn how to:
 
@@ -81,7 +81,7 @@ The next step is to define an output sink where the job can write data to. In th
     3. For **Subscription**, select your Azure subscription.
     4. For **Storage account**, choose the ADLS Gen2 account (the one that starts with **tollapp**) you created.
     5. For **container**, select **Create new** and provide a unique **container name**.
-    6. For **Event Serialization Format**, select **Delta Lake (Preview)**. Although Delta lake is listed as one of the options here, it isn't a data format. Delta Lake uses versioned Parquet files to store your data. To learn more about [Delta lake](write-to-delta-lake.md).
+    6. For **Event Serialization Format**, select **Delta Lake**. Although Delta lake is listed as one of the options here, it isn't a data format. Delta Lake uses versioned Parquet files to store your data. To learn more about [Delta lake](write-to-delta-lake.md).
     7. For **Delta table path**, enter **tutorial folder/delta table**.
     8. Use default options on the remaining settings and select **Save**.
 
