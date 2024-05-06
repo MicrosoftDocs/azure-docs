@@ -7,7 +7,7 @@ author: robece
 ms.author: robece
 ---
 
-# Subscribe to Health Resources events and send them to Azure monitor alerts
+# Subscribe to Health Resources events and send them to Azure monitor alerts (Preview)
 
 [Health Resources system topic](event-schema-health-resources.md) in Azure Event Grid provides accurate, reliable, and comprehensive information on health of your Azure resources such as single instance virtual machines (VMs), Virtual Machine Scale Set VMS, and Virtual Machine Scale Sets. This feature enables a deeper understanding of the diverse service issues impacting your resources. You can now set up Azure Monitor alerts to notify you when your workload is impacted.
 

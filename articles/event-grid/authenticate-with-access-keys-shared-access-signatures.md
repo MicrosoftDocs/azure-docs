@@ -7,7 +7,7 @@ ms.date: 05/08/2024
 ms.author: robece
 ---
 
-# Authenticate Azure Event Grid clients using access keys or shared access signatures
+# Authenticate Azure Event Grid clients using access keys or shared access signatures (Preview)
 
 This article provides information on authenticating clients to Azure Event Namespace Topics, custom topics, domains, and partner namespaces using **access key** or **Shared Access Signature (SAS)** token.
 
