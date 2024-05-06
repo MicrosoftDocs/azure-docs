@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/29/2024
+ms.date: 05/06/2024
 ---
 
 # Copy data from Google Ads using Azure Data Factory or Synapse Analytics
@@ -326,10 +326,10 @@ The table below shows the feature differences between Google Ads using the recom
 | Google Ads using the recommended driver version | Google Ads using the legacy driver version |
 |:---|:---|
 |Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
-|ServiceAuthentication supports two properties: email and privateKey. |ServiceAuthentication supports four properties: email, keyFilePath, trustedCertPath and useSystemTrustStore. |
+|ServiceAuthentication supports two properties: <br>• email<br>• privateKey |ServiceAuthentication supports four properties:<br>• email<br>• keyFilePath<br>• trustedCertPath<br>• useSystemTrustStore |
 |Selecting table in dataset is not supported.|Support selecting a table in dataset and querying the table in copy activity.|
 |Support GAQL syntax as query language.|Support SQL syntax as query language.|
-|The output column names are the same as Google Ads.|The output column names don't match Google Ads exactly.|
+|The output column names are the same as Google Ads.|The output column names don't match Google Ads.|
 |The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
 
 ## Related content
