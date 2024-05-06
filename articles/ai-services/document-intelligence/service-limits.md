@@ -29,20 +29,26 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Model usage
 
+:::moniker range="doc-intel-4.0.0"
+|Document types supported|Read|Layout|Prebuilt models|Custom models|Add-on capabilities|
+|--|--|--|--|--|----|
+| PDF | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
+| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
+| Office file types DOCX, PPTX, XLS | ✔️ | ✔️ | ✖️ | ✖️ |✖️|
+
+✔️ = supported
+✖️ = Not supported
+:::moniker-end
+
 :::moniker range="doc-intel-3.1.0"
 |Document types supported|Read|Layout|Prebuilt models|Custom models|
 |--|--|--|--|--|
 | PDF | ✔️ | ✔️ | ✔️ | ✔️ |
 | Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
 | Office file types DOCX, PPTX, XLS | ✔️ | ✖️ | ✖️ | ✖️ |
-:::moniker-end
 
-:::moniker range="doc-intel-4.0.0"
-|Document types supported|Read|Layout|Prebuilt models|Custom models|
-|--|--|--|--|--|
-| PDF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Office file types DOCX, PPTX, XLS | ✔️ | ✔️ | ✖️ | ✖️ |
+✔️ = supported
+✖️ = Not supported
 :::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
