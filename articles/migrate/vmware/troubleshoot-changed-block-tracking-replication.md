@@ -27,7 +27,7 @@ Use the following steps to monitor the replication status for your virtual machi
 
 1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
   
-    :::image type="content" source=".../media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
+    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
 
 1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM**.
 
@@ -254,7 +254,7 @@ The agentless replication method uses VMware's changed block tracking technology
 This error can be resolved in the following two ways:
 
 - If you had opted for **Automatically repair replication** by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right-click on the VM, and select **Repair Replication**.
-- If you didn't opt for **Automatically repair replication** or the above step didn't work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
+- If you didn't opt for **Automatically repair replication** or the above step didn't work for you, then stop replication for the virtual machine, reset changed block tracking on the virtual machine, and then reconfigure replication.
 
 One such known issue that might cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
 
