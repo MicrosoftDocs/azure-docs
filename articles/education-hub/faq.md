@@ -190,7 +190,7 @@ Azure course credits cover usage only from the time that you activate the Azure 
 
 ## Azure Dev Tools for Teaching
 
-### Who is eligible to purchase Microsoft Azure Dev Tools for Teaching?
+### Who is eligible to purchase Azure Dev Tools for Teaching?
 
 Only academic institutions that have purchased a Volume Licensing agreement with Microsoft can enroll in Azure Dev Tools for Teaching.
 
@@ -261,11 +261,11 @@ As an administrator of the Azure Dev Tools for Teaching subscription, you can ac
 
 ### Does Azure Dev Tools for Teaching include Microsoft Office?
 
-No. The focus of Microsoft Azure Dev Tools for Teaching is to provide departments, faculty, and students with the necessary tools to expand their study of software development and testing. We provide technologies such as Windows Server, Visual Studio .NET, SQL Server, and the Platform SDK.
+No. The focus of Azure Dev Tools for Teaching is to provide departments, faculty, and students with the necessary tools to expand their study of software development and testing. We provide technologies such as Windows Server, Visual Studio .NET, SQL Server, and the Platform SDK.
 
 ### Does Azure Dev Tools for Teaching include Azure credit?
 
-No, your Microsoft Azure Dev Tools for Teaching subscription doesn't include Azure credit. But you can sign up for Azure for Students, which gives you $100 worth of Azure credit that you can use to pay for Azure services. For more information, go to the [Azure for Students home page](https://aka.ms/student).
+No, your Azure Dev Tools for Teaching subscription doesn't include Azure credit. But you can sign up for Azure for Students, which gives you $100 worth of Azure credit that you can use to pay for Azure services. For more information, go to the [Azure for Students home page](https://aka.ms/student).
 
 ### Do students need an Office 365 or Active Directory account to access Azure Dev Tools for Teaching?
 
