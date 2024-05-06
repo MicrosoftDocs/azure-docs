@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 05/06/2024
 ms.author: danlep
 ---
 
@@ -15,9 +15,6 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `validate-odata-request` policy validates the request URL, headers, and parameters of a request to an OData API to ensure conformance with the [OData specification](https://www.odata.org/documentation).
-
-> [!NOTE]
-> This policy is currently in preview.
 
 ## Policy statement
 
