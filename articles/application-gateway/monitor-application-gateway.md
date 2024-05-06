@@ -40,7 +40,7 @@ For a list of available metrics for Azure Application Gateway, see [Application 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 See [Application Gateway monitoring data reference](monitor-application-gateway-reference.md#resource-logs) for:
 
