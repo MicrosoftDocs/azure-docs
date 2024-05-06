@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 04/17/2024
+ms.date: 05/06/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -113,6 +113,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Cognitive Services
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
+
+## Communication
+
+[!INCLUDE [azure-policy-reference-policies-communication](../../../../includes/policy/reference/bycat/policies-communication.md)]
 
 ## Compute
 
@@ -329,10 +333,6 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Synapse
 
 [!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
-
-## System Policy
-
-[!INCLUDE [azure-policy-reference-policies-system-policy](../../../../includes/policy/reference/bycat/policies-system-policy.md)]
 
 ## Tags
 

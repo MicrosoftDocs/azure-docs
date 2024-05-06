@@ -1,14 +1,15 @@
 ---
 title: Backup and restore
 description: Learn about the concepts of backup and restore with Azure Database for PostgreSQL - Flexible Server.
+author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.author: alkuchar
-author: AwdotiaRomanowna
-ms.date: 02/28/2024
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
@@ -39,7 +40,7 @@ Azure Database for PostgreSQL flexible server stores multiple copies of your bac
 
 Azure Database for PostgreSQL flexible server offers three options: 
 
-- **Zone-redundant backup storage**: This option is automatically chosen for regions that support availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the same availability zone, but also replicated to another availability zone within the same region. 
+- **Zone-redundant backup storage**: This option is automatically chosen for regions that support availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the same availability zone, but also replicated to other availability zones within the same region. 
 
   This option provides backup data availability across availability zones and restricts replication of data to within a country/region to meet data residency requirements. This option provides at least 99.9999999999 percent (12 nines) durability of backup objects over a year.  
 
@@ -185,6 +186,7 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
 - In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
 - LTR backup is currently not supported for CMK-enabled servers. This capability will be added in the future.
+- LTR backup is currently not supported on geo-replicas. You can still perform LTR backups from the primary servers.
 
 
 For more information about performing a long term backup, visit the [how-to guide](../../backup/backup-azure-database-postgresql-flex.md).
