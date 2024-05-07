@@ -290,6 +290,8 @@
               href: manage-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
+            - name: Use generation 2 VMs
+              href: generation-2-vm.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Node pool snapshot
@@ -562,6 +564,8 @@
           items:
               - name: Azure Disks
                 items:
+                    - name: Provision Azure Disk storage
+                      href: azure-csi-disk-storage-provision.md
                     - name: Azure Disks CSI driver
                       href: azure-disk-csi.md
                     - name: Use Azure Premium SSD v2 disks
@@ -766,8 +770,6 @@
           href: use-windows-hpc.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
-        - name: Use generation 2 VMs
-          href: generation-2-vm-windows.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
