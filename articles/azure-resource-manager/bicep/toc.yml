@@ -542,6 +542,9 @@
       - name: Use resource symbol reference
         displayName: linter
         href: linter-rule-use-resource-symbol-reference.md
+      - name: Use secure value for secure inputs
+        displayName: linter
+        href: linter-rule-use-secure-value-for-secure-inputs.md
       - name: Use stable resource identifier
         displayName: linter
         href: linter-rule-use-stable-resource-identifier.md
