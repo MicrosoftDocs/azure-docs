@@ -550,7 +550,7 @@
       {
               "source_path_from_root": "/articles/healthcare-apis/fhir/overview-of-convert-data.md",
               "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
-              "redirect_document_id": false
+              "redirect_document_id": true
     },
       {
             "source_path_from_root": "/articles/healthcare-apis/fhir/frequently-asked-questions-convert-data.md",
@@ -560,8 +560,7 @@
       {
             "source_path_from_root": "/articles/healthcare-apis/datatransformation/convert-data.md",
             "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
-            "redirect_document_id": true
-  
+            "redirect_document_id": false
     },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/bulk-importing-fhir-data.md",
