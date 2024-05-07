@@ -4283,17 +4283,17 @@
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/vector-db-lookup-tool.md",
         "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/index-lookup-tool",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/vector-index-lookup-tool.md",
         "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/index-lookup-tool",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/faiss-index-lookup-tool",
         "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/index-lookup-tool",
-        "redirect_document_id": true
+        "redirect_document_id": false
     }
 ]
 }
