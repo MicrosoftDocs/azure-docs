@@ -12,13 +12,13 @@ ms.date: 5/06/2024
 
 # Azure resiliency recommendations for Azure Cosmos DB for NoSQL
 
-This article contains recommendations for achieving resiliency and availability for Azure Cosmos DB for NoSQL.  Many of the recommendations contain supporting Azure Resource Graph (ARG) queries to help identify non-compliant resources.
+This article contains recommendations for achieving resiliency for Azure Cosmos DB for NoSQL.  Many of the recommendations contain supporting Azure Resource Graph (ARG) queries to help identify non-compliant resources.
 
-## Reliability recommendations priority matrix
+## Reliability recommendations impact matrix
 
-Each recommendation is marked in accordance with the following priority matrix:
+Each recommendation is marked in accordance with the following impact matrix:
 
-| Image | Priority | Description
+| Image | Impact | Description
 |----|----|----|
 |:::image type="icon" source="../media/icon-recommendation-high.svg"::: |High|Immediate fix needed.|
 |:::image type="icon" source="../media/icon-recommendation-medium.svg":::|Medium|Fix within 3-6 months.|
