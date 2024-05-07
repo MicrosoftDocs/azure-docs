@@ -354,7 +354,7 @@ After you enable the managed identity for your Consumption logic app resource, f
 
 ### Find the application ID for the Azure Enterprise application associated with your managed identity
 
-When you enable a managed identity on your logic app resource, Azure automatically creates an associated [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal). You now need to find the associated Enterprise application and copy its **Application ID**. Later, you use this application ID to add an identity provider for your function app by creating an app registration.
+When you enable a managed identity on your logic app resource, Azure automatically creates an associated [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal) that has the same name. You now need to find the associated Enterprise application and copy its **Application ID**. Later, you use this application ID to add an identity provider for your function app by creating an app registration.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your Entra tenant.
 
