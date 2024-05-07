@@ -21,9 +21,17 @@ This article contains all major API changes and feature updates for the Azure VM
 ### May 2024
 #### Breaking Change: Case Sensitivity
 
-Starting from May 15th, 2024, Azure Image Builder's API version 2024-02-01 and beyond will enforce case sensitivity for all fields. This means that the capitalization of letters in your API requests must match exactly with the expected format. Previously, our API was more forgiving in terms of case, but moving forward, precision is crucial. When making API calls, ensure that you use the correct capitalization for field names, parameters, and values. For example, if a field is named “vmBoot,” you must use “vmBoot” (not “VMBoot” or “vmboot”).
+Starting from May 21, 2024, Azure VM Image Builder's API version 2024-02-01 and beyond will enforce case sensitivity for all fields. This means that the capitalization of letters in your API requests must match exactly with the expected format. 
 
-If you send an API request with incorrect case or unrecognized fields, our system will reject it. You will receive an error response indicating that the request is invalid. The error will look something like this:
+> **Important Note for Existing Azure Image Builder Users**
+>
+> If you're an existing user of Azure VM Image Builder, rest assured that this change will **not** impact your existing resources. The case sensitivity enforcement applies only to **newly created resources** starting from **May 21, 2024**. Your existing resources will continue to function as expected without any changes.
+>
+> If you encounter any issues related to case sensitivity, please refer to our updated API documentation for guidance.
+
+Previously, our API was more forgiving in terms of case, but moving forward, precision is crucial. When making API calls, ensure that you use the correct capitalization for field names, parameters, and values. For example, if a field is named “vmBoot,” you must use “vmBoot” (not “VMBoot” or “vmboot”).
+
+If you send an API request to Azure Image Builder's API version 2024-02-01 and beyond with incorrect case or unrecognized fields, our system will reject it. You will receive an error response indicating that the request is invalid. The error will look something like this:
 
 `Unmarshalling entity encountered error: unmarshalling type *v2024_02_01.ImageTemplate: struct field Properties: unmarshalling type *v2024_02_01.ImageTemplateProperties: struct field Optimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize, unknown field \"vmboot\". There is an issue with the syntax with the JSON template you are submitting. Please check the JSON template for syntax and grammar. For more information on the syntax and grammar of the JSON template, visit http://aka.ms/azvmimagebuildertmplref.`
 
@@ -52,6 +60,21 @@ In the [Azure VM Image Builder networking options](../linux/image-builder-networ
 
 - `subnetName` in the `vnetConfig` property – this field is deprecated and the new field is `subnetId`
 - `resourceGroupName` in the `vnetConfig` property – this field is deprecated and the new field is `subnetId`
+
+#### How to Pin to an Older Azure Image Builder API Version
+If you’d like to avoid making changes to the properties in your image templates due to the new case sensitivity rules, you have the option to pin your Azure VM Image Builder API calls to a previous API version. This allows you to continue using the familiar behavior without any modifications.
+
+Follow these steps to pin your API calls to an older version:
+
+1. Review the REST API Documentation: Visit the [Azure Image Builder REST API documentation](https://learn.microsoft.com/en-us/rest/api/imagebuilder/virtual-machine-image-templates/create-or-update?view=rest-imagebuilder-2022-07-01&tabs=HTTP) for Azure Image Builder (AIB). This documentation provides detailed information on how to create or update an Azure Image Builder template using the API.
+
+2. Add the `api-version` URI Parameter: When making a `PUT` call to create or update an image template, include the `api-version` URI parameter. Specify the desired API version (e.g., api-version=2022-07-01) to ensure compatibility with your existing templates. Example:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}?api-version=2022-07-01
+```
+
+3. Test Your API Calls: After pinning to the older API version, test your API calls to verify that they behave as expected. Ensure that your existing templates continue to function correctly.
 
 ### November 2023
 Azure Image Builder is enabling Isolated Image Builds using Azure Container Instances in a phased manner. The rollout is expected to be completed by early 2024. Your existing image templates will continue to work and there is no change in the way you create or build new image templates. 
