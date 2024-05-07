@@ -50,17 +50,16 @@ To create a dev box in the Microsoft Dev Box developer portal:
    | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
    | **Project** | Select a project from the dropdown list. |
    | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
-   | **Repository clone URL** | Leave blank. |
-   | **Uploaded customization files** | Leave blank. |
 
    :::image type="content" source="./media/quickstart-create-dev-box/developer-portal-create-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box." lightbox="./media/quickstart-create-dev-box/developer-portal-create-dev-box.png":::
 
    After you make your selections, the page shows you the following information:
 
-   - How many dev boxes you can create in the project that you selected, if the project has limits configured
-   - Whether hibernation is supported or not
-   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule
-   - A notification that the dev box creation process can take 25 minutes or longer
+   - How many dev boxes you can create in the project that you selected, if the project has limits configured.
+   - Whether *Hibernation* is supported or not.
+   - Whether *Customizations* is enabled or not.
+   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule.
+   - A notification that the dev box creation process can take 25 minutes or longer.
    
 1. Select **Create** to begin creating your dev box.
 
