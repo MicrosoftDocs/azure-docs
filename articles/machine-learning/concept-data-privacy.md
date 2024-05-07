@@ -48,7 +48,7 @@ If a model available for pay-as-you-go deployment (MaaS) supports fine-tuning, y
 
 * Is available exclusively for your use;
 
-* Can be double [encrypted at rest](/ai-services/openai/encrypt-data-at-rest) (by default with Microsoft's AES-256 encryption and optionally with a customer managed key).
+* Can be double [encrypted at rest](../ai-services/openai/encrypt-data-at-rest.md) (by default with Microsoft's AES-256 encryption and optionally with a customer managed key).
 
 * Can be deleted by you at any time.
 
