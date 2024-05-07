@@ -32,7 +32,7 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 
 ## Create the static web app
 
-Before adding an API, create and deploy a frontend application to Azure Static Web Apps. Use an existing app that you've already deployed or create one by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
+Before adding an API, create and deploy a frontend application to Azure Static Web Apps by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
 
 Once you have a frontend application deployed to Azure Static Web Apps, [clone your app repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). For example, to clone using the `git` command line:
 
@@ -319,7 +319,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. Windows Firewall may prompt to request that the Azure Functions runtime can access the Internet.  If this happens, select **Allow**.
+1. Windows Firewall may prompt to request that the Azure Functions runtime can access the Internet. Select **Allow**.
    
 2. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
