@@ -75,7 +75,7 @@ Optionally, you can export ($export) data to [Azure Storage](../data-transformat
 
 ### Converting data
 
-Optionally, you can convert [HL7 v2](../data-transformation/convert-data.md) and other format data to FHIR.
+Optionally, you can convert [HL7 v2](convert-data-overview.md) and other format data to FHIR.
 
 ### Using FHIR data in Power BI Dashboard
 
