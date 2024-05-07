@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services (Preview)
+# Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services
 
 Azure AI extension gives the ability to invoke the [Azure AI Language Services](../../ai-services/language-service/overview.md#which-language-service-feature-should-i-use) such as sentiment analysis right from within the database.
 

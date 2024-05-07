@@ -12,7 +12,7 @@ ms.custom:
   - ignite-2023
 ---
 
-# Azure Database for PostgreSQL - Flexible Server Azure AI Extension (Preview)
+# Azure AI extension on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -134,6 +134,23 @@ select azure_ai.version();
 ## Permissions
 
 The `azure_ai` extension defines a role called `azure_ai_settings_manager`, which enables reading and writing of settings related to the extension.  Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_settings` and `azure_ai.set_settings` functions. In Azure Database for PostgreSQL flexible server, all admin users have the `azure_ai_settings_manager` role assigned.
+
+
+## Upgrade the Azure AI extension
+Newer versions of the extension can introduce new functionality and in-place upgrades of the extension are allowed. You can compare the currently installed version to the newest version allowed by using the SQL command:
+
+```sql
+SELECT * FROM pg_available_extensions
+WHERE name = 'azure_ai'
+```
+ 
+To update an installed extension to the latest available version supported by Azure, use the following SQL command:
+
+```sql
+ALTER EXTENSION azure_ai UPDATE;
+```
+ For more information see [Upgrading extensions ](/concepts-extensions.md#upgrading-postgresql-extensions) 
+
 
 ## Next steps
 
