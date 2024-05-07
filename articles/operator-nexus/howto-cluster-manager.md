@@ -52,7 +52,7 @@ Some arguments that are available for every Azure CLI command
 
 ## Create a Cluster Manager
 
-Create the Cluster Manager using AZ CLI:
+### Create the Cluster Manager using AZ CLI:
 
 Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
@@ -85,7 +85,7 @@ az networkcloud clustermanager create \
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 
 
-Create the Cluster Manager using Azure Resource Manager template editor:
+### Create the Cluster Manager using Azure Resource Manager template editor:
 
 An alternate way to create a Cluster Manager is with the ARM template editor.  [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
 
