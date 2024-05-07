@@ -1,6 +1,6 @@
 ---
-title: Azure CLI & Portal Example Experiments
-description: See real examples of creating various chaos experiments in the Azure Portal and CLI. 
+title: Azure CLI & Azure portal example experiments
+description: See real examples of creating various chaos experiments in the Azure portal and CLI. 
 services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: reference
@@ -13,19 +13,19 @@ ms.custom: none
 
 # Example Experiments
 
-This article provides examples for creating experiments from your command line (CLI) and Azure Portal paramater examples for various experiments. You can copy and paste these, and edit them for your specific resources. 
+This article provides examples for creating experiments from your command line (CLI) and Azure portal parameter examples for various experiments. You can copy and paste the following commands into the CLI or Azure portal, and edit them for your specific resources. 
 
-Here is an example of where you would copy and paste the Azure portal parameter into:
+Here's an example of where you would copy and paste the Azure portal parameter into:
 
-[![Screenshot that shows Azure Portal parameter location.](images/azure-portal-parameter-examples.png)](images/azure-portal-parameter-examples#lightbox)
+[![Screenshot that shows Azure portal parameter location.](images/azure-portal-parameter-examples.png)](images/azure-portal-parameter-examples#lightbox)
 
-**NOTE** Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. See [Experiment Permissions](chaos-studio-permissions-security.md) for more details. 
+**NOTE** Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. For more information, see [Experiment Permissions](chaos-studio-permissions-security.md). 
 <br>
 <br>
 View all available role assignments [here](chaos-studio-fault-providers.md) to determine which permissions are required for your target resources. 
 
 ---
-AKS Network Delay
+Azure Kubernetes Service (AKS) Network Delay
 ---
 
 ### [Azure CLI](#tab/azure-CLI)
@@ -85,9 +85,9 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 ```
 
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-```Azure Portal
+```Azure portal
 {"action":"delay","mode":"all","selector":{"namespaces":["default"]},"delay":{"latency":"200ms","correlation":"100","jitter":"0ms"}}
 ```
 --- 
