@@ -523,7 +523,7 @@
           "redirect_document_id": false
     },
       {
-          "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
+          "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data.md",
           "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
           "redirect_document_id": false
     },
