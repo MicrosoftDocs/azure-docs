@@ -147,7 +147,7 @@ For search services on any billable tier, regardless of creation date, you need 
 
 For billing rates per tier and currency, see the [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-## Estimate with a billable tier
+## Estimate capacity using a billable tier
 
 Storage needs are determined by the size of the indexes you expect to build. There are no solid heuristics or generalities that help with estimates. The only way to determine the size of an index is [build one](search-what-is-an-index.md). Its size is based on tokenization and embeddings, and whether you enable suggesters, filtering, and sorting, or can take advantage of [vector compression](vector-search-how-to-configure-compression-storage.md).
 
