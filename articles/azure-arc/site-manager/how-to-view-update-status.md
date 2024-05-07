@@ -1,10 +1,10 @@
 ---
 title: "How to view update status for site"
 description: "How to view update status for site"
-author: kgremban
-ms.author: kgremban
+author: torreymicrosoft
+ms.author: torreyt
 ms.service: azure-arc
-#ms.subservice: site-manager
+ms.subservice: azure-arc-site-manager
 ms.topic: how-to #Don't change
 ms.date: 04/18/2024
 

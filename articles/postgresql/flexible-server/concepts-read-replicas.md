@@ -4,12 +4,12 @@ description: This article describes the read replica feature in Azure Database f
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 03/06/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Flexible Server
@@ -141,7 +141,7 @@ Here are the possible values:
 | <b> Updating | Server configuration is under preparation following a triggered action like promotion or read replica creation. | 2 | 2 |
 | <b> Catchup | WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced. | 3 | 3 |
 | <b> Active | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status remains as active. | 4 | 4 |
-| <b> Broken | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason. | N/A | N/A |
+| <b> Broken | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason. Please drop the replica and recreate the replica to resolve this." | N/A | N/A |
 
 Learn how to [monitor replication](how-to-read-replicas-portal.md#monitor-a-replica).
 
