@@ -127,7 +127,7 @@ The output varies depending on the API you selected for inputs.
 
 Prepare a prompt as described in the [Prompt tool](prompt-tool.md#prerequisites) documentation. The LLM tool and Prompt tool both support [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templates. For more information and best practices, see [Prompt engineering techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md).
 
-For example, for a chat prompt we offer a method to distinguish between different roles, such as "system," "user," "assistant." Each role can have "name" and "content" properties.
+For example, for a chat prompt we offer a method to distinguish between different roles in a chat prompt, such as "system", "user", "assistant" and "tool". The "system", "user", "assistant" roles can have "name" and "content" properties. The "tool" role, however, should have "tool_call_id" and "content" properties. For an example of a tool chat prompt, please refer to [Sample 3](#sample-3).
 
 ### Sample 1
 ```jinja
@@ -187,6 +187,67 @@ In LLM tool, the prompt is transformed to match the [openai messages](https://pl
         "role": "system",
         "name": "Alice",
         "content": "You are a bot can tell good jokes."
+    }
+]
+```
+
+### Sample 3
+This sample illustrates how to write a tool chat prompt.
+```jinja
+# system:
+You are a helpful assistant.
+# user:
+What is the current weather like in Boston?
+# assistant:
+{# The assistant message with 'tool_calls' must be followed by messages with role 'tool'. #}
+## tool_calls:
+{{llm_output.tool_calls}}
+# tool:
+{#
+Messages with role 'tool' must be a response to a preceding message with 'tool_calls'.
+Additionally, 'tool_call_id's should match ids of assistant message 'tool_calls'.
+#}
+## tool_call_id:
+{{llm_output.tool_calls[0].id}}
+## content:
+{{tool-answer-of-last-question}}
+# user:
+{{question}}
+```
+
+In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+
+```
+[
+    {
+        "role": "system",
+        "content": "You are a helpful assistant."
+    },
+    {
+        "role": "user",
+        "content": "What is the current weather like in Boston?"
+    },
+    {
+        "role": "assistant",
+        "content": null,
+        "function_call": null,
+        "tool_calls": [
+            {
+                "id": "<tool-call-id-of-last-question>",
+                "type": "function",
+                "function": "<function-to-call-of-last-question>"
+            }
+        ]
+    },
+    {
+        "role": "tool",
+        "tool_call_id": "<tool-call-id-of-last-question>",
+        "content": "<tool-answer-of-last-question>"
+    }
+    ...
+    {
+        "role": "user",
+        "content": "<question>"
     }
 ]
 ```
