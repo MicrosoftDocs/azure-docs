@@ -14,7 +14,7 @@ In this article, you learn how to use the Microsoft Playwright Testing service's
 
 Playwright's sharding enables you to split your test suite to run across multiple machines simultaneously. This feature helps running tests in parallel.
 
-You can use Playwright Testing's reporting feature to get a consolidated report of a test run with sharding. You need to make sure you set the variable `PLAYWRIGHT_SERVICE_RUN_ID` such that it remains same across all shards. 
+You can use Playwright Testing's reporting feature to get a consolidated report of a test run with sharding. You need to make sure you set the variable `PLAYWRIGHT_SERVICE_RUN_ID` so that it remains same across all shards. 
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing's reporting feature is currently in invite-only preview. If you want to try it out, [submit a request for access to the preview](https://aka.ms/mpt/reporting-signup).
