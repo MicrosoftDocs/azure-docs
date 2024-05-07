@@ -1,6 +1,6 @@
 ---
-title: Use the getting started feature to create a sample infrastructure - Azure Virtual Desktop
-description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's getting started feature.
+title: Use the quickstart to create a sample infrastructure - Azure Virtual Desktop
+description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's quickstart.
 author: dknappettmsft
 ms.topic: quickstart
 ms.date: 08/02/2022
@@ -8,11 +8,11 @@ ms.author: daknappe
 ms.custom: mode-portal
 ---
 
-# Use the getting started feature to create a sample infrastructure
+# Use the quickstart to create a sample infrastructure
 
-You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services deployments, or it can deploy Microsoft Entra Domain Services for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
+You can quickly deploy Azure Virtual Desktop with the *quickstart* in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services deployments, or it can deploy Microsoft Entra Domain Services for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
-Joining session hosts to Microsoft Entra ID with the getting started feature is not supported. If you want to join session hosts to Microsoft Entra ID, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
+Joining session hosts to Microsoft Entra ID with the quickstart is not supported. If you want to join session hosts to Microsoft Entra ID, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
 
 > [!TIP]
 > Enterprises should plan an Azure Virtual Desktop deployment using information from [Enterprise-scale support for Microsoft Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone). You can also find more a granular deployment process in a [series of tutorials](create-host-pools-azure-marketplace.md), which also cover programmatic methods and less permission.
@@ -21,7 +21,7 @@ You can see the list of [resources that will be deployed](#resources-that-will-b
 
 ## Prerequisites
 
-Please review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) to start for a general idea of what's required, however there are some differences when using the getting started feature that you'll need to meet. Select a tab below to show instructions that are most relevant to your scenario.
+Please review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) to start for a general idea of what's required, however there are some differences when using the quickstart that you'll need to meet. Select a tab below to show instructions that are most relevant to your scenario.
 
 > [!TIP]
 > If you don't already have other Azure resources, we recommend you select the **New Microsoft Entra Domain Services** tab. This scenario will deploy everything you need to be ready to connect to a full virtual desktop session. If you already have AD DS or Microsoft Entra Domain Services, select the relevant tab for your scenario instead.
@@ -34,7 +34,7 @@ At a high level, you'll need:
 - An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
 - No existing Microsoft Entra Domain Services domain deployed in your Azure tenant.
 - User names you choose must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-), and you must use a unique user name that's not already in your Microsoft Entra subscription.
-- The user name for AD Domain join UPN should be a unique one that doesn't already exist in Microsoft Entra ID. The getting started feature doesn't support using existing Microsoft Entra user names when also deploying Microsoft Entra Domain Services.
+- The user name for AD Domain join UPN should be a unique one that doesn't already exist in Microsoft Entra ID. The quickstart doesn't support using existing Microsoft Entra user names when also deploying Microsoft Entra Domain Services.
 
 # [Existing AD DS](#tab/existing-adds)
 
@@ -42,7 +42,7 @@ At a high level, you'll need:
 
 - An Azure account with an active subscription.
 - An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.yml) assigned on subscription you're going to use.
-- An AD DS domain controller deployed in Azure in the same subscription as the one you choose to use with the getting started feature. Using multiple subscriptions isn't supported. Make sure you know the fully qualified domain name (FQDN).
+- An AD DS domain controller deployed in Azure in the same subscription as the one you choose to use with the quickstart. Using multiple subscriptions isn't supported. Make sure you know the fully qualified domain name (FQDN).
 - Domain admin credentials for your existing AD DS domain
 - You must configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) on your subscription and make sure the **Users** container is syncing with Microsoft Entra ID. A security group called **AVDValidationUsers** will be created during deployment in the *Users* container by default. You can also pre-create the **AVDValidationUsers** security group in a different organization unit in your existing AD DS domain. You must make sure this group is then synchronized to Microsoft Entra ID. 
 - A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network for AD DS or Microsoft Entra Domain Services. You also need to make sure you can resolve your AD DS or Microsoft Entra Domain Services domain name from this new virtual network.
@@ -66,19 +66,19 @@ At a high level, you'll need:
 ---
 
 > [!IMPORTANT]
-> The getting started feature doesn't currently support accounts that use multi-factor authentication. It also does not support personal Microsoft accounts (MSA) or [Microsoft Entra B2B collaboration](../active-directory/external-identities/user-properties.md) users (either member or guest accounts).
+> The quickstart doesn't currently support accounts that use multi-factor authentication. It also does not support personal Microsoft accounts (MSA) or [Microsoft Entra B2B collaboration](../active-directory/external-identities/user-properties.md) users (either member or guest accounts).
 
 ## Deployment steps
 
 # [New Microsoft Entra Domain Services](#tab/new-aadds)
 
-Here's how to deploy Azure Virtual Desktop and a new Microsoft Entra Domain Services domain using the getting started feature:
+Here's how to deploy Azure Virtual Desktop and a new Microsoft Entra Domain Services domain using the quickstart:
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. Select **Getting started** to open the landing page for the getting started feature, then select **Start**.
+1. Select **Quickstart** to open the landing page for the quickstart, then select **Start**.
 
 1. On the **Basics** tab, complete the following information, then select **Next: Virtual Machines >**:
 
@@ -123,13 +123,13 @@ Here's how to deploy Azure Virtual Desktop and a new Microsoft Entra Domain Serv
 
 # [Existing AD DS](#tab/existing-adds)
 
-Here's how to deploy Azure Virtual Desktop using the getting started feature where you already have AD DS available:
+Here's how to deploy Azure Virtual Desktop using the quickstart where you already have AD DS available:
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. Select **Getting started** to open the landing page for the getting started feature, then select **Start**.
+1. Select **Quickstart** to open the landing page for the quickstart, then select **Start**.
 
 1. On the **Basics** tab, complete the following information, then select **Next: Virtual Machines >**:
 
@@ -180,13 +180,13 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
 
 # [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
 
-Here's how to deploy Azure Virtual Desktop using the getting started feature where you already have Microsoft Entra Domain Services available:
+Here's how to deploy Azure Virtual Desktop using the quickstart where you already have Microsoft Entra Domain Services available:
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. Select **Getting started** to open the landing page for the getting started feature, then select **Start**.
+1. Select **Quickstart** to open the landing page for the quickstart, then select **Start**.
 
 1. On the **Basics** tab, complete the following information, then select **Next: Virtual Machines >**:
 
@@ -324,7 +324,7 @@ If you want to remove Azure Virtual Desktop resources from your environment, you
 
 - *your-prefix*-deployment
 - *your-prefix*-avd
-- *your-prefix*-prerequisite (only if you deployed the getting started feature with a new Microsoft Entra Domain Services domain)
+- *your-prefix*-prerequisite (only if you deployed the quickstart with a new Microsoft Entra Domain Services domain)
 
 To delete the resource groups:
 
