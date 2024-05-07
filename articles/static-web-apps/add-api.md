@@ -37,7 +37,7 @@ Before adding an API, create and deploy a frontend application to Azure Static W
 Once you have a frontend application deployed to Azure Static Web Apps, [clone your app repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). For example, to clone using the `git` command line:
 
 ```bash
-git clone https://github.com/_username_/my-first-static-web-app
+git clone https://github.com/my-username/my-first-static-web-app
 ```
 
 In Visual Studio Code, open the root of your app's repository. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
