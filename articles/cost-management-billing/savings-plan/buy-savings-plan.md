@@ -34,7 +34,7 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
 1. Select **Add** to purchase a new savings plan.
 1. Complete all the required fields:
     - **Name**: Friendly name for the new savings plan.
-    - **Billing subscription**: Subscription used to pay for the savings plan. For more information about permissions and roles required to purchase a savings plan, see [Permissions to buy an Azure savings plan](perimssion-buy-savings-plan.md).
+    - **Billing subscription**: Subscription used to pay for the savings plan. For more information about permissions and roles required to purchase a savings plan, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
     - **Apply to any eligible resource**: Scope of resources that are eligible for savings plan benefits. For more information, see [Savings plan scopes](scope-savings-plan.md).
     - **Term length**: One year or three years.
     - **Hourly commitment**: Amount available through the plan each hour. In the Azure portal, up to 10 recommendations might appear. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
