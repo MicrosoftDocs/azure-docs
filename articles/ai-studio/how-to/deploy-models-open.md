@@ -44,7 +44,7 @@ To delete deployments in Azure AI Studio, select the **Delete** button on the to
 
 To deploy and perform inferencing with real-time endpoints, you consume Virtual Machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for a quota increase.  
 
-## Next steps
+## Related content
 
 - Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
