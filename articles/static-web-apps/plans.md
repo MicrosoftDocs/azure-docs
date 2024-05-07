@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  overview
-ms.date: 04/24/2024
+ms.date: 05/07/2024
 ms.author: cshoe
 ---
 
@@ -15,8 +15,8 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 
 ## Features
 
-| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan |
-| --- | --- | --- |
+| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan (preview) |
+| --- | --- | --- |---|
 | Web hosting | ✔ | ✔ | ✔ |
 | GitHub integration | ✔ | ✔ | ✔ |
 | Azure DevOps integration | ✔ | ✔ | ✔ |
@@ -26,14 +26,16 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 | Max app size | 250 MB per app | 500 MB per app | 2 GB |
 | Custom domains | 2 per app | 5 per app | 10 per app |
 | APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
-| Authentication provider integration | [Preconfigured](authentication-authorization.yml)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
+| Authentication provider integration | [Preconfigured](authentication-authorization.yml)<br>(Service defined) | [Custom registrations](authentication-custom.md) | [Custom registrations](authentication-custom.md) |
 | [Assign custom roles with a function](authentication-custom.md#manage-roles) | ✗ | ✔ | ✔ |
 | Private endpoints | ✗ | ✔ | ✔ |
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ | ✔ |
 
 ## Selecting a plan
 
-The following scenarios can help you decide if the Standard plan best fits your needs.
+The following scenarios can help you decide if the Standard or Dedicated plan best fits your needs.
+
+Select Standard or Dedicated when:
 
 - Expected traffic volumes exceed bandwidth maximums.
 - The existing Azure Functions app you want to use either has triggers and bindings beyond HTTP endpoints, or can't be converted to a managed Functions app.
@@ -41,6 +43,10 @@ The following scenarios can help you decide if the Standard plan best fits your 
 - The site's web assets total file size exceed the storage maximums.
 - You require formal customer support.
 - You require more than three [staging environments](review-publish-pull-requests.md).
+
+Select the Dedicated plan when:
+
+- Your application requires regional data residency.
 
 See the [quotas guide](quotas.md) for limitation details.
 
