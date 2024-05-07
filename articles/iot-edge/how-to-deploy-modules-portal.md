@@ -44,19 +44,47 @@ The Azure portal has a wizard that walks you through creating the deployment man
 1. On the upper bar, select **Set Modules**.
 1. In the **Container Registry Credentials** section of the page, provide credentials to access container registries that contain module images. For example, your modules are in your private container registry or you are using a partner container registry that requires authentication.
 1. In the **IoT Edge Modules** section of the page, select **Add**.
-1. Choose one of the types of modules from the drop-down menu:
 
-   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?search=iot%20edge&amp;type=partial). For a list of partner modules, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
-   * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
+    :::image type="content" source="media/how-to-deploy-modules-portal/set-modules-add.png" alt-text="Screenshot of selecting add IoT Edges modules toolbar button in the Azure portal.":::
 
+1. Choose the type of modules you want to add from the drop-down menu. You can add IoT Edge modules or Azure Stream Analytics modules.
+
+#### IoT Edge Module
+
+Use this option to add Microsoft modules, partner modules, or custom modules. You provide the module name and container image URI. The container image URI is the location of the module image in a container registry.
+
+For example to add the Microsoft simulated temperature sensor module:
+
+1. Enter the following settings:
+
+    | Setting | Value |
+    |---------|-------|
+    |Image URI | `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` |
+    |Restart Policy | always |
+    |Desired Status | running |
+    
+    :::image type="content" source="media/how-to-deploy-modules-portal/add-edge-module.png" alt-text="Screenshot showing adding IoT Edge settings for the simulated temperature sensor module in the Azure portal.":::
+    
+    For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?search=iot%20edge&amp;type=partial). 
+    
+    For a list of partner modules, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Contact the IoT Edge module publisher to obtain the updated container image URI.
+    
+1. Select **Add**.
 1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary.
 
-   For more information about the available module settings, see [Module configuration and management](module-composition.md#module-configuration-and-management).
+    :::image type="content" source="media/how-to-deploy-modules-portal/update-module-settings.png" alt-text="Screenshot showing module list links to update IoT Edge module settings in the Azure portal.":::
 
-   For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+For more information about the available module settings, see [Module configuration and management](module-composition.md#module-configuration-and-management).
 
-1. Repeat steps 6 through 8 to add additional modules to your deployment.
-1. Select **Next: Routes** to continue to the routes section.
+For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+
+#### Azure Stream Analytics Module
+
+Use this option for modules generated from an Azure Stream Analytics workload.
+
+1. Select your subscription and the Azure Stream Analytics Edge job that you created.
+1. Select **Save**.
+
 
 ### Specify routes
 
