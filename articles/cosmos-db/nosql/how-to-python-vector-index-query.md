@@ -70,8 +70,10 @@ For subsequent sections of this article, we’ll consider the below structure fo
 } 
 ```
 
-## Authoring vector embedding policy
-Next, you need to define a vector embedding policy to provide necessary information for the vector search queries as detailed below:  
+## Creating a vector embedding policy for your container.
+Next, you need to define a container vector policy. This will provide information that is used to inform the Azure Cosmos DB query engine how to handle vector properties in the VectorDistance system functions, such as distance function, and data types, without having to define them in each query. This also informs the vector indexing policy of necessary information, should you choose to specify one.
+The following information is included in the contain vector policy:
+  
    * “path”: what properties contain vectors  
    * “datatype”: What type are the vector’s elements (default Float32)  
    * “dimensions”: The length of each vector in the path (default 1536)  
@@ -98,7 +100,7 @@ vector_embedding_policy = {
 } 
 ``` 
 
-## Specify vector index in indexing policy 
+## Creating a vector index in the indexing policy 
 Once the vector embedding paths are decided, vector indexes need to be added to the indexing policy. For this example, the indexing policy would look something like below: 
 
 ```python 
@@ -123,6 +125,10 @@ indexing_policy = {
     ] 
 } 
 ``` 
+
+> [!IMPORTANT]
+> Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.
+
 
 # Create container with vector policy 
 
