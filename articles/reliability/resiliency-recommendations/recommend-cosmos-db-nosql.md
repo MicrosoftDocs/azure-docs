@@ -12,11 +12,22 @@ ms.date: 5/06/2024
 
 # Azure resiliency recommendations for Azure Cosmos DB for NoSQL
 
-[!INCLUDE [Reliability recommendations](../includes/reliability-recommendations-include.md)]
+This article contains recommendations for achieving resiliency and availability for Azure Cosmos DB for NoSQL.  Many of the recommendations contain supporting Azure Resource Graph (ARG) queries to help identify non-compliant resources.
+
+## Reliability recommendations priority matrix
+
+Each recommendation is marked in accordance with the following priority matrix:
+
+| Image | Priority | Description
+|----|----|----|
+|:::image type="icon" source="../media/icon-recommendation-high.svg"::: |High|Immediate fix needed.|
+|:::image type="icon" source="../media/icon-recommendation-medium.svg":::|Medium|Fix within 3-6 months.|
+|:::image type="icon" source="../media/icon-recommendation-low.svg":::|Low|Needs to be reviewed.|
+
  
 ## Resiliency recommendations summary
 
-| Category | Priority |Recommendation |  
+| Category | Priority |Recommendation | 
 |---------------|--------|---|
 | [**Availability**](#availability) |:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Configure at least two regions for high availability](#-configure-at-least-two-regions-for-high-availability)|
 | [**Disaster recovery**](#disaster-recovery) |:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Enable service-managed failover for multi-region accounts with single write region](#-enable-service-managed-failover-for-multi-region-accounts-with-single-write-region)|
