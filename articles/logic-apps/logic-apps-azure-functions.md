@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 05/07/2024
 ---
 
 # Call Azure Functions from workflows in Azure Logic Apps
@@ -239,17 +239,17 @@ To call an Azure function from your workflow, you can add that functions like an
 
 <a name="enable-authentication-functions"></a>
 
-## Enable authentication for function calls (Consumption workflows only)
+## Enable authentication for Azure function calls (Consumption workflows only)
 
-Your Consumption workflow can authenticate function calls and access to resources protected by Microsoft Entra ID by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
+Your Consumption workflow can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate an Azure function call and access resources protected by Microsoft Entra ID. The managed identity can authenticate access without you having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The Azure function that's called from your workflow can use the same managed identity for authentication.
 
 > [!NOTE]
 > 
-> Currently, only Consumption workflows support authentication for Azure function 
-> calls using a managed identity and Microsoft Entra authentication. Standard workflows 
-> currently don't include this support when using the Azure Functions connector.
+> Only Consumption workflows support authentication for an Azure function call using 
+> a managed identity and Microsoft Entra authentication. Standard workflows currently 
+> don't include this support when you use the action to call an Azure function.
 
-For more information, review the following documentation:
+For more information, see the following documentation:
 
 * [Authenticate access with managed identities](create-managed-service-identity.md)
 * [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound)
@@ -300,76 +300,83 @@ For your function to use your Consumption logic app's managed identity, you must
 
 <a name="find-required-values"></a>
 
-<a name='find-the-required-values-to-set-up-azure-ad-authentication-consumption-workflows-only'></a>
-
 ### Find the required values to set up Microsoft Entra authentication (Consumption workflows only)
 
-Before you can set up your function app to use Microsoft Entra authentication, you need to find and save the following values by following the steps in this section.
+Before you can set up your function app to use the managed identity and Microsoft Entra authentication, you need to find and save the following values by following the steps in this section.
+
+1. [Find the tenant ID for your Microsoft Entra tenant](#find-tenant-id).
 
 1. [Find the object ID or client ID for your logic app's managed identity](#find-object-id).
-1. [Find the tenant ID for your Microsoft Entra ID](#find-tenant-id).
 
-<a name="find-object-id"></a>
-
-#### Find the object ID or client ID for your logic app's managed identity
-
-1. After your Consumption logic app has its managed identity enabled, on the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
-
-   * **System assigned**
-
-     For the system-assigned identity, copy the identity's **Object (principal) ID**, for example:
-
-     ![Screenshot showing the Consumption logic app "Identity" pane with the "System assigned" tab selected.](./media/logic-apps-azure-functions/system-identity-consumption.png)
-
-   * **User assigned**
-
-     1. For the user-assigned identity, select the identity to find the client ID, for example:
-
-        ![Screenshot showing the Consumption logic app "Identity" pane with the "User assigned" tab selected.](./media/logic-apps-azure-functions/user-identity-consumption.png)
-
-     1. On the managed identity's **Overview** pane, copy the identity's **Client ID**, for example:
-
-        ![Screenshot showing the user-assigned identity's "Overview" pane with the client ID selected.](./media/logic-apps-azure-functions/user-identity-client-id.png)
-
-### Find application ID for Azure Enterprise application
-
-If you want to use an [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal), rather than a managed identity to create the app registration to use for authentication, find, copy, and use the **Application ID** from your Enterprise application to later create an app registration for your function app.
-
-1. In the [Azure portal](https://portal.azure.com), find and open your Enterprise application.
-
-1. On the application menu, select **Overview**.
-
-1. Under **Properties**, find and copy the **Application ID** to [create an app registration for your function app](#create-app-registration).
-
-   :::image type="content" source="media/logic-apps-azure-functions/enterprise-application-id.png" alt-text="{alt-text}" lightbox="media/logic-apps-azure-functions/enterprise-application-id.png":::
+1. [Find the application ID for the Enterprise application associated with the managed identity](#find-application-id).
 
 <a name="find-tenant-id"></a>
 
-#### Find the tenant ID for your Microsoft Entra ID
+#### Find the tenant ID for your Microsoft Entra tenant
 
-To find your Microsoft Entra tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
+Either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your Microsoft Entra tenant. These steps use **Fabrikam** as the example tenant.
+1. In the [Azure portal](https://portal.azure.com), open your Microsoft Entra tenant.
 
-1. On the Microsoft Entra tenant menu, select **Overview**.
+   This guide uses **Fabrikam** as the example tenant.
+
+1. On the tenant menu, select **Overview**.
 
 1. Copy and save your tenant ID for later use, for example:
 
    :::image type="content" source="media/logic-apps-azure-functions/tenant-id.png" alt-text="Screenshot shows Microsoft Entra ID Properties page with tenant ID's copy button selected." lightbox="media/logic-apps-azure-functions/tenant-id.png":::
 
+<a name="find-object-id"></a>
+
+#### Find the object ID or client ID for your logic app's managed identity
+
+After you enable the managed idenity for your Consumption logic app resource, find the object ID for the system-assigned identity or the client ID for the user-assigned identity. You'll use either ID to find the associated Enterprise application in your Entra tenant.
+
+1. On the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
+
+   - **System assigned**
+
+     Copy the identity's **Object (principal) ID**:
+
+     :::image type="content" source="media/logic-apps-azure-functions/system-identity-consumption.png" alt-text="Screenshot shows Consumption logic app's Identity page with selected tab named System assigned." lightbox="media/logic-apps-azure-functions/system-identity-consumption.png":::
+
+   - **User assigned**
+
+     1. Select the identity:
+
+        :::image type="content" source="media/logic-apps-azure-functions/user-identity-consumption.png" alt-text="Screenshot shows Consumption logic app's Identity page with selected tab named User assigned." lightbox="media/logic-apps-azure-functions/user-identity-consumption.png":::
+
+     1. Copy the identity's **Object (principal) ID**:
+
+        :::image type="content" source="media/logic-apps-azure-functions/user-identity-object-id.png" alt-text="Screenshot shows Consumption logic app's user-assigned identity Overview page with the object (principal) ID selected." lightbox="media/logic-apps-azure-functions/user-identity-object-id.png":::
+
 <a name="find-enterprise-app-application-id"></a>
+
+### Find the application ID for the associated Azure Enterprise application
+
+When you enable a managed identity on your logic app resource, Azure automatically creates an associated [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal). You now need to find the associated Enterprise application and copy its **Application ID**. Later, you use this application ID to add an identity provider for your function app by creating an app registration.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your Entra tenant.
+
+1. On the tenant menu, under **Manage**, select **Enterprise applications**.
+
+1. On the **All applications** page, in the search box, enter the object ID for your managed identity. From the results, find the matching enterprise application, and copy the **Application ID**:
+
+   :::image type="content" source="media/logic-apps-azure-functions/find-enterprise-application-id.png" alt-text="Screenshot shows Entra tenant page named All applications, with enterprise application object ID in search box, and selected matching application ID." lightbox="media/logic-apps-azure-functions/find-enterprise-application-id.png":::
+
+1. Now, use the copied application ID to [add an identity provider to your function app](#create-app-registration).
 
 <a name="create-app-registration"></a>
 
-### Create app registration for your function app (Consumption workflows only)
+### Add identity provider for your function app (Consumption workflows only)
 
-After you find the object ID (system-assigned) or client ID (user-assigned) for your Consumption logic app's managed identity and the tenant ID for your Microsoft Entra ID, you can set up your function app to use Microsoft Entra authentication by creating an app registration.
+Now that you have the tenant ID and the application ID, you can set up your function app to use Microsoft Entra authentication by adding an identity provider and creating an app registration.
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 
 1. On the function app menu, under **Settings**, select **Authentication**, and then select **Add identity provider**.
 
-   ![Screenshot showing function app menu with "Authentication" pane and "Add identity provider" selected.](./media/logic-apps-azure-functions/open-authentication-pane.png)
+   :::image type="content" source="media/logic-apps-azure-functions/add-identity-provider.png" alt-text="Screenshot shows function app menu with Authentication page and selected option named Add identity provider." lightbox="media/logic-apps-azure-functions/add-identity-provider.png":::
 
 1. On the **Add an identity provider** pane, under **Basics**, from the **Identity provider** list, select **Microsoft**.
 
@@ -377,10 +384,10 @@ After you find the object ID (system-assigned) or client ID (user-assigned) for 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Application (client) ID** | Yes | <*object-client-or-application-ID*> | The unique identifier to use for this app registration. For example, you can use any of the following options: <br><br>- The object ID for your logic app's system-assigned managed identity <br>- The client ID for your logic app's user-assigned managed identity <br>- The application ID for an Enterprise application |
+   | **Application (client) ID** | Yes | <*application-ID*> | The unique identifier to use for this app registration. For this example, use the application ID that you copied for the Enterprise application associated with your managed identity. |
    | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
    | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Entra-tenant-ID*>** |
-   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
+   | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <br><br>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
 
    At this point, your version looks similar to this example:
 
@@ -394,7 +401,7 @@ After you find the object ID (system-assigned) or client ID (user-assigned) for 
 
    When you're done, the **Authentication** page now lists the identity provider and the app registration's application (client) ID. Your function app can now use this app registration for authentication.
 
-1. Copy the **Application (client) ID** value to use later in the Azure Functions action's **Audience** property for your workflow.
+1. Copy the app registration's **App (client) ID** to use later in the Azure Functions action's **Audience** property for your workflow.
 
    :::image type="content" source="media/logic-apps-azure-functions/identity-provider-application-id.png" alt-text="Screenshot shows new identity provider for function app" lightbox="media/logic-apps-azure-functions/identity-provider-application-id.png":::
 
