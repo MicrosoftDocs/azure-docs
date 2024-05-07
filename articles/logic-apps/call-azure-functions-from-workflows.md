@@ -1,6 +1,6 @@
 ---
 title: Call Azure Functions from workflows
-description: Run an Azure function from workflows in Azure Logic Apps by calling Azure Functions.
+description: Call and run an Azure function from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
