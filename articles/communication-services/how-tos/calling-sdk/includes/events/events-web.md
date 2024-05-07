@@ -57,7 +57,7 @@ The `incomingCall` event fires when a call is coming.
 <details>
 <summary>View event details</summary>
 
-**How should your application react to the event ?**
+**How should your application react to the event?**
 
 Your application should notify the user of the incoming call. The notification prompt should propose the user to accept or refuse the call.
 
@@ -83,7 +83,8 @@ The `callsUpdated` updated event is fired when a call is removed or added to the
 
 <details>
 <summary>View event details</summary>
-**How should your application react to the event ?**
+
+**How should your application react to the event?**
 Your application should update its UI based on the number of active calls for the CallAgent instance.
 
 </details>
@@ -94,7 +95,9 @@ The `connectionStateChanged` event fired when the state of the `CallAgent` is up
 
 <details>
 <summary>View event details</summary>
-**How should your application react to the event ?**
+
+**How should your application react to the event?**
+
 Your application should update its UI based on the new state. The possible connection state values are `Connected` and `Disconnected`
 
 **Code sample:**
@@ -124,7 +127,7 @@ The `stateChanged`  event is fired when the call state changes. For example, whe
 <details>
 <summary>View event details</summary>
 
-**How should your application react to the event ?**
+**How should your application react to the event?**
 
 Your application should update its UI accordingly. Disabling or enabling appropriate buttons and other UI elements based on the new call state.
 
@@ -155,7 +158,7 @@ The `idChanged`  event is fired when the ID of a call changes. The ID of a call 
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 Your application should save the new call ID but it can also be retrieved from the call object later when needed.
 
@@ -197,7 +200,7 @@ The `isScreenSharingOnChanged` event is fired when screen sharing for the local 
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 Your application should show a preview and/or a warning to the user if the screen sharing became on.
 If the screen sharing went off, then the application should remove the preview and warning.
@@ -226,7 +229,8 @@ The `isLocalVideoStartedChanged` event is fired when the user enabled our disabl
 
 <details>
 <summary>View event details</summary>
-**How might your application react to the event ?**
+
+**How might your application react to the event?**
 
 Your application should show a preview of the local video and enable or disable the camera activation button.
 
@@ -247,7 +251,7 @@ Your application should subscribe to event for each added `RemoteParticipants` a
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 Your application should show a preview of the local video and enable or disable the camera activation button.
 
 **Code Sample:**
@@ -279,7 +283,7 @@ The `localVideoStreamsUpdated` event is fired when the list of local video strea
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 Your application should show previews for each of `LocalVideoStream` added. Your application should remove the preview and stop the processing for each `LocalVideoStream` removed.
 
@@ -308,7 +312,7 @@ The `remoteAudioStreamsUpdated` event is fired when the list of remote audio str
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 If a stream was being processed and is now removed, the processing should be stopped. On the other hand, if a stream is added then the event reception is a good place to start the processing of the new audio stream.
 
@@ -321,7 +325,7 @@ The `totalParticipantCountChanged` fires when the number of totalParticipant cha
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 If your application is displaying a participant counter, your application can update its participant counter when the event is received.
 
@@ -342,7 +346,7 @@ The `roleChanged` participant fires when the localParticipant roles changes in t
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 Your application should enable or disabled button base on the user new role.
 
 **Code Sample:**
@@ -365,7 +369,7 @@ The `roleChanged` event fires when the `RemotePartipant` role changes in the cal
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 Your application should update its UI based on the `RemoteParticipant` new role.
 
 **Code Sample:**
@@ -386,7 +390,7 @@ The `isMutedChanged` event fires when one of the `RemoteParticipant` mutes or un
 
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 Your application may display an icon near by the view that displays the participant.
 
@@ -406,7 +410,8 @@ The `displayNameChanged` when the name of the `RemoteParticipant` is updated.
 
 <details>
 <summary>View event details</summary>
-**How might your application react to the event ?**
+
+**How might your application react to the event?**
 
 Your application should update the name of the participant if it's being displayed in the UI.
 
@@ -427,7 +432,7 @@ The `isSpeakingChanged` when the dominant speaker in a call changes.
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 Your application UI should give priority to display the `RemotePartipant` who became dominant speaker.
 
@@ -443,12 +448,12 @@ remoteParticipant.on('isSpeakingChanged', () => {
 
 #### Event: `videoStreamsUpdated`
 
-The `videoStreamsUpdated` when a remote participant adds or remove a VideoStream to/from the call.
+The `videoStreamsUpdated` when a remote participant adds or removes a VideoStream to/from the call.
 
 <details>
 <summary>View event details</summary>
 
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 If your application was processing a stream that is removed. Your application should stop the processing. When a new stream is added your application may want to render or process it.
 
