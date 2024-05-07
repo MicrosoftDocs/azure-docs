@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.custom: query-reference, devx-track-dotnet
+ms.custom: query-reference, devx-track-python
 ---
 
 # Index and query vectors in Azure Cosmos DB for NoSQL in Python. 
@@ -47,7 +47,7 @@ This will enroll every Azure Cosmos DB resource in your subscription in the vect
 
 ## Understanding the steps involved in vector search 
 
-The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database(quickstart-portal). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
+The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database](quickstart-portal.md). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
 
 Let’s take an example of creating a database for an internet-based bookstore and you are storing Title, Author, ISBN, and Description for each book. We’ll also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](../../ai-services/openai/concepts/models#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](../../ai-services/computer-vision/concept-image-retrieval). 
 
@@ -160,13 +160,11 @@ ORDER BY VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10])  
 
 This query will retrieve the book titles along with similarity scores with respect to your query. This vector search query can be used in our SDKs as shown below:
 
-
 ```python 
 query_embedding = [1,2,3,4,5,6,7,8,9,10] 
-
 # Query for items 
 for item in container.query_items( 
-            query='SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM c', 
+            query='SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore FROM c ORDER BY VectorDistance(c.contentVector,@embedding)', 
             parameters=[ 
                 {"name": "@embedding", "value": query_embedding} 
             ], 

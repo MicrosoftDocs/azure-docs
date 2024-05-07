@@ -154,6 +154,17 @@ SELECT c.title, VectorDistance(c.contentVector, [1,2,3]) AS SimilarityScore �
 FROM c  
 ORDER BY VectorDistance(c.contentVector, [1,2,3])   
 ```
+
+## Current limits and constraints
+Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations while in early stages of public preview. These limitations and constraints will be eased in the future as improvements are released.
+- You can specify, at most, one index type per path in the vector index policy
+- You can specify, at most, one DiskANN index type per container
+- Vector indexing an search is only supported on new Containers.
+- Vectors indexed with the `flat` index type can be at most 505 dimensions. Vectors indexed with the `quantizedFlat` or `DiskANN` index type can be at most 4096 dimensions.
+- `quantizedFlat` is based off Product Quantization 
+- Shared throughput databases can't use the vector search preview feature at this time. 
+
+
 ## Next step
 - [.NET - How-to Index and query vector data](how-to-python-vector-index-query.md)
 - [Python - How-to Index and query vector data](how-to-python-vector-index-query.md)

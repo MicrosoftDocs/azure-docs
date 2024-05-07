@@ -12,7 +12,7 @@ ms.date: 08/01/2023
 ms.custom: query-reference, devx-track-dotnet
 ---
 
-# Index and query vectors in Azure Cosmos DB for NoSQL in .NET. 
+# Index and query vectors in Azure Cosmos DB for NoSQL in JavaScript. 
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. UYou are required to register for the preview before use. This article covers the following steps: 
@@ -30,7 +30,7 @@ Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. UYou 
 - An existing Azure Cosmos DB for NoSQL account.
   - If you don't have an Azure subscription, [Try Azure Cosmos DB for NoSQL free](https://cosmos.azure.com/try/).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for NoSQL account](how-to-create-account.md).
-- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK.
+- Latest version of the Azure Cosmos DB [JavaScript](sdk-nodejs.md) SDK.
 
 ## Registering for the preview
 Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](../../azure-resource-manager/management). Please follow the below steps to register: 
@@ -47,7 +47,7 @@ This will enroll every Azure Cosmos DB resource in your subscription in the vect
 
 ## Understanding the steps involved in vector search 
 
-The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database(quickstart-portal). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
+The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database](quickstart-portal.md). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
 
 Let’s take an example of creating a database for an internet-based bookstore and you are storing Title, Author, ISBN, and Description for each book. We’ll also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](../../ai-services/openai/concepts/models#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](../../ai-services/computer-vision/concept-image-retrieval). 
 
@@ -81,49 +81,49 @@ The following information is included in the contain vector policy:
 
 For our example with book details, the vector policy may look like the example JSON below: 
 
-```csharp 
-  Database db = await client.CreateDatabaseIfNotExistsAsync("vector-benchmarking");
-  List<Embedding> embeddings = new List<Embedding>()
-  {
-      new Embedding()
-      {
-          Path = "/coverImageVector",
-          DataType = VectorDataType.Float32,
-          DistanceFunction = DistanceFunction.Cosine,
-          Dimensions = 8,
-      },
-      new Embedding()
-      {
-          Path = "/contentVector",
-          DataType = VectorDataType.Float32,
-          DistanceFunction = DistanceFunction.Cosine,
-          Dimensions = 10,
-      }
-  };
+```javascript
+const vectorEmbeddingPolicy: VectorEmbeddingPolicy = {
+      vectorEmbeddings: [
+        {
+          path: "/coverImageVector",
+          dataType: "float32",
+          dimensions: 8,
+          distanceFunction: "euclidean",
+        },
+        {
+          path: "contentVector",
+          dataType: "float32",
+          dimensions: 10,
+          distanceFunction: "dotproduct",
+        },
+      ],
+    };
 ``` 
-
 
 ## Creating a vector index in the indexing policy 
 Once the vector embedding paths are decided, vector indexes need to be added to the indexing policy. Currently, the vector search feature for Azure Cosmos DB for NoSQL is supported only on new containers so you need to apply the vector policy during the time of container creation and it can’t be modified later.  For this example, the indexing policy would look something like below: 
 
-```csharp 
-  Collection<Embedding> collection = new Collection<Embedding>(embeddings);
-  ContainerProperties properties = new ContainerProperties(id: "vector-container", partitionKeyPath: "/id")
-  {   
-      VectorEmbeddingPolicy = new(collection),
-      IndexingPolicy = new IndexingPolicy()
-      {
-          VectorIndexes = new()
-          {
-              new VectorIndexPath()
-              {
-                  Path = "/vector",
-                  Type = VectorIndexType.QuantizedFlat,
-              }
-          }
-      },
-  };
-``` 
+```javascript
+const indexingPolicy: IndexingPolicy = {
+  vectorIndexes: [
+    { path: "/coverImageVector", type: "quantizedFlat" },
+    { path: "/contentVector", type: "diskANN" },
+  ]
+};
+```
+
+Now create your container as usual
+
+```javascript
+const containerName = "vector embedding container";
+    // create container
+    const { resource: containerdef } = await database.containers.createIfNotExists({
+      id: containerName,
+      vectorEmbeddingPolicy: vectorEmbeddingPolicy,
+      indexingPolicy: indexingPolicy,
+    });
+```
+
 
 > [!IMPORTANT]
 > Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.
@@ -140,23 +140,18 @@ ORDER BY VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10])  
 
 This query will retrieve the book titles along with similarity scores with respect to your query. This vector search query can be used in our SDKs as shown below:
 
-```csharp 
-  float[] embedding = float[] {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f}
-  var queryDef = new QueryDefinition(
-      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM c"
-      ).WithParameter("@embedding", embedding);
-  using FeedIterator<Object> feed = container.GetItemQueryIterator<Object>(
-      queryDefinition: queryDef
-  );
-  while (feed.HasMoreResults) 
-  {
-      FeedResponse<Object> response = await feed.ReadNextAsync();
-      foreach ( Object item in response)
-      {
-          Console.WriteLine($"Found item:\t{item}");
-      }
-  }
-``` 
+```javascript
+const { resources } = await container.items
+  .query({
+    query: "SELECT c.title, VectorDistance(c.contentVector, @embedding) AS SimilarityScore FROM c  ORDER BY VectorDistance(c.contentVector, @embedding)"
+    parameters: [{ name: "@embedding", value: [1,2,3,4,5,6,7,8,9,10] }]
+  })
+  .fetchAll();
+for (const item of resources) {
+  console.log(`${itme.title}, ${item.SimilarityScore} is a capitol `);
+}
+```
+
 
 ## Next steps
 - [VectorDistance system function](query/vectordistance.md)

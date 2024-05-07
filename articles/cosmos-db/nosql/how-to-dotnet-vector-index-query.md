@@ -47,7 +47,7 @@ This will enroll every Azure Cosmos DB resource in your subscription in the vect
 
 ## Understanding the steps involved in vector search 
 
-The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database(quickstart-portal). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
+The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database](quickstart-portal.md). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
 
 Let’s take an example of creating a database for an internet-based bookstore and you are storing Title, Author, ISBN, and Description for each book. We’ll also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](../../ai-services/openai/concepts/models#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](../../ai-services/computer-vision/concept-image-retrieval). 
 
@@ -143,7 +143,7 @@ This query will retrieve the book titles along with similarity scores with respe
 ```csharp 
   float[] embedding = float[] {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f}
   var queryDef = new QueryDefinition(
-      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM c"
+      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM cVectorDistance(c.contentVector,@embedding)"
       ).WithParameter("@embedding", embedding);
   using FeedIterator<Object> feed = container.GetItemQueryIterator<Object>(
       queryDefinition: queryDef
