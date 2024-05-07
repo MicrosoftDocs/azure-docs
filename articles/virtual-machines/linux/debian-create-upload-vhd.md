@@ -89,7 +89,7 @@ qemu-img convert -f raw -o subformat=fixed,force_size -O vpc "$rawdisk" "$vhddis
 This creates a VHD `image_[release]_azure_amd64.vhd` with a rounded size to be able to copy it successfully to an Azure Disk.
 
 >[!Note]
-> Rather than using cloning the salsa repository bulding images locally, current stable images can be built and downloaded from [FAI](https://fai-project.org/FAIme/cloud/).
+> Rather than cloning the salsa repository and building images locally, current stable images can be built and downloaded from [FAI](https://fai-project.org/FAIme/cloud/).
 
 After creating a stable Debian vhd image, before uploading verify the following packages are installed:
 * apt-get install hyperv-daemons
