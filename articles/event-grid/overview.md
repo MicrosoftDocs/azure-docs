@@ -38,16 +38,17 @@ Event Grid offers a rich mixture of features. These features include:
 
 ### MQTT messaging 
 
-- **[MQTT v3.1.1 and MQTT v5.0](mqtt-publish-and-subscribe-portal.md)** support – use any open source MQTT client library to communicate with the service.
-- **Custom topics with wildcards support** - leverage your own topic structure.
-- **Publish-subscribe messaging model** - communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
-- **[Built-in cloud integration](mqtt-routing.md)** - route your MQTT messages to Azure services or custom webhooks for further processing.
-- **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices using the IoT industry's standard mechanism for authentication.
-- **[Microsoft Entra ID (formerly Azure Active Directory) authentication](mqtt-client-microsoft-entra-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
-- **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
-- **Multi-session support** - connect your applications with multiple active sessions to ensure reliability and scalability.
-- **MQTT over WebSockets** - enable connectivity for clients in firewall-restricted environments.
+- **[MQTT v3.1.1 and MQTT v5.0](mqtt-publish-and-subscribe-portal.md)** support – Use any open source MQTT client library to communicate with the service.
+- **Custom topics with wildcards support** - Leverage your own topic structure.
+- **Publish-subscribe messaging model** - Communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
+- **[Built-in cloud integration](mqtt-routing.md)** - Route your MQTT messages to Azure services or custom webhooks for further processing.
+- **Flexible and fine-grained [access control model](mqtt-access-control.md)** - Group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
+- **MQTT broker authentication methods** - [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices ,[Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that are not provisioned in Azure.
+- **TLS 1.2 and TLS 1.3 support** - Secure your client communication using robust encryption protocols.
+- **Multi-session support** - Connect your applications with multiple active sessions to ensure reliability and scalability.
+- **MQTT over WebSockets** - Enable connectivity for clients in firewall-restricted environments.
+- **Custom domain names** - Allows users to assign their own domain names to Event Grid namespace's MQTT endpoints, enhancing security and simplifying client configuration.
+- **Client Life Cycle events** - Allow applications to react to events about the client connection status or the client resource operations.
 
 
 ### Event messaging (HTTP)
@@ -59,6 +60,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **Advanced filtering** – Filter on event type or other event attributes to make sure your event handlers or consumer apps receive only relevant events.
 - **Reliability** – Push delivery features a 24-hour retry mechanism with exponential backoff to make sure events are delivered. If you use pull delivery, your application has full control over event consumption.
 - **High throughput** - Build high-volume integrated solutions with Event Grid.
+- **Custom domain names** - Allows users to assign their own domain names to Event Grid namespace's HTTP endpoints, enhancing security and simplifying client configuration.
 
 ## Use cases
 
