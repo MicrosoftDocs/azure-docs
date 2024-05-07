@@ -37,6 +37,7 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
 You can create FIPS-enabled node pools on all supported OS types, Linux and Windows. However, not all OS versions support FIPS-enabled nodepools. After a new OS version is released, there is typically a waiting period before it is FIPS compliant.
 
 The below table includes the supported OS versions:
+
 |OS Type|OS SKU|FIPS Compliance|
 |--|--|--|
 |Linux|Ubuntu|Supported|
@@ -47,7 +48,7 @@ The below table includes the supported OS versions:
 When requesting FIPS enabled Ubuntu, if the default Ubuntu version does not support FIPS, AKS will default to the most recent FIPS-supported version of Ubuntu. For example, Ubuntu 22.04 is default for Linux node pools. Since 22.04 does not currently support FIPS, AKS will default to Ubuntu 20.04 for Linux FIPS-enabled nodepools.
 
 > [!NOTE]
- > Previously, you could use the GetOSOptions API to determine whether a given OS supported FIPS. The GetOSOptions API is now deprecated and it will no longer be included in new AKS API versions starting with 2024-04-01. 
+ > Previously, you could use the GetOSOptions API to determine whether a given OS supported FIPS. The GetOSOptions API is now deprecated and it will no longer be included in new AKS API versions starting with 2024-05-01. 
 
 ## Create a FIPS-enabled Linux node pool
 
