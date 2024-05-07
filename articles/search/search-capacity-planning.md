@@ -48,9 +48,9 @@ We recommend estimating on a billable tier, Basic or above. The Free tier runs o
 
 1. [Review service limits at each tier](./search-limits-quotas-capacity.md#service-limits) to determine whether lower tiers can support the number of indexes you need. Consider whether you need multiple copies of an index for active development, testing, and production. 
 
-   A search service is subect to object limits (maximum number of indexes, indexers, skillsets, etc.) and storage limits. Whichever limit is reached first is the effective limit. 
+   A search service is subject to object limits (maximum number of indexes, indexers, skillsets, etc.) and storage limits. Whichever limit is reached first is the effective limit. 
 
-1. [Create a service at a billable tier](search-create-service-portal.md). Tier are optimized for certain workloads. For example, Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
+1. [Create a service at a billable tier](search-create-service-portal.md). Tiers are optimized for certain workloads. For example, Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
     + Start low, at Basic or S1, if you're not sure about the projected load.
 
