@@ -42,7 +42,7 @@ Azure AI Studio supports developing in VS Code - Desktop and Web. In each scenar
 
 ## The custom container folder structure
 
-Our prebuilt development environments are based on a docker container that has Azure AI SDKs, the prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about).
+Our prebuilt development environments are based on a docker container that has Azure AI SDKs, the prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about).
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
