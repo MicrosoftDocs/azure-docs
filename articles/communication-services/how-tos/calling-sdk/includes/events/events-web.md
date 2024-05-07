@@ -52,7 +52,7 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 ### Events on the `CallAgent` object
 
 #### Event Name: `incomingCall`
-The `incomingCall` event is fires when an incoming is coming.
+The `incomingCall` event fires when a call is coming.
 
 <details>
 <summary>View event details</summary>
@@ -270,7 +270,7 @@ call.on('remoteParticipantsUpdated', (remoteParticipantsUpdatedEvent) => {
 });
 ```
 
-<details>
+</details>
 
 #### Event: `localVideoStreamsUpdated`
 
