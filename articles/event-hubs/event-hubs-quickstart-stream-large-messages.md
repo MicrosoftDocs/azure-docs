@@ -8,11 +8,9 @@ ms.date: 5/6/2024
 
 # QuickStart: Send and receive large messages with Azure Event Hubs (Preview)
 
-In this QuickStart, you learn how to Send and receive large messages (up to 20 MB) using Azure Event Hubs.  
+In this quickstart, you learn how to send and receive large messages (up to 20 MB) using Azure Event Hubs. If you're new to Azure Event Hubs, see  [Event Hubs overview](event-hubs-about.md) before you go through this quickstart.
 
 ### Prerequisites
-
-If you're new to Azure Event Hubs, see the [Event Hubs overview](/azure/event-hubs/event-hubs-about) before you go through this QuickStart. 
 
 To complete this QuickStart, you need the following prerequisites: 
 
@@ -42,10 +40,12 @@ Once the configuration is saved, you're all set to stream Large messages with ev
 
 ## Streaming Large messages with Azure Event hubs
 
-Being able to stream large messages or events requires no client code changes apart from the change in message or event itself. You could continue sending/receiving messages using any existing event hubs SDK/ Kafka API to stream large messages to event hub.This allows you to stream large messages to the event hub in the same manner as you would for messages of size less than 1 MB.
+Azure Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. Being able to stream large messages or events requires no client code changes apart from the change in message or event itself. You could continue sending/receiving messages using any existing event hubs SDK/ Kafka API to stream large messages to event hub.This allows you to stream large messages to the event hub in the same manner as you would for messages of size less than 1 MB. 
 Know more [here](event-hubs-dotnet-standard-getstarted-send.md)
-> [!NOTE]
-> Make sure to review any Event Hubs AMQP client or Kafka client configuration that could be limiting maximum message size that you stream into event hubs.You must update Client timeout to higher value to be able to stream large messages. 
+
+
+> [!TIP]
+> Make sure to review any Event Hubs AMQP client or Kafka client configuration that could be limiting maximum message size that you stream into event hubs.You must update Client timeout to higher value to be able to stream large messages. By default, AMQP client prefetch count is 300. You should lower this value to avoid client side memory issues when dealing with large messages.    
 
 For complete .NET library reference, see our [SDK documentation](/dotnet/api/overview/azure/event-hubs). 
 
