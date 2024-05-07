@@ -52,7 +52,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 1. Use the following command to clone the sample project from GitHub:
 
    ```bash
-   git clone -b job https://github.com/Azure-Samples/azure-spring-apps-samples.git
+   git clone https://github.com/Azure-Samples/azure-spring-apps-samples.git
    ```
 
 ## 3. Prepare the cloud environment
