@@ -178,9 +178,9 @@ Instead of using the session pool management API directly, the following LLM fra
 
 | Framework | Package | Tutorial |
 |-----------|---------|------------|
-| LangChain | Python: [`langchain-azure-dynamic-sessions`](https://github.com/langchain-ai/langchain/blob/master/libs/partners/azure-dynamic-sessions/) | [Tutorial ](./sessions-get-started-langchain.md) |
-| LlamaIndex | Python: [`llama-index-tools-azure-dynamic-sessions`](https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-azure-dynamic-sessions/) | [Tutorial ](./sessions-get-started-llamaindex.md) |
-| Semantic Kernel | Python: `semantic-kernel` (0.??.? or later) | [Tutorial ](./sessions-get-started-semantic-kernel.md) |
+| LangChain | Python: [`langchain-azure-dynamic-sessions`](https://github.com/langchain-ai/langchain/blob/master/libs/partners/azure-dynamic-sessions/) | [Tutorial ](./sessions-tutorial-langchain.md) |
+| LlamaIndex | Python: [`llama-index-tools-azure-dynamic-sessions`](https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-azure-dynamic-sessions/) | [Tutorial ](./sessions-tutorial-llamaindex.md) |
+| Semantic Kernel | Python: `semantic-kernel` (0.??.? or later) | [Tutorial ](./sessions-tutorial-semantic-kernel.md) |
 
 ### Management API endpoints
 
@@ -317,4 +317,4 @@ Authorization: Bearer <TOKEN>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: use code interpreter sessions with LangChain](./sessions-get-started-langchain.md)
+> [Quickstart: use code interpreter sessions with LangChain](./sessions-tutorial-langchain.md)

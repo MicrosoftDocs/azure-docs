@@ -40,18 +40,6 @@
           href: jobs-get-started-portal.md
         - name: Command line
           href: jobs-get-started-cli.md
-      - name: Use dynamic sessions
-        items:
-        - name: Code interpreter sessions
-          items:
-          - name: LangChain
-            href: sessions-get-started-langchain.md
-          - name: LlamaIndex
-            href: sessions-get-started-llamaindex.md
-          - name: Semantic Kernel
-            href: sessions-get-started-semantic-kernel.md
-        - name: Custom container sessions
-          href: sessions-get-started-custom-container.md
 - name: Key concepts
   items:
     - name: Compare container options in Azure
@@ -142,6 +130,18 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+        - name: Use dynamic sessions
+          items:
+          - name: Code interpreter sessions
+            items:
+            - name: LangChain
+              href: sessions-get-started-langchain.md
+            - name: LlamaIndex
+              href: sessions-get-started-llamaindex.md
+            - name: Semantic Kernel
+              href: sessions-get-started-semantic-kernel.md
+          - name: Custom container sessions
+            href: sessions-get-started-custom-container.md
     - name: Event-driven processing
       items:
         - name: With an app

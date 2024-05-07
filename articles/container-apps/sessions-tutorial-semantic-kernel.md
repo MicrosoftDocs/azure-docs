@@ -4,12 +4,12 @@ description: Learn to use Semantic Kernel in a code interpreter session in Azure
 services: container-apps
 author: anthonychu
 ms.service: container-apps
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/06/2024
 ms.author: antchu
 ---
 
-# Quickstart: Use Azure Container apps sessions code interpreter in Semantic Kernel (preview)
+# Tutorial: Use Azure Container apps sessions code interpreter in Semantic Kernel (preview)
 
 [Semantic Kernel](/semantic-kernel/overview/) is an open-source AI framework created by Microsoft for .NET, Python, and Java developers working with Large Language Models (LLMs). When you build an AI agent with Semantic Kernel, a large language model (LLM) interprets user input and generates a response. The AI agent often struggles when it needs to perform mathematical and symbolic reasoning to produce a response. By integrating [Azure Container Apps sessions](sessions.md) with Semantic Kernel, you give the agent a [code interpreter](sessions-code-interpreter.md) to use to perform specialized tasks.
 
