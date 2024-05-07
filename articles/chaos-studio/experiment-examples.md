@@ -17,7 +17,7 @@ This article provides examples for creating experiments from your command line (
 
 Here's an example of where you would copy and paste the Azure portal parameter into:
 
-[![Screenshot that shows Azure portal parameter location.](images/azure-portal-parameter-examples.png)](images/azure-portal-parameter-examples#lightbox)
+[![Screenshot that shows Azure portal parameter location.](images/azure-portal-parameter-examples.png)](images/azure-portal-parameter-examples.png#lightbox)
 
 **NOTE** Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. For more information, see [Experiment Permissions](chaos-studio-permissions-security.md). 
 <br>
