@@ -79,6 +79,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | Tomcat 10.0 Java 8      | Ubuntu        | Adoptium Temurin 8        |
 | Tomcat 10.0 Java 11     | Ubuntu        | MSFT OpenJDK 11           |
 | Tomcat 10.0 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
+| Tomcat 10.0 Java 21     | Ubuntu        | MSFT OpenJDK 21           |
 | Tomcat 10.1 Java 11     | Ubuntu        | MSFT OpenJDK 11           |
 | Tomcat 10.1 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
 | Tomcat 10.1 Java 21     | Ubuntu        | MSFT OpenJDK 21           |
@@ -96,12 +97,25 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 # [Windows](#tab/windows)
 
-| **Java stack name** | **Windows version** | **Java distribution** |
-|--------------|------------------|----------------------|
-| Java 8       | Windows Server 2016 | 1.8.0_312 (Adoptium) |
-| Java 11      | Windows Server 2016 | 11.0.13 (Microsoft)       |
-| Java 17      | Windows Server 2016 | 17.0.1 (Microsoft)        |
-
+| **Java stack name**  | **Windows version** | **Java distribution** |
+| -------------------- | ------------------- | --------------------- |
+| Java SE, Java 8      | Windows Server 2022 | Adoptium Temurin 8    |
+| Java SE, Java 11     | Windows Server 2022 | MSFT OpenJDK 11       |
+| Java SE, Java 17     | Windows Server 2022 | MSFT OpenJDK 17       |
+| Java SE, Java 21     | Windows Server 2022 | MSFT OpenJDK 21       |
+| Tomcat 8.5, Java 8   | Windows Server 2022 | Adoptium Temurin 8    |
+| Tomcat 8.5, Java 11  | Windows Server 2022 | MSFT OpenJDK 11       |
+| Tomcat 9.0, Java 8   | Windows Server 2022 | Adoptium Temurin 8    |
+| Tomcat 9.0, Java 11  | Windows Server 2022 | MSFT OpenJDK 11       |
+| Tomcat 9.0, Java 17  | Windows Server 2022 | MSFT OpenJDK 17       |
+| Tomcat 9.0, Java 21  | Windows Server 2022 | MSFT OpenJDK 21       |
+| Tomcat 10.0, Java 8  | Windows Server 2022 | Adoptium Temurin 8    |
+| Tomcat 10.0, Java 11 | Windows Server 2022 | MSFT OpenJDK 11       |
+| Tomcat 10.0, Java 17 | Windows Server 2022 | MSFT OpenJDK 17       |
+| Tomcat 10.0, Java 21 | Windows Server 2022 | MSFT OpenJDK 21       |
+| Tomcat 10.1, Java 11 | Windows Server 2022 | MSFT OpenJDK 11       |
+| Tomcat 10.1, Java 17 | Windows Server 2022 | MSFT OpenJDK 17       |
+| Tomcat 10.1, Java 21 | Windows Server 2022 | MSFT OpenJDK 21       |
 -----
 
 If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements is available only in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
