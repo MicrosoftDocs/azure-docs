@@ -54,7 +54,7 @@ and Arc for Servers are included by default when clusters are created. The succe
 
 * Optional Addons: These are supplementary services associated with a Kubernetes Cluster resource. Customers can choose to activate or deactivate these addons on demand. 
 Example for supplementary services could include deployment of cluster-level local image caching registry within the NKS cluster to support for disconnected scenarios. NKS enables the customer to observe the status, health, 
-and version of each required and optional addon can be monitored within Azure Resource Manager.
+and version of each required and optional addon, which can be monitored on Azure Portal, or the state can be fetched using Azure Resource Manager APIs.
 
 Addons are installed once and can only be updated or upgraded when the customer upgrades the Nexus Kubernetes cluster. This enables customers to apply critical production hotfixes without interference from the underlying infra operators, which could otherwise overwrite their cluster modifications.
 
