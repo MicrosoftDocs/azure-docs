@@ -19,7 +19,7 @@ Azure Virtual network service tags can be used to define network access controls
 
 Note: 
 
-Data Collection Endpoints public IP addresses are not part of the abovementioned network service tags, so, if you have a Custom Logs or IIS logs Data collection Rules then consider allowing the DAta colelction Rules  public IP addresses for those scenarios to work until supported by Network service tags. 
+Data Collection Endpoints public IP addresses are not part of the abovementioned network service tags, so, if you have a Custom Logs or IIS logs Data collection Rules then consider allowing the Data collection Endpoint's public IP addresses for those scenarios to work until supported by Network service tags. 
 
 ## Firewall requirements
 
