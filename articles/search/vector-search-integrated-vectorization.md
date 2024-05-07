@@ -9,27 +9,28 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/27/2024
+ms.date: 05/05/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
+> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) provides this feature.
 
-*Integrated vectorization* adds data chunking and text-to-vector embedding to skills in indexer-based indexing. It also adds text-to-vector conversions to queries. 
+*Integrated vectorization* adds data chunking and text-to-vector conversions during indexing and at query time. 
 
-This capability is preview-only. In the generally available version of [vector search](vector-search-overview.md) and in previous preview versions, data chunking and vectorization rely on external components for chunking and vectors, and your application code must handle and coordinate each step. In this preview, chunking and vectorization are built into indexing through skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. Any vectorizers used during indexing can also be called on queries to convert text to vectors.
+For data chunking and text-to-vector conversions during indexing, you need:
 
-For indexing, integrated vectorization requires:
++ [An indexer](search-indexer-overview.md) to retrieve data from a supported data source.
++ [A skillset](cognitive-search-working-with-skillsets.md) to call the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data.
++ The same skillset, calling an embedding model. The embedding model is accessed through the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md), attached to text-embedding-ada-002 on Azure OpenAI, or a [custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model, for example any supported embedding model on OpenAI.
++ You also need a [vector index](search-what-is-an-index.md) to receive the chunked and vectorized content.
 
-+ [An indexer](search-indexer-overview.md) retrieving data from a supported data source.
-+ [A skillset](cognitive-search-working-with-skillsets.md)  that calls the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data, and either [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) or a [custom skill](cognitive-search-custom-skill-web-api.md) to vectorize the data.
-+ [One or more indexes](search-what-is-an-index.md) to receive the chunked and vectorized content.
-
-For queries:
+For text-to-vector queries:
 
 + [A vectorizer](vector-search-how-to-configure-vectorizer.md) defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
++ A query that specifies one or more vector fields.
++ A text string that's converted to a vector at query time.
 
 Vector conversions are one-way: text-to-vector. There's no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
 
@@ -44,7 +45,7 @@ Here's a checklist of the components responsible for integrated vectorization:
 + A supported data source for indexer-based indexing.
 + An index that specifies vector fields, and a vectorizer definition assigned to vector fields.
 + A skillset providing a Text Split skill for data chunking, and a skill for vectorization (either the AzureOpenAiEmbedding skill or a custom skill pointing to an external embedding model).
-+ Optionally, index projections (also defined in a skillset) to push chunked data to a secondary index
++ Optionally, index projections (also defined in a skillset) to push chunked data to a secondary index.
 + An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
 + An indexer for driving the process end-to-end. An indexer also specifies a schedule, field mappings, and properties for change detection.
 
@@ -52,7 +53,7 @@ This checklist focuses on integrated vectorization, but your solution isn't limi
 
 ## Availability and pricing
 
-Integrated vectorization availability is based on the embedding model. If you're using Azure OpenAI, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
+Integrated vectorization is available in all regions and tiers. However, if you're using Azure OpenAI and the AzureOpenAIEmbedding skill, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services) of that service.
 
 If you're using a custom skill and an Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the [product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for feature availability. 
 
@@ -119,15 +120,7 @@ Here are some of the key benefits of the integrated vectorization:
 
 + Projecting chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
-  Secondary indexes are intended for data chunking and Retrieval Augmented Generation (RAG) apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response, especially in a chat-style search app.
-
-## Chunked indexes
-
-Chunking is a process of dividing content into smaller manageable parts (chunks) that can be processed independently. Chunking is required if source documents are too large for the maximum input size of embedding or large language models, but you might find it gives you a better index structure for [RAG patterns](retrieval-augmented-generation-overview.md) and chat-style search.
-
-The following diagram shows the components of chunked indexing.
-
-:::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png" alt-text="Diagram of chunking and vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png":::
+  Secondary indexes are intended for question and answer or chat style apps. The secondary index contains granular information for more specific matches, but the parent index has more information and can often produce a more complete answer. When a match is found in the secondary index, the query returns the parent document from the primary index. For example, assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), while a secondary index has chunks of searchable content. 
 
 ## Next steps
 

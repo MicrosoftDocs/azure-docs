@@ -26,6 +26,10 @@
           href: concepts-network-fabric-resource-update-commit.md
         - name: Network Fabric read-only commands
           href: concepts-network-fabric-read-only-commands.md
+        - name: Network Fabric read write commands
+          href: concepts-network-fabric-read-write-commands.md   
+        - name: Disable Border Gateway Protocol neighbors
+          href: concepts-disable-border-gateway-protocol-neighbors.md
     - name: Isolation Domains
       expanded: false
       items:

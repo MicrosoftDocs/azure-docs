@@ -55,28 +55,42 @@ Here are the steps to migrate to a new gateway using PowerShell.
    ```
 ### Prepare the migration
 
-This script creates a new ExpressRoute Virtual Network gateway on the same GatewaySubnet and connects it to your existing ExpressRoute circuits.
+This script creates a new ExpressRoute virtual network gateway on the same gateway subnet and connects it to your existing ExpressRoute circuits.
 
+1. Identify the resource ID of the gateway that will be migrated. 
+
+    ```azurepowershell-interactive
+   $resourceId = Get-AzResource -Name {virtual network gateway name}
+   $resourceId.Id
+    ```
 1. Run the **PrepareMigration.ps1** script to prepare the migration. 
 
     ```azurepowershell-interactive
    gateway-migration/preparemigration.ps1
     ```
-1. Enter the ID of the Gateway resource that is set to be migrated.
-1. The gateway subnet needs two or more address prefixes for migration. If you have only one prefix, you will be prompted to enter an additional prefix. 
+1. Enter the resource ID of your gateway.
+1. The gateway subnet needs two or more address prefixes for the migration. If you have only one prefix, you're prompted to enter an additional prefix. 
+1. Choose a name for your new resources, the new resource name will be added to the existing name. For example: existingresourcename_newname.
 1. Enter an availability zone for your new gateway. 
+
 
 ### Run the migration
 
 This script transfers the configuration from the old gateway to the new one.
 
-1. Run the **Migration.ps1** script to perform the migration. 
+1. Identify the resource ID of your new post-migration gateway. Use the resource name you given for this gateway in the previous step. 
 
     ```azurepowershell-interactive
-   gateway-migration/migration.ps1
+   $resourceId = Get-AzResource -Name {virtual network gateway name}
+   $resourceId.Id
     ```
-1. Enter the ID of the pre-migration gateway.
-1. Enter the ID of the post-migration gateway.
+1.  Run the **Migration.ps1** script to perform the migration. 
+
+    ```azurepowershell-interactive
+    gateway-migration/migration.ps1
+    ```
+1. Enter the resource ID of your premigration gateway.
+1. Enter the resource ID of your post-migration gateway.
 
 ### Commit the migration
 
@@ -87,7 +101,7 @@ This script deletes the old gateway and its connections.
     ```azurepowershell-interactive
    gateway-migration/commitmigration.ps1
     ```
-1. Enter the ID of the pre-migration gateway.
+1. Enter the resource ID of the premigration gateway.
 
     >[!IMPORTANT]
     > - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
