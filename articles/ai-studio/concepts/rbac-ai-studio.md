@@ -7,22 +7,22 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/14/2024
-ms.reviewer: meyetman
+ms.date: 05/21/2024
+ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist
 ---
 
 # Role-based access control in Azure AI Studio
 
-In this article, you learn how to manage access (authorization) to an Azure AI Studio hub. Azure role-based access control is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles. 
+In this article, you learn how to manage access (authorization) to an Azure AI Studio hub. Azure role-based access control (Azure RBAC) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles. 
 
 > [!WARNING]
 > Applying some roles might limit UI functionality in Azure AI Studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error. 
 
 ## AI Studio hub vs project
 
-In the Azure AI Studio, there are two levels of access: the hub and the project. The hub is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) as well as where you configure your Azure AI services. Hub access can allow you to modify the infrastructure, create new hubs, and create projects. Projects are a subset of the hub that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the hub.
+In the Azure AI Studio, there are two levels of access: the hub and the project. The hub is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) and where you configure your Azure AI services. Hub access can allow you to modify the infrastructure, create new hubs, and create projects. Projects are a subset of the hub that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the hub.
 
 :::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
 
@@ -100,24 +100,23 @@ In order to complete end-to-end AI development and deployment, users only need t
 
 The minimum permissions needed to create a project is a role that has the allowed action of `Microsoft.MachineLearningServices/workspaces/hubs/join` on the hub. The Azure AI Developer built-in role has this permission.
 
-## Dependency service RBAC permissions
+## Dependency service Azure RBAC permissions
 
-The hub has dependencies on other Azure services. The following table lists the permissions required for these services when you create a hub. These permissions are needed by the person that creates the hub. They aren't needed by the person who creates a project from the hub.
+The hub has dependencies on other Azure services. The following table lists the permissions required for these services when you create a hub. The person that creates the hub needs these permissions. They person who creates a project from the hub doesn't need them.
 
 | Permission | Purpose |
 |------------|-------------|
 | `Microsoft.Storage/storageAccounts/write` | Create a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
 | `Microsoft.KeyVault/vaults/write` | Create a new key vault or updates the properties of an existing key vault. Certain properties might require more permissions. |
 | `Microsoft.CognitiveServices/accounts/write` | Write API Accounts. |
-| `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
-| `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
+| `Microsoft.MachineLearningServices/workspaces/write` | Create a new workspace or updates the properties of an existing workspace. |
 
 ## Sample enterprise RBAC setup
-The following is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
+The following table is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
 
 | Persona | Role | Purpose |
 | --- | --- | ---|
-| IT admin | Owner of the hub | The IT admin can ensure the hub is set up to their enterprise standards and assign managers the Contributor role on the resource if they want to enable managers to make new hubs or they can assign managers the Azure AI Developer role on the resource to not allow for new hub creation. |
+| IT admin | Owner of the hub | The IT admin can ensure the hub is set up to their enterprise standards. They can assign managers the Contributor role on the resource if they want to enable managers to make new hubs. Or they can assign managers the Azure AI Developer role on the resource to not allow for new hub creation. |
 | Managers | Contributor or Azure AI Developer on the hub | Managers can manage the hub, audit compute resources, audit connections, and create shared connections. |
 | Team lead/Lead developer | Azure AI Developer on the hub | Lead developers can create projects for their team and create shared resources (ex: compute and connections) at the hub level. After project creation, project owners can invite other members. |
 | Team members/developers | Contributor or Azure AI Developer on the project | Developers can build and deploy AI models within a project and create assets that enable development such as computes and connections. |
@@ -143,14 +142,14 @@ az role assignment create --role "Azure AI Developer" --assignee "joe@contoso.co
 > [!NOTE]
 > In order to make a new hub, you need the Owner or Contributor role. At this time, a custom role, even with all actions allowed, will not enable you to make a hub. 
 
-If the built-in roles are insufficient, you can create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that AI Studio. You can make the role available at a specific project level, a specific resource group level, or a specific subscription level. 
+If the built-in roles are insufficient, you can create custom roles. Custom roles might have the read, write, delete, and compute resource permissions in that AI Studio. You can make the role available at a specific project level, a specific resource group level, or a specific subscription level. 
 
 > [!NOTE]
 > You must be an owner of the resource at that level to create custom roles within that resource. 
 
 ## Scenario: Use a customer-managed key
 
-When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
+When configuring a hub to use a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
 
 If your Azure AI hub is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
 
@@ -158,19 +157,28 @@ If your Azure AI hub is configured with a **user-assigned managed identity**, th
 - `Microsoft.Search/searchServices/write`
 - `Microsoft.DocumentDB/databaseAccounts/write`
 
-Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
+Within the key vault, the user or service principal must have the create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
 
 ## Scenario: Use Azure Container Registry
 
 An Azure Container Registry instance is an optional dependency for Azure AI Studio hub. The following table lists the support matrix when authenticating a hub to Azure Container Registry, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
 
-| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
+| Authentication method | Public network access </br>disabled | Azure Container Registry</br>Public network access enabled |
 | ---- | :----: | :----: |
 | Admin user | ✓ | ✓ |
 | AI Studio hub system-assigned managed identity | ✓ | ✓ |
-| AI Studio hub user-assigned managed identity</br>with the **ACRPull** role assigned to the identity |  | ✓ |
+| AI Studio hub user-assigned managed identity </br>with the **ACRPull** role assigned to the identity |  | ✓ |
 
 A system-assigned managed identity is automatically assigned to the correct roles when the Azure AI hub is created. If you're using a user-assigned managed identity, you must assign the **ACRPull** role to the identity.
+
+## Scenario: Use Azure Application Insights for logging
+
+Azure Application Insights is an optional dependency for Azure AI Studio hub. The following table lists the permissions required if you want to use Application Insights when you create a hub. The person that creates the hub needs these permissions. The person who creates a project from the hub doesn't need these permissions.
+
+| Permission | Purpose |
+|------------|-------------|
+| `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
+| `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
 
 ## Next steps
 
