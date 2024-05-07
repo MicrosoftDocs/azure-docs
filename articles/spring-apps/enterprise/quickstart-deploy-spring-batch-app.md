@@ -17,7 +17,7 @@ ms.author: v-muyaofeng
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-This quickstart shows how to deploy a Spring Batch application to Azure Spring Apps. The sample project is derived from Spring Batch sample [Football Job](https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It is a statistics loading job. Instead of triggering by unit test in original sample, it is initiated by the main method of FootballJobApplication.
+This quickstart shows how to deploy a Spring Batch ephemeral application to Azure Spring Apps. The sample project is derived from Spring Batch sample [Football Job](https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It is a statistics loading job. Instead of triggering by unit test in original sample, it is initiated by the main method of FootballJobApplication.
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
