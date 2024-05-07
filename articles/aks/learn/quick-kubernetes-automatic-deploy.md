@@ -38,7 +38,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
     - `Microsoft.Authorization/policyAssignments/read`
 > [!IMPORTANT]
 > Make sure your subscription has quota for 24 vCPUs of the [Standard_DS4_v2](/azure/virtual-machines/dv2-dsv2-series) virtual machine for the region you're deploying the cluster to. You can [view quotas for specific VM-families and submit quota increase requests](/azure/quotas/per-vm-quota-requests) through the Azure portal.
-
+.png
 :::zone target="docs" pivot="bicep"
 - To deploy a Bicep file, you need to write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 :::zone-end
@@ -130,25 +130,25 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID RBAC for Kubernetes authorization][aks-entra-rbac]. When you create a cluster using the Azure CLI, your user is [assigned built-in roles][aks-entra-rbac-builtin-roles] for `Azure Kubernetes Service RBAC Admin` and `Azure Kubernetes Service RBAC Cluster Admin`. Your user is also assigned the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`.
 
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticCluster
 ```
 
-1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
 ```bash
 kubectl get nodes
 ```
 
-The following sample output will show how you're asked to login.
+The following sample output will show how you're asked to log in.
 
 ```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
 ```
 
-After you login, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+After you log in, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
@@ -166,25 +166,25 @@ aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
 
 1. To create an AKS Automatic cluster, search for **Kubernetes Services**, and select **Automatic Kubernetes cluster** from the drop-down options.
 
-    :::image type="content" source="./media/quick-automatic-kubernetes-portal/Browse dropdown options.png" alt-text="The screenshot of the entry point for creating an AKS Automatic cluster in the Azure portal.":::
+    :::image type="content" source="./media/quick-automatic-kubernetes-portal/browse-dropdown-options.png" alt-text="The screenshot of the entry point for creating an AKS Automatic cluster in the Azure portal.":::
 
 2. On the **Basics** tab, fill in all the mandatory fields required to get started: 
 Subscription, Resource Group, Cluster name, and Region
 
-    :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create- basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
+    :::image type="content" source="./media/quick-automatic-kubernetes-portal/create-basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
     If the prerequisites aren't met and the subscription requires registration of the preview flags, there will be an error shown under the Subscription field.: 
 
-    :::image type="content" source="./media/quick-automatic-kubernetes-portal/Register.png" alt-text="The screenshot of the error shown when a  subscription doesnt have preview flags registered while creating an AKS Automatic cluster in the Azure portal.":::
+    :::image type="content" source="./media/quick-automatic-kubernetes-portal/register.png" alt-text="The screenshot of the error shown when a  subscription doesn't have preview flags registered while creating an AKS Automatic cluster in the Azure portal.":::
 
 
 3. On the **Monitoring** tab, choose your monitoring configurations from Azure Monitor, Managed Prometheus, Managed Grafana, and/or configure alerts. Add tags (optional), and proceed to create the cluster. 
 
-    :::image type="content" source="./media/quick-automatic-kubernetes-portal/Create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
+    :::image type="content" source="./media/quick-automatic-kubernetes-portal/create-monitoring.png" alt-text="The screenshot of the Monitoring Tab while creating an AKS Automatic cluster in the Azure portal.":::
 
 3. Get started with configuring your first application from GitHub and set up an automated deployment pipeline. 
 
-    :::image type="content" source="./media/quick-automatic-kubernetes-portal/Automatic-Overview.png" alt-text="The screenshot of the Get Started Tab on Overview Blade after creating an AKS Automatic cluster in the Azure portal.":::
+    :::image type="content" source="./media/quick-automatic-kubernetes-portal/automatic-overview.png" alt-text="The screenshot of the Get Started Tab on Overview Blade after creating an AKS Automatic cluster in the Azure portal.":::
 
 :::zone-end
 
@@ -273,32 +273,33 @@ For more information about the resource defined in the Bicep file, see the [**Mi
 
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID RBAC for Kubernetes authorization][aks-entra-rbac]. When you create a cluster using Bicep, you need to [assign one of the built-in roles][aks-entra-rbac-builtin-roles] such as `Azure Kubernetes Service RBAC Reader`, `Azure Kubernetes Service RBAC Writer`, `Azure Kubernetes Service RBAC Admin`, or `Azure Kubernetes Service RBAC Cluster Admin` to your users, scoped to the cluster or a specific namespace. Also make sure your users have the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`, and then get the kubeconfig of your AKS cluster using the `az aks get-credentials` command.
 
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli
-    az aks get-credentials --resource-group myResourceGroup --name 
+```azurecli
+az aks get-credentials --resource-group myResourceGroup --name
+```
 
-1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```bash
-    kubectl get nodes
-    ```
+```bash
+kubectl get nodes
+```
 
-    The following sample output will show how you're asked to login.
+The following sample output will show how you're asked to log in.
 
-    ```output
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
-    ```
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+```
 
-    After you login, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+After you log in, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
-    ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
-    aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
-    aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
-    aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
-    ```
+```output
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+```
 
 :::zone-end
 
