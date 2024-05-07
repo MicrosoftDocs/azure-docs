@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services (Preview)
+# Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services
 
 Azure AI extension gives the ability to invoke the [Azure AI Language Services](../../ai-services/language-service/overview.md#which-language-service-feature-should-i-use) such as sentiment analysis right from within the database.
 
@@ -54,7 +54,7 @@ azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::tex
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -74,11 +74,11 @@ azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::tex
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for sentiment analysis if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for sentiment analysis if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for sentiment analysis, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure Language Service endpoint for sentiment analysis, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -121,11 +121,11 @@ azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, di
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for language detection if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for language detection if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for language detection, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure Language Service endpoint for language detection, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -153,7 +153,7 @@ azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::t
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the languages that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -173,11 +173,11 @@ azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::t
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for key phrase extraction if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for key phrase extraction if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for key phrase extraction, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for key phrase extraction, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -205,7 +205,7 @@ azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -229,11 +229,11 @@ azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -262,7 +262,7 @@ azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::te
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -282,11 +282,11 @@ azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::te
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -314,7 +314,7 @@ azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `domain`
 
@@ -338,11 +338,11 @@ azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -372,7 +372,7 @@ azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL:
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `sentence_count`
 
@@ -396,11 +396,11 @@ azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL:
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -426,7 +426,7 @@ azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `sentence_count`
 
@@ -454,11 +454,11 @@ azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -497,7 +497,7 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ##### `target_language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `source_language`
 
@@ -536,11 +536,11 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 
 #### Return type
