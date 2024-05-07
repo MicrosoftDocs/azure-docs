@@ -98,7 +98,7 @@ Here are some examples of indexing policies shown in [their JSON format](../inde
 }
 ```
 
-## <a id="vector-index"></a>Vector indexing policy examples
+## Vector indexing policy examples
 In addition to including or excluding paths for individual properties, you can also specify a [vector index](../index-policy.md#vector-indexes). In general, vector indexes should be specified whenever you the `VectorDistance` system function is used to mesasure similarity between a query vector and a vector property. 
 
 > [!NOTE]
