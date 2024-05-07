@@ -22,7 +22,7 @@ This quickstart shows you how to connect Azure Spring Apps to other Cloud resour
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 - An app deployed to [Azure Spring Apps](../spring-apps/enterprise/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](../keyvault/general/quick-create-portal.md).
+- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](../key-vault/general/quick-create-portal.md).
 
 ## Sign in to Azure
 
@@ -58,6 +58,7 @@ You'll use Service Connector to create a new service connection in Azure Spring 
     | **Client type**     | *SpringBoot*         | The application stack that works with the target service you selected. Besides SpringBoot and Java, other stacks are also supported.                                                |
 
 1. Select **Next: Authentication** to select the authentication type. Recommend to use System Managed Identity to connect to your Key Vault.
+
     :::image type="content" source="./media/azure-spring-apps-quickstart/create-conn-auth.png" alt-text="Screenshot of the Azure portal, filling out the Authentication tab.":::
 
 1. Select **Next: Networking** to select the network configuration and select **Configure firewall rules to enable access to target service** so that your app can reach the Blob Storage.
