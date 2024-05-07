@@ -29,11 +29,9 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion offers multiple SKU tiers. The following table shows features and corresponding SKUs.
+Azure Bastion offers multiple SKU tiers. The following table shows features and corresponding SKUs. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
-
-For more information about SKUs, including how to upgrade a SKU and information about the new Developer SKU (currently in Preview), see the [Configuration settings](configuration-settings.md#skus) article.
 
 ## <a name="architecture"></a>Architecture
 

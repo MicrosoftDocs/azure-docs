@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 02/14/2024
+ms.date: 04/25/2024
 ms.author: banders
 ---
 
@@ -31,9 +31,10 @@ You can buy savings plans in the Azure portal or with the Savings plan API. To l
 If you have consistent compute spend, but your use of disparate resources makes Azure reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, if you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
 
 ## How savings plan benefits are applied
-With Azure savings plan, hourly usage charges incurred from [savings plan-eligible products](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#Select-services), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. Usage charges above the commitment are billed at your on-demand rate.
 
-You don't need to assign a savings plan to your compute resources. The savings plan benefit is applied automatically to compute usage that matches the savings plan scope. A savings plan purchase covers only the compute part of your usage. Savings plans do not cover software costs (if applicable). For more information about software costs, see [Software costs not included with Azure savings plans](software-costs-not-included.md).
+With Azure savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#how-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
+
+You don't need to assign a savings plan to your compute resources. The savings plan benefit is applied automatically to compute usage that matches the savings plan scope. A savings plan purchase covers only the compute part of your usage. For example, for Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure savings plans](software-costs-not-included.md).
 
 For more information about how savings plan discounts are applied, see [Savings plan discount application](discount-application.md).
 

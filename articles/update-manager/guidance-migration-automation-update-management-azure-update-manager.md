@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 03/28/2024
+ms.date: 05/06/2024
 ms.author: sudhirsneha
 ---
 
@@ -24,9 +24,9 @@ For the Azure Update Manager, both AMA and MMA aren't a requirement to manage so
 >
 > - All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
 
-## Azure portal experience (preview)
+## Azure portal experience
 
-This section explains how to use the portal experience (preview) to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal clicks and automated way to move your resources, it's the easiest way to move if you don't have customizations built on top of your Automation Update Management solution.
+This section explains how to use the portal experience to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal clicks and automated way to move your resources, it's the easiest way to move if you don't have customizations built on top of your Automation Update Management solution.
 
 To access the portal migration experience, you can use several entry points.
 
@@ -90,7 +90,7 @@ You can initiate migration from Azure Update Manager. On the top of screen, you 
 
   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migration-entry-update-manager.png" alt-text="Screenshot that shows how to migrate from Azure Update Manager entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migration-entry-update-manager.png":::
 
-Select **Migrate Now** button to view the migration blade that allows you to select the Automation account whose resources you want to move from Automation Update Management to Azure Update Manager. You must select subscription, resource group, and finally the Automation account name. After you select, you will view the summary of machines and schedules to be migrated to Azure Update Manager. From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience-preview).
+Select **Migrate Now** button to view the migration blade that allows you to select the Automation account whose resources you want to move from Automation Update Management to Azure Update Manager. You must select subscription, resource group, and finally the Automation account name. After you select, you will view the summary of machines and schedules to be migrated to Azure Update Manager. From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience).
 
 #### [Virtual machine](#tab/virtual-machine)
 
@@ -105,13 +105,13 @@ To initiate migration from a single VM **Updates** view, follow these steps:
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png" alt-text="Screenshot that shows how to migrate the resources from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png":::
 
-   From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience-preview).
+   From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience).
 
-   For more information on how the scripts are executed in the backend, and their behavior see, [Migration scripts (preview)](#migration-scripts-preview).
+   For more information on how the scripts are executed in the backend, and their behavior see, [Migration scripts](#migration-scripts).
 
 ---
 
-## Migration scripts (preview)
+## Migration scripts
 
 Using migration runbooks, you can automatically migrate all workloads (machines and schedules) from Automation Update Management to Azure Update Manager. This section details on how to run the script, what the script does at the backend, expected behavior, and any limitations, if applicable. The script can migrate all the machines and schedules in one automation account at one go. If you have multiple automation accounts, you have to run the runbook for all the automation accounts.
 

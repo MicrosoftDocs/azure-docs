@@ -62,7 +62,7 @@ To update auto-renewal setting as a billing administrator:
 3. Select the desired savings plan.
 4. Select **Settings** > **Renewal**.
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned a one or more savings plan RBAC roles, use the following steps to update auto-renewal setting:
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to update auto-renewal setting:
 1. Sign in to the Azure portal.
 2. Select All Services > Savings plans to list savings plans that you have access to.
 3. Select the desired savings plan.
@@ -79,7 +79,7 @@ If you're a billing administrator, use following steps to view and manage all sa
 3. Select the desired savings plan.
 4. To rename the savings plan, click "Rename". To view payment history or upcoming payments, click the link to the right of "Billing frequency".
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned a one or more savings plan RBAC roles, use the following steps to view savings plan details and utilization:
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to view savings plan details and utilization:
 1. Sign in to the Azure portal.
 2. Select All Services > Savings plans to list savings plans that you have access to.
 3. Select the desired savings plan.
@@ -105,9 +105,9 @@ To delegate the Administrator, Contributor, or Reader role to a specific savings
 ### Delegate Savings plan Administrator, Contributor or Reader role to all savings plans
 [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required to grant RBAC roles at the tenant level. To get User Access Administrator rights, follow [Elevate access steps](../../role-based-access-control/elevate-access-global-admin.md).
 
-### To delegate the administrator, contributor, or reader role to all savings plans in a tenant
-1.	Navigate to **Home** > **Savings plans**
-2.	Click **Role assignment** from the top navigation bar
+After you have elevated access:
+1. Navigate to **Home** > **Savings plans** to see all savings plans that are in the tenant.
+2. To make modifications to the savings plan, add yourself as an owner of the savings plan order using Access control (IAM).
 
 
 ## Cancel, exchange, or refund

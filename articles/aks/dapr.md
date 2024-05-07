@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 03/28/2024
+ms.date: 02/14/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli, references_regions
 ---
@@ -36,72 +36,9 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 > [!WARNING]
 > If you install Dapr through the AKS or Arc-enabled Kubernetes extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
-## Currently supported
-
-### Dapr versions
-
-The Dapr extension support varies depending on how you manage the runtime. 
-
-**Self-managed**  
-For self-managed runtime, the Dapr extension supports:
-- [The latest version of Dapr and two previous versions (N-2)][dapr-supported-version]
-- Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
-
-Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
-
-**Auto-upgrade**  
-Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
-
-### Components
-
-Azure + open source components are supported. Alpha and beta components are supported via best effort.
-
-### Clouds/regions
-
-Global Azure cloud is supported with Arc support on the following regions:
-
-| Region | AKS support | Arc for Kubernetes support |
-| ------ | ----------- | -------------------------- |
-| `australiaeast` | :heavy_check_mark: | :heavy_check_mark: |
-| `australiasoutheast` | :heavy_check_mark: | :x: |
-| `brazilsouth` | :heavy_check_mark: | :x: |
-| `canadacentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `canadaeast` | :heavy_check_mark: | :heavy_check_mark: |
-| `centralindia` | :heavy_check_mark: | :heavy_check_mark: |
-| `centralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastasia` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastus` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastus2` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastus2euap` | :x: | :heavy_check_mark: |
-| `francecentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `francesouth` | :heavy_check_mark: | :x: |
-| `germanywestcentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `japaneast` | :heavy_check_mark: | :heavy_check_mark: |
-| `japanwest` | :heavy_check_mark: | :x: |
-| `koreacentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `koreasouth` | :heavy_check_mark: | :x: |
-| `northcentralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `northeurope` | :heavy_check_mark: | :heavy_check_mark: |
-| `norwayeast` | :heavy_check_mark: | :x: |
-| `southafricanorth` | :heavy_check_mark: | :x: |
-| `southcentralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `southeastasia` | :heavy_check_mark: | :heavy_check_mark: |
-| `southindia` | :heavy_check_mark: | :x: |
-| `swedencentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `switzerlandnorth` | :heavy_check_mark: | :heavy_check_mark: |
-| `uaenorth` | :heavy_check_mark: | :x: |
-| `uksouth` | :heavy_check_mark: | :heavy_check_mark: |
-| `ukwest` | :heavy_check_mark: | :x: |
-| `westcentralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `westeurope` | :heavy_check_mark: | :heavy_check_mark: |
-| `westus` | :heavy_check_mark: | :heavy_check_mark: |
-| `westus2` | :heavy_check_mark: | :heavy_check_mark: |
-| `westus3` | :heavy_check_mark: | :heavy_check_mark: |
-
-
 ## Prerequisites 
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. [Don't have one? Create a free account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
 - Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
