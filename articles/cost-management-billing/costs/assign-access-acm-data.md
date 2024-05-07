@@ -73,7 +73,7 @@ To enable the setting, follow these steps:
 1. Select the billing profile.
 1. In the left navigation pane, select **Policies**.
 1. Configure the **Azure charges** setting to **Yes**.
-    :::image type="content" border="true" source="./media/assign-access-acm-data/billing-profile-policies.png" alt-text="Screenshot showing the billing profile Policies page and options.":::
+    :::image type="content" border="true" source="./media/assign-access-acm-data/billing-profile-policies.png" alt-text="Screenshot showing the billing profile Policies page and options." lightbox="./media/assign-access-acm-data/billing-profile-policies.png":::
 
 ### Enable EA access to costs
 
@@ -86,7 +86,7 @@ To enable an option in the Azure portal:
 1. Select **Billing scopes** to view a list of available billing scopes and billing accounts.
 1. Select your **Billing Account** from the list of available billing accounts.
 1. Under **Settings**, select the **Policies** menu item and then configure the setting.  
-    :::image type="content" border="true" source="./media/assign-access-acm-data/azure-portal-policies-view-charges.png" alt-text="Screenshot showing the Policies page and options.":::
+    :::image type="content" border="true" source="./media/assign-access-acm-data/azure-portal-policies-view-charges.png" alt-text="Screenshot showing the Policies page and options." lightbox="./media/assign-access-acm-data/azure-portal-policies-view-charges.png":::
 
 After the view charge options are enabled, most scopes also require Azure role-based access control (Azure RBAC) permission configuration in the Azure portal.
 
