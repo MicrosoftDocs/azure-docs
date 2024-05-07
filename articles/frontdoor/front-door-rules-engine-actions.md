@@ -287,7 +287,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ## <a name="UrlRedirect"></a> URL redirect
 
-Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door. AFD supports dynamic capture of URL path with `{url_path:seg#}` server vaiable and convert URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. See details in [server variable](rule-set-server-variables.md).
+Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door. Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variables](rule-set-server-variables.md).
 
 ### Properties
 
@@ -344,7 +344,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ## <a name="UrlRewrite"></a> URL rewrite
 
-Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin. AFD supports dynamic capture of URL path with `{url_path:seg#}` server vaiable and convert URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. See details in [server variable](rule-set-server-variables.md).
+Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin. Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variables](rule-set-server-variables.md).
 
 ### Properties
 
