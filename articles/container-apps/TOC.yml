@@ -135,13 +135,13 @@
           - name: Code interpreter sessions
             items:
             - name: LangChain
-              href: sessions-get-started-langchain.md
+              href: sessions-tutorial-langchain.md
             - name: LlamaIndex
-              href: sessions-get-started-llamaindex.md
+              href: sessions-tutorial-llamaindex.md
             - name: Semantic Kernel
-              href: sessions-get-started-semantic-kernel.md
+              href: sessions-tutorial-semantic-kernel.md
           - name: Custom container sessions
-            href: sessions-get-started-custom-container.md
+            href: sessions-tutorial-custom-container.md
     - name: Event-driven processing
       items:
         - name: With an app
