@@ -21,7 +21,7 @@ A search service imports and indexes text and vectors in JSON, used in full text
 
 Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and can't be changed, see [Drop and rebuild an index](search-howto-reindex.md).
 
-Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#add-or-reduce-replicas-and-partitions) or identify periods of low query activity for loading an index.
+Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#ajust-capacity) or identify periods of low query activity for loading an index.
 
 ## Load documents
 
