@@ -18,8 +18,8 @@ To copy an image, Teams users have two options:
 
 In this tutorial, you learn what you need to do when you:
 
-- [Receive an inline image](#handle-received-inline-images-in-new-message-event)
-- [Send out an inline image](#handle-sending-inline-images-in-new-message-request)
+- [Receive an inline image](#handle-received-inline-images-in-a-new-message-event)
+- [Send out an inline image](#handle-sending-inline-images-in-a-new-message-request)
 
 > [!NOTE]
 > The ability to send inline images is currently available in public preview. It's only available for JavaScript. For receiving inline images, it's currently generally available. It's available for both JavaScript and C# in a Teams interoperability chat.
@@ -99,7 +99,7 @@ export interface ChatAttachment {
 export type ChatAttachmentType = "image" | "unknown";
 ```
 
-Now let's go back to the previous code to add some extra logic like the following code snippets:
+Now go back to the previous code to add some extra logic, like the following code snippets:
 
 ```js
 chatClient.on("chatMessageReceived", (e) => {
@@ -306,7 +306,7 @@ loadingImageOverlay.addEventListener('click', () => {
 
 ```
 
-Now, you've made all the changes you need to render inline images for messages that come from real-time notifications.
+Now you've made all the changes you need to render inline images for messages that come from real-time notifications.
 
 ### Run the code
 
@@ -335,7 +335,7 @@ After the Azure Communication Services user selects the preview image, an overla
 
 In addition to handling messages with inline images, the Chat SDK for JavaScript also provides a solution to allow the communication user to send inline images to the Microsoft Teams user in an interoperability chat.
 
-Let's take a look at the new API from `ChatThreadClient`:
+Take a look at the new API from `ChatThreadClient`:
 
 ```js
 var imageAttachment = await chatThreadClient.uploadImage(blob, file.name, {
@@ -351,7 +351,7 @@ To send an image to other chat participant, you need to:
 1. Compose the message content and set an attachment to the returned object you saved in the previous step.
 1. Send the new message via the `sendMessage` API from `ChatThreadClient`.
 
-Let's create a new file picker that accepts images:
+Create a new file picker that accepts images:
 
 ```html
 <label for="myfile">Attach images:</label>
@@ -433,7 +433,7 @@ sendMessageButton.addEventListener("click", async () => {
 
 ```
 
-That's it. Now let's run the code and see it in action.
+That's it. Now run the code to see it in action.
 
 ### Run the code 
 

@@ -57,7 +57,7 @@ For example, the following JSON shows what `ChatAttachment` might look like for 
 ]
 ```
 
-Now let's go back to the event handler you created in the previous [quickstart](../../../quickstarts/chat/meeting-interop.md) and add some extra logic to handle attachments with the `ChatAttachmentType` property of `file`:
+Now go back to the event handler you created in the previous [quickstart](../../../quickstarts/chat/meeting-interop.md) and add some extra logic to handle attachments with the `ChatAttachmentType` property of `file`:
 
 ```csharp
 
