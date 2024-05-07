@@ -128,7 +128,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID RBAC for Kubernetes authorization][aks-entra-rbac]. When you create a cluster using the Azure CLI, your user is [assigned built-in roles][aks-entra-rbac-builtin-roles] for `Azure Kubernetes Service RBAC Admin` and `Azure Kubernetes Service RBAC Cluster Admin`. Your user is also assigned the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID for Kubernetes role-based access control (RBAC)][aks-entra-rbac]. When you create a cluster using the Azure CLI, your user is [assigned built-in roles][aks-entra-rbac-builtin-roles] for `Azure Kubernetes Service RBAC Admin` and `Azure Kubernetes Service RBAC Cluster Admin`. Your user is also assigned the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`.
 
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
@@ -173,7 +173,7 @@ Subscription, Resource Group, Cluster name, and Region
 
     :::image type="content" source="./media/quick-automatic-kubernetes-portal/create-basics.png" alt-text="The screenshot of the Create - Basics Tab for an AKS Automatic cluster in the Azure portal.":::
 
-    If the prerequisites aren't met and the subscription requires registration of the preview flags, there will be an error shown under the Subscription field.: 
+    If the prerequisites aren't met and the subscription requires registration of the preview flags, there will be an error shown under the Subscription field: 
 
     :::image type="content" source="./media/quick-automatic-kubernetes-portal/register.png" alt-text="The screenshot of the error shown when a  subscription doesn't have preview flags registered while creating an AKS Automatic cluster in the Azure portal.":::
 
@@ -271,7 +271,7 @@ For more information about the resource defined in the Bicep file, see the [**Mi
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID RBAC for Kubernetes authorization][aks-entra-rbac]. When you create a cluster using Bicep, you need to [assign one of the built-in roles][aks-entra-rbac-builtin-roles] such as `Azure Kubernetes Service RBAC Reader`, `Azure Kubernetes Service RBAC Writer`, `Azure Kubernetes Service RBAC Admin`, or `Azure Kubernetes Service RBAC Cluster Admin` to your users, scoped to the cluster or a specific namespace. Also make sure your users have the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`, and then get the kubeconfig of your AKS cluster using the `az aks get-credentials` command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID for Kubernetes role-based access control (RBAC)][aks-entra-rbac]. When you create a cluster using Bicep, you need to [assign one of the built-in roles][aks-entra-rbac-builtin-roles] such as `Azure Kubernetes Service RBAC Reader`, `Azure Kubernetes Service RBAC Writer`, `Azure Kubernetes Service RBAC Admin`, or `Azure Kubernetes Service RBAC Cluster Admin` to your users, scoped to the cluster or a specific namespace. Also make sure your users have the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`, and then get the kubeconfig of your AKS cluster using the `az aks get-credentials` command.
 
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
