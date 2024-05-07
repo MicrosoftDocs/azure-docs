@@ -75,6 +75,7 @@ Microsoft Security DevOps uses the following Open Source tools:
         permissions:
           contents: read
           id-token: write
+          actions: read
           security-events: write
     
         steps:
