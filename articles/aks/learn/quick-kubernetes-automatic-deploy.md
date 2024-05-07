@@ -186,6 +186,38 @@ Subscription, Resource Group, Cluster name, and Region
 
     :::image type="content" source="./media/quick-automatic-kubernetes-portal/automatic-overview.png" alt-text="The screenshot of the Get Started Tab on Overview Blade after creating an AKS Automatic cluster in the Azure portal.":::
 
+
+## Connect to the cluster
+
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, run the [az aks install-cli][az-aks-install-cli] command. AKS Automatic clusters are configured with [Microsoft Entra ID for Kubernetes role-based access control (RBAC)][aks-entra-rbac]. When you create a cluster using the Azure portal, your user is [assigned built-in roles][aks-entra-rbac-builtin-roles] for `Azure Kubernetes Service RBAC Admin` and `Azure Kubernetes Service RBAC Cluster Admin`. Your user is also assigned the `Azure Kubernetes Service Cluster User` built-in role to be able to do run `az aks get-credentials`.
+
+Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+
+```azurecli
+az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticCluster
+```
+
+Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+
+```bash
+kubectl get nodes
+```
+
+The following sample output will show how you're asked to log in.
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+```
+
+After you log in, the following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+
+```output
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+```
 :::zone-end
 
 :::zone target="docs" pivot="bicep"
