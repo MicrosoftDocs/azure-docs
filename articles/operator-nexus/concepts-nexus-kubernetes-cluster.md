@@ -71,7 +71,7 @@ The Nexus Agent pool consists of a collection of virtual machines (VMs) that fun
 ## Failure domain
 
 Operator Nexus ensures that the Nexus Kubernetes Cluster nodes are
-distributed across failure servers and failure domains (physical racks). This distribution is done in a way that improves the resilience and availability of the
+distributed across upgrade domains. This distribution is done in a way that improves the resilience and availability of the
 cluster. Operator Nexus uses Kubernetes affinity rules to schedule
 nodes in specific zones. It ensures that the underlying VMs aren't placed on
 the same physical server or in the same upgrade domain, improving the cluster's
