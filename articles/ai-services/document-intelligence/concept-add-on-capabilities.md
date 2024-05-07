@@ -84,11 +84,11 @@ The following add-on capabilities are available for`2024-02-29-preview`, `2024-0
 
 ## Supported file formats
 
-* PDF
+* `PDF`
 
-* Images: JPEG/JPG, PNG, BMP, TIFF, HEIF
+* Images: `JPEG`/`JPG`, `PNG`, `BMP`, `TIFF`, `HEIF`
 
-✱ Microsoft Office files are currently not supported
+✱ Microsoft Office files are currently not supported.
 
 ## High resolution extraction
 

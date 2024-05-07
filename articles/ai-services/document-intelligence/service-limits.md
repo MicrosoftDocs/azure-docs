@@ -33,8 +33,8 @@ This article contains both a quick reference and detailed description of Azure A
 |Document types supported|Read|Layout|Prebuilt models|Custom models|Add-on capabilities|
 |--|--|--|--|--|----|
 | PDF | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
-| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
-| Office file types DOCX, PPTX, XLS | ✔️ | ✔️ | ✖️ | ✖️ |✖️|
+| Images: `JPEG/JPG`, `PNG`, `BMP`, `TIFF`, `HEIF` | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
+| Microsoft Office: `DOCX`, `PPTX`, `XLS` | ✔️ | ✔️ | ✖️ | ✖️ |✖️|
 
 ✔️ = supported
 ✖️ = Not supported
@@ -44,8 +44,8 @@ This article contains both a quick reference and detailed description of Azure A
 |Document types supported|Read|Layout|Prebuilt models|Custom models|
 |--|--|--|--|--|
 | PDF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Office file types DOCX, PPTX, XLS | ✔️ | ✖️ | ✖️ | ✖️ |
+| Images: `JPEG/JPG`, `PNG`, `BMP`, `TIFF`, `HEIF` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Microsoft Office: `DOCX`, `PPTX`, `XLS` | ✔️ | ✖️ | ✖️ | ✖️ |
 
 ✔️ = supported
 ✖️ = Not supported
@@ -155,7 +155,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Detailed description, Quota adjustment, and best practices
 
-Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
+Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources `on-demand`, keep the customer costs low, and deprovision unused resources by not maintaining an excessive amount of hardware capacity.
 
 If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but has yet to reach the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long.
 

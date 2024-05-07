@@ -41,9 +41,9 @@ Document Intelligence SDK supports the following languages and platforms:
 
 For more information on other SDK versions, see:
 
-* [REST API 2023-07-31 v3.1 (GA)](sdk-overview-v3-1.md)
-* [REST API 2022-08-31 v3.0 (GA)](sdk-overview-v3-0.md)
-* [REST API v2.1 (GA)](sdk-overview-v2-1.md)
+* [`2023-07-31` v3.1 (GA)](sdk-overview-v3-1.md)
+* [`2022-08-31` v3.0 (GA)](sdk-overview-v3-0.md)
+* [`v2.1` (GA)](sdk-overview-v2-1.md)
 
 ## Supported Clients
 
