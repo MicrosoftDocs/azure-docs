@@ -118,17 +118,20 @@ You can find examples of these two files here:
 [cluster.jsonc](./cluster-jsonc-example.md) , 
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
 
-Note:  To get the correct formatting, use the raw version.  The values within the clusters.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
+Note:  To get the correct formatting, copy the raw code file.  The values within the clusters.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
 
 
 Click on Build your own template in the editor.
-1 - Click "Build your own template in the editor"
-Use <template_output_dir>/templates/arm/cluster.jsonc
-2 - Select "Edit Parameters"
-Use <template_output_dir>/parameters/cluster.parameters.jsonc
-3 - Set Region if not picking up from parameters
-4 - Select Subscription if not already set
-5 - Search for RG if it already exists or create new
+Click on Load file. Locate your cluster.jsonc template file and upload it.
+Click Save.
+Click Edit parameters.
+Click Load file.  Locate your cluster.parameters.jsonc parameters file and upload it.
+Click Save.
+Select the correct Subscription.
+Search for the Resource group if it already exists or create new.
+Make sure all Instance Details are correct.
+Click Review + create.
+
 
 ### Cluster validation
 
