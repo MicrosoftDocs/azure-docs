@@ -152,7 +152,7 @@ The following example shows the matching List ID:
     }
 ```
 
-The Content Moderator provides a [Term List API](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists?view=rest-cognitiveservices-contentmoderator-v1.0) with operations for managing custom term lists. Check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+The Content Moderator provides a [Term List API](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists) with operations for managing custom term lists. Check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 
 ## Next steps
 

@@ -134,7 +134,7 @@ Copy the command to a text editor and make the following changes:
 1. Optionally change the `"Value"` URL in the request body to whatever remote image you'd like to moderate.
 
 > [!TIP]
-> You can also moderate local images by passing their byte data into the request body. See the [reference documentation](/rest/api/cognitiveservices/contentmoderator/image-moderation?view=rest-cognitiveservices-contentmoderator-v1.0) to learn how to do this.
+> You can also moderate local images by passing their byte data into the request body. See the [reference documentation](/rest/api/cognitiveservices/contentmoderator/image-moderation) to learn how to do this.
 
 Once you've made your changes, open a command prompt and enter the new command. 
 
