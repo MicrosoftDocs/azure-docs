@@ -90,7 +90,7 @@ Retrieval-augmentated generation (RAG) is an architecture that augments the capa
 
 A simple RAG pattern using Azure Cosmos DB for NoSQL could be:
 
-1. Enroll in the [Azure Cosmos DB NoSQL Vector Index preview](../how-to-python-vector-index-query.md)
+1. Enroll in the [Azure Cosmos DB NoSQL Vector Index preview](nosql/vector-search.md)
 2. Setup a database and container with a container vector policy and vector index.
 3. Insert data into an Azure Cosmos DB for NoSQL database and container
 3.	Create embeddings from a data property using Azure OpenAI Embeddings

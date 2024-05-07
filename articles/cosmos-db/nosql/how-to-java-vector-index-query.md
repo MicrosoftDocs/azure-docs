@@ -15,7 +15,7 @@ ms.custom: query-reference, devx-track-java
 # Index and query vectors in Azure Cosmos DB for NoSQL in Java 
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
-Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. UYou are required to register for the preview before use. This article covers the following steps: 
+Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. You're required to register for the preview before use. This article covers the following steps: 
 
 1. Registering for the preview of Vector Search in Azure Cosmos DB for NoSQL 
 2. Setting up the Azure Cosmos DB container for vector search 
@@ -33,31 +33,29 @@ Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. UYou 
 - Latest version of the Azure Cosmos DB [Java](sdk-java-v4.md) SDK.
 
 ## Registering for the preview
-Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](../../azure-resource-manager/management). Please follow the below steps to register: 
+Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](../../azure-resource-manager/management/preview-features.md). Follow the below steps to register: 
 
 1. Navigate to your Subscription page 
 
-2. Under the “Settings” menu in the left panel, click on the “Preview features” 
+2. Under the “Settings” menu in the left panel, select on the “Preview features” 
 
 3. Search for “Vector” in the search bar for the Preview features 
 
-4. Check the “Vector search in Azure Cosmos DB for NoSQL” and click Register. 
+4. Check the “Vector search in Azure Cosmos DB for NoSQL” and select Register. 
 
-This will enroll every Azure Cosmos DB resource in your subscription in the vector search preview. Please note that the registration request will be auto-approved, however it may take several minutes to take effect. After this time, you can follow the subsequent steps. 
+This enrolls every Azure Cosmos DB resource in your subscription in the vector search preview. The registration request will be autoapproved, however it may take several minutes to take effect. After this time, you can follow the subsequent steps. 
 
 ## Understanding the steps involved in vector search 
 
 The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database](quickstart-portal.md). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
 
-Let’s take an example of creating a database for an internet-based bookstore and you are storing Title, Author, ISBN, and Description for each book. We’ll also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](../../ai-services/openai/concepts/models#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](../../ai-services/computer-vision/concept-image-retrieval). 
+Let’s take an example of creating a database for an internet-based bookstore and you're storing Title, Author, ISBN, and Description for each book. We also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](../../ai-services/openai/concepts/models.md#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](../../ai-services/computer-vision/concept-image-retrieval.md). 
 
-Create and store vector embeddings for the fields on which you want to perform vector search. 
+1. Create and store vector embeddings for the fields on which you want to perform vector search. 
+2. Specify the vector embedding paths in the vector embedding policy. 
+3. Include any desired vector indexes in the indexing policy for the container. 
 
-Specify the vector embedding paths in the vector embedding policy. 
-
-Include any desired vector indexes in the indexing policy for the container. 
-
-For subsequent sections of this article, we’ll consider the below structure for the items stored in our container: 
+For subsequent sections of this article, we consider the below structure for the items stored in our container: 
 
 ```json
 {
@@ -70,21 +68,21 @@ For subsequent sections of this article, we’ll consider the below structure fo
 } 
 ```
 
-First, create the `CosmosContainerProperties` object
+First, create the `CosmosContainerProperties` object.
 ```java
 CosmosContainerProperties collectionDefinition = new CosmosContainerProperties(UUID.randomUUID().toString(), "Partition_Key_Def");
 ```
 
 ## Creating a vector embedding policy for your container.
-Next, you need to define a container vector policy. This will provide information that is used to inform the Azure Cosmos DB query engine how to handle vector properties in the VectorDistance system functions, such as distance function, and data types, without having to define them in each query. This also informs the vector indexing policy of necessary information, should you choose to specify one.
-The following information is included in the contain vector policy:
+Next, you need to define a container vector policy. This policy provides information that is used to inform the Azure Cosmos DB query engine how to handle vector properties in the VectorDistance system functions. This also informs the vector indexing policy of necessary information, should you choose to specify one.
+The following information is included in the contained vector policy:
 
-   * “path”: what properties contain vectors  
-   * “datatype”: What type are the vector’s elements (default Float32)  
+   * “path”: The property path that contains vectors  
+   * “datatype”: The type of the elements of the vector (default Float32)  
    * “dimensions”: The length of each vector in the path (default 1536)  
    * “distanceFunction”: The metric used to compute distance/similarity (default Cosine)  
 
-For our example with book details, the vector policy may look like the example JSON below: 
+For our example with book details, the vector policy may look like the example JSON: 
 
 ```java
 // Creating vector embedding policy
@@ -135,7 +133,7 @@ indexingPolicy.setVectorIndexes(Arrays.asList(cosmosVectorIndexSpec1, cosmosVect
 collectionDefinition.setIndexingPolicy(indexingPolicy);
 ``` 
 
-Finally, create the container with the container index policy and the vector index policy
+Finally, create the container with the container index policy and the vector index policy.
 
 ```java 
 database.createContainer(collectionDefinition).block();
@@ -147,7 +145,7 @@ database.createContainer(collectionDefinition).block();
 
 ## Running vector similarity search query 
 
-Once you have created a container with the desired vector policy, and inserted vector data into the container, you can conduct a vector search using the [Vector Distance](query/vectordistance.md) system function in a query.  Suppose you want to search for books about food recipes by looking at the description, you first need to get the embeddings for your query text. In this case, you might want to generate embeddings for the query text – “food recipe”. Once you have the embedding for your search query, you can use it in the VectorDistance function in the vector search query and get all the items that are similar to your query as shown below: 
+Once you have created a container with the desired vector policy, and inserted vector data into the container, you can conduct a vector search using the [Vector Distance](query/vectordistance.md) system function in a query.  Suppose you want to search for books about food recipes by looking at the description, you first need to get the embeddings for your query text. In this case, you might want to generate embeddings for the query text – “food recipe”. Once you have the embedding for your search query, you can use it in the VectorDistance function in the vector search query and get all the items that are similar to your query as shown here: 
 
 ```sql
 SELECT c.title, VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10]) AS SimilarityScore   
@@ -155,7 +153,7 @@ FROM c 
 ORDER BY VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10])   
 ```
 
-This query will retrieve the book titles along with similarity scores with respect to your query. This vector search query can be used in our SDKs as shown below:
+This query retrieves the book titles along with similarity scores with respect to your query. Here's an example in Java:
 
 ```java
 float[] embedding = new float[10];
