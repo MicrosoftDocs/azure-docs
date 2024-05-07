@@ -160,4 +160,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure Spring Cloud Eureka Server settings](spring-cloud-eureka-server-usage.md)
+> [Configure Spring Cloud Eureka Server settings](java-eureka-server-usage.md)
