@@ -20,7 +20,7 @@ In Azure AI Studio, you can compare benchmarks across models and datasets availa
 
 :::image type="content" source="../media/explore/model-benchmarks-dashboard-view.png" alt-text="Screenshot of dashboard view graph of model accuracy." lightbox="../media/explore/model-benchmarks-dashboard-view.png":::
 
-Model benchmarks help you make informed decisions about the sustainability of models and datasets prior to initiating any job. The benchmarks are a curated list of the best performing models for a given task, based on a comprehenmsive comparison of benchmarking metrics. Currently, Azure AI Studio provides benchmarks based on quality, via the metrics listed below.
+Model benchmarks help you make informed decisions about the sustainability of models and datasets prior to initiating any job. The benchmarks are a curated list of the best performing models for a given task, based on a comprehensive comparison of benchmarking metrics. Currently, Azure AI Studio provides benchmarks based on quality, via the metrics listed below.
 
 | Metric       | Description |
 |--------------|-------|
