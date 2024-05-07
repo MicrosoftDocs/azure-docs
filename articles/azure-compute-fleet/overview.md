@@ -8,14 +8,14 @@ ms.service: compute-fleet
 ms.subservice:
 ms.date: 05/07/2024
 ms.reviewer: jushiman
-
 ---
+
 # What is Azure Compute Fleet? (Preview)
 
 > [!IMPORTANT]
 > Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
-Azure Compute Fleet is a new building block that allows you to accelerate access to Azure’s capacity in a region by launching a combination of VMs at the lowest price and highest capacity. There are be a number of ways you can use this product, whether by running a stateless web service, a big data cluster, and or continuous integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core/instances.
+Azure Compute Fleet is a building block that gives you accelerated access to Azure’s capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a continuous integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
 Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using Spot and Pay-as-you-Go pricing models together.
@@ -27,7 +27,7 @@ Using Compute Fleet, you can:
     - Alleviate concerns about scripting complexity associated with determining optimal VM pricing, available capacity, managing Spot evictions, and SKU availability.
 - Attempt to maintain your Spot target capacity if your Spot VMs are evicted for price or capacity.
 
-There is no additional charge for using Compute Fleet. You will only pay for the VMs the Compute Fleet launches per hour.
+There is no extra charge for using Compute Fleet. You are only charged for the VMs your Compute Fleet launches per hour.
 
 
 ## Capacity preference 
@@ -35,24 +35,25 @@ There is no additional charge for using Compute Fleet. You will only pay for the
 Preferences are only available when creating a fleet using Spot VMs. 
 
 ### Maintain capacity
-Enabling this preference allows your running Spot VM in a fleet to be automatically replaced with any of the VM type or size you specify in an event when the running Spot VM is evicted for price increase or VM failure. Compute Fleet will continue to goal seek replacing your evicted Spot VM until your target capacity is met. 
+
+Enabling this preference allows for automatic VM replacement in your Compute Fleet. Your running Spot VMs are replaced with any of the VM types or sizes you specified if a Spot eviction for price increase or VM failure occurs. Compute Fleet continues to goal seek replacing your evicted Spot VM until your target capacity is met. 
 
 You may choose this preference when:
 - All qualified availability zones in the region are selected.
 - A minimum of 3 different VM sizes are specified.
 
-Not enabling this preference will stop your Compute Fleet from a goal seeking to replace evicted Spot VMs even if the target capacity is not met.
+Not enabling this preference stops your Compute Fleet from goal seeking to replace evicted Spot VMs even if the target capacity is not met.
 
 
 ## Compute Fleet strategies 
 
-### OnDemand fleet allocation strategies 
+### OnDemand Compute Fleet allocation strategies 
 
-**Lowest price (default):** Fleet launches the lowest price Pay-as-you-Go VM from the list of VM sizes specified in an attempt to fulfill the Pay-as-you-Go capacity, followed by the second and third lowest until the desired capacity is fulfilled. 
+**Lowest price (default):** Compute Fleet launches the lowest price Pay-as-you-Go VM from the list of VM sizes specified. It attempts to fulfill the Pay-as-you-Go capacity, followed by the second and third lowest VMs until the desired capacity is fulfilled. 
 
 ### Spot Fleet allocation strategies 
 
-**Price capacity optimized (recommended):** Fleet launches the VM types/Sizes from the customer specified list of VMs offering the highest available Spot capacity while offering the lowest price on Spot VM in the region while attempting to fulfill the target capacity. 
+**Price capacity optimized (recommended):** Compute Fleet launches the VM types/Sizes from the customer specified list of VMs offering the highest available Spot capacity while offering the lowest price on Spot VM in the region while attempting to fulfill the target capacity. 
 
 Example: If multiple VMs specified by you are offering the ideal capacity to meet the specified target capacity , then fleet will prioritize deploying the VMs that’s offering  the first lowest price to in an attempt fulfill the target capacity, followed by the second lowest price if sufficient capacity wasn’t available with the first lowest price VM. Fleet will consider both price and capacity while configuring this strategy 
 
@@ -113,7 +114,7 @@ Note: Deallocated Spot Vm will add up to your Spot target capacity and billing w
 
 #### Fleet quota 
 
-OnDemand and Spot VM quota applies to Azure Fleet. The fleet will have an additional quota applied. 
+OnDemand and Spot VMs quota applies to Azure Compute Fleet. The Compute Fleet will have more quota applied. 
 
 | Header | Header |
 | ------ | ------ |
@@ -140,86 +141,3 @@ OnDemand and Spot VM quota applies to Azure Fleet. The fleet will have an additi
 ## Next steps
 > [!div class="nextstepaction"]
 > [Create an Azure Compute Fleet with Azure portal.](quickstart-create-portal.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Azure Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
-- Easy to create and manage multiple VMs
-- Provides high availability and application resiliency by distributing VMs across availability zones or fault domains
-- Allows your application to automatically scale as resource demand changes
-- Works at large-scale
-
-With Flexible orchestration, Azure provides a unified experience across the Azure VM ecosystem. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
-- Quorum-based workloads
-- Open-source databases
-- Stateful applications
-- Services that require high availability and large scale
-- Services that want to mix virtual machine types or leverage Spot and on-demand VMs together
-- Existing Availability Set applications
-
-Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
-
-> [!IMPORTANT]
-> The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
-
-:::image type="content" source="media/overview/azure-virtual-machine-scale-sets-video-thumbnail.jpg" alt-text="YouTube video about Virtual Machine Scale Sets." link="https://youtu.be/lE2xJXYHnB8":::
-
-## Why use Virtual Machine Scale Sets?
-To provide redundancy and improved performance, applications are typically distributed across multiple instances. Customers may access your application through a load balancer that distributes requests to one of the application instances. If you need to perform maintenance or update an application instance, your customers must be distributed to another available application instance. To keep up with extra customer demand, you may need to increase the number of application instances that run your application.
-
-Azure Virtual Machine Scale Sets provide the management capabilities for applications that run across many VMs, automatic scaling of resources, and load balancing of traffic. Scale sets provide the following key benefits:
-
-- **Easy to create and manage multiple VMs**
-    - When you have many VMs that run your application, it's important to maintain a consistent configuration across your environment. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.
-    - With scale sets, all VM instances are created from the same base OS image and configuration. This approach lets you easily manage hundreds of VMs without extra configuration tasks or network management.
-    - Scale sets support the use of the [Azure load balancer](../load-balancer/load-balancer-overview.md) for basic layer-4 traffic distribution, and [Azure Application Gateway](../application-gateway/overview.md) for more advanced layer-7 traffic distribution and TLS termination.
-
-- **Provides high availability and application resiliency**
-    - Scale sets are used to run multiple instances of your application. If one of these VM instances has a problem, customers continue to access your application through one of the other VM instances with minimal interruption.
-    - For more availability, you can use [Availability Zones](../availability-zones/az-overview.md) to automatically distribute VM instances in a scale set within a single datacenter or across multiple datacenters.
-
-- **Allows your application to automatically scale as resource demand changes**
-    - Customer demand for your application may change throughout the day or week. To match customer demand, scale sets can automatically increase the number of VM instances as application demand increases, then reduce the number of VM instances as demand decreases.
-    - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
-
-- **Works at large-scale**
-    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Azure Compute Gallery (formerly known as Shared Image Gallery). If you create a scale set using a managed image, the limit is 600 VM instances.
-    - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
-
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Flexible orchestration mode for your scale sets with Azure portal.](flexible-virtual-machine-scale-sets-portal.md)
