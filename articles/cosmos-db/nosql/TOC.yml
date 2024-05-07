@@ -348,9 +348,9 @@
         - name: High availability
           items:
             - name: High availability and reliability
-              href: ../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
             - name: Proactive resiliency
-              href: reliability-recommendations/recommend-cosmos-db-nosql.md
+              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md
             - name: Multi-region writes
               items:
                 - name: Understanding multi-region writes

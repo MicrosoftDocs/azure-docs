@@ -21,7 +21,7 @@ ms.date: 5/06/2024
 | [**Availability**](#availability) |:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Configure at least two regions for high availability](#-configure-at-least-two-regions-for-high-availability)|
 | [**Disaster recovery**](#disaster-recovery) |:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Enable service-managed failover for multi-region accounts with single write region](#-enable-service-managed-failover-for-multi-region-accounts-with-single-write-region)|
 ||:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Evaluate multi-region write capability](#-evaluate-multi-region-write-capability)|
-||:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Choose appropriate consistency mode reflecting data durability requirements](#-choose-appropriate-consistency-mode-reflecting-data-durability-requirements)|
+|| :::image type="icon" source="../media/icon-recommendation-high.svg"::: | [Choose appropriate consistency mode reflecting data durability requirements](#-choose-appropriate-consistency-mode-reflecting-data-durability-requirements)|
 ||:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Configure continuous backup mode](#-configure-continuous-backup-mode)|
 |[**System efficiency**](#system-efficiency)|:::image type="icon" source="../media/icon-recommendation-high.svg":::| [Ensure query results are fully drained](#-ensure-query-results-are-fully-drained)|
 ||:::image type="icon" source="../media/icon-recommendation-medium.svg":::| [Maintain singleton pattern in your client](#-maintain-singleton-pattern-in-your-client)|
@@ -34,7 +34,11 @@ ms.date: 5/06/2024
  
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Configure at least two regions for high availability** 
 
-Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it's still susceptible to failures or issues with entire regions or availability zones. To achieve the highest possible availability, you must add at least one secondary region to the account. Downtime is minimal and adding a region is easy. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain zero downtime write availability in case of one failure in a read region.
+It is crucial to enable a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime and it is as easy as selecting a pin on map. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain write availability in case of one region failure.
+
+**Potential benefits:** Enhances SLA and resilience.
+
+**Learn more:** [Reliability (High availability) in Cosmos DB for No SQL](../reliability-cosmos-db-nosql.md)
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -47,8 +51,7 @@ Azure implements multi-tier isolation approach with rack, DC, zone, and region i
 
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Enable service-managed failover for multi-region accounts with single write region** 
 
-Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the [Service-Managed failover](./reliability-cosmos-db-nosql.md#service-managed-failover) option allows Azure Cosmos DB to be failed over by the service to the next available region with no user action needed.
-
+Cosmos DB boasts high uptime and resiliency. Even so, issues may arise. With [Service-Managed failover](../reliability-cosmos-db-nosql.md#service-managed-failover), if a region is down, Cosmos DB automatically switches to the next available region, requiring no user action.
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -60,9 +63,15 @@ Cosmos DB is a battle-tested service with extremely high uptime and resiliency, 
 
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Evaluate multi-region write capability** 
 
-With multi-region write capability, you can design a multi-region application that's inherently highly available by virtue of being active in multiple regions. Using multi-region write, however, requires that you pay close atention to consistency requirements and handle potential [writes conflicts by way of conflict resolution policy](/azure/cosmos-db/conflict-resolution-policies). On the flip side, blindly enabling this configuration can lead to decreased availability due to unexpected application behavior and data corruption due to unhandled conflicts.
+Multi-region write capability allows for designing applications that are highly available across multiple regions, though it demands careful attention to consistency requirements and conflict resolution. Improper setup may decrease availability and cause data corruption due to unhandled conflicts.
 
-With multi-region write capability, you can design a multi-region application that's inherently highly available by virtue of its active-active configuration in multiple regions. Using multi-region write requires an asynchronous consistency level such as Session or weaker. You must also monitor and handle potential [writes conflicts by way of conflict resolution policy](/azure/cosmos-db/conflict-resolution-policies).
+**Potential benefits:** Enhances high availability.
+
+**Learn more:**  
+- [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally)
+- [Conflict types and resolution policies when using multiple write regions](/azure/cosmos-db/conflict-resolution-policies)
+
+
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -70,18 +79,26 @@ With multi-region write capability, you can design a multi-region application th
 
 ----
 
-
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Choose appropriate consistency mode reflecting data durability requirements** 
 
-Within a [globally distributed database environment](/azure/cosmos-db/distribute-data-globally), there is a direct relationship between data consistency and data durability should a region-wide outage occur. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. We recommend using Session consistency unless you have established that zero data loss (RPO = 0) is required. In this scenario you may use strong consistency. However, you will incur greater write latency, and potentially reduce write availability in a two-region configuration should either region encounter an outage.
+In a globally distributed database, consistency level impacts data durability during regional outages. Understand data loss tolerance for recovery planning. Use Session consistency unless stronger is needed, accepting higher write latencies and potential write region impact from read-only outages.
+
+**Potential benefits:** Enhances data durability and recovery.
+
+**Learn more:**  [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
+
 
 
 
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Configure continuous backup mode** 
 
-Cosmos DB automatically [backs up your data](/azure/cosmos-db/continuous-backup-restore-introduction) and there is no way to turn back ups off. In short, you are always protected. But should any mishap occur – a process that went haywire and deleted data it shouldn’t, customer data was overwritten by accident, etc. – minimizing the time it takes to revert the changes is of the essence. With continuous mode, you can self-serve restore your database/collection to a point in time before such mishap occurred. With periodic mode, however, you must contact Microsoft support, which despite us striving to provide speedy help will inevitably increase the restore time.
+
+Cosmos DB's backup is always on, offering protection against data mishaps. Continuous mode allows for self-serve restoration to a pre-mishap point, unlike periodic mode which requires contacting Microsoft support, leading to longer restore times.
 
 
+**Potential Benefits:** Faster self-serve data restore.
+
+**Learn more:** [Continuous backup with point in time restore feature in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction)
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -93,14 +110,25 @@ Cosmos DB automatically [backs up your data](/azure/cosmos-db/continuous-backup-
 
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Ensure query results are fully drained** 
 
-Cosmos DB limits single response to 4 MB. If your query requests a large amount of data or data from multiple backend partitions, the results will span multiple pages for which separate requests must be issued. Each result page will indicate whether more results are available and provide a continuation token to access the next page. You must include a while loop in your code and traverse the pages until no more results are available. For more information, see [Pagination in Azure Cosmos DB for No SQL](/azure/cosmos-db/nosql/query/pagination#handling-multiple-pages-of-results).
+Cosmos DB has a 4 MB response limit, leading to paginated results for large or partition-spanning queries. Each page shows availability and provides a continuation token for the next. A while loop in code is necessary to traverse all pages until completion.
+
+
+**Potential Benefits:** Maximizes data retrieval efficiency.
+
+**Learn more:**  [Pagination in Azure Cosmos DB for No SQL](/azure/cosmos-db/nosql/query/pagination#handling-multiple-pages-of-results).
 
 
 
 #### :::image type="icon" source="../media/icon-recommendation-medium.svg"::: **Maintain singleton pattern in your client** 
 
 
-Not only is establishing a new database connection expensive, so is maintaining it. As such, it is critical to maintain only one instance, a so-called “singleton”, of the SDK client per account per application. Connections, both HTTP and TCP, are scoped to the client instance. Most compute environments have limitations in terms of the number of connections that can be open at the same time and when these limits are reached, connectivity will be affected. For more information, see [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
+Using a single instance of the SDK client for each account and application is crucial as connections are tied to the client. Compute environments have a limit on open connections, affecting connectivity when exceeded.
+
+
+
+**Potential Benefits:** Optimizes connections and efficiency.
+
+**Learn more:** [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
 
 
 ### Application resilience
@@ -108,7 +136,11 @@ Not only is establishing a new database connection expensive, so is maintaining 
 
 #### :::image type="icon" source="../media/icon-recommendation-medium.svg"::: **Implement retry logic in your client** 
 
-Cosmos DB SDKs by default handle large number of transient errors and automatically retry operations, where possible. That said, for any application or service that communicates over a network, you should add retry policies for any operations not handled by the SDK. Any scenarios involving writes should also include concurrency checks which can be configured with the SDK. For more information, see [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
+Cosmos DB SDKs automatically manage many transient errors through retries. Despite this, it's crucial for applications to implement additional retry policies targeting specific cases that the SDKs can't generically address, ensuring more robust error handling.
+
+**Potential Benefits:** Enhances error handling resilience.
+
+**Learn more:** [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
 
 
 
@@ -118,5 +150,8 @@ Cosmos DB SDKs by default handle large number of transient errors and automatica
 
 #### :::image type="icon" source="../media/icon-recommendation-medium.svg"::: **Monitor Cosmos DB health and set up alerts** 
 
-It is good practice to monitor the availability and responsiveness of your Azure Cosmos DB resources and [have alerts in place](/azure/cosmos-db/create-alerts) for your workload to stay proactive in case an unforeseen event occurs.
+Monitoring the availability and responsiveness of Azure Cosmos DB resources and having alerts set up for your workload is a good practice. This ensures you stay proactive in handling unforeseen events.
 
+**Potential Benefits:** Proactive issue management.
+
+**Learn more:** [Create alerts for Azure Cosmos DB using Azure Monitor](/azure/cosmos-db/create-alerts) 
