@@ -204,7 +204,7 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 ## 5. Check job execution result
 
-Now you can access the deployed job to see whether it works.
+Now you can access execution of job and check its result.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
