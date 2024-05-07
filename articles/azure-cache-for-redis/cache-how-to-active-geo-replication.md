@@ -36,7 +36,8 @@ There are a few restrictions when using active geo replication:
 - Data persistence isn't supported because active geo-replication provides a superior experience.
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
 - All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting. 
-- You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
+- You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.
+- The E1 SKU does not support active geo-replication.
 
 ## Create or join an active geo-replication group
 
