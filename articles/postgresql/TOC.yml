@@ -405,6 +405,8 @@
         displayName: replica
   - name: Extensions
     items:
+    - name: In-database Embeddings (azure_local_ai)
+      href: ./flexible-server/azure-local-ai.md
     - name: Overview
       href: flexible-server/concepts-extensions.md
     - name: Azure AI (azure_ai)
