@@ -5,7 +5,7 @@ author: sethmanheim
 manager: femila
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 05/03/2024
+ms.date: 05/07/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
@@ -58,7 +58,7 @@ Azure Notification Hubs is working on a solution that reduces the number of time
 
 ### How can Xamarin customers migrate to FCM v1?
 
-Xamarin is now deprecated. Xamarin customers should migrate to MAUI, but MAUI is not currently supported by Azure Notification Hubs. It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
+Xamarin is now deprecated. Xamarin customers should migrate to MAUI, but MAUI is not currently supported by Azure Notification Hubs. You can, however, use the available SDKs and REST APIs with your MAUI applications. It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
 
 ## Next steps
 
