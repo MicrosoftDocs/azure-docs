@@ -36,7 +36,7 @@ You should have successfully created the Network Fabric for this on-premises dep
 Each Operator Nexus on-premises instance has a one-to-one association
 with a Network Fabric.
 
-Create the Cluster:
+Create the Cluster using AZ CLI:
 
 ```azurecli
 az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
@@ -61,8 +61,6 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 ```
 
-You can instead create a Cluster with ARM template/parameter files in
-[ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
 
 ### Parameters for cluster operations
 
@@ -107,6 +105,29 @@ You can instead create a Cluster with ARM template/parameter files in
 | TAG_VALUE1                | Optional tag1 value to pass to Cluster Create                                                                         |
 | TAG_KEY2                  | Optional tag2 to pass to Cluster Create                                                                               |
 | TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                         |
+
+
+
+Create the Cluster using Azure Resource Manager template editor:
+
+An alternate way to create a Cluster is with the ARM template editor.  [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
+
+In order to create the cluster this way, you will need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
+You can find examples of these two files here:
+[cluster.jsonc](./cluster-jsonc-example.md)
+[cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
+
+Note:  To get the correct formatting, use the raw version.  The values within the clusters.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
+
+
+Click on Build your own template in the editor.
+1 - Click "Build your own template in the editor"
+Use <template_output_dir>/templates/arm/cluster.jsonc
+2 - Select "Edit Parameters"
+Use <template_output_dir>/parameters/cluster.parameters.jsonc
+3 - Set Region if not picking up from parameters
+4 - Select Subscription if not already set
+5 - Search for RG if it already exists or create new
 
 ### Cluster validation
 
