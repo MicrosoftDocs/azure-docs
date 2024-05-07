@@ -35,6 +35,8 @@ The VM availability metric is currently in public preview. This metric value ind
 | 0 | VM is unavailable. The VM could be stopped or rebooting. If you shut down a VM from within the VM, it emits this value. |
 | Null | State of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it immediately stops emitting the availability metric, and you see null values. |
 
+To learn how to use the VM availability metric to monitor Azure Virtual Machine availability, see [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md).
+
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 The dimension Logical Unit Number (`LUN`) is associated with some of the preceding metrics.
