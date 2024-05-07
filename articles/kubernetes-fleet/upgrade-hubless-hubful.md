@@ -52,11 +52,11 @@ az fleet member create -n $FLEET_MEMBER -f $FLEET -g $RG --member-cluster-id /su
 
 ## Upgrade the fleet resource
 
-To upgrade your hubless fleet resource to hubful, use the `az fleet create` command with the `--enable-hub` flag set. You must also provide a value to the `--dns-name-prefix` argument. Be sure to include any other relevant configuration options, as the fleet resource will become immutable after this operation is complete.
+To upgrade your hubless fleet resource to hubful, use the `az fleet create` command with the `--enable-hub` flag set. Be sure to include any other relevant configuration options, as the fleet resource will become immutable after this operation is complete.
 
 ```azurecli-interactive
 # Upgrade the hubless fleet resource to a hubful fleet resource
-az fleet create -n $FLEET -g $RG --enable-hub --dns-name-prefix ${USER} 
+az fleet create -n $FLEET -g $RG --enable-hub 
 
 ```
 
@@ -112,7 +112,16 @@ For each member cluster that you rejoin to the newly upgraded fleet, view the ou
 
 ## Verify functionality
 
-To verify that your newly upgraded fleet resource is functioning properly and member clusters joined successfully, you can follow the steps in [Kubernetes workload orchestration][workload-orchestration].
+To verify that your newly upgraded fleet resource is functioning properly and member clusters joined successfully, confirm that you're able to access the API server using the `kubectl get memberclusters` command.
+
+If successful, your output should look similar to the following example output:
+
+```bash
+NAME           JOINED   AGE
+aks-member-1   True     2m
+aks-member-2   True     2m
+aks-member-3   True     2m
+```
 
 ## Clean up resources
 

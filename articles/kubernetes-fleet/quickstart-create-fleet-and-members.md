@@ -85,14 +85,14 @@ The following output example resembles successful creation of the resource group
 
 ## Create a Fleet resource
 
-You can create a Fleet resource to later group your AKS clusters as member clusters. By default, this resource enables member cluster grouping and update orchestration. If the Fleet hub is enabled, other preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters. For more information, see the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configurations.
+You can create a Fleet resource to later group your AKS clusters as member clusters. When created via Azure CLI, by default, this resource enables member cluster grouping and update orchestration. If the Fleet hub is enabled, other preview features are enabled, such as Kubernetes object propagation to member clusters and L4 service load balancing across multiple member clusters. For more information, see the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configurations.
 
 > [!IMPORTANT]
 > Once a Fleet resource has been created, it's possible to change the hub mode from hubless to hubful, but not from hubful to hubless. For hubful fleets, once private or public has been selected it cannot be changed.
 
 ### [Hubless fleet](#tab/hubless)
 
-If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command.
+If you want to use Fleet only for update orchestration, which is the default experience when creating a new Fleet resource via Azure CLI, you can create a Fleet resource without the hub cluster using the [`az fleet create`][az-fleet-create] command.
 
 ```azurecli-interactive
 az fleet create --resource-group ${GROUP} --name ${FLEET} --location eastus
@@ -178,8 +178,8 @@ Your output should look similar to the following example output:
 #### Private hub
 
 When creating a private hubful fleet, some extra considerations apply:
-- Fleet requires you to provide the subnet on which the Fleet hub cluster's node VMs will be placed. You can specify this at creation time by setting `--agent-subnet-id <subnet>`. This command differs from the one you use to work directly with a private AKS cluster.
-- The subnet passed via `--vnet-subnet-id` must not overlap with the AKS default service range of `10.0.0.0/16`.
+- Fleet requires you to provide the subnet on which the Fleet hub cluster's node VMs will be placed. You can specify this at creation time by setting `--agent-subnet-id <subnet>`. This command differs from the one you use to work directly with a private AKS cluster in that it's a required argument for Fleet but not for AKS.
+-  The address prefix of the vnet whose subnet is passed via `--vnet-subnet-id` must not overlap with the AKS default service range of `10.0.0.0/16`.
 - When using an AKS private cluster, you have the ability to configure fully qualified domain names (FQDNs) and FQDN subdomains. This functionality doesn't apply to the hub cluster used in a private hubful fleet.
 
 First, create a virtual network and subnet for your hub cluster's node VMs using the `az network vnet create` and `az network vnet subnet create` commands.
