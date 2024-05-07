@@ -4,7 +4,7 @@ description: This article describes how to view the updates pending for your env
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/06/2024
+ms.date: 05/07/2024
 ms.topic: how-to
 ---
 
@@ -52,12 +52,12 @@ You can use either the **Overview** blade or select the **Updates** blade that p
 
   :::image type="content" source="./media/deploy-manage-updates-using-updates-view/multi-updates-selection.png" alt-text="Screenshot that shows multi selection from list view." lightbox="./media/deploy-manage-updates-using-updates-view/multi-updates-selection.png":::
 
-1. **One-time update**  - Allows you to install update(s) on the applicable machines on demand and can take instant action about the pending update(s). For more information on how to use One-time update, see [how to deploy on demand updates](deploy-updates.md#).
+ - **One-time update**  - Allows you to install update(s) on the applicable machines on demand and can take instant action about the pending update(s). For more information on how to use One-time update, see [how to deploy on demand updates](deploy-updates.md#).
 
     :::image type="content" source="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png" alt-text="Screenshot that shows how to install one-time updates." lightbox="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png":::
 
 
-1. **Schedule updates** - Allows you to install updates later, you have to select a future date on when you would like to install the update(s) and specify an end date when the schedule should end. For more information on scheduled updates, see [how to schedule updates](scheduled-patching.md).
+- **Schedule updates** - Allows you to install updates later, you have to select a future date on when you would like to install the update(s) and specify an end date when the schedule should end. For more information on scheduled updates, see [how to schedule updates](scheduled-patching.md).
 
     :::image type="content" source="./media/deploy-manage-updates-using-updates-view/schedule-updates.png" alt-text="Screenshot that shows how to schedule updates." lightbox="./media/deploy-manage-updates-using-updates-view/schedule-updates.png":::
 
