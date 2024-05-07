@@ -11,17 +11,17 @@ ms.author: cshoe
 
 # Azure Container Apps dynamic sessions overview
 
-Azure Container Apps dynamic sessions provides fast access to secure sandboxed environments that are ideal for running code or applications that requires strong isolation from other workloads.
+Azure Container Apps dynamic sessions provide fast access to secure sandboxed environments that are ideal for running code or applications that require strong isolation from other workloads.
 
 Sessions have the following attributes:
 
 * **Strong isolation**: Sessions are isolated from each other and from the host environment. Each session runs in its own Hyper-V sandbox, providing enterprise-grade security and isolation. Optionally, you can enable network isolation to further enhance security.
 
-* **Simple access**: Sessions are accessed through a REST API. Each session is identified by a unique identifier. If a session with a given identifier doesn't exist, a new session is automatically allocated.
+* **Simple access**: Sessions are accessed through a REST API. A unique identifier marks each session. If a session with a given identifier doesn't exist, a new session is automatically allocated.
 
-* **Fully managed**: A session's lifecycle is automatically managed by the platform. They are automatically cleaned up when they are no longer in use.
+* **Fully managed**: The platform fully manages a session's lifecycle. Sessions are automatically cleaned up when no longer in use.
 
-* **Fast startup**: A new session is allocated in milliseconds. This is achieved by automatically maintaining a pool of ready but unallocated sessions.
+* **Fast startup**: A new session is allocated in milliseconds. Rapid start-ups are achieved by automatically maintaining a pool of ready but unallocated sessions.
 
 * **Scalable**: Sessions can run at a high scale. You can run hundreds or thousands of sessions concurrently.
 
@@ -53,7 +53,7 @@ The key concepts in Azure Container Apps dynamic sessions are session pools and 
 
 To provide sub-second session allocation times, Azure Container Apps maintains a pool of ready but unallocated sessions. When you submit a request to a new session, the platform allocates a session from the pool to you. As sessions are allocated, the platform automatically replenishes the pool to maintain a constant number of ready sessions.
 
-There are a number of configurations that you can apply to session pools, such as the maximum number of sessions that can be allocated concurrently (`maxConcurrentSessions`) and the amount of time after the last request to a session before it's deleted (`cooldownPeriodInSeconds`). For custom container sessions, you can also specify the container image and settings to use for the sessions in the pool, as well as the number of sessions to keep ready in the pool (`readySessionInstances`).
+You can configure pools to set the maximum number of sessions that can be allocated concurrently via the  `maxConcurrentSessions` property. You can set the wait duration from the last request before a session is deleted the `cooldownPeriodInSeconds` property. For custom container sessions, you can also specify the container image and settings to use for the sessions in the pool, including the number of sessions to keep ready in the pool via `readySessionInstances`.
 
 ### Sessions
 
@@ -63,7 +63,7 @@ A session is a sandboxed environment that runs your code or application. Each se
 
 When you interact with sessions in a pool, you must define a session identifier to manage each session. The session identifier is a free-form string, meaning you can define it in any way that suits your application's needs. This identifier is a key element in determining the behavior of the session:
 
-- Reuse of existing sessions: If there is already a running session that matches the identifier, this session will be reused.
+- Reuse of existing sessions: This session is reused if there's already a running session that matches the identifier.
 - Allocation of new sessions: If no running session matches the identifier, a new session is automatically allocated from the pool.
 
 The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
@@ -72,23 +72,23 @@ The identifier must be a string that is 4 to 128 characters long and can contain
 
 You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
-For code interpreter sessions, you can also use an integration with an LLM framework. The framework will handle the token generation and management for you. Ensure that the application has been configured with a managed identity that has the necessary role assignments on the session pool.
+For code interpreter sessions, you can also use an integration with an LLM framework. The framework handles the token generation and management for you. Ensure that the application is configured with a managed identity that has the necessary role assignments on the session pool.
 
 #### Lifecycle
 
-Each session in a session pool has a lifecycle is automatically managed by the platform.
+The Container Apps runtime automatically manages the lifecycle for each session in a session pool.
 
-* **Pending**: When a session is starting up, it's in the pending state. The amount of time a session spends in the pending state depends on the container image and settings that you've specified for the session pool. A pending session is not added to the pool of ready sessions.
+* **Pending**: When a session is starting up, it's in the pending state. The amount of time a session spends in the pending state depends on the container image and settings you specify for the session pool. A pending session isn't added to the pool of ready sessions.
 
-* **Ready**: When a session has finished starting up and is ready, it's added to the pool. The session is available to be allocated.
+* **Ready**: When a session is done starting up and is ready, it's added to the pool. The session is available at this state for allocation.
 
-* **Allocated**: When you send a request to a session and there's not a running session with the given identifier, the platform allocates a session from the pool and transitions it to the allocated state. Subsequent requests with the same session identifier are routed to the same allocated session.
+* **Allocated**: When you send a request to a non-running session, the pool provides a new session and placed it in an allocated state. Subsequent requests with the same session identifier are routed to the same session.
 
-* **Deleting**: When a session hasn't received any requests for a period of time defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are completely and securely deleted.
+* **Deleting**: When a session hasn't received any requests during the time defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are completely and securely deleted.
 
 ## Security
 
-Azure Container Apps dynamic sessions is built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session. You should only configure or upload sensitive data to a session if you trust the users of the session.
+Azure Container Apps dynamic sessions are built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session. You should only configure or upload sensitive data to a session if you trust the users of the session.
 
 ## Next steps
 

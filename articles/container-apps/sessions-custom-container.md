@@ -18,7 +18,7 @@ In addition to the built-in code interpreter that Azure Container Apps dynamic s
 
 ## Uses for custom container sessions
 
-You can use custom containers to build any solution where you need to run code or applications in fast, ephemeral, and secure sandboxed environments that have Hyper-V and optional network isolation. Some examples include:
+Custom containers allow you to build solutions tailored to your needs. They enable you to execute code or applications in environments that are fast and ephemeral and offer secure, sandboxed spaces with Hyper-V. Additionally, they can be configured with optional network isolation. Some examples include:
 
 * **Code interpreters**: Executing untrusted code in secure sandboxes by a language not supported in the built-in interpreter, or you need full control over the code interpreter environment.
 
@@ -26,9 +26,9 @@ You can use custom containers to build any solution where you need to run code o
 
 ## Using custom container sessions
 
-To use custom container sessions, you first create a session pool with a custom container image. Azure Container Apps automatically starts containers in their own Hyper-V sandboxes using the provided image. Once the container starts up, it is available to the session pool.
+To use custom container sessions, you first create a session pool with a custom container image. Azure Container Apps automatically starts containers in their own Hyper-V sandboxes using the provided image. Once the container starts up, it's available to the session pool.
 
-When your application requests a session, it's instantly allocated one from the pool. The session remains active until it sits idle for a period of time, then it's automatically stopped and destroyed.
+When your application requests a session, an instance is instantly allocated from the pool. The session remains active until it enters an idle state, which is then automatically stopped and destroyed.
 
 ### Creating a custom container session pool
 
@@ -88,10 +88,10 @@ This command creates a session pool with the following settings:
 | `--cpu` | `1.0` | The required CPU in cores. |
 | `--memory` | `2.0Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
-| `--cooldown-period` | `300` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
+| `--cooldown-period` | `300` | The number of seconds that a session can be idle before it's terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
 | `--egress-enabled` | `false` | Whether the session can make outbound network requests. |
 | `--max-concurrent-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
-| `--ready-session-instances` | `5` | The target number of sessions that will be ready in the session pool all the time. |
+| `--ready-session-instances` | `5` | The target number of sessions that are ready in the session pool all the time. |
 | `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |
 
 To update the session pool, use the `az containerapp sessionpool update` command.
