@@ -14,7 +14,7 @@ Azure Bastion offers multiple deployment architectures, depending on the selecte
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, and also further inside the network.
 
-## Deployment - Basic SKU and higher
+## <a name="basic"></a>Deployment - Basic SKU and higher
 
 :::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
 
@@ -33,7 +33,7 @@ For configuration steps, see:
 * [Deploy Bastion automatically - Basic SKU only](quickstart-host-portal.md)
 * [Deploy Bastion using manually specified settings](tutorial-create-host-portal.md)
 
-## Deployment - Developer SKU
+## <a name="developer"></a>Deployment - Developer SKU
 
 :::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
 
@@ -41,7 +41,7 @@ For configuration steps, see:
 
 For more information about the Developer SKU, see [Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md).
 
-## Deployment - Private-only
+## <a name="private-only"></a>Deployment - Private-only
 
 :::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion private-only architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 
