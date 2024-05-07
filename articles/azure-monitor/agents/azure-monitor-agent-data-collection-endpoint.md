@@ -17,6 +17,10 @@ Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-
 
 Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
+Note: 
+
+DCEs public IPs are not part of the abovementioned network service tags, so, if you have a Custom Logs or IIS logs DCRs then consider allowing the DCEs public IPs for those scenarios to work until supported by Network service tags. 
+
 ## Firewall requirements
 
 | Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection| Example |
