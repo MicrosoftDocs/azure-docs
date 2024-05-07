@@ -17,7 +17,7 @@ Azure Container Registry (ACR) generates network traffic originating from the AC
 
 When you configure a firewall for a registry, ACR serves the requests on its service tag IP addresses. For the scenarios mentioned in [Firewall access rules](container-registry-firewall-access-rules.md), customers can configure the firewall outbound rule to allow access to ACR service tag IP addresses.
 
-## Import container images 
+## Import images 
 
 Azure Container Registry (ACR) initiates requests to external registry services via service tag IP addresses for image downloads. If the external registry service operates behind a firewall, it requires an inbound rule to accept ACR service tag IP addresses. These IPs fall under the ACR service tag, which includes the necessary IP ranges for importing images from public or Azure registries. Azure ensures these ranges are updated automatically. Establishing this security protocol is crucial for upholding the registry's integrity and ensuring its availability. 
 
