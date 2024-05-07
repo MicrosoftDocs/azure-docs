@@ -63,9 +63,9 @@ These steps explain how to create a File typed data in Azure AI Studio:
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
 
 1. Choose your **Data source**. You have three options to choose a data source.
-- You can select data from **Existing Connections**.
-- You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server.
-- You can choose **Upload files/folders** to upload a folder from your local drive.
+   - You can select data from **Existing Connections**.
+   - You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server.
+   - You can choose **Upload files/folders** to upload a folder from your local drive.
     
     :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
     
