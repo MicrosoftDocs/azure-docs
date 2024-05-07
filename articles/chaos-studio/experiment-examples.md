@@ -36,8 +36,8 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 
 "identity": {
         "type": "SystemAssigned",
-        "principalId": "30c2470a-6ea3-4a88-b5d5-8ed0d3f2fc88",
-        "tenantId": "b3ec07c5-5aee-49dd-8cc4-9c1b33c915ec"
+        "principalId": "35g5795t-8sd4-5b99-a7c8-d5asdh9as7",
+        "tenantId": "asd79ash-7daa-95hs-0as8-f3md812e3md"
     },
     "tags": {},
     "location": "westus",
@@ -48,7 +48,7 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
                 "type": "List",
                 "targets": [
                     {
-                        "id": "/subscriptions/12c6a2e4-2fdb-4eb9-8376-81992d7e76ca/resourceGroups/aks_pod_kill_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_network_delay_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
                         "type": "ChaosTarget"
                     }
                 ],
