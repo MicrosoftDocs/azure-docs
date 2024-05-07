@@ -134,12 +134,12 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
     :::image type="content" source="./media/vnet-flow-logs-policy/flow-logs.png" alt-text="Screenshot that shows the flow logs list in Network Watcher." lightbox="./media/vnet-flow-logs-policy/flow-logs.png":::
 
-1. Verify that there are no noncompliant virtual networks in the policy compliance page.
+1. In the policy compliance page, verify that all virtual networks in the specified scope are compliant.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png" alt-text="Screenshot that shows there aren't any noncompliant virtual networks after the deployment policy deployed flow logs in the defined scope." lightbox="./media/vnet-flow-logs-policy/deploy-policy-compliance-details-compliant.png":::
 
     > [!NOTE]
-    > It can take up to 24 hours to see that there are no more noncompliant virtual networks. For more information, see [Understand evaluation outcomes](../governance/policy/overview.md#understand-evaluation-outcomes).
+    > It can take up to 24 hours to update resource compliance status in Azure Policy compliance page. For more information, see [Understand evaluation outcomes](../governance/policy/overview.md#understand-evaluation-outcomes).
 
  ## Related content
 
