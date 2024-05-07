@@ -62,7 +62,7 @@ Addons are installed once and can only be updated or upgraded when the customer 
 
 Nexus has introduced a concept of Availability Zone which ideally is delineated at a Rack level and allows customers to spread their workloads across the instance to achieve better availability. For a Nexus instance with eight racks, customers get eight Availability zones. 
 Each Zone comprises a pair of management servers with redundancy and a collection of compute servers that function as a resource pool. Fully redundant Top-of-Rack (ToR) switches are implemented to ensure transport layer resilience. 
-Different zone works as independent group of resource if software upgrade or failover, to provide better availability, that's the reason we call it Available Zone.
+During multi-rack deployments in Nexus and when performing runtime bundle upgrades, Availability zones provide the added benefit of acting as an upgrade domain. This ensures that, at most, only the servers within a single rack are taken offline for these upgrades."
 
 ## Nexus Agent pool and scalability
 
