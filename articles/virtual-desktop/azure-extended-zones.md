@@ -16,23 +16,12 @@ ms.date: 04/11/2024
 Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and/or data residency workloads. Azure Extended Zones is supported for Azure Virtual Desktop and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries. Azure Extended Zones are part of the Microsoft global network that provides secure, reliable, high-bandwidth connectivity between applications that run at an Azure Extended Zone close to the user.
 
 
-## Benefits
+## How Azure Extended Zones works
 
-By deploying Azure Virtual Desktop in an Azure Extended Zone, you can:
+When deploying Azure Virtual Desktop in an Azure Extended Zone, all of the Azure Virtual Desktop control plane components (web service, broker service, gateway service, diagnostics, and extensibility components) remain in the main Azure region, and only the session hosts are deployed in the Azure Extended Zone. 
 
-- Azure Extended Zones uses RDP Shortpath for reduced latency. RDP Shortpath establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods. See [RDP Shortpath](rdp-shortpath.md) for more information.
+Azure Extended Zones uses [RDP Shortpath](rdp-shortpath.md) for reduced latency. RDP Shortpath establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods. An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) is needed on the virtual network that the session hosts are being deployed to. You'll need to use the frontend IP address(es) of the load balancer for outbound connectivity to the internet in order for the session hosts to join a host pool.  
 
-- Meet data locality requirements. If data residency needs the data to be in a specific location, Azure Extended Zones can guarantee that location. 
-
-## Prerequisites
-
-Before you can use Azure Virtual Desktop with Azure Extended Zones, you need:
-
-- An active Azure subscription.
-
-- [Access](#gaining-access-to-an-azure-extended-zone) to an Azure Extended Zone.
-
-- An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. You'll need to use the frontend IP address(es) of a load balancer for outbound connectivity to the internet in order for the session hosts to join a host pool.  
 
 ## Gaining access to an Azure Extended Zone 
 
@@ -45,7 +34,7 @@ For more information, see....
 
 Azure Virtual Desktop with Azure Extended Zones has the following limitations:
 
-- With Azure Extended Zones, there's no default outbound internet access. The default outbound route is being retired across all Azure regions in September 2025. As Extended Zones will become generally available shortly prior to this date, they'll start without this default outbound internet route. For more information, see [Default outbound access for VMs in Azure will be retired— transition to a new method of internet access.](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)
+- With Azure Extended Zones, there's no default outbound internet access. The default outbound route is being retired across all Azure regions in September 2025. As Azure Extended Zones will become generally available shortly prior to this date, they'll start without this default outbound internet route. For more information, see [Default outbound access for VMs in Azure will be retired— transition to a new method of internet access.](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)
 
 - Azure Extended Zones don't support NAT Gateways. You'll need to use an Azure Load Balancer with outbound rules enabled for outbound connectivity.
 
@@ -54,4 +43,5 @@ Azure Virtual Desktop with Azure Extended Zones has the following limitations:
 
 ## Next steps
 
+To learn how to deploy Azure Virtual Desktop in an Azure Extended Zone, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
 
