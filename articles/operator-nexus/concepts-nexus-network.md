@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Nexus Networks"
-description: Introduction to Nexus Networks core concepts.
+description: Introduction to Workload networks core concepts.
 author: leijgao
 ms.author: leijiagao
 ms.service: azure-operator-nexus
