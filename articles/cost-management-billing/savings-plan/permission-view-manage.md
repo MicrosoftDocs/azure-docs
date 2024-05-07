@@ -91,7 +91,7 @@ If you have savings plan-specific RBAC roles (savings plan administrator, purcha
 2. Select **Home** > **Savings plans** to list savings plans to which you have access.
 
 ### Add RBAC roles to users and groups
-To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles)
+To learn about delegating savings plan RBAC roles, see [Delegate savings plan RBAC roles](manage-savings-plan.md#delegate-savings-plan-rbac-roles).
 
 _Enterprise administrators can take ownership of a savings plan order. They can add other users to a savings plan by using_ **Access control (IAM)**.
 
