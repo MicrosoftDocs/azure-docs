@@ -319,8 +319,12 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Azure Container Apps hosting (preview)
-          href: functions-container-apps-hosting.md   
+        - name: Container hosting
+          items:
+            - name: Containerized functions
+              href: container-concepts.md
+            - name: Azure Container Apps hosting
+              href: functions-container-apps-hosting.md   
     - name: Deployment options
       href: functions-deployment-technologies.md 
     - name: Events and messaging
