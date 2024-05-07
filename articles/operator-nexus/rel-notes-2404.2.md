@@ -29,9 +29,9 @@ runtime patch.
 
 * Prevents user from creating and deleting arc-connected clusters and arc-connected machine from NAKS MRG.
 
-## Security enhancements
+### Security enhancements
 
-* Credential Manager enhancements: Credential rotation status information on the Bare-metal Machine (BMC or Console User) and Storage Appliance (Storage Admin) resources.
+* Credential rotation status information on the Bare-metal Machine (BMC or Console User) and Storage Appliance (Storage Admin) resources.
 
 * Harden NFC Infrastructure Proxy to allow outbound connections to known services.
 
@@ -39,7 +39,7 @@ runtime patch.
 
 * Remove Key Vault from Cluster Manager Managed Resource Group (MRG).
 
-## Observability enhancements 
+### Observability enhancements 
 
 * (Preview) Appropriate status reflected for Rack Pause scenarios.
 
@@ -49,7 +49,7 @@ runtime patch.
 
 * Enable storage appliance logs.
 
-## Other Updates:
+### Other Updates:
 
 * Enable high-availability for NFS Storage.
 
