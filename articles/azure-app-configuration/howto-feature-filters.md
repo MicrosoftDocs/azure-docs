@@ -20,7 +20,7 @@ In contrast, a _conditional feature flag_ allows the feature flag to be enabled 
 
 ## What is a feature filter?
 
-_Feature filters_ are rules for determining the state of the feature flag each time it's evaluated.
+_Feature filters_ are conditions for determining the state of the feature flag. Adding feature filters to a feature flag allows you to invoke custom code each time the feature flag is evaluated.
 
 The Microsoft feature management libraries include the following built-in feature filters configurable from the Azure App Configuration portal.
 
