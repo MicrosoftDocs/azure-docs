@@ -49,7 +49,7 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 ## Create a service connection
 
-Create a connection using a managed identity an access key.
+Create a connection using a managed identity or an access key.
 
 ### [Managed identity](#tab/using-managed-identity)
 
