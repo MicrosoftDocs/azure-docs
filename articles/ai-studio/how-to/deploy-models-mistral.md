@@ -58,7 +58,7 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
     > The pay-as-you-go model deployment offering for eligible models in the Mistral family is only available in hubs created in the **East US 2** and **Sweden Central** regions. For _Mistral Large_, the pay-as-you-go offering is also available in the **France Central** region.
