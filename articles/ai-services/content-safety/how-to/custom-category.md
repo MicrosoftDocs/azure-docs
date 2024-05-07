@@ -73,7 +73,7 @@ Replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with
 ### Create new category version
 
 ```bash
-curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?api-version=tbd" \
+curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?api-version=2024-05-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
@@ -88,7 +88,7 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?
 ### Trigger the category build process:
 
 ```bash
-curl -X POST "<your_api_key>/contentsafety/text/categories/<your_category_name>:build?api-version=tbd&version=1" \
+curl -X POST "<your_api_key>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-05-15-preview&version=1" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
@@ -97,7 +97,7 @@ curl -X POST "<your_api_key>/contentsafety/text/categories/<your_category_name>:
 ### Analyze text with a customized category:
 
 ```bash
-curl -X POST "<your_api_key>/contentsafety/text:analyze?api-version=tbd" \
+curl -X POST "<your_api_key>/contentsafety/text:analyze?api-version=2024-05-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
@@ -134,7 +134,7 @@ headers = {
 You can create a new category with *category name*, *definition* and *sample_blob_url*, and you will get the auto-generated version number of this category.
 ```python
 def create_new_category_version(category_name, definition, sample_blob_url):
-    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=tbd"
+    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=2024-05-15-preview"
     data = {
         "categoryName": category_name,
         "definition": definition,
@@ -158,7 +158,7 @@ print(result)
 
 ```python
 def trigger_category_build_process(category_name, version):
-    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}:build?api-version=tbd&version={version}"
+    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}:build?api-version=2024-05-15-preview&version={version}"
     response = requests.post(url, headers=headers)
     return response.status_code
 
@@ -175,7 +175,7 @@ print(result)
 You need to specify the *category name* and the *version number* (optional, will use the latest one by default) during inference. You can specify multiple categories if you have them ready.
 ```python
 def analyze_text_with_customized_category(text, customized_categories):
-    url = f"{ENDPOINT}/contentsafety/text:analyze?api-version=tbd"
+    url = f"{ENDPOINT}/contentsafety/text:analyze?api-version=2024-05-15-preview"
     data = {
         "text": text,
         "customizedCategories": customized_categories
@@ -200,7 +200,7 @@ print(result)
 ### Get a customized category or a specific version of it:
 
 ```bash
-curl -X GET "<your_api_key>/contentsafety/text/categories/<your_category_name>?api-version=tbd&version=1" \
+curl -X GET "<your_api_key>/contentsafety/text/categories/<your_category_name>?api-version=2024-05-15-preview&version=1" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
@@ -208,7 +208,7 @@ curl -X GET "<your_api_key>/contentsafety/text/categories/<your_category_name>?a
 ### List categories of their latest versions:
 
 ```bash
-curl -X GET "<your_api_key>/contentsafety/text/categories?api-version=tbd" \
+curl -X GET "<your_api_key>/contentsafety/text/categories?api-version=2024-05-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
@@ -217,7 +217,7 @@ curl -X GET "<your_api_key>/contentsafety/text/categories?api-version=tbd" \
 ### Delete a customized category or a specific version of it:
 
 ```bash
-curl -X DELETE "<your_api_key>/contentsafety/text/categories/<your_category_name>?api-version=tbd&version=1" \
+curl -X DELETE "<your_api_key>/contentsafety/text/categories/<your_category_name>?api-version=2024-05-15-preview&version=1" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
@@ -250,7 +250,7 @@ headers = {
 
 ```python
 def get_customized_category(category_name, version=None):
-    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=tbd"
+    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=2024-05-15-preview"
     if version:
         url += f"&version={version}"
     
@@ -269,7 +269,7 @@ print(result)
 
 ```python
 def list_categories_latest_versions():
-    url = f"{ENDPOINT}/contentsafety/text/categories?api-version=tbd"
+    url = f"{ENDPOINT}/contentsafety/text/categories?api-version=2024-05-15-preview"
     response = requests.get(url, headers=headers)
     return response.json()
 
@@ -281,7 +281,7 @@ print(result)
 
 ```python
 def delete_customized_category(category_name, version=None):
-    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=tbd"
+    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=2024-05-15-preview"
     if version:
         url += f"&version={version}"
     
