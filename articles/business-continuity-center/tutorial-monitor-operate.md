@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Monitor and operate jobs
-description: In this tutorial, learn how to monitor jobs across your business continuity estate using Azure Business Continuity center.
+description: In this tutorial, learn how to monitor jobs across your business continuity estate using Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 05/30/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -13,13 +13,13 @@ ms.author: v-abhmallick
 # Tutorials: Monitor jobs across your business continuity estate
 
 
-Azure Business Continuity center allows you to view jobs across Azure Backup and Azure Site Recovery, with ability to filter, view details of individual jobs and take appropriate action. 
+Azure Business Continuity Center allows you to view jobs across Azure Backup and Azure Site Recovery, with ability to filter, view details of individual jobs and take appropriate action. 
 
 ## Monitor jobs
 
 Follow these steps to monitor jobs:
 
-1. In Azure Business Continuity center, select the **Jobs** to view all your jobs. 
+1. In Azure Business Continuity Center, select the **Jobs** to view all your jobs. 
 1. The **Status** column displays a summarized view by job status – *completed*, *failed*, *canceled*, *in progress*, *completed with warning*, and *completed with information*. Select each status to filter the view. 
 
     Alternatively, you can select the more icon (`...`) beside any job to open the action menu. You can also select any value under the **Operation** column to view details of the Job.  

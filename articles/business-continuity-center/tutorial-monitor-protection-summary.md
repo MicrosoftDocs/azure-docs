@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Monitor protection summary
-description: In this tutorial, learn how to monitor protection estate using Azure business continuity center overview pane.
+description: In this tutorial, learn how to monitor protection estate using Azure business continuity Center overview blade.
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 05/30/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -12,9 +12,9 @@ ms.author: v-abhmallick
 
 # Tutorial: Monitor protection summary
 
-In this article, you learn how to monitor and govern protection estate, using Azure Business Continuity center overview pane.
+This article describes how to monitor and govern protection estate, using Azure Business Continuity Center overview blade.
 
-The Azure Business Continuity Center overview pane provides a comprehensive snapshot of your resources from various aspects, such as protection status, the configuration of your security settings, and which resources are protected or not protected. It provides a summarized view from different angles to give you a clear overview of your business continuity status. You can view:
+The Azure Business Continuity Center overview blade provides a comprehensive snapshot of your resources from various aspects, such as protection status, the configuration of your security settings, and which resources are protected or not protected. It provides a summarized view from different angles to give you a clear overview of your business continuity status. You can view:
 
 - The protectable resources count
 - The protected item and their status.
@@ -26,13 +26,13 @@ The Azure Business Continuity Center overview pane provides a comprehensive snap
 
 Before you start this tutorial:
 
-- Ensure you have the required resource permissions to view them in the ABC center.
+- Ensure you have the required resource permissions to view them in the ABC Center.
 
 ## View dashboard
 
 Follow these steps:
 
-1. In the Azure Business Continuity center, select **Overview**. This opens an overview pane with a consolidated view of information  related to protection of your resources across solutions in a single location. 
+1. In the Azure Business Continuity Center, select **Overview**. This opens an overview blade with a consolidated view of information  related to protection of your resources across solutions in a single location. 
     :::image type="content" source="./media/tutorial-monitor-protection-summary/summary-page.png" alt-text="Screenshot showing the overview summary page." lightbox="./media/tutorial-monitor-protection-summary/summary-page.png":::
  
 2. To look for specific information, you can use various filters, such as subscriptions, resource groups, location, and resource type, and more.
@@ -41,7 +41,7 @@ Follow these steps:
 3. Azure Business Continuity allows you to change the default view using a scope picker. Select the **Change** option beside the **Currently showing:** details displayed at the top.
     :::image type="content" source="./media/tutorial-monitor-protection-summary/change-scope.png" alt-text="Screenshot showing change-scope option." lightbox="./media/tutorial-monitor-protection-summary/change-scope.png":::
  
-4.	To change the scope for Overview pane using the scope-picker, select the required options: 
+4.	To change the scope for Overview blade using the scope-picker, select the required options: 
     - **Resource managed by**: 
         - **Azure resource**: resources managed by Azure.
         - **Non-Azure resources**: resources not managed by Azure.
@@ -58,4 +58,4 @@ The summary tiles are easy to use, interactive and can be accessed to seamlessly
 ## Next steps
 
 - [Create protection policies](./backup-protection-policy.md)
-- [Configure protection from ABC center](./tutorial-configure-protection-datasource.md).
+- [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
