@@ -42,7 +42,7 @@ The following table provides other inputs to help you to determine the appropria
 | Other            | Flexible model at TiB granularity |
 | Provisioning Model          | Incremental snapshot for fast restore; Snapshot export for hardening. |
 | [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)                        | See redundancy capabilities of Lightbits in redundancy requirements. |
-| Redundancy & Scale Targets  | Encryption at rest is supported. |
+| Redundancy & Scale Targets  | Built-in multi availability zone support via synchronous replication, and automatic cluster expansion based on storage usage. |
 | Encryption                  | Encryption at rest is supported. |
 ## Tessel: Performance best practices for Oracle on Azure VMs  
 
