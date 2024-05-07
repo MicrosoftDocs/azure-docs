@@ -1,6 +1,6 @@
 ---
 title: Overview of Event Hubs emulator
-description: This article provides an overview of Azure Event Hubs emulator
+description: This article provides an overview of Azure Event Hubs emulator.
 ms.topic: article
 ms.author: Saglodha
 ms.date: 05/06/2024
@@ -45,9 +45,9 @@ Current version of emulator has the following limitations:
 
 ### Difference between emulator and Event hubs cloud service?
 
-Since Emulator is only mwant for development and test purpose, there are functional differences between emulator and cloud service.Here are the high-level features that are not supported in the Event Hubs emulator:
+Since Emulator is only meant for development and test purpose, there are functional differences between emulator and cloud service. Here are the high-level features that aren't supported in the Event Hubs emulator:
 
--  Azure Goodness – VNet Integration/ Entra ID integration/ Activity Logs/ UI Portal etc.
+-  Azure Goodness – VNet Integration/ Microsoft Entra ID integration/ Activity Logs/ UI Portal etc.
 -  Event Hubs Capture
 -  Resource Governance features like Application Groups
 -  Auto scale capabilities
@@ -69,15 +69,15 @@ Number of supported namespaces| 1 |No|
 Maximum number of Event Hubs within namespace| 10| Yes| 
 Maximum number of consumer groups within event hub| 20 |Yes| 
 Maximum number of partitions in event hub |32 |Yes 
-Maximum size of event being published to event hub (be it batch/ non-batch) |1 MB |No
-Maximum event retention time | 1hr | No
+Maximum size of event being published to event hub (batch/nonbatch) |1 MB |No
+Maximum event retention time | 1 hr | No
 
 
 ### Making configuration changes
 
-You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](EventHub/Common/Config.json).Under the configuration file, you could make following edits as per needs: 
+You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](EventHub/Common/Config.json). Under the configuration file, you could make following edits as per needs: 
 
-- **Entities**: You could add more entities (event hubs) , with customized partition count and consumer groups count as per supported quotas.
+- **Entities**: You could add more entities (event hubs), with customized partition count and consumer groups count as per supported quotas.
 - **Logging**: Emulator supports Logging in file or console or both. You could set as per your personal preference.
 
 >[!IMPORTANT]
@@ -85,11 +85,11 @@ You could use config.json to configure quotas associated with Event Hubs. By def
 >You cannot rename the preset namespace ("name") in configuration file. 
 
 ### Drill through available logs
-During testing phase,logs need to be reviewed to debug unexpected failures. For this reason, Emulator supports logging in forms of Console and File. Follow below steps to look at the logs: 
+During testing phase, logs help in debugging unexpected failures. For this reason, Emulator supports logging in forms of Console and File. Follow below steps to review the logs: 
 - **Console Logs**: On docker desktop UI, click on the container name to open Console Logs.
-- **File Logs**: Present at /home/app/EmulatorLogs within the container.
+- **File Logs**: These would be present at /home/app/EmulatorLogs within the container.
 
 ### Next Steps
 
-For instructions on how to develop locally with Event Hubs emulator, see [test locally with event hubs emulator](test-locally-with-event-hub-emulator.md)
+For instructions on how to develop locally with Event Hubs emulator, see [test locally with event hubs emulator](test-locally-with-event-hub-emulator.md).
 
