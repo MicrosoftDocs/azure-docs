@@ -116,14 +116,8 @@ items:
             href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
           - name: Index Lookup tool
             href: how-to/prompt-flow-tools/index-lookup-tool.md
-          - name: Vector Index Lookup tool
-            href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
           - name: Content Safety tool
             href: how-to/prompt-flow-tools/content-safety-tool.md
-          - name: Faiss Index Lookup tool
-            href: how-to/prompt-flow-tools/faiss-index-lookup-tool.md
-          - name: Vector DB Lookup tool
-            href: how-to/prompt-flow-tools/vector-db-lookup-tool.md
           - name: Embedding tool
             href: how-to/prompt-flow-tools/embedding-tool.md
           - name: Serp API tool
