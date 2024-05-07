@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Enable Inline Image Support
+title: Tutorial - Enable inline image support
 author: jopeng
 ms.author: jopeng
 ms.date: 03/27/2023
@@ -45,7 +45,7 @@ In the [quickstart](../../../quickstarts/chat/meeting-interop.md), you created a
 chatClient.on("chatMessageReceived", (e) => {
    console.log("Notification chatMessageReceived!");
 
-   // check whether the notification is intended for the current thread
+   // Check whether the notification is intended for the current thread
    if (threadIdInput.value != e.threadId) {
       return;
    }
@@ -104,7 +104,7 @@ Now let's go back to the previous code to add some extra logic like the followin
 ```js
 chatClient.on("chatMessageReceived", (e) => {
   console.log("Notification chatMessageReceived!");
-  // check whether the notification is intended for the current thread
+  // Check whether the notification is intended for the current thread
   if (threadIdInput.value != e.threadId) {
      return;
   }
@@ -122,26 +122,26 @@ function renderReceivedMessage(e, isMyMessage) {
   
   messagesContainer.appendChild(card);
   
-  // filter out inline images from attchments
+  // Filter out inline images from attachments
   const imageAttachments = e.attachments.filter((e) =>
     e.attachmentType.toLowerCase() === 'image');
   
-  // fetch and render preview images
+  // Fetch and render preview images
   fetchPreviewImages(imageAttachments);
   
-  // set up onclick event handler to fetch full scale image
+  // Set up onclick event handler to fetch full-scale image
   setImgHandler(card, imageAttachments);
 }
 
 function setImgHandler(element, imageAttachments) {
-  // do nothing if there's no image attachments
+  // Do nothing if there are no image attachments
   if (!imageAttachments.length > 0) {
     return;
   }
   const imgs = element.getElementsByTagName('img');
   for (const img of imgs) {
     img.addEventListener('click', (e) => {
-      // fetch full scale image upon click
+      // Fetch full-scale image upon click
       fetchFullScaleImage(e, imageAttachments);
     });
   }
@@ -151,19 +151,19 @@ async function fetchPreviewImages(attachments) {
   if (!attachments.length > 0) {
     return;
   }
-  // since each message could contain more than one inline image
+  // Since each message could contain more than one inline image
   // we need to fetch them individually 
   const result = await Promise.all(
       attachments.map(async (attachment) => {
-        // fetch preview image from its 'previewURL'
+        // Fetch preview image from its 'previewURL'
         const response = await fetch(attachment.previewUrl, {
           method: 'GET',
           headers: {
-            // the token here should the same one from chat initialization
+            // The token here should be the same one from chat initialization
             'Authorization': 'Bearer ' + tokenString,
           },
         });
-        // the response would be in image blob we can render it directly
+        // The response would be in an image blob, so we can render it directly
         return {
           id: attachment.id,
           content: await response.blob(),
@@ -173,7 +173,7 @@ async function fetchPreviewImages(attachments) {
   result.forEach((imageResult) => {
     const urlCreator = window.URL || window.webkitURL;
     const url = urlCreator.createObjectURL(imageResult.content);
-    // look up the image ID and replace its 'src' with object URL
+    // Look up the image ID and replace its 'src' with object URL
     document.getElementById(imageResult.id).src = url;
   });
 }
@@ -184,7 +184,7 @@ In this example, you created two helper functions, `fetchPreviewImages` and `set
 Now you need to expose the token on to the global level because you need to construct an auth header with it. You need to modify the following code:
 
 ```js
-// new variable for token string
+// New variable for token string
 var tokenString = '';
 
 async function init() {
@@ -197,7 +197,7 @@ async function init() {
 	]);
 	const { token, expiresOn } = tokenResponse;
    
-   // save to token string
+   // Save to token string
    tokenString = token;
    
    ...
@@ -274,24 +274,24 @@ const overlayContainer = document.getElementById('overlay-container');
 const loadingImageOverlay = document.getElementById('full-scale-image');
 
 function fetchFullScaleImage(e, imageAttachments) {
-  // get the image ID from the clicked image element
+  // Get the image ID from the clicked image element
   const link = imageAttachments.filter((attachment) =>
     attachment.id === e.target.id)[0].url;
   loadingImageOverlay.src = '';
   
-  // fetch the image
+  // Fetch the image
   fetch(link, {
     method: 'GET',
     headers: {'Authorization': 'Bearer ' + tokenString},
   }).then(async (result) => {
    
-    // now we set image blob to our overlay element
+    // Now we set image blob to our overlay element
     const content = await result.blob();
     const urlCreator = window.URL || window.webkitURL;
     const url = urlCreator.createObjectURL(content);
     loadingImageOverlay.src = url;
   });
-  // show overlay
+  // Show overlay
   overlayContainer.style.display = 'block';
 }
 
@@ -359,7 +359,7 @@ Let's create a new file picker that accepts images:
 <input style="display: none;" id="upload-result"></input>
 ```
 
-Now set up an event licenser for when there's a state change:
+Now set up an event listener for when there's a state change:
 
 ```js
 document.getElementById("upload").addEventListener("change", uploadImages);
@@ -403,9 +403,9 @@ sendMessageButton.addEventListener("click", async () => {
   let message = messagebox.value;
   let attachments = uploadedImageModels;
 
-    // inject image tags for images we have selected
+    // Inject image tags for images we have selected
   // so they can be treated as inline images
-  // alternatively, we can use some 3rd party libraries 
+  // Alternatively, we can use some third-party libraries 
   // to have a rich text editor with inline image support
   message += attachments.map((attachment) => `<img id="${attachment.id}" />`).join("");
 
