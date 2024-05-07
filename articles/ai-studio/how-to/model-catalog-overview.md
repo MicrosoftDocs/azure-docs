@@ -57,13 +57,13 @@ Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22
 Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual
 Other models | Available | Not available
 
-:::image type="content" source="../media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle. lightbox="../media/explore/platform-service-cycle.png":::
+:::image type="content" source="../media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle." lightbox="../media/explore/platform-service-cycle.png":::
 
 ## Real-time endpoints
 
 The capability to deploy models to real-time endpoints builds on platform capabilities of Azure Machine Learning to enable seamless integration, across the entire LLMOps lifecycle, of the wide collection of models in the Model Catalog. 
 
-:::image type="content" source="../media/explore/llmops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle. lightbox="../media/explore/llmops-life-cycle.png":::
+:::image type="content" source="../media/explore/llmops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle." lightbox="../media/explore/llmops-life-cycle.png":::
 
 ### How are models made available for Real-time endpoints   
 
@@ -104,7 +104,7 @@ Certain models in the Model Catalog can be deployed using Pay-as-you-go billing;
 
 ### How are third-party models made available in MaaS   
 
-:::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle. lightbox="../media/explore/model-publisher-cycle.png":::
+:::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle." lightbox="../media/explore/model-publisher-cycle.png":::
 
 Models that are available for pay-as-you-go deployment are offered by the model provider but hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models, while Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content output by models deployed via MaaS. Learn more about data processing for MaaS at the [data privacy](concept-data-privacy.md) article. 
 
