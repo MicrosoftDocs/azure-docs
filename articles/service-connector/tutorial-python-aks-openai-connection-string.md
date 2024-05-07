@@ -8,7 +8,7 @@ ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 04/22/2024
+ms.date: 05/07/2024
 ---
 
 # Tutorial: Connect to Azure OpenAI Service in AKS using a connection string (preview)
@@ -107,7 +107,9 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 
 ## Create a service connection in AKS with Service Connector (preview)
 
-Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal.
+Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
+
+### [Portal](#tab/azure-portal)
 
 Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings referring to the examples in the following table. Leave all other settings with their default values.
 
@@ -129,6 +131,22 @@ Refer to the [AKS service connection quickstart](quickstart-portal-aks-connectio
     | **Authentication type** | *Connection String* | Service Connector authentication type. |
 
 Once the connection has been created, you can view its details in the **Service Connector** pane.
+
+## [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
+
+* **Source compute service resource group name:** the resource group name of the AKS cluster.
+* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
+* **Target service resource group name:** the resource group name of the Azure OpenAI service.
+* **OpenAI service name:** the Azure OpenAI service that is connected.
+
+```azurecli
+az aks connection create cognitiveservices --secret
+
+```
+
+---
 
 ## Clone sample application
 
