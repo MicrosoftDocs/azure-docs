@@ -20,7 +20,7 @@ Use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster withou
 > [!IMPORTANT]
 > Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
 
-To get started with your codespace:
+To create your codespace and cluster, use the following steps:
 
 1. Create a codespace in GitHub Codespaces.
 

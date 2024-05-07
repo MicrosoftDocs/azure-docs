@@ -34,11 +34,11 @@ The following quickstarts in this series build on this one to define sample asse
 
 This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks might require elevated permissions.
 
-For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts. We also recommend using GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines.
+For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts. We also provide steps to use GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines.
 
 ## Prerequisites
 
-For this quickstart, you create a Kubernetes cluster to receive the Azure IoT Operations deployment. We recommend using GitHub Codespaces to host the cluster as a quick way to get started without installing new tools.
+For this quickstart, you create a Kubernetes cluster to receive the Azure IoT Operations deployment.
 
 If you want to rerun this quickstart with a cluster that already has Azure IoT Operations deployed to it, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
@@ -54,7 +54,7 @@ Before you begin, prepare the following prerequisites:
 
 Azure IoT Operations is a suite of data services that run on Kubernetes clusters. You want these clusters to be managed remotely from the cloud, and able to securely communicate with cloud resources and endpoints. We address these concerns with the following tasks in this quickstart:
 
-1. Connect a Kubernetes cluster to Azure Arc for remote management.
+1. Create a Kubernetes cluster and connect it to Azure Arc for remote management.
 1. Create an Azure Key Vault to manage secrets for your cluster.
 1. Configure your cluster with a secrets store and service principal to communicate with cloud resources.
 1. Deploy Azure IoT Operations to your cluster.
@@ -145,7 +145,7 @@ If you want to delete the Azure IoT Operations deployment but plan on reinstalli
 
 1. In your resource group in the Azure portal, select your cluster.
 1. On your cluster resource page, select **Extensions**.
-1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. You don't need to uninstall the secrets provider extension:
+1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Don't uninstall the secrets provider extension.
 
     :::image type="content" source="media/quickstart-deploy/uninstall-extensions.png" alt-text="Screenshot that shows the extensions to uninstall.":::
 
