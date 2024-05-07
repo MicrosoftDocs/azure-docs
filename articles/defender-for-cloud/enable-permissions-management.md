@@ -1,11 +1,11 @@
 ---
-title: Enable permissions management
+title: Enable permissions management (CIEM)
 author: Elazark
 ms.author: elkrieger
 description: Learn how to enable permissions management for better access control and security in your cloud infrastructure.
 ms.topic: how-to
-ms.date: 03/10/2024
-#customer intent: As a cloud administrator, I want to learn how to enable permissions management in order to effectively manage user access and entitlements in my cloud infrastructure.
+ms.date: 05/07/2024
+#customer intent: As a cloud administrator, I want to learn how to enable permissions (CIEM) in order to effectively manage user access and entitlements in my cloud infrastructure.
 ---
 
 # Enable permissions management (CIEM)
@@ -91,9 +91,7 @@ The applicable permissions management (CIEM) recommendations appear on your subs
 
 When you enabled the Defender CSPM plan on your GCP project, the **GCP CSPM** [standard is automatically assigned to your subscription](concept-regulatory-compliance-standards.md). The GCP CSPM standard provides Cloud Infrastructure Entitlement Management (CIEM) recommendations. 
 
-When Permission Management is disabled, the CIEM recommendations within the GCP CSPM standard won’t be calculated.
-
-**To enable permissions management** **(CIEM)** **for GCP**:
+When Permission Management (CIEM) is disabled, the CIEM recommendations within the GCP CSPM standard won’t be calculated.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
