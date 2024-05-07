@@ -22,7 +22,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 **Additional information**
 
-* Because Basic SKU public IP addresses are [announced to retire](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) September 30, 2025, we're no longer permitting new gateways to be created using Basic SKU public IP addresses. Starting December 1, 2023, when you create a new VPN gateway, you must use a Standard SKU public IP address. This limitation doesn't apply to new gateways that you create using the VPN Gateway Basic gateway SKU. You can still create a Basic SKU VPN gateway that uses a Basic SKU public IP address.
+* Because Basic SKU public IP addresses are [announced to retire](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) September 30, 2025, we're no longer permitting new gateways to be created using Basic SKU public IP addresses. Starting December 1, 2023, when you create a new VPN gateway, you must use a Standard SKU public IP address. 
   
 * The Basic gateway SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic gateway SKU doesn't support RADIUS authentication.
 
