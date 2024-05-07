@@ -15,7 +15,7 @@ Azure Container Apps dynamic sessions provides fast access to secure sandboxed e
 
 Sessions have the following attributes:
 
-* **High isolation**: Sessions are isolated from each other and from the host environment. Each session runs in its own Hyper-V sandbox, providing enterprise-grade security and isolation. Optionally, you can enable network isolation to further enhance security.
+* **Strong isolation**: Sessions are isolated from each other and from the host environment. Each session runs in its own Hyper-V sandbox, providing enterprise-grade security and isolation. Optionally, you can enable network isolation to further enhance security.
 
 * **Simple access**: Sessions are accessed through a REST API. Each session is identified by a unique identifier. If a session with a given identifier doesn't exist, a new session is automatically allocated.
 
@@ -61,7 +61,21 @@ A session is a sandboxed environment that runs your code or application. Each se
 
 #### Session identifiers
 
-When you interact with sessions in a pool, you use a session identifier to reference each session. If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
+When you interact with sessions in a pool, you must define a session identifier to manage each session. The session identifier is a free-form string, meaning you can define it in any way that suits your application's needs. This identifier is a key element in determining the behavior of the session:
+
+
+- Reuse of Existing Sessions: If there is already a running session that matches the identifier, this session will be reused.  
+- Creation of New Sessions: If no running session matches the identifier, a new session is automatically created.
+
+The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
+
+The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
+
+You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
+
+- Reuse of Existing Sessions: If there is already a running session that matches the identifier, this session will be reused.  
+
+- Creation of New Sessions: If no running session matches the identifier, a new session is automatically created.
 
 The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 
