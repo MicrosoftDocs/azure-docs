@@ -1,5 +1,5 @@
 ---
-title: Monitoring data reference for [TODO-replace-with-service-name]
+title: Monitoring data reference for Azure Communications Gateway
 description: This article contains important reference material you need when you monitor Azure Communications Gateway.
 ms.date: 05/08/2024
 ms.custom: horz-monitor
@@ -55,7 +55,7 @@ The following table lists the metrics available for the Microsoft.VoiceServices/
 
 [!INCLUDE [Microsoft.VoiceServices/communicationsGateways](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-voiceservices-communicationsgateways-metrics-include.md)]
 
-The automatically collected metrics collected for Azure Communications Gateway include the following types:
+The automatically collected metrics for Azure Communications Gateway include the following types:
 
 - Error metrics: Errors.
 
@@ -93,6 +93,12 @@ The automatically collected metrics collected for Azure Communications Gateway i
 | **OPTIONS or INVITE** | The SIP method for responses being sent and received:<br>- SIP OPTIONS responses sent and received by your Azure Communications Gateway resource to monitor its connectivity to its peers<br>- SIP INVITE responses sent and received by your Azure Communications Gateway resource. |
 
 <!-- ## Resource logs -->
+
+## Resource logs
+
+Azure Communications Gateway doesn't collect logs.
+
+<!-- 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 <!-- Repeat the following section for each resource type/namespace in your service. 

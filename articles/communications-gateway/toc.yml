@@ -102,7 +102,7 @@ items:
     href: provision-user-roles.md
   - name: Monitoring
     items:
-    - name: Overview of monitoring
+    - name: Monitor Communications Gateway
       href: monitor-azure-communications-gateway.md
     - name: Monitoring data reference
       href: monitoring-azure-communications-gateway-data-reference.md
