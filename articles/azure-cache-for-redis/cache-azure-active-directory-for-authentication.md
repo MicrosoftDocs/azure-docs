@@ -88,7 +88,6 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
 Because most Azure Cache for Redis clients assume that a password and access key are used for authentication, you likely need to update your client workflow to support authentication using Microsoft Entra ID. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using a Microsoft Entra token.
 
-<!-- :::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Microsoft Entra ID to a customer application to a cache."::: -->
 
 ### Microsoft Entra Client Workflow
 
