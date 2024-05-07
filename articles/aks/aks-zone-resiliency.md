@@ -88,7 +88,9 @@ For more information, see [Kubernetes Pod Topology Spread Constraints](https://k
 
 If you have pods that serve network traffic, you should load balance traffic across multiple AZs to ensure that your application is highly available and resilient to failures. You can use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to distribute incoming traffic across the nodes in your AKS cluster.
 
-Azure Load Balancer supports both internal and external load balancing, and you can configure it to use a *Standard SKU* for zone-redundant load balancing. The Standard SKU supports AZs, zone resiliency, and cross-region load balancing to ensure your application isn't impacted by a region failure. In the event of a zone down scenario, a zone-redundant Standard SKU load balancer isn't impacted by the failure and enables your deployments to continue serving traffic from the remaining zones. Standard SKU load balancers also support cross-region load balancing to ensure that your application isn't impacted by regional failures.
+Azure Load Balancer supports both internal and external load balancing, and you can configure it to use a *Standard SKU* for zone-redundant load balancing. The Standard SKU supports regional resiliency with [availability zones](../reliability/reliability-load-balancer.md#availability-zone-support), to ensure your application isn't impacted by a region failure. In the event of a zone failure scenario, a zone-redundant Standard SKU load balancer isn't impacted by the failure and enables your deployments to continue serving traffic from the remaining zones. You can use a global load balancer, such as [Front Door](../frontdoor/front-door-overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or you can use [cross-region load balancers](../reliability/reliability-load-balancer.md#cross-region-disaster-recovery-and-business-continuity) in front of your regional AKS clusters to ensure that your application isn't impacted by regional failures.
+
+../reliability/reliability-load-balancer.md#availability-zone-support
 
 To create a Standard SKU load balancer in AKS, see [Use a standard load balancer in Azure Kubernetes Service (AKS)](./load-balancer-standard.md).
 
@@ -120,6 +122,8 @@ You can improve application availability and resiliency in AKS using autoscaling
 
 You can use the [Horizontal Pod Autoscaler (HPA)](./concepts-scale.md#horizontal-pod-autoscaler) and [Cluster Autoscaler](./cluster-autoscaler-overview.md) to implement autoscaling in AKS. The HPA automatically scales the number of pods in a deployment based on observed CPU utilization, memory utilization, custom metrics, and metrics of other services. The Cluster Autoscaler automatically adjusts the number of nodes in a node pool based on the resource requests of the pods running on the nodes. If you want to use both autoscalers together, make sure the node pools with the autoscaler enabled span multiple zones. If the node pool is in a single zone and that zone goes down, the autoscaler can't scale the cluster across zones.
 
+You can also use [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/), which applies event-driven autoscaling to scale your application based on metrics of external services to meet demand. For more information, see [Install the KEDA add-on in Azure Kubernetes Service (AKS)](./keda-deploy-add-on-cli.md).
+
 > [!NOTE]
 > The AKS Karpenter Provider preview feature enables node autoprovisioning using [Karpenter](https://karpenter.sh/) on your AKS cluster. This feature currently only supports AKS clusters with Azure CNI Overlay + Cilium networking and Linux nodes. For more information, see the [AKS Karpenter Provider feature overview](https://github.com/Azure/karpenter-provider-azure?tab=readme-ov-file#features-overview).
 
@@ -139,8 +143,8 @@ The following table outlines pros and cons of each disk type:
 
 | Disk type | Pros | Cons |
 | --------- | ---- | ---- |
-| LRS | • Lower cost <br> • Supported for all disk sizes and regions <br> • Easy to use and provision | • Lower availability and durability <br> • Vulnerable to zonal failures <br> • Doesn't support geo-replication |
-| ZRS | • Higher availability and durability <br> • More resilient to zonal failures <br> • Supports geo-replication for disaster recovery | • Higher cost <br> • Not supported for all disk sizes and regions <br> • Requires extra configuration to enable |
+| LRS | • Lower cost <br> • Supported for all disk sizes and regions <br> • Easy to use and provision | • Lower availability and durability <br> • Vulnerable to zonal failures <br> • Doesn't support zone or geo-replication |
+| ZRS | • Higher availability and durability <br> • More resilient to zonal failures <br> • Supports zone replication for intra-region resiliency | • Higher cost <br> • Not supported for all disk sizes and regions <br> • Requires extra configuration to enable |
 
 For more information on the LRS and ZRS disk types, see [Azure Storage redundancy](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). To provision storage disks in AKS, see [Provision Azure Disks storage in Azure Kubernetes Service (AKS)](./azure-csi-files-storage-provision.md).
 
