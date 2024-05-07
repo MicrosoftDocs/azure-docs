@@ -666,11 +666,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "quickstart-deploy-spring-batch-app.md",
-            "redirect_url": "/azure/spring-apps/enterprise/quickstart-deploy-spring-batch-app",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "quickstart-deploy-web-app.md",
             "redirect_url": "/azure/spring-apps/enterprise/quickstart-deploy-web-app",
             "redirect_document_id": true
