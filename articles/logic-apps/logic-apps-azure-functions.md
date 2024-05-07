@@ -1,78 +1,127 @@
 ---
 title: Call Azure Functions from workflows
-description: Create and run code from workflows in Azure Logic Apps by calling Azure Functions.
+description: Run an Azure function from workflows in Azure Logic Apps by calling Azure Functions.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 05/06/2024
 ---
 
-# Create and run code from workflows in Azure Logic Apps using Azure Functions
+# Call Azure Functions from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
+To run code that performs a specific job in your logic app workflow, you don't have to build a complete app or infrastructure. Instead, you can create and call an Azure function. [Azure Functions](../azure-functions/functions-overview.md) provides serverless computing in the cloud and the capability to perform the following tasks:
 
-* Extend your logic app's behavior with functions in Node.js or C#.
-* Perform calculations in your logic app workflow.
-* Apply advanced formatting or compute fields in your logic app workflows.
+- Extend your workflow's behavior by running functions created using Node.js or C#.
+- Perform calculations in your workflow.
+- Apply advanced formatting or compute fields in your workflow.
 
-This how-to guide shows how to call an Azure function from a logic app workflow. To run code snippets without using Azure Functions, review [Add and run inline code](logic-apps-add-run-inline-code.md). To call and trigger a logic app workflow from inside a function, the workflow must start with a trigger that provides a callable endpoint. For example, you can start the workflow with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL and include the payload you want that workflow to process. For more information, review [Call, trigger, or nest logic app workflows](logic-apps-http-endpoint.md).
+This how-to guide shows how to call an existing Azure function from your Consumption or Standard workflow. To run code without using Azure Functions, see the following documentation:
+
+- [Run code snippets in workflows](logic-apps-add-run-inline-code.md)
+- [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md)
 
 ## Limitations
 
-* You can create a function directly from inside a Consumption logic app workflow, but not from a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
+- Only Consumption workflows support authenticating Azure function calls using a managed identity with Microsoft Entra authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
 
-* Only Consumption workflows support authenticating Azure function calls using a managed identity with Microsoft Entra authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
-
-* Azure Logic Apps doesn't support using Azure Functions with deployment slots enabled. Although this scenario might sometimes work, this behavior is unpredictable and might result in authorization problems when your workflow tries call the Azure function.
+- Azure Logic Apps doesn't support using Azure Functions with deployment slots enabled. Although this scenario might sometimes work, this behavior is unpredictable and might result in authorization problems when your workflow tries call the Azure function.
 
 ## Prerequisites
 
-* Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An Azure function app resource, which is a container for a function that you can create using Azure Functions, along with the function that you want to use.
+- An [Azure function app resource](../azure-functions/functions-get-started.md), which contains one or more Azure functions.
 
-  If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app workflow by using Azure Functions in the Azure portal or [from inside your logic app workflow](#create-function-designer) in the designer.
+  - Your function app resource and logic app resource must use the same Azure subscription.
 
-* When you work with logic app resources, the same requirements apply to both function apps and functions, existing or new:
+  - Your function app resource must use either **.NET** or **Node.js** as the runtime stack.
 
-  * Your function app resource and logic app resource must use the same Azure subscription.
+  - When you add a new function to your function app, you can select either **C#** or **JavaScript**.
 
-  * New function apps must use either the .NET or JavaScript as the runtime stack. When you add a new function to existing function apps, you can select either C# or JavaScript.
+- The Azure function that you want to call. You can create this function using the following tools:
 
-  * Your function uses the **HTTP trigger** template.
+  - [Azure portal](../azure-functions/functions-create-function-app-portal.md)
+  - [Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md)
+  - [Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md)
+  - [Azure CLI](/cli/azure/functionapp/app)
+  - [Azure PowerShell](/powershell/module/az.functions)
+  - [ARM template](/azure/templates/microsoft.web/sites/functions)
 
-    The HTTP trigger template can accept content that has `application/json` type from your logic app workflow. When you add a function to your workflow, the designer shows custom functions that are created from this template within your Azure subscription.
+  - Your function must use the **HTTP trigger** template.
 
-  * Your function doesn't use custom routes unless you've defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) ([Swagger file](https://swagger.io/)).
+    The **HTTP trigger** template can accept content that has **`application/json`** type from your logic app workflow. When you add a function to your workflow, the designer shows custom functions that are created from this template within your Azure subscription.
 
-  * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these later steps](#function-swagger).
+  - Your function code must include the response and payload that you want returned to your workflow after your function completes. The **`context`** object refers to the message that your workflow sends through the Azure Functions action parameter named **Request Body** later in this guide.
 
-* To follow the example in this how-to guide, you'll need a [Consumption logic app resource](logic-apps-overview.md#resource-environment-differences) and workflow that has a trigger as the first step. Although you can use any trigger for your scenario, this example uses the Office 365 Outlook trigger named **When a new email arrives**.
+    This guide uses the following sample function, which is named **FabrikamAzureFunction**:
+
+    ```javascript
+    module.exports = function (context, data) {
+
+       var input = data;
+
+       // Function processing logic
+       // Function response for later use
+       context.res = {
+          body: {
+            content:"Thank you for your feedback: " + input
+          }
+       };
+       context.done();
+    }
+    ```
+
+    To access the **`context`** object's properties from inside your function, use the following syntax:
+
+    `context.body.<property-name>`
+
+    For example, to reference the **`content`** property in the **`context`** object, use the following syntax:
+
+    `context.body.content`
+
+    This code also includes an **`input`** variable, which stores the value from the **`data`** parameter so that your function can perform operations on that value. Within JavaScript functions, the **`data`** variable is also a shortcut for **`context.body`**.
+
+    > [!NOTE]
+    >
+    > The **`body`** property here applies to the **`context`** object and isn't the same as 
+    > the **Body** token in an action's output, which you might also pass to your function.
+
+  - Your function can't use custom routes unless you defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) ([Swagger file](https://swagger.io/)).
+
+    When you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when you work with function parameters. Before your workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
+
+- A Consumption or Standard logic app workflow that starts with any trigger.
+
+  The examples in this guide use the Office 365 Outlook trigger named **When a new email arrives**.
+
+- To create and call an Azure function that calls another workflow, make sure that secondary workflow starts with a trigger that provides a callable endpoint.
+
+  For example, you can start the workflow with the general **HTTP** or **Request** trigger, or you can use a service-based trigger, such as **Azure Queues** or **Event Grid**. Inside your function, send an HTTP POST request to the trigger's URL and include the payload that you want your secondary workflow to process. For more information, see [Call, trigger, or nest logic app workflows](logic-apps-http-endpoint.md).
+
+## Tips for working with Azure functions
 
 <a name="function-swagger"></a>
 
-## Find functions that have OpenAPI descriptions
+### Generate an OpenAPI definition or Swagger file for your function
 
-For a richer experience when you work with function parameters in the workflow designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md) or [Swagger file](https://swagger.io/) for your function. To set up your function app so your logic app can find and use functions that have Swagger descriptions, follow these steps:
+For a richer experience when you work with function parameters in the workflow designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md) or [Swagger file](https://swagger.io/) for your function. To set up your function app so that your workflow can find and use functions that have Swagger descriptions, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your function app. Make sure that the function app is actively running.
 
-1. Set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for your function app so that all origins are permitted by following these steps:
+1. On your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so that all origins are permitted by following these steps:
 
-   1. In the function app resource menu, under **API**, select **CORS**.
+   1. On the function app menu, under **API**, select **CORS**.
 
-      ![Screenshot showing the Azure portal, the function app resource menu with the "CORS" option selected.](./media/logic-apps-azure-functions/function-cors-setting.png)
+   1. Under **Allowed Origins**, add the asterisk (**`*`**) wildcard character, but remove all the other origins in the list, and select **Save**.
 
-   1. Under **CORS**, add the asterisk (**`*`**) wildcard character, but remove all the other origins in the list, and select **Save**.
+      :::image type="content" source="media/logic-apps-azure-functions/function-cors-origins.png" alt-text="Screenshot shows Azure portal, CORS pane, and wildcard character * entered under Allowed Origins." lightbox="media/logic-apps-azure-functions/function-cors-origins.png":::
 
-      ![Screenshot showing the Azure portal, the "CORS" pane, and the wildcard character "*" entered under "Allowed Origins".](./media/logic-apps-azure-functions/function-cors-origins.png)
+### Access property values inside HTTP requests
 
-## Access property values inside HTTP requests
-
-Webhook functions can accept HTTP requests as inputs and pass those requests to other functions. For example, although Azure Logic Apps has [functions that convert DateTime values](workflow-definition-language-functions-reference.md), this basic sample JavaScript function shows how you can access a property inside a request object that's passed to the function and perform operations on that property value. To access properties inside objects, this example uses the [dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors):
+Webhook-based functions can accept HTTP requests as inputs and pass those requests to other functions. For example, although Azure Logic Apps has [functions that convert DateTime values](workflow-definition-language-functions-reference.md), this basic sample JavaScript function shows how you can access a property inside an HTTP request object that's passed to the function and perform operations on that property value. To access properties inside objects, this example uses the [dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors):
 
 ```javascript
 function convertToDateString(request, response){
@@ -85,130 +134,106 @@ function convertToDateString(request, response){
 
 Here's what happens inside this function:
 
-1. The function creates a `data` variable and assigns the `body` object inside the `request` object to that variable. The function uses the dot (.) operator to reference the `body` object inside the `request` object:
+1. The function creates a **`data`** variable, and then assigns the **`body`** object, which is inside the **`request`** object, to the variable. The function uses the dot (**.**) operator to reference the **`body`** object inside the **`request`** object:
 
    ```javascript
    var data = request.body;
    ```
 
-1. The function can now access the `date` property through the `data` variable, and convert that property value from DateTime type to DateString type by calling the `ToDateString()` function. The function also returns the result through the `body` property in the function's response:
+1. The function can now access the **`date`** property through the **`data`** variable, and convert the property value from **DateTime** type to **DateString** type by calling the **`ToDateString()`** function. The function also returns the result through the **`body`** property in the function's response:
 
    ```javascript
    body: data.date.ToDateString();
    ```
 
-Now that you've created your function in Azure, follow the steps to [add functions to logic apps](#add-function-logic-app).
-
-<a name="create-function-designer"></a>
-
-## Create functions from inside logic app workflows (Consumption workflows only)
-
-You can create functions directly from inside your Consumption workflow by using the built-in Azure Functions action in the workflow designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. However, before you can create your function in Azure, you must already have a function app resource, which is a container for your functions. If you don't have a function app, create that function app first. For more information, review [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
-
-Standard workflows currently don't support this option for creating a function from within a workflow, but you can create the function in the following ways and then [call that function from your Standard logic app workflow using the Azure Functions operation named **Call an Azure function**](#add-function-logic-app).
-
-  * [Azure portal](../azure-functions/functions-create-function-app-portal.md)
-  * [Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md)
-  * [Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md)
-  * [Azure CLI](/cli/azure/functionapp/app)
-  * [Azure PowerShell](/powershell/module/az.functions)
-  * [ARM template](/azure/templates/microsoft.web/sites/functions)
-
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
-
-1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
-
-1. From the function apps list that appears, select your function app. From the actions list that appears, select the action named **Create New Function**.
-
-   ![Screenshot showing the operation picker with "Create New Function".](./media/logic-apps-azure-functions/select-function-app-create-function-consumption.png)
-
-1. In the function definition editor, define your function:
-
-   1. In the **Function name** box, provide a name for your function.
-
-   1. In the **Code** box, add your code to the function template, including the response and payload that you want returned to your logic app after your function finishes running. When you're done, select **Create**, for example:
-
-   ![Screenshot showing the function authoring editor with template function definition.](./media/logic-apps-azure-functions/add-code-function-definition.png)
-
-   In the template's code, the *`context` object* refers to the message that your workflow sends through the **Request Body** property in a later step. To access the `context` object's properties from inside your function, use the following syntax:
-
-   `context.body.<property-name>`
-
-   For example, to reference the `content` property inside the `context` object, use the following syntax:
-
-   `context.body.content`
-
-   The template code also includes an `input` variable, which stores the value from the `data` parameter so your function can perform operations on that value. Inside JavaScript functions, the `data` variable is also a shortcut for `context.body`.
-
-   > [!NOTE]
-   > The `body` property here applies to the `context` object and isn't the same as the 
-   > **Body** token from an action's output, which you might also pass to your function.
-
-1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
-
-   This input is the *context object* or message that your logic app sends to your function. When you click in the **Request Body** field, the dynamic content list appears so you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger.
-
-   ![Screenshot showing the function and the "Request Body" property with an example context object payload.](./media/logic-apps-azure-functions/function-request-body-example-consumption.png)
-
-   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks, for example:
-
-   ![Screenshot showing the "Request Body" property that casts an object as a string.](./media/logic-apps-azure-functions/function-request-body-string-cast-example-consumption.png)
-
-1. To specify other details such as the method to use, request headers, or query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
+After you create your function in Azure, follow the steps to [add an Azure function to your workflow](#add-function-logic-app).
 
 <a name="add-function-logic-app"></a>
 
-## Add existing functions to logic app workflows (Consumption + Standard workflows)
+## Add a function to your workflow (Consumption + Standard workflows)
 
-To call existing functions from your logic app workflow, you can add functions like any other action in the designer.
+To call an Azure function from your workflow, you can add that functions like any other action in the designer.
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. From the function apps list, select your function app. From the functions list that appears, select your function.
+1. In the **Create Connection** pane, follow these steps:
 
-   ![Screenshot for Consumption showing a selected function app and function.](./media/logic-apps-azure-functions/select-function-app-function-consumption.png)
+   1. Provide a **Connection Name** for the connection to your function app.
 
-   For functions that have API definitions (Swagger descriptions) and are [set up so your logic app can find and access those functions](#function-swagger), you can select **Swagger actions**.
+   1. From the function apps list, select your function app.
 
-   ![Screenshot for Consumption showing a selected function app, and then under "Swagger actions", a selected function.](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+   1. From the functions list, select the function, and then select **Add Action**, for example:
 
-1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
+      :::image type="content" source="media/logic-apps-azure-functions/select-function-app-function-consumption.png" alt-text="Screenshot shows Consumption workflow with a selected function app and function." lightbox="media/logic-apps-azure-functions/select-function-app-function-consumption.png":::
 
-   This input is the *context object* or message that your logic app sends to your function. When you click in the **Request Body** field, the dynamic content list appears so that you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger.
+1. In the selected function's action box, follow these steps:
 
-   ![Screenshot for Consumption showing the function with a "Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example-consumption.png)
+   1. For **Request Body**, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object. This input is the *context object* payload or message that your workflow sends to your function.
 
-   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks:
+      - To select tokens that represent outputs from previous steps, select inside the **Request Body** box, and then select the option to open the dynamic content list (lightning icon).
 
-   ![Screenshot for Consumption showing the function with the "Request Body" example that casts an object as string.](./media/logic-apps-azure-functions/function-request-body-string-cast-example-consumption.png)
+      - To create an expression, select inside the **Request Body** box, and then select option to open the expression editor (formula icon).
 
-1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
+      The following example specifies a JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger as the **Request Body** value:
+
+      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-example-consumption.png" alt-text="Screenshot shows Consumption workflow and a function with a Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/function-request-body-example-consumption.png":::
+
+      Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. Here's the complete example:
+
+      :::image type="content" source="media/logic-apps-azure-functions/request-body-example-complete.png" alt-text="Screenshot shows Consumption workflow and a function with a complete Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/request-body-example-complete.png":::
+
+      If you provide a context object other than a JSON token that passes a string, a JSON object, or a JSON array, you get an error. However, you can cast the context object as a string by enclosing the token in quotation marks (**""**), for example, if you wanted to use the **Received Time** token:
+
+      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-string-cast-example.png" alt-text="Screenshot shows Consumption workflow and a Request Body example that casts context object as a string." lightbox="media/logic-apps-azure-functions/function-request-body-string-cast-example.png":::
+
+   1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Advanced parameters** list, and select the parameters that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
 
 ### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **Azure Functions** action named **Call an Azure function**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **Azure Functions** action named **Call an Azure function**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. For the **Connection name** property, provide a name for your connection to your function app. From the function apps list, select the function app you want. From the functions list, select the function, and then select **Create**, for example:
+1. In the **Create Connection** pane, follow these steps:
 
-   ![Screenshot for Standard showing a function app selected and the functions list on the next pane with a function selected.](./media/logic-apps-azure-functions/select-function-app-function-standard.png)
+   1. Provide a **Connection Name** for the connection to your function app.
 
-1. For the **Method** property, select the HTTP method required to call the selected function. For the **Request body** property, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
+   1. From the function apps list, select your function app.
 
-   This input is the *context object* or message that your logic app workflow sends to your function. When you click inside the **Request body** box, the dynamic content list appears so that you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger.
+   1. From the functions list, select the function, and then select **Create New**, for example:
 
-   ![Screenshot for Standard showing the function with a "Request body" example - context object payload.](./media/logic-apps-azure-functions/function-request-body-example-standard.png)
+   :::image type="content" source="media/logic-apps-azure-functions/select-function-app-function-standard.png" alt-text="Screenshot shows Standard workflow designer with selected function app and function." lightbox="media/logic-apps-azure-functions/select-function-app-function-standard.png":::
 
-   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks:
+1. In the **Call an Azure function** action box, follow these steps:
 
-   ![Screenshot for Standard showing the function with the "Request body" example that casts an object as string.](./media/logic-apps-azure-functions/function-request-body-string-cast-example-standard.png)
+   1. For **Method**, select the HTTP method required to call the selected function.
 
-1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
+   1. For **Request Body**, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object. This input is the *context object* payload or message that your workflow sends to your function.
+
+      - To select tokens that represent outputs from previous steps, select inside the **Request Body** box, and then select the option to open the dynamic content list (lightning icon).
+
+      - To create an expression, select inside the **Request Body** box, and then select option to open the expression editor (formula icon).
+
+      The following example specifies the following values:
+
+      - **Method**: **GET**
+      - **Request Body**: A JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger.
+
+      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-example-standard.png" alt-text="Screenshot shows Standard workflow and a function with a Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/function-request-body-example-standard.png":::
+
+      Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. Here's the complete example:
+
+      :::image type="content" source="media/logic-apps-azure-functions/request-body-example-complete.png" alt-text="Screenshot shows Standard workflow and a function with a complete Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/request-body-example-complete.png":::
+
+      If you provide a context object other than a JSON token that passes a string, a JSON object, or a JSON array, you get an error. However, you can cast the context object as a string by enclosing the token in quotation marks (**""**), for example, if you wanted to use the **Received Time** token:
+
+      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-string-cast-example.png" alt-text="Screenshot shows Standard workflow and a Request Body example that casts context object as a string." lightbox="media/logic-apps-azure-functions/function-request-body-string-cast-example.png":::
+
+   1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Advanced parameters** list, and select the parameters that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
 
 ---
 
@@ -216,11 +241,13 @@ To call existing functions from your logic app workflow, you can add functions l
 
 ## Enable authentication for function calls (Consumption workflows only)
 
-Your Consumption workflow can authenticate function calls and access to resources protected by Microsoft Entra ID by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
+Your Consumption workflow can authenticate function calls and access to resources protected by Microsoft Entra ID by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
 
 > [!NOTE]
 > 
-> Currently, only Consumption workflows support authentication for Azure function calls using a managed identity and Microsoft Entra authentication. Standard workflows currently don't include this support when using the Azure Functions connector.
+> Currently, only Consumption workflows support authentication for Azure function 
+> calls using a managed identity and Microsoft Entra authentication. Standard workflows 
+> currently don't include this support when using the Azure Functions connector.
 
 For more information, review the following documentation:
 
@@ -241,7 +268,7 @@ To set up your function app and function so they can use your Consumption logic 
 
 ### Set up your function for anonymous authentication (Consumption workflows only)
 
-For your function to use your Consumption logic app's managed identity, you must set your function's authentication level to anonymous. Otherwise, your workflow throws a **BadRequest** error.
+For your function to use your Consumption logic app's managed identity, you must set your function's authentication level to **`anonymous`**. Otherwise, your workflow throws a **BadRequest** error.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 
@@ -249,25 +276,25 @@ For your function to use your Consumption logic app's managed identity, you must
 
 1. On the function app resource menu, under **Development tools**, select **Advanced Tools** > **Go**.
 
-   ![Screenshot showing function app menu with "Advanced Tools" and "Go" selected.](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
+   :::image type="content" source="media/logic-apps-azure-functions/open-advanced-tools-kudu.png" alt-text="Screenshot shows function app menu with selected options for Advanced Tools and Go." lightbox="media/logic-apps-azure-functions/open-advanced-tools-kudu.png":::
 
-1. After the **Kudu Services** page opens, on the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
+1. After the **Kudu Plus** page opens, on the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
 
-   ![Screenshot showing Kudu Services page with "Debug Console" menu opened, and "CMD" option selected.](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
+   :::image type="content" source="media/logic-apps-azure-functions/open-debug-console-kudu.png" alt-text="Screenshot shows Kudu Services page with opened Debug Console menu and selected option named CMD." lightbox="media/logic-apps-azure-functions/open-debug-console-kudu.png":::
 
 1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*.
 
    The following steps use an example function named **FabrikamAzureFunction**.
 
-   ![Screenshot showing folder list with "site" > "wwwroot" > your function selected.](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
+   :::image type="content" source="media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png" alt-text="Screenshot shows folder list with the opened folders for the site, wwwroot, and your function." lightbox="media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png":::
 
 1. Open the **function.json** file for editing.
 
-   ![Screenshot showing "function.json" file with edit command selected.](./media/logic-apps-azure-functions/edit-function-json-file.png)
+   :::image type="content" source="media/logic-apps-azure-functions/edit-function-json-file.png" alt-text="Screenshot shows the function.json file with selected edit command." lightbox="media/logic-apps-azure-functions/edit-function-json-file.png":::
 
-1. In the **bindings** object, check whether the **authLevel** property exists. If the property exists, set the property value to **anonymous**. Otherwise, add that property and set the value.
+1. In the **bindings** object, check whether the **authLevel** property exists. If the property exists, set the property value to **`anonymous`**. Otherwise, add that property, and set the value.
 
-   ![Screenshot showing the "bindings" object with the "authLevel" property set to "anonymous".](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
+   :::image type="content" source="media/logic-apps-azure-functions/set-authentication-level-function-app.png" alt-text="Screenshot shows bindings object with authLevel property set to anonymous." lightbox="media/logic-apps-azure-functions/set-authentication-level-function-app.png":::
 
 1. When you're done, save your settings. Continue to the next section.
 
