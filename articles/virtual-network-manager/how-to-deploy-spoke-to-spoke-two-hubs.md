@@ -8,3 +8,9 @@ ms.service: virtual-network-manager
 ms.topic: how-to
 # customer intent: As a network administrator, I want to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager.
 ---
+
+# How to deploy Spoke-to-Spoke topology with two hubs
+
+
+## prerequisites
+
