@@ -358,61 +358,114 @@ call.on('roleChanged', () => {
 <!---- RemoteParticipant  ---->
 ### Events on the `RemoteParticipant` object
 
-#### Event: `stateChanged`
+#### Event: `roleChanged`
 
-**When does it occur ?**
+The `roleChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
 
-The `stateChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 Your application should update its UI based on the `RemoteParticipant` new role.
 
+**Code Sample:**
+
+```javascript
+remoteParticipant.on('roleChanged', () => {
+    updateRole(remoteParticipant);
+});
+```
+
+</details>
+
 #### Event: `isMutedChanged`
 
-**When does it occur ?**
-
 The `isMutedChanged` event fires when one of the `RemoteParticipant` mutes or unmute its microphone.
+
+<details>
+
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 Your application may display an icon near by the view that displays the participant.
 
-#### Event: `displayNameChanged`
+**Code Sample:**
 
-**When does it occur ?**
+```javascript
+remoteParticipant.on('isMutedChanged', () => {
+    updateMuteStatus(remoteParticipant); // Update the UI based on the mute state of the participant
+});
+```
+
+</details>
+
+#### Event: `displayNameChanged`
 
 The `displayNameChanged` when the name of the `RemoteParticipant` is updated.
 
+<details>
+<summary>View event details</summary>
 **How might your application react to the event ?**
 
 Your application should update the name of the participant if it's being displayed in the UI.
 
-#### Event: `roleChanged`
+**Code Sample:**
 
-**When does it occur ?**
+```javascript
+remoteParticipant.on('displayNameChanged', () => {
+    remoteParticipant.nameLabel.innerText = remoteParticipant.displayName;
+});
+```
 
-The `roleChanged` when the role of the `RemoteParticipant` is updated.
-
-**How might your application react to the event ?**
-
-Your application should update its UI based on the new role of the participant.
+</details>
 
 #### Event: `isSpeakingChanged`
 
-**When does it occur ?**
-
 The `isSpeakingChanged` when the dominant speaker in a call changes.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 Your application UI should give priority to display the `RemotePartipant` who became dominant speaker.
 
+**Code Sample:**
+
+```javascript
+remoteParticipant.on('isSpeakingChanged', () => {
+    showAsRemoteSpeaker(remoteParticipant) // Display a speaking icon near the participant
+});
+```
+
+</details>
+
 #### Event: `videoStreamsUpdated`
 
-**When does it occur ?**
-
 The `videoStreamsUpdated` when a remote participant adds or remove a VideoStream to/from the call.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 If your application was processing a stream that is removed. Your application should stop the processing. When a new stream is added your application may want to render or process it.
+
+**Code Sample:**
+
+```javascript
+remoteParticipant.on('videoStreamsUpdated', (videoStreamsUpdatedEvent) => {
+
+     videoStreamsUpdatedEvent.added.forEach(addedRemoteVideoStream => { 
+       // Remove a renderer and start processing the stream if any processing is needed
+        handleAddedRemoteVideoStream(addedRemoteVideoStream) 
+    });
+
+    videoStreamsUpdatedEvent.removed.forEach(removedRemoteVideoStream => {
+        // Remove the renderer and stop processing the stream if any processing is ongoing
+        this.handleRemovedRemoteVideoStream(removedRemoteVideoStream) 
+    });
+});
+```
+</details>
