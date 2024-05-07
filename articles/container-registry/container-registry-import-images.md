@@ -300,6 +300,10 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ### Cross-tenant import with access token
 
+* Cross tenant for image transfer is possible even if the source registry has public access disabled. However, you need to use the resource ID of the source registry for authentication purposes. you cannot use both resource ID and login server together for cross-tenant transfers. The only way to achieve this is by specifying the IP range of the ACR service tag in the source registry's firewall.
+
+* Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
+
 To access the source registry using an identity in the source tenant that has registry permissions, you can get an access token:
 
 ### [Azure CLI](#tab/azure-cli)
@@ -340,10 +344,6 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ---
 
-> [!NOTE]
-> Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
-
-
 ## Import from a non-Azure private container registry
 
 Import an image from a non-Azure private registry by specifying credentials that enable pull access to the registry. For example, pull an image from a private Docker registry:
@@ -367,6 +367,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 > If you're importing from a non-Azure private registry with IP rules, [follow these steps.](container-registry-access-selected-networks.md) 
 
 ### Troubleshoot Import Container Images
+
 #### Symptoms and Causes
 - `The remote server may not be RFC 7233 compliant`
   - The [distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) allows range header form of `Range: bytes=<start>-<end>`. However, the remote server may not be RFC 7233 compliant.
