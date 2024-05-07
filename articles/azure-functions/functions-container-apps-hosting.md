@@ -11,9 +11,9 @@ ms.custom: references_regions, build-2023
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA.
 
-Integration with Container Apps lets you use the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings with event-driven scaling. Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
+You can write your function code in any of the language stacks natively supported by Functions. You still get the Functions triggers and bindings with event-driven scaling. Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
 
-This integration also means that you can use existing Functions client tools and the Azure portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
+This integration also means that you can use existing Functions client tools and the Azure portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations, which are defined at the Container App environment level, apply to your function app as they do to all microservices running in a Container Apps environment. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions, and your function app can access the same virtual networking resources provided by the environment.
 
 ## Hosting and workload profiles
 
@@ -31,9 +31,9 @@ To learn how to create a Container Apps environment with workload profiles and d
 
 ## Functions in containers
 
-To use Container Apps hosting, your functions code must run in a Linux container that you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. 
+To use Container Apps hosting, your code must run on a function app in a Linux container that you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. 
 
-When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools generates the Dockerfile with the correct base image, which you can use as a starting point when creating your container. 
+When you create a code project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools generates the Dockerfile with the correct base image, which you can use as a starting point when creating your container. 
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
@@ -73,14 +73,16 @@ Azure Function on Container Apps run your functionized container resources in sp
 
 Keep in mind the following considerations when deploying your function app containers to Container Apps:
  
-+ While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
++ While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running in a Container Apps environment:
     + HTTP 
     + Azure Queue Storage 
     + Azure Service Bus 
     + Azure Event Hubs 
-    + Kafka<sup>*</sup>  
+    + Kafka  
     + Timer  
-    <sup>*</sup>The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).   
++ These limitations apply to Kafka triggers:
+    + The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes). 
+    + For a Kafka trigger to dynamically scale when connected to Event Hubs, the `username` property must resolve to an application setting that contains the actual username value. When the default `$ConnectionString` value is used, the app can't be dynamically scaled by the Kafka trigger.  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
