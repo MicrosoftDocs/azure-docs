@@ -5,16 +5,27 @@ Azure Service Bus is a fully managed enterprise integration message broker that 
 ## Scenarios for Batch deletion of messages
 
 There are several scenarios where you may want to use the batch delete messages feature in Azure Service Bus. Some of them are:
-- You want to delete messages that have exceeded the time to live (TTL) value and are moved to the dead-letter queue or subscription.
-- You want to delete messages that have failed the validation or processing logic and are moved to the dead-letter queue or subscription.
-- You want to delete messages that are no longer relevant or needed for your application logic and are still in the active queue or subscription.
-- You want to delete messages that are duplicates or have incorrect content and are still in the active queue or subscription.
+
+- Expired Messages: Delete messages that have exceeded their “time to live” (TTL) value and are in the dead-letter queue or subscription.
+- Failed Validation or Processing: Remove messages that failed validation or processing logic and are in the dead-letter queue or subscription.
+- Irrelevant Messages: Delete messages no longer relevant for your application logic from the active queue or subscription.
+- Handling Duplicates or Incorrect Content: Remove duplicate or incorrect messages from the active queue or subscription.
 
 By using the batch delete messages feature, you can delete multiple messages from a queue or subscription in one operation, instead of deleting them one by one. This can reduce the number of requests to the service, the network latency, and the resource consumption. It can also simplify your code and make it more readable and maintainable.
 
+>[!IMPORTANT]
+> You can delete a maximum of 4000 messages in a batch delete call. However, keep in mind that batch deletion is done on a best-effort basis and doesn’t guarantee the maximum number of messages will be deleted in every call.  
+
 ## How to batch delete messages in Service Bus
 
-TBD : Reference code to delete messages. 
+Since there could be multiple messages in the entity, we recommend to run batch delete call in loop to ensure all of the messages can be deleted. Here is the reference code to delete messages in batch from Service Bus:
+
+```
+
+```
+>[!CAUTION]
+> From service side, both Maximummessagecount and EnqueuedTimeutc are required parameters. In case you are using Azure SDKs, EnqueuedTimeUtc takes Utc.now() as default value. Ensure to pass in the correct values to avoid unexpected deletion of messages.
+
 
 ## Next steps
 
