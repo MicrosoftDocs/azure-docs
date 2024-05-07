@@ -206,7 +206,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
                         </Precondition>
                     </Preconditions>
                 </ValidationTechnicalProfile>                        
-                <ValidationTechnicalProfile ReferenceId="DisplayNameClaimGenerator"/>
+                <ValidationTechnicalProfile ReferenceId="UserInputDisplayNameGenerator"/>
                 <ValidationTechnicalProfile ReferenceId="AAD-UserWrite"/>
             </ValidationTechnicalProfiles>
         <!--</TechnicalProfile>-->
