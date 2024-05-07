@@ -74,7 +74,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ```
 
 2. [Check the status of the node pool](#check-the-status-of-the-node-pool).
-3. [Check that the taint has been set on the node](#check-that-the-taint-has-been-set-on-the-node).
+3. [Check that the taint has been set on the node](#check-that-the-taint-is-set-on-the-node).
 
 ## Use node initialization taints (preview)
 
@@ -322,7 +322,7 @@ When you remove all initialization taint occurrences from node pool replicas, th
 ## Next steps
 
 * Learn more about example use cases for [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#example-use-cases:~:text=not%20be%20evicted.-,Example%20Use%20Cases,-Taints%20and%20tolerations).
-* Learn more about [best practices for advanced AKS scheduler features](https://learn.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler).
+* Learn more about [best practices for advanced AKS scheduler features](./operator-best-practices-advanced-scheduler.md).
 * Learn more about Kubernetes labels in the [Kubernetes labels documentation][kubernetes-labels].
 
 <!-- LINKS - external -->
