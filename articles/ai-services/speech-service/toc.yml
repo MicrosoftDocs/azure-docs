@@ -279,7 +279,7 @@ items:
     - name: Post-call transcription analytics (Preview)
       href: speech-analytics-post-call.md
     - name: Customize post-call transcription analytics (Preview)
-      href: speech-analytics-post-call.md
+      href: speech-analytics-post-call-customize.md
 - name: Scenario deep-dives
   items:
     - name: Captioning
