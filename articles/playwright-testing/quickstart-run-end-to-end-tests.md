@@ -237,14 +237,14 @@ Go to the [Playwright portal](https://aka.ms/mpt/portal) to view the test run me
 The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
 
-## View test results in the Playwright portal (invite only preview)
+## View test results in the Playwright portal
 
-Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. Currently, it's an invite only feature. If you are interested in trying it out and providing feedback, sign up [here](https://aka.ms/mpt/reporting-signup). 
+Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. This feature is only available as an [invite only feature](https://aka.ms/mpt/reporting-signup). 
 
 > [!Important]
-> Reporting feature of Microsoft Playwright Testing service is free of charge while it is in invite-only preview. The billing will be applicable at a later time. However, the existing functionality of cloud-hosted browsers will continue to be billed as per the pricing plan.
+> The reporting feature of Microsoft Playwright Testing service is free of charge during the invite-only preview. However, existing functionality of any cloud-hosted browsers continues to bill per the Azure pricing plan. 
 
-We'll let you know when we're ready to onboard you. After receiving the confirmation:
+Once you have access to the reporting tool, use the following steps to set up your tests.
 
 1.  Navigate to settings from the home page of the workspace
     ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
