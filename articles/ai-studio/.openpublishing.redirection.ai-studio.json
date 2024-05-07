@@ -59,6 +59,21 @@
             "source_path_from_root": "/articles/ai-studio/quickstarts/assistants.md",
             "redirect_url": "/azure/ai-services/openai/assistants-quickstart",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/prompt-flow-tools/vector-db-lookup-tool.md",
+            "redirect_url": "/azure/ai-studio/how-to/prompt-flow-tools/index-lookup-tool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/prompt-flow-tools/vector-index-lookup-tool.md",
+            "redirect_url": "/azure/ai-studio/how-to/prompt-flow-tools/index-lookup-tool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/prompt-flow-tools/faiss-index-lookup-tool.md",
+            "redirect_url": "/azure/ai-studio/how-to/prompt-flow-tools/index-lookup-tool",
+            "redirect_document_id": false
         }
     ]
 }
