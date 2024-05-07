@@ -25,8 +25,8 @@ In this article, you learn more about hub capabilities, and how to set up a hub 
 
 The hub provides the collaboration environment for a team to build and manage AI applications, catering to two personas:
 
-* To AI developers, the hub provides the working environment for building AI applications granting access to various tools for AI model building. Tools can be used together, and lets you use and produce shareable components including datasets, indexes, models. A hub allows you to configure connections to external resources, provide compute resources used by tools and [endpoints, and access keys to prebuilt AI models](#azure-ai-services-api-access-keys). When you use an Azure AI Studio project to customize AI capabilities, it's hosted by a hub and can access the same shared resources.
-* To IT administrators, team leads and risk officers, the hub provides a single pane of glass on projects created by a team, audit connections that are in use to external resources, and other governance controls to help meet cost and compliance requirements. Security settings are configured on the hub, and once set up apply to all projects created under it, allowing administrators to enable developers to self-serve create projects to organize work.
+* To AI developers, the hub provides the working environment for building AI applications granting access to various tools for AI model building. Tools can be used together, and lets you use and produce shareable components including datasets, indexes, models. A hub allows you to configure connections to external resources, provide compute resources used by tools and [endpoints, and access keys to prebuilt AI models](#azure-ai-services-api-access-keys). When you use an Azure AI Studio project to customize AI capabilities, a hub hosts the project and can access the same shared resources.
+* To IT administrators, team leads and risk officers, the hub provides a single pane of glass on projects created by a team. The team can audit connections that are in use to external resources and other governance controls to help meet cost and compliance requirements. Security settings are configured on the hub, and once set up apply to all projects created under it, allowing administrators to enable developers to self-serve create projects to organize work.
 
 ## Central setup and management concepts
 
@@ -34,7 +34,7 @@ Various management concepts are available on hubs to support team leads and admi
 
 * **Security configuration** including public network access, [virtual networking](#virtual-networking), customer-managed key encryption, and privileged access to whom can create projects for customization. Security settings configured on the hub automatically pass down to each project. A managed virtual network is shared between all projects that share the same hub.
 * **Connections** are named and authenticated references to Azure and non-Azure resources like data storage providers. Use a connection as a means for making an external resource available to a group of developers without having to expose its stored credential to an individual.
-* **Compute and quota allocation** is managed as shared capacity for all projects in AI Studio that share the same hub. This includes compute instance as managed cloud-based workstation for an individual. Compute instance can be used across projects by the same user.
+* **Compute and quota allocation** is managed as shared capacity for all projects in AI Studio that share the same hub. This quota includes compute instance as managed cloud-based workstation for an individual. The same user can use a compute instance across projects.
 * **AI services access keys** to endpoints for prebuilt AI models are managed on the hub scope. Use these endpoints to access foundation models from Azure OpenAI, Speech, Vision, and Content Safety with one [API key](#azure-ai-services-api-access-keys)
 * **Policy** enforced in Azure on the hub scope applies to all projects managed under it.
 * **Dependent Azure resources** are set up once per hub and associated projects and used to store artifacts you generate while working in AI Studio such as logs or when uploading data. For more information, see [Azure AI dependencies](#azure-ai-dependencies).
@@ -43,7 +43,7 @@ Various management concepts are available on hubs to support team leads and admi
 
 A hub provides the hosting environment for [projects](../how-to/create-projects.md) in AI Studio. A project is an organizational container that has tools for AI customization and orchestration. It lets you organize your work, save state across different tools like prompt flow, and collaborate with others. For example, you can share uploaded files and connections to data sources.
 
-Multiple projects can use a hub, and a project can be used by multiple users. A project also helps you keep track of billing, and manage access and provides data isolation. Every project has dedicated storage containers to let you upload files and share it with only other project members when using the 'data' experiences.
+Multiple projects can use a hub, and multiple users can use a project. A project also helps you keep track of billing, and manage access and provides data isolation. Every project uses dedicated storage containers to let you upload files and share it with only other project members when using the 'data' experiences.
 
 Projects let you create and group reusable components that can be used across tools in AI Studio:
 
@@ -70,7 +70,7 @@ The hub exposes API endpoints and keys for prebuilt AI services that are created
 * If you create a hub together with an existing Azure OpenAI Service resource, you only have capabilities for Azure OpenAI Service. Use this option if you'd like to reuse existing Azure OpenAI quota and models deployments. Currently, there's no upgrade path to get Speech and Vision capabilities after the hub is created.
 * If you create a hub together with an Azure AI services provider, you can use Azure OpenAI Service and other AI services such as Speech and Vision. 
 
-To understand the full layering of hubs and its Azure dependencies including the Azure AI services provider, and how these is represented in Azure AI Studio and in the Azure portal, see [Find Azure AI Studio resources in the Azure portal](#find-azure-ai-studio-resources-in-the-azure-portal).
+To understand the full layering of hubs and its Azure dependencies including the Azure AI services provider, and how they're represented in Azure AI Studio and in the Azure portal, see [Find Azure AI Studio resources in the Azure portal](#find-azure-ai-studio-resources-in-the-azure-portal).
 
 With the same API key, you can access all of the following Azure AI services:
 
@@ -81,7 +81,7 @@ With the same API key, you can access all of the following Azure AI services:
 | ![Speech icon](../../ai-services/media/service-icons/speech.svg) [Speech](../../ai-services/speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition |
 | ![Vision icon](../../ai-services/media/service-icons/vision.svg) [Vision](../../ai-services/computer-vision/index.yml) | Analyze content in images and videos |
 
-Large language models that can be used to generate text, speech, images, and more, are hosted by the hub. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.
+The hub hosts large language models that can be used to generate text, speech, images, and more. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.
 
 To view the keys and endpoints used to connect to Azure AI Services from Azure AI Studio, select **Resources and keys**. You can use the **Filter** to limit the results to the resources you're interested in. For more information, see [Azure AI services API access keys](#azure-ai-services-api-access-keys).
 
@@ -106,7 +106,7 @@ Connections can be set up as shared with all projects in the same hub, or create
 
 ## Azure AI dependencies
 
-Azure AI Studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While this might not be visible on the display names in Azure portal, AI Studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI Studio resource types map to the following resource provider kinds:
+Azure AI Studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While it might not be visible on the display names in Azure portal, AI Studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI Studio resource types map to the following resource provider kinds:
 
 [!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
