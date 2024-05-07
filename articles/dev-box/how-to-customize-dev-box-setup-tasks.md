@@ -35,7 +35,7 @@ You can implement customizations in stages, building from a simple but functiona
 
 ### Team-specific customization scenarios 
 
-Customizations are useful wherever you need to configure settings, install software, add extensions, or set common OS settings like enabling Windows Features on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
+Customizations are useful for configuring settings, installing software, adding extensions, and enabling Windows Features on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
 
 ### What are tasks? 
 
@@ -112,7 +112,7 @@ Your catalog defines the tasks your developers can use, you can reference those 
 1. Download an [example yaml configuration from the samples repository](https://aka.ms/devbox/customizations/samplefile). This example configuration installs Visual Studio Code, and clones the OrchardCore .NET web app repo to your dev box.
 1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 1. Select **New** > **Dev Box**.
-1. In **Add a dev box**, enter the following values:
+1. In **Add a dev box**, enter the following values, and then select **Continue**:
 
    | Setting | Value |
    |---|---|
@@ -123,9 +123,7 @@ Your catalog defines the tasks your developers can use, you can reference those 
 
    :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png":::
 
-1. Select **Continue**.
-
-1. On the **Customize your dev box** page, select **Upload a customization file**, and then select **Add customizations from file. 
+1. On the **Customize your dev box** page, select **Upload a customization file**, and then select **Add customizations from file**. 
 
    :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-upload-file.png" alt-text="Screenshot showing the Customize your dev box page with Upload a customization file and Add customizations from file highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-upload-file.png":::
 
@@ -181,7 +179,7 @@ Make your configuration file seamlessly available to your developers by naming i
 1.	Add the configuration file to the root of a private Azure DevOps repository with your code and commit it.
 1.	Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 1. Select **New** > **Dev Box**.
-1. In **Add a dev box**, enter the following values:
+1. In **Add a dev box**, enter the following values, and then select **Continue**:
 
    | Setting | Value |
    |---|---|
@@ -192,13 +190,9 @@ Make your configuration file seamlessly available to your developers by naming i
 
    :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png":::
 
-1. Select **Continue**.
-
-1. On the **Customize your dev box** page, select **Choose a customization file from a repository**, and then in **Azure DevOps repository URL**, enter the URL of the repository that hosts the configuration file that you want to apply. 
+1. On the **Customize your dev box** page, select **Choose a customization file from a repository**, in **Azure DevOps repository URL**, enter the URL of the repository that hosts the configuration file that you want to apply, and then select **Continue**.
 
    :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-clone-repository.png" alt-text="Screenshot showing the Customize your dev box page with Choose a customization file from a repository and Azure DevOps repository URL." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-clone-repository.png":::
-
-1. Select **Continue**.
 
 1. On the **Dev box creation summary** page, Dev Box displays the tasks it will apply. Select **Create**.
 
