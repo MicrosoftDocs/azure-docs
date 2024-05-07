@@ -496,9 +496,65 @@ Specifically, SDK type bindings for Azure Storage Blob enable the following key 
 
 ### Prerequisites
 
+* Azure Functions runtime version
+* Azure Functions Core Tools version
+
 ### Enable SDK type bindings for Azure Storage Blob
 
+* Install the extension package
+
+Add the following to the `requirements.txt` file in the project
+
+```
+azure-functions
+azure-functions-extension-blob
+```
+
+* Import the library
+
+Add the following to the `function_app.py` file in the project
+
+```python
+import azure.functions.extension.blob as blob
+```
+
 ### Examples
+
+The following sample demonstrates how to obtain BlobClient from a Azure Blob Storage trigger or input function application.
+
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.blob as blob
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+
+@app.blob_trigger(
+    arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
+)
+def blob_trigger(client: blob.BlobClient):
+    logging.info(
+        f"Python blob trigger function processed blob \n"
+        f"Properties: {client.get_blob_properties()}\n"
+        f"Blob content head: {client.download_blob().read(size=1)}"
+    )
+
+
+@app.route(route="file")
+@app.blob_input(
+    arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
+)
+def blob_input(req: func.HttpRequest, client: blob.BlobClient):
+    logging.info(
+        f"Python blob input function processed blob \n"
+        f"Properties: {client.get_blob_properties()}\n"
+        f"Blob content head: {client.download_blob().read(size=1)}"
+    )
+    return "ok"
+```
+
+Check out more examples, including using ContainerClient and StorageStreamDownloader types on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples].
 
 Note, only Azure Storage Blob SDK type bindings are supported for Azure Functions in Python.
 
@@ -524,9 +580,12 @@ For the HTTP streaming case, our first third party Web app framework adoption is
 
 ### Prerequisites
 
+* Azure Functions runtime version
+* Azure Functions Core Tools version
+
 ### Enable streams
 
-* Install the FastAPI extension package
+* Install the extension package
 
 Add the following to the `requirements.txt` file in the project
 
@@ -556,6 +615,7 @@ from azure.functions.extension.fastapi import Request, StreamingResponse
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
+
 def generate_count():
     """Generate a stream of chronological numbers."""
     count = 0
@@ -579,6 +639,7 @@ import azure.functions as func
 from azure.functions.extension.fastapi import JSONResponse, Request
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
 
 @app.route(route="streaming_upload", methods=[func.HttpMethod.POST])
 async def streaming_upload(req: Request) -> JSONResponse:
