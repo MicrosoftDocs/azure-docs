@@ -15,21 +15,23 @@ Service tags help set rules to allow or deny traffic to a specific Azure service
 
 Azure Container Registry (ACR) generates network traffic originating from the ACR service tag for features such as Image import, Webhook, and ACR Tasks.
 
-## Import container images to Azure Container Registry
+When you configure a firewall for a registry, ACR serves the requests on its service tag IP addresses. For the scenarios mentioned in [Firewall access rules](container-registry-firewall-access-rules.md), customers can configure the firewall outbound rule to allow access to ACR service tag IP addresses.
+
+## Import container images 
+
+Azure Container Registry (ACR) initiates requests to external registry services via service tag IP addresses for image downloads. If the external registry service operates behind a firewall, it requires an inbound rule to accept ACR service tag IP addresses. These IPs fall under the ACR service tag, which includes the necessary IP ranges for importing images from public or Azure registries. Azure ensures these ranges are updated automatically. Establishing this security protocol is crucial for upholding the registry's integrity and ensuring its availability. 
 
 ACR sends requests to the external registry service through service tag IP addresses to download the images. If the external registry service runs behind firewall, it needs to have inbound rule to allow ACR service tag IP addresses. These IPs are part of the AzureContainerRegistry service tag, which encompasses IP ranges necessary for importing images from public or Azure registries automatically updates Azure. Configuring a security measure to maintain the registry's integrity and accessibility.
-
-When you configure a firewall for a registry, ACR server sends requests on its service tag IP addresses. For the scenarios mentioned in [Firewall access rules](container-registry-firewall-access-rules.md), customers can configure the firewall outbound rule to allow access to ACR service tag IP addresses.  
 
 Learn about [registry endpoints](container-registry-firewall-access-rules.md#about-registry-endpoints) to configure network security rules and allow traffic from the ACR service tag for image import in ACR.
 
 For detailed steps and guidance on how to use the service tag during image import, refer to the [Azure Container Registry documentation](container-registry-import-images.md).
 
-## Webhooks in Azure Container Registry
+## Webhooks 
 
 Service tags in Azure Container Registry (ACR) are used to manage network traffic for features like webhooks to ensure only trusted sources are able to trigger these events. When you set up a webhook in ACR, it can respond to events at the registry level or be scoped down to a specific repository tag. For geo-replicated registries, you configure each webhook to respond to events in a specific regional replica.
 
-The endpoint for a webhook must be publicly accessible from the registry. You can configure registry webhook requests to authenticate to a secured endpoint. ACR sends the request to the configured webhook endpoint through service tag IP addresses. If the webhook endpoint runs behind firewall, it needs to have inbound rule to allow ACR service tag IP addresses.
+The endpoint for a webhook must be publicly accessible from the registry. You can configure registry webhook requests to authenticate to a secured endpoint. ACR sends the request to the configured webhook endpoint through service tag IP addresses. If the webhook endpoint runs behind firewall, it needs to have inbound rule to allow ACR service tag IP addresses. Additionally, to secure the webhook endpoint access, the customer must configure the proper authentication to validate the request.
 
 For detailed steps on creating a webhook setup, refer to the [Azure Container Registry documentation](container-registry-webhook.md).
 
