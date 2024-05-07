@@ -56,7 +56,7 @@ and Arc for Servers are included by default when clusters are created. The succe
 Example for supplementary services could include deployment of cluster-level local image caching registry within the NKS cluster to support for disconnected scenarios. NKS enables the customer to observe the status, health, 
 and version of each required and optional addon can be monitored within Azure Resource Manager.
 
-Addons are installed once and only updated or upgraded when the customer upgrades the Nexus Kubernetes cluster. This setup enables customers to apply critical production hotfixes without interference from the nc-aks-operator, which could otherwise overwrite their cluster modifications.
+Addons are installed once and can only be updated or upgraded when the customer upgrades the Nexus Kubernetes cluster. This enables customers to apply critical production hotfixes without interference from the underlying infra operators, which could otherwise overwrite their cluster modifications.
 
 ## Nexus Available Zones
 
