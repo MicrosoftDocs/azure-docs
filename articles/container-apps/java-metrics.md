@@ -49,7 +49,7 @@ There are two CLI options related to the app runtime and Java metrics:
 | `--enable-java-metrics` | A boolean option that enables or disables Java metrics for the app. Only applicable for Java runtime. |
 
 > [!NOTE]
-> * The `--enable-java-metrics=<true|false>` parameter implicitly sets `--runtime=java`. The `--runtime=generic` parameter resets all java runtime info.
+> The `--enable-java-metrics=<true|false>` parameter implicitly sets `--runtime=java`. The `--runtime=generic` parameter resets all java runtime info.
 
 ### Enable Java metrics
 
