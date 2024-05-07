@@ -8,7 +8,7 @@ ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 04/22/2024
+ms.date: 05/07/2024
 ---
 
 # Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity (preview)
@@ -118,7 +118,9 @@ You start this tutorial by creating several Azure resources.
 
 ## Create a service connection in AKS with Service Connector (preview)
 
-Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal.
+Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
+
+### [Portal](#tab/azure-portal)
 
 Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings referring to the examples in the following table. Leave all other settings with their default values.
 
@@ -142,6 +144,23 @@ Refer to the [AKS service connection quickstart](quickstart-portal-aks-connectio
     | **User assigned managed identity** | `<MyIdentity>`  | A user assigned managed identity is needed to enable workload identity. |
 
 Once the connection has been created, you can view its details in the **Service Connector** pane.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
+
+* **Source compute service resource group name:** the resource group name of the AKS cluster.
+* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
+* **Target service resource group name:** the resource group name of the Azure OpenAI service.
+* **OpenAI service name:** the Azure OpenAI service that is connected.
+* **User-assigned identity resource ID:** the resource ID of the user-assigned identity used to create the workload identity.
+
+```azurecli
+az aks connection create cognitiveservices \
+   --workload-identity <user-identity-resource-id>
+```
+
+---
 
 ## Clone sample application
 
