@@ -62,4 +62,4 @@ To verify your Sensitive Data Protection rules, open the Front Door firewall log
 
 ## Next steps
 
-- [Azure Web Application Firewall monitoring and logging](../afds/waf-front-door-monitor?branch=main&pivots=front-door-standard-premium.md)
+- [Azure Web Application Firewall monitoring and logging](../afds/waf-front-door-monitor.md)
