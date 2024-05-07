@@ -114,7 +114,8 @@ An alternate way to create a Cluster is with the ARM template editor.  [ARM Temp
 
 In order to create the cluster this way, you will need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
 You can find examples of these two files here:
-[cluster.jsonc](./cluster-jsonc-example.md)
+
+[cluster.jsonc](./cluster-jsonc-example.md) , 
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
 
 Note:  To get the correct formatting, use the raw version.  The values within the clusters.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
