@@ -14,22 +14,22 @@ This article describes how to use node taints in an Azure Kubernetes Service (AK
 
 ## Overview
 
-The AKS scheduling mechanism is responsible for placing pods onto nodes and is based upon the upstream Kubernetes scheduler, [kube-scheduler](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/). You can constrain a pod to run on particular nodes by either attracting the pods to a set of nodes using [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), or by instructing the node to repel a set of pods using [node taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), which interact with the AKS scheduler.
+The AKS scheduling mechanism is responsible for placing pods onto nodes and is based upon the upstream Kubernetes scheduler, [kube-scheduler](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/). You can constrain a pod to run on particular nodes by attaching the pods to a set of nodes using [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) or by instructing the node to repel a set of pods using [node taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), which interact with the AKS scheduler.
 
 Node taints work by marking a node so that the scheduler avoids placing certain pods on the marked nodes. You can place [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) on a pod to allow the scheduler to schedule that pod on a node with a matching taint. Taints and tolerations work together to help you control how the scheduler places pods onto nodes. For more information, see [example use cases of taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#example-use-cases:~:text=not%20be%20evicted.-,Example%20Use%20Cases,-Taints%20and%20tolerations).
 
 Taints are key-value pairs with an [effect](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). There are three values for the effect field when using node taints: `NoExecute`, `NoSchedule`, and `PreferNoSchedule`.
 
-* `NoExecute`: Pods already running on the node will be evicted immediately if they don't have a matching toleration. If a pod has a matching toleration, it might be evicted if `tolerationSeconds` have been specified.
-* `NoSchedule`: Only pods with a matching toleration will be placed on this node. Existing pods will not be evicted.
-* `PreferNoSchedule`: The scheduler will avoid placing any pods that don't have a matching toleration.
+* `NoExecute`: Pods already running on the node are immediately evicted if they don't have a matching toleration. If a pod has a matching toleration, it might be evicted if `tolerationSeconds` are specified.
+* `NoSchedule`: Only pods with a matching toleration are placed on this node. Existing pods aren't evicted.
+* `PreferNoSchedule`: The scheduler avoids placing any pods that don't have a matching toleration.
 
 ### Node taint options
 
 There are two types of node taints that can be applied to your AKS nodes: **node taints** and **node initialization taints**.
 
 * **Node taints** are meant to remain permanently on the node for scheduling pods with node affinity. Node taints can only be added, updated, or removed completely using the AKS API.
-* **Node initialization taints** are placed on the node at boot time and are meant to be used temporarily, such as in scenarios where you might need extra time to set up your nodes. Node initialization taints can be removed using the Kubernetes API and will not be guaranteed during the node lifecycle. They will appear only after a node is scaled up or upgraded/reimaged. After scaling, new nodes will still have the node initialization taint. After upgrade, node initialization taints will appear on all nodes. If you want to remove the initialization taints completely, you can remove them using the AKS API after untainting the nodes using the Kubernetes API. Once the initialization taints are removed from the cluster spec using the AKS API, newly created nodes will not come up with those initialization taints. If the initialization taint is still present on existing nodes, you can permanently remove it by performing a node image upgrade operation.
+* **Node initialization taints** are placed on the node at boot time and are meant to be used temporarily, such as in scenarios where you might need extra time to set up your nodes. You can remove node initialization taint using the Kubernetes API and aren't guaranteed during the node lifecycle. They appear only after a node is scaled up or upgraded/reimaged. New nodes still have the node initialization taint after scaling. Node initialization taints appear on all nodes after upgrading. If you want to remove the initialization taints completely, you can remove them using the AKS API after untainting the nodes using the Kubernetes API. Once you remove the initialization taints from the cluster spec using the AKS API, newly created nodes don't come up with those initialization taints. If the initialization taint is still present on existing nodes, you can permanently remove it by performing a node image upgrade operation.
 
 > [!NOTE]
 >
@@ -58,7 +58,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ```
 
 2. [Check the status of the node pool](#check-the-status-of-the-node-pool).
-3. [Check that the taint has been set on the node](#check-that-the-taint-has-been-set-on-the-node).
+3. [Check that the taint is set on the node](#check-that-the-taint-is-set-on-the-node).
 
 ### Update a node pool to add a node taint
 
@@ -144,7 +144,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ```
 
 2. [Check the status of the node pool](#check-the-status-of-the-node-pool).
-3. [Check that the taint has been set on the node](#check-that-the-taint-has-been-set-on-the-node).
+3. [Check that the taint is set on the node](#check-that-the-taint-is-set-on-the-node).
 
 ### Update a cluster to add a node initialization taint
 
@@ -161,7 +161,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ```
 
 2. [Check the status of the node pool](#check-the-status-of-the-node-pool).
-3. [Check that the taint has been set on the node](#check-that-the-taint-has-been-set-on-the-node).
+3. [Check that the taint is set on the node](#check-that-the-taint-is-set-on-the-node).
 
 ## Check the status of the node pool
 
@@ -215,7 +215,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ]
     ```
 
-## Check that the taint has been set on the node
+## Check that the taint is set on the node
 
 * Check the node taints and node initialization taints in the node configuration using the `kubectl describe node` command.
 
@@ -266,16 +266,16 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 
 You have the following options to remove node initialization taints from the node:
 
-* **Remove node initialization taints temporarily** using the Kubernetes API. If you remove them this way, the taints reappear after node scaling or upgrade occurs. After scaling, new nodes still have the node initialization taint. After upgrading, node initialization taints appear on all nodes.
+* **Remove node initialization taints temporarily** using the Kubernetes API. If you remove them this way, the taints reappear after node scaling or upgrade occurs. New nodes still have the node initialization taint after scaling. Node initialization taints appear on all nodes after upgrading.
 * **Remove node initialization taints permanently** by untainting the node using the Kubernetes API, and then removing the taint using the AKS API. Once the initialization taints are removed from cluster spec using AKS API, newly created nodes after reimage operations no longer have initialization taints.
 
-You remove all initialization taint occurrences from node pool replicas, the existing initialization taint might reappear after an upgrade with any new initialization taints.
+When you remove all initialization taint occurrences from node pool replicas, the existing initialization taint might reappear after an upgrade with any new initialization taints.
 
 ### Remove node initialization taints temporarily
 
 * Remove node initialization taints temporarily using the `kubectl taint nodes` command.
 
-    This command will remove the taint from only the specified node. If you want to remove the taint from every node in the node pool, you need to run the command for every node that you want the taint removed from.
+    This command removes the taint from only the specified node. If you want to remove the taint from every node in the node pool, you need to run the command for every node that you want the taint removed from.
 
     ```bash
     kubectl taint nodes $NODE_POOL_NAME sku=gpu:NoSchedule-
@@ -304,7 +304,7 @@ You remove all initialization taint occurrences from node pool replicas, the exi
     kubectl describe node $NODE_NAME
     ```
 
-    If you've removed a node taint, the following example output shows that the `<node-pool-name>` node pool doesn't have the removed taint under `Taints`:
+    If you removed a node taint, the following example output shows that the `<node-pool-name>` node pool doesn't have the removed taint under `Taints`:
 
     ```output
     [
