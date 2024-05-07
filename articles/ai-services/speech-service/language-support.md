@@ -124,6 +124,8 @@ The table in this section summarizes the 30 locales supported for pronunciation 
 
 # [Speech translation](#tab/speech-translation)
 
+### Real-time speech translation
+
 The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech to speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
 
 #### Translate from language
@@ -135,6 +137,12 @@ To set the input speech recognition language, specify the full locale with a das
 To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 [!INCLUDE [Language support include](includes/language-support/speech-translation.md)]
+
+### Video dubbing
+
+The following table illustrates the fixed mapping relationship between source and target locales, along with the full locales associated with each language.
+
+[!INCLUDE [Language support include](includes/language-support/video-dubbing.md)]
 
 # [Language identification](#tab/language-identification)
 
