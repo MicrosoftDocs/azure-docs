@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 05/07/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -15,7 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-An Azure Front Door [rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in a rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In a rule set, a rule can have up to five actions. Front Door also supports [server variable](rule-set-server-variables.md) in a rule set action.
+An Azure Front Door [rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in a rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In a rule set, a rule can have up to ten actions. Front Door also supports [server variable](rule-set-server-variables.md) in a rule set action.
 
 The following actions are available for use in a rule set: 
 
