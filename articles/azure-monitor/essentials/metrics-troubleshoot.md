@@ -64,7 +64,7 @@ By [locking the boundaries of chart y-axis](../essentials/metrics-charts.md#lock
 
 Collection of **Guest (classic)** metrics requires configuring the Azure Diagnostics Extension or enabling it using the **Diagnostic Settings** panel for your resource.
 
-**Solution:** If Azure Diagnostics Extension is enabled but you're still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [can't pick Guest (classic) namespace and metrics](#can't-pick-guest-namespace-and-metrics)
+**Solution:** If Azure Diagnostics Extension is enabled but you're still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [can't pick Guest (classic) namespace and metrics](#cannot-pick-guest-namespace-and-metrics)
 
 ### Chart is segmented by a property that the metric doesn't define
 
@@ -140,7 +140,7 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 **Solution:** This behavior is by design. We believe that showing data as soon as we receive it's beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart updates once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
 
-## Can't pick Guest namespace and metrics
+## Cannot pick Guest namespace and metrics
 
 Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest  (classic)** metrics that are collected by the [monitoring agent](../agents/agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](../agents/diagnostics-extension-overview.md).
 
