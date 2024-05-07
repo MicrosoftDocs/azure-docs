@@ -232,7 +232,7 @@ Use the following steps to validate:
 
 1. Then you will see the job log streaming of the job execution like below.
 
-    ```bash
+    ```output
     [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.launch.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
     [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO com.microsoft.sample.FootballJobApplication - There is {} player summary before job execution
     [football-xxxxxxxxxxxxx-xxxxxx-x-xxxxx] [main] INFO org.springframework.batch.core.launch.support.SimpleJobLauncher - Job: [SimpleJob: [name=footballJob]] launched with the following parameters: [{}]
