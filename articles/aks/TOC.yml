@@ -564,6 +564,8 @@
           items:
               - name: Azure Disks
                 items:
+                    - name: Provision Azure Disks storage
+                      href: azure-csi-disk-storage-provision.md
                     - name: Azure Disks CSI driver
                       href: azure-disk-csi.md
                     - name: Use Azure Premium SSD v2 disks
