@@ -22,6 +22,8 @@ A connection string includes the authorization information required for your app
 
 To learn how to view your account access keys and copy a connection string, see [Manage storage account access keys](storage-account-keys-manage.md).
 
+[!INCLUDE [storage-auth-recommendations](../../../includes/storage-auth-recommendations.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## Store a connection string

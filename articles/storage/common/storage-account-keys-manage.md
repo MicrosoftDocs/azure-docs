@@ -18,6 +18,8 @@ When you create a storage account, Azure generates two 512-bit storage account a
 
 Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys.
 
+[!INCLUDE [storage-auth-recommendations](../../../includes/storage-auth-recommendations.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## View account access keys
