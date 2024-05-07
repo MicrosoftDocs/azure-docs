@@ -26,7 +26,7 @@ You can do all these tasks in a single process when using the Azure portal, but 
 For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
 > [!TIP]
-> The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want to try Azure Virtual Desktop with a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
+> The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want to try Azure Virtual Desktop with a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [quickstart](quickstart.md).
 
 ## Prerequisites
 

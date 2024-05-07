@@ -128,5 +128,5 @@ The following are the limitations of UDR management with Azure Virtual Network M
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
+> [Learn how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-route.md).
 
