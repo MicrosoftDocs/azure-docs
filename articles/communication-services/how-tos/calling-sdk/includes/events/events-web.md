@@ -28,7 +28,7 @@ call.on('isLocalVideoStartedChanged', () => {
 ```
 
 ### Collections
-You can subscribe to the '<collection>Updated' event to receive notifications about changes in an object collection. The '<collection>Updated' event is triggered whenever elements are added to or removed from the collection you're monitoring.
+You can subscribe to the '\<collection>Updated' event to receive notifications about changes in an object collection. The '\<collection>Updated' event is triggered whenever elements are added to or removed from the collection you're monitoring.
 
 - The `'<collection>Updated'` event's payload, has an `added` array that contains values that were added to the collection.
 - The `'<collection>Updated'` event's payload also has a `removed` array that contains values that were removed from the collection.
@@ -88,7 +88,6 @@ Your application should update its UI based on the number of active calls for th
 
 </details>
 
-
 #### Event Name: `connectionStateChanged`
 
 The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
@@ -109,7 +108,7 @@ callClient.on('connectionStateChanged', (async (connectionStateChangedEvent) => 
         if (typeof connectionStateChangedEvent.reason !== 'undefined') {
             alert(`Disconnected reason: ${connectionStateChangedEvent.reason}`)
         } 
-         disableCallControls() 
+        disableCallControls() // Disable all the UI element that allows the user to make a call
     }
 });
 ```
@@ -146,9 +145,8 @@ call.on('stateChanged', (async (connectionStateChangedEvent) => {
   }
 });
 ```
+
 </details>
-
-
 
 #### Event: `idChanged`
 
@@ -169,90 +167,195 @@ call.on('idChanged', (async (callIdChangedEvent) => {
   callId = call.id; // You can log it as the call ID is useful for debugging call issues
 });
 ```
+
 </details>
 
 #### Event: `isMutedChanged`
 
-**When does it occur ?**
-
 The `isMutedChanged` event is fired when the call is muted or unmuted.
 
+<details>
+<summary>View event details</summary>
 **How might your application react to the event ?**
 
 Your application should update the mute / unmute button to the proper state.
 
+**Code Sample:**
+
+```javascript
+call.on('isMutedChanged', (async (isMutedChangedEvent) => {
+    microphoneButton.disabled = call.isMuted;       
+});
+```
+
+</details>
+
 #### Event: `isScreenSharingOnChanged`
 
-**When does it occur ?**
-
 The `isScreenSharingOnChanged` event is fired when screen sharing for the local user is enabled or disabled.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 Your application should show a preview and/or a warning to the user if the screen sharing became on.
 If the screen sharing went off, then the application should remove the preview and warning.
 
-#### Event: `isLocalVideoStartedChanged`
+**Code Sample:**
 
-**When does it occur ?**
+```javascript
+call.on('isScreenSharingOnChanged', () => {
+  if (!this.call.isScreenSharing) {
+      displayStartScreenSharingButton();
+      hideScreenSharingWarning()
+      removeScreenSharingPreview();    
+  } else {
+      displayScreenSharingWarning()
+      displayStopScreenSharingButton();
+      renderScreenSharingPreview(); 
+  }
+});
+```
+</details>
+
+#### Event: `isLocalVideoStartedChanged`
 
 The `isLocalVideoStartedChanged` event is fired when the user enabled our disabled its local video.
 
+
+<details>
+<summary>View event details</summary>
 **How might your application react to the event ?**
 
 Your application should show a preview of the local video and enable or disable the camera activation button.
+
+**Code Sample:**
+
+```javascript
+call.on('isLocalVideoStartedChanged', () => {
+    showdDisableCameraButton(call.isLocalVideoStarted);
+});
+```
+</details>
+
 
 #### Event: `remoteParticipantsUpdated`
 
-**When does it occur ?**
-
 Your application should subscribe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
 
-**How might your application react to the event ?**
+<details>
+<summary>View event details</summary>
 
+**How might your application react to the event ?**
 Your application should show a preview of the local video and enable or disable the camera activation button.
+
+**Code Sample:**
+
+```javascript
+call.on('remoteParticipantsUpdated', (remoteParticipantsUpdatedEvent) => {
+    remoteParticipantsUpdatedEvent.added.forEach(participant => {
+        // handleParticipant should
+        //   - subscribe to the remote participants events 
+        //   - update the UI 
+        handleParticipant(participant);
+    });
+    
+    remoteParticipantsUpdatedEvent.removed.forEach(participant => {
+        // removeParticipant should
+        //   - unsubcribe from the remote participants events 
+        //   - update the UI  
+        removeParticipant(participant);
+    });
+});
+```
+
+<details>
 
 #### Event: `localVideoStreamsUpdated`
 
-**When does it occur ?**
+The `localVideoStreamsUpdated` event is fired when the list of local video stream changes. These changes happen when the user starts or remove a video stream.
 
-The `localVideoStreamsUpdated` event is fired when the list of remote participants changes. These changes happen when participants join or leave the call.
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
-Your application should show previews for the `LocalVideoStream` added.
+Your application should show previews for each of `LocalVideoStream` added. Your application should remove the preview and stop the processing for each `LocalVideoStream` removed.
+
+**Code Sample:**
+
+```javascript
+call.on('localVideoStreamsUpdated', (localVideoStreamUpdatedEvent) => {
+    localVideoStreamUpdatedEvent.added.forEach(addedLocalVideoStream => { 
+        // Add a preview and start any processing if needed
+        handleAddedLocalVideoStream(addedLocalVideoStream) 
+    });
+
+    localVideoStreamUpdatedEvent.removed.forEach(removedLocalVideoStream => {
+         // Remove the preview and stop any processing if needed
+        this.handleRemovedLocalVideoStream(removedLocalVideoStream) 
+    });
+});
+```
+
+</details>
 
 #### Event: `remoteAudioStreamsUpdated`
 
-**When does it occur ?**
-
 The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote participants add or remove audio streams to the call.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 If a stream was being processed and is now removed, the processing should be stopped. On the other hand, if a stream is added then the event reception is a good place to start the processing of the new audio stream.
 
+</details>
+
 #### Event: `totalParticipantCountChanged`
 
-**When does it occur ?**
-
 The `totalParticipantCountChanged` fires when the number of totalParticipant changed in a call.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 
 If your application is displaying a participant counter, your application can update its participant counter when the event is received.
 
+**Code Sample:**
+
+```javascript
+call.on('totalParticipantCountChanged', () => {
+    participantCounterElement.innerText = call.totalParticipantCount;
+});
+```
+
+</details>
+
 #### Event: `roleChanged`
 
-**When does it occur ?**
-
 The `roleChanged` participant fires when the localParticipant roles changes in the call. An example would be when the local participant become presenter `ACSCallParticipantRolePresenter` in a call.
+
+<details>
+<summary>View event details</summary>
 
 **How might your application react to the event ?**
 Your application should enable or disabled button base on the user new role.
 
-<!---- RemoteParticipant  ---->
+**Code Sample:**
 
+```javascript
+call.on('roleChanged', () => {
+    this.roleElement = call.role;
+});
+```
+
+</details>
+
+<!---- RemoteParticipant  ---->
 ### Events on the `RemoteParticipant` object
 
 #### Event: `stateChanged`
