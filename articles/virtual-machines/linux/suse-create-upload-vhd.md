@@ -227,20 +227,20 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 2. Select **Connect** to open the window for the virtual machine.
 3. In a terminal, run the command `zypper lr`. If this command returns output similar to the following example, the repositories are configured as expected and no adjustments are necessary. (Version numbers might vary.)
 
-   | # | Alias                 | Name                  | Enabled | Refresh
-   | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_15.4      | Cloud:Tools_15.4      | Yes     | Yes
-   | 2 | openSUSE_15.4_OSS     | openSUSE_15.4_OSS     | Yes     | Yes
-   | 3 | openSUSE_15.4_Updates | openSUSE_15.4_Updates | Yes     | Yes
+| # | Alias                                                                                      | Name          | Enabled | GPG Check | Refresh
+| - | :------------------------------------------------------------------------------------------| :-------------| :-------| :---------| :------
+| 1 | Cloud:Tools_15.4                                                                           | Cloud:Tools-> | Yes     | (r ) Yes  | Yes
+| 2 | openSUSE_stable_OSS                                                                        | openSUSE_st-> | Yes     | (r ) Yes  | Yes
+| 3 | openSUSE_stable_Updates                                                                    | openSUSE_st-> | Yes     | (r ) Yes  | Yes 
 
 If the the message "___No repositories defined___" appears from the `zypper lr`  the repositories must be added manually.
    
 Below are examples of commands for adding these repositories (versions and links may vary):
 
 ```bash
-sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
-sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
-sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
+sudo zypper ar -f https://download.opensuse.org/update/openSUSE-stable openSUSE_stable_Updates
+sudo zypper ar -f https://download.opensuse.org/repositories/Cloud:/Tools/15.4 Cloud:Tools_15.4
+sudo zypper ar -f https://download.opensuse.org/distribution/openSUSE-stable/repo/oss openSUSE_stable_OSS
 ```
 
 You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
