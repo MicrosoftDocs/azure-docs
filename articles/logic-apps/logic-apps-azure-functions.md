@@ -306,9 +306,9 @@ Before you can set up your function app to use the managed identity and Microsof
 
 1. [Find the tenant ID for your Microsoft Entra tenant](#find-tenant-id).
 
-1. [Find the object ID or client ID for your logic app's managed identity](#find-object-id).
+1. [Find the object ID for your managed identity](#find-object-id).
 
-1. [Find the application ID for the Enterprise application associated with the managed identity](#find-application-id).
+1. [Find the application ID for the Enterprise application associated with your managed identity](#find-application-id).
 
 <a name="find-tenant-id"></a>
 
@@ -328,9 +328,9 @@ Either run the PowerShell command named [**Get-AzureAccount**](/powershell/modul
 
 <a name="find-object-id"></a>
 
-#### Find the object ID or client ID for your logic app's managed identity
+#### Find the object ID for your managed identity
 
-After you enable the managed idenity for your Consumption logic app resource, find the object ID for the system-assigned identity or the client ID for the user-assigned identity. You'll use either ID to find the associated Enterprise application in your Entra tenant.
+After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Entra tenant.
 
 1. On the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
 
@@ -352,7 +352,7 @@ After you enable the managed idenity for your Consumption logic app resource, fi
 
 <a name="find-enterprise-app-application-id"></a>
 
-### Find the application ID for the associated Azure Enterprise application
+### Find the application ID for the Azure Enterprise application associated with your managed identity
 
 When you enable a managed identity on your logic app resource, Azure automatically creates an associated [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal). You now need to find the associated Enterprise application and copy its **Application ID**. Later, you use this application ID to add an identity provider for your function app by creating an app registration.
 
