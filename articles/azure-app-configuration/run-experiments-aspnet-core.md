@@ -12,7 +12,7 @@ ms.date: 05/07/2024
 
 # Tutorial: Run experiments on variant feature flags in Azure App Configuration
 
-Running experiments on your application can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation).
+Running experiments on your application can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation/index.yml).
 
 By doing so, you can make data-driven decisions to improve your application.
 
@@ -30,13 +30,13 @@ In this tutorial, you:
 ## Prerequisites
 
 * An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-* [An App Configuration store](./quickstart-azure-app-configuration-create).
-* A Split Experimentation Workspace resource<!--Add link when doc is merged-->
+* [An App Configuration store](./quickstart-azure-app-configuration-create.md).
+* A Split Experimentation Workspace resource<!--Add quickstart link when doc is merged-->
 * A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
 
 ## Create a variant feature flag
 
-Create a variant feature flag called *Greeting* with two variants, *Off* and *On*, as described in the [Feature Flag quickstart](./manage-feature-flags#create-a-variant-feature-flag-preview).
+Create a variant feature flag called *Greeting* with two variants, *Off* and *On*, as described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
 ## Connect an Application Insights resource to your configuration store
 
