@@ -5,7 +5,7 @@ description: Learn how to deploy Application Gateway Basic.
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 05/06/2024
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -61,7 +61,7 @@ You create the application gateway using the tabs on the **Create application ga
    - **Tier**: Select **Basic**.
    - **HTTP2** and **IP address type**: Use default settings.
 
-     ![Create new application gateway: Basics tab.](./media/deploy-basic-portal/application-gateway-create-basics.png)
+     ![A screenshot of creating a new application gateway: Basics tab.](./media/deploy-basic-portal/application-gateway-create-basics.png)
 
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
@@ -85,7 +85,7 @@ You create the application gateway using the tabs on the **Create application ga
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
-     ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+     ![A screenshot of creating new application gateway frontends.](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
   > [!NOTE]
   > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
@@ -106,7 +106,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-     [ ![Create a new application gateway: backends tab.](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png#lightbox)
+     [ ![A screenshot of creating a new application gateway: backends tab.](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png#lightbox)
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
@@ -128,17 +128,17 @@ On the **Configuration** tab, you connect the frontend and backend pool you crea
   
       Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-     [ ![Create a new application gateway: listener tab.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png#lightbox)
+     [ ![A screenshot of creating a new application gateway: listener tab.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png#lightbox)
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
 5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-     [ ![Create a new application gateway: HTTP setting.](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png#lightbox)
+     [ ![A screenshot of creating a new application gateway HTTP setting.](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png#lightbox)
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-     [ ![Create a new application gateway: routing rule.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png#lightbox)
+     [ ![A screenshot of creating a new application gateway routing rule.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png) ](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png#lightbox)
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -183,7 +183,7 @@ In this example, you install IIS on the virtual machines to verify Azure created
 
    Select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
-    ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
+    ![A screenshot showing installation of a custom extension.](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
@@ -210,7 +210,7 @@ In this example, you install IIS on the virtual machines to verify Azure created
 5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
 
    > [!div class="mx-imgBorder"]
-   > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+   > ![A screenshot of adding backend servers.](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Select **Save**.
 7. Wait for the deployment to complete before proceeding to the next step.
@@ -221,11 +221,11 @@ Although IIS isn't required to create the application gateway, you installed it 
 
 Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+1. Find the public IP address for the application gateway on its **Overview** page. ![A screenshot of recording application gateway's public IP address.](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+   ![A screenshow displaying a successful test of the application gateway.](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
    Refresh the browser multiple times and you should see connections to both myVM and myVM2.
 
