@@ -15,7 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-An Azure Front Door [rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in a rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In a rule set, a rule can have up to ten actions. Front Door also supports [server variable](rule-set-server-variables.md) in a rule set action.
+An Azure Front Door [rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in a rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In a rule set, a rule can have up to five actions. Front Door also supports [server variable](rule-set-server-variables.md) in a rule set action.
 
 The following actions are available for use in a rule set: 
 
@@ -287,7 +287,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ## <a name="UrlRedirect"></a> URL redirect
 
-Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door.
+Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door. AFD supports dynamic capture of URL path with `{url_path:seg#}` server vaiable and convert URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. See details in [server variable](rule-set-server-variables.md).
 
 ### Properties
 
@@ -344,7 +344,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ## <a name="UrlRewrite"></a> URL rewrite
 
-Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin.
+Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin. AFD supports dynamic capture of URL path with `{url_path:seg#}` server vaiable and convert URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. See details in [server variable](rule-set-server-variables.md).
 
 ### Properties
 
