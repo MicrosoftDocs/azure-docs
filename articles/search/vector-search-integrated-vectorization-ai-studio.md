@@ -18,7 +18,7 @@ ms.date: 05/07/2024
 
 In this article, learn how to access embedding models in the [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md) for vector conversions during indexing and in queries in Azure AI Search.
 
-The workflow includes model deployment steps. The model catalog includes embdding models from Azure OpenAI, Cohere, Facebook, and OpenAI. Deploying a model is billable per the billing structure of each provider. 
+The workflow includes model deployment steps. The model catalog includes embedding models from Azure OpenAI, Cohere, Facebook, and OpenAI. Deploying a model is billable per the billing structure of each provider. 
 
 After the model is deployed, you can use it for [integrated vectorization](vector-search-integrated-vectorization.md) during indexing, or with the [AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for queries.
 
@@ -38,11 +38,11 @@ After the model is deployed, you can use it for [integrated vectorization](vecto
 
 1. Wait for the model to finish deploying by monitoring the **Provisioning State**. It should change from "Provisioning" to "Updating" to "Succeeded". You might need to select **Refresh** every few minutes to see the status update.
 
-1. Copy the URL, Primary key and Model ID fields and set them aside for later. You need these values for the vectorizer definition in a search index.
+1. Copy the URL, Primary key, and Model ID fields and set them aside for later. You need these values for the vectorizer definition in a search index.
 
     Optionally, you can change your endpoint to use Token authentication instead of Key authentication. If you enable token authentication, you only need to copy the "URL" and "Model ID" and also make a note of which region the model was deployed to.
 
-    :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" alt-text="Screenshot of the a deployed endpoint in AI Studio highlighting the fields to copy and save for later.":::
+    :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" alt-text="Screenshot of a deployed endpoint in AI Studio highlighting the fields to copy and save for later.":::
 
 1. You can now configure a search index and indexer to use the deployed model. 
 
@@ -52,7 +52,7 @@ After the model is deployed, you can use it for [integrated vectorization](vecto
 
 ## Sample AML skill payloads
 
-The [AML skill](cognitive-search-aml-skill.md) is designed to work with any Azure Machine Learning endpoint, not just those endpoints that generate embeddings. Therefore, you must configure your skill definition and index mappings to be aware of the expected request and response payloads of the endpoint you're calling. Below are some sample payloads depending on model type that you chose from AI Studio that are already configured to work with their corresponding deployed endpoints. For more details on how these payloads work, read about the [Skill context and input annotation language](cognitive-search-skill-annotation-language.md).
+The [AML skill](cognitive-search-aml-skill.md) is designed to work with any Azure Machine Learning endpoint, not just those endpoints that generate embeddings. Therefore, you must configure your skill definition and index mappings to be aware of the expected request and response payloads of the endpoint you're calling. Below are some sample payloads that are already configured to work with their corresponding deployed endpoints. For more details on how these payloads work, read about the [Skill context and input annotation language](cognitive-search-skill-annotation-language.md).
 
 ### [**Text Input for "Inference" API**](#tab/inference-text)
 
@@ -151,7 +151,7 @@ This AML skill payload works with the following models from AI Studio:
 
 It assumes that you're chunking your content using the SplitSkill and therefore your text to be vectorized is in the `/document/pages/*` path. If your text comes from a different path, update all references to the `/document/pages/*` path according.
 
-You must add the `/v1/embed` path onto the end of the URL that you copied from your AI Studio deployment. You may also change the values for the `input_type`, `truncate` and `embedding_types` inputs to better fit your use case. For more information on the available options, review the [Cohere Embed API reference](../ai-studio/how-to/deploy-models-cohere-embed.md#v1embed).
+You must add the `/v1/embed` path onto the end of the URL that you copied from your AI Studio deployment. You might also change the values for the `input_type`, `truncate` and `embedding_types` inputs to better fit your use case. For more information on the available options, review the [Cohere Embed API reference](../ai-studio/how-to/deploy-models-cohere-embed.md#v1embed).
 
 ```json
 {
