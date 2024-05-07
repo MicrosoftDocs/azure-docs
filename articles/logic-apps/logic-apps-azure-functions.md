@@ -308,7 +308,7 @@ Before you can set up your function app to use the managed identity and Microsof
 
 1. [Find the object ID for your managed identity](#find-object-id).
 
-1. [Find the application ID for the Enterprise application associated with your managed identity](#find-application-id).
+1. [Find the application ID for the Enterprise application associated with your managed identity](#find-enterprise-application-id).
 
 <a name="find-tenant-id"></a>
 
@@ -350,7 +350,7 @@ After you enable the managed identity for your Consumption logic app resource, f
 
         :::image type="content" source="media/logic-apps-azure-functions/user-identity-object-id.png" alt-text="Screenshot shows Consumption logic app's user-assigned identity Overview page with the object (principal) ID selected." lightbox="media/logic-apps-azure-functions/user-identity-object-id.png":::
 
-<a name="find-enterprise-app-application-id"></a>
+<a name="find-enterprise-application-id"></a>
 
 ### Find the application ID for the Azure Enterprise application associated with your managed identity
 
