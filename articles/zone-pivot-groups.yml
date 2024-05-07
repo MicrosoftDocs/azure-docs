@@ -2490,6 +2490,17 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: asabbour
+- id: bicep-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep
 # Owner: ruslany
 - id: azure-cli-bicep
   title: Interaction type
