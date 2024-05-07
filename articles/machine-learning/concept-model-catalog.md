@@ -87,7 +87,7 @@ Models available for deployment to Real-time endpoints can be deployed to Azure 
 
 ### Building Generative AI Apps with Real-time endpoints
 
-Prompt flow offers capabilities for prototyping, experimenting, iterating, and deploying your AI applications. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure ML extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+Prompt flow offers capabilities for prototyping, experimenting, iterating, and deploying your AI applications. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](./prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure ML extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
 ### Content safety for models deployed as Real-time endpoints 
@@ -140,7 +140,7 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 ### Content safety for models deployed via MaaS  
 
-Azure ML implements a default configuration of [Azure AI Content Safety](/ai-services/content-safety/overview) text moderation filters for harmful content (sexual content, violence, hate, and self-harm) for language models deployed via MaaS. Learn more about [content filtering](../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](../pricing/details/cognitive-services/content-safety.md) for such use. Complete this form to disable content filtering for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). 
+Azure ML implements a default configuration of [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) text moderation filters for harmful content (sexual content, violence, hate, and self-harm) for language models deployed via MaaS. Learn more about [content filtering](../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](../pricing/details/cognitive-services/content-safety.md) for such use. Complete this form to disable content filtering for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). 
 
 ## Learn more
 
