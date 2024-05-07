@@ -2,12 +2,11 @@
 title: Monitoring data reference for Azure Communications Gateway
 description: This article contains important reference material you need when you monitor Azure Communications Gateway.
 ms.date: 05/08/2024
-ms.custom: horz-monitor
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
-ms.custom: subject-monitoring
 ---
 
 <!-- 

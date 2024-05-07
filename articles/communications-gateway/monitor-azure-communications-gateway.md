@@ -80,8 +80,7 @@ For a list of available metrics for Azure Communications Gateway, see [Azure Com
 If your service uses any non-Azure Monitor based metrics, add the following include and more information.
 [!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
 
-
-
+<a id="connectivity-metrics"></a>
 
 ## Analyzing, filtering and splitting metrics in Azure Monitor
 
