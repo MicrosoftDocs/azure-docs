@@ -134,13 +134,13 @@ The `SemanticSearchOutput` annotation enables you to define a semantic search ou
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the output binding. |
-| **ConnectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
-| **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **Query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **EmbeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **SystemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **MaxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **connectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
+| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
+| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
+| **systemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
+| **maxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
 
 
 ::: zone-end  
@@ -152,13 +152,13 @@ The `SemanticSearchOutput` decorator supports these parameters:
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **ConnectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
-| **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **Query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **EmbeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **SystemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **MaxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **connection_name** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
+| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddings_model** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
+| **chat_model** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
+| **system_prompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
+| **max_knowledge_count** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
 
 
 
@@ -173,13 +173,13 @@ The binding supports these configuration properties that you set in the function
 | **type** | Must be `SemanticSearchOutput`. |
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
-| **ConnectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
-| **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **Query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **EmbeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **SystemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **MaxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **connectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
+| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
+| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
+| **systemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
+| **maxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
 
  
 ::: zone-end  
@@ -190,13 +190,13 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| **ConnectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
-| **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **Query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **EmbeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **SystemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **MaxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **connectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
+| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
+| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
+| **systemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
+| **maxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
 
 
 ::: zone-end  

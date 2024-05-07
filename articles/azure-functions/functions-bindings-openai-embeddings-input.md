@@ -133,11 +133,11 @@ The `EmbeddingsInput` annotation enables you to define an embeddings input bindi
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
-| **Model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **MaxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
-| **MaxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
-| **Input** | Gets the input to generate embeddings for. |
-| **InputType** | Gets the type of the input. |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **maxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **maxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **inputType** | Gets the type of the input. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -148,11 +148,11 @@ The `EmbeddingsInput` decorator supports these parameters:
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **Model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **MaxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
-| **MaxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
-| **Input** | Gets the input to generate embeddings for. |
-| **InputType** | Gets the type of the input. |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **max_chunk_length** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **max_overlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **input_type** | Gets the type of the input. |
 
 
 ::: zone-end
@@ -166,11 +166,11 @@ The binding supports these configuration properties that you set in the function
 | **type** | Must be `EmbeddingsInput`. |
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
-| **Model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **MaxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
-| **MaxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
-| **Input** | Gets the input to generate embeddings for. |
-| **InputType** | Gets the type of the input. |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **maxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **maxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **inputType** | Gets the type of the input. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -180,11 +180,11 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| **Model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **MaxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
-| **MaxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
-| **Input** | Gets the input to generate embeddings for. |
-| **InputType** | Gets the type of the input. |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **maxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **maxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **inputType** | Gets the type of the input. |
 
 ::: zone-end  
 

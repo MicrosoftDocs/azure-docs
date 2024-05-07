@@ -109,8 +109,8 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
+| **Id** | Gets the ID of the assistant to update. |
+| **Model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
 
 
 ::: zone-end

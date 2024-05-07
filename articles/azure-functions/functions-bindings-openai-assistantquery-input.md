@@ -112,8 +112,8 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **id** |  Gets the ID of the assistant to query. |
-| **timestamputc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **Id** |  Gets the ID of the assistant to query. |
+| **TimeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 
 ::: zone-end
@@ -126,7 +126,7 @@ The `GetChatState` annotation enables you to define an assistant query input bin
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
 | **id** |  Gets the ID of the assistant to query. |
-| **timestamputc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **timeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -138,7 +138,7 @@ The `GetChatState` decorator supports these parameters:
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **id** |  Gets the ID of the assistant to query. |
-| **timestamputc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **time_stamp_utc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 
 ::: zone-end
@@ -153,7 +153,7 @@ The binding supports these configuration properties that you set in the function
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
 | **id** |  Gets the ID of the assistant to query. |
-| **timestamputc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **timeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -164,7 +164,7 @@ The binding supports these properties, which are defined in your code:
 |Property | Description |
 |-----------------------|-------------|
 | **id** |  Gets the ID of the assistant to query. |
-| **timestamputc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **timeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 ::: zone-end  
 

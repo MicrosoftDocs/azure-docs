@@ -111,10 +111,8 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **id** | The identifier of the assistant to create. |
-| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
-
-
+| **Id** | The identifier of the assistant to create. |
+| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
