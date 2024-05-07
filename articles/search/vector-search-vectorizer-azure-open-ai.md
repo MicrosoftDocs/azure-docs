@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#	Azure OpenAI vectorizer
+# Azure OpenAI vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
