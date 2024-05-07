@@ -85,6 +85,7 @@ Use this option for modules generated from an Azure Stream Analytics workload.
 1. Select your subscription and the Azure Stream Analytics Edge job that you created.
 1. Select **Save**.
 
+For more information about deploying Azure Stream Analytics an an IoT Edge module, see [Tutorial: Deploy Azure Stream Analytics as an IoT Edge module](tutorial-deploy-stream-analytics.md).
 
 ### Specify routes
 
