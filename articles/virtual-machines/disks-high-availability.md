@@ -68,7 +68,7 @@ With zone-redundant Virtual Machine Scale Sets using the flexible orchestration 
 
 #### Deploy VMs and disks across three availability zones
 
-This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage. You should use this or [zone-redundant Virtual Machine Scale Sets with flexible orchestration](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) configurations to maximize your application's availability.
+Another method to spread VMs and disks across availability zones is to manually deploy the VMs and disks across three availability zones. This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage.
 
 
 ### Deploy VMs and disks across multiple fault domains
