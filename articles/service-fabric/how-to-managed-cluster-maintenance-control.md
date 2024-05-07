@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 03/12/2024
+ms.date: 05/07/2024
 ---
 
 # Introduction to MaintenanceControl on Service Fabric managed clusters
