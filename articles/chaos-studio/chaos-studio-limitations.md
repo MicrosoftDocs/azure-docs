@@ -27,7 +27,7 @@ The following are known limitations in Chaos Studio.
 - **Azure CLI** - Chaos Studio doesn't have dedicated AzCLI modules at this time. Use our REST API from AzCLI
 - **Azure Policy** - Chaos Studio doesn't support the applicable built-in policies for our service (audit policy for customer-managed keys and Private Link) at this time. 
 - **Private Link** - We don't support Azure portal UI experiments for Agent-based experiments using Private Link. These restrictions do NOT apply to our Service-direct faults
-- **Customer-Managed Keys** You need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We don't support portal UI experiments using CMK at this time.
+- **Customer-Managed Keys** You need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We don't support portal UI experiments using CMK at this time. Experiment info will appear in ARG within the subscription - this is a known issue today, but is limited to only ARG and only viewable by the subscription. 
 - **Java SDK** At present, we don't have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
 - **Built-in roles** - Chaos Studio doesn't currently have its own built-in roles. Permissions can be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity.
 - **Agent Service Tags** Currently we don't have service tags available for our Agent-based faults.

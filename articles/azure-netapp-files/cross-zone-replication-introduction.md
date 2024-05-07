@@ -30,6 +30,7 @@ The preview of cross-zone replication is available in the following regions:
 * East US 2
 * France Central 
 * Germany West Central 
+* Israel Central
 * Japan East
 * Korea Central
 * North Europe

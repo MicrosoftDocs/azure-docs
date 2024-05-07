@@ -52,6 +52,8 @@ Sample source code for the web app is available on [GitHub](https://github.com/m
 
 We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is [retired](../api-version-deprecation.md#retiring-soon). 
 
+Consider either clicking the **watch** or **star** buttons on the web app's [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT) repo to be notified about changes and updates to the source code.
+
 **If you haven't customized the app:**
 * You can follow the synchronization steps below
 

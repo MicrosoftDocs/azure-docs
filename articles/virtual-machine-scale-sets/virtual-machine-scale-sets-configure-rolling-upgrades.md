@@ -1,6 +1,6 @@
 ---
 title: Configure rolling upgrades on Virtual Machine Scale Sets
-description: Learn about how to configure rolling upgrades on Virtual Machine Scale Sets
+description: Learn about how to configure rolling upgrades on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
@@ -23,7 +23,7 @@ Rolling upgrade policy is best suited for production workloads.
 
 - If using a rolling upgrade policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
-- If using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
+- If using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 >[!IMPORTANT]
 > MaxSurge is currently in preview for Virtual Machine Scale Sets. To use this preview feature, register the provider feature using Azure Cloud Shell. 
@@ -36,7 +36,7 @@ Rolling upgrade policy is best suited for production workloads.
 
 |Setting | Description |
 |---|---|
-|**Upgrade Policy Mode** | The upgrade policy modes available on Virtual Machine Scale Sets are **Automatic**, **Manual** and **Rolling**. | 
+|**Upgrade Policy Mode** | The upgrade policy modes available on Virtual Machine Scale Sets are **Automatic**, **Manual**, and **Rolling**. | 
 |**Rolling upgrade batch size %** | Specifies how many of the total instances of your scale set you want to be upgraded at one time. <br><br>Example: A batch size of 20% when you have 10 instances in your scale set results in upgrade batches with two instances each. |
 |**Pause time between batches (sec)** | Specifies how long you want your scale set to wait between upgrading batches.<br><br> Example: A pause time of 10 seconds means that once a batch is successfully completed, the scale set will wait 10 seconds before moving onto the next batch. |
 |**Max unhealthy instance %** | Specifies the total number of instances allowed to be marked as unhealthy before and during the rolling upgrade. <br><br>Example: A max unhealthy instance % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy, the rolling upgrade stops. |
@@ -56,6 +56,20 @@ Select the Virtual Machine Scale Set you want to change the upgrade policy for. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
+### [CLI](#tab/cli1)
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update). 
+
+```azurecli-interactive
+az vmss update \
+	--name myScaleSet \
+	--resource-group myResourceGroup \
+	--max-batch-instance-percent 10 \
+	--max-unhealthy-instance-percent 20 \
+	--max-unhealthy-upgraded-instance-percent 20 \
+	--prioritize-unhealthy-instances true \
+	--pause-time-between-batches PT2S \
+	--max-surge true 
+```
 
 ### [PowerShell](#tab/powershell1)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
@@ -119,7 +133,7 @@ Additionally, you can view exactly what changes are being rolled out in the Acti
 
 ### [CLI](#tab/cli2)
 
-You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade)
+You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade).
 
 ```azurecli
 az vmss rolling-upgrade get-latest \
@@ -155,7 +169,7 @@ az vmss rolling-upgrade get-latest \
 
 ### [PowerShell](#tab/powershell2)
 
-You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade)
+You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade).
 
 ```azurepowershell
 Get-AzVMssRollingUpgrade `
@@ -210,12 +224,6 @@ You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/po
 Stop-AzVmssRollingUpgrade `
     -ResourceGroupName myResourceGroup `
     -VMScaleSetName myScaleSet
-
-Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
-StartTime : 1/12/2024 8:40:46 PM
-EndTime   : 1/12/2024 8:45:18 PM
-Status    : Succeeded
-Error     : 
 ```
 ---
 
@@ -224,7 +232,7 @@ Error     :
 If you decide to cancel a rolling upgrade or the upgrade has stopped due to any policy breach, any more changes that result in another scale set model change trigger a new rolling upgrade. If you want to restart a rolling upgrade, to trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
 
 ### [CLI](#tab/cli4)
-To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update)
+To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
 az vmss update \
@@ -233,7 +241,7 @@ az vmss update \
 ```
 
 ### [PowerShell](#tab/powershell4)
-To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
+To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell
 $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"

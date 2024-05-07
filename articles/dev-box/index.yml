@@ -44,8 +44,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Determine resource usage and quota
-            url: how-to-determine-your-quota-usage.md
           - text: Request a quota limit increase
             url: how-to-request-quota-increase.md
             

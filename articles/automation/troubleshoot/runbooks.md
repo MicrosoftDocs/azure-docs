@@ -130,7 +130,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Resolution
 
-Ensure that your Run As account has [permissions to access any resources](../../role-based-access-control/role-assignments-portal.md) used in your script.
+Ensure that your Run As account has [permissions to access any resources](../../role-based-access-control/role-assignments-portal.yml) used in your script.
 
 ## <a name="sign-in-failed"></a>Scenario: Sign-in to Azure account failed
 

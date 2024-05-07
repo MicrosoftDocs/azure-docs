@@ -7,13 +7,15 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 04/25/2024
 ms.author: banders
 ---
 
 # Buy an Azure savings plan
 
 Azure savings plans help you save money by committing to an hourly spend for one-year or three-year plans for Azure compute resources. Before you enter a commitment to buy a savings plan, review the following sections to prepare for your purchase.
+
+There is only one savings plan offered. It applies to all compute services listed at [Charges covered by savings plan](savings-plan-compute-overview.md#charges-covered-by-savings-plan).
 
 ## Who can buy a savings plan
 

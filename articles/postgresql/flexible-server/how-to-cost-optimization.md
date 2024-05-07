@@ -3,10 +3,11 @@ title: How to optimize costs
 description: This article provides a list of cost optimization recommendations.
 author: varun-dhawan
 ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 1/25/2024
 ---
 
 # How to optimize costs in Azure Database for PostgreSQL - Flexible Server

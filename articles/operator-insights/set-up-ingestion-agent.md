@@ -28,50 +28,49 @@ From the documentation for your Data Product, obtain the:
 
 ## VM security recommendations
 
-The VM used for the ingestion agent should be set up following best practice for security. For example:
+The VM used for the ingestion agent should be set up following best practice for security. We recommend the following actions:
 
-- Networking - Only allow network traffic on the ports that are required to run the agent and maintain the VM.
-- OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
-- Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. We recommend that you restrict the following.
-  - Admin access to the VM (for example, to stop/start/install the ingestion agent).
-  - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
-  - Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
-  - Access to the directory for secrets that you create on the VM during this procedure.
+### Networking
 
-## Download the RPM for the agent
+When using an Azure VM:
 
-Download the RPM for the ingestion agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
+- Give the VM a private IP address.
+- Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
+- Beyond this, network configuration depends on whether restricted access is set up on the data product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
+ 
+When using an on-premises VM:
 
-Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
+- Configure a firewall to only allow network traffic on the ports that are required to run the agent and maintain the VM.
 
-### Verify the authenticity of the ingestion agent RPM (optional)
+### Disk encryption
 
-Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it has not been corrupted or tampered with.
+Ensure Azure disk encryption is enabled (this is the default when you create the VM).
 
-To do this, perform the following steps:
+### OS version
 
-1. Download the RPM.
-1. Download the provided public key
-    ```
-    wget https://packages.microsoft.com/keys/microsoft.asc
-    ```
-1. Import the public key to the GPG keyring
-    ```
-    gpg --import microsoft.asc
-    ```
-1. Verify the RPM signature matches the public key
-    ```
-    rpm --checksig <path-to-rpm>
-    ```
+- Keep the OS version up-to-date to avoid known vulnerabilities.
+- Configure the VM to periodically check for missing system updates.
 
-The output of the final command should be `<path-to-rpm>: digests signatures OK`
+### Access
+
+Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record sign-in attempts and actions taken by logged-in users.
+
+We recommend that you restrict the following:
+- Admin access to the VM (for example, to stop/start/install the ingestion agent).
+- Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
+- Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
+- Access to the directory for secrets that you create on the VM during this procedure.
+
+### Microsoft Defender for Cloud
+
+When using an Azure VM, also follow all recommendations from Microsoft Defender for Cloud. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
 
 ## Set up authentication to Azure
 
 The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
 
 - Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
-- Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It does not require handling any credentials (unlike a service principal).
+- Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It doesn't require handling any credentials (unlike a service principal).
 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
@@ -83,7 +82,7 @@ If the ingestion agent is running in Azure, we recommend managed identities. For
 > [!NOTE]
 > Ingestion agents on Azure VMs support both system-assigned and user-assigned managed identities. For multiple agents, a user-assigned managed identity is simpler because you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
-1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
+1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, don't create a user-assigned managed identity.
 1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
 1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
 
@@ -104,7 +103,7 @@ The ingestion agent only supports certificate credentials for service principals
 
 1. Obtain one or more certificates. We strongly recommend using trusted certificates from a certificate authority. Certificates can be generated from Azure Key Vault: see [Set and retrieve a certificate from Key Vault using Azure portal](../key-vault/certificates/quick-create-portal.md). Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire. Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data. For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md). If you choose to use Azure Key Vault then:
     - This Azure Key Vault must be a different instance to the Data Product Key Vault, either one you already control, or a new one.
-    - You need the 'Key Vault Certificates Officer' role on this Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+    - You need the 'Key Vault Certificates Officer' role on this Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) for details of how to assign roles in Azure.
 2. Add the certificate or certificates as credentials to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 3. Ensure the certificates are available in PKCS#12 (P12) format, with no passphrase protecting them. 
     - If the certificate is stored in an Azure Key Vault, download the certificate in the PFX format. PFX is identical to P12.
@@ -129,7 +128,7 @@ The ingestion agent only supports certificate credentials for service principals
 ### Grant permissions for the Data Product Key Vault
 
 1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *`<data-product-name>-HostedResources-<unique-id>`*.
-1. Grant your managed identity or service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
 ## Prepare the SFTP server
@@ -159,8 +158,7 @@ Repeat these steps for each VM onto which you want to install the agent.
     ```
     sudo dnf install systemd logrotate zip
     ```
-1. Obtain the ingestion agent RPM and copy it to the VM.
-1. If you are using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
+1. If you're using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
 
     # [SFTP sources](#tab/sftp)
@@ -195,7 +193,7 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     ---
 
-## Ensure that VM can resolve Microsoft hostnames
+## Ensure that the VM can resolve Microsoft hostnames
 
 Check that the VM can resolve public hostnames to IP addresses. For example, open an SSH session and use `dig login.microsoftonline.com` to check that the VM can resolve `login.microsoftonline.com` to an IP address.
 
@@ -203,14 +201,18 @@ If the VM can't use DNS to resolve public Microsoft hostnames to IP addresses, [
 
 ## Install the agent software
 
-Repeat these steps for each VM onto which you want to install the agent:
+The agent software package is hosted on the "Linux software repository for Microsoft products" at [https://packages.microsoft.com](https://packages.microsoft.com)
 
-1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM.
-    ```
-    sudo dnf install ./*.rpm
-    ```
-    Answer `y` when prompted. If there are any missing dependencies, the RPM won't be installed.
+**The name of the ingestion agent package is `az-aoi-ingestion`.**
+
+To download and install a package from the software repository, follow the relevant steps for your VM's Linux distribution in [
+How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository).
+
+ For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
+
+- distribution:  `rhel`
+- version: `8`
+- package-name: `az-aoi-ingestion`
 
 ## Configure the agent software
 
@@ -295,7 +297,7 @@ The configuration you need is specific to the type of source and your Data Produ
 
         ---
     - `sink`. Sink configuration controls uploading data to the Data Product's input storage account.
-        - In the `sas_token` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave and `secret_name` unchanged.
+        - In the `sas_token` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave `secret_name` unchanged.
         - Refer to your Data Product's documentation for information on required values for other parameters.
             > [!IMPORTANT]
             > The `container_name` field must be set exactly as specified by your Data Product's documentation.
@@ -317,7 +319,6 @@ The configuration you need is specific to the type of source and your Data Produ
     ```    
     sudo systemctl enable az-aoi-ingestion.service
     ```
-1. Save a copy of the delivered RPM – you need it to reinstall or to back out any future upgrades.
 
 ## Related content
 

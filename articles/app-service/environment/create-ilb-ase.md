@@ -4,7 +4,7 @@ description: Learn how to create an App Service environment with an internal loa
 author: madsd
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 03/27/2023
+ms.date: 04/26/2024
 ms.author: madsd
 ms.custom: mvc, mode-other, devx-track-arm-template
 ---
@@ -47,33 +47,11 @@ There are some things that you can't do when you use an ILB ASE:
 
 ## Create an ILB ASE ##
 
-To create an ILB ASE:
-
-1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
-
-2. Select your subscription.
-
-3. Select or create a resource group.
-
-4. Enter the name of your App Service Environment.
-
-5. Select virtual IP type of Internal.
-
-    ![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
+To create an ILB ASE, see [Create an ASE by using an Azure Resource Manager template](./create-from-template.md).
 
 > [!NOTE]
 > The App Service Environment name must be no more than 36 characters.
-
-6. Select Networking
-
-7. Select or create a Virtual Network. If you create a new VNet here, it will be defined with an address range of 192.168.250.0/23. To create a VNet with a different address range or in a different resource group than the ASE, use the Azure Virtual Network creation portal. 
-
-8. Select or create an empty a subnet. If you want to select a subnet, it must be empty and not delegated. The subnet size cannot be changed after the ASE is created. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
-
-    ![ASE networking][1]
-
-7. Select **Review and Create** then select **Create**.
-
+>
 
 ## Create an app in an ILB ASE ##
 
@@ -89,7 +67,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. Select your Publish, Runtime Stack, and Operating System.
 
-1. Select a location where the location is an existing ILB ASE.  You can also create a new ASE during app creation by selecting an Isolated App Service plan. If you wish to create a new ASE, select the region you want the ASE to be created in.
+1. Select a location where the location is an existing ILB ASE.
 
 1. Select or create an App Service plan. 
 
@@ -154,7 +132,6 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 
 <!--Links-->
 [Intro]: ./intro.md
-[MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
 [MakeILBASE]: ./create-ilb-ase.md
 [ASENetwork]: ./network-info.md

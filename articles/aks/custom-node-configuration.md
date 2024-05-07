@@ -239,7 +239,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 
 ## Next steps
 
-- Learn [how to configure your AKS cluster](cluster-configuration.md).
+- Learn [how to configure your AKS cluster](./concepts-clusters-workloads.md).
 - Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
@@ -252,3 +252,4 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
+

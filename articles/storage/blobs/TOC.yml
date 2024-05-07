@@ -16,6 +16,10 @@ items:
     items:
     - name: Introduction to Blob storage
       href: storage-blobs-introduction.md
+  - name: Architecture
+    items:
+    - name: Well-architected considerations
+      href: /azure/well-architected/service-guides/azure-blob-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Quickstarts
     items:
     - name: Azure portal
@@ -48,6 +52,10 @@ items:
       href: storage-quickstart-blobs-go.md
     - name: Terraform
       href: storage-quickstart-static-website-terraform.md
+    - name: TypeScript
+      items: 
+      - name: TypeScript for Node.js
+        href: storage-quickstart-blobs-nodejs-typescript.md
   - name: Storage accounts
     items:
     - name: Storage accounts overview
@@ -101,7 +109,7 @@ items:
       items:
       - name: Get started
         href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Authorize with Azure AD
+      - name: Authorize with Microsoft Entra ID
         href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Optimize performance
         href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -148,6 +156,8 @@ items:
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Performance benchmark
+        href: network-file-system-protocol-performance-benchmark.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
       - name: Limitations and known issues
@@ -156,8 +166,12 @@ items:
       items:
       - name: Overview
         href: secure-file-transfer-protocol-support.md
-      - name: Transfer data by using SFTP
+      - name: Enable or disable SFTP
         href: secure-file-transfer-protocol-support-how-to.md
+      - name: Authorize access
+        href: secure-file-transfer-protocol-support-authorize-access.md
+      - name: Connect from an SFTP client
+        href: secure-file-transfer-protocol-support-connect.md
       - name: Performance considerations
         href: secure-file-transfer-protocol-performance.md
       - name: Limitations and known issues
@@ -190,7 +204,7 @@ items:
       - name: Enable blob inventory reports
         href: blob-inventory-how-to.md
       - name: Calculate blob count and total size
-        href: calculate-blob-count-size.md
+        href: calculate-blob-count-size.yml
       - name: 'Tutorial: Analyze blob inventory reports'
         href: storage-blob-inventory-report-analytics.md
       - name: 'Tutorial: Calculate container statistics'
@@ -300,9 +314,9 @@ items:
             href: authorize-data-operations-powershell.md
           - name: Azure CLI
             href: authorize-data-operations-cli.md
-        - name: Authorize with Azure AD
+        - name: Authorize with Microsoft Entra ID
           items:
-          - name: Authorize with Azure AD and Azure RBAC
+          - name: Authorize with Microsoft Entra ID and Azure RBAC
             href: authorize-access-azure-active-directory.md
           - name: Manage access rights with Azure RBAC
             href: assign-azure-role-data-access.md
@@ -384,7 +398,7 @@ items:
       - name: Enable blob soft delete
         href: soft-delete-blob-enable.md
       - name: Manage and restore soft-deleted blobs
-        href: soft-delete-blob-manage.md
+        href: soft-delete-blob-manage.yml
     - name: Versioning
       href: versioning-overview.md
       items:
@@ -475,7 +489,7 @@ items:
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
-      - name: Map each REST operation to a practices
+      - name: Map each REST operation to a price
         href: map-rest-apis-transaction-categories.md
       - name: Estimate the cost of AzCopy transfers
         href: azcopy-cost-estimation.md
@@ -709,6 +723,8 @@ items:
         items:
         - name: Performance tuning for uploads and downloads
           href: storage-blobs-tune-upload-download-java.md
+        - name: Implement a retry policy
+          href: storage-retry-policy-java.md
         - name: Configure logging
           href: /azure/developer/java/sdk/logging-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: JavaScript
@@ -925,6 +941,8 @@ items:
         items:
         - name: Performance tuning for uploads and downloads
           href: storage-blobs-tune-upload-download-python.md
+        - name: Implement a retry policy
+          href: storage-retry-policy-python.md
         - name: Configure logging
           href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Test with a storage emulator
@@ -1027,6 +1045,8 @@ items:
       items:
       - name: Configuration settings
         href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Error codes
+        href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: azcopy
         href: ../common/storage-ref-azcopy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: azcopy bench

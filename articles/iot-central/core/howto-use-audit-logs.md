@@ -52,7 +52,7 @@ The following screenshot shows the audit log view with the location of the sorti
 :::image type="content" source="media/howto-use-audit-logs/audit-log.png" alt-text="Screenshot that shows the audit log. The location of the sort and filter controls is highlighted." lightbox="media/howto-use-audit-logs/audit-log.png":::
 
 > [!TIP]
-> If you want to monitor the health of your connected devices, use Azure Monitor. To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+> If you want to monitor the health of your connected devices, use Azure Monitor. To learn more, see [Monitor application health](howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Customize the log
 

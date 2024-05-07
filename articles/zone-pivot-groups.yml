@@ -1928,6 +1928,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-javascript
+    title: JavaScript
   - id: rest-api
     title: REST
 # Owner: mbullwin
@@ -3131,6 +3133,24 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: marymichael
+- id: web-apps-assessment-app-service
+  title: Assess ASP.NET web apps for migration to Azure App Service
+  prompt: Choose assessment scenario
+  pivots:
+  - id: asp-net
+    title: ASP.NET
+  - id: java
+    title: Java
+# Owner: marymichael
+- id: web-apps-assessment-aks
+  title: Assess ASP.NET web apps for migration to AKS
+  prompt: Choose assessment scenario
+  pivots:
+  - id: asp-net
+    title: ASP.NET
+  - id: java
+    title: Java
 # Owner: tejaswikolli-web
 - id: container-registry-zones
   title: Container registry ide
@@ -3140,6 +3160,33 @@ groups:
     title: Portal
   - id: development-environment-azure-cli
     title: CLI
+# Owner: sethm
+- id: platform-select
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: aks
+    title: AKS enabled by Arc
+  - id: aks-ee
+    title: AKS Edge Essentials
+  - id: ubuntu
+    title: Ubuntu
+- id: identity-select
+  title: Authentication
+  prompt: Choose authentication
+  pivots:
+  - id: storage-key
+    title: Storage key
+  - id: workload-identity
+    title: Workload identity
+- id: attach-app
+  title: Attach method
+  prompt: Choose an attach method
+  pivots:
+  - id: attach-kubernetes
+    title: Kubernetes native
+  - id: attach-iot-op
+    title: Azure IoT Operations
 # Owner: schaffererin
 - id: aks-azure-developer-cli
   title: Azure command line interfaces
@@ -3149,3 +3196,12 @@ groups:
     title: Azure CLI
   - id: development-environment-azure-developer
     title: Azure Developer CLI
+# Owner: jopeng
+- id: acs-interop-chat-tutorial-js-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#

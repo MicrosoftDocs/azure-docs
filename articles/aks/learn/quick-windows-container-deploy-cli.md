@@ -59,7 +59,7 @@ An [Azure resource group](../../azure-resource-manager/management/overview.md) i
 
 In this section, we create an AKS cluster with the following configuration:
 
-- The cluster is configured with two nodes to ensure it operates reliably. A [node](../concepts-clusters-workloads.md#nodes-and-node-pools) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime.
+- The cluster is configured with two nodes to ensure it operates reliably. A [node](../concepts-clusters-workloads.md#nodes) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime.
 - The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password].
 - The node pool uses `VirtualMachineScaleSets`.
 
@@ -71,13 +71,13 @@ To create the AKS cluster with Azure CLI, follow these steps:
     echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
     ```
 
-1. Create a password for the administrator username you created in the previous step. The password must be a minimum of 14 characters and meet the [Windows Server password complexity requirements][windows-server-password].
+2. Create a password for the administrator username you created in the previous step. The password must be a minimum of 14 characters and meet the [Windows Server password complexity requirements][windows-server-password].
 
     ```azurecli
     echo "Please enter the password to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_PASSWORD
     ```
 
-1. Create your cluster using the [az aks create][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
+3. Create your cluster using the [az aks create][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
 
     ```azurecli
     az aks create \
@@ -337,7 +337,7 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [az-group-create]: /cli/azure/group#az_group_create
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
+[kubernetes-service]: ../concepts-network-services.md
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

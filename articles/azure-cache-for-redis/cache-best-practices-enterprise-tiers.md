@@ -139,6 +139,27 @@ You might also see `CROSSSLOT` errors with Enterprise clustering policy. Only th
 
 In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) can only be run on keys that are in the same slot. However, the following multi-key commands are allowed across slots in Active-Active databases: `MGET`, `EXISTS`, and `TOUCH`. For more information, see [Database clustering](https://docs.redis.com/latest/rs/databases/durability-ha/clustering/#multikey-operations).
 
+## Enterprise Flash Best Practices
+The Enterprise Flash tier utilizes both NVMe Flash storage and RAM. Because Flash storage is lower cost, using the Enterprise Flash tier allows you to trade off some performance for price efficiency. 
+
+On Enterprise Flash instances, 20% of the cache space is on RAM, while the other 80% uses Flash storage. All of the _keys_ are stored on RAM, while the _values_ can be stored either in Flash storage or RAM. The location of the values is determined intelligently by the Redis software. "Hot" values that are accessed fequently are stored on RAM, while "Cold" values that are less commonly used are kept on Flash. Before data is read or written, it must be moved to RAM, becoming "Hot" data. 
+
+Because Redis will optmize for the best performance, the instance will first fill up the available RAM before adding items to Flash storage. This has a few implications for performance:
+- When testing with low memory usage, performance and latency may be significantly better than with a full cache instance because only RAM is being used.
+- As you write more data to the cache, the proportion of data in RAM compared to Flash storage will decrease, typically causing latency and throughput performance to decrease as well.
+
+### Workloads well-suited for the Enterprise Flash tier
+Workloads that are likely to run well on the Enterprise Flash tier often have the following characteristics:
+- Read heavy, with a high ratio of read commands to write commands.
+- Access is focused on a subset of keys which are used much more frequently than the rest of the dataset.
+- Relatively large values in comparison to key names. (Since key names are always stored in RAM, this can become a bottleneck for memory growth.)
+
+### Workloads that are not well-suited for the Enterprise Flash tier
+Some workloads have access characteristics that are less optimized for the design of the Flash tier:
+- Write heavy workloads.
+- Random or uniform data access paterns across most of the dataset.
+- Long key names with relatively small value sizes.
+
 ## Handling Region Down Scenarios with Active Geo-Replication
 
 Active geo-replication is a powerful feature to dramatically boost availability when using the Enterprise tiers of Azure Cache for Redis. You should take steps, however, to prepare your caches if there's a regional outage.

@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/13/2024
+ms.date: 04/18/2024
 recommendations: false
 ---
 
@@ -103,11 +103,14 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
 
-## Resources configuration
+## Resource configuration
 
 Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below. 
 
 This article describes network settings related to disabling public network for Azure OpenAI resources, Azure AI search resources, and storage accounts. Using selected networks with IP rules is not supported, because the services' IP addresses are dynamic.
+
+> [!TIP]
+> You can use the bash script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/validate-oyd-vnet.sh) to validate your setup, and determine if all of the requirements listed here are being met. 
 
 ## Create resource group
 
@@ -212,7 +215,7 @@ You can disable public network access of your Azure AI Search resource in the Az
 To allow access to your Azure AI Search resource from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/search/service-create-private-endpoint) that connect to your Azure AI Search resource.
 
 > [!NOTE]
-> To allow access to your Azure AI Search resource from Azure OpenAI resource, you need to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in 10 business days and you will be contacted via email about the results. If you are eligible, we will provision the private endpoint in Microsoft managed virtual network, and send a private endpoint connection request to your search service, and you will need to approve the request.
+> To allow access to your Azure AI Search resource from Azure OpenAI resource, you need to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in 5 business days and you will be contacted via email about the results. If you are eligible, we will provision the private endpoint in Microsoft managed virtual network, and send a private endpoint connection request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
@@ -332,7 +335,7 @@ Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` ro
 ### Ingestion API
 
 
-See the [ingestion API reference article](/azure/ai-services/openai/reference#start-an-ingestion-job) for details on the request and response objects used by the ingestion API.
+See the [ingestion API reference article](/rest/api/azureopenai/ingestion-jobs?context=/azure/ai-services/openai/context/context) for details on the request and response objects used by the ingestion API.
 
 More notes:
 

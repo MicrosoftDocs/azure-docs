@@ -153,11 +153,11 @@ identity:
     - resource_id: user_identity_ARM_id_place_holder
 ```
 
-Besides, you also need to specify the `Clicn ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Clicn ID` in the `Overview` of the managed identity in Azure portal.
+Besides, you also need to specify the `Client ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Client ID` in the `Overview` of the managed identity in Azure portal.
 
 ```yaml
 environment_variables:
-  AZURE_CLIENT_ID: <cliend_id_of_your_user_assigned_identity>
+  AZURE_CLIENT_ID: <client_id_of_your_user_assigned_identity>
 ```
 
 > [!IMPORTANT]

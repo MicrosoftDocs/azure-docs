@@ -5,18 +5,25 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/06/2024
+ms.date: 04/15/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## April 2024
+
+### New region support
+
+Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
+
+
 ## February 2024
 
 ### Migration scripts to move machines and schedules from Automation Update Management to Azure Update Manager (preview)
 
-Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
+Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to Azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
 
 
 ### Updates blade in Azure Update Manager (preview)
@@ -60,9 +67,9 @@ Update management center is now rebranded as Azure Update Manager.
 
 Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
-### SQL Server patching (preview)
+### SQL Server patching
 
-SQL Server patching (preview) allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
+SQL Server patching allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
 
 ## July 2023
 
@@ -75,7 +82,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 

@@ -153,7 +153,7 @@ Autostart policy helps you minimize waste by specifying a specific time of day a
 > [!NOTE]
 > This policy isn't automatically applied to current VMs in the lab. To apply this setting to current VMs, open the VM's page and change its **Auto-start** setting.
 
-For more information and details about autostart policy, see [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.md).
+For more information and details about autostart policy, see [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.yml).
 
 ## Next steps
 

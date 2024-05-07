@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit, linux-related-content
 # Name resolution for resources in Azure virtual networks
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure can be used to host IaaS, PaaS, and hybrid solutions. In order to facilitate communication between the virtual machines (VMs) and other resources deployed in a virtual network, it may be necessary to allow them to communicate with each other. The use of easily remembered and unchanging names simplifies the communication process, rather than relying on IP addresses.
 
@@ -361,10 +361,7 @@ When you're using your own DNS servers, Azure enables you to specify multiple DN
 > [!NOTE]
 > Network connection properties, such as DNS server IPs, should not be edited directly within VMs. This is because they might get erased during service heal when the virtual network adaptor gets replaced. This applies to both Windows and Linux VMs.
 
-> [!NOTE]
-> Modifying the DNS suffix settings directly within the VMs can disrupt network connectivity, potentially causing traffic to the VMs to be interrupted or lost. To resolve this issue, a restart of the VMs is necessary.
-
-When you're using the Azure Resource Manager deployment model, you can specify DNS servers for a virtual network and a network interface. For details, see [Manage a virtual network](manage-virtual-network.md) and [Manage a network interface](virtual-network-network-interface.md).
+When you're using the Azure Resource Manager deployment model, you can specify DNS servers for a virtual network and a network interface. For details, see [Manage a virtual network](manage-virtual-network.yml) and [Manage a network interface](virtual-network-network-interface.md).
 
 > [!NOTE]
 > If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
@@ -376,6 +373,6 @@ When you're using the Azure Resource Manager deployment model, you can specify D
 
 Azure Resource Manager deployment model:
 
-* [Manage a virtual network](manage-virtual-network.md)
+* [Manage a virtual network](manage-virtual-network.yml)
 
 * [Manage a network interface](virtual-network-network-interface.md)

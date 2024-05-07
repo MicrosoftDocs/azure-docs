@@ -43,6 +43,7 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 - All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
 - Editing the ingress-nginx `ConfigMap` in the `app-routing-system` namespace isn't supported.
+- The following snippet annotations are blocked and will prevent an Ingress from being configured: `load_module`, `lua_package`, `_by_lua`, `location`, `root`, `proxy_pass`, `serviceaccount`, `{`, `}`, `'`.
 
 ## Enable application routing using Azure CLI
 

@@ -107,8 +107,6 @@
           href: ./v1/tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: ./v1/tutorial-1st-experiment-sdk-train.md
-        - name: 3. Use your own data
-          href: ./v1/tutorial-1st-experiment-bring-data.md
     - name: Train & deploy image classification
       displayName: MNIST
       href: ./v1/tutorial-train-deploy-notebook.md
@@ -562,8 +560,6 @@
           href: ./v1/how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: ./v1/how-to-train-with-custom-image.md
-        - name: Migrate from Estimators to ScriptRunConfig
-          href: ./v1/how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Use Key Vault when training
           displayName: secrets keyvault
           href: ./v1/how-to-use-secrets-in-runs.md
@@ -598,10 +594,18 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to deploy Llama 2 family models
-      href: how-to-deploy-models-llama.md
     - name: How to deploy Mistral family models
       href: how-to-deploy-models-mistral.md
+    - name: Deploy Cohere models
+      items:
+        - name: How to deploy Cohere Command models
+          href: how-to-deploy-models-cohere-command.md
+        - name: How to deploy Cohere Embed models
+          href: how-to-deploy-models-cohere-embed.md
+    - name: Deploy Llama models
+      items:
+        - name: How to deploy Llama family models
+          href: how-to-deploy-models-llama.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -1244,6 +1248,8 @@
       items:
         - name: Failover & disaster recovery
           displayName: high availability
+          href: how-to-high-availability-machine-learning.md
+        - name: Failover & disaster recovery
           href: ./v1/how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
@@ -1449,12 +1455,16 @@
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: ./v1/samples-notebooks.md
     # end v1
+    - name: Browse code samples
+      displayName: example, examples, python, notebook
+      href: /samples/browse/?expanded=azure&products=azure-machine-learning
     - name: Examples repository (v2)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Examples repository (v1)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+
     # v1
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules, components

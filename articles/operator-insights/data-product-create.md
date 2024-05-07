@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Operator Insights Data Product
-description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
+title: Deploy an Azure Operator Insights Data Product
+description: In this article, learn how to deploy an Azure Operator Insights Data Product resource. 
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
@@ -10,7 +10,7 @@ ms.date: 10/16/2023
 ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
-# Create an Azure Operator Insights Data Product
+# Deploy an Azure Operator Insights Data Product
 
 In this article, you learn how to create an Azure Operator Insights Data Product instance.
 
@@ -106,11 +106,11 @@ az group create --name "<ResourceGroup>" --location "<Region>"
 
 ## Set up resources for CMK-based data encryption or Microsoft Purview
 
-If you're using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
+If you plan to use CMK-based data encryption or Microsoft Purview, you must set up an Azure Key Vault instance and a user-assigned managed identity (UAMI) first.
 
-### Set up Azure Key Vault
+### Set up a key in an Azure Key Vault
 
-Azure key Vault Resource is used to store your Customer Managed Key (CMK) for data encryption. Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
+An Azure Key Vault instance stores your Customer Managed Key (CMK) for data encryption. The Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
 
 # [Portal](#tab/azure-portal)
 
@@ -212,13 +212,15 @@ You create the Azure Operator Insights Data Product resource.
 1. On the Basics tab of the **Create a Data Product** page:
     1. Select your subscription.
     1. Select the resource group you previously created for the Key Vault resource.
-    1. Under the Instance details, complete the following fields:
-       - Name - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
-       - Publisher - Select Microsoft.
-       - Product - Select Quality of Experience - Affirmed MCC GIGW or Monitoring - Affirmed MCC Data Product.
-       - Version - Select the version.
+    1. Under **Instance details**, complete the following fields:
+       - **Name** - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
+       - **Publisher** - Select the organization that created and published the Data Product that you want to deploy.
+       - **Product** - Select the name of the Data Product.
+       - **Version** - Select the version.
 
-     Select **Next**.
+     Select **Next: Advanced**.
+
+     :::image type="content" source="media/data-product-selection.png" alt-text="Screenshot of the Instance details section of the Basics configuration for a Data Product in the Azure portal.":::
    
 1. In the Advanced tab of the **Create a Data Product** page:
     1. Enable Purview if you're integrating with Microsoft Purview.
@@ -288,6 +290,9 @@ Once your Data Product instance is created, you can deploy a sample insights das
 The consumption URL also allows you to write your own Kusto query to get insights from the data.
 
 1. On the Overview page, copy the consumption URL and paste it in a new browser tab to see the database and list of tables.
+
+    :::image type="content" source="media/data-product-properties.png" alt-text="Screenshot of part of the Overview pane in the Azure portal, showing the consumption URL.":::
+
 1. Use the ADX query plane to write Kusto queries.
 
     * For Quality of Experience - Affirmed MCC GIGW, try the following queries:

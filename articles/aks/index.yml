@@ -8,8 +8,8 @@ metadata:
   description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   ms.service: azure-kubernetes-service
   ms.topic: landing-page
-  author: mgoedtel
-  ms.author: magoedte
+  author: nickomang
+  ms.author: nickoman
   ms.date: 01/12/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is AKS?
-            url: intro-kubernetes.md
+            url: what-is-aks.md
           - text: Get started with AKS
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
@@ -173,3 +173,4 @@ landingContent:
            url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
          - text: Troubleshoot common issues 
            url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
+

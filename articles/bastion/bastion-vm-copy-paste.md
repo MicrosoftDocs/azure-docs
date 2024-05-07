@@ -5,7 +5,7 @@ description: Learn how copy and paste to and from a Windows VM using Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 04/04/2024
 ms.author: cherylmc
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
@@ -34,7 +34,7 @@ By default, Azure Bastion is automatically enabled to allow copy and paste for a
 
 ## <a name="to"></a> Copy and paste
 
-For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
+For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette. Note that copy and paste isn't supported for passwords.
 
 > [!NOTE]
 > Only text copy/paste is currently supported.

@@ -18,6 +18,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
  - Data Box service is available in the Azure regions listed in [Region availability](data-box-disk-overview.md#region-availability).
  - A single storage account is supported with Data Box Disk.
+ - Data Box Disk can store a maximum of 100,000 files 
  - Data Box Disk supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
 
 ## Data Box Disk performance
@@ -49,7 +50,6 @@ For the latest information on Azure storage service limits and best practices fo
 - If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the Data Box Split Copy Tool (DataBoxDiskSplitCopy.exe) or the Data Box Disk Validation tool (DataBoxDiskValidation.cmd) will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
 - To improve performance during data uploads, we recommend that you [enable large file shares on the storage account and increase share capacity to 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account). Large file shares are only supported for storage accounts with locally redundant storage (LRS).
 - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available in the portal when the upload is complete and you can review the log to take corrective action. Don't delete data from the source without verifying the uploaded data.
-- File metadata and NTFS permissions aren't preserved when the data is uploaded to Azure Files. For example, the *Last modified* attribute of the files won't be kept when the data is copied.
 - If you specified managed disks in the order, review the following additional considerations:
 
     - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name doesn't match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.

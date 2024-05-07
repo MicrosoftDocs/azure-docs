@@ -152,7 +152,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
+   GRANT REPLICATION SLAVE ON *.* TO 'syncuser'@'%' REQUIRE SSL;
    ```
 
    *Replication without SSL*
@@ -161,7 +161,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+   GRANT REPLICATION SLAVE ON *.* TO 'syncuser'@'%';
    ```
 
    **MySQL Workbench**

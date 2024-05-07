@@ -13,7 +13,7 @@
     href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
-  - name: Vector store
+  - name: Vector search
     href: search-get-started-vector.md
   - name: Full text search
     href: search-get-started-text.md
@@ -25,8 +25,6 @@
     items:
     - name: Create an index
       href: search-get-started-portal.md
-    - name: Vectorize data (preview)
-      href: search-get-started-portal-import-vectors.md
     - name: Create a demo app
       href: search-create-app-portal.md
     - name: Create a skillset
@@ -125,7 +123,7 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Storage
+  - name: Data
     items:
     - name: Search index
       href: search-what-is-an-index.md
@@ -135,15 +133,17 @@
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
       href: search-what-is-data-import.md
-  - name: Enrichment
+    - name: Indexers
+      href: search-indexer-overview.md
+  - name: Applied AI
     items:
-    - name: Enrichment overview
+    - name: AI enrichment during indexing
       href: cognitive-search-concept-intro.md
     - name: Enrichment cache
       href: cognitive-search-incremental-indexing-conceptual.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
-    - name: Integrated vectorization (preview)
+    - name: Built-in vectorization (preview)
       href: vector-search-integrated-vectorization.md
   - name: Retrieval
     items:
@@ -180,17 +180,15 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Create a search service
-    href: search-create-service-portal.md
-  - name: Planning
+  - name: Service management
     items:
+    - name: Create a search service
+      href: search-create-service-portal.md
     - name: Choose a tier
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Vector index size limits
-      href: vector-search-index-size.md
-    - name: Plan capacity
+    - name: Plan and manage capacity
       href: search-capacity-planning.md
     - name: Plan and manage costs
       href: search-sku-manage-costs.md
@@ -200,23 +198,17 @@
       href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
-  - name: Development
-    items:
-    - name: API versions
-      href: search-api-versions.md
-    - name: Preview features
-      href: search-api-preview.md
-    - name: Handle concurrent updates
-      href: search-howto-concurrency.md
-    - name: Develop in .NET
-      href: search-howto-dotnet-sdk.md
-    - name: Upgrade .NET libraries
-      href: search-dotnet-sdk-migration-version-11.md
-    - name: Manage with Azure SDKs
-      href: search-dotnet-mgmt-sdk-migration.md
-    - name: Upgrade the REST API
-      href: search-api-migration.md
-  - name: Search indexes
+    - name: Manage in the portal
+      href: search-manage.md
+    - name: Manage with PowerShell
+      href: search-manage-powershell.md
+    - name: Manage with Azure CLI
+      href: search-manage-azure-cli.md
+    - name: Manage with REST
+      href: search-manage-rest.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
+  - name: Index management
     items:
     - name: Create a search index
       href: search-how-to-create-search-index.md
@@ -228,60 +220,8 @@
       href: search-howto-large-index.md
     - name: Drop and rebuild an index
       href: search-howto-reindex.md
-    - name: Configure a suggester for typeahead
-      href: index-add-suggesters.md
-    - name: Design a multi-language index
-      href: search-language-support.md
-    - name: Model complex data types
-      href: search-howto-complex-data-types.md
-    - name: Model relational data
-      href: index-sql-relational-data.md
-    - name: Analyzers
-      items:
-      - name: Analyzers overview
-        href: search-analyzers.md
-      - name: Add a language analyzer
-        href: index-add-language-analyzers.md
-      - name: Add a custom analyzer
-        href: index-add-custom-analyzers.md
-    - name: Synonyms
-      items:
-      - name: Add synonyms
-        href: search-synonyms.md
-      - name: Synonyms C# example
-        href: search-synonyms-tutorial-sdk.md
-  - name: Vector stores
-    items:
-    - name: Create a vector store
-      href: vector-search-how-to-create-index.md
-    - name: Configure a vectorizer (preview)
-      href: vector-search-how-to-configure-vectorizer.md
-    - name: Chunk documents
-      href: vector-search-how-to-chunk-documents.md
-    - name: Generate embeddings
-      href: vector-search-how-to-generate-embeddings.md
-  - name: Knowledge stores
-    items:
-    - name: Knowledge store overview
-      href: knowledge-store-concept-intro.md
-    - name: Knowledge store projections overview
-      href: knowledge-store-projection-overview.md
-    - name: Create using REST
-      href: knowledge-store-create-rest.md
-    - name: Shape data
-      href: knowledge-store-projection-shape.md
-    - name: Define projections
-      href: knowledge-store-projections-examples.md 
-    - name: Projection example
-      href: knowledge-store-projection-example-long.md
-    - name: Connect with Power BI
-      href: knowledge-store-connect-power-bi.md
-  - name: Indexers and skills
-    items:
     - name: Indexers
       items:
-      - name: Indexer overview
-        href: search-indexer-overview.md
       - name: Create an indexer
         href: search-howto-create-indexers.md
       - name: Run or reset indexers
@@ -290,16 +230,6 @@
         href: search-howto-schedule-indexers.md
       - name: Define field mappings
         href: search-indexer-field-mappings.md
-      - name: Connect with managed identities
-        items:
-        - name: Azure Storage
-          href: search-howto-managed-identities-storage.md
-        - name: Azure Cosmos DB
-          href: search-howto-managed-identities-cosmos-db.md
-        - name: SQL Database
-          href: search-howto-managed-identities-sql.md
-        - name: SQL Managed Instance
-          href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Portal indexing
         items:
         - name: Import data wizard
@@ -388,28 +318,60 @@
           href: cognitive-search-custom-skill-scale.md
         - name: Example - Bing Entity Search
           href: cognitive-search-create-custom-skill-example.md
-  - name: Queries (text and vector)
+  - name: Vector search
+    items:
+    - name: Create a vector index
+      href: vector-search-how-to-create-index.md
+    - name: Query vectors
+      href: vector-search-how-to-query.md
+    - name: Filter vectors
+      href: vector-search-filters.md
+    - name: Vector quotas and staying under limits
+      href: vector-search-index-size.md
+    - name: Configure quantization and storage (preview)
+      href: vector-search-how-to-configure-compression-storage.md
+    - name: Configure a vectorizer for queries (preview)
+      href: vector-search-how-to-configure-vectorizer.md
+    - name: Chunk documents
+      href: vector-search-how-to-chunk-documents.md
+    - name: Generate embeddings
+      href: vector-search-how-to-generate-embeddings.md
+    - name: Chunk and embed in Azure portal (preview)
+      href: search-get-started-portal-import-vectors.md
+  - name: Keyword search
     items:
     - name: Full text query
       href: search-query-create.md
-    - name: Vector query
-      href: vector-search-how-to-query.md
-    - name: Hybrid query
-      href: hybrid-search-how-to-query.md
     - name: Semantic query
       href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
-    - name: Use simple syntax (examples)
+    - name: Query examples (simple syntax)
       href: search-query-simple-examples.md
-    - name: Add spell check to queries
+    - name: Add spell check
       href: speller-how-to-add.md
+    - name: Add synonyms
+      href: search-synonyms.md
+    - name: Add a suggester for typeahead
+      href: index-add-suggesters.md
+    - name: Design a multilingual index
+      href: search-language-support.md
+    - name: Model complex data types
+      href: search-howto-complex-data-types.md
+    - name: Model relational data
+      href: index-sql-relational-data.md
+    - name: Analyzers
+      items:
+      - name: Analyzers overview
+        href: search-analyzers.md
+      - name: Add a language analyzer
+        href: index-add-language-analyzers.md
+      - name: Add a custom analyzer
+        href: index-add-custom-analyzers.md
     - name: Filters
       items:
       - name: Filters in text queries
         href: search-filters.md
-      - name: Filters in vector queries
-        href: vector-search-filters.md
       - name: Add faceted navigation
         href: search-faceted-navigation.md
       - name: Understand collection filters
@@ -424,6 +386,16 @@
         href: search-pagination-page-layout.md
       - name: Return a semantic answer
         href: semantic-answers.md
+    - name: Relevance
+      items:
+      - name: Enable or disable semantic ranking
+        href: semantic-how-to-enable-disable.md      
+      - name: Configure semantic ranking
+        href: semantic-how-to-configure.md
+      - name: Configure BM25 ranking
+        href: index-ranking-similarity.md
+      - name: Add a scoring profile
+        href: index-add-scoring-profiles.md
     - name: Advanced queries
       items:
       - name: Use full Lucene (examples)
@@ -432,46 +404,8 @@
         href: search-query-partial-matching.md
       - name: Fuzzy search
         href: search-query-fuzzy.md
-  - name: Relevance
-    items:
-    - name: Enable or disable semantic ranking
-      href: semantic-how-to-enable-disable.md      
-    - name: Configure semantic ranking
-      href: semantic-how-to-configure.md
-    - name: Configure BM25 ranking
-      href: index-ranking-similarity.md
-    - name: Add a scoring profile
-      href: index-add-scoring-profiles.md
-  - name: Monitoring and performance
-    items:
-    - name: Monitor
-      href: monitor-azure-cognitive-search.md
-    - name: Monitor queries
-      href: search-monitor-queries.md
-    - name: Monitor indexer-based indexing
-      href: search-howto-monitor-indexers.md
-    - name: Monitor client-side interactions
-      href: search-traffic-analytics.md
-    - name: Visualize resource logs
-      href: search-monitor-logs-powerbi.md
-    - name: Performance analysis
-      href: search-performance-analysis.md
-    - name: Performance benchmarks
-      href: performance-benchmarks.md
-    - name: Tips for better performance
-      href: search-performance-tips.md
-  - name: Service management
-    items:
-    - name: Manage in the portal
-      href: search-manage.md
-    - name: Manage with PowerShell
-      href: search-manage-powershell.md
-    - name: Manage with Azure CLI
-      href: search-manage-azure-cli.md
-    - name: Manage with REST
-      href: search-manage-rest.md
-    - name: Move service across regions
-      href: search-howto-move-across-regions.md
+  - name: Hybrid search
+    href: hybrid-search-how-to-query.md
   - name: Security
     items:
     - name: Inbound connections
@@ -493,7 +427,17 @@
       - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect using a managed identity
-        href: search-howto-managed-identities-data-sources.md
+        items:
+        - name: Any Azure resource
+          href: search-howto-managed-identities-data-sources.md
+        - name: Azure Storage
+          href: search-howto-managed-identities-storage.md
+        - name: Azure Cosmos DB
+          href: search-howto-managed-identities-cosmos-db.md
+        - name: SQL Database
+          href: search-howto-managed-identities-sql.md
+        - name: SQL Managed Instance
+          href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through a shared private link
@@ -512,6 +456,56 @@
         href: search-security-trimming-for-azure-search.md
       - name: Security filters with Microsoft Entra ID
         href: search-security-trimming-for-azure-search-with-aad.md
+  - name: Development
+    items:
+    - name: API versions
+      href: search-api-versions.md
+    - name: Preview features
+      href: search-api-preview.md
+    - name: Handle concurrent updates
+      href: search-howto-concurrency.md
+    - name: Develop in .NET
+      href: search-howto-dotnet-sdk.md
+    - name: Upgrade .NET libraries
+      href: search-dotnet-sdk-migration-version-11.md
+    - name: Manage with Azure SDKs
+      href: search-dotnet-mgmt-sdk-migration.md
+    - name: Upgrade the REST API
+      href: search-api-migration.md
+  - name: Monitoring and performance
+    items:
+    - name: Monitor
+      href: monitor-azure-cognitive-search.md
+    - name: Monitor queries
+      href: search-monitor-queries.md
+    - name: Monitor indexer-based indexing
+      href: search-howto-monitor-indexers.md
+    - name: Monitor client-side interactions
+      href: search-traffic-analytics.md
+    - name: Visualize resource logs
+      href: search-monitor-logs-powerbi.md
+    - name: Performance analysis
+      href: search-performance-analysis.md
+    - name: Performance benchmarks
+      href: performance-benchmarks.md
+    - name: Tips for better performance
+      href: search-performance-tips.md
+  - name: Knowledge store
+    items:
+    - name: Knowledge store overview
+      href: knowledge-store-concept-intro.md
+    - name: Knowledge store projections overview
+      href: knowledge-store-projection-overview.md
+    - name: Create using REST
+      href: knowledge-store-create-rest.md
+    - name: Shape data
+      href: knowledge-store-projection-shape.md
+    - name: Define projections
+      href: knowledge-store-projections-examples.md 
+    - name: Projection example
+      href: knowledge-store-projection-example-long.md
+    - name: Connect with Power BI
+      href: knowledge-store-connect-power-bi.md
 - name: Responsible AI
   items:
   - name: Transparency note

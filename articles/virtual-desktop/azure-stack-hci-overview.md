@@ -4,7 +4,7 @@ description: Learn about using Azure Virtual Desktop with Azure Stack HCI, enabl
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/24/2024
+ms.date: 04/11/2024
 ---
 
 # Azure Virtual Desktop with Azure Stack HCI
@@ -76,9 +76,7 @@ Azure Virtual Desktop with Azure Stack HCI has the following limitations:
 - You can't use some Azure Virtual Desktop features when session hosts running on Azure Stack HCI, such as:
     
     - [Azure Virtual Desktop Insights](insights.md)
-    - [Autoscale](autoscale-scaling-plan.md)
     - [Session host scaling with Azure Automation](set-up-scaling-script.md)
-    - [Start VM On Connect](start-virtual-machine-connect.md)
     - [Per-user access pricing](licensing.md)
 
 - Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.

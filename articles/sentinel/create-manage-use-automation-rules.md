@@ -4,7 +4,7 @@ description: This article explains how to create and use automation rules in Mic
 ms.topic: how-to
 author: batamig
 ms.author: bagol
-ms.date: 03/14/2024
+ms.date: 04/03/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -34,7 +34,7 @@ The first step in designing and defining your automation rule is figuring out wh
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
 - Create tasks for your analysts to follow in triaging, investigating, and remediating incidents.
-- Suppress noisy incidents. (Alternately use other methods to [handle false positives in Microsoft Sentinel](false-positives.md).)
+- Suppress noisy incidents. (Alternatively, use other methods to [handle false positives in Microsoft Sentinel](false-positives.md).)
 - Triage new incidents by changing their status from New to Active and assigning an owner.
 - Tag incidents to classify them.
 - Escalate an incident by assigning a new owner.
@@ -52,9 +52,9 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
-| **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
+| **When incident is created** | **Unified security operations platform in Microsoft Defender:**<li>A new incident is created in the Microsoft Defender portal.<br><br>**Microsoft Sentinel not onboarded to unified platform:**<li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
+| **When incident is updated** | <li>An incident's status is changed (closed/reopened/triaged).<li>An incident's owner is assigned or changed.<li>An incident's severity is raised or lowered.<li>Alerts are added to an incident.<li>Comments, tags, or tactics are added to an incident. |
+| **When alert is created** | <li>An alert is created by a Microsoft Sentinel **Scheduled** or **NRT** analytics rule. |
 
 ## Create your automation rule
 
@@ -91,6 +91,8 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 Use the options in the **Conditions** area to define conditions for your automation rule.
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (*Contains*) or exclusive (*Does not contain*), and then select the analytic rule name from the drop-down list.
+
+    Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
 
 - Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations platform:
 
@@ -143,28 +145,72 @@ Use the options in the **Conditions** area to define conditions for your automat
 1. Select an operator from the next drop-down box to the right.
     :::image type="content" source="media/create-manage-use-automation-rules/select-operator.png" alt-text="Screenshot of selecting a condition operator for automation rules.":::
 
-The list of operators you can choose from varies according to the selected trigger and property. 
+    The list of operators you can choose from varies according to the selected trigger and property. 
 
-#### Conditions available with the create trigger
+    #### Conditions available with the create trigger
 
-| Property | Operator set |
-| -------- | -------- |
-| - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>-Ends with/Does not end with |
-| - Severity<br>- Status<br>- Custom details key (Preview) | -Equals/Does not equal |
-| - Tactics<br>- Alert product names<br>- Custom details value (Preview) <br>- Analytic rule name| - Contains/Does not contain |
+    | Property | Operator set |
+    | -------- | -------- |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
+    | - **Severity**<br>- **Status**<br>- **Custom details key** | - Equals/Does not equal |
+    | - **Tactics**<br>- **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
 
-#### Conditions available with the update trigger
+    #### Conditions available with the update trigger
 
-| Property | Operator set |
-| -------- | -------- |
-| - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>-Ends with/Does not end with |
-| - Tag (in addition to above)<br>- Alerts<br>- Comments | - Added |
-| - Severity<br>- Status | - Equals/Does not equal<br>- Changed<br>- Changed from<br>-Changed to |
-| - Owner | - Changed |
-| - Updated by<br>- Custom details key (Preview) | - Equals/Does not equal |
-| - Tactics | - Contains/Does not contain<br>- Added |
-| - Alert product names<br>- Custom details value (Preview) <br>- Analytic rule name| - Contains/Does not contain |
+    | Property | Operator set |
+    | -------- | -------- |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
+    | - **Tag** (in addition to above)<br>- **Alerts**<br>- **Comments** | - Added |
+    | - **Severity**<br>- **Status** | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
+    | - **Owner** | - Changed |
+    | - **Updated by**<br>- **Custom details key** | - Equals/Does not equal |
+    | - **Tactics** | - Contains/Does not contain<br>- Added |
+    | - **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
 
+    #### Conditions available with the alert trigger
+
+    The only condition that can be evaluated by rules based on the alert creation trigger is which Microsoft Sentinel analytics rule created the alert.
+
+    Automation rules based on the alert trigger will therefore only run on alerts created by Microsoft Sentinel.
+
+1. Enter a value in the field on the right. Depending on the property you chose, this might be either a text box or a drop-down in which you select from a closed list of values. You might also be able to add several values by selecting the dice icon to the right of the text box.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
+
+Again, for setting complex **Or** conditions with different fields, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
+
+#### Conditions based on tags
+
+You can create two kinds of conditions based on tags:
+
+- Conditions with **Any individual tag** operators evaluate the specified value against every tag in the collection. The evaluation is *true* when *at least one tag* satisfies the condition.
+- Conditions with **Collection of all tags** operators evaluate the specified value against the collection of tags as a single unit. The evaluation is *true* only if *the collection as a whole* satisfies the condition.
+
+To add one of these conditions based on an incident's tags, take the following steps:
+
+1. Create a new automation rule as described above.
+
+1. Add a condition or a condition group.
+
+1. Select **Tag** from the properties drop-down list.
+
+1. Select the operators drop-down list to reveal the available operators to choose from.
+
+    ##### [Onboarded workspaces](#tab/onboarded)
+
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-defender.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for onboarded workspaces." lightbox="media/create-manage-use-automation-rules/tag-create-condition-defender.png":::
+
+    ##### [Workspaces not onboarded](#tab/not-onboarded)
+
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-azure.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for non-onboarded workspaces." lightbox="media/create-manage-use-automation-rules/tag-create-condition-azure.png":::
+
+    ---
+
+    See how the operators are divided in two categories as described before. Choose your operator carefully based on how you want the tags to be evaluated.
+
+    For more information, see [*Tag* property: individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection).
 
 #### Conditions based on custom details
 
@@ -182,7 +228,7 @@ You can set the value of a [custom detail surfaced in an incident](surface-custo
 
     :::image type="content" source="media/create-manage-use-automation-rules/custom-detail-key-condition.png" alt-text="Screenshot of adding a custom detail key as a condition.":::
 
-1. You've now chosen the field you want to evaluate for this condition. Now you have to specify the value appearing in that field that will make this condition evaluate to *true*.  
+1. You chose the field you want to evaluate for this condition. Now specify the value appearing in that field that makes this condition evaluate to *true*.  
 Select **+ Add item condition**.
 
     :::image type="content" source="media/create-manage-use-automation-rules/add-item-condition.png" alt-text="Screenshot of selecting add item condition for automation rules.":::

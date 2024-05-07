@@ -19,10 +19,11 @@ ms.custom: mode-other
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  Learn about enabling phone system with `voice` [here](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
-Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_OutboundCalling).
 
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_OutboundCalling).
 
 Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
@@ -45,6 +46,7 @@ Next update your `Program.cs` file with the following values:
 - `acsPhonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetPhonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `cognitiveServiceEndpoint`: update field with your Azure AI services endpoint.
+- `targetTeamsUserId`: (Optional) update field with the Microsoft Teams user Id you would like to add to the call. See [Use Graph API to get Teams user Id](../../../how-tos/call-automation/teams-interop-call-automation.md#step-2-use-the-graph-api-to-get-microsoft-entra-object-id-for-teams-users-and-optionally-check-their-presence).
 
 ```csharp
 // Your ACS resource connection string 
@@ -60,7 +62,10 @@ var targetPhonenumber = "<TARGET_PHONE_NUMBER>";
 var callbackUriHost = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"; 
 
 // Your cognitive service endpoint 
-var cognitiveServiceEndpoint = "<COGNITIVE_SERVICE_ENDPOINT>"; 
+var cognitiveServiceEndpoint = "<COGNITIVE_SERVICE_ENDPOINT>";
+
+// (Optional) User Id of the target teams user you want to receive the call.
+var targetTeamsUserId = "<TARGET_TEAMS_USER_ID>";
 ```
 
 ## Make an outbound call
@@ -99,6 +104,18 @@ app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, ILogger < Program
 });
 ```
 
+## (Optional) Add a Microsoft Teams user to the call
+
+You can add a Microsoft Teams user to the call using the `AddParticipantAsync` method with a `MicrosoftTeamsUserIdentifier` and the Teams user's Id. You first need to complete the prerequisite step [Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users](../../../how-tos/call-automation/teams-interop-call-automation.md#step-1-authorization-for-your-azure-communication-services-resource-to-enable-calling-to-microsoft-teams-users). Optionally, you can also pass in a `SourceDisplayName` to control the text displayed in the toast notification for the Teams user.
+
+```csharp
+await callConnection.AddParticipantAsync(
+    new CallInvite(new MicrosoftTeamsUserIdentifier(targetTeamsUserId))
+    {
+        SourceDisplayName = "Jack (Contoso Tech Support)"
+    });
+```
+
 ## Start recording a call
 
 The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](../../voice-video-calling/get-started-call-recording.md).
@@ -109,9 +126,9 @@ var recordingResult = await callAutomationClient.GetCallRecording().StartAsync(n
 recordingId = recordingResult.Value.RecordingId;
 ```
 
-## Play welcome message and recognize 
+## Play welcome message and recognize
 
-Using the `TextSource`, you can provide the service with the text you want synthesized and used for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
+Using the `TextSource`, you can provide the service with the text you want synthesized and used for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event.
 
 Next, we pass the text into the `CallMediaRecognizeChoiceOptions` and then call `StartRecognizingAsync`. This allows your application to recognize the option the caller chooses.
 
@@ -192,8 +209,8 @@ async Task HandlePlayAsync(CallMedia callConnectionMedia, string text) {
   };
   await callConnectionMedia.PlayToAllAsync(GoodbyePlaySource);
 }
-
 ```
+
 ## Hang up and stop recording
 
 Finally, when we detect a condition that makes sense for us to terminate the call, we can use the `HangUpAsync` method to hang up the call.
@@ -220,5 +237,3 @@ dotnet run
 # [Visual Studio](#tab/visual-studio)
 
 Press Ctrl+F5 to run without the debugger.
-
-

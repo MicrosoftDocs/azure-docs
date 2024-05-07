@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action'
+    - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
 
     - uses: azure/docker-login@v1

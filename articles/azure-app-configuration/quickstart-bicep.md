@@ -24,6 +24,10 @@ This quickstart describes how you can use Bicep to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Authorization
+
+Managing an Azure App Configuration resource with Bicep file requires an Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires an Azure Resource Manager role and an additional Azure App Configuration [data plane role](concept-enable-rbac.md) when the configuration store's ARM authentication mode is set to [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
+
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/).

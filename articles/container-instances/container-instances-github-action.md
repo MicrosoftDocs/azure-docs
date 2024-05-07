@@ -249,9 +249,9 @@ jobs:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
         - name: 'Build and push image'
-          uses: azure/docker-login@v1
+          uses: docker/login-action@v3
           with:
-            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            registry: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |

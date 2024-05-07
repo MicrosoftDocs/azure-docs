@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/22/2023
+ms.date: 04/11/2024
 ms.topic: how-to
 ms.custom:
   - build-2023
@@ -20,7 +20,9 @@ ms.custom:
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet.
+Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet. The managed VNet secures your managed Azure Machine Learning resources, such as compute instances, compute clusters, serverless compute, and managed online endpoints. 
+
+Securing your workspace with a *managed network* provides network isolation for __outbound__ access from the workspace and managed computes. An *Azure Virtual Network that you create and manage* is used to provide network isolation __inbound__ access to the workspace. For example, a private endpoint for the workspace is created in your Azure Virtual Network. Any clients connecting to the virtual network can access the workspace through the private endpoint. When running jobs on managed computes, the managed network restricts what the compute can access.
 
 ## Managed Virtual Network Architecture
 
@@ -808,12 +810,9 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Manually provision a managed VNet
 
-The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. 
+The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute creation, or your first managed online endpoint deployment, to time out.
 
-To reduce the wait time when someone attempts to create the first compute, you can manually provision the managed VNet after creating the workspace without creating a compute resource:
-
-> [!NOTE]
-> If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed VNet. If you don't disable public network access when provisioning the managed VNet, the private endpoints for the managed endpoint may not be created successfully.
+To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute resource or managed online endpoint deployment.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -824,6 +823,12 @@ The following example shows how to provision a managed VNet.
 
 ```azurecli
 az ml workspace provision-network -g my_resource_group -n my_workspace_name
+```
+
+To verify that the provisioning has completed, use the following command:
+
+```azurecli
+az ml workspace show -n my_workspace_name -g my_resource_group --query managed_network
 ```
 
 # [Python SDK](#tab/python)
@@ -838,6 +843,13 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 include_spark = True
 
 provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
+```
+
+To verify that the workspace has been provisioned, use `ml_client.workspaces.get()` to get the workspace information. The `managed_network` property contains the status of the managed network.
+
+```python
+ws = ml_client.workspaces.get()
+print(ws.managed_network.status)
 ```
 
 # [Azure portal](#tab/portal)
@@ -1065,6 +1077,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Database for PostgreSQL
 * Azure Database for MySQL
 * Azure SQL Managed Instance
+* Azure API Management
 
 When you create a private endpoint, you provide the _resource type_ and _subresource_ that the endpoint connects to. Some resources have multiple types and subresources. For more information, see [what is a private endpoint](/azure/private-link/private-endpoint-overview).
 

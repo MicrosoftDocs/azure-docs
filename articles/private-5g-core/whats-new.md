@@ -17,12 +17,32 @@ ms.date: 12/21/2023
 
 To help you stay up to date with the latest developments, this article covers:
 
-- New features, improvements and fixes for the online service.
+- New features, improvements, and fixes for the online service.
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## April 2024
+### Packet core 2403
+
+**Type:** New release
+
+**Date available:** April 4, 2024
+
+The 2403 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2403 release notes](azure-private-5g-core-release-notes-2403.md).
+
+### TCP Maximum Segment Size (MSS) Clamping
+
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core now automatically sets this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+
+### Improved Packet Core Scaling 
+
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario.
+
+For details, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
+
 ## March 2024
+
 ### Azure Policy support
 
 **Type:** New feature
@@ -42,7 +62,7 @@ See [Azure Policy policy definitions for Azure Private 5G Core](azure-policy-ref
 
 **Date available:** March 22, 2024
 
-The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). The concealment is performed by the UEs on registration, and deconcealment is performed by the packet core. You can now securely manage the required private keys through the Azure Portal and provision SIMs with public keys.
+The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). The concealment is performed by the UEs on registration, and deconcealment is performed by the packet core. You can now securely manage the required private keys through the Azure portal and provision SIMs with public keys.
 
 For more information, see [Enable SUPI concealment](supi-concealment.md).
 

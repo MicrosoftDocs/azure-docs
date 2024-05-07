@@ -45,6 +45,8 @@ import com.azure.storage.file.datalake.models.*;
 import com.azure.storage.file.datalake.options.*;
 ```
 
+[!INCLUDE [data-lake-storage-sdk-note](../../../includes/data-lake-storage-sdk-note.md)]
+
 ## Authorize access and connect to data resources
 
 To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Microsoft Entra ID, an account access key, or a shared access signature (SAS).

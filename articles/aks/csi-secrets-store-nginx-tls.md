@@ -509,3 +509,4 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
+

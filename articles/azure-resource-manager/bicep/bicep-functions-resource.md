@@ -296,7 +296,6 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/aiservices/accountmanagement/accounts/list-keys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |

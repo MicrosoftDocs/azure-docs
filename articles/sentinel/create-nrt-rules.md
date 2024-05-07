@@ -20,7 +20,7 @@ For the time being, these templates have limited application as outlined below, 
 
 ## View near-real-time (NRT) rules
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
@@ -30,7 +30,7 @@ For the time being, these templates have limited application as outlined below, 
 
     1. From the resulting list, select **NRT**. Then select **Apply**.
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
 
@@ -46,7 +46,7 @@ For the time being, these templates have limited application as outlined below, 
 
 You create NRT rules the same way you create regular [scheduled-query analytics rules](detect-threats-custom.md):
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
@@ -54,7 +54,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
 

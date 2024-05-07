@@ -5,7 +5,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: allensu
-ms.date: 04/02/2024
+ms.date: 12/05/2023
 author: asudbring
 #Customer intent: As a cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
@@ -178,7 +178,8 @@ For information on how to override Azure's default system routes or add addition
 This section covers three network rules and an application rule you can use to configure on your firewall. You may need to adapt these rules based on your deployment.
 
 * The first network rule allows access to port 9000 via TCP.
-* The second network rule allows access to port 1194 via UDP. If you're deploying to Microsoft Azure operated by 21Vianet, see the [Azure operated by 21Vianet required network rules](./outbound-rules-control-egress.md#microsoft-azure-operated-by-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
+* The second network rule allows access to port 1194 and 123 via UDP. If you're deploying to Microsoft Azure operated by 21Vianet, see the [Azure operated by 21Vianet required network rules](./outbound-rules-control-egress.md#microsoft-azure-operated-by-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
+* The third network rule opens port 123 to `ntp.ubuntu.com` FQDN via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, so you'll need to adapt it when using your own options.
 * The fourth and fifth network rules allow access to pull containers from GitHub Container Registry (ghcr.io) and Docker Hub (docker.io).
 
 1. Create the network rules using the [`az network firewall network-rule create`][az-network-firewall-network-rule-create] command.
@@ -187,6 +188,8 @@ This section covers three network rules and an application rule you can use to c
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
 
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
+
+    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
 
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'ghcr' --protocols 'TCP' --source-addresses '*' --destination-fqdns ghcr.io pkg-containers.githubusercontent.com --destination-ports '443'
 
@@ -439,3 +442,4 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

@@ -181,7 +181,7 @@ sections:
       - question: |
           Why does Defender for Cloud show user accounts without permissions on the subscription as "requiring MFA"?
         answer: |
-          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
+          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.yml) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
 
  
       - question: |
@@ -204,7 +204,7 @@ sections:
           1. Select an MFA recommendation associated with an unhealthy account.
           1. In the Accounts tab, select an account to exempt.
           1. Select the three dots button, then select **Exempt account**.
-          1. Select a scope and exemption reason. 
+          1. Select a scope and exemption reason.
 
           If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
 

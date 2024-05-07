@@ -34,7 +34,7 @@ The following IoT device over the air update types are currently supported with 
     * [Proxy update for downstream devices](device-update-howto-proxy-updates.md)
 
 * Constrained devices:
-    * AzureRTOS Device Update agent samples: [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
+    * Eclipse ThreadX Device Update agent samples: [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
 
 * Disconnected devices:
     * [Understand support for disconnected device update](connected-cache-disconnected-device-update.md)

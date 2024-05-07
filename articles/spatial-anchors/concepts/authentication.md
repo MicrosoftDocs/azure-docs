@@ -101,7 +101,7 @@ For applications that target Microsoft Entra users, we recommend that you use a 
     4.  Select **Add permissions**.
 1.  Select **Grant admin consent**.
 
-1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Microsoft Entra ID and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Microsoft Entra ID and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 **In your code**
 1.    Be sure to use the application ID and redirect URI of your own Microsoft Entra application for the **client ID** and **RedirectUri** parameters in MSAL.
@@ -171,7 +171,7 @@ The Microsoft Entra access token is retrieved via the [MSAL](../../active-direct
         2.    Select **New registration**.
         3.    Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Select **Create**.
 1.    On the application, select **Settings**, and then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and then select **Add**. Be sure to save the secret value. You'll need to include it in your web service's code.
-1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Microsoft Entra ID and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign an [ASA RBAC role](#azure-role-based-access-control) to the application or users that you want to give access to your resource. If you want your application's users to have different roles against the ASA account, register multiple applications in Microsoft Entra ID and assign a separate role to each one. Then implement your authorization logic to use the right role for your users. For detailed role assignment steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 **In your code**
 

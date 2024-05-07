@@ -6,7 +6,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: asudbring
 ms.service: nat-gateway
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 04/29/2024
 ms.author: allensu
 ms.custom: FY23 content-maintenance
 #Customer intent: I want to understand what Azure NAT Gateway is and how to use it.
@@ -18,7 +18,7 @@ Azure NAT Gateway is a fully managed and highly resilient Network Address Transl
 
 NAT Gateway provides dynamic SNAT port functionality to automatically scale outbound connectivity and reduce the risk of SNAT port exhaustion. 
 
-:::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix.":::
+:::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP address.":::
 
 *Figure: Azure NAT Gateway*
 
@@ -101,7 +101,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 ### Traffic routes
 
-* NAT gateway replaces a subnet’s [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) to the internet when configured. When NAT gateway is attached to the subnet, all traffic within the 0.0.0.0/0 prefix routes to NAT gateway before connecting outbound to the internet.
+* The subnet has a [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) that routes traffic with destination 0.0.0.0/0 to the internet automatically. Once NAT gateway is configured to the subnet, communication from the virtual machines existing in the subnet to the internet will prioritize using the public IP of the NAT gateway.
 
 * You can override NAT gateway as a subnet’s system default route to the internet with the creation of a custom user-defined route (UDR) for 0.0.0.0/0 traffic.
 
@@ -109,7 +109,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 * Outbound connectivity follows this order of precedence among different routing and outbound connectivity methods:
 
-    * Virtual appliance UDR / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-level public IP address on a virtual machine >> Load balancer outbound rules >> default system route to the internet.
+    * UDR with Virtual appliance / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-level public IP address on a virtual machine >> Load balancer outbound rules >> default system route to the internet.
 
 ### NAT gateway configurations
 
