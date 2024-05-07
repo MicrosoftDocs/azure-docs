@@ -543,8 +543,8 @@
             "redirect_document_id": true
     },
       {
-            "source_path_from_root": "/articles/healthcare-apis/fhir/get-started-with-health-data-services.md",
-            "redirect_url": "/azure/healthcare-apis/fhir/health-data-services-get-started",
+            "source_path_from_root": "/articles/healthcare-apis/get-started-with-health-data-services.md",
+            "redirect_url": "/azure/healthcare-apis/health-data-services-get-started",
             "redirect_document_id": true
     },
       {
