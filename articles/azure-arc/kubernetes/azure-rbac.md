@@ -731,6 +731,8 @@ Update the secret on the cluster. Include any optional parameters you configured
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
 
+---
+
 ## Next steps
 
 - Securely connect to the cluster by using [Cluster Connect](cluster-connect.md).
