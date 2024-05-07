@@ -162,9 +162,8 @@ Programming languages
 ## Installing your own tools
 
 If you configured Cloud Shell to use a storage account, you can install your own tools. You can
-install any tool that doesn't require root permissions. For example, you can install a Python
-packages, PowerShell modules, or Node.js packages, and most packages that can be installed with
-`wget`.
+install any tool that doesn't require root permissions. For example, you can install Python modules,
+PowerShell modules, Node.js packages, and most packages that can be installed with `wget`.
 
 ## Next steps
 
