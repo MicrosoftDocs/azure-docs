@@ -36,7 +36,7 @@ You should have successfully created the Network Fabric for this on-premises dep
 Each Operator Nexus on-premises instance has a one-to-one association
 with a Network Fabric.
 
-Create the Cluster using AZ CLI:
+### Create the Cluster using AZ CLI:
 
 ```azurecli
 az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
@@ -108,7 +108,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 
 
-Create the Cluster using Azure Resource Manager template editor:
+### Create the Cluster using Azure Resource Manager template editor:
 
 An alternate way to create a Cluster is with the ARM template editor.  [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
 
@@ -121,15 +121,15 @@ You can find examples of these two files here:
 Note:  To get the correct formatting, copy the raw code file.  The values within the cluster.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
 
 
-Click on Build your own template in the editor.
-Click on Load file. Locate your cluster.jsonc template file and upload it.
-Click Save.
-Click Edit parameters.
-Click Load file.  Locate your cluster.parameters.jsonc parameters file and upload it.
-Click Save.
-Select the correct Subscription.
-Search for the Resource group if it already exists or create new.
-Make sure all Instance Details are correct.
+Click on Build your own template in the editor. \
+Click on Load file. Locate your cluster.jsonc template file and upload it. \
+Click Save. \
+Click Edit parameters. \
+Click Load file.  Locate your cluster.parameters.jsonc parameters file and upload it. \
+Click Save. \
+Select the correct Subscription. \
+Search for the Resource group if it already exists or create new. \
+Make sure all Instance Details are correct. \
 Click Review + create.
 
 
