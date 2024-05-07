@@ -1,6 +1,6 @@
 ---
-title: tbd
-description: tbd
+title: Use the Adaptive annotation API in Azure AI Content Safety
+description: Use the Adaptive annotation API to have your GPT-4 resource annotate text according to your customized categories.
 titleSuffix: Azure AI services
 author: PatrickFarley
 manager: nitinme
@@ -24,9 +24,7 @@ However, with their extensive capabilities of natural language understanding, GP
 > The sample code in this guide could contain offensive content, user discretion is advised.
 
 
-### Response sub-category in output
 
-We support outputting a single sub-category but not multiple sub-categories. If you want to define the final sub-category out of multiple, please note in the emphases, like "If the text hits multiple sub-categories, output the maximum sub-category".
 
 ## Prerequisites
 
@@ -78,7 +76,7 @@ The following sample code creates a customized category with two sub-categories:
 
 #### [cURL](#tab/curl)
 ```bash
-curl --location --request PUT '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2024-04-15tbd' \
+curl --location --request PUT '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2024-04-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -110,7 +108,7 @@ import requests
 import json
 
 endpoint = "<endpoint>"
-url = endpoint+"/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview"
+url = endpoint+"/contentsafety/text/categories/Customized_Test?api-version=2024-04-15-preview"
 
 headers = {
   "Ocp-Apim-Subscription-Key": '<api_key>',
@@ -167,6 +165,9 @@ If you use an example blob URL, the _.jsonl_ file should contain examples in the
 }
 ```
 
+### Response sub-category in output
+
+We support outputting a single sub-category but not multiple sub-categories. If you want to define the final sub-category out of multiple, please note in the emphases, like "If the text hits multiple sub-categories, output the maximum sub-category".
 
 ## Perform annotation on input text
 
@@ -176,7 +177,7 @@ The following sample code annotates the input text `"I want to kill a cat"` with
 
 #### [cURL](#tab/curl)
 ```bash
-curl --location '<endpoint>/contentsafety/text:adaptiveAnnotate?api-version=2023-10-30-preview' \
+curl --location '<endpoint>/contentsafety/text:adaptiveAnnotate?api-version=2024-04-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -192,7 +193,7 @@ import requests
 import json
 
 endpoint = "<endpoint>"
-url = endpoint+"/contentsafety/text:adaptiveAnnotate?api-version=2023-10-30-preview"
+url = endpoint+"/contentsafety/text:adaptiveAnnotate?api-version=2024-04-15-preview"
 
 headers = {
   "Ocp-Apim-Subscription-Key": '<api_key>',
@@ -233,7 +234,7 @@ Format the request body in the following schema:
 
 #### [cURL](#tab/curl)
 ```bash
-curl --location '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview' \
+curl --location '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2024-04-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>'
 ```
 
@@ -244,7 +245,7 @@ import requests
 import json
 
 endpoint = "<endpoint>"
-url = endpoint+"/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview"
+url = endpoint+"/contentsafety/text/categories/Customized_Test?api-version=2024-04-15-preview"
 
 headers = {
   "Ocp-Apim-Subscription-Key": '<api_key>',
@@ -263,7 +264,7 @@ print(response.text)
 #### [cURL](#tab/curl)
 
 ```bash
-curl --location '<endpoint>/contentsafety/text/categories?api-version=2023-10-30-preview' \
+curl --location '<endpoint>/contentsafety/text/categories?api-version=2024-04-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>'
 ```
 
@@ -274,7 +275,7 @@ import requests
 import json
 
 endpoint = "<endpoint>"
-url = endpoint+"/contentsafety/text/categories?api-version=2023-10-30-preview"
+url = endpoint+"/contentsafety/text/categories?api-version=2024-04-15-preview"
 
 headers = {
   "Ocp-Apim-Subscription-Key": '<api_key>',
@@ -292,7 +293,7 @@ print(response.text)
 
 #### [cURL](#tab/curl)
 ```bash
-curl --location --request DELETE '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2024-04-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>'
 ```
 
@@ -302,7 +303,7 @@ import requests
 import json
 
 endpoint = "<endpoint>"
-url = endpoint+"/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview"
+url = endpoint+"/contentsafety/text/categories/Customized_Test?api-version=2024-04-15-preview"
 
 headers = {
   "Ocp-Apim-Subscription-Key": '<api_key>',
