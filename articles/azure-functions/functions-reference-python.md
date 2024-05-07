@@ -480,19 +480,20 @@ For data intensive binding operations, you may want to use a separate storage ac
 
 ## SDK type bindings (Preview)
 ::: zone pivot="python-mode-configuration"  
+Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered. 
 
-Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable you to use types from service SDKs and frameworks, providing more capability beyond what is currently offered. To use SDK type bindings in Azure Functions with Python, please use the v2 programming model.
-
+To use SDK type bindings in Azure Functions with Python, please use the v2 programming model.
 ::: zone-end
 
-::: zone pivot="python-mode-decorators" 
+::: zone pivot="python-mode-decorators". 
+Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered.   
 
-Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable you to use types from service SDKs and frameworks, providing more capability beyond what is currently offered.   
+When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
 
-Specifically, SDK type bindings for Azure Storage Blob enable the following key scenarios:  
+Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model.
 
-* Downloading and uploading blobs of large sizes, reducing current memory limitations and GRPC limits.  
-* Improved performance by using blobs with Azure Functions
+Only Azure Storage Blob SDK type bindings are supported for Azure Functions in Python.
+
 
 ### Prerequisites
 
@@ -501,7 +502,7 @@ Specifically, SDK type bindings for Azure Storage Blob enable the following key 
 
 ### Enable SDK type bindings for Azure Storage Blob
 
-* Install the extension package
+#### Install the extension package
 
 Add the following to the `requirements.txt` file in the project
 
@@ -510,7 +511,7 @@ azure-functions
 azure-functions-extension-blob
 ```
 
-* Import the library
+#### Import the library
 
 Add the following to the `function_app.py` file in the project
 
@@ -558,27 +559,23 @@ def blob_input(req: func.HttpRequest, client: blob.BlobClient):
 
 Check out more examples, including using ContainerClient and StorageStreamDownloader types on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples].
 
-Note, only Azure Storage Blob SDK type bindings are supported for Azure Functions in Python.
-
 ::: zone-end
 
 ## HTTP streams (Preview)
 ::: zone pivot="python-mode-configuration" 
 
-Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
+Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
 
 To use HTTP streams in Azure Functions with Python, please use the v2 programming model.
 
 ::: zone-end
 
 ::: zone pivot="python-mode-decorators"
-Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
+Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
 
-This feature enables new scenarios including processing large data streaming OpenAI responses and delivering dynamic content. You can leverage this feature for use cases where real time exchange and interaction between client and server over HTTP connections is needed. Additionally, FastAPI response types are supported with this feature. 
+For scenarios where real time exchange and interaction between client and server over HTTP connections is needed, this feature will be helpful. Additionally, FastAPI response types are also supported when using HTTP streaming.
 
 Note that HTTP streaming support for Python is currently in preview, and is only supported for the v2 programming model.
-
-For the HTTP streaming case, our first third party Web app framework adoption is the using the fast API with running on the Unicorn server and the way we design the HTTP streaming and different rending is we create a a very pluggable extension interface we where we can add new extension packages to support different third party frameworks and where the Python you know where the Python worker is still transparent of the specific implementation.
 
 ### Prerequisites
 
@@ -587,7 +584,7 @@ For the HTTP streaming case, our first third party Web app framework adoption is
 
 ### Enable streams
 
-* Install the extension package
+#### Install the extension package
 
 Add the following to the `requirements.txt` file in the project
 
@@ -596,7 +593,7 @@ azure-functions
 azurefunctions-extensions-http-fastapi
 ```
 
-* Import the correct library
+#### Import the library
 
 Add the following with the relevant responses to the `function_app.py` file in the project
 
@@ -659,7 +656,7 @@ def process_data_chunk(chunk: bytes):
     print(chunk)
 ```
 
-Note, you will need to use an HTTP client library to make streaming calls to the Fast API endpoints for the functions. The client tool or browser you are using may not natively support streaming or may only return the first chunk of data, which is why the script can be helpful to test the function locally. Alternatively, you can leverage tools that support HTTP streaming.
+Note, you will need to use an HTTP client library to make streaming calls to the Fast API endpoints for the functions. The client tool or browser you are using may not natively support streaming or may only return the first chunk of data, which is why the script can be helpful to test the function locally. Alternatively, you can leverage tools that support HTTP streaming. Following is an example client script:
 
 ```python
 import httpx
@@ -686,7 +683,6 @@ async def stream_response(response):
         print(f"Error: {response.status_code}")
 
 async def main():
-    # Uncomment to call streaming upload function
     print('helloworld')
     url = 'http://localhost:7071/api/streaming_upload'
     file_path = r'<file path>'
