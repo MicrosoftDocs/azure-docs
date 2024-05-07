@@ -84,10 +84,12 @@ To add an asset endpoint:
 
 These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure the OPC UA Broker to accept untrusted server certificates and your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or pre-production environments. For more information, see [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md):
 
+Run the following commands in your Codespaces terminal, which has all of your environment variables configures.
+
 1. To configure the simulator for the quickstart scenario, run the following command:
 
    ```azurecli
-   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
    ```
 
    > [!CAUTION]
@@ -251,10 +253,10 @@ aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)  
 aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
 ```
 
-On the machine where your Kubernetes cluster is running, run the following command to apply a new configuration for the discovery handler:
+In your Codespaces terminal, run the following command to apply a new configuration for the discovery handler:
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
+kubectl apply -f /workspaces/explore-iot-operations/samples/quickstarts/akri-opcua-asset.yaml
 ```
 
 The following snippet shows the YAML file that you applied:

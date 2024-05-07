@@ -35,7 +35,9 @@ To get started with your codespace:
    | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westus3, westeurope, or northeurope. |
 
    >[!TIP]
-   > The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're also automatically added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
+   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're also automatically added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
+   >
+   >Additionally, this codespace automatically creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
 
 1. Select **Create new codespace**.
 
