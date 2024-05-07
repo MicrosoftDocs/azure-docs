@@ -528,6 +528,31 @@
           "redirect_document_id": false
     },
       {
+            "source_path_from_root": "/articles/healthcare-apis/fhir/configure-settings-convert-data.md",
+            "redirect_url": "/azure/healthcare-apis/fhir/convert-data-configuration",
+            "redirect_document_id": true
+    },
+      {
+              "source_path_from_root": "/articles/healthcare-apis/fhir/convert-data-with-azure-data-factory.md",
+              "redirect_url": "/azure/healthcare-apis/fhir/convert-data-azure-data-factory",
+              "redirect_document_id": true
+    },
+      {
+            "source_path_from_root": "/articles/healthcare-apis/fhir/troubleshoot-convert-data.md",
+            "redirect_url": "/azure/healthcare-apis/fhir/convert-data-troubleshoot",
+            "redirect_document_id": true
+    },
+      {
+            "source_path_from_root": "/articles/healthcare-apis/fhir/get-started-with-health-data-services.md",
+            "redirect_url": "/azure/healthcare-apis/fhir/health-data-services-get-started",
+            "redirect_document_id": true
+    },
+      {
+              "source_path_from_root": "/articles/healthcare-apis/fhir/overview-of-convert-data.md",
+              "redirect_url": "/azure/healthcare-apis/fhir/convert-data-overview",
+              "redirect_document_id": true
+    },
+      {
             "source_path_from_root": "/articles/healthcare-apis/fhir/frequently-asked-questions-convert-data.md",
             "redirect_url": "/azure/healthcare-apis/fhir/convert-data-faq",
             "redirect_document_id": true
