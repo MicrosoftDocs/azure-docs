@@ -79,7 +79,7 @@ You can upload an audio file in AI Studio and get a transcript of the audio file
 
 ## Upload the transcript that you want to analyze
 
-Now you can upload the transcript that you want to analyze. The wizard created a storage container named **ProjectName-transcription** during the [speech analytics project creation](#create-a-speech-analytics-project-in-the-hub). Upload the transcript file to the **ProjectName-transcription** container. In this example, the wizard created a storage container named **contoso-proj-transcription**.
+Now you can upload the transcript that you want to analyze. The wizard created a storage container named **ProjectName-transcription** during the [speech analytics project creation](../../../speech-analytics-post-call.md#create-a-speech-analytics-project-in-the-hub). Upload the transcript file to the **ProjectName-transcription** container. In this example, the wizard created a storage container named **contoso-proj-transcription**.
 
 1. Select **Containers** from the left pane in the speech analytics project. Then select the name of the storage account to go to the storage account in the Azure portal.
 
@@ -132,7 +132,7 @@ After you've tested the prompt flow and are satisfied with the analytics results
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/post-call-prompt-flow-deploy.png" alt-text="Screenshot of the button to deploy the prompt flow to a real-time endpoint." lightbox="../../../media/ai-studio/speech-analytics/post-call-prompt-flow-deploy.png":::
 
-1. In the **Basic settings** page of the prompt flow deployment dialog, select **Existing** for the endpoint and select the prompt flow deployment that was [created earlier with the new project](#create-a-speech-analytics-project-in-the-hub). Then select **Review + Create**.
+1. In the **Basic settings** page of the prompt flow deployment dialog, select **Existing** for the endpoint and select the prompt flow deployment that was [created with the new project](../../../speech-analytics-post-call.md#create-a-speech-analytics-project-in-the-hub). Then select **Review + Create**.
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/post-call-prompt-flow-deploy-basic.png" alt-text="Screenshot of the basic settings in the prompt flow deployment dialog." lightbox="../../../media/ai-studio/speech-analytics/post-call-prompt-flow-deploy-basic.png":::
 

@@ -185,9 +185,9 @@ items:
         items:
           - name: Speech analytics overview
             href: ../ai-services/speech-service/speech-analytics-overview.md?context=/azure/ai-studio/context/context
-          - name: Post-call transcription analytics
+          - name: Post-call transcription analytics (Preview)
             href: ../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context
-          - name: Customize post-call transcription analytics
+          - name: Customize post-call transcription analytics (Preview)
             href: ../ai-services/speech-service/speech-analytics-post-call-customize.md?context=/azure/ai-studio/context/context
       - name: Hear and speak with chat in the playground
         href: quickstarts/hear-speak-playground.md

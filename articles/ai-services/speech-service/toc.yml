@@ -276,9 +276,9 @@ items:
   items:
     - name: Speech analytics overview
       href: speech-analytics-overview.md
-    - name: Post-call transcription analytics
+    - name: Post-call transcription analytics (Preview)
       href: speech-analytics-post-call.md
-    - name: Customize post-call transcription analytics
+    - name: Customize post-call transcription analytics (Preview)
       href: speech-analytics-post-call.md
 - name: Scenario deep-dives
   items:

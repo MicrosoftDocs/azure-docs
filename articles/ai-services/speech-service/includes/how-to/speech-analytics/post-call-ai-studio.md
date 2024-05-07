@@ -100,7 +100,7 @@ To create a speech analytics project in the hub, follow these steps:
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/speech-analytics-settings-connection.png" alt-text="Screenshot of the dialog to select the AI services connection and audio language." lightbox="../../../media/ai-studio/speech-analytics/speech-analytics-settings-connection.png":::
 
-1. In the same **Speech settings** dialog, select **Show advanced settings** to view the Azure AI Speech features that you can enable for the speech analytics project. You can enable features such as language identification, profanity filter mode, and more. Speech analytics supports a subset of the [batch transcription API request options](../../../../batch-transcription-create.md#request-configuration-options). Then select **Next**.
+1. In the same **Speech settings** dialog, select **Show advanced settings** to view the Azure AI Speech features that you can enable for the speech analytics project. You can enable features such as language identification, profanity filter mode, and more. Speech analytics supports a subset of the [batch transcription API request options](../../../batch-transcription-create.md#request-configuration-options). Then select **Next**.
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/speech-analytics-settings-advanced.png" alt-text="Screenshot of the dialog to select advanced Speech settings such as language identification." lightbox="../../../media/ai-studio/speech-analytics/speech-analytics-settings-advanced.png":::
 
@@ -118,9 +118,7 @@ To create a speech analytics project in the hub, follow these steps:
 
 ## Analyze the transcript of an audio file
 
-The transcription is what you analyze with the prompt flow in AI Studio. If you already have a transcript of the audio file that you want to analyze, you can skip ahead to the [Upload the transcript that you want to analyze](#upload-the-transcript-that-you-want-to-analyze) section.
-
-You can upload an audio file in AI Studio and get a transcript of the audio file. Then you can use the transcript to test the speech analytics via prompt flow.
+The transcription is what you analyze with the prompt flow in AI Studio. You can upload an audio file in AI Studio and get a transcript of the audio file. Then speech analytics processes the transcript and generates analytics results based on the prompt flow that the wizard created and deployed for you.
 
 1. Go to the hub that you created previously. You can find and select the hub via the **Home** > **All hubs** page.
 1. On the **Hub overview** page, select the speech analytics project (not the generative AI project) that you created previously. 
@@ -133,18 +131,6 @@ You can upload an audio file in AI Studio and get a transcript of the audio file
     :::image type="content" source="../../../media/ai-studio/speech-analytics/transcript-audio-sample-select.png" alt-text="Screenshot of the dialog to select an audio file to generate a transcript." lightbox="../../../media/ai-studio/speech-analytics/transcript-audio-sample-select.png":::
 
 1. Select **Upload** to upload the audio file. 
-1. When the transcript is ready, select the name of the audio file to access the transcript. 
-
-    :::image type="content" source="../../../media/ai-studio/speech-analytics/transcript-from-audio-download.png" alt-text="Screenshot of the dialog to download the transcription from the audio file." lightbox="../../../media/ai-studio/speech-analytics/transcript-from-audio-download.png":::
-
-1. Under the **Transcription results** label, select **Result** to download the transcription file to your local machine. 
-
-    :::image type="content" source="../../../media/ai-studio/speech-analytics/transcript-from-audio-download-result.png" alt-text="Screenshot of the dialog to download the transcription result file." lightbox="../../../media/ai-studio/speech-analytics/transcript-from-audio-download-result.png":::
-
-    > [!NOTE]
-    > You can also access the transcription in your **ProjectName-transcription** container in the Azure portal. The wizard created this storage container during the speech analytics project creation.
-
-1. Rename the downloaded file as **sample_call_transcription.json**. The speech analytics [prompt flow depends on this filename by default](#try-speech-analytics-with-prompt-flow-in-ai-studio). If you choose a different filename, you need to update the prompt flow to use the new filename.
 
 ## Monitor the analytics results in AI Studio
 
