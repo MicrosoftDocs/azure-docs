@@ -113,6 +113,8 @@ items:
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
         - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
+    - name: Connect Teams users to Azure calls
+      href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
     - name: Connect to a Room call
       items:
       - name: Create a room 
@@ -282,7 +284,7 @@ items:
       href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Audio quality enhancements
       items:
-        - name: Enabling noise supression
+        - name: Enabling audio effects
           href: tutorials/audio-quality-enhancements/add-noise-supression.md
     - name: Virtual appointments
       items:      
@@ -314,8 +316,6 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
-      - name: Manage Audio Filters
-        href: how-tos/calling-sdk/manage-audio-filters.md
       - name: PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
@@ -393,6 +393,8 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
+        - name: Migrate from Twilio Video to Azure Communication Services
+          href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
@@ -656,6 +658,8 @@ items:
       items:
       - name: Migrate from Twilio Video to Azure Communication Services
         href: concepts/migrate-to-azure-communication-services.md
+      - name: How to migrate from Twilio Video to Azure Communication Services
+        href: tutorials/migrating-to-azure-communication-services-calling.md
     - name: Web UI library
       href: https://aka.ms/acsstorybook
     - name: Call Automation
@@ -722,8 +726,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
-          - name: Add Teams interop group calls to your app
-            href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
+          - name: Teams users in Azure Communication Services calls
+            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
@@ -771,13 +775,13 @@ items:
       - name: Tuning video quality
         href: concepts/voice-video-calling/video-constraints.md        
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: SDK best practices
+        href: concepts/best-practices.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Networking and Data
       items:
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
-        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: SDK best practices
-        href: concepts/best-practices.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
         href: concepts/call-flows.md
@@ -831,6 +835,8 @@ items:
       items:    
       - name: WebJS calling SDK
         href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Native calling SDK
+        href: concepts/voice-video-calling/known-issues-native.md
       - name: Call Automation
         href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
@@ -1103,7 +1109,7 @@ items:
           items:
           - name: Overview
             href: resources/troubleshooting/voice-video-calling/video-issues/overview.md
-          - name: The user can not see video from the remote participant
+          - name: The user cannot see video from the remote participant
             items:
             - name: Subscribing to a video that is unavailable
               href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-video-not-available.md

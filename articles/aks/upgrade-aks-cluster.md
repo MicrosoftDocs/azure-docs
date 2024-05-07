@@ -244,10 +244,10 @@ At times, you may have a long running workload on a certain pod and it can't be 
 
     ```azurecli-interactive
     # Set drain timeout for a new node pool
-    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster   --drainTimeoutInMinutes 100
+    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster  --drain-timeout 100
 
     # Update drain timeout for an existing node pool
-    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drainTimeoutInMinutes 45
+    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drain-timeout 45
     ```
 
 #### Set node soak time value

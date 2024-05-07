@@ -1,12 +1,13 @@
 ---
 title: Troubleshooting guides
 description: Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server.
+author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: alkuchar
-author: AwdotiaRomanowna
-ms.date: 01/23/2024
 ---
 
 # Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server

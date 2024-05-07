@@ -1,10 +1,10 @@
 ---
 title: Known issues
 description: "Known issues in site manager"
-author: kgremban
-ms.author: kgremban
+author: torreymicrosoft
+ms.author: torreyt
 ms.service: azure-arc
-#ms.subservice: site-manager
+ms.subservice: azure-arc-site-manager
 ms.topic: issues #Don't change
 ms.date: 04/18/2024
 

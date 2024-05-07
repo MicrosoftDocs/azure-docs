@@ -17,7 +17,7 @@ Firewall Policy is the recommended method to configure your Azure Firewall. It's
 
 ## Policy creation and association
 
-A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, and CLI.
+A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, CLI and Terraform.
 
 You can also migrate existing Classic rules from Azure Firewall using the portal or Azure PowerShell to create policies. For more information, see [How to migrate Azure Firewall configurations to Azure Firewall policy](migrate-to-policy.md). 
 

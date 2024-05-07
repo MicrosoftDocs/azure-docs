@@ -16,7 +16,7 @@ ms.reviewer: maminn
 EA customers that previously used the [Billing periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) Enterprise Reporting consumption.azure.com API to get their billing periods need to use different mechanisms to get the data they need. This article helps you migrate from the old API by using replacement APIs.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 Endpoints to migrate off:
 

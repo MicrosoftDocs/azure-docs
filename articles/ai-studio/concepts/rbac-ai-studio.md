@@ -162,6 +162,18 @@ If your Azure AI hub is configured with a **user-assigned managed identity**, th
 
 Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
 
+## Scenario: Use Azure Container Registry
+
+An Azure Container Registry instance is an optional dependency for Azure AI Studio hub. The following table lists the support matrix when authenticating a hub to Azure Container Registry, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
+
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
+| ---- | :----: | :----: |
+| Admin user | ✓ | ✓ |
+| AI Studio hub system-assigned managed identity | ✓ | ✓ |
+| AI Studio hub user-assigned managed identity</br>with the **ACRPull** role assigned to the identity |  | ✓ |
+
+A system-assigned managed identity is automatically assigned to the correct roles when the Azure AI hub is created. If you're using a user-assigned managed identity, you must assign the **ACRPull** role to the identity.
+
 ## Next steps
 
 - [How to create an Azure AI hub resource](../how-to/create-azure-ai-resource.md)

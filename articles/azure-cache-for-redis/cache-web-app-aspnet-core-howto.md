@@ -15,9 +15,24 @@ ms.date: 04/24/2024
 
 In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and retrieve data from the cache.
 
+There are also caching providers in .NET core. To quickly start using Redis with minimal changes to your existing code, see:
+
+- [ASP.NET core Output Cache provider](/aspnet/core/performance/caching/output#redis-cache)
+- [ASP.NET core Distributed Caching provider](/aspnet/core/performance/caching/distributed#distributed-redis-cache)
+- [ASP.NET core Redis session provider](/aspnet/core/fundamentals/app-state#configure-session-state)
+
 ## Skip to the code on GitHub
 
 Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
+
+As a next step, you can see a real-world scenario eShop application demonstrating the ASP.NET core caching providers: [ASP.NET core eShop using Redis caching providers](https://github.com/Azure-Samples/azure-cache-redis-demos).
+
+Features included:
+
+- Redis Distributed Caching
+- Redis session state provider
+
+Deployment instructions are in the README.md.
 
 ## Prerequisites
 

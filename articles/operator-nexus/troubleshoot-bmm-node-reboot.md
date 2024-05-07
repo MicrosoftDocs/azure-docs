@@ -5,8 +5,8 @@ ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 06/13/2023
-ms.author: v-sathysubra
-author: Sathyadevi-S
+ms.author: ssteinbrueck
+author: scottsteinbrueck
 ---
 # Troubleshoot VM problems after cordoning off and restarting bare-metal machines
 

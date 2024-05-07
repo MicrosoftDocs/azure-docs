@@ -31,12 +31,11 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-Some regions support the ability to deploy Azure Bastion in an availability zone (or multiple, for zone redundancy).
-To deploy zonally, you can select the availability zones you want to deploy under instance details when you deploy Bastion using manually specified settings. You can't change zonal availability after Bastion is deployed.
-If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
-For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
+[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
 
-[!INCLUDE [Availability Zones region support - Preview](../../includes/bastion-availability-zones-regions.md)]
+If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
+
+For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 

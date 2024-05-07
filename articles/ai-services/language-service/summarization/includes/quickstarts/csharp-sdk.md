@@ -98,7 +98,7 @@ namespace Example
         
             TextAnalyticsActions actions = new TextAnalyticsActions()
             {
-                ExtractSummaryActions = new List<ExtractSummaryAction>() { new ExtractSummaryAction() }
+                ExtractiveSummarizeActions = new List<ExtractiveSummarizeAction>() { new ExtractiveSummarizeAction() }
             };
         
             // Start analysis process.
@@ -117,9 +117,9 @@ namespace Example
             // View operation results.
             await foreach (AnalyzeActionsResult documentsInPage in operation.Value)
             {
-                IReadOnlyCollection<ExtractSummaryActionResult> summaryResults = documentsInPage.ExtractSummaryResults;
+                IReadOnlyCollection<ExtractiveSummarizeActionResult> summaryResults = documentsInPage.ExtractiveSummarizeResults;
         
-                foreach (ExtractSummaryActionResult summaryActionResults in summaryResults)
+                foreach (ExtractiveSummarizeActionResult summaryActionResults in summaryResults)
                 {
                     if (summaryActionResults.HasError)
                     {
@@ -129,7 +129,7 @@ namespace Example
                         continue;
                     }
         
-                    foreach (ExtractSummaryResult documentResults in summaryActionResults.DocumentsResults)
+                    foreach (ExtractiveSummarizeResult documentResults in summaryActionResults.DocumentsResults)
                     {
                         if (documentResults.HasError)
                         {
@@ -142,7 +142,7 @@ namespace Example
                         Console.WriteLine($"  Extracted the following {documentResults.Sentences.Count} sentence(s):");
                         Console.WriteLine();
         
-                        foreach (SummarySentence sentence in documentResults.Sentences)
+                        foreach (ExtractiveSummarySentence sentence in documentResults.Sentences)
                         {
                             Console.WriteLine($"  Sentence: {sentence.Text}");
                             Console.WriteLine();
@@ -150,7 +150,6 @@ namespace Example
                     }
                 }
             }
-        
         }
 
         static async Task Main(string[] args)
@@ -190,6 +189,7 @@ using Azure;
 using Azure.Core;
 using Azure.AI.Language.Conversations;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Example
 {
@@ -198,92 +198,99 @@ namespace Example
         private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-
             ConversationAnalysisClient client = new ConversationAnalysisClient(endpoint, credentials);
-            summarization(client);
+            await Summarization(client);
         }
-        public static void summarization(ConversationAnalysisClient client)
+
+        static async Task Summarization(ConversationAnalysisClient client)
         {
             var data = new
             {
                 analysisInput = new
                 {
                     conversations = new[]
-            {
-            new
-            {
-                conversationItems = new[]
-                {
-                    new
                     {
-                        text = "Hello, you’re chatting with Rene. How may I help you?",
-                        id = "1",
-                        participantId = "Agent",
-                    },
-                    new
-                    {
-                        text = "Hi, I tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn’t work.",
-                        id = "2",
-                        participantId = "Customer",
-                    },
-                    new
-                    {
-                        text = "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
-                        id = "3",
-                        participantId = "Agent",
-                    },
-                    new
-                    {
-                        text = "Yes, I pushed the wifi connection button, and now the power light is slowly blinking?",
-                        id = "4",
-                        participantId = "Customer",
-                    },
-                    new
-                    {
-                        text = "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
-                        id = "5",
-                        participantId = "Agent",
-                    },
-                    new
-                    {
-                        text = "No. Nothing happened.",
-                        id = "6",
-                        participantId = "Customer",
-                    },
-                    new
-                    {
-                        text = "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
-                        id = "7",
-                        participantId = "Agent",
+                        new
+                        {
+                            conversationItems = new[]
+                            {
+                                new
+                                {
+                                    text = "Hello, you’re chatting with Rene. How may I help you?",
+                                    id = "1",
+                                    role = "Agent",
+                                    participantId = "Agent",
+                                },
+                                new
+                                {
+                                    text = "Hi, I tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn’t work.",
+                                    id = "2",
+                                    role = "Customer",
+                                    participantId = "Customer",
+                                },
+                                new
+                                {
+                                    text = "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
+                                    id = "3",
+                                    role = "Agent",
+                                    participantId = "Agent",
+                                },
+                                new
+                                {
+                                    text = "Yes, I pushed the wifi connection button, and now the power light is slowly blinking?",
+                                    id = "4",
+                                    role = "Customer",
+                                    participantId = "Customer",
+                                },
+                                new
+                                {
+                                    text = "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
+                                    id = "5",
+                                    role = "Agent",
+                                    participantId = "Agent",
+                                },
+                                new
+                                {
+                                    text = "No. Nothing happened.",
+                                    id = "6",
+                                    role = "Customer",
+                                    participantId = "Customer",
+                                },
+                                new
+                                {
+                                    text = "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
+                                    id = "7",
+                                    role = "Agent",
+                                    participantId = "Agent",
+                                }
+                            },
+                            id = "1",
+                            language = "en",
+                            modality = "text",
+                        },
                     }
                 },
-                id = "1",
-                language = "en",
-                modality = "text",
-            },
-        }
-                },
                 tasks = new[]
-        {
-        new
-        {
-            parameters = new
-            {
-                summaryAspects = new[]
                 {
-                    "issue",
-                    "resolution",
-                }
-            },
-            kind = "ConversationalSummarizationTask",
-            taskName = "1",
-        },
-    },
+                    new
+                    {
+                        parameters = new
+                        {
+                            summaryAspects = new[]
+                            {
+                                "issue",
+                                "resolution",
+                            }
+                        },
+                        kind = "ConversationalSummarizationTask",
+                        taskName = "1",
+                    },
+                },
             };
 
-            Operation<BinaryData> analyzeConversationOperation = client.AnalyzeConversation(WaitUntil.Started, RequestContent.Create(data));
+            Operation<BinaryData> analyzeConversationOperation = await client.AnalyzeConversationsAsync(WaitUntil.Started, RequestContent.Create(data));
             analyzeConversationOperation.WaitForCompletion();
 
             using JsonDocument result = JsonDocument.Parse(analyzeConversationOperation.Value.ToStream());
@@ -308,7 +315,6 @@ namespace Example
         }
     }
 }
-
 ```
 
 ### Output
@@ -317,9 +323,9 @@ namespace Example
 Conversations:
 Conversation: #1
 Summaries:
-Text: Customer tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work
+Text: Customer is unable to set up wifi connection for Smart Brew 300 coffee machine.
 Aspect: issue
-Text: Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine
+Text: The agent instructed the customer to press the wifi connection button, hold for 3 seconds, and check if the power light blinks. The agent also asked the customer to check if the Contoso Coffee app prompts to connect with the machine, but the issue persisted. The agent is looking for another way to fix the issue.
 Aspect: resolution
 ```
 
