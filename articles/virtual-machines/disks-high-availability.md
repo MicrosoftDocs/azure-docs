@@ -100,6 +100,6 @@ You should use ZRS when sharing a disk between multiple VMs. If you use LRS, the
 
 ## Next steps
 
+- [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks)
 - [What are availability zones?](../reliability/availability-zones-overview.md)
 - [Create a Virtual Machine Scale Set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Availability sets overview](availability-set-overview.md)
