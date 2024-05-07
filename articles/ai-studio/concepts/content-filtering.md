@@ -87,7 +87,7 @@ The content filtering system integrated in Azure AI Studio contains neural multi
 The default content filtering configuration is set to filter at the medium severity threshold for all four content harm categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low isn't filtered by the content filters. The configurability feature is available in preview and allows customers to adjust the settings, separately for prompts and completions, to filter content for each content category at different severity levels as described in the table below:
 
 | Severity filtered | Configurable for prompts | Configurable for completions | Descriptions |
-|-------------------|--------------------------|------------------------------|--------------|
+|--------|----------|------------|-----------|
 | Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium and high is filtered.|
 | Medium, high      | Yes | Yes | Default setting. Content detected at severity level low isn't filtered, content at medium and high is filtered.|
 | High              | If approved<sup>1</sup>| If approved<sup>1</sup> | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered. Requires approval<sup>1</sup>.|
@@ -95,10 +95,18 @@ The default content filtering configuration is set to filter at the medium sever
 
 <sup>1</sup> For Azure OpenAI models, only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning off content filters. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-### More filters for generative AI scenarios
-You could also enable filters for generative AI scenarios: jailbreak risk detection and protected material detection. 
+### Additional input filters
 
-:::image type="content" source="../media/content-safety/content-filter/additional-models.png" alt-text="Screenshot of additional models." lightbox="../media/content-safety/content-filter/additional-models.png":::
+You can also enable special filters for generative AI scenarios: 
+- Jailbreak attacks 
+- Indirect attacks
+
+### Additional output filters
+
+You can enable the following additional output filters:
+- Protected material for text
+- Protected material for code
+- Groundedness
 
 
 ## Next steps
