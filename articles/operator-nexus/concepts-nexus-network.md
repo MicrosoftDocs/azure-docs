@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: Nexus Networks"
+title: "Azure Operator Nexus: Workload Network types"
 description: Introduction to Workload networks core concepts.
 author: leijgao
 ms.author: leijiagao
