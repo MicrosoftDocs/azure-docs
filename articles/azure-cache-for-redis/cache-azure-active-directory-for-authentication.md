@@ -12,16 +12,16 @@ ms.author: franlanglois
 
 ---
 
-# Use Microsoft Entra ID (preview) for cache authentication
+# Use Microsoft Entra ID for cache authentication
 
 Azure Cache for Redis offers two methods to authenticate to your cache instance:
 
 - [Access keys](cache-configure.md#access-keys)
-- [Microsoft Entra ID (preview)](cache-configure.md#preview-microsoft-entra-authentication)
+- [Microsoft Entra ID](cache-configure.md#preview-microsoft-entra-authentication)
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
-Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra ID (preview)](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
+Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra ID)](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
 
 To use the ACL integration, your client application must assume the identity of a Microsoft Entra entity, like service principal or managed identity, and connect to your cache. In this article, you learn how to use your service principal or managed identity to connect to your cache, and how to grant your connection predefined permissions based on the Microsoft Entra artifact being used for the connection.
 
@@ -29,7 +29,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 | **Tier**         | Basic, Standard, Premium | Enterprise, Enterprise Flash |
 |:-----------------|:------------------------:|:----------------------------:|
-| **Availability** | Yes (preview)            | No                           |
+| **Availability** | Yes             | No                           |
 
 ## Prerequisites and limitations
 
@@ -47,7 +47,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. Select **Authentication** from the Resource menu.
 
-1. In the working pane, select **(PREVIEW) Enable Microsoft Entra Authentication**.
+1. In the working pane, select ** Enable Microsoft Entra Authentication**.
 
 1. Select **Enable Microsoft Entra Authentication**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 
