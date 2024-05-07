@@ -32,8 +32,13 @@ Databricks prepurchase applies to all Databricks workloads and tiers. You can th
 | Serverless SQL | N/A | 0.70 |
 | Serverless real-time inference | N/A | 0.082 |
 | Model training | N/A | 0.65 |
+| Delta Live Tables | NA | 0.30 (core), 0.38 (pro), 0.54 (advanced) |
+| All Purpose Photon | NA | 0.55 |
 
-For example, when All-purpose compute – Standard Tier capacity gets consumed, the prepurchased Databricks commit units get deducted by 0.4 units.
+For example, when All-purpose compute – Standard Tier capacity gets consumed, the prepurchased Databricks commit units get deducted by 0.4 units. When Jobs light compute – Standard Tier capacity gets used, the prepurchased Databricks commit unit gets deducted by 0.07 units.
+
+>[!NOTE]
+> Enabling Photon increases the DBU count.
 
 Before you buy, calculate the total DBU quantity consumed for different workloads and tiers. Use the preceding ratios to normalize to DBCU and then run a projection of total usage over next one or three years.
 
