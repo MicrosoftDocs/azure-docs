@@ -88,18 +88,11 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="PublicIP"></a>Request a public IP address
 
-A VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address when you want to create a VPN gateway using a SKU other than the VPN Gateway "Basic" SKU.
+A VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address. Note that if you want to create a VPN gateway using the Basic gateway SKU, use the following values when requesting a public IP address: `-AllocationMethod Dynamic -Sku Basic`.
 
 ```azurepowershell-interactive
 $gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static
 ```
-
-If you want to use the Basic SKU for your VPN Gateway, use the following example. The Basic SKU requires a Basic public IP address that's dynamically allocated:
-
-```azurepowershell-interactive
-$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Dynamic -Sku Basic
-```
-
 
 ## <a name="GatewayIPConfig"></a>Create the gateway IP address configuration
 
