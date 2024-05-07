@@ -88,7 +88,7 @@ The following are the fields extracted from a 1003 URLA form in the JSON output 
 
 The 1003 URLA key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
-## Field extraction form 1008
+## Field extraction 1008 Uniform Underwriting and Transmittal Summary
 
 The following are the fields extracted from a 1008 form in the JSON output response.
 
