@@ -14,6 +14,7 @@ ms.author: eur
 |`ar-SA`|Arabic (Saudi Arabia)|
 |`az-AZ`<sup>1</sup>|Azerbaijani (Latin, Azerbaijan)|
 |`bg-BG`|Bulgarian (Bulgaria)|
+|`bn-BD`<sup>1</sup>|Bangla (Bangladesh)
 |`bn-IN`|Bengali (India)|
 |`bs-BA`|Bosnian (Bosnia and Herzegovina)|
 |`ca-ES`|Catalan|
@@ -83,6 +84,7 @@ ms.author: eur
 |`so-SO`<sup>1</sup>|Somali (Somalia)|
 |`sq-AL`<sup>1</sup>|Albanian (Albania)|
 |`sr-RS`<sup>1</sup>|Serbian (Cyrillic, Serbia)|
+|`su-ID`<sup>1</sup>|Sundanese (Indonesia)|
 |`sv-SE`|Swedish (Sweden)|
 |`sw-KE`|Swahili (Kenya)|
 |`ta-IN`|Tamil (India)|
@@ -90,6 +92,7 @@ ms.author: eur
 |`th-TH`|Thai (Thailand)|
 |`tr-TR`|Turkish (Türkiye)|
 |`uk-UA`|Ukrainian (Ukraine)|
+|`ur-PK`<sup>1</sup>|Urdu (Pakistan)|
 |`uz-UZ`<sup>1</sup>|Uzbek (Latin, Uzbekistan)|
 |`vi-VN`|Vietnamese (Vietnam)|
 |`zh-CN`|Chinese (Mandarin, Simplified)|
