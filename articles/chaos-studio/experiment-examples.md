@@ -3,12 +3,12 @@ title: Azure CLI & Portal Example Experiments
 description: See real examples of creating various chaos experiments in the Azure Portal and CLI. 
 services: chaos-studio
 author: nikhilkaul-msft
-ms.topic: template-how-to
+ms.topic: reference
 ms.date: 05/07/2024
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
 ms.service: chaos-studio
-ms.custom: build-spring-2024
+ms.custom: none
 ---
 
 # Example Experiments
