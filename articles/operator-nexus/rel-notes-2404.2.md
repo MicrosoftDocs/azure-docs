@@ -27,7 +27,7 @@ runtime patch.
 
 * Prevent user from adding or deleting a hybrid-compute machine  extension on the Cluster MRG.
 
-* Prevents user from creating and deleting arc-connected clusters and arc-connected machine from NAKS MRG.
+* Prevents user from creating and deleting arc-connected clusters and arc-connected machine from Nexus Kubernetes Service (NKS) MRG.
 
 ### Security enhancements
 
@@ -35,7 +35,7 @@ runtime patch.
 
 * Harden NFC Infrastructure Proxy to allow outbound connections to known services.
 
-* Implement HTTP/2-related fixes.
+* HTTP/2 enhancements.
 
 * Remove Key Vault from Cluster Manager Managed Resource Group (MRG).
 
