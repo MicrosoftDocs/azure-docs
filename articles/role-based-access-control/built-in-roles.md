@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 05/07/2024
 ms.custom: generated
 ---
 
@@ -161,6 +161,9 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-arc-kubernetes-cluster-admin'></a>[Azure Arc Kubernetes Cluster Admin](./built-in-roles/containers.md#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | <a name='azure-arc-kubernetes-viewer'></a>[Azure Arc Kubernetes Viewer](./built-in-roles/containers.md#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
 > | <a name='azure-arc-kubernetes-writer'></a>[Azure Arc Kubernetes Writer](./built-in-roles/containers.md#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | <a name='azure-container-storage-contributor'></a>[Azure Container Storage Contributor](./built-in-roles/containers.md#azure-container-storage-contributor) | Lets you install Azure Container Storage and manage its storage resources | 95dd08a6-00bd-4661-84bf-f6726f83a4d0 |
+> | <a name='azure-container-storage-operator'></a>[Azure Container Storage Operator](./built-in-roles/containers.md#azure-container-storage-operator) | Role required by a Managed Identity for Azure Container Storage operations | 08d4c71a-cc63-4ce4-a9c8-5dd251b4d619 |
+> | <a name='azure-container-storage-owner'></a>[Azure Container Storage Owner](./built-in-roles/containers.md#azure-container-storage-owner) | Lets you install Azure Container Storage and grants access to its storage resources | 95de85bd-744d-4664-9dde-11430bc34793 |
 > | <a name='azure-kubernetes-fleet-manager-contributor-role'></a>[Azure Kubernetes Fleet Manager Contributor Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-contributor-role) | Grants read/write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, etc. | 63bb64ad-9799-4770-b5c3-24ed299a07bf |
 > | <a name='azure-kubernetes-fleet-manager-rbac-admin'></a>[Azure Kubernetes Fleet Manager RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-admin) | Grants read/write access to Kubernetes resources within a namespace in the fleet-managed hub cluster - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
 > | <a name='azure-kubernetes-fleet-manager-rbac-cluster-admin'></a>[Azure Kubernetes Fleet Manager RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
@@ -419,8 +422,6 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='policy-insights-data-writer-preview'></a>[Policy Insights Data Writer (Preview)](./built-in-roles/management-and-governance.md#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | <a name='quota-request-operator'></a>[Quota Request Operator](./built-in-roles/management-and-governance.md#quota-request-operator) | Read and create quota requests, get quota request status, and create support tickets. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | <a name='reservation-purchaser'></a>[Reservation Purchaser](./built-in-roles/management-and-governance.md#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
-> | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/management-and-governance.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
-> | <a name='reservations-reader'></a>[Reservations Reader](./built-in-roles/management-and-governance.md#reservations-reader) | Lets one read all the reservations in a tenant | 582fc458-8989-419f-a480-75249bc5db7e |
 > | <a name='resource-policy-contributor'></a>[Resource Policy Contributor](./built-in-roles/management-and-governance.md#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | <a name='scheduled-patching-contributor'></a>[Scheduled Patching Contributor](./built-in-roles/management-and-governance.md#scheduled-patching-contributor) | Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments | cd08ab90-6b14-449c-ad9a-8f8e549482c6 |
 > | <a name='site-recovery-contributor'></a>[Site Recovery Contributor](./built-in-roles/management-and-governance.md#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
