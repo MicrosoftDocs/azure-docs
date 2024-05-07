@@ -95,7 +95,7 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
 
 ### Cluster selector
 
-You can use the `clusterSelector` field in the `lverrideRule` object to specify the resources to which the override rule applies. The `ClusterSelector` object supports the following field:
+You can use the `clusterSelector` field in the `overrideRule` object to specify the resources to which the override rule applies. The `ClusterSelector` object supports the following field:
 
 * `clusterSelectorTerms`: A list of terms that specify the criteria for selecting clusters. Each term includes a `labelSelector` field that defines a set of labels to match.
 
