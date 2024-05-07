@@ -108,8 +108,8 @@ The following tables compare features available in the following API Management 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ |
-| [Pass-through gRPC](grpc-api.md) (preview) |  ❌ | ❌ | ❌ | ✔️ |
-| [OData](import-api-from-odata.md) (preview) |  ✔️ |  ✔️ | ✔️ | ✔️ |
+| [Pass-through gRPC](grpc-api.md) |  ❌ | ❌ | ❌ | ✔️ |
+| [OData](import-api-from-odata.md) |  ✔️ |  ✔️ | ✔️ | ✔️ |
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ | ✔️ | ❌ | ✔️ |
