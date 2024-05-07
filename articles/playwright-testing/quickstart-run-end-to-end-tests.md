@@ -246,11 +246,13 @@ Microsoft Playwright Testing now supports viewing test results in the Playwright
 
 Once you have access to the reporting tool, use the following steps to set up your tests.
 
-1.  Navigate to settings from the home page of the workspace
-    ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
+1.  From the workspace home page, navigate to *Settings*.
 
-3. Select **General** from settings and make sure reporting is **Enabled**
-   ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-select-settings.png" alt-text="Screenshot that shows settings selection for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-select-settings.png":::
+
+3. From *Settings*, select **General** and make sure reporting is **Enabled**.
+   
+   :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-enable-reporting.png" alt-text="Screenshot that shows hoow to enable reporting for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-enable-reporting.png":::
 
 4. Make sure the environment is set up correctly as mentioned in the section **Set up your environment**.
 
@@ -264,7 +266,9 @@ Once you have access to the reporting tool, use the following steps to set up yo
         ```bash
         @microsoft:registry=https://npm.pkg.github.com
         ```
-    1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). You need to provide `read:packages` permissions to the token.
+    1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+
+    You need to provide `read:packages` permissions to the token. This token is refered to as `PAT_TOKEN_PACKAGE` for the rest of this article.
 
     1. Run the following command in your terminal, at the location of your Playwright config file. Replace `PAT_TOKEN_PACKAGE` with the token generated in the previous step.
         ```bash
@@ -311,7 +315,8 @@ Once you have access to the reporting tool, use the following steps to set up yo
 7.  Run Playwright tests
 
     You can run `npx playwright test` command and view the results and artifacts on Playwright Testing portal.
-    ![Test-Run-page](https://github.com/vvs11/azure-docs-pr/assets/4140290/391bee96-b65f-4c67-920d-9d2fbadffdb3)
+    
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png" alt-text="Screenshot that shows the test runs for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png":::
 
 > [!TIP]
 > You can use Microsoft Playwright Testing service to publish test results to the portal independent of the cloud-hosted browsers feature.

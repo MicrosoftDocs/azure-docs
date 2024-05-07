@@ -207,16 +207,17 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 Microsoft Playwright Testing now supports viewing test results in the Playwright Portal. During preview access is only available by [invitation only](https://aka.ms/mpt/reporting-signup). 
   
 > [!Important]
-> Reporting feature of Microsoft Playwright Testing service is free of charge while it is in invite-only preview. The billing will be applicable at a later time. However, the existing functionality of cloud-hosted browsers will continue to be billed as per the pricing plan.   
+> The reporting feature of Microsoft Playwright Testing service is free of charge during the invite-only preview. However, existing functionality of cloud-hosted browsers continues to bill per the [Azure pricing plan](https://aka.ms/mpt/pricing).   
 
 Once you have access to the reporting tool, use the following steps to set up your tests.
     
 1. From the workspace home page, navigate to *Settings*.
 
-    ![Select-settings-1](https://github.com/vvs11/azure-docs-pr/assets/4140290/b355f129-7c76-461a-8a36-e6337a34de0b)
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-select-settings.png" alt-text="Screenshot that shows settings selection for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-select-settings.png":::
 
 1. From *Settings*, select **General** and make sure reporting is **Enabled**.
-   ![Enable-reporting](https://github.com/vvs11/azure-docs-pr/assets/4140290/f141be17-3ecd-443a-92ec-7dce1207d274)
+
+   :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png" alt-text="Screenshot that shows hoow to enable reporting for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png":::
 
 1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
