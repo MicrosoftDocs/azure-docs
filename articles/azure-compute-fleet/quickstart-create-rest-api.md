@@ -1,18 +1,21 @@
 ---
-title: Create virtual machines in a Flexible scale set using an ARM template
-description: Learn how to create a Virtual Machine Scale Set in Flexible orchestration mode using an ARM template.
-author: fitzgeraldsteele
-ms.author: fisteele
+title: Create an Azure Compute Fleet using an ARM template
+description: Learn how to create an Azure Compute Fleet using an ARM template.
+author: rajeeshr
+ms.author: rajeeshr
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.service: compute-fleet
+ms.date: 05/07/2024
 ms.reviewer: jushiman
-ms.custom: mimckitt, vmss-flex, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 
-# Create virtual machines in a scale set using an ARM template
+# Create an Azure Compute Fleet using an ARM template (Preview)
 
-This article steps through using an ARM template to create a Virtual Machine Scale Set. 
+> [!IMPORTANT]
+> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
+This article steps through using an ARM template to create an Azure Compute Fleet. 
 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
@@ -20,6 +23,7 @@ This article steps through using an ARM template to create a Virtual Machine Sca
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json":::
+
 
 ## Prerequisites
 
@@ -447,9 +451,9 @@ These resources are defined in the template:
 - [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 
-### Define a scale set
+### Define a Compute Fleet
 
-To create a scale with a template, you define the appropriate resources. The core parts of the Virtual Machine Scale Set resource type are:
+To create a Compute Fleet with a template, you define the appropriate resources. The core parts of the Azure COmpute Fleet resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -463,7 +467,7 @@ To create a scale with a template, you define the appropriate resources. The cor
 | osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
 | osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
 
-To customize a scale set template, you can change the VM size or initial capacity. Another option is to use a different platform or a custom image.
+To customize a Compute Fleet template, you can change the VM size or initial capacity. Another option is to use a different platform or a custom image.
 
 ### Add a sample application
 

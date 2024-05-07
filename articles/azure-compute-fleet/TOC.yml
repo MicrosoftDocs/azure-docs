@@ -1,19 +1,11 @@
-- name: What is Azure Compute Fleet?
+- name: What is Azure Compute Fleet? (Preview)
   href: overview.md
 - name: Quickstarts
   items:
-  - name: Create in the Azure portal
+  - name: Create in the Azure portal (Preview)
     href: quickstart-create-portal.md
-  - name: Create with ARM template
+  - name: Create with ARM template (Preview)
     href: quickstart-create-rest-api.md
-  expand: true
-- name: Tutorials
-  items: 
-  - name: 
-    href: 
-- name: Resources
-  items:
-  - name: 
-    href: 
+  expand: true 
 - name: FAQ
   href: faq.yml

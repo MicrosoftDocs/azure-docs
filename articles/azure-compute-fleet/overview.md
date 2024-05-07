@@ -1,16 +1,19 @@
 ---
-title: Azure Virtual Machine Scale Sets overview
-description: Learn about Azure Virtual Machine Scale Sets and how to automatically scale your applications
+title: Azure Compute Fleet overview
+description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
 author: rajeeshr
 ms.author: rajeeshr
 ms.topic: overview
-ms.service: azure-compute-fleet
+ms.service: compute-fleet
 ms.subservice:
 ms.date: 05/07/2024
 ms.reviewer: jushiman
 
 ---
-# What is Azure Compute Fleet?
+# What is Azure Compute Fleet? (Preview)
+
+> [!IMPORTANT]
+> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
 Azure Compute Fleet is a new building block that allows you to accelerate access to Azure’s capacity in a region by launching a combination of VMs at the lowest price and highest capacity. There are be a number of ways you can use this product, whether by running a stateless web service, a big data cluster, and or continuous integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core/instances.
 
@@ -134,6 +137,9 @@ OnDemand and Spot VM quota applies to Azure Fleet. The fleet will have an additi
     - For Cloud Service Provider (CSP), see the Partner Center or contact your partner directly. 
 
 
+## Next steps
+> [!div class="nextstepaction"]
+> [Create an Azure Compute Fleet with Azure portal.](quickstart-create-portal.md)
 
 
 
