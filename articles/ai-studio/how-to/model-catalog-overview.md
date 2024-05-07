@@ -29,7 +29,7 @@ The model catalog  organizes models into Collections. There are three types of c
 
 ## Model Catalog capabilities overview 
 
-For information on Azure OpenAI models,  refer to [Azure OpenAI Service](../ai-services/openai/overview.md). 
+For information on Azure OpenAI models,  refer to [Azure OpenAI Service](../../ai-services/openai/overview.md) .
 
 Some models in the **Curated by Azure AI** and **Open models from the Hugging Face hub** collections can be deployed as Real-time endpoints, and some models are available to be deployed using Pay-as-you-go billing (Models as a Service). These models can be discovered, compared, evaluated, fine-tuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
 
@@ -91,7 +91,7 @@ Prompt flow offers a great experience for prototyping. You can use models deploy
 
 ### Content safety for models deployed as Real-time endpoints 
 
-[Azure AI Content Safety (AACS)](/ai-services/content-safety/overview/) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](../pricing/details/cognitive-services/content-safety.md) for such use. 
+[Azure AI Content Safety (AACS)](/ai-services/content-safety/overview/) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
 ### Working with models not in the Model Catalog 
 
