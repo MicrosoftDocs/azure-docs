@@ -20,7 +20,7 @@ This new feature experimentation in Azure App Configuration is built by integrat
 
    :::image type="content" source="media/overview/diagram.png" alt-text="Diagram that shows how Split Experimentation Workspace interact with other Azure resources.":::-->
 
-To get started, follow the quickstart for creating a Split Experimentation Workspace,<!-- Add link--> which contains instructions on setting up an App Configuration store, Application Insights resource, Azure storage account, Microsoft Entra ID for authentication, and how to set up an experiment.
+To get started, follow the quickstart to create a Split Experimentation Workspace, and then set up the experiments for your application in App Configuration store using this tutorial. <!-- add link to /azure/azure-app-configuration/set-up-experiments.aspnet)-->  
 
 ## Next step
 
