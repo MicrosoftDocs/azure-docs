@@ -228,16 +228,16 @@ EOF
     ENABLE_BLSCFG=true
     ```
 
-> [!NOTE]
-> If [**ENABLE_BLSCFG=false**](https://access.redhat.com/solutions/6929571) is  present in `/etc/default/grub` instead of 'ENABLE_BLSCFG=true` tools such as ___grubedit___ or ___gubby___, which rely on the Boot Loader Specification (BLS) for managing boot entries and configurations, may not function correctly in RHEL 8 and 9.  Be advised, if ENABLE_BLSCFG is not present, the default behavior is "false".
+   > [!NOTE]
+   > If [**ENABLE_BLSCFG=false**](https://access.redhat.com/solutions/6929571) is  present in `/etc/default/grub` instead of 'ENABLE_BLSCFG=true` tools such as ___grubedit___ or ___gubby___, which rely on the Boot Loader Specification (BLS) for managing boot entries and configurations, may not function correctly in RHEL 8 and 9.  Be advised, if ENABLE_BLSCFG is not present, the default behavior is "false".
 
-This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
+   This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
 
-    ```config
-    rhgb quiet crashkernel=auto
-    ```
+   ```config
+   rhgb quiet crashkernel=auto
+   ```
 
-Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+   Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 7. After you're done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
