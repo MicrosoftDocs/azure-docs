@@ -118,7 +118,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | Tomcat 10.1, Java 21 | Windows Server 2022 | MSFT OpenJDK 21       |
 -----
 
-If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements is available only in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates are provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -130,7 +130,7 @@ Patches and fixes for major security vulnerabilities are released as soon as the
 
 Tomcat 8.5 reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
 
-While the runtimes are still available on Azure App Service, Tomcat 8.5 or 10.0 won'ts receive security updates.
+While the runtimes are still available on Azure App Service, Tomcat 8.5 or 10.0 won't receive security updates.
 
 When possible, migrate your applications to Tomcat 9.0 or Tomcat 10.1. Tomcat 9.0 and Tomcat 10.1 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
 
@@ -138,7 +138,7 @@ Community support for Java 7 ended on July 29, 2022 and [Java 7 was retired from
 
 ### Deprecation and retirement
 
-If a supported Java runtime is retired, Azure developers using the affected runtime receives a deprecation notice at least six months before the runtime is retired.
+If a supported Java runtime is retired, Azure developers using the affected runtime receive a deprecation notice at least six months before the runtime is retired.
 
 - [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 - [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
