@@ -130,10 +130,10 @@
           href: howto-feature-filters-aspnet-core.md
         - name: Enable a feature for specified users/groups
           href: howto-targetingfilter-aspnet-core.md
-        - name: Run A/B tests on your variant Feature Flags
+        - name: Run experiments on variant feature flags
           items:
-            - name: ASP.Net
-              href: set-up-experiments-aspnet.md
+            - name: ASP.NET Core
+              href: run-experiments-aspnet-core.md
     - name: Enable Azure monitoring
       items:
         - name: Monitor App Configuration

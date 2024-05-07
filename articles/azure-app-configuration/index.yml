@@ -149,8 +149,8 @@ landingContent:
           url: use-feature-flags-spring-boot.md
         - text: Enable a feature for specified users/groups
           url: howto-targetingfilter-aspnet-core.md
-        - text: Run A/B tests on your variant Feature Flags
-          url: set-up-experiments-aspnet.md
+        - text: Run experiments on variant feature flags
+          url: run-experiments-aspnet-core.md
       - linkListType: reference
         links:
         - text: .NET library
