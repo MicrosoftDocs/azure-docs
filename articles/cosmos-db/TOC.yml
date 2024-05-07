@@ -17,8 +17,13 @@
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
-    - name: Vector database
-      href: vector-database.md
+    - name: Vector databases in Azure Cosmos DB
+      expanded: true
+      items:
+      - name: Vector Databases
+        href: vector-database.md
+      - name: Vector Search in Azure Cosmos DB NoSQL
+        hred: nosql/vector-search.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB

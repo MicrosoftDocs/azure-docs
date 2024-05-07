@@ -35,7 +35,7 @@ VECTORDISTANCE(<vector_expr1>, <vector_expr2>, [<bool_expr>], [<obj_expr>])
 | **`spatial_expr_1`** | An array of `float32` or smaller.|
 | **`spatial_expr_2`** | An array of `float32` or smaller.|
 | **`bool_expr`** | A boolean specifying how the computed value is used in an ORDER BY expression. If `true`, then brute force is used. A value of `false` will leverage any index defined on the vector property, if it exists. Default value is `false`.|
-|**`obj_expr`**|A JSON formatted object literal used to specify options for the vector distance calculation. Valid items include `distanceFunction` and `dataType`.|
+|**`obj_expr`**| A JSON formatted object literal used to specify options for the vector distance calculation. Valid items include `distanceFunction` and `dataType`.|
 | **`distanceFunction`** | The function used to compute similarity score.`cosine`, `euclidean`, or `dotproduct`. Default value is `cosine`.|
 | **`dataType`** | The data type of the vectors. `float32`, `float16`, `int8`, `uint8` values. Default value is `float32`. |
 
@@ -60,7 +60,7 @@ ORDER BY VectorDistance(c.vector1, c.vector2)
 ```
 
 ## Remarks
-- This function requires enrollment in the [Azure Cosmos DB NoSQL Vector Index preview feature](../how-to-vector-index-query.md).
+- This function requires enrollment in the [Azure Cosmos DB NoSQL Vector Index preview feature](../vector-search.md#enroll-in-the-preview-feature).
 - This function benefits from a [vector index](../../index-policy.md#vector-indexes)
 - if `false` is given as the optional `bool_expr`, then the vector index defined on the path is used, if one exists. If no index is defined on the vector path, then this will revert to full scan and incur higher RU charges and higher latency than if using a vector index. 
 - When `VectorDistance` is used in an `ORDER BY` clause, no direction can be specified for the `ORDER BY`, as the results will always be sorted in order of most similar (first) to least similar (last) based on the similarity metric used. If a direction such as `ASC` or `DESC` is specified, an error will occur. 
@@ -68,5 +68,5 @@ ORDER BY VectorDistance(c.vector1, c.vector2)
 
 ## Related content
 - [System functions](system-functions.yml)
-- [Azure Cosmos DB NoSQL Vector Index preview feature](../how-to-vector-index-query.md).
+- [Setup Azure Cosmos DB for NoSQL for vector search](../vector-search.md).
 - [vector index](../../index-policy.md#vector-indexes)

@@ -183,7 +183,8 @@ As long as one filter predicate uses one of the index type, the query engine eva
 To learn how to configure composite indexes, see [Composite indexing policy examples](how-to-manage-indexing-policy.md#composite-index)
 
 ### Vector indexes
-**Vector** indexes increase the efficiency when performing vector searches using the `VectorDistance` system function. The composite index type is used for:
+**Vector** indexes increase the efficiency when performing vector searches using the `VectorDistance` system function. Vectors searches will have significantly lower latency, higher throughput, and less RU consumption when leveraging a vector index. 
+To learn how to configure vector indexes, see [vector indexing policy examples](nosql/how-to-manage-indexing-policy.md#vector-indexing-policy-examples)
 
 - `ORDER BY` vector search queries:
 
@@ -211,7 +212,7 @@ To learn how to configure composite indexes, see [Composite indexing policy exam
     ```
 
   > [!IMPORTANT]
-  > Vector indexes must be defined at the time of Container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
+  > Vector indexes must be defined at the time of container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
 
 
 

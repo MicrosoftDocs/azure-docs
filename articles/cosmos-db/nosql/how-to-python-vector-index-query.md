@@ -1,5 +1,5 @@
 ---
-title: Index and query vector data
+title: Index and query vector data in Python
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Add vector data Azure Cosmos DB for NoSQL and then query the data efficiently in your Python application.
 author: jcodella
@@ -12,7 +12,7 @@ ms.date: 08/01/2023
 ms.custom: query-reference, devx-track-dotnet
 ---
 
-# Index and query vectors in Azure Cosmos DB for NoSQL. 
+# Index and query vectors in Azure Cosmos DB for NoSQL in Python. 
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. UYou are required to register for the preview before use. This article covers the following steps: 
@@ -33,7 +33,7 @@ Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. UYou 
 - Latest version of the Azure Cosmos DB [Python](sdk-python.md) SDK.
 
 ## Registering for the preview
-Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](https://learn.microsoft.com/azure/azure-resource-manager/management). Please follow the below steps to register: 
+Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](../../azure-resource-manager/management). Please follow the below steps to register: 
 
 1. Navigate to your Subscription page 
 
@@ -47,9 +47,10 @@ This will enroll every Azure Cosmos DB resource in your subscription in the vect
 
 ## Understanding the steps involved in vector search 
 
-The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database](https://learn.microsoft.com/azure/cosmos-db/nosql/quickstart-portal). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
+The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database(quickstart-portal). The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy, and the vector indexing policy at the time of container creation. 
 
-Let’s take an example of creating a database for an internet-based bookstore and you are storing Title, Author, ISBN, and Description for each book. We’ll also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](https://learn.microsoft.com/azure/ai-services/computer-vision/concept-image-retrieval). 
+Let’s take an example of creating a database for an internet-based bookstore and you are storing Title, Author, ISBN, and Description for each book. We’ll also define two properties to contain vector embeddings. The first is the “contentVector” property, which contains [text embeddings](../../ai-services/openai/concepts/models#embeddings ) generated from the text content of the book (for example, concatenating the “title” “author” “isbn” and “description” properties before creating the embedding). The second is “coverImageVector”, which is generated from [images of the book’s cover](../../ai-services/computer-vision/concept-image-retrieval). 
+
 
 Create and store vector embeddings for the fields on which you want to perform vector search. 
 
@@ -130,7 +131,7 @@ indexing_policy = {
 > Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.
 
 
-# Create container with vector policy 
+## Create container with vector policy 
 
 Currently, the vector search feature for Azure Cosmos DB for NoSQL is supported only on new containers so you need to apply the vector policy during the time of container creation and it can’t be modified later.  
 
@@ -149,7 +150,7 @@ except exceptions.CosmosHttpResponseError:
 
 ## Running vector similarity search query 
 
-Once you have created a container with the desired vector policy and populated the data into it, you can run vector search similarity queries on it. Suppose you want to search for books about food recipes by looking at the description, you first need to get the embeddings for your query text. In this case, you might want to generate embeddings for the query text – “food recipe”. Once you have the embedding for your search query, you can use it in the VectorDistance function in the vector search query and get all the items that are similar to your query as shown below: 
+Once you have created a container with the desired vector policy, and inserted vector data into the container, you can conduct a vector search using the [Vector Distance](query/vectordistance.md) system function in a query. Suppose you want to search for books about food recipes by looking at the description, you first need to get the embeddings for your query text. In this case, you might want to generate embeddings for the query text – “food recipe”. Once you have the embedding for your search query, you can use it in the VectorDistance function in the vector search query and get all the items that are similar to your query as shown below: 
 
 ```sql
 SELECT c.title, VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10]) AS SimilarityScore   
@@ -173,6 +174,6 @@ for item in container.query_items(
     print(json.dumps(item, indent=True)) 
 ``` 
 
-## Next steps
 - [VectorDistance system function](query/vectordistance.md)
 - [Vector indexing](../index-policy.md)
+- [Setup Azure Cosmos DB for NoSQL for vector search](../vector-search.md).
