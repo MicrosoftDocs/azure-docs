@@ -135,7 +135,7 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          On May 1, 2024, Azure Enterprise Reporting APIs will be retired. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
+          All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
           See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).

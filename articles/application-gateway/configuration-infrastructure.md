@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/25/2024
+ms.date: 05/01/2024
 ms.author: greglin
 ---
 
@@ -62,6 +62,8 @@ It's possible to change the subnet of an existing Application Gateway instance w
 ### DNS servers for name resolution
 
 The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.yml#view-virtual-networks-and-settings-using-the-azure-portal) configuration, which allows you to choose between Azure-provided default or custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. After you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
+
+When an instance of your Application Gateway issues a DNS query, it uses the value from the server that responds first.
 
 > [!NOTE]
 > If you use custom DNS servers in the Application Gateway virtual network, the DNS server must be able to resolve public internet names. Application Gateway requires this capability.

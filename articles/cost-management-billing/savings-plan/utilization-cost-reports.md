@@ -141,7 +141,7 @@ Keep in mind that if you have an underutilized savings plan, the `UnusedSavingsP
 
 ### Savings plan purchases and amortization in cost analysis
 
-Savings plan costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows  **Actual cost** , which is how costs will be shown on your bill. To view savings plan purchases broken down and associated with the resources that used the benefit, switch to **Amortized cost**. Here's an example.
+Savings plan costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows  **Actual cost** , which is how costs are shown on your bill. To view savings plan purchases broken down and associated with the resources that used the benefit, switch to **Amortized cost**. Here's an example.
 
 :::image type="content" source="./media/utilization-cost-reports/portal-cost-analysis-amortized-view.png" alt-text="Example showing where to select amortized cost in cost analysis." lightbox="./media/utilization-cost-reports/portal-cost-analysis-amortized-view.png" :::
 

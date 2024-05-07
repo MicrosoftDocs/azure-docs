@@ -1455,12 +1455,16 @@
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: ./v1/samples-notebooks.md
     # end v1
+    - name: Browse code samples
+      displayName: example, examples, python, notebook
+      href: /samples/browse/?expanded=azure&products=azure-machine-learning
     - name: Examples repository (v2)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Examples repository (v1)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+
     # v1
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules, components

@@ -2,12 +2,28 @@
 title: What's new in Azure Advisor
 description: A description of what's new and changed in Azure Advisor
 ms.topic: reference
-ms.date: 11/02/2023
+ms.date: 05/03/2024
 ---
 
 # What's new in Azure Advisor?
 
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
+
+## April 2024
+
+### Azure Advisor will no longer display aggregated potential yearly savings beginning 30 September 2024
+
+In the Azure portal, Azure Advisor currently shows potential aggregated cost savings under the label "Potential yearly savings based on retail pricing" on pages where cost recommendations are displayed (as shown in the image). This aggregated savings estimate will be removed from the Azure portal on 30 September 2024. However, you can still evaluate potential yearly savings tailored to your specific needs by following the steps in [Calculate cost savings](/azure/advisor/advisor-how-to-calculate-total-cost-savings). All individual recommendations and their associated potential savings will remain available.
+
+#### Recommended action
+
+If you want to continue calculating aggregated potential yearly savings, follow [these steps](/azure/advisor/advisor-how-to-calculate-total-cost-savings). Note that individual recommendations might show savings that overlap with the savings shown in other recommendations, although you might not be able to benefit from them concurrently. For example, you can benefit from savings plans or from reservations for virtual machines, but not typically from both on the same virtual machines.
+
+### Public Preview: Resiliency Review on Azure Advisor
+
+Recommendations from WAF Reliability reviews in Advisor help you focus on the most important recommendations to ensure your workloads remain resilient. As part of the review, personalized and prioritized recommendations from Microsoft Cloud Solution Architects will be presented to you and your team. You can triage recommendations (accept or reject), manage their lifecycle on Advisor, and work with your Microsoft account team to track resolution. You can reach out to your account team to request Well Architected Reliability Assessment to successfully optimize workload resiliency and reliability by implementing curated recommendations and track its lifecycle on Advisor.
+
+To learn more, visit [Azure Advisor Resiliency Reviews](/azure/advisor/advisor-resiliency-reviews).
 
 ## March 2024
 
@@ -97,7 +113,7 @@ If you're interested in workload based recommendations, reach out to your accoun
 
 ### Cost Optimization workbook template
 
-The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides insights into leveraging Azure Hybrid benefit options for Windows, Linux, and SQL databases.
 
 To learn more, visit [Understand and optimize your Azure costs using the Cost Optimization workbook](/azure/advisor/advisor-cost-optimization-workbook).
 
@@ -150,7 +166,7 @@ To learn more, visit [Prepare migration of your workloads impacted by service re
 
 Azure Advisor now provides the option to postpone or dismiss a recommendation for multiple resources at once. Once you open a recommendations details page with a list of recommendations and associated resources, select the relevant resources and choose **Postpone** or **Dismiss** in the command bar at the top of the page.
 
-To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/view-recommendations#dismissing-and-postponing-recommendations)
+To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/view-recommendations#dismissing-and-postponing-recommendations).
 
 ### VM/VMSS right-sizing recommendations with custom lookback period
 
@@ -187,7 +203,7 @@ To learn more, visit [Azure Advisor for MySQL](/azure/mysql/single-server/concep
 
 ### Unlimited number of subscriptions
 
-It is easier now to get an overview of optimization opportunities available to your organization – no need to spend time and effort to apply filters and process subscription in batches.
+It's easier now to get an overview of optimization opportunities available to your organization – no need to spend time and effort to apply filters and process subscription in batches.
 
 To learn more, visit [Get started with Azure Advisor](advisor-get-started.md).
 

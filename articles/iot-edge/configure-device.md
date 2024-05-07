@@ -338,7 +338,7 @@ type = "docker"
 imagePullPolicy = "..."   # "on-create" or "never". Defaults to "on-create"
 
 [agent.config]
-image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+image = "mcr.microsoft.com/azureiotedge-agent:1.5"
 createOptions = { HostConfig = { Binds = ["/iotedge/storage:/iotedge/storage"] } }
 
 [agent.config.auth]
