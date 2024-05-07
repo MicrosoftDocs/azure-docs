@@ -67,11 +67,7 @@ Follow these steps to navigate from Azure AI Studio to your resource group in th
 
     :::image type="content" source="../media/tutorials/chat/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat/resource-group-manage-page.png":::
 
-1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub.
-
-    :::image type="content" source="../media/tutorials/chat/resource-group-azure-portal.png" alt-text="Screenshot of the resource group in the Azure portal." lightbox="../media/tutorials/chat/resource-group-azure-portal.png":::
-
-    Keep this page open in a browser tab - you return to it later.
+1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub. Keep this page open in a browser tab - you return to it later.
 
 
 ### Deploy the web app
@@ -80,10 +76,10 @@ Publishing creates an Azure App Service in your subscription. It might incur cos
 
 To deploy the web app:
 
-1. Complete the steps in the previous section to [add your data](#add-your-data) to the playground. 
+1. Complete the steps in the previous section to [add your data](#add-your-data-and-try-the-chat-model-again) to the playground. 
 
     > [!NOTE]
-    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#deploy-and-test-a-chat-model-without-your-data).
+    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#chat-in-the-playground-without-your-data).
 
 1. Select **Deploy to a web app**.
 
@@ -100,6 +96,8 @@ To deploy the web app:
 1. Select **Deploy**.
 
 1. Wait for the app to be deployed, which might take a few minutes. 
+
+    :::image type="content" source="../media/tutorials/chat/deploy-wait-to-launch.png" alt-text="Screenshot of the web app deployment in progress message and the launch button." lightbox="../media/tutorials/chat/deploy-wait-to-launch.png":::
 
 1. When it's ready, the **Launch** button is enabled on the toolbar. But don't launch the app yet and don't close the chat playground page - you return to it later.
 
