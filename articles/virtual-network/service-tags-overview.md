@@ -64,7 +64,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | Yes |
 | **[AzureDeviceUpdate](/azure/iot-hub-device-update/network-security)** | Device Update for IoT Hub. | Both | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | Yes |
-| **[AzureDevOps](/azure/devops/organizations/security/allow-list-ip-url?view=azure-devops&tabs=IP-V4)** | Azure DevOps. | Inbound | Yes | Yes |
+| **[AzureDevOps](/azure/devops/organizations/security/allow-list-ip-url)** | Azure DevOps. | Inbound | Yes | Yes |
 | **[AzureDigitalTwins](/azure/digital-twins/concepts-security#service-tags)** | Azure Digital Twins.<br/><br/>**Note**: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. | Inbound | No | Yes |
 | **[AzureEventGrid](/azure/event-grid/network-security#service-tags    )** | Azure Event Grid. | Both | No | Yes |
 | **[AzureFrontDoor.Frontend](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.Backend](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.FirstParty](/azure/frontdoor/origin-security)**  | *Frontend* service tag contains the IP addresses that clients use to reach Front Door. You can apply the **AzureFrontDoor.Frontend** service tag when you want to control the outbound traffic that can connect to services behind Azure Front Door. *Backend* service tag contains the IP addresses that Azure Front Door uses to access your origins. You can apply this service tag when you [configure security for your origins](../frontdoor/origin-security.md). *FirstParty* is a special tag reserved for a select group of Microsoft services hosted on Azure Front Door. | Both | Yes | Yes |
@@ -86,7 +86,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureSentinel** | Microsoft Sentinel. | Inbound | No | Yes |
 | **[AzureSignalR](/azure/azure-signalr/howto-service-tags)** | Azure SignalR. | Outbound | No | Yes |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | Yes |
-| **[AzureSphere](/azure-sphere/network/restrict-vnet-service-tag?view=azure-sphere-legacy)** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
+| **[AzureSphere](/azure-sphere/network/restrict-vnet-service-tag)** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
 | **[AzureSpringCloud](/azure/spring-apps/enterprise/concept-security-controls)** | Allow traffic to applications hosted in Azure Spring Apps. | Outbound | No | Yes |
 | **AzureStack** | Azure Stack Bridge services. <br/> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
@@ -122,7 +122,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[PowerPlatformPlex](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
 | **PowerQueryOnline** | Power Query Online. | Both | No | Yes |
 | **Scuba** | Data connectors for Microsoft security products (Sentinel, Defender, etc.). | Inbound | No | No|
-| **[SerialConsole](t/azure/virtual-machines/linux/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled)** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |
+| **[SerialConsole](/azure/virtual-machines/linux/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled)** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 | **[ServiceFabric](/azure/service-fabric/how-to-managed-cluster-networking#bring-your-own-virtual-network)** | Azure Service Fabric.<br/><br/>**Note**: This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET endpoint. (For example, https:// westus.servicefabric.azure.com). | Both | No | Yes |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Synapse Analytics.<br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag doesn't apply to SQL managed instance. | Outbound | Yes | Yes |
