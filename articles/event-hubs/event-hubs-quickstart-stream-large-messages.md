@@ -18,7 +18,7 @@ To complete this QuickStart, you need the following prerequisites:
 
 - Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/). 
 
-- Create Self-serve scalable dedicated cluster, Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create)
+- Create [Self-serve scalable dedicated cluster](event-hubs-dedicated-cluster-create-portal.md), event hubs namespace and an event hub. The first step is to use the Azure portal to create a Dedicated cluster and namespace inside a cluster. To create an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create.md) 
 
 > [!NOTE]
 > Large Message Support, currently in Public Preview, is exclusively available with certain Event Hubs self-serve dedicated clusters. Streaming large messages with these clusters incurs no extra charges.
