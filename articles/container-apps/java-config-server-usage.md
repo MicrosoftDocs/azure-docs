@@ -247,4 +247,4 @@ You can use client side decryption of properties by following the steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to a managed Spring Cloud Config Server](spring-cloud-config-server.md)
+> [Tutorial: Connect to a managed Spring Cloud Config Server](java-config-server.md)
