@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: troubleshooting
-ms.date: 01/11/2024
+ms.date: 05/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-docs-improvements
@@ -182,7 +182,7 @@ You can also trace the exchange of messages between your client browser and Azur
 
 ## Troubleshoot policy validity
 
-After you finish developing your policy, you upload the policy to Azure AD B2C. There might be some issues with your policy, but you can validity your policy before you upload it.
+After you finish developing your policy, you upload the policy to Azure AD B2C. There might be some issues with your policy, but you can validite your policy before you upload it.
 
 The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. It displays XML natively, color-codes content, prefills common terms, keeps XML elements indexed, and can validate against an XML schema.
 
