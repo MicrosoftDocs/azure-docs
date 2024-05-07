@@ -21,10 +21,14 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 
 - Azure account with an active subscription.
   - If you don't have an account, you can [create one for free](https://azure.microsoft.com/free).
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code
-- [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code
-- [Node.js](https://nodejs.org/download/) to run the frontend app and API
+- [Visual Studio Code](https://code.visualstudio.com/).
+- [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code.
+- [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+- [Node.js v18](https://nodejs.org/en/download) to run the frontend app and API.
+
+> [!TIP]
+> You can use the [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) tool to manage multiple versions of Node.js on your development system.
+> On Windows, [NVM for Windows](https://github.com/coreybutler/nvm-windows/blob/master/README.md) can be installed via Winget.
 
 ## Create the static web app
 
@@ -226,8 +230,10 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 Ensure you have the necessary command line tools installed.
 
 ```bash
-npm install -D @azure/static-web-apps-cli
+npm install -g @azure/static-web-apps-cli
 ```
+
+> If you don't want to install the `swa` command line globally, you can use `npx swa` instead of `swa` in the following instructions.
 
 ### Build frontend app
 
