@@ -52,6 +52,8 @@ Some arguments that are available for every Azure CLI command
 
 ## Create a Cluster Manager
 
+Create the Cluster Manager using AZ CLI:
+
 Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
 ```azurecli
@@ -81,6 +83,32 @@ az networkcloud clustermanager create \
   - **wait/--no-wait** - Wait for command to complete or don't wait for the long-running operation to finish.
   - **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+
+
+Create the Cluster Manager using Azure Resource Manager template editor:
+
+An alternate way to create a Cluster Manager is with the ARM template editor.  [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
+
+In order to create the cluster this way, you will need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
+You can find examples of these two files here:
+
+[clusterManager.jsonc](./clusterManager-jsonc-example.md) , 
+[clusterManager.parameters.jsonc](./clusterManager-parameters-jsonc-example.md)
+
+Note:  To get the correct formatting, copy the raw code file.  The values within the clusterManager.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
+
+
+Click on Build your own template in the editor.
+Click on Load file. Locate your clusterManager.jsonc template file and upload it.
+Click Save.
+Click Edit parameters.
+Click Load file.  Locate your clusterManager.parameters.jsonc parameters file and upload it.
+Click Save.
+Select the correct Subscription.
+Search for the Resource group if it already exists or create new.
+Make sure all Instance Details are correct.
+Click Review + create.
+
 
 ## List/show Cluster Manager(s)
 
