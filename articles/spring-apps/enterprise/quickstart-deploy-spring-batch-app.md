@@ -159,7 +159,7 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/deploy-job.png" alt-text="Diagram that shows deploy a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/deploy-job.png":::
 
-1. After deployment, open the overview page of the Job “football” by clicking the Job name. Click Run button on top to initiate the task execution. You can customize each execution of the Job with different parameters like environment variables, Or just click **Run** button to trigger the execution. The message notifies that the Job is now started successfully.
+1. After deployment, open the overview page of the Job “football” by clicking the Job name. Click **Run** button on top to initiate the task execution. You can customize each execution of the Job with different parameters like environment variables, or just click **Run** button to trigger the execution. The message notifies that the Job is now started successfully.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/start-job.png" alt-text="Diagram that shows start a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/start-job.png":::
 
