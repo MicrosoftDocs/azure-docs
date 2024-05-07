@@ -80,8 +80,6 @@ For a list of available metrics for Azure Communications Gateway, see [Azure Com
 If your service uses any non-Azure Monitor based metrics, add the following include and more information.
 [!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
 
-<a name="connectivity-metrics"></a>
-
 ## Analyzing, filtering and splitting metrics in Azure Monitor
 
 You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.

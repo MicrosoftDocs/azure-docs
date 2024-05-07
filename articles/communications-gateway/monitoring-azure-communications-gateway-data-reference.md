@@ -46,6 +46,7 @@ Learn about the data and resources collected by Azure Monitor from your Azure Co
 <!-- ## Metrics -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
+<a name="connectivity-metrics"></a>
 ### Supported metrics for Microsoft.VoiceServices/communicationsGateways
 
 The following table lists the metrics available for the Microsoft.VoiceServices/communicationsGateways resource type.
