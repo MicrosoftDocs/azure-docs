@@ -8,17 +8,17 @@ ms.date: 05/05/2024
 
 # Test locally with Event Hubs emulator 
 
-This article summarizes the steps to develop and test locally with Event hubs emulator. To read more about Event hubs read [here.](event-hubs-about.md)
+This article summarizes the steps to develop and test locally with Event hubs emulator. To read more about Event hubs,read [here](event-hubs-about.md).
 
-## Pre-Requisites
+## Prerequisites
 
 - Docker emulator
   - [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items) 
 - Minimum hardware Requirements:
-  - 2 GB RAM
-  - 5 GB of Disk space
+  - 2GB RAM
+  - 5GB of Disk space
 - WSL Enablement (Only for Windows):
-  - [Install Windows Subsytem for Linux (WSL) | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/install)
+  - [Install Windows Subsystem for Linux (WSL) | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/install)
   -  [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart.)
 
 > [!NOTE]
@@ -32,8 +32,8 @@ This article summarizes the steps to develop and test locally with Event hubs em
 
 ### [Docker](#tab/Docker) 
 
-1. Event Hubs emulator is available as docker container image. You can download the latest image from MCR endpoint.
-2. SInce Event hubs emulator has dependency on Azurite, you must download Azurite as well. 
+1. Event Hubs emulator is available as docker container image. You can download the latest image from Microsoft Container Registry endpoint.
+2. Event Hubs emulator has dependency on Azurite. You must download Azurite as well.  
 
 ---
 ## Running the emulator 
@@ -66,7 +66,7 @@ After completing the prerequisites, you can proceed with the following steps to 
 
 ### [Docker (Linux Container)](#tab/docker-linux-container)
 
-Copy the following .Yaml file to spin up Event Hubs emulator along with its dependencies. 
+Copy the following Yaml file to spin up Event Hubs emulator along with its dependencies. 
 
 ```yaml
 version: '3'
