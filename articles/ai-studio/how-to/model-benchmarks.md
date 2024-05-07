@@ -12,7 +12,7 @@ ms.author: jcioffi
 author: jesscioffi
 ---
 
-# Model Benchmarks
+# Model benchmarks
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
