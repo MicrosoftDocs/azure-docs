@@ -19,7 +19,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-### Developer SKU (Preview)
+### <a name="developer"></a>Developer SKU
 
 [!INCLUDE [Developer SKU description](../../includes/bastion-developer-sku-description.md)]
 
@@ -28,7 +28,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 > [!NOTE]
 > VNet peering isn't currently supported for the Developer SKU.
 
-### Premium SKU (Preview)
+### <a name="premium"></a>Premium SKU (Preview)
 
 The Premium SKU is a new SKU that supports Bastion features such as Session Recording and Private-Only Bastion. When you deploy bastion, only select the Premium SKU if you need the features that it supports.
 
@@ -73,7 +73,7 @@ You can configure this setting using the following methods:
 
 ## <a name="public-ip"></a>Public IP address
 
-Azure Bastion deployments require a Public IP address, except Developer SKU deployments. The Public IP must have the following configuration:
+Azure Bastion deployments require a Public IP address, except [Developer SKU](#developer) and [Private-only](#private-only) dpeloyments. The Public IP must have the following configuration:
 
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
@@ -119,15 +119,15 @@ When a user without Azure credentials clicks a shareable link, a webpage opens t
 | --- | --- | --- | --- |
 | Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
 
-## Private-only deployment
+## <a name="private-only"></a>Private-only deployment
 
 [!INCLUDE [Private-only deployments](../../includes/bastion-private-only-description.md)] For more information, see [Deploy Bastion as private-only](private-only-deployment.md).
 
-## Session recording
+## <a name="session"></a>Session recording
 
 [!INCLUDE [Session recording](../../includes/bastion-session-recording-description.md)] For more information, see [Bastion session recording](session-recording.md).
 
-## Availability zones
+## <a name="az"></a>Availability zones
 
 [!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
 
