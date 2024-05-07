@@ -53,6 +53,7 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents
   "description": "string"
 }'
 ```
+
 #### [Python](#tab/python)
 
 ```python
@@ -92,6 +93,7 @@ curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-
   ]
 }'
 ```
+
 #### [Python](#tab/python)
 
 ```python
@@ -140,6 +142,7 @@ curl --location 'https://<endpoint>/contentsafety/text:analyze?api-version=2024-
   }
 }'
 ```
+
 #### [Python](#tab/python)
 
 ```python
@@ -183,6 +186,7 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incident
   "description": "string"
 }'
 ```
+
 #### [Python](#tab/python)
 
 ```python
@@ -225,6 +229,7 @@ curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-inciden
   ]
 }'
 ```
+
 #### [Python](#tab/python)
 
 ```python
@@ -281,6 +286,7 @@ curl --location 'https://<endpoint>/contentsafety/image:analyze?api-version=2024
   }
 }'
 ```
+
 #### [Python](#tab/python)
 
 ```python
@@ -421,6 +427,7 @@ print(response.text)
 ---
 
 #### Get the incident sample's details
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -446,6 +453,7 @@ print(response.text)
 ---
 
 #### Delete an incident sample
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -485,6 +493,7 @@ print(response.text)
 ### Image incident API
 
 #### Get the incidents list
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -510,6 +519,7 @@ print(response.text)
 ---
 
 #### Get the incident details
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -535,6 +545,7 @@ print(response.text)
 ---
 
 #### Delete the incident
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -560,6 +571,7 @@ print(response.text)
 ---
 
 #### Get the incident sample list
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -585,6 +597,7 @@ print(response.text)
 ---
 
 #### Get the incident sample details
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -610,6 +623,7 @@ print(response.text)
 ---
 
 #### Delete the incident sample
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -646,3 +660,6 @@ print(response.text)
 ```
 ---
 
+## Next steps
+
+- [What is Azure AI Content Safety?](../overview.md)
