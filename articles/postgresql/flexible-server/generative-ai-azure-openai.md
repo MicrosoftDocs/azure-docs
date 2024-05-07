@@ -70,11 +70,11 @@ azure_openai.create_embeddings(deployment_name text, input text[], batch_size in
 
 #### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure OpenAI endpoint for embedding creation if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries the Azure OpenAI embedding creation if it fails with any retryable error.
 
 #### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
 
 ### Return type
 

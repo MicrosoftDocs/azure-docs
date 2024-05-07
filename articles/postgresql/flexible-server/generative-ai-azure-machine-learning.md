@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Integrate Azure Database for PostgreSQL with Azure Machine Learning Services
 
-Azure AI extension gives the ability to invoke any machine learning models deployed on [Azure Machine Learning online endpoints](../../machine-learning/concept-endpoints-online.md) from within SQL. These might be models from the Azure Machine Learning catalog or custom models that are trained and deployed.
+Azure AI extension gives the ability to invoke any machine learning models deployed on [Azure Machine Learning online endpoints](../../machine-learning/concept-endpoints-online.md) from within SQL. These models can be from the Azure Machine Learning catalog or custom models that are trained and deployed.
 
 ## Prerequisites
 
@@ -62,11 +62,11 @@ azure_ml.invoke(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_erro
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Maching Learning endpoint if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Machine Learning endpoint if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling the Azure Machine learning endpoint, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling the Azure Machine Learning endpoint, when it fails with any retryable error.
 
 
 #### Return type
@@ -104,5 +104,5 @@ FROM azure_ml.invoke('
 
 ## Related content
 
-- [Learn more about Azure Open AI integration](generative-ai-azure-openai.md)
+- [Learn more about Azure OpenAI integration](generative-ai-azure-openai.md)
 - [Learn more about Azure AI Language Services integration](generative-ai-azure-cognitive.md)
