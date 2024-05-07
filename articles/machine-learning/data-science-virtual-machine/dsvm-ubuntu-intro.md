@@ -88,7 +88,7 @@ The Linux VM is already provisioned with X2Go Server and is ready to accept clie
 1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Note the public IP address of the virtual machine. In the Azure portal, open the virtual machine you created to find this information.
 
-   ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+   :::image type="content" source="./media/dsvm-ubuntu-intro/ubuntu-ip-address.png" alt-text="Screenshot showing the public IP address of the virtual machine." lightbox= "./media/dsvm-ubuntu-intro/ubuntu-ip-address.png":::
 
 1. Run the X2Go client. If the "New Session" window doesn't automatically pop up, go to Session -> New Session.
 
@@ -101,7 +101,7 @@ The Linux VM is already provisioned with X2Go Server and is ready to accept clie
    * **Media tab**: You can turn off sound support and client printing if you don't need to use them.
    * **Shared folders**: Use this tab to add client machine directory that you would like to mount on the VM.
 
-   ![X2go configuration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
+   :::image type="content" source="./media/dsvm-ubuntu-intro/x2go-ubuntu.png" alt-text="Screenshot showing preferences for a new X2Go session." lightbox= "./media/dsvm-ubuntu-intro/x2go-ubuntu.png":::
 1. Select **OK**.
 1. Select on the box in the right pane of the X2Go window to bring up the sign-in screen for your VM.
 1. Enter the password for your VM.
@@ -113,8 +113,9 @@ The Linux VM is already provisioned with X2Go Server and is ready to accept clie
 
 The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multiuser Jupyter server. To connect, take the following steps:
 
-   1. Note the public IP address for your VM. To find this value, search for and select your VM in the Azure portal.
-      ![Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+   1. Note the public IP address of your VM. To find this value, search for and select your VM in the Azure portal, as shown in this screenshot:
+
+      :::image type="content" source="./media/dsvm-ubuntu-intro/ubuntu-ip-address.png" alt-text="Screenshot highlighting the public IP address of your VM." lightbox= "./media/dsvm-ubuntu-intro/ubuntu-ip-address.png":::
 
    1. From your local machine, open a web browser, and navigate to https:\//**your-vm-ip**:8000, replacing "**your-vm-ip**" with the IP address you noted earlier.
    1. Your browser will probably prevent you from opening the page directly. It might tell you that there's a certificate error. The DSVM provides security with a self-signed certificate. Most browsers will allow you to select through after this warning. Many browsers will continue to provide some kind of visual warning about the certificate throughout your Web session.
@@ -122,9 +123,9 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a m
       >[!NOTE]
       > If you see the `ERR_EMPTY_RESPONSE` error message in your browser, make sure you access the machine by explicit use of the *HTTPS* protocol. *HTTP* or just the web address don't work for this step. If you type the web address without `https://` in the address line, most browsers will default to `http`, and the error will appear.
 
-   1. Enter the username and password that you used to create the VM, and sign in.
+   1. Enter the username and password that you used to create the VM, and sign in, as shown in this screenshot
 
-      ![Enter Jupyter login](./media/dsvm-ubuntu-intro/jupyter-login.png)
+      :::image type="content" source="./media/dsvm-ubuntu-intro/jupyter-login.png" alt-text="Screenshot the JupyterHub sign-in screen." lightbox= "./media/dsvm-ubuntu-intro/jupyter-login.png":::
 
       >[!NOTE]
       > If you receive a 500 Error at this stage, you probably used capitalized letters in your username. This is a known interaction between Jupyter Hub and the PAMAuthenticator it uses.

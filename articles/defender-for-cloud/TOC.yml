@@ -211,8 +211,20 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
+      - name: Permissions management
+        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+        href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
+      - name: Secrets protection
+        items:
+        - name: Overview
+          href: secrets-scanning.md
+        - name: Protecting VM secrets
+          href: secrets-scanning-servers.md
+        - name: Protecting cloud deployment secrets
+          href: secrets-scanning-cloud-deployment.md
+          
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -246,6 +258,11 @@
       items:
         - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
+    - name: Improve your AI security posture management
+      items:
+      - name: AI security posture management
+        displayName: AI, security, posture, management
+        href: ai-security-posture.md
     - name: Security recommendations
       items:
         - name: Reference list of Azure recommendations
@@ -305,6 +322,17 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+        - name: Enable permissions management
+          displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+          href: enable-permissions-management.md
+    - name: AI security posture
+      items:
+        - name: Discover generative AI workloads
+          displayName: AI, workloads, models, applications, apps, AI BOM
+          href: identify-ai-workload-model.md
+        - name: Explore risks to pre-deployment generative AI artifacts
+          displayName: AI, risks, generative, applications, apps
+          href: explore-ai-risk.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -320,6 +348,12 @@
         - name: Attack path analysis and enhanced risk-hunting for containers
           displayName: attack paths, paths, security explorer, test
           href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
+    - name: Secrets security posture
+      items: 
+      - name: Remediate issues with VM secrets
+        href: remediate-server-secrets.md
+      - name: Remediate cloud deployment secrets
+        href: remediate-cloud-deployment-secrets.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
@@ -497,6 +531,10 @@
         href: defender-partner-applications.md
       - name: Onboard 42Crunch (preview)
         href: onboarding-guide-42crunch.md
+      - name: Onboard StackHawk (preview)
+        href: onboarding-guide-stackhawk.md
+      - name: Onboard Bright Security (preview)
+        href: onboarding-guide-bright.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -528,9 +566,13 @@
       - name: Agentless machine scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
-      - name: Manage secrets with agentless secret scanning
+      - name: Protect secrets
         displayName: secrets, secret scanning, agentless
-        href: secret-scanning.md
+        items: 
+        - name: Overview
+          href: secrets-scanning-servers.md
+        - name: Remediate VM secrets
+          href: remediate-server-secrets.md
       - name: Protect servers with agentless malware scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, Microsoft Defender Antivirus
         href: agentless-malware-scanning.md
@@ -672,6 +714,9 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
+      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
+        displayName: ACR, registry, images, qualys
+        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md
@@ -745,7 +790,13 @@
           - name: Overview
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-introduction.md
-          - name: Enable Defender for OSS RDBs and respond to alerts
+          - name: Enable on Azure
+            displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+            href: enable-defender-for-databases-azure.md
+          - name: Enable on AWS (Preview)
+            displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+            href: enable-defender-for-databases-aws.md
+          - name: Respond to Defender open-source database alerts
             displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases,
               Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-usage.md
@@ -889,6 +940,14 @@
             href: review-pull-request-annotations.md
       - name: Common questions about DevOps security
         href: faq-defender-for-devops.yml
+  - name: Threat protection for AI workloads (preview)
+    items:
+      - name: Overview
+        displayName: AI, Defender for AI
+        href: ai-threat-protection.md
+      - name: Enable threat protection for AI workloads (preview)
+        displayName: AI, Defender for AI
+        href: ai-onboarding.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)

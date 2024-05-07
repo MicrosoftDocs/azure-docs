@@ -1,15 +1,15 @@
 ---
 title: Create a Document Intelligence (formerly Form Recognizer) resource
 titleSuffix: Azure AI services
-description: Create a Document Intelligence resource in the Azure portal
+description: Create a Document Intelligence resource in the Azure portal.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: bemabonsu
+ms.date: 04/24/2024
+ms.author: lajanuar
 ---
 
 

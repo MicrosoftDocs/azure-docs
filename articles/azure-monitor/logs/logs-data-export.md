@@ -180,7 +180,7 @@ A data export rule defines the destination and tables for which data is exported
 
    :::image type="content" source="media/logs-data-export/export-create-1.png" lightbox="media/logs-data-export/export-create-1.png" alt-text="Screenshot that shows the data export entry point.":::
 
-1. Follow the steps, and then select **Create**.
+1. Follow the steps, and then select **Create**. Only the tables with data in them are displayed under "Source" tab.
    <!-- convertborder later -->
    :::image type="content" source="media/logs-data-export/export-create-2.png" lightbox="media/logs-data-export/export-create-2.png" alt-text="Screenshot of export rule configuration." border="false":::
 

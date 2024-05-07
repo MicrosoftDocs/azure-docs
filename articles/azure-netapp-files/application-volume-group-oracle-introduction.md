@@ -23,6 +23,8 @@ Application volume group for Oracle has implemented many technical improvements 
 
 Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. It supports up to eight data volumes with latency-optimized performance and is only limited by the database VM's network capabilities. 
 
+Using multiple volumes connected via multiple storage endpoints, as deployed by application volume group for Oracle, brings performance improvements as outlined in the [Oracle database on multiple volumes article](performance-oracle-multiple-volumes.md).
+
 Application volume group for Oracle is supported in all Azure NetApp Files enabled regions.
 
 ## Key capabilities 

@@ -4,11 +4,14 @@ description: Use Azure Database for PostgreSQL - Flexible Server from a GitHub A
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 03/20/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: github-actions-azure, mode-other, devx-track-azurecli
+ms.custom:
+  - github-actions-azure
+  - mode-other
+  - devx-track-azurecli
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure Database for PostgreSQL - Flexible Server

@@ -30,7 +30,7 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 * Neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
 * Other optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
 
-## Harm categories
+## Risk categories
 
 |Category|Description|
 |--------|-----------|
@@ -38,11 +38,19 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 | Sexual | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography, and abuse.   |
 | Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns and related entities, such as manufactures, associations, legislation, etc.    |
 | Self-Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself.|
-| Jailbreak risk | Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate role play to subtle subversion of the safety objective. |
 | Protected Material for Text<sup>*</sup> | Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models.
 | Protected Material for Code | Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories.
 
 <sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
+
+## Prompt Shields
+
+|Type| Description|
+|--|--|
+|Prompt Shield for Jailbreak Attacks |Jailbreak Attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate roleplay to subtle subversion of the safety objective. |
+|Prompt Shield for Indirect Attacks |Indirect Attacks, also referred to as Indirect Prompt Attacks or Cross-Domain Prompt Injection Attacks, are a potential vulnerability where third parties place malicious instructions inside of documents that the Generative AI system can access and process. Requires [document embedding and formatting](#embedding-documents-in-your-prompt). |
+
+
 
 [!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
@@ -181,8 +189,8 @@ The table below outlines the various ways content filtering can appear:
 
 ### Scenario: You make a streaming completions call; no output content is classified at a filtered category and severity level
 
-**HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
+|**HTTP Response Code** | **Response behavior**|
+|------------|------------------------|
 |200|In this case, the call will stream back with the full generation and `finish_reason` will be either 'length' or 'stop' for each generated response.|
 
 **Example request payload:**
@@ -216,8 +224,8 @@ The table below outlines the various ways content filtering can appear:
 
 ### Scenario: You make a streaming completions call asking for multiple completions and at least a portion of the output content is filtered
 
-**HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
+|**HTTP Response Code** | **Response behavior**|
+|------------|------------------------|
 | 200 | For a given generation index, the last chunk of the generation includes a non-null `finish_reason` value. The value is `content_filter` when the generation was filtered.|
 
 **Example request payload:**
@@ -303,18 +311,32 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models: jailbreak risk, protected material text and protected material code:
-- category (jailbreak, protected_material_text, protected_material_code),
-- detected (true or false),
-- filtered (true or false).
+When annotations are enabled as shown in the code snippets below, the following information is returned by the API for optional models:
 
-For the protected material code model, the following additional information is returned by the API:
-- an example citation of a public GitHub repository where a code snippet was found
-- the license of the repository.
+|Model| Output|
+|--|--|
+|jailbreak|detected (true or false), </br>filtered (true or false)|
+|indirect attacks|detected (true or false), </br>filtered (true or false)|
+|protected material text|detected (true or false), </br>filtered (true or false)|
+|protected material code|detected (true or false), </br>filtered (true or false), </br>Example citation of public GitHub repository where code snippet was found, </br>The license of the repository|
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
-Annotations are currently available in the GA API version `2024-02-01` and in all preview versions starting from `2023-06-01-preview` for Completions and Chat Completions (GPT models). The following code snippet shows how to use annotations:
+See the following table for the annotation availability in each API version:
+
+|Category |2024-02-01 GA| 2024-04-01-preview | 2023-10-01-preview | 2023-06-01-preview| 
+|--|--|--|--|
+| Hate | ✅ |✅ |✅ |✅ |
+| Violence | ✅ |✅ |✅ |✅ |
+| Sexual |✅ |✅ |✅ |✅ |
+| Self-harm |✅ |✅ |✅ |✅ |
+| Prompt Shield for jailbreak attacks|✅ |✅ |✅ |✅ |
+|Prompt Shield for indirect attacks|  | ✅ | | |
+|Protected material text|✅ |✅ |✅ |✅ |
+|Protected material code|✅ |✅ |✅ |✅ |
+|Profanity blocklist|✅ |✅ |✅ |✅ |
+|Custom blocklist| | ✅ |✅ |✅ |
+
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -714,6 +736,81 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
         }
     }
 }
+```
+
+## Document embedding in prompts
+
+A key aspect of Azure OpenAI's Responsible AI measures is the content safety system. This system runs alongside the core GPT model to monitor any irregularities in the model input and output. Its performance is improved when it can differentiate between various elements of your prompt like system input, user input, and AI assistant's output. 
+ 
+For enhanced detection capabilities, prompts should be formatted according to the following recommended methods.
+
+### Chat Completions API
+
+The Chat Completion API is structured by definition. It consists of a list of messages, each with an assigned role. 
+
+The safety system will parse this structured format and apply the following behavior: 
+- On the latest “user” content, the following categories of RAI Risks will be detected: 
+    - Hate 
+    - Sexual 
+    - Violence 
+    - Self-Harm 
+    - Jailbreak (optional) 
+
+This is an example message array: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model."}, 
+{"role": "user", "content": "Example question goes here."}, 
+{"role": "assistant", "content": "Example answer goes here."}, 
+{"role": "user", "content": "First question/message for the model to actually respond to."} 
+```
+
+### Embedding documents in your prompt  
+
+In addition to detection on last user content, Azure OpenAI also supports the detection of specific risks inside context documents via Prompt Shields – Indirect Prompt Attack Detection. You should identify parts of the input that are a document (e.g. retrieved website, email, etc.) with the following document delimiter.  
+
+```
+<documents> 
+*insert your document content here* 
+</documents>
+```
+
+When you do so, the following options are available for detection on tagged documents: 
+- On each tagged “document” content, detect the following categories: 
+    - Indirect attacks (optional) 
+
+Here is an example chat completion messages array: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n*insert your document content here*\n<\\documents> \"\"\""}, 
+
+{"role": "user", "content": "First question/message for the model to actually respond to."} 
+```
+
+#### JSON escaping 
+
+When you tag unvetted documents for detection, the document content should be JSON-escaped to ensure successful parsing by the Azure OpenAI safety system. 
+
+For example, see the following email body: 
+
+```
+Hello Josè, 
+
+I hope this email finds you well today.
+```
+
+With JSON escaping, it would read: 
+
+```
+Hello Jos\u00E9,\nI hope this email finds you well today. 
+```
+
+The escaped text in a chat completion context would read: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n Hello Jos\\u00E9,\\nI hope this email finds you well today. \n<\\documents> \"\"\""}, 
+
+{"role": "user", "content": "First question/message for the model to actually respond to."}
 ```
 
 ## Content streaming

@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 04/30/2024
 ms.author: cshoe
 ---
 
@@ -105,6 +105,14 @@ Cores are available in 0.25 core increments, with memory available at a 2:1 rati
 
 > [!NOTE]
 > For apps using JDK versions 9 and lower, make sure to define custom JVM memory settings to match the memory allocation in Azure Container Apps.
+
+## Spring components support
+
+Azure Container Apps offers support for the following Spring Components as managed services:
+
+- **Eureka Server for Spring**: Service registration and discovery are key requirements for maintaining a list of live application instances. Your application uses this list to for routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Eureka Server simplifies the management of service discovery by functioning as a [service registry](java-eureka-server-usage.md) where microservices can register themselves and discover other services within the system.
+
+- **Config Server for Spring**: Config Server provides centralized external configuration management for distributed systems. This component designed to address the challenges of [managing configuration settings across multiple microservices](java-config-server-usage.md) in a cloud-native environment.
 
 ## Next steps
 

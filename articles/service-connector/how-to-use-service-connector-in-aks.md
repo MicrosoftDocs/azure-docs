@@ -125,19 +125,19 @@ Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kub
 
 1. Install the `k8s-extension` Azure CLI extension.
 
-```azurecli
-az extension add --name k8s-extension
-```
+  ```azurecli
+  az extension add --name k8s-extension
+  ```
 
 1. Get the Service Connector extension status. Check the `statuses` property in the command output to see if there are any errors.
 
-```azurecli
-az k8s-extension show \
-    --resource-group MyClusterResourceGroup \
-    --cluster-name MyCluster \
-    --cluster-type managedClusters \
-    --name sc-extension
-```
+  ```azurecli
+  az k8s-extension show \
+      --resource-group MyClusterResourceGroup \
+      --cluster-name MyCluster \
+      --cluster-type managedClusters \
+      --name sc-extension
+  ```
 
 ### Check kubernetes cluster logs
 

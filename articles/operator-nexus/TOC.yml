@@ -26,6 +26,10 @@
           href: concepts-network-fabric-resource-update-commit.md
         - name: Network Fabric read-only commands
           href: concepts-network-fabric-read-only-commands.md
+        - name: Network Fabric read write commands
+          href: concepts-network-fabric-read-write-commands.md   
+        - name: Disable Border Gateway Protocol neighbors
+          href: concepts-disable-border-gateway-protocol-neighbors.md
     - name: Isolation Domains
       expanded: false
       items:
@@ -46,6 +50,10 @@
           href: concepts-observability.md
         - name: Metrics
           href: reference-operator-nexus-observability-metrics.md
+        - name: Azure Operator Nexus Network Fabric Configuration Monitoring
+          href: concepts-network-fabric-configuration-monitoring.md
+        - name: Azure Operator Nexus Network Fabric Internal Network BGP Metrics
+          href: concepts-internal-network-bgp-metrics.md
     - name: Security
       href: concepts-security.md
     - name: Control Plane Resiliency
@@ -148,7 +156,14 @@
               href: howto-update-access-control-list-for-network-to-network-interconnects.md
             - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
               href: howto-delete-access-control-list-network-to-network-interconnect.md
-           
+            - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
+              href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
+            - name: How to monitor interface In and Out packet rate for network fabric devices
+              href: howto-monitor-interface-packet-rate.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
