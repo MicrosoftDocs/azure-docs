@@ -58,11 +58,18 @@ sections:
         answer: |
           - For CN: Per the CA/B Forum baseline requirements for publicly trusted code signing certs, CN values must be the legal entity's validated name (for example, Microsoft Corporation) so there is no flexibility in CN values. 
           - For O: At, this time Trusted Signing does not support customization. 
-      - question: What do I do if the new identity validation button on the Azure portal is greyed out?
+      - question: What to do if the new identity validation button on the Azure portal is greyed out?
         answer: |
           This means you don't have the Trusted Signing Identity Verifier role assigned to your account. Follow the [Assigning roles in Trusted Signing](https://learn.microsoft.com/azure/trusted-signing/tutorial-assign-roles) documentation and assign yourself the appropriate role. 
+      - question: Identity validation has expired?
+        answer: |
+          Failure to renew Identity Validation before the expiration date will stop certificate renewal, effectively halting the signing process associated with those specific certificate profiles. To continue signing with Trusted Signing service, you need to create another Identity Validation and associate that to the certificate profiles to continue signing. 
+  
   - name: Signing
     questions:
+      - question: What types of files can be signed with Trusted Signing?
+        answer: |
+          You can sign file types supported by SignTool. [Find the list here.](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools)
       - question: What is Trusted Signing’s HSM compliance level?
         answer: |
           FIPS 140-2 level 3 (mHSMs)
@@ -90,15 +97,9 @@ sections:
           - [Download](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170) and install C++ Redistributables.
           - Search the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool) article.
           - We recommend using this version of the [SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) as opposed to directly from NuGet. We used the previous article to test if it works with our dlib (version 10.0.22621 recommended currently). 
-      - question: What if I get a 403 Forbidden or an admin approval to access this resource error? 
-        answer: |
-          This error is likely due to the Trusted Signing application not being allowed to run. Confirm that you have the "Trusted Signing Certificate Profile Signer" role: `({assignee} is your email)  az role assignment list --assignee {assignee}`
       - question: How do I check if the timestamper service is healthy? 
         answer: |
           Run the following command `curl http://timestamp.acs.microsoft.com`. If the StatusCode 200 is returned, it means the timestamper service is healthy and running. 
-      - question: What if I get a 400 error with `SharedTokenCacheCredential` authentication failed? 
-        answer: |
-          This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON. To learn more, go to [DefaultAzureCredential Class (Azure.Identity)](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
       - question: I’m getting errors when doing Private Trust signing. What should I do? 
         answer: |
           If you get an internal error, check that the CN name you used matches with the cert name. The package name is checked so ensure to copy the entire Subject name that appears in the Azure portal to the manifest file when signing is submitted. 
@@ -122,14 +123,44 @@ sections:
       - question: What if my Trusted Signing account is suspended?
         answer: |
           Trusted Signing will suspend accounts and or revoke signing certificates if the certificate is found to be misused or abused per our service's Terms of Use. We engage with you directly in such cases following the Code Signing Baseline Requirements (CSBRs) guidelines. 
-      - question: What if I get Azure.Identity.CredentialUnavailableException?
-        answer: |
-          You should expect to see this error on environments outside of Azure [see here](https://github.com/Azure/azure-sdk-for-net/issues/29471). Recommendation is to "exclude ManagedIdentity" if you're outside of Azure.
       - question: What if I change the Subscription ID or Tenant ID?
         answer: |
          At the moment, Trusted Signing resources can't be migrated across Subscriptions or Tenants. Hence, any change to Tenant ID or Subscription ID will need fro you to create all the Trusted Signing resources again.
       - question: Does Trusted Signing issue EV certificates?
         answer: |
           No, Trusted Signing does not issue EV certificates and there are no plans to issue these in the future.
-##additionalContent: |
+      - question: Does Trusted Signing issue EV certificates?
+        answer: |
+          No, Trusted Signing does not issue EV certificates and there are no plans to issue these in the future.
+      - question: Why does sign tool keep looping while signing MSIX packages
+        answer: |
+          Looping multi times is expected behavior for MSIX signing, since MSIX signing signs each appx and manifest inside the package.
+      - question: Errors and the correspinding details to fix the issue
+        answer: |
+          | Error       | Details     |
+          | :------------------- | :------------------- |
+          | 400          |  This is an Azure authentication error. This error is due to caching of certificates. Add "ExcludeCredentials": ["SharedTokenCacheCredential"] to your JSON. To learn more, go to DefaultAzureCredential Class (Azure.Identity)  |
+          | 401          |  You are not authenticated. Try logging out and loggin back in. |
+          | 403          |  1. Check Trusted Signing role.
+                            2. Check Trusted Signing account name and Trusted Signing Certificate profile name n your metadata.json.
+                            3. Check dlib and dlib path 
+                            4. Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170   
+                            5. Check .Net version, dlib version and Windows SDK 
+                            6. Check if Trusted Signing role is assigned to the identity trying to sign the file.
+                            7. Check if the corresponding Identity Validation is in "Completed" state.
+                            8. Verify if you access the Trusted Signing endpoint from this VM or machine?Try executing this on a differet VM or machine, could be a potential network issue.  
+                            9. For Private Trust scenarios 403: The user object Id to do the signing is different than the user object Id to call the  Get-azCodeSigningRootCert. The appropriate objectId needs to have the role “Code Signing Certificate Profile Signer”.   |
+          | 404          |  Ensure no changes happened with respect your config or firewalls rules. |
+          | MsalUiRequiredException"           |  This usually occurs due to the local cache, the error resolves after the cache gets refreshed from Azure. |
+          | No certificates were found that met all the given criteria.         |  Check dlib path, dlib version, dlib name, filename, check sign tool version. This error means it is trying to pull certificates from your local machine and not using Trusted Signing certificates.  |
+          | Error: SignerSign() failed." (-2147024846/0x80070032)           |  Ensure you are using the latest signtool version. |
+          | Error code (-2147024885/0x8007000b)            |  For MSIX signing, indicates that the publisher in the manifest doesn't match the cert subject. Can you please check the publisher in the manifest file?  |
+          | No error codes, Signtool silently fails          |  Ensure the relevant .NET runtime is instaled. |
+          | Azure.Identity.CredentialUnavailableException         |  You should expect to see this error on environments outside of Azure see here. Recommendation is to "exclude ManagedIdentity" if you're outside of Azure.|
+  - name: Unenroll from the Service
+    questions:  
+       - question: How do you unenroll from Trusted Signing Service?
+         answer: |
+          To unenroll from Trusted Signing delete Trusted Signing account. This also deletes the associated Identity validation and Certificate profiles. This will stop certificate renewal, effectively halting the signing process associated with those specific certificate profiles. However, does not affect the certificates that were already used to sign your files. 
+  ##additionalContent: |
     ## Next steps
