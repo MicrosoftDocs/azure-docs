@@ -73,7 +73,7 @@ You can configure this setting using the following methods:
 
 ## <a name="public-ip"></a>Public IP address
 
-Azure Bastion deployments require a Public IP address, except [Developer SKU](#developer) and [Private-only](#private-only) dpeloyments. The Public IP must have the following configuration:
+Azure Bastion deployments, except [Developer SKU](#developer) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
 
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
