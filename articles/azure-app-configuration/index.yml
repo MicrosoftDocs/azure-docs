@@ -8,7 +8,7 @@ metadata:
   ms.author: malev
   ms.service: azure-app-configuration
   ms.topic: landing-page
-  ms.date: 03/20/2023
+  ms.date: 04/11/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -134,6 +134,8 @@ landingContent:
             url: concept-feature-management.md
       - linkListType: quickstart
         links:
+        - text: Manage feature flags
+          url: manage-feature-flags.md
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
         - text: .NET/.NET Framework app
@@ -142,8 +144,6 @@ landingContent:
           url: quickstart-feature-flag-spring-boot.md
       - linkListType: tutorial
         links: 
-        - text: Manage feature flags
-          url: manage-feature-flags.md
         - text: Use feature flags in ASP.NET Core
           url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
