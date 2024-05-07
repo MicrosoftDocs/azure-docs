@@ -24,12 +24,26 @@ Monitoring applications that are deployed to production is an essential part of 
 Azure AI monitoring for generative AI applications enables you to monitor your applications in production for token usage, generation quality, and operational metrics.
 
 Capabilities and integrations for monitoring a prompt flow deployment include: 
-- Collect production inference data using the [data collector](https://learn.microsoft.com/en-us/azure/machine-learning/concept-data-collection?view=azureml-api-2).
+- Collect production inference data from your deployed prompt flow application.
 - Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, and relevance, which are interoperable with prompt flow evaluation metrics.
 - Monitor prompt, completion, and total token usage across each model deployment in your prompt flow.
 - Monitor operational metrics, such as request count, latency, and error rate.
 - Preconfigured alerts and defaults to run monitoring on a recurring basis.
 - Consume data visualizations and configure advanced behavior in Azure AI Studio.
+
+## Prerequisites
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [basic prereqs sdk](includes/machine-learning-sdk-v2-prereqs.md)]
+
+# [Studio](#tab/azure-studio)
+
+Before following the steps in this article, make sure you have the following prerequisites:
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* An Azure AI Studio hub and project. If you don't have these resources, use the steps in the [Azure AI Studio hubs for projects](./ai-resources.md) and [Create a project in Azure AI Studio](./create-projects.md) articles to create them.
 
 ## Monitoring metrics and requirements 
 
@@ -71,7 +85,11 @@ For more information, see [question answering metric requirements](evaluate-gene
 
 ## Set up monitoring for prompt flow 
 
-Follow these steps to set up monitoring for your prompt flow deployment:
+Follow these steps to set up monitoring for your prompt flow application: 
+
+### 1. Deploy your prompt flow application with inferencing data collection
+
+In this section, you will learn how to deploy your prompt flow with inferencing data collection enabled. For detailed information on deployment settings, see [Deploy a flow for real-time inference](https://review.learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy?branch=pr-en-us-273312). 
 
 1. After creating your prompt flow, confirm it runs successfully and that the required inputs and outputs are configured for the [metrics you want to assess](#evaluation-metrics). The minimum required parameters of collecting only inputs and outputs provide only two metrics: coherence and fluency. You must configure your flow according to the [flow and metric configuration requirements](#flow-and-metric-configuration-requirements). In this example, we have `question` and `chat_history` as our inputs, and `answer` as our output.
 
@@ -102,29 +120,160 @@ Follow these steps to set up monitoring for your prompt flow deployment:
     :::image type="content" source="../media/deploy-monitor/monitor/test-deploy.png" alt-text="Screenshot of the deployment test page." lightbox = "../media/deploy-monitor/monitor/test-deploy.png":::
 
     > [!NOTE]
-    > Monitoring requires that at least one data point comes from a source other than the **Test** tab in the deployment. We recommend using the REST API available in the **Consume** tab to send sample requests to your deployment. More information on how to do so can be found [here](https://review.learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy?branch=pr-en-us-273312#create-an-online-deployment). 
+    > Monitoring requires that at least one data point comes from a source other than the **Test** tab in the deployment. We recommend using the REST API available in the **Consume** tab to send sample requests to your deployment. More information on how to do so can be found [here](https://review.learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy?branch=pr-en-us-273312#create-an-online-deployment).
 
-1. Navigate to the **Deployments** tab and select the prompt flow deployment you just created after it has successfully been deployed. 
+### 2. Configure monitoring
+
+In this section, you will learn how to configure monitoring for your deployed prompt flow application. 
+
+# [Studio](#tab/azure-studio)
+
+1. Navigate to the **Deployments** tab and select the prompt flow deployment you just created after it has successfully been deployed. Select **Enable** within the **Generation quality montitoring** box. 
 
     :::image type="content" source="../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png" alt-text="Screenshot of the deployment page highlighting generation quality monitoring." lightbox = "../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png":::
 
-1. Ensure your columns are mapped from your flow as defined in the previous requirements. 
+1. Ensure your column names are mapped from your flow as defined in the previous requirements. 
 
     :::image type="content" source="../media/deploy-monitor/monitor/column-map.png" alt-text="Screenshot of columns mapped for monitoring metrics." lightbox = "../media/deploy-monitor/monitor/column-map.png":::
 
-   Select **Advanced settings** to adjust the sampling rate, 
+1. Select **Advanced settings** to adjust the sampling rate, thresholds for the configured metrics, and email addresses which should receive email alerts.
 
    :::image type="content" source="../media/deploy-monitor/monitor/column-map-advanced-options.png" alt-text="Screenshot of advanced options when mapping columns for monitoring metrics." lightbox = "../media/deploy-monitor/monitor/column-map-advanced-options.png":::
 
-By default, operational metrics such as requests per minute and request latency show up. The default safety and quality monitoring signal are configured with a 10% sample rate and run on your default workspace Azure OpenAI connection. 
+# [Python SDK](#tab/python)
 
-Your monitor is created with default settings:
-- 10% sample rate
-- 4/5 (thresholds / recurrence)
-- Weekly recurrence on Monday mornings
-- Alerts are delivered to the inbox of the person that triggered the monitor.
+You can use the following code to set up monitoring for your deployed prompt flow application:
 
-To view more details about your monitoring metrics, you can follow the link to navigate to monitoring in Azure Machine Learning studio, which is a separate studio that allows for more customizations. 
+```python
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import (
+    MonitorSchedule,
+    CronTrigger,
+    MonitorDefinition,
+    ServerlessSparkCompute,
+    MonitoringTarget,
+    AlertNotification,
+    GenerationTokenStatisticsMonitorMetricThreshold,
+    GenerationTokenStatisticsSignal,
+    GenerationSafetyQualityMonitoringMetricThreshold,
+    GenerationSafetyQualitySignal,
+    BaselineDataRange,
+    LlmData,
+)
+from azure.ai.ml.entities._inputs_outputs import Input
+
+from azure.ai.ml.constants import MonitorTargetTasks, MonitorDatasetContext
+
+# Authentication package
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+
+# [START] update your azure resources details
+subscription_id = "INSERT YOUR SUBSCRIPTION ID"
+resource_group = "INSERT YOUR RESOURCE GROUP NAME"
+workspace_name = "INSERT YOUR WORKSPACE NAME"
+endpoint_name = "INSERT YOUR ENDPOINT NAME"
+deployment_name = "INSERT YOUR DEPLOYMENT NAME"
+aoai_deployment_name ="INSERT YOUR AOAI DEPLOYMENT NAME"
+aoai_connection_name = "INSERT YOUR AOAI CONNECTION NAME"
+app_trace_name = "app_traces"
+app_trace_Version = "1"
+monitor_name ="gen_ai_monitor_both_signals"
+defaulttokenstatisticssignalname ="token-usage-signal"
+defaultgsqsignalname ="gsq-signal"
+trigger_schedule = CronTrigger(expression="15 10 * * *")
+notification_emails_list = ["test@example.com", "def@example.com"]
+#[End]
+
+ml_client = MLClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    resource_group_name=resource_group,
+    workspace_name=workspace_name,
+)
+
+spark_compute = ServerlessSparkCompute(instance_type="standard_e4s_v3", runtime_version="3.3")
+monitoring_target = MonitoringTarget(
+    ml_task=MonitorTargetTasks.QUESTION_ANSWERING,
+    endpoint_deployment_id=f"azureml:{endpoint_name}:{deployment_name}",
+)
+
+# Create an instance of token statistic signal
+def get_token_statistic_signal(token_count_threshold, token_count_per_group_threshold) -> GenerationTokenStatisticsSignal:
+    totaltoken = {"total_token_count": token_count_threshold, "total_token_count_per_group": token_count_per_group_threshold}
+    threshold = GenerationTokenStatisticsMonitorMetricThreshold(totaltoken = totaltoken)
+    input_data = Input(
+        type="uri_folder",
+        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
+    )
+    data_window = BaselineDataRange(lookback_window_size="P2D", lookback_window_offset="P0D")
+    production_data = LlmData(
+        data_column_names={"prompt_column": "question", "completion_column": "answer"},
+        input_data=input_data,
+        data_window=data_window,
+    )
+    
+    return GenerationTokenStatisticsSignal(
+        metric_thresholds = threshold,
+        production_data = production_data)
+    
+
+# Create an instance of gsq signal
+def get_gsq_signal(
+        acceptable_fluency_score_per_instance : int,
+        aggregated_fluency_pass_rate : float,
+        acceptable_coherence_score_per_instance : int,
+        aggregated_coherence_pass_rate : float) -> GenerationSafetyQualitySignal :
+    generation_quality_thresholds = GenerationSafetyQualityMonitoringMetricThreshold(
+        fluency={"acceptable_fluency_score_per_instance": acceptable_fluency_score_per_instance,
+                 "aggregated_fluency_pass_rate": aggregated_fluency_pass_rate},
+        coherence={"acceptable_coherence_score_per_instance": acceptable_coherence_score_per_instance,
+                   "aggregated_coherence_pass_rate": aggregated_coherence_pass_rate},
+    )
+    input_data = Input(
+        type="uri_folder",
+        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
+    )
+    data_window = BaselineDataRange(lookback_window_size="P7D", lookback_window_offset="P0D")
+    production_data = LlmData(
+        data_column_names={"prompt_column": "question", "completion_column": "answer"},
+        input_data=input_data,
+        data_window=data_window,
+    )
+
+    return GenerationSafetyQualitySignal(
+        connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
+        metric_thresholds=generation_quality_thresholds,
+        production_data=[production_data],
+        sampling_rate=1.0,
+        properties={
+            "aoai_deployment_name": aoai_deployment_name,
+            "enable_action_analyzer": "false",
+            "azureml.modelmonitor.gsq_thresholds": '[{"metricName":"average_fluency","threshold":{"value":4}},{"metricName":"average_coherence","threshold":{"value":4}}]',
+        },
+    )
+
+monitoring_signals = {
+    defaultgsqsignalname: get_gsq_signal(4, 0.7, 4, 0.7),
+    defaulttokenstatisticssignalname: get_token_statistic_signal(20,10),
+    }
+
+monitor_settings = MonitorDefinition(
+compute=spark_compute,
+monitoring_target=monitoring_target,
+alert_notification=AlertNotification(emails=notification_emails_list),
+)
+
+model_monitor = MonitorSchedule(
+    name = monitor_name,
+    trigger=trigger_schedule,
+    create_monitor=monitor_settings
+)
+ml_client.schedules.begin_create_or_update(model_monitor)
+```
+
+---
 
 ## Consume monitoring results 
 
@@ -139,16 +288,23 @@ Additionally, the **Token usage** tab is selected by default. In this tab, you c
 
 :::image type="content" source="../media/deploy-monitor/monitor/monitor-token-usage.png" alt-text="Screenshot showing the token usage on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/monitor-token-usage.png":::
 
-Navigate to the **Generation quality** tab to monitor the quality of your application over time. 
+Navigate to the **Generation quality** tab to monitor the quality of your application over time. The following metrics are shown in the timechart:
 
-- **Violation count**:
-- **Average score**: 
+- **Violation count**: The violation count for a given metric (e.g., Fluency) is the sum of violations over the selected time window. A **violation** occurs for a metric when the metrics are computed (default is daily) if the computed value for the metric (e.g., 3.5) falls below the threshold (e.g., 4). 
+- **Average score**: The average score for a given metric (e.g., Fluency) is the sum of the scores for all instances/requests divided by the number of instances/requests over the selected time window.
+
+The **Generation quality violations** card shows the **violation rate** over the selected time window. The **violation rate** is the 
 
 :::image type="content" source="../media/deploy-monitor/monitor/generation-quality-trendline.png" alt-text="Screenshot showing the generation quality trendline on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/generation-quality-trendline.png":::
 
-Monitoring also provides a comprehensive table of all sampled requests (if 100 requests were sent in total, and the sampling rate is 10%, you will see 10 sampled requests in the table) sent to the deployment during the selected time window. 
+From this view, you can also view a comprehensive table of all sampled requests sent to the deployment during the selected time window. 
+
+    > [!NOTE]
+    > Monitoring sets the default sampling rate at 10%. This means that if 100 requests are sent to your deployment, 10 would be sampled and used to compute the generation quality metrics. You can adjust the sampling rate in the settings. 
 
 :::image type="content" source="../media/deploy-monitor/monitor/generation-quality-tracing-information.png" alt-text="Screenshot showing the trace button for the generation quality." lightbox = "../media/deploy-monitor/monitor/generation-quality-tracing-information.png":::
+
+If you are curious about the tracing details for a given request, select the **Trace** button on the right side of the row in the table. This view provides comprehensive trace details for the request to your application. 
 
 :::image type="content" source="../media/deploy-monitor/monitor/trace-information.png" alt-text="Screenshot showing the trace information." lightbox = "../media/deploy-monitor/monitor/trace-information.png":::
 
@@ -160,11 +316,213 @@ You can also view the operational metrics for the deployment by navigating to th
 
 :::image type="content" source="../media/deploy-monitor/monitor/deployment-operational-tab.png" alt-text="Screenshot of the operational tab for the deployment." lightbox = "../media/deploy-monitor/monitor/deployment-operational-tab.png":::
 
+Based on the results in the **Monitoring (preview)** tab for your deployment, you are provided with insights to help you proactively improve the performance of your prompt flow application. 
+
 ## Advanced monitoring configuration with SDK v2
 
-Monitoring also supports advanced configuration options with the SDK v2. 
+Monitoring also supports advanced configuration options with the SDK v2. The following scenarios are supported:
 
-### Enable Monitoring for token usage 
+### 1. Enable monitoring for token usage 
+
+If you are only interested in enabling token usage monitoring for your deployed prompt flow application, you can adapt the script below to your scenario: 
+
+```python
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import (
+    MonitorSchedule,
+    CronTrigger,
+    MonitorDefinition,
+    ServerlessSparkCompute,
+    MonitoringTarget,
+    AlertNotification,
+    GenerationTokenStatisticsMonitorMetricThreshold,
+    GenerationTokenStatisticsSignal,
+    BaselineDataRange,
+    LlmData,
+)
+from azure.ai.ml.entities._inputs_outputs import Input
+
+from azure.ai.ml.constants import MonitorTargetTasks, MonitorDatasetContext
+
+# Authentication package
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+
+# update your azure resources details
+subscription_id = "INSERT YOUR SUBSCRIPTION ID"
+resource_group = "INSERT YOUR RESOURCE GROUP NAME"
+workspace_name = "INSERT YOUR PROJECT / WORKSPACE NAME"
+endpoint_name = "INSERT YOUR ENDPOINT NAME"
+deployment_name = "INSERT YOUR DEPLOYMENT NAME"
+app_trace_name = "app_traces"
+app_trace_Version = "1"
+monitor_name ="gen_ai_monitor_out_of_box"
+defaulttokenstatisticssignalname ="token-usage-signal"
+trigger_schedule = CronTrigger(expression="15 10 * * *")
+notification_emails_list = ["test@example.com", "def@example.com"]
+
+ml_client = MLClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    resource_group_name=resource_group,
+    workspace_name=workspace_name,
+)
+
+spark_compute = ServerlessSparkCompute(instance_type="standard_e4s_v3", runtime_version="3.3")
+monitoring_target = MonitoringTarget(
+    ml_task=MonitorTargetTasks.QUESTION_ANSWERING,
+    endpoint_deployment_id=f"azureml:{endpoint_name}:{deployment_name}",
+)
+
+# Create an instance of token statistic signal
+def get_token_statistic_signal(token_count_threshold, token_count_per_group_threshold) -> GenerationTokenStatisticsSignal:
+    totaltoken = {"total_token_count": token_count_threshold, "total_token_count_per_group": token_count_per_group_threshold}
+    threshold = GenerationTokenStatisticsMonitorMetricThreshold(totaltoken = totaltoken)
+    input_data = Input(
+        type="uri_folder",
+        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
+    )
+    data_window = BaselineDataRange(lookback_window_size="P2D", lookback_window_offset="P0D")
+    production_data = LlmData(
+        data_column_names={"prompt_column": "question", "completion_column": "answer"},
+        input_data=input_data,
+        data_window=data_window,
+    )
+    
+    return GenerationTokenStatisticsSignal(
+        metric_thresholds = threshold,
+        production_data = production_data)
+
+monitoring_signals = {
+    defaulttokenstatisticssignalname: get_token_statistic_signal(20,10),
+    }
+
+monitor_settings = MonitorDefinition(
+compute=spark_compute,
+monitoring_target=monitoring_target,
+alert_notification=AlertNotification(emails=notification_emails_list),
+)
+
+model_monitor = MonitorSchedule(
+    name = monitor_name,
+    trigger=trigger_schedule,
+    create_monitor=monitor_settings
+)
+
+ml_client.schedules.begin_create_or_update(model_monitor)
+```
+
+### 2. Enable monitoring for generation quality 
+
+If you are only interested in enabling generation quality monitoring for your deployed prompt flow application, you can adapt the script below to your scenario: 
+
+```python
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import (
+    MonitorSchedule,
+    CronTrigger,
+    MonitorDefinition,
+    ServerlessSparkCompute,
+    MonitoringTarget,
+    AlertNotification,
+    GenerationSafetyQualityMonitoringMetricThreshold,
+    GenerationSafetyQualitySignal,
+    BaselineDataRange,
+    LlmData,
+)
+from azure.ai.ml.entities._inputs_outputs import Input
+
+from azure.ai.ml.constants import MonitorTargetTasks, MonitorDatasetContext
+
+# Authentication package
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+
+# update your azure resources details
+subscription_id = "INSERT YOUR SUBSCRIPTION ID"
+resource_group = "INSERT YOUR RESOURCE GROUP NAME"
+workspace_name = "INSERT YOUR WORKSPACE NAME"
+endpoint_name = "INSERT YOUR ENDPOINT NAME"
+deployment_name = "INSERT YOUR DEPLOYMENT NAME"
+aoai_deployment_name ="INSERT YOUR AOAI DEPLOYMENT NAME"
+aoai_connection_name = "INSERT YOUR AOAI CONNECTION NAME"
+app_trace_name = "app_traces"
+app_trace_Version = "1"
+monitor_name ="gen_ai_monitor_gsq_only_explicity"
+defaultgsqsignalname ="gsq-signal"
+trigger_schedule = CronTrigger(expression="15 10 * * *")
+notification_emails_list = ["test@example.com", "def@example.com"]
+
+ml_client = MLClient(
+    credential=credential,
+    subscription_id=subscription_id,
+    resource_group_name=resource_group,
+    workspace_name=workspace_name,
+)
+
+spark_compute = ServerlessSparkCompute(instance_type="standard_e4s_v3", runtime_version="3.3")
+monitoring_target = MonitoringTarget(
+    ml_task=MonitorTargetTasks.QUESTION_ANSWERING,
+    endpoint_deployment_id=f"azureml:{endpoint_name}:{deployment_name}",
+)
+
+# Create an instance of gsq signal
+def get_gsq_signal(
+        acceptable_fluency_score_per_instance : int,
+        aggregated_fluency_pass_rate : float,
+        acceptable_coherence_score_per_instance : int,
+        aggregated_coherence_pass_rate : float) -> GenerationSafetyQualitySignal :
+    generation_quality_thresholds = GenerationSafetyQualityMonitoringMetricThreshold(
+        fluency={"acceptable_fluency_score_per_instance": acceptable_fluency_score_per_instance,
+                 "aggregated_fluency_pass_rate": aggregated_fluency_pass_rate},
+        coherence={"acceptable_coherence_score_per_instance": acceptable_coherence_score_per_instance,
+                   "aggregated_coherence_pass_rate": aggregated_coherence_pass_rate},
+    )
+    input_data = Input(
+        type="uri_folder",
+        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
+    )
+    data_window = BaselineDataRange(lookback_window_size="P7D", lookback_window_offset="P0D")
+    production_data = LlmData(
+        data_column_names={"prompt_column": "question", "completion_column": "answer"},
+        input_data=input_data,
+        data_window=data_window,
+    )
+
+    return GenerationSafetyQualitySignal(
+        connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
+        metric_thresholds=generation_quality_thresholds,
+        production_data=[production_data],
+        sampling_rate=1.0,
+        properties={
+            "aoai_deployment_name": aoai_deployment_name,
+            "enable_action_analyzer": "false",
+            "azureml.modelmonitor.gsq_thresholds": '[{"metricName":"average_fluency","threshold":{"value":4}},{"metricName":"average_coherence","threshold":{"value":4}}]',
+        },
+    )
+
+
+monitoring_signals = {
+    defaultgsqsignalname: get_gsq_signal(4, 0.7, 4, 0.7),
+    }
+
+monitor_settings = MonitorDefinition(
+compute=spark_compute,
+monitoring_target=monitoring_target,
+alert_notification=AlertNotification(emails=notification_emails_list),
+)
+
+model_monitor = MonitorSchedule(
+    name = monitor_name,
+    trigger=trigger_schedule,
+    create_monitor=monitor_settings
+)
+ml_client.schedules.begin_create_or_update(model_monitor)
+```
+
+After you have created your monitor from the SDK, you can [consume the monitoring](#consume-monitoring-results) results in AI Studio. 
 
 ## Next steps
 
