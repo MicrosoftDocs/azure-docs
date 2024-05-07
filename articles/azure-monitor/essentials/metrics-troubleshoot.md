@@ -28,6 +28,20 @@ In Azure, [Azure role-based access control (Azure RBAC)](../../role-based-access
 
 **Solution:** Ensure that you have sufficient permissions for the resource from which you're exploring metrics.
 
+### You receive the error message "Access permission denied"
+
+You may encounter this message when querying from an Azure Kubernetes Service (AKS) or Azure Monitor workspace. Since Prometheus metrics for your AKS are stored in Azure Monitor workspaces, this error can be caused by a variety of reasons:
+
+* You may not have the permissions to query from the Azure Monitor workspace being used to emit metrics.
+* You may have an adblock software enabled that blocks `monitor.azure.com` traffic.
+* Your Azure Monitor workspace Networking settings do not support query access.
+
+**Solution(s):** One or more of the following fixes may be required to fix the error.
+
+* Check that you have sufficient permissions to perform microsoft.monitor/accounts/read assigned through Access Control (IAM) in your Azure Monitor workspace.
+* You may need to pause or disable in order to view data. Or you can allow list `monitor.azure.com` traffic.
+* You might need to enable private access through your private endpoint or change settings to allow public access.
+
 ### Your resource didn't emit metrics during the selected time range
 
 Some resources don’t constantly emit their metrics. For example, Azure doesn't collect metrics for stopped virtual machines. Other resources might emit their metrics only when some condition occurs. For example, a metric showing processing time of a transaction requires at least one transaction. If there were no transactions in the selected time range, the chart is naturally empty. Additionally, while most of the metrics in Azure are collected every minute, there are some that are collected less frequently. See the metric documentation to get more details about the metric that you're trying to explore.
