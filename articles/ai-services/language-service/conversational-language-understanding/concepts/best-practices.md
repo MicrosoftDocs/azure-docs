@@ -218,7 +218,7 @@ curl --request POST \
 ```
 
 
-## Addressing Out of Domain utterances
+## Addressing out of domain utterances
 
 Customers can use the new recipe version '2024-06-01-preview' in case the model has poor AIQ on out of domain utterances. An example of this with the default recipe can be like the below where the model has 3 intents Sports, QueryWeather and Alarm. The test utterances are out of domain utterances and the model classifies them as InDomain with a relatively high confidence score.
 
