@@ -15,11 +15,12 @@ ms.author: allensu
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
 
+> [!IMPORTANT]
+> While Service Tags simplify the ability to enable IP-based Access Control Lists (ACLs), Service Tags alone aren't sufficient to secure traffic without considering the nature of the service and the traffic it sends. For more information about IP based ACLs, see **[What is an IP based access control list (ACL)?](ip-based-access-control-list-overview.md)**. 
+>
+> Additional information about the nature of the traffic can be found later in this article for each service and their tag. It's important to ensure you are familiar with the traffic that you are allow when utilizing service tags for IP based ACLs. Consider added levels of security to protect your environment.
+
 You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a security rule, you can allow or deny the traffic for the corresponding service. By specifying the service tag name in the address prefix of a route, you can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type. 
-
-
-> [!NOTE] 
-> As of March 2022, using service tags in place of explicit address prefixes in [user defined routes](./virtual-networks-udr-overview.md#user-defined) is out of preview and generally available.
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
@@ -54,7 +55,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzureBackup](/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity)** |Azure Backup.<br/><br/>**Note**: This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Both | No | Yes |
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). Includes IPv6. | Both | Yes | Yes |
-| **[AzureCognitiveSearch](/azure/search/search-indexer-howto-access-ip-restricted#get-ip-addresses-for-azurecognitivesearch-service-tag** | Azure AI Search. <br/><br/>This tag specifies the IP ranges of the [multitenant execution environments](../search/search-indexer-securing-resources.md#indexer-execution-environment) used by a search service for indexer-based indexing. <br/><br/> **Note**: The IP of the search service itself isn't covered by this service tag. In the firewall configuration of your Azure resource, you should specify the service tag and also the specific IP address of the search service itself. | Inbound | No | Yes |
+| **[AzureCognitiveSearch](/azure/search/search-indexer-howto-access-ip-restricted#get-ip-addresses-for-azurecognitivesearch-service-tag)** | Azure AI Search. <br/><br/>This tag specifies the IP ranges of the [multitenant execution environments](../search/search-indexer-securing-resources.md#indexer-execution-environment) used by a search service for indexer-based indexing. <br/><br/> **Note**: The IP of the search service itself isn't covered by this service tag. In the firewall configuration of your Azure resource, you should specify the service tag and also the specific IP address of the search service itself. | Inbound | No | Yes |
 | **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Both | Yes | Yes |
 | **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
