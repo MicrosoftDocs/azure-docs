@@ -42,7 +42,7 @@ Create a new file `index.js` where the code for this quickstart will be added.
 
 ### Install the packages
 
-You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0](https://www.npmjs.com/package/@azure/communication-rooms) or above.
+You need to use the Azure Communication Rooms client library for JavaScript [version 1.1.0](https://www.npmjs.com/package/@azure/communication-rooms) or above.
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
@@ -52,7 +52,7 @@ npm install @azure/communication-rooms --save
 
 ### Set up the app framework
 
-In the `index.js` file add the following code. We will be adding the code for the quickstart in the `main` function.
+In the `index.js` file, add the following code. We'll be adding the code for the quickstart in the `main` function.
 
 ``` javascript
 const { RoomsClient } = require('@azure/communication-rooms');
@@ -89,7 +89,7 @@ const roomsClient = new RoomsClient(connectionString);
 
 ### Set up room participants
 
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-javascript) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-javascript) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
 
 To use the CommunicationIdentityClient, install the following npm package:
 
@@ -147,11 +147,10 @@ const createRoom = await roomsClient.createRoom(createRoomOptions);
 const roomId = createRoom.id;
 console.log("\nCreated a room with id: ", roomId);
 ```
-*pstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
-### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+### Enable PSTN dial out capability for a room
 Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
 
 ```javascript

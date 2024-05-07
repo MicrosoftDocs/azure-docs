@@ -1,7 +1,7 @@
 ---
 title: Azure Policy definitions denyAction effect
 description: Azure Policy definitions denyAction effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 04/17/2024
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ Policy evaluates resources that support location and tags against `denyAction` p
 
 Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child and extension resources. Policy doesn't block removal of child and extension resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is an extension resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) fails, but a delete to the storage account (parent) implicitly deletes the diagnostic setting (extension).
 
-[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-deny-action.md)]
+[!INCLUDE [azure-policy-deny-action](../../includes/policy/azure-policy-deny-action.md)]
 
 ## DenyAction properties
 

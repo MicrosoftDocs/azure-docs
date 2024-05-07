@@ -41,13 +41,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
     > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
 
-1. On the right side, you see an example summary of the estimated costs. This updates as you select options that affect the cost, such as choosing *Ubuntu Server 22.04 LTS - Gen2* for your **Image**.
-
-
-   ![Screenshot of Linux virtual machine estimated cost on creation page in the Azure portal.](./media/quick-create-portal/linux-estimated-monthly-cost.png)
-
-   If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
-
 1. Under **Administrator account**, select **SSH public key**.
 
 1. In **Username** enter *azureuser*.

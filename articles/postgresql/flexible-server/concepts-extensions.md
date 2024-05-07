@@ -3,7 +3,8 @@ title: Extensions
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 04/07/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -31,7 +32,7 @@ Using [Azure CLI](/cli/azure/):
 
    You can allowlist extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true).
 
-   ```bash
+   ```azurecli
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
    ```
 
@@ -40,55 +41,30 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
 ```json
 {
-
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-
     "contentVersion": "1.0.0.0",
-
     "parameters": {
-
         "flexibleServers_name": {
-
             "defaultValue": "mypostgreserver",
-
             "type": "String"
-
         },
-
         "azure_extensions_set_value": {
-
             "defaultValue": " dblink,dict_xsyn,pg_buffercache",
-
             "type": "String"
-
         }
-
     },
-
     "variables": {},
-
     "resources": [
-
         {
-
             "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
-
             "apiVersion": "2021-06-01",
-
             "name": "[concat(parameters('flexibleServers_name'), '/azure.extensions')]",
-
             "properties": {
-
                 "value": "[parameters('azure_extensions_set_value')]",
-
                 "source": "user-override"
-
             }
-
         }
-
     ]
-
 }
   ```
 
@@ -106,7 +82,7 @@ Using [Azure CLI](/cli/azure/):
 
    You can set `shared_preload_libraries` via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true).
 
-   ```bash
+   ```azurecli
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name shared_preload_libraries --value <extension name>,<extension name>
    ```
 
@@ -121,7 +97,7 @@ Azure Database for PostgreSQL flexible server instance supports a subset of key 
 
 The following extensions are available in Azure Database for PostgreSQL flexible server:
 > [!NOTE]  
-> Extensions in the following table with the :heavy_check_mark: mark, require their corresponding libraries to be enabled in the shared_preload_libraries server parameter.
+> Extensions in the following table with the :heavy_check_mark: mark, require their corresponding libraries to be enabled in the `shared_preload_libraries` server parameter.
 
 [!INCLUDE [extensions-table](./includes/extensions-table.md)]
 
@@ -133,65 +109,65 @@ We recommend deploying your servers with [virtual network integration](concepts-
 
 ## pg_prewarm
 
-The pg_prewarm extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. The auto-prewarm functionality isn't currently available in Azure Database for PostgreSQL flexible server.
+The `pg_prewarm` extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. The auto-prewarm functionality isn't currently available in Azure Database for PostgreSQL flexible server.
 
 ## pg_cron
 
-[pg_cron](https://github.com/citusdata/pg_cron/) is a simple, cron-based job scheduler for PostgreSQL that runs inside the database as an extension. The pg_cron extension can be used to run scheduled maintenance tasks within a PostgreSQL database. For example, you can run periodic vacuum of a table or removing old data jobs.
+[pg_cron](https://github.com/citusdata/pg_cron/) is a simple, cron-based job scheduler for PostgreSQL that runs inside the database as an extension. The `pg_cron` extension can be used to run scheduled maintenance tasks within a PostgreSQL database. For example, you can run periodic vacuum of a table or removing old data jobs.
 
 `pg_cron` can run multiple jobs in parallel, but it runs at most one instance of a job at a time. If a second run is supposed to start before the first one finishes, then the second run is queued and started as soon as the first run completes. This ensures that jobs run exactly as many times as scheduled and don't run concurrently with themselves.
 
 Some examples:
 
-To delete old data on Saturday at 3:30am (GMT)
+To delete old data on Saturday at 3:30am (GMT).
 
-```
+```sql
 SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
 ```
-To run vacuum every day at 10:00am (GMT) in default database 'postgres'
+To run vacuum every day at 10:00am (GMT) in default database `postgres`.
 
 
-```
+```sql
 SELECT cron.schedule('0 10 * * *', 'VACUUM');
 ```
 
-To unschedule all tasks from pg_cron
+To unschedule all tasks from `pg_cron`.
 
-```
+```sql
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
-To see all jobs currently scheduled with pg_cron
+To see all jobs currently scheduled with `pg_cron`.
 
 
-```
+```sql
 SELECT * FROM cron.job;
 ```
-To run vacuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
+To run vacuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account.
 
 
-```
-SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE)
+```sql
+SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE);
 ```
 
 > [!NOTE]  
-> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL flexible server instance inside postgres database to provide you with ability to schedule jobs to run in other databases within your Azure Database for PostgreSQL flexible server DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
+> pg_cron extension is preloaded in `shared_preload_libraries` for every Azure Database for PostgreSQL flexible server instance inside postgres database to provide you with ability to schedule jobs to run in other databases within your Azure Database for PostgreSQL flexible server DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) `pg_cron` extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 
-Starting with pg_cron version 1.4, you can use the cron.schedule_in_database and cron.alter_job functions to schedule your job in a specific database and update an existing schedule respectively.
+Starting with `pg_cron` version 1.4, you can use the `cron.schedule_in_database` and `cron.alter_job` functions to schedule your job in a specific database and update an existing schedule respectively.
 
 Some examples:
 
-To delete old data on Saturday at 3:30am (GMT) on database DBName
+To delete old data on Saturday at 3:30am (GMT) on database DBName.
 
-```
+```sql
 SELECT cron.schedule_in_database('JobName', '30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$,'DBName');
 ```
 > [!NOTE]  
-> cron_schedule_in_database function allows for user name as optional parameter. Setting the username to a non-null value requires PostgreSQL superuser privilege and is not supported in Azure Database for PostgreSQL flexible server. Preceding examples show running this function with optional user name parameter ommitted or set to null, which runs the job in context of user scheduling the job, which should have azure_pg_admin role privileges.
+> `cron_schedule_in_database` function allows for user name as optional parameter. Setting the username to a non-null value requires PostgreSQL superuser privilege and is not supported in Azure Database for PostgreSQL flexible server. Preceding examples show running this function with optional user name parameter ommitted or set to null, which runs the job in context of user scheduling the job, which should have azure_pg_admin role privileges.
 
 To update or change the database name for the existing schedule
 
-```
-select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
+```sql
+SELECT cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 ```
 
 ## pg_failover_slots (preview)
@@ -199,7 +175,7 @@ select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 The PG Failover Slots extension enhances Azure Database for PostgreSQL flexible server when operating with both logical replication and high availability enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that doesn't preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
 
 The extension streamlines the failover process by managing the necessary transfer, cleanup, and synchronization of replication slots, thus providing a seamless transition during server role changes.
-The extension is supported for PostgreSQL versions 16 to 11.
+The extension is supported for PostgreSQL versions 11 to 16.
 
 You can find more information and how to use the PG Failover Slots extension on its [GitHub page](https://github.com/EnterpriseDB/pg_failover_slots).
 
@@ -226,11 +202,11 @@ By selecting **Save and restart**, your server will automatically reboot, applyi
 
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) gives you a view of all the queries that have run on your database. That is useful to get an understanding of what your query workload performance looks like on a production system.
 
-The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded in shared_preload_libraries on every Azure Database for PostgreSQL flexible server instance to provide you a means of tracking execution statistics of SQL statements.
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded in `shared_preload_libraries` on every Azure Database for PostgreSQL flexible server instance to provide you a means of tracking execution statistics of SQL statements.
 However, for security reasons, you still have to [allowlist](#how-to-use-postgresql-extensions)  [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
 
-There's a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
+There's a tradeoff between the query execution information `pg_stat_statements` provides and the impact on server performance as it logs each SQL statement. If you aren't actively using the `pg_stat_statements` extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on `pg_stat_statements` to deliver query performance insights, so confirm whether this is the case for you or not.
 
 ## TimescaleDB
 
@@ -283,7 +259,7 @@ Now you can run pg_dump on the original database and then do pg_restore. After t
 ```SQL
 SELECT timescaledb_post_restore();
 ```
-For more details on restore method with Timescale enabled database, see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
+For more details on restore method with Timescale enabled database, see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup).
 
 
 ### Restore a Timescale database using timescaledb-backup
@@ -293,7 +269,7 @@ To do so, you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    1. Create a target Azure Database for PostgreSQL flexible server instance and database
    1. Enable Timescale extension as shown above
-   1. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
+   1. Grant `azure_pg_admin` role to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    1. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
 More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup).  
@@ -302,7 +278,7 @@ More details on these utilities can be found [here](https://github.com/timescale
 
 ## pg_hint_plan
 
-`pg_hint_plan` makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments, like
+`pg_hint_plan` makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments, like:
 
 ```sql
 /*+ SeqScan(a) */
@@ -341,12 +317,12 @@ Using the [Azure portal](https://portal.azure.com/):
 You can now enable pg_hint_plan your Azure Database for PostgreSQL flexible server database. Connect to the database and issue the following command:
 
 ```sql
-CREATE EXTENSION  pg_hint_plan ;
+CREATE EXTENSION pg_hint_plan;
 ```
 
 ## pg_buffercache
 
-`Pg_buffercache` can be used to study the contents of *shared_buffers*. Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*). This extension can help you in troubleshooting performance issues (caching related performance issues)
+`Pg_buffercache` can be used to study the contents of *shared_buffers*. Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not (in `shared_buffers`). This extension can help you troubleshooting performance issues (caching related performance issues).
 
 This is part of contrib, and it's easy to install this extension.
 

@@ -3,7 +3,7 @@ title: Implement signing integrations with Trusted Signing
 description: Learn how to set up signing integrations with Trusted Signing.  
 author: microsoftshawarma 
 ms.author: rakiasegev 
-ms.service: azure-code-signing 
+ms.service: trusted-signing
 ms.topic: how-to
 ms.date: 04/04/2024 
 ms.custom: template-how-to-pattern 
@@ -77,7 +77,7 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 2.	Add the specific values for your Trusted Signing Account and Certificate Profile to the JSON file. For more information, see the metadata.sample.json file that’s included in the Trusted Signing Dlib package or refer to the following example: 
 ```
 { 
-  "Endpoint": "<Code Signing Account Endpoint>", 
+  "Endpoint": "<Trusted Signing Account Endpoint>", 
   "TrustedSigningAccountName": "<Trusted Signing Account Name>", 
   "CertificateProfileName": "<Certificate Profile Name>", 
   "CorrelationId": "<Optional CorrelationId*>" 
@@ -106,7 +106,7 @@ Complete the following steps to invoke SignTool to sign a file for you:
 2.	Replace the placeholders in the following path with the specific values you noted in step 1.
 
 ```
-& "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Azure Code Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to Metadata file>\metadata.json" <File to sign> 
+& "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing Dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to Metadata file>\metadata.json" <File to sign> 
 ```
 * Both x86 and x64 versions of SignTool.exe are provided as part of the Windows SDK - ensure you reference the corresponding version of Azure.CodeSigning.Dlib.dll. The above example is for the x64 version of SignTool.exe.
 * You must make sure you use the recommended Windows SDK version in the dependencies listed at the beginning of this article. Otherwise our dlib won’t work. 

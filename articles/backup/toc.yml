@@ -294,6 +294,8 @@
         href: backup-azure-manage-vms.md
       - name: Manage recovery points
         href: manage-recovery-points.md
+      - name: Migrate backups from standard to enhanced policy
+        href: backup-azure-vm-migrate-enhanced-policy.md
       - name: Modify backup policy with Azure CLI
         href: modify-vm-policy-cli.md
   - name: SQL Server database on Azure VM backup

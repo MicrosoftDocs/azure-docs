@@ -87,16 +87,30 @@ The subscriptions in which the Arc-enabled servers are onboarded aren't producin
 #### Resolution
 Ensure that the Arc servers subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
-### Maintenance configuration isn't applied when VM is moved to a different subscription
+### Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
 
 #### Issue
 
-When a VM is moved to another subscription, the scheduled maintenance configuration associated to the VM isn't running.
+When a VM is moved to another subscription or resource group, the scheduled maintenance configuration associated to the VM isn't running.
 
 #### Resolution
 
-If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system. You can delete the older association of the moved VM and create the new association to include the moved VMs in a maintenance configuration.
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move.
 
+If you're using a `static` scope:
+
+1. Remove the resource assignment.
+1. Move the resource to a different resource group or subscription.
+1. Re-create the resource assignment.
+
+If you're using a `dynamic` scope:
+
+1. Remove the resource assignment.
+1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
+1. Move the resource to a different resource group or subscription.
+1. Re-create the resource assignment.
+
+If you miss any of the preceding steps, please reach out to the support team for mitigation.
 ### Unable to change the patch orchestration option to manual updates from automatic updates
 
 #### Issue

@@ -183,7 +183,7 @@
         - name: GitHub
           href: authentication-github.md
         - name: Google
-          href: authentication-google.md
+          href: authentication-google.yml
         - name: Twitter
           href: authentication-twitter.md
         - name: Custom OpenID Connect

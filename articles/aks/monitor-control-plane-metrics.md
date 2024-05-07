@@ -131,7 +131,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 1. Set `minimalingestionprofile = true` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify are: `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`, `controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
-1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
+1. Under the `default-targets-metrics-keep-list`, specify the list of metrics for the `true` targets. For example,
 
     ```yaml
     controlplane-apiserver= "apiserver_admission_webhook_admission_duration_seconds| apiserver_longrunning_requests"
@@ -151,7 +151,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 1. Set `minimalingestionprofile = false` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify here are `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`,`controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
-1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
+1. Under the `default-targets-metrics-keep-list`, specify the list of metrics for the `true` targets. For example,
 
     ```yaml
     controlplane-apiserver= "apiserver_admission_webhook_admission_duration_seconds| apiserver_longrunning_requests"
@@ -222,10 +222,10 @@ az feature unregister "Microsoft.ContainerService" --name "AzureMonitorMetricsCo
 
 ## FAQs
 * Can these metrics be scraped with self hosted prometheus?
- The control plane metrics currently cannot be scraped with self hosted prometheus. Self hosted prometheus will be able to scrape the single instance depending on the load balancer. These metrics are notaccurate as there are often multiple replicas of the control plane metrics which will only be visible through Managed Prometheus
+  * The control plane metrics currently cannot be scraped with self hosted prometheus. Self hosted prometheus will be able to scrape the single instance depending on the load balancer. These metrics are notaccurate as there are often multiple replicas of the control plane metrics which will only be visible through Managed Prometheus
 
 * Why is the user agent not available through the control plane metrics?
-[Control plane metrics in Kubernetes](https://kubernetes.io/docs/reference/instrumentation/metrics/) do not have the user agent. The user agent is only available through Control Plane logs available through [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md)
+  * [Control plane metrics in Kubernetes](https://kubernetes.io/docs/reference/instrumentation/metrics/) do not have the user agent. The user agent is only available through Control Plane logs available through [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md)
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/03/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -45,7 +45,7 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Microsoft Defender for Cloud support
 
-**[Overview of Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+**[Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
 When you enable this plan, Defender for Cloud provides alerts when it detects anomalous database access and query patterns and suspicious database activities.
 
 These alerts appear in Defender for Cloud's security alerts page and include:
@@ -54,8 +54,6 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 - The associated MITRE ATT&CK tactic
 - Recommended actions for how to investigate and mitigate the threat
 - Options for continuing your investigations with Microsoft Sentinel
-
-
 
 ### Microsoft Defender for Cloud and Brute Force Attacks
 
@@ -70,6 +68,9 @@ To get alerts from the Microsoft Defender plan, you'll first need to **enable it
 1. Select Enable in the right pane.
 
 :::image type="content" source="media/concepts-security/defender-for-cloud-azure-portal-postgresql.png" alt-text="Screenshot of Azure portal showing how to enable Cloud Defender." lightbox="media/concepts-security/defender-for-cloud-azure-portal-postgresql.png":::
+
+> [!NOTE]
+> If you have the "open-source relational databases" feature enabled in your Microsoft Defender plan, you will observe that Microsoft Defender is automatically enabled by default for your Azure Database for PostgreSQL flexible server resource.
 
 ## Access management
 
@@ -191,6 +192,18 @@ CREATE POLICY account_managers ON accounts TO managers
 ```
 
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role can't perform `SELECT`, `DELETE`, or `UPDATE` operations on rows that belong to other managers, and can't `INSERT` new rows belonging to another manager.
+You can drop a row security policy by using DROP POLICY command , as in his example:
+```sql
+
+
+DROP POLICY account_managers ON accounts;
+```
+Although you may have have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
+
+```sql
+ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
+```
+
 
 ## Bypassing Row Level Security
 

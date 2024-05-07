@@ -586,8 +586,8 @@
         displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Generalizing a VM
-      displayName: generalize sysprep deprovision
-      href: generalize.md
+      displayName: generalize sysprep deprovision 
+      href: generalize.yml
     - name: Linux custom images
       items:
       - name: Overview
@@ -764,7 +764,7 @@
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
     - name: Capture a legacy managed image
-      href: capture-image-resource.md
+      href: capture-image-resource.yml
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -951,7 +951,7 @@
     - name: Windows
       items:
       - name: Remote Desktop
-        href: ./windows/connect-rdp.md
+        href: ./windows/connect-rdp.yml
       - name: SSH
         href: ./windows/connect-ssh.md
       - name: WinRM
@@ -1235,7 +1235,7 @@
       href: availability-set-overview.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/change-availability-set.md
+      href: ./windows/change-availability-set.yml
 - name: Disks
   items:
   - name: Overview
@@ -1274,8 +1274,8 @@
       - name: Enable customer-managed keys
         items:
         - name: Portal
-          href: disks-enable-customer-managed-keys-portal.md
-          displayName: Server side encryption, encryption, ADE
+          href: disks-enable-customer-managed-keys-portal.yml
+          displayname: Server side encryption, encryption, ADE
         - name: PowerShell
           href: windows/disks-enable-customer-managed-keys-powershell.md
           displayName: Server side encryption, encryption, ADE
@@ -1370,7 +1370,7 @@
         - name: Disk encryption scenarios for Windows
           href: ./windows/disk-encryption-windows.md
         - name: Key vault for Azure Disk Encryption
-          href: ./windows/disk-encryption-key-vault.md
+          href: ./windows/disk-encryption-key-vault.yml
         - name: Disk encryption sample scripts
           href: ./windows/disk-encryption-sample-scripts.md
         - name: Disk encryption troubleshooting
@@ -1465,7 +1465,7 @@
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal
-      href: disks-enable-private-links-for-import-export-portal.md
+      href: disks-enable-private-links-for-import-export-portal.yml
     - name: Upload a vhd to a disk - PowerShell
       href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
     - name: Upload a vhd to a disk - CLI
@@ -1549,7 +1549,7 @@
         href: ./linux/add-disk.md
       - name: Azure portal
         displayName: add a data disk, data disk
-        href: ./linux/attach-disk-portal.md
+        href: ./linux/attach-disk-portal.yml
     - name: Windows
       items:
       - name: Azure PowerShell
@@ -1557,7 +1557,7 @@
         href: ./windows/attach-disk-ps.md
       - name: Azure portal
         displayName: add a data disk, data disk
-        href: ./windows/attach-managed-disk-portal.md
+        href: ./windows/attach-managed-disk-portal.yml
       - name: Change temp disk drive letter
         href: ./windows/change-drive-letter.md
   - name: Detach a disk
@@ -1567,7 +1567,7 @@
       href: ./linux/detach-disk.md
     - name: Windows
       displayName: detach a disk
-      href: ./windows/detach-disk.md
+      href: ./windows/detach-disk.yml
   - name: Expand a disk
     items:
     - name: Linux
@@ -1607,7 +1607,7 @@
         href: ./windows/find-unattached-disks.md
       - name: Portal
         displayName: Find unattached disks
-        href: disks-find-unattached-portal.md
+        href: disks-find-unattached-portal.yml
     - name: Disks FAQs
       href: faq-for-disks.yml
 - name: Networking
@@ -1660,7 +1660,7 @@
     - name: Azure CLI
       href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli.md?toc=/azure/virtual-machines/toc.json
     - name: Add or remove network interfaces
-      href: ../virtual-network/virtual-network-network-interface-vm.md?toc=/azure/virtual-machines/toc.json
+      href: ../virtual-network/virtual-network-network-interface-vm.yml?toc=/azure/virtual-machines/toc.json
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell

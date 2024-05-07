@@ -86,10 +86,10 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-|REST API limit | Not available for F0 | 50 requests per 5 seconds |
-| Max JSON payload size to create a synthesis job  | N/A | 500 kilobytes |
-| Concurrent active synthesis jobs | N/A | 200 |
-| Max number of text inputs per synthesis job | N/A | 1000 |
+|REST API limit | Not available for F0 | 100 requests per 10 seconds |
+| Max JSON payload size to create a synthesis job  | N/A | 2 megabytes |
+| Concurrent active synthesis jobs | N/A | No limit |
+| Max number of text inputs per synthesis job | N/A | 10000 |
 |Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
 #### Custom neural voice - professional

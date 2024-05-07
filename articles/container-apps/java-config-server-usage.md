@@ -71,27 +71,27 @@ The `az containerapp update` command uses the `--configuration` parameter to con
 
 The following table lists the different configuration values available.
 
-The following configuration settings are available on the `spring.cloud.config.server.git` configuration property.
+### Git backend configurations
 
-| Name | Property path | Description |
-|---|---|---|
-| URI | `repos.{repoName}.uri` | URI of remote repository. |
-| Username | `repos.{repoName}.username` | Username for authentication with remote repository. |
-| Password | `repos.{repoName}.password` | Password for authentication with remote repository. |
-| Search paths | `repos.{repoName}.search-paths` | Search paths to use within local working copy. By default searches only the root. |
-| Force pull | `repos.{repoName}.force-pull` | Flag to indicate that the repository should force pull. If this value is set to `true`, then discard any local changes and take from remote repository. |
-| Default label | `repos.{repoName}.default-label` | The default label used for Git is `main`. If you don't set `default-label` and a branch named `main` doesn't exist, then the config server tries to check out a branch named `master`. To disable the fallback branch behavior, you can set `tryMasterBranch` to `false`. |
-| Try `master` branch | `repos.{repoName}.try-master-branch` | When set to `true`, the config server by default tries to check out a branch named `master`. |
-| Skip SSL validation | `repos.{repoName}.skip-ssl-validation` | The configuration server’s validation of the Git server’s SSL certificate can be disabled by setting the `git.skipSslValidation` property to `true`. |
-| Clone-on-start | `repos.{repoName}.clone-on-start` | Flag to indicate that the repository should be cloned on startup (not on demand). Generally leads to slower startup but faster first query. |
-| Timeout | `repos.{repoName}.timeout`  | Timeout (in seconds) for obtaining HTTP or SSH connection (if applicable). Default 5 seconds. |
-| Refresh rate | `repos.{repoName}.refresh-rate` | How often the config server fetches updated configuration data from your Git backend. |
-| Private key | `repos.{repoName}.private-key` | Valid SSH private key. Must be set if `ignore-local-ssh-settings` is `true` and Git URI is SSH format. |
-| Host key | `repos.{repoName}.host-key` | Valid SSH host key. Must be set if `host-key-algorithm` is also set. |
-| Host key algorithm | `repos.{repoName}.host-key-algorithm` | One of `ssh-dss`, `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Must be set if `host-key` is also set. |
-| Strict host key checking | `repos.{repoName}.strict-host-key-checking` | `true` or `false`. If `false`, ignore errors with host key. |
-| Repo location | `repos.{repoName}` | URI of remote repository. |
-| Repo name patterns | `repos.{repoName}.pattern` | The pattern format is a comma-separated list of {application}/{profile} names with wildcards. If {application}/{profile} doesn't match any of the patterns, it uses the default URI defined under. |
+| Name | Description |
+|---|---|
+| `spring.cloud.config.server.git.uri`  <br/> `spring.cloud.config.server.git.repos.{repoName}.uri` | URI of remote repository. |
+| `spring.cloud.config.server.git.username` <br/> `spring.cloud.config.server.git.repos.{repoName}.username`| Username for authentication with remote repository. |
+| `spring.cloud.config.server.git.password` <br/> `spring.cloud.config.server.git.repos.{repoName}.password` | Password for authentication with remote repository. |
+| `spring.cloud.config.server.git.search-paths` <br/> `spring.cloud.config.server.git.repos.{repoName}.search-paths`| Search paths to use within local working copy. By default searches only the root. |
+| `spring.cloud.config.server.git.force-pull` <br/> `spring.cloud.config.server.git.repos.{repoName}.force-pull`| Flag to indicate that the repository should force pull. If true discard any local changes and take from remote repository. |
+| `spring.cloud.config.server.git.default-label`  <br/> `spring.cloud.config.server.git.repos.{repoName}.default-label` | The default label used for Git is main. If you do not set spring.cloud.config.server.git.default-label and a branch named main does not exist, the config server will by default also try to checkout a branch named master. If you would like to disable the fallback branch behavior you can set spring.cloud.config.server.git.tryMasterBranch to false. |
+| `spring.cloud.config.server.git.try-master-branch`  <br/> `spring.cloud.config.server.git.repos.{repoName}.try-master-branch`| The config server will by default try to checkout a branch named master. |
+| `spring.cloud.config.server.git.skip-ssl-validation` <br/> `spring.cloud.config.server.git.repos.{repoName}.skip-ssl-validation`| The configuration server’s validation of the Git server’s SSL certificate can be disabled by setting the git.skipSslValidation property to true. |
+| `spring.cloud.config.server.git.clone-on-start` <br/> `spring.cloud.config.server.git.repos.{repoName}.clone-on-start`| Flag to indicate that the repository should be cloned on startup (not on demand). Generally leads to slower startup but faster first query. |
+| `spring.cloud.config.server.git.timeout`  <br/> `spring.cloud.config.server.git.repos.{repoName}.timeout`  | Timeout (in seconds) for obtaining HTTP or SSH connection (if applicable). Default 5 seconds. |
+| `spring.cloud.config.server.git.refresh-rate`  <br/> `spring.cloud.config.server.git.repos.{repoName}.refresh-rate`| How often the config server will fetch updated configuration data from your Git backend. |
+| `spring.cloud.config.server.git.private-key` <br/> `spring.cloud.config.server.git.repos.{repoName}.private-key`| Valid SSH private key. Must be set if ignore-local-ssh-settings is true and Git URI is SSH format. |
+| `spring.cloud.config.server.git.host-key` <br/> `spring.cloud.config.server.git.repos.{repoName}.host-key`| Valid SSH host key. Must be set if host-key-algorithm is also set.  |
+| `spring.cloud.config.server.git.host-key-algorithm`  <br/> `spring.cloud.config.server.git.repos.{repoName}.host-key-algorithm`  | One of ssh-dss, ssh-rsa, ssh-ed25519, ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, or ecdsa-sha2-nistp521. Must be set if host-key is also set. |
+| `spring.cloud.config.server.git.strict-host-key-checking`  <br/> `spring.cloud.config.server.git.repos.{repoName}.strict-host-key-checking`| true or false. If false, ignore errors with host key. |
+| `spring.cloud.config.server.git.repos.{repoName}` | URI of remote repository. |
+| `spring.cloud.config.server.git.repos.{repoName}.pattern` | The pattern format is a comma-separated list of {application}/{profile} names with wildcards. If {application}/{profile} does not match any of the patterns, it uses the default URI defined under. |
 
 ### Common configurations
 

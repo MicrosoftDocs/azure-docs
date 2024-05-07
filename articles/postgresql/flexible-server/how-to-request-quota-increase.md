@@ -1,13 +1,13 @@
 ---
 title: How to request a quota increase
 description: Learn how to request a quota increase for Azure Database for PostgreSQL - Flexible Server. You also learn how to enable a subscription to access a region.
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: kabharati
-author: kabharati
-ms.reviewer: maghan
 ms.topic: how-to
-ms.date: 01/23/2024
 ---
 
 # Request quota increases for Azure Database for PostgreSQL - Flexible Server

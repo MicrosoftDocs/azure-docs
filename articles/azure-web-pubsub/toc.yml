@@ -31,6 +31,8 @@
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
+    - name: Develop with Visual Studio Code
+      href: tutorial-develop-with-visual-studio-code.md
     - name: Client streaming with a service-supported subprotocol
       href: tutorial-subprotocol.md
     - name: Authentication and permissions

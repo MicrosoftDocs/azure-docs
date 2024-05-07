@@ -20,7 +20,7 @@ The Short Code service requires provisioning a short code through the Azure port
 ## Short Codes Pricing
 
 ### Setup Fee
-When applying for a short code, there are two potential charges to consider:
+When applying for a short code, there are two charges to consider:
 
 - Pre-paid Monthly Fee: This fee covers the period from the day of application until the short code is delivered. Currently, this fee is temporarily waived and will not be charged.
 - Setup Fee: This is a one-time charge applied at the time the short code is delivered.

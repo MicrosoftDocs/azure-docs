@@ -446,7 +446,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$facet</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$fill</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$geoNear</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$graphLookup</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$graphLookup</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$group</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$indexStats</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$limit</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>

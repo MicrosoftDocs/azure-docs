@@ -56,7 +56,7 @@
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
       - name: Edit billing contact information
-        href: manage/change-azure-account-profile.md
+        href: manage/change-azure-account-profile.yml
       - name: Update tax details
         href: manage/manage-tax-information.md
       - name: Grant access to billing
@@ -144,7 +144,7 @@
       - name: Transfer subscription to EA
         href: manage/mosp-ea-transfer.md
       - name: Transfer CSP subscriptions
-        href: manage/transfer-subscriptions-subscribers-csp.md
+        href: manage/transfer-subscriptions-subscribers-csp.yml
       - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
       - name: Transfer Microsoft Partner Agreement ownership

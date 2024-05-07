@@ -211,8 +211,20 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
+      - name: Permissions management
+        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+        href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
+      - name: Secrets protection
+        items:
+        - name: Overview
+          href: secrets-scanning.md
+        - name: Protecting VM secrets
+          href: secrets-scanning-servers.md
+        - name: Protecting cloud deployment secrets
+          href: secrets-scanning-cloud-deployment.md
+          
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -246,6 +258,11 @@
       items:
         - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
+    - name: Improve your AI security posture management
+      items:
+      - name: AI security posture management
+        displayName: AI, security, posture, management
+        href: ai-security-posture.md
     - name: Security recommendations
       items:
         - name: Reference list of Azure recommendations
@@ -305,6 +322,17 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+        - name: Enable permissions management
+          displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+          href: enable-permissions-management.md
+    - name: AI security posture
+      items:
+        - name: Discover generative AI workloads
+          displayName: AI, workloads, models, applications, apps, AI BOM
+          href: identify-ai-workload-model.md
+        - name: Explore risks to pre-deployment generative AI artifacts
+          displayName: AI, risks, generative, applications, apps
+          href: explore-ai-risk.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -320,10 +348,16 @@
         - name: Attack path analysis and enhanced risk-hunting for containers
           displayName: attack paths, paths, security explorer, test
           href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
+    - name: Secrets security posture
+      items: 
+      - name: Remediate issues with VM secrets
+        href: remediate-server-secrets.md
+      - name: Remediate cloud deployment secrets
+        href: remediate-cloud-deployment-secrets.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
-        href: update-regulatory-compliance-packages.md
+        href: update-regulatory-compliance-packages.yml
       - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
@@ -350,7 +384,7 @@
           href: governance-rules.md
         - name: Automate remediation responses
           displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
+          href: workflow-automation.yml
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
@@ -408,7 +442,7 @@
       items:
         - name: Manage and respond to security alerts
           displayName: security alerts, alerts
-          href: managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.yml
         - name: Create and manage alerts suppression rules
           displayName: alert suppression, alert suppression, create, suppressions rules,
             rules
@@ -456,7 +490,7 @@
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
-          href: workflow-automation.md
+          href: workflow-automation.yml
 
 - name: Protect your workloads
   items:
@@ -497,6 +531,10 @@
         href: defender-partner-applications.md
       - name: Onboard 42Crunch (preview)
         href: onboarding-guide-42crunch.md
+      - name: Onboard StackHawk (preview)
+        href: onboarding-guide-stackhawk.md
+      - name: Onboard Bright Security (preview)
+        href: onboarding-guide-bright.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -528,9 +566,13 @@
       - name: Agentless machine scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
-      - name: Manage secrets with agentless secret scanning
+      - name: Protect secrets
         displayName: secrets, secret scanning, agentless
-        href: secret-scanning.md
+        items: 
+        - name: Overview
+          href: secrets-scanning-servers.md
+        - name: Remediate VM secrets
+          href: remediate-server-secrets.md
       - name: Protect servers with agentless malware scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, Microsoft Defender Antivirus
         href: agentless-malware-scanning.md
@@ -550,7 +592,7 @@
         href: auto-deploy-vulnerability-assessment.md
       - name: Transition to Microsoft Defender Vulnerability Management for servers
         displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
-        href: how-to-transition-to-built-in.md
+        href: how-to-transition-to-built-in.yml
       - name: Common questions 
         displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
         href: faq-scanner-detection.yml
@@ -575,7 +617,7 @@
         href: just-in-time-access-overview.md
       - name: Enable just-in-time access on VMs
         displayName: jit, management, ports
-        href: just-in-time-access-usage.md
+        href: just-in-time-access-usage.yml
     - name: Endpoint detection and response
       items:
       - name: Understand endpoint detection and response
@@ -672,6 +714,9 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
+      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
+        displayName: ACR, registry, images, qualys
+        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md
@@ -745,7 +790,13 @@
           - name: Overview
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-introduction.md
-          - name: Enable Defender for OSS RDBs and respond to alerts
+          - name: Enable on Azure
+            displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+            href: enable-defender-for-databases-azure.md
+          - name: Enable on AWS (Preview)
+            displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+            href: enable-defender-for-databases-aws.md
+          - name: Respond to Defender open-source database alerts
             displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases,
               Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-usage.md
@@ -870,7 +921,7 @@
           - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
-            href: azure-devops-extension.md
+            href: azure-devops-extension.yml
           - name: Configure the Microsoft Security DevOps GitHub action
             href: github-action.md
           - name: Configure pull request annotations
@@ -889,6 +940,14 @@
             href: review-pull-request-annotations.md
       - name: Common questions about DevOps security
         href: faq-defender-for-devops.yml
+  - name: Threat protection for AI workloads (preview)
+    items:
+      - name: Overview
+        displayName: AI, Defender for AI
+        href: ai-threat-protection.md
+      - name: Enable threat protection for AI workloads (preview)
+        displayName: AI, Defender for AI
+        href: ai-onboarding.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)
