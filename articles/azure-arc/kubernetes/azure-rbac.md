@@ -716,6 +716,11 @@ node-3    Ready    agent    6m33s    v1.18.14
 
 If the secret for the server application's service principal has expired, you'll need to rotate it.
 
+### [Azure CLI >= v2.3.7](#tab/AzureCLI)
+```azurecli
+SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}" --query password -o tsv)
+```
+### [Azure CLI < v2.3.7](#tab/AzureCLI236)
 ```azurecli
 SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
 ```
@@ -725,6 +730,8 @@ Update the secret on the cluster. Include any optional parameters you configured
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
+
+---
 
 ## Next steps
 
