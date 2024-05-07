@@ -5,22 +5,22 @@ ms.topic: tutorial
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Review security posture
+# Tutorial: Review security posture
 
 Azure Backup offers security features at the vault level to safeguard the backup data stored in it. These security measures encompass the settings associated with the Azure Backup solution for the vault and apply to the protected data sources contained within the vault.
 
-Azure Business Continuity center allows you to view the Security level for each protected item from the Security posture view.
+Azure Business Continuity Center allows you to view the Security level for each protected item from the Security posture view.
 
 ## View security level
 
 Follow these steps to view the security level for protected items:
 
-1. In Azure Business Continuity center, select the **Security posture** view under **Security + Threat management**.
+1. In Azure Business Continuity Center, select the **Security posture** view under **Security + Threat management**.
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-security-posture.png" alt-text="Screenshot shows the security posture selection.":::
 
@@ -30,7 +30,7 @@ Follow these steps to view the security level for protected items:
 
 3. To effectively look for specific items, you can utilize the various filters, such as subscriptions, resource groups, location, resource type, and so on. 
 
-4.	Azure Business Continuity center allows you to change the default view using the **scope picker** from **Currently showing: Protection status details of Azure managed Active resources**, and select **Change**.
+4.	Azure Business Continuity Center allows you to change the default view using the **scope picker** from **Currently showing: Protection status details of Azure managed Active resources**, and select **Change**.
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-active-under-change-scope.png" alt-text="Screenshot shows the change scope view." lightbox="./media/tutorial-review-security-posture/select-active-under-change-scope.png":::
 
@@ -59,7 +59,7 @@ Follow these steps to view the security level for protected items:
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-view-details.png" alt-text="Screenshot shows the view details selection." lightbox="./media/tutorial-review-security-posture/select-view-details.png":::
 
-11.	Azure Business Continuity center provides in-built help to learn more about these security levels. Select **learn more** to access it.
+11.	Azure Business Continuity Center provides in-built help to learn more about these security levels. Select **learn more** to access it.
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-learn-more.png" alt-text="Screenshot shows learn more selection." lightbox="./media/tutorial-review-security-posture/select-learn-more.png":::
 
@@ -69,7 +69,7 @@ Follow these steps to view the security level for protected items:
 
 ## Modify security level
 
-In Azure Business Continuity center, you can change the security level for a protected item. 
+In Azure Business Continuity Center, you can change the security level for a protected item. 
 
 Follow these steps to modify the security level for an item: 
 
@@ -85,7 +85,7 @@ Follow these steps to modify the security level for an item:
 
     :::image type="content" source="./media/tutorial-review-security-posture/modify-security-settings.png" alt-text="Screenshot shows the modify security settings on properties page.":::
 
-    It might take a while to get the security level settings implemented in Azure Business Continuity center.
+    It might take a while to get the security level settings implemented in Azure Business Continuity Center.
 
 5.	When you modify the security setting for a vault, it gets applied to all the protected datasources by Azure Backup in that vault.
 
