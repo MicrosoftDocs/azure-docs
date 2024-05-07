@@ -132,7 +132,7 @@ To check which versions of an extension are available for your current database 
 SELECT * FROM pg_available_extensions WHERE name = 'azure_ai';
 ```
 
-These commands provide necessary insights into the extension configurations of your database, helping maintain your systems efficiently and securely. By enabling easy updates to the latest extension versions, Azure Database for PostgreSQL - Flexible Server continues to support the robust, secure, and efficient management of your database applications.
+These commands provide necessary insights into the extension configurations of your database, helping maintain your systems efficiently and securely. By enabling easy updates to the latest extension versions, Azure Database for PostgreSQL continues to support the robust, secure, and efficient management of your database applications.
 
 ## dblink and postgres_fdw
 
