@@ -7,7 +7,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps. In the following tutorial,, we are adding an Azure OpenAI service using LangChain to a Python (Flask) application.
+You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps. In the following tutorial, we are adding an Azure OpenAI service using LangChain to a Python (Flask) application.
 
 #### Prerequisites
 
