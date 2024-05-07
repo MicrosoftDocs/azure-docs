@@ -13,6 +13,9 @@ Speech analytics in [Azure AI Studio](https://ai.azure.com) is a feature that al
 
 In this article, you learn how to customize and redeploy the prompt flow for speech analytics. In the companion [post-call analytics](../../../speech-analytics-post-call.md) article, you learn about how to use the default prompt flow that's provided when you create a speech analytics project in AI Studio. 
 
+> [!TIP]
+> Speech analytics supports post-call analytics, conversation summarization, and automatic batch transcription scenarios. This article focuses on post-call analytics. 
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -85,7 +88,7 @@ Now you can upload the transcript that you want to analyze. The wizard created a
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/storage-from-project-configuration.png" alt-text="Screenshot of the button to navigate from the project configuration page to the storage account in the Azure portal." lightbox="../../../media/ai-studio/speech-analytics/storage-from-project-configuration.png":::
 
-    > [TIP]
+    > [!TIP]
     > You can also navigate to the storage account in the Azure portal following the previous steps [when you added a role assignment](#add-a-role-assignment-in-the-azure-portal). 
 
 1. From the left pane in Azure portal for the storage account, select **Storage browser** > **Blob containers**. Search for the name of your **ProjectName-transcription** container from the left pane and then select the **ProjectName-transcription** container.
@@ -139,17 +142,6 @@ After you've tested the prompt flow and are satisfied with the analytics results
 1. Review the deployment settings and then select **Create** to deploy the prompt flow to a real-time endpoint.
 
 
-1. Select **Containers** from the left pane in the speech analytics project. Then select the name of the storage account to go to the storage account in the Azure portal.
-
-    :::image type="content" source="../../../media/ai-studio/speech-analytics/storage-from-project-configuration.png" alt-text="Screenshot of the button to navigate from the project configuration page to the storage account in the Azure portal." lightbox="../../../media/ai-studio/speech-analytics/storage-from-project-configuration.png":::
-
-1. From the left pane in Azure portal for the storage account, select **Storage browser** > **Blob containers**. Search for the name of your **ProjectName-transcription** container from the left pane and then select the **ProjectName-transcription** container.
-
-    :::image type="content" source="../../../media/ai-studio/speech-analytics/storage-transcription-container-select.png" alt-text="Screenshot of the storage blob containers in Azure portal." lightbox="../../../media/ai-studio/speech-analytics/storage-transcription-container-select.png":::
-
-1. Select **Upload** to upload the audio file that you want to analyze. 
-1. Select the transcript file that you downloaded previously (renamed **sample_call_transcription.json**) and then select **Upload**.
-
 ## Monitor the analytics results in AI Studio
 
 Now when you add files to the transcription container in Azure portal (or via Azure CLI or other code-first approach), the real-time endpoint processes the transcripts and generates the analytics results. You can monitor the analytics results in the Speech analytics project in AI Studio. 
@@ -159,8 +151,10 @@ Now when you add files to the transcription container in Azure portal (or via Az
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/storage-input-container-upload.png" alt-text="Screenshot of the option to upload an audio file to the project input container in the Azure portal." lightbox="../../../media/ai-studio/speech-analytics/storage-input-container-upload.png":::
 
-1. Go to the hub that you created previously in AI Studio. You can find and select the hub via the **Home** > **All hubs** page.
-1. On the **Hub overview** page, select the speech analytics project (not the generative AI project) that you created previously. 
+    > [!TIP]
+    > You can also upload files in AI Studio as described in the [Get a sample transcript from an audio file](#get-a-sample-transcript-from-an-audio-file) section.
+
+1. Go to the speech analytics project (not the generative AI project) that you created previously. 
 1. Go to the **Upload and monitor** page to see the status of processing the audio file that you uploaded from the Azure portal.
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/upload-monitor-process-from-container.png" alt-text="Screenshot of the progress for speech analytics of the file uploaded in the Azure portal." lightbox="../../../media/ai-studio/speech-analytics/upload-monitor-process-from-container.png":::
@@ -171,9 +165,4 @@ Now when you add files to the transcription container in Azure portal (or via Az
     > [!NOTE]
     > You can also access the transcription in your **ProjectName-transcription** container in the Azure portal. The wizard created this storage container during the speech analytics project creation.
 
-Notice how uploading the audio file to the input container automatically triggers the complete speech analytics flow. It's the automated approach to the previous steps that you took in this guide:
-1. You [uploaded the audio file](#get-a-sample-transcript-from-an-audio-file) in AI Studio to get the transcript. 
-1. Then you [uploaded the transcript file](#upload-the-transcript-that-you-want-to-analyze) to the **ProjectName-transcription** container. 
-1. Then you started a compute session and [ran prompt flow](#try-speech-analytics-with-prompt-flow-in-ai-studio) on the transcription file.
-
-That's it! You successfully created a speech analytics project in AI Studio and used prompt flow to generate analytics results from the transcripts of your audio files.
+That's it! You successfully customized and redeployed the prompt flow for speech analytics in AI Studio.

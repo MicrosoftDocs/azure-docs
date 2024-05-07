@@ -19,6 +19,9 @@ In this article, you learn how to create a speech analytics project that uses pr
 
 In the companion [customize speech analytics in prompt flow](../../../speech-analytics-post-call-customize.md) article, you learn how to customize and redeploy the prompt flow for speech analytics.
 
+> [!TIP]
+> Speech analytics supports post-call analytics, conversation summarization, and automatic batch transcription scenarios. This article focuses on post-call analytics. 
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -100,6 +103,9 @@ To create a speech analytics project in the hub, follow these steps:
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/speech-analytics-settings-connection.png" alt-text="Screenshot of the dialog to select the AI services connection and audio language." lightbox="../../../media/ai-studio/speech-analytics/speech-analytics-settings-connection.png":::
 
+    > [!IMPORTANT]
+    > Make sure that "20231129 Batch Transcription" is selected in the **Speech to text model** dropdown. 
+    
 1. In the same **Speech settings** dialog, select **Show advanced settings** to view the Azure AI Speech features that you can enable for the speech analytics project. You can enable features such as language identification, profanity filter mode, and more. Speech analytics supports a subset of the [batch transcription API request options](../../../batch-transcription-create.md#request-configuration-options). Then select **Next**.
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/speech-analytics-settings-advanced.png" alt-text="Screenshot of the dialog to select advanced Speech settings such as language identification." lightbox="../../../media/ai-studio/speech-analytics/speech-analytics-settings-advanced.png":::
