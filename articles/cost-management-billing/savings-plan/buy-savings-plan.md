@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 05/07/2024
 ms.author: banders
 ---
 
@@ -17,44 +17,9 @@ Azure savings plans help you save money by committing to an hourly spend for one
 
 Only one savings plan is offered. It applies to all compute services listed at [Charges covered by savings plan](savings-plan-compute-overview.md#charges-covered-by-savings-plan).
 
-## Who can buy a savings plan
+## Prerequisites
 
-Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement. You can buy a savings plan for an Azure subscription that's of type Enterprise Agreement (MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or Microsoft Partner Agreement. To determine if you're eligible to buy a plan, [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
-
->[!NOTE]
-> The Azure savings plan isn't supported for the China legacy Online Service Premium Agreement (OSPA) platform.
-
-### Enterprise Agreement customers
-Saving plan purchasing for Enterprise Agreement customers is limited to:
-
-- Enterprise Agreement admins with write permissions can purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
-- Users with subscription owner or savings plan purchaser roles in at least one subscription in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
-
-Enterprise Agreement customers can limit savings plan purchases to only Enterprise Agreement admins by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, go to the **Policies** menu.
-
-### Microsoft Customer Agreement customers
-Savings plan purchasing for Microsoft Customer Agreement customers is limited to:
-
-- Users with billing profile contributor permissions or higher can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No subscription-specific permissions are needed.
-- Users with subscription owner or savings plan purchaser roles in at least one subscription in the billing profile can purchase savings plans from **Home** > **Savings plan**.
-
-Microsoft Customer Agreement customers can limit savings plan purchases to users with billing profile contributor permissions or higher by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Go to the **Policies** menu to change settings.
-
-### Microsoft Partner Agreement partners
-
-Partners can use **Home** > **Savings plan** in the [Azure portal](https://portal.azure.com/) to purchase savings plans on behalf of their customers.
-
-As of June 2023, partners can purchase an Azure savings plan through the Partner Center. Previously, the Azure savings plan was only supported for purchase through the Azure portal. Partners can now purchase an Azure savings plan through the Partner Center portal or APIs. They can also continue to use the Azure portal.
-
-To purchase an Azure savings plan by using the Partner Center APIs, see [Purchase Azure savings plans](/partner-center/developer/azure-purchase-savings-plan).
-
-## Change an agreement type to one supported by a savings plan
-
-If your current agreement type isn't supported by a savings plan, you might be able to transfer or migrate it to one that's supported. For more information, see:
-
-- [Transfer Azure products between different billing agreements](../manage/subscription-transfer.md)
-- [Product transfer support](../manage/subscription-transfer.md#product-transfer-support)
-- [From MOSA to the Microsoft Customer Agreement](https://www.microsoft.com/licensing/news/from-mosa-to-microsoft-customer-agreement)
+The person who buys a savings plan must have the necessary permissions. For more information, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
 
 ## Purchase a savings plan
 
@@ -72,11 +37,11 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
     - **Billing subscription**: Subscription used to pay for the savings plan. For more information about permissions and roles required to purchase a savings plan, see [Who can buy a savings plan](#who-can-buy-a-savings-plan).
     - **Apply to any eligible resource**: Scope of resources that are eligible for savings plan benefits. For more information, see [Savings plan scopes](scope-savings-plan.md).
     - **Term length**: One year or three years.
-    - **Hourly commitment**: Amount available through the savings plan each hour. In the Azure portal, up to 10 recommendations might appear. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
+    - **Hourly commitment**: Amount available through the plan each hour. In the Azure portal, up to 10 recommendations might appear. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
         - An hourly commitment.
         - The potential savings percentage compared to on-demand costs for the commitment.
-        - The percentage of the selected scopes compute usage that would be covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
-    - **Billing frequency**: **All upfront** or **Monthly**. The total cost of the savings plan will be the same regardless of the selected frequency.
+        - The percentage of the selected scopes compute usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
+    - **Billing frequency**: **All upfront** or **Monthly**. The total cost of the savings plan is the same regardless of the selected frequency.
 
 ### Purchase with the Savings Plan Order Alias - Create API
 
@@ -103,7 +68,7 @@ You can't cancel, exchange, or refund savings plans.
 
 ### Buy savings plans with monthly payments
 
-You can pay for savings plans with monthly payments. Unlike an upfront purchase where you pay the full amount, the monthly payment option divides the total cost of the savings plan evenly over each month of the term. The total cost of upfront and monthly savings plans is the same. You don't pay any extra fees when you choose to pay monthly.
+You can pay for savings plans with monthly payments. Unlike an up front purchase where you pay the full amount, the monthly payment option divides the total cost of the savings plan evenly over each month of the term. The total cost of upfront and monthly savings plans is the same. You don't pay any extra fees when you choose to pay monthly.
 
 If a savings plan is purchased by using a Microsoft Customer Agreement, your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
@@ -119,7 +84,7 @@ Cost analysis shows monthly purchases in the default view. Apply the **purchase*
 
 Unlike reservations, you can't return or exchange savings plans.
 
-You can trade in one or more reservations for a savings plan. When you trade in reservations, the hourly commitment of the new savings plan must be greater than the leftover payments that are canceled for the returned reservations. There are no other limits or fees for trade-ins. You can trade in a reservation that's paid for upfront to purchase a new savings plan that's billed monthly. However, the lifetime value of the new savings plan must be greater than the prorated value of the reservations traded in.
+You can trade in one or more reservations for a savings plan. When you trade in reservations, the hourly commitment of the new savings plan must be greater than the leftover payments that are canceled for the returned reservations. There are no other limits or fees for trade-ins. You can trade in a reservation that gets paid for upfront to purchase a new savings plan that gets billed monthly. However, the lifetime value of the new savings plan must be greater than the prorated value of the reservations traded in.
 
 ## Savings plan notifications
 
@@ -148,9 +113,9 @@ For Microsoft Partner Agreement partners:
 
 ## Need help?
 
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
 
-## Next steps
+## Related content
 
 - To learn how to manage a savings plan, see [Manage Azure savings plans](manage-savings-plan.md).
 - To learn more about Azure savings plans, see:
