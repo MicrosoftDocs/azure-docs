@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 05/06/2024
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -63,8 +63,6 @@ Use the following steps to create an Azure SQL Database linked service in the Az
 
    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-   
-
 2. Search for SQL and select the Azure SQL Database connector.
 
     :::image type="content" source="media/connector-azure-sql-database/azure-sql-database-connector.png" alt-text="Select Azure SQL Database connector.":::    
@@ -79,17 +77,34 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-These generic properties are supported for an Azure SQL Database linked service:
+The Azure SQL Database linked service configuration is different for **Recommended** and **Legacy** versions. Configure the corresponding properties in your linked service.
+
+These generic properties are supported for an Azure SQL Database linked service when you apply **Recommended** version:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
+| server | The name or network address of the instance of SQL server to which to connect. | Yes |
+| database | The name of the database. | Yes |
+| authenticationType |The type used for authentication. Allowed values are [**SQL**](#sql-authentication) (default), [**ServicePrincipal**](#service-principal-authentication), [**SystemAssignedManagedIdentity**](#managed-identity), [**UserAssignedManagedIdentity**](#user-assigned-managed-identity-authentication).  | Yes |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| encrypt |Indicate whether TLS encryption is required for all data sent between the client and server. Options: **mandatory** (for true, default)/**optional** (for false)/**strict**. | No |
+| trustServerCertificate | Indicate whether the channel will be encrypted while bypassing the certificate chain to validate trust. | No |
+| hostNameInCertificate | The host name to use when validating the server certificate for the connection. When not specified, the server name is used for certificate validation. | No |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
+
+Refer to [Additional connection properties](#additional-connection-properties) section on specific properties.
+
+These generic properties are supported for an Azure SQL Database linked service when you apply **Legacy** version:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
 | connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
-For different authentication types, refer to the following sections on specific properties, prerequisites and JSON samples, respectively:
+For different authentication types, refer to the following sections on specific properties and prerequisites respectively:
 
 - [SQL authentication](#sql-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -101,7 +116,13 @@ For different authentication types, refer to the following sections on specific 
 
 ### SQL authentication
 
-To use SQL authentication authentication type, specify the generic properties that are described in the preceding section.
+To use SQL authentication when you apply **Recommended** version, in addition to the generic properties for **Recommended** version that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| userName | The user name used to connect to the server. | Yes |
+| password | The password for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+
 
 **Example: using SQL authentication**
 
@@ -111,7 +132,16 @@ To use SQL authentication authentication type, specify the generic properties th
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            "server": "<server name>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -129,7 +159,12 @@ To use SQL authentication authentication type, specify the generic properties th
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
+            "server": "<server name>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": {
@@ -155,14 +190,23 @@ To use SQL authentication authentication type, specify the generic properties th
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        },
-        "alwaysEncryptedSettings": {
-            "alwaysEncryptedAkvAuthType": "ServicePrincipal",
-            "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "server": "<server name>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
+            "password": {
                 "type": "SecureString",
-                "value": "<service principal key>"
+                "value": "<password>"
+            },
+            "alwaysEncryptedSettings": {
+                "alwaysEncryptedAkvAuthType": "ServicePrincipal",
+                "servicePrincipalId": "<service principal id>",
+                "servicePrincipalKey": {
+                    "type": "SecureString",
+                    "value": "<service principal key>"
+                }
             }
         },
         "connectVia": {
@@ -173,17 +217,31 @@ To use SQL authentication authentication type, specify the generic properties th
 }
 ```
 
+To use SQL authentication type when you apply **Legacy** version, specify the generic properties for **Legacy** version that are described in the preceding section.
+
 ### Service principal authentication
 
-To use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+To use service principal authentication when you apply **Recommended** version, in addition to the generic properties for **Recommended** version that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| servicePrincipalId | Specify the application's client ID. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. |No |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's client secret value. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| No|
+| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal.| Yes |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
+
+To use Service principal authentication when you apply **Legacy** version, in addition to the generic properties for **Legacy** version that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal.| Yes |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 
-You also need to follow the steps below:
+You also need to follow the steps below for both **Recommended** and **Legacy** versions:
 
 1. [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
@@ -207,7 +265,7 @@ You also need to follow the steps below:
 
 5. Configure an Azure SQL Database linked service in an Azure Data Factory or Synapse workspace.
 
-#### Linked service example that uses service principal authentication
+#### Linked service example that uses service principal authentication for Recommended version
 
 ```json
 {
@@ -215,9 +273,14 @@ You also need to follow the steps below:
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30",
+            "server": "<server name>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "ServicePrincipal",
             "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
@@ -235,7 +298,7 @@ You also need to follow the steps below:
 
 A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
-To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
+To use system-assigned managed identity authentication, specify the generic properties for **Recommended** or **Legacy** version that are described in the preceding section, and follow these steps.
 
 1. [Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or a Microsoft Entra group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator has full access to the database.
 
@@ -253,7 +316,7 @@ To use system-assigned managed identity authentication, specify the generic prop
 
 4. Configure an Azure SQL Database linked service.
 
-**Example**
+**Example for Recommended version**
 
 ```json
 {
@@ -261,7 +324,11 @@ To use system-assigned managed identity authentication, specify the generic prop
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30"
+            "server": "<server name>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SystemAssignedManagedIdentity"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -275,7 +342,7 @@ To use system-assigned managed identity authentication, specify the generic prop
 
 A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
-To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+To use user-assigned managed identity authentication, in addition to the generic properties for **Recommended** or **Legacy** version that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -300,7 +367,7 @@ You also need to follow the steps below:
 
 5. Configure an Azure SQL Database linked service.
 
-**Example:**
+**Example for Recommended version**
 
 ```json
 {
@@ -308,7 +375,11 @@ You also need to follow the steps below:
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30",
+            "server": "<server name>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "UserAssignedManagedIdentity",
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
@@ -321,6 +392,27 @@ You also need to follow the steps below:
     }
 }
 ```
+### Additional connection properties
+
+The following table lists the additional connection properties that can be specified in the linked service when you apply **Recommended** version:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| applicationIntent | The application workload type when connecting to a server. Allowed values are `ReadOnly` and `ReadWrite`. | No |
+| connectTimeout | The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. | No |
+| connectRetryCount| The number of reconnections attempted after identifying an idle connection failure. The value should be an integer between 0 and 255. | No |
+| connectRetryInterval| The amount of time (in seconds) between each reconnection attempt after identifying an idle connection failure. The value should be an integer between 1 and 60. | No |
+| loadBalanceTimeout| The minimum time (in seconds) for the connection to live in the connection pool before the connection being destroyed. | No |
+| commandTimeout| The default wait time (in seconds) before terminating the attempt to execute a command and generating an error. | No |
+| integratedSecurity| The allowed values are `true` or `false`. When specifying `false`, indicate whether userName and password are specified in the connection. When specifying `true`, indicates whether the current Windows account credentials are used for authentication.  | No |
+| failoverPartner|The name or address of the partner server to connect to if the primary server is down.| No |
+| maxPoolSize|The maximum number of connections allowed in the connection pool for the specific connection.| No |
+| minPoolSize|The minimum number of connections allowed in the connection pool for the specific connection. | No |
+|multipleActiveResultSets|The allowed values are `true` or `false`. When you specify `true`, an application can maintain multiple active result sets (MARS). When you specify `false`, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection. | No |
+|multiSubnetFailover|The allowed values are `true` or `false`. If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting this property to `true` provides faster detection of and connection to the currently active server. | No |
+|packetSize|The size in bytes of the network packets used to communicate with an instance of server. | No |
+|pooling| The allowed values are `true` or `false`. When you specify `true`, the connection will be pooled. When you specify `false`, the connection will be explicitly opened every time the connection is requested. | No |
+
 
 ## Dataset properties
 
@@ -496,7 +588,7 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
-| useTempDB | Specify whether to use the a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| useTempDB | Specify whether to use the global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
 | interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
 | keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
@@ -933,7 +1025,7 @@ When you copy data from/to Azure SQL Database with [Always Encrypted](/sql/relat
 
 ## Native change data capture
 
-Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store.  What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
+Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store. What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
 
 Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. If you do want to change the pipeline name or activity name but still keep the checkpoint to get changed data from the last run automatically, please use your own Checkpoint key in dataflow activity to achieve that.
 
@@ -972,7 +1064,7 @@ source1 sink(allowSchemaDrift: true,
 
 ### Example 2:
 
-If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types.  The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
+If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types. The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
 
 ```json
 source(output(
@@ -997,6 +1089,9 @@ derivedColumn1 sink(allowSchemaDrift: true,
 
 *    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
 
+## Upgrade the Azure SQL Database version
+
+To upgrade the Azure SQL Database version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties).
 
 ## Related content
 
