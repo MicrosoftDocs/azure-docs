@@ -18,7 +18,7 @@ A service tag represents a group of IP address prefixes from a given Az
 > [!IMPORTANT]
 > While Service Tags simplify the ability to enable IP-based Access Control Lists (ACLs), Service Tags alone aren't sufficient to secure traffic without considering the nature of the service and the traffic it sends. For more information about IP based ACLs, see **[What is an IP based access control list (ACL)?](ip-based-access-control-list-overview.md)**. 
 >
-> Additional information about the nature of the traffic can be found later in this article for each service and their tag. It's important to ensure you are familiar with the traffic that you are allow when utilizing service tags for IP based ACLs. Consider added levels of security to protect your environment.
+> Additional information about the nature of the traffic can be found later in this article for each service and their tag. It's important to ensure you are familiar with the traffic that you allow when utilizing service tags for IP based ACLs. Consider added levels of security to protect your environment.
 
 You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a security rule, you can allow or deny the traffic for the corresponding service. By specifying the service tag name in the address prefix of a route, you can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type. 
 
