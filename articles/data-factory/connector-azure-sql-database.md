@@ -84,16 +84,16 @@ These generic properties are supported for an Azure SQL Database linked service 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
-| server | The name or network address of the instance of SQL server to which to connect. | Yes |
+| server | The name or network address of the SQL server instance you want to connect to. | Yes |
 | database | The name of the database. | Yes |
 | authenticationType |The type used for authentication. Allowed values are [**SQL**](#sql-authentication) (default), [**ServicePrincipal**](#service-principal-authentication), [**SystemAssignedManagedIdentity**](#managed-identity), [**UserAssignedManagedIdentity**](#user-assigned-managed-identity-authentication).  | Yes |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
-| encrypt |Indicate whether TLS encryption is required for all data sent between the client and server. Options: **mandatory** (for true, default)/**optional** (for false)/**strict**. | No |
+| encrypt |Indicate whether TLS encryption is required for all data sent between the client and server. Options: mandatory (for true, default)/optional (for false)/strict. | No |
 | trustServerCertificate | Indicate whether the channel will be encrypted while bypassing the certificate chain to validate trust. | No |
 | hostNameInCertificate | The host name to use when validating the server certificate for the connection. When not specified, the server name is used for certificate validation. | No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
-Refer to [Additional connection properties](#additional-connection-properties) section on specific properties.
+To learn more about additional connection properties, go to [Additional connection properties](#additional-connection-properties) section.
 
 These generic properties are supported for an Azure SQL Database linked service when you apply **Legacy** version:
 
@@ -132,7 +132,7 @@ To use SQL authentication when you apply **Recommended** version, in addition to
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "server": "<server name>",
+            "server": "<name or network address of the SQL server instance>",
             "database": "<database name>",
             "encrypt": "<encrypt>",
             "trustServerCertificate": false,
@@ -159,7 +159,7 @@ To use SQL authentication when you apply **Recommended** version, in addition to
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "server": "<server name>",
+            "server": "<name or network address of the SQL server instance>",
             "database": "<database name>",
             "encrypt": "<encrypt>",
             "trustServerCertificate": false,
@@ -190,7 +190,7 @@ To use SQL authentication when you apply **Recommended** version, in addition to
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "server": "<server name>",
+            "server": "<name or network address of the SQL server instance>",
             "database": "<database name>",
             "encrypt": "<encrypt>",
             "trustServerCertificate": false,
@@ -228,7 +228,7 @@ To use service principal authentication when you apply **Recommended** version, 
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. |No |
-| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's client secret value. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| No|
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| No|
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal.| Yes |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 
@@ -273,7 +273,7 @@ You also need to follow the steps below for both **Recommended** and **Legacy** 
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "server": "<server name>",
+            "server": "<name or network address of the SQL server instance>",
             "database": "<database name>",
             "encrypt": "<encrypt>",
             "trustServerCertificate": false,
@@ -324,7 +324,7 @@ To use system-assigned managed identity authentication, specify the generic prop
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "server": "<server name>",
+            "server": "<name or network address of the SQL server instance>",
             "database": "<database name>",
             "encrypt": "<encrypt>",
             "trustServerCertificate": false,
@@ -375,7 +375,7 @@ You also need to follow the steps below:
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "server": "<server name>",
+            "server": "<name or network address of the SQL server instance>",
             "database": "<database name>",
             "encrypt": "<encrypt>",
             "trustServerCertificate": false,
@@ -408,7 +408,7 @@ The following table lists the additional connection properties that can be speci
 | failoverPartner|The name or address of the partner server to connect to if the primary server is down.| No |
 | maxPoolSize|The maximum number of connections allowed in the connection pool for the specific connection.| No |
 | minPoolSize|The minimum number of connections allowed in the connection pool for the specific connection. | No |
-|multipleActiveResultSets|The allowed values are `true` or `false`. When you specify `true`, an application can maintain multiple active result sets (MARS). When you specify `false`, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection. | No |
+|multipleActiveResultSets|The allowed values are `true` or `false`. When you specify `true`, an application can maintain multiple active result sets (MARS). When you specify `false`, an application must process or cancel all result sets from one batch before it can execute any other batches on that connection. | No |
 |multiSubnetFailover|The allowed values are `true` or `false`. If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting this property to `true` provides faster detection of and connection to the currently active server. | No |
 |packetSize|The size in bytes of the network packets used to communicate with an instance of server. | No |
 |pooling| The allowed values are `true` or `false`. When you specify `true`, the connection will be pooled. When you specify `false`, the connection will be explicitly opened every time the connection is requested. | No |
