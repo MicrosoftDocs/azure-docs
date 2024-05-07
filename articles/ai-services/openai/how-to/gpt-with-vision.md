@@ -275,7 +275,7 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 
 The format is similar to that of the chat completions API for GPT-4, but the message content can be an array containing strings and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image).
 
-You must also include the `enhancements` and `data_sources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `data_sources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. 
+You must also include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. 
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
@@ -291,7 +291,7 @@ You must also include the `enhancements` and `data_sources` objects. `enhancemen
               "enabled": true
             }
     },
-    "data_sources": [
+    "dataSources": [
     {
         "type": "AzureComputerVision",
         "parameters": {
@@ -327,11 +327,11 @@ You must also include the `enhancements` and `data_sources` objects. `enhancemen
 
 #### [Python](#tab/python)
 
-You call the same method as in the previous step, but include the new *extra_body* parameter. It contains the `enhancements` and `data_sources` fields. 
+You call the same method as in the previous step, but include the new *extra_body* parameter. It contains the `enhancements` and `dataSources` fields. 
 
 `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` field, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. 
 
-`data_sources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVision"` and a `parameters` field. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. R
+`dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVision"` and a `parameters` field. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. R
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
@@ -356,7 +356,7 @@ response = client.chat.completions.create(
         ] } 
     ],
     extra_body={
-        "data_sources": [
+        "dataSources": [
             {
                 "type": "AzureComputerVision",
                 "parameters": {
@@ -587,7 +587,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
                   "enabled": true
                 }
         },
-        "data_sources": [
+        "dataSources": [
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
@@ -620,7 +620,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
     } 
     ```
 
-    The request includes the `enhancements` and `data_sources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. `data_sources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVisionVideoIndex"` and a `parameters` property which contains your AI Vision and video information.
+    The request includes the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVisionVideoIndex"` and a `parameters` property which contains your AI Vision and video information.
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
