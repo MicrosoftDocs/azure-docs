@@ -131,7 +131,7 @@ Your catalog defines the tasks your developers can use, you can reference those 
 
 1. Check that the configuration file is listed under **Upload a customization file(s)**, and then select **Validate**. 
 
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-validate-file.png" alt-text="Screenshot showing the Customize your dev box page with the uploaded customization file listed and Validate highlighted." lightbox="media/how-to-validate-dev-box-setup-tasks/developer-portal-validate-file.png":::
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-validate-file.png" alt-text="Screenshot showing the Customize your dev box page with the uploaded customization file listed and Validate highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-validate-file.png":::
 
 1. After Dev Box validates the configuration file, select **Continue**. 
 
