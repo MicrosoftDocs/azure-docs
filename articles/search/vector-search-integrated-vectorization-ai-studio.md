@@ -1,14 +1,14 @@
 ---
 title: Integrated vectorization with models from Azure AI Studio
 titleSuffix: Azure AI Search
-description: Walks through how to vectorize content during indexing with an AI Studio model.
+description: Learn  how to vectorize content during indexing on Azure AI Search with an AI Studio model.
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 05/07/2024
 ---
 
 # Integrated vectorization with models from Azure AI Studio
@@ -16,36 +16,47 @@ ms.date: 04/25/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) supports this feature.
 
-There are lots of options on embeddings models to consider when choosing how to vectorize your data. Within [the Azure AI Studio model catalog,](../ai-studio/how-to/model-catalog.md) there exists several such embedding models. These models are deployable to an Azure Machine Learning project, which then allows [integrated vectorization](vector-search-integrated-vectorization.md) to be performed with them via the built-in [AmlSkill](cognitive-search-aml-skill.md) and [the AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md). This guide walks you through how to seemlessly index embeddings using one of these models within Azure AI Search.
+In this article, learn how to access embedding models in the [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md) for vector conversions during indexing and in queries in Azure AI Search.
+
+The workflow includes model deployment steps. The model catalog includes embdding models from Azure OpenAI, Cohere, Facebook, and OpenAI. Deploying a model is billable per the billing structure of each provider. 
+
+After the model is deployed, you can use it for [integrated vectorization](vector-search-integrated-vectorization.md) during indexing, or with the [AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for queries.
 
 ## How to deploy an embedding model from the Azure AI Studio model catalog
 
-1. Navigate to [the Azure AI Studio model catalog](https://ai.azure.com/explore/models). On this page, under "Inference tasks" on the right hand side, select "Embeddings":
+1. Open the [Azure AI Studio model catalog](https://ai.azure.com/explore/models). 
+
+1. Apply a filter to show just the embedding models. Under **Inference tasks**, select **Embeddings**:
 
    :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-catalog-embeddings-filter.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-catalog-embeddings-filter.png" alt-text="Screenshot of the Azure AI Studio model catalog page highlighting how to filter by embeddings models.":::
 
-1. Select the model you would like to vectorize your content with from the list. Then select "Deploy" and pick one of the available deployment options.
+1. Select the model you would like to vectorize your content with. Then select **Deploy** and pick a deployment option.
 
    :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-deploy-endpoint.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-deploy-endpoint.png" alt-text="Screenshot of deploying an endpoint via the Azure AI Studio model catalog.":::
 
-1. In the pane that pops up, fill in the requested details. You may need to select "Create a new AI project" and do that first if you don't already have one. Then select "Deploy".
+1. Fill in the requested details. Select or [create a new AI project](/azure/ai-studio/how-to/create-projects), and then select **Deploy**. The deployment details vary depending on which model you select. For example, if you select an OpenAI model, you must have sufficient quota and an OpenAI subscription.
 
-1. Wait for the model to finish deploying by monitoring the "Provisioning State". It should change from "Provisioning" to "Updating" to "Succeeded". You may need to select "Refresh" every few minutes to see the status update.
+1. Wait for the model to finish deploying by monitoring the **Provisioning State**. It should change from "Provisioning" to "Updating" to "Succeeded". You might need to select **Refresh** every few minutes to see the status update.
 
-1. Copy the "URL", "Primary key" and "Model ID" fields and set them aside for later.
-    1. (Optional) You can change your endpoint to use Token authentication instead of Key authentication. If you enable token authentication, you only need to copy the "URL" and "Model ID" and also make a note of which region the model was deployed to.
+1. Copy the URL, Primary key and Model ID fields and set them aside for later. You need these values for the vectorizer definition in a search index.
+
+    Optionally, you can change your endpoint to use Token authentication instead of Key authentication. If you enable token authentication, you only need to copy the "URL" and "Model ID" and also make a note of which region the model was deployed to.
 
     :::image type="content" source="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" lightbox="media\vector-search-integrated-vectorization-ai-studio\ai-studio-fields-to-copy.png" alt-text="Screenshot of the a deployed endpoint in AI Studio highlighting the fields to copy and save for later.":::
 
-1. Navigate back to your Azure AI Search resource. At this point, you should follow [the steps to enable integrated vectorization](vector-search-integrated-vectorization.md#how-to-use-integrated-vectorization) via creating a datasource, skillset, index, and indexer definition. 
+1. You can now configure a search index and indexer to use the deployed model. 
 
-## Sample AMLSkill payloads
+   + To use the model during indexing, see [steps to enable integrated vectorization](vector-search-integrated-vectorization.md#how-to-use-integrated-vectorization).
 
-The [AmlSkill](cognitive-search-aml-skill.md) is designed to work with any Azure Machine Learning endpoint, not just those endpoints that generate embeddings. Therefore, you must configure your skill definition and index mappings to be aware of the expected request and response payloads of the endpoint you're calling. Below are some sample payloads depending on model type that you chose from AI Studio that are already configured to work with their corresponding deployed endpoints. For more details on how these payloads work, read about the [Skill context and input annotation language](cognitive-search-skill-annotation-language.md).
+   + To use the model as a vectorizer at query time, see [Configure a vectorizer](vector-search-how-to-configure-vectorizer.md).
+
+## Sample AML skill payloads
+
+The [AML skill](cognitive-search-aml-skill.md) is designed to work with any Azure Machine Learning endpoint, not just those endpoints that generate embeddings. Therefore, you must configure your skill definition and index mappings to be aware of the expected request and response payloads of the endpoint you're calling. Below are some sample payloads depending on model type that you chose from AI Studio that are already configured to work with their corresponding deployed endpoints. For more details on how these payloads work, read about the [Skill context and input annotation language](cognitive-search-skill-annotation-language.md).
 
 ### [**Text Input for "Inference" API**](#tab/inference-text)
 
-This AMLSkill payload works with the following models from AI Studio:
+This AML skill payload works with the following models from AI Studio:
 
 + OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32
 + OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336
@@ -88,7 +99,7 @@ It assumes that you're chunking your content using the SplitSkill and therefore 
 
 ### [**Image Input for "Inference" API**](#tab/inference-image)
 
-This AMLSkill payload works with the following models from AI Studio:
+This AML skill payload works with the following models from AI Studio:
 
 + OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32
 + OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336
@@ -133,7 +144,7 @@ It assumes that your images come from the `/document/normalized_images/*` path t
 
 ### [**Cohere**](#tab/cohere)
 
-This AMLSkill payload works with the following models from AI Studio:
+This AML skill payload works with the following models from AI Studio:
 
 + Cohere-embed-v3-english
 + Cohere-embed-v3-multilingual
@@ -202,7 +213,7 @@ If you selected a different `embedding_types` in your skill definition that you 
 
 ## Sample AI Studio vectorizer payload
 
-The [AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), unlike the AMLSkill, is tailored to work only with those embedding models that are deployable via the AI Studio model catalog. The main difference is that you don't have to worry about the request and response payload, but you do have to provide the `modelName`, which corresponds to the "Model ID" that you copied after deploying the model in AI Studio. Here's a sample payload of how you would configure the vectorizer on your index definition given the properties copied from AI Studio.
+The [AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), unlike the AML skill, is tailored to work only with those embedding models that are deployable via the AI Studio model catalog. The main difference is that you don't have to worry about the request and response payload, but you do have to provide the `modelName`, which corresponds to the "Model ID" that you copied after deploying the model in AI Studio. Here's a sample payload of how you would configure the vectorizer on your index definition given the properties copied from AI Studio.
 
 For Cohere models, you should NOT add the `/v1/embed` path to the end of your URL like you did with the skill.
 

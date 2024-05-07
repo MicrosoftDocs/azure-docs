@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 04/30/2024
+ms.date: 05/07/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -19,6 +19,17 @@ ms.custom:
 
 > [!NOTE]
 > Preview features are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## May 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [Azure OpenAI vectorizer (preview)](vector-search-vectorizer-azure-open-ai.md) | Vectorizer | Connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings at query time. This vectorizer is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true).|
+| [Azure AI Vision vectorizer (preview)](vector-search-vectorizer-ai-services-vision.md) | Vectorizer | Connects to an Azure AI Vision resource to generate embeddings at query time using the [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md). This vectorizer is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true). |
+| [Azure AI Studio model catalog vectorizer (preview)](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) | Vectorizer | Connects to an embedding model deployed from the [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md). This vectorizer is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true). See this [how-to article](vector-search-integrated-vectorization-ai-studio.md) for step-by-step instructions on accessing models in the catalog.|
+| [Custom Web API vectorizer (preview)](vector-search-vectorizer-custom-web-api.md) | Vectorizer | Configure your search queries to call out to a Web API endpoint to generate embeddings at query time.  This vectorizer is available through the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true).|
+| [Updated AzureOpenAIEmbedding  (preview)](cognitive-search-skill-azure-openai-embedding.md) | Skill | This skill is now compatible with newer embedding models on Azure OpenAI. Existing `uri` property points to the embedding model. New `dimensions` property specifies the dimensions of the target model. Previously, this skill was tightly bound to text-embeddingd-ada-002 and 1536 dimensions. This update is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true).|
+
 
 ## April 2024
 

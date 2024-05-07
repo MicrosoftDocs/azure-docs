@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#	Azure AI Vision vectorizer
+# Azure AI Vision vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
