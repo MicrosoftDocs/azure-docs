@@ -20,6 +20,9 @@ ms.author: pafarley
 The custom category API lets you create your own harmful content categories for your use case and train Azure AI Content Safety to detect them in new content.
 
 > [!IMPORTANT]
+> The custom categories API is a gated feature. Apply for access by submitting this form with your Azure subscription ID: [Microsoft Forms](https://aka.ms/content-safety-gate).
+
+> [!IMPORTANT]
 > This new feature is only available in the **East US** Azure region. 
 
 ## Prerequisites
