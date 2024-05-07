@@ -66,7 +66,7 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to add to the Data Access Configuration.
 
-1. Select **(PREVIEW) Data Access Configuration** from the Resource menu.
+1. Select **Data Access Configuration** from the Resource menu.
 
 1. Select **Add** and choose **New Redis User**.
 
