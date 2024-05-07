@@ -464,6 +464,11 @@
   href: single-server/how-to-migrate-online.md
 - name: Migrate from Oracle
   href: single-server/how-to-migrate-from-oracle.md
+  - name: Troubleshoot
+    items:
+    - name: Error codes
+      href: migrate/migration-service/troubleshoot-error-codes-migration-service.md
+
 - name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:
