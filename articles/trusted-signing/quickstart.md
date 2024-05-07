@@ -103,16 +103,16 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From either the Azure portal menu or the Home page, select **Create a resource**.
-3. In the Search box, enter **Trusted Signing account**.
-4. From the results list, select **Trusted Signing account**.
-5. On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays.
-6. In the **Subscription** pull-down menu, select a subscription.
-7. In the **Resource group** field, select **Create new** and enter a resource group name.
-8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
-9. In the **Region** pull-down menu, select a region.
-10. In the **Pricing** tier pull-down menu, select a pricing tier.
-11. Select the **Review + Create** button.
+2. In the Search box, enter **Trusted Signing Accounts** or click "More services" to find **Trust Signing Accounts**.
+:::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot of trusted-signing-search-service." lightbox="media/trusted-signing-search-service.png":::
+3. From the results list, select **Trusted Signing Accounts**.
+4. On the Trusted Signing Accounts page, select **Create**. The Create Trusted Signing account section displays.
+5. In the **Subscription** pull-down menu, select a subscription.
+6. In the **Resource group** field, select **Create new** and enter a resource group name.
+7. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
+8. In the **Region** pull-down menu, select a region.
+9. In the **Pricing** tier pull-down menu, select a pricing tier.
+10. Select the **Review + Create** button.
 
     :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
 

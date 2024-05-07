@@ -24,6 +24,7 @@ sections:
     
           General User Mode Code Integrity (UMCI) support for Trusted Signing:
           * Signed binaries was added in the July 2021 Certificate Trust List (CTL) update delivered by Windows. In typical scenarios, when an end-entity certificate from a chain is encountered on a machine, the system retrieves the root CA certificate and adds it to the trust root store. 
+      - question: How do I grant API access in Microsoft Entra ID to Trusted Signing?
         answer: | 
          Ask your tenant admin to provide you with an approval. For more information about permissions, see:
           *[Overview of consent and permissions](https://learn.microsoft.com/entra/identity/enterprise-apps/user-admin-consent-overview)
