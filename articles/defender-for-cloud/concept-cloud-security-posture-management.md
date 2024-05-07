@@ -1,9 +1,9 @@
 ---
 title: Cloud Security Posture Management (CSPM)
-description: Learn more about CSPM in Microsoft Defender for Cloud.
-ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 02/28/2024
+description: Learn more about Cloud Security Posture Management (CSPM) in Microsoft Defender for Cloud and how it helps improve your security posture.
+ms.topic: concept-article
+ms.date: 04/15/2024
+#customer intent: As a reader, I want to understand the concept of Cloud Security Posture Management (CSPM) in Microsoft Defender for Cloud.
 ---
 
 # Cloud security posture management (CSPM)
@@ -38,6 +38,7 @@ The following table summarizes each plan and their cloud availability.
 | [Workflow automation](workflow-automation.yml) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | Tools for remediation | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | Microsoft Cloud Security Benchmark | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [AI security posture management](ai-security-posture.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Security governance](governance-rules.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | [Regulatory compliance standards](concept-regulatory-compliance.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
