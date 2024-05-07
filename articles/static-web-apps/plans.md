@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Azure Static Web Apps hosting plans
 
-Azure Static Web Apps is available through two different plans, Free and Standard. See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/).
+Azure Static Web Apps is available through three different plans, Free, Standard, and Dedicated (preview). See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/), and Dedicated is free while in preview.
 
 ## Features
 
