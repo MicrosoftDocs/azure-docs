@@ -547,13 +547,95 @@ from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
 
 Once you've enabled the HTTP streaming feature using the above steps, you can create functions that stream large amounts of data. 
 
-Following is an example of an Azure Function which receives streaming data from a client and processes it in real-time. It demonstrates streaming upload capabilities for scenarios such as uploading large files, processing continuous data streams, or handling IoT device data.
+Following is an example of an HTTP triggered Azure Function that streams data as the response to incoming HTTP GET requests. This example demonstrates download capabilities which can be helpful for scenarios like sending event data through a pipeline for real time visualization, or detecting anaomalies in large sets of data and providing instant notifications.
+
+```python
+import time
+import azure.functions as func
+from azure.functions.extension.fastapi import Request, StreamingResponse
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+def generate_count():
+    """Generate a stream of chronological numbers."""
+    count = 0
+    while True:
+        yield f"counting, {count}\n\n"
+        count += 1
+        time.sleep(1)
+
+@app.route(route="stream", methods=[func.HttpMethod.GET])
+async def stream_count(req: Request) -> StreamingResponse:
+    """Endpoint to stream of chronological numbers."""
+    return StreamingResponse(generate_count(), media_type="text/event-stream")
+```
+
+Check out additional samples for HTTP streaming downloading on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download].
+
+Following is an example of a HTTP triggered Azure Function which receives streaming data from a client via an HTTP POST request and processes it in real-time. It demonstrates streaming upload capabilities which can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
+
+```python
+import azure.functions as func
+from azure.functions.extension.fastapi import JSONResponse, Request
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@app.route(route="streaming_upload", methods=[func.HttpMethod.POST])
+async def streaming_upload(req: Request) -> JSONResponse:
+    """Handle streaming upload requests."""
+    # Process each chunk of data as it arrives
+    async for chunk in req.stream():
+        process_data_chunk(chunk)
+
+    # Once all data is received, return a JSON response indicating successful processing
+    return JSONResponse({"status": "Data uploaded and processed successfully"})
+
+def process_data_chunk(chunk: bytes):
+    """Process each data chunk."""
+    # Add custom processing logic here
+    print(chunk)
+```
 
 Note, you will need to use an HTTP client library to make streaming calls to the Fast API endpoints for the functions. The client tool or browser you are using may not natively support streaming or may only return the first chunk of data, which is why the script can be helpful to test the function locally. Alternatively, you can leverage tools that support HTTP streaming.
 
+```python
+import httpx
+import asyncio
 
+async def stream_generator(file_path):
+    chunk_size = 2 * 1024  # Define your own chunk size
+    with open(file_path, 'rb') as file:
+        while chunk := file.read(chunk_size):
+            yield chunk
+            print(f"Sent chunk: {len(chunk)} bytes")
 
-Additional samples - 
+async def stream_to_server(url, file_path):
+    timeout = httpx.Timeout(60.0, connect=60.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        response = await client.post(url, content=stream_generator(file_path))
+        return response
+
+async def stream_response(response):
+    if response.status_code == 200:
+        async for chunk in response.aiter_raw():
+            print(f"Received chunk: {len(chunk)} bytes")
+    else:
+        print(f"Error: {response.status_code}")
+
+async def main():
+    # Uncomment to call streaming upload function
+    print('helloworld')
+    url = 'http://localhost:7071/api/streaming_upload'
+    file_path = r'<file path>'
+
+    response = await stream_to_server(url, file_path)
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+Check out additional samples for HTTP streaming downloading on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload].
 
 ::: zone-end
 
