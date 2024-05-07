@@ -98,8 +98,8 @@ To create a speech analytics project in the hub, follow these steps:
     :::image type="content" source="../../../media/ai-studio/speech-analytics/speech-analytics-data-settings.png" alt-text="Screenshot of the dialog to select the data location and processing method for speech analytics." lightbox="../../../media/ai-studio/speech-analytics/speech-analytics-data-settings.png":::
 
 1. In the **Speech settings** dialog:
-    - Leave the default setting selected for the Azure AI services connection. This setting is used to connect to the GPT-4 model deployment that you created earlier. 
-    - Select the spoken language in the audio file corresponding to the transcription that you want to analyze. Select **English (United States)** if you're using the [sample audio file on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav).
+    1. Leave the default setting selected for the Azure AI services connection. This setting is used to connect to the GPT-4 model deployment that you created earlier. 
+    1. Select the spoken language in the audio file corresponding to the transcription that you want to analyze. Select **English (United States)** if you're using the [sample audio file on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav).
 
     :::image type="content" source="../../../media/ai-studio/speech-analytics/speech-analytics-settings-connection.png" alt-text="Screenshot of the dialog to select the AI services connection and audio language." lightbox="../../../media/ai-studio/speech-analytics/speech-analytics-settings-connection.png":::
 
