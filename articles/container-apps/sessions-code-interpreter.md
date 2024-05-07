@@ -104,7 +104,7 @@ Authentication is handled using Microsoft Entra (formerly Azure Active Directory
 
 If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments mentioned above, token must also contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
 
-##### [Azure CLI](#tabs/azure-cli)
+##### [Azure CLI](#tab/azure-cli)
 
 To generate a token using the Azure CLI, run the following command:
 
@@ -112,7 +112,7 @@ To generate a token using the Azure CLI, run the following command:
 az account get-access-token --resource https://dynamicsessions.io
 ```
 
-##### [C#](#tabs/csharp)
+##### [C#](#tab/csharp)
 
 In C#, you can use the `Azure.Identity` library to generate a token. First, install the library:
 
@@ -130,7 +130,7 @@ var token = credential.GetToken(new TokenRequestContext(new[] { "https://dynamic
 var accessToken = token.Token;
 ```
 
-##### [JavaScript](#tabs/javascript)
+##### [JavaScript](#tab/javascript)
 
 In JavaScript, you can use the `@azure/identity` library to generate a token. First, install the library:
 
@@ -149,7 +149,7 @@ const token = await credential.getToken("https://dynamicsessions.io/.default");
 const accessToken = token.token;
 ```
 
-##### [Python](#tabs/python)
+##### [Python](#tab/python)
 
 In Python, you can use the `azure-identity` library to generate a token. First, install the library:
 
