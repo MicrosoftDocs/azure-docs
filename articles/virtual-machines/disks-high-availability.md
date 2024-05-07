@@ -27,13 +27,13 @@ Azure offers several configuration options for ensuring high availability of Azu
 
 Before going over recommendations for achieving higher availability, you should understand the default availability and durability of managed disks.
 
-Managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and allows a high tolerance against failures. 
+Managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and high fault tolerance. 
 
 Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helps Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero percent [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
 ## Recommendations for applications running on a single VM
 
-Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs in different availability zones or fault domains, but you can take steps to increase their availability.
+Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs, but the data on the disks is still replicated three times, and you can take the following steps to further increase availability.
 
 ### Use Ultra Disks, Premium SSD v2, or Premium SSD
 
@@ -63,21 +63,22 @@ To deploy resources across availability zones, you can either use [zone-redundan
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed across multiple availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
 
-With zone-redundant Virtual Machine Scale Sets using the flexible orchestration mode, VMs and their disks are replicated to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This configuration spreads VMs across selected zones in a best effort approach by default but also provides the ability to specify strict zone balance in the deployment. You should use this or [Deploy VMs and disks across three availability zones](#deploy-vms-and-disks-across-three-availability-zones) configurations to maximize your application's availability.
+With zone-redundant Virtual Machine Scale Sets using the flexible orchestration mode, VMs and their disks are replicated to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This configuration spreads VMs across selected zones in a best effort approach by default but also provides the ability to specify strict zone balance in the deployment.
 
-There might be higher network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets with flexible orchestration](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).
 
 #### Deploy VMs and disks across three availability zones
 
 This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage. You should use this or [zone-redundant Virtual Machine Scale Sets with flexible orchestration](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) configurations to maximize your application's availability.
 
-There might be higher network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets with flexible orchestration](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).
 
 ### Deploy VMs and disks across multiple fault domains
 
-Fault domains define groups of VMs that share a common power source and a network switch. For details, see [How do availability sets work?](availability-set-overview.md#how-do-availability-sets-work).
 
-If you can't deploy your VMs and disks across availability zones or have ultra-low latency requirements, you can deploy them across fault domains instead. Multiple VMs have the second highest uptime SLA when deployed across fault domains. For VMs and disks deployed across fault domains, the storage fault domains of the disks are aligned with the fault domains of their respective parent VMs, which prevents multiple VMs from going down if a single storage fault domain experiences an outage. To learn more, see the Virtual Machines section of the [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+If you can't deploy your VMs and disks across availability zones or have ultra-low latency requirements, you can deploy them across fault domains instead. Fault domains define groups of VMs that share a common power source and a network switch. For details, see [How do availability sets work?](availability-set-overview.md#how-do-availability-sets-work).
+
+For VMs and disks deployed across fault domains via the following methods, the storage fault domains of the disks are aligned with the compute fault domains of their respective parent VMs, which prevents multiple VMs from going down if a single storage fault domain experiences an outage.
+
+Multiple VMs have the second highest uptime SLA when deployed across fault domains. To learn more, see the Virtual Machines section of the [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 To deploy resources across multiple fault domains, you can either use [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).
 
@@ -95,7 +96,7 @@ Availability sets don't let you select the fault domains for your VMs, can't be 
 
 ### Use ZRS disks when sharing disks between VMs
 
-You should use ZRS when sharing a disk between multiple VMs. If you use LRS, the disk becomes a single point of failure for your clustered application, and if there's an outage in the zone that the LRS disk is in, you'd experience downtime. Using a ZRS disk mitigates this, since the disk will be in three different availability zones. To learn more about shared disks, see [Share an Azure managed disk](disks-shared.md).
+You should use ZRS when sharing a disk between multiple VMs. If you use LRS, the shared disk becomes a single point of failure for your clustered application. This means that if your shared LRS disk experiences an outage, all the VMs to which this disk is attached will experience downtime. Using a ZRS disk mitigates this, since the disk's data will be in three different availability zones. To learn more about shared disks, see [Share an Azure managed disk](disks-shared.md).
 
 ## Next steps
 
