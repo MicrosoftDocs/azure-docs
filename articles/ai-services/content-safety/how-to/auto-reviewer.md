@@ -319,4 +319,6 @@ print(response.text)
 
 ## Next steps
 
-tbd
+Learn more about the custom categorization options in Azure AI Content Safety.
+
+- [Custom categories](../concepts/custom-categories.md)
