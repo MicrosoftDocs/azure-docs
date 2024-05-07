@@ -6,7 +6,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to 
-ms.date: 02/14/2024
+ms.date: 05/07/2024
 
 #customer intent: As a platform engineer, I want to be able to complete configuration tasks on my dev boxes, so that my developers have the environment they need as soon as they start using their dev box.
 
@@ -107,7 +107,7 @@ To attach the quick start catalog to the dev center:
 
 ### Create your customized dev box
 
-Now you have a catalog that defines the tasks your developers can use, you can reference those tasks from a configuration file and create a customized dev box. 
+Your catalog defines the tasks your developers can use, you can reference those tasks from a configuration file and create a customized dev box. 
 
 1. Download an [example yaml configuration from the samples repository](https://aka.ms/devbox/customizations/samplefile). This example configuration installs Visual Studio Code, and clones the OrchardCore .NET web app repo to your dev box.
 1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
@@ -119,11 +119,29 @@ Now you have a catalog that defines the tasks your developers can use, you can r
    | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
    | **Project** | Select a project from the dropdown list. |
    | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
-   | **Uploaded customization files** | Select **Upload a customization file** and upload the configuration file you downloaded in step 1. |
+   | **Apply customizations** | Select **Apply customizations**. |
 
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-upload.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-upload.png":::
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png":::
 
-1. Select **Create**.
+1. Select **Continue**.
+
+1. On the **Customize your dev box** page, select **Upload a customization file**, and then select **Add customizations from file. 
+
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-upload-file.png" alt-text="Screenshot showing the Customize your dev box page with Upload a customization file and Add customizations from file highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-upload-file.png":::
+
+1. Browse to the location of the example yaml configuration file you downloaded, and then select **Open**.
+
+1. Check that the configuration file is listed under **Upload a customization file(s)**, and then select **Validate**. 
+
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-validate-file.png" alt-text="Screenshot showing the Customize your dev box page with the uploaded customization file listed and Validate highlighted." lightbox="media/how-to-validate-dev-box-setup-tasks/developer-portal-customization-file.png":::
+
+1. After Dev Box validates the configuration file, select **Continue**. 
+
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-validate-file-success.png" alt-text="Screenshot showing the Customization task validation success message, and Continue highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-validate-file-success.png":::
+
+1. On the **Dev box creation summary** page, Dev Box displays the tasks it will apply. Select **Create**.
+
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-summary-create.png" alt-text="Screenshot showing the Dev box creation summary page with the Create button highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-summary-create.png"::: 
 
 When the creation process is complete, the new dev box has nodejs and Visual Studio Code installed. 
 
@@ -148,6 +166,7 @@ Before you can create and test your own configuration file, there must be a cata
    :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/dev-box-command-apply-tasks.png" alt-text="Screenshot of Visual Studio Code showing the command palette with Dev Box Apply customizations tasks highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/dev-box-command-apply-tasks.png"::: 
  
 1. The configuration file runs immediately, applying the specified tasks to your test dev box. Inspect the changes and check the Visual Studio Code terminal for any errors or warnings generated during the task execution.
+
 1. When the configuration file runs successfully, share it with developers to upload when they create a new dev box.
  
 > [!NOTE]
@@ -169,11 +188,21 @@ Make your configuration file seamlessly available to your developers by naming i
    | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
    | **Project** | Select a project from the dropdown list. |
    | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
-   | **Repository clone URL** | Enter the URL for the repository that contains the configuration file and your code. |
+   | **Apply customizations** | Select **Apply customizations**. |
 
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-clone.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Repository clone URL highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-clone.png":::
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-select-customizations.png":::
 
-1. Select **Create**.
+1. Select **Continue**.
+
+1. On the **Customize your dev box** page, select **Choose a customization file from a repository**, and then in **Azure DevOps repository URL**, enter the URL of the repository that hosts the configuration file that you want to apply. 
+
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-clone-repository.png" alt-text="Screenshot showing the Customize your dev box page with Choose a customization file from a repository and Azure DevOps repository URL." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-clone-repository.png":::
+
+1. Select **Continue**.
+
+1. On the **Dev box creation summary** page, Dev Box displays the tasks it will apply. Select **Create**.
+
+When the creation process is complete, the new dev box has nodejs and Visual Studio Code installed.
 
 The new dev box has the repository cloned, and all instructions from configuration file applied. 
 
