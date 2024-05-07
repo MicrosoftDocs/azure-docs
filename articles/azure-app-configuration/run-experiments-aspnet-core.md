@@ -171,7 +171,7 @@ Now that you’ve connected the Application Insights resource to the App Configu
                 }
                 TargetingContext targetingContext = new TargetingContext
                 {
-                    UserId = httpContext.User.Identity.Name,
+                    UserId = httpContext.User.Identity.Name ?? "guest",
                     Groups = groups
                 };
                 httpContext.Items[TargetingContextLookup] = targetingContext;
