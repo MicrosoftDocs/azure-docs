@@ -89,7 +89,7 @@ You can configure availability zones only when you add a new region to an Azure 
 To enable availability zone support you can use:
 
 
-* [Azure portal](../cosmos-db/how-to-manage-database-account.yml#addremove-regions-from-your-database-account)
+* [Azure portal](../cosmos-db/how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 
 * [Azure CLI](../cosmos-db/sql/manage-with-cli.md#add-or-remove-regions)
 
@@ -238,10 +238,10 @@ Multiple-region accounts experience different behaviors depending on the followi
 
 * When the previously affected region is back online, any write data that wasn't replicated when the region failed is made available through the [conflict feed](../cosmos-db/how-to-manage-conflicts.md#read-from-conflict-feed). Applications can read the conflict feed, resolve the conflicts based on the application-specific logic, and write the updated data back to the Azure Cosmos DB container as appropriate.
 
-* After the previously affected write region recovers, it will show as "online" in Azure portal, and become available as a read region. At this point, it is safe to switch back to the recovered region as the write region by using [PowerShell, the Azure CLI, or the Azure portal](../cosmos-db/how-to-manage-database-account.yml#manual-failover). There is *no data or availability loss* before, while, or after you switch the write region. Your application continues to be highly available.
+* After the previously affected write region recovers, it will show as "online" in Azure portal, and become available as a read region. At this point, it is safe to switch back to the recovered region as the write region by using [PowerShell, the Azure CLI, or the Azure portal](../cosmos-db/how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account. There is *no data or availability loss* before, while, or after you switch the write region. Your application continues to be highly available.
 
 > [!WARNING]
->  In the event of a write region outage, where the Azure Cosmos DB account promotes a secondary region to be the new primary write region via *service-managed failover*, the original write region will **not be be promoted back as the write region automatically** once it is recovered. It is your responsibility to switch back to the recovered region as the write region using [PowerShell, the Azure CLI, or the Azure portal](../cosmos-db/how-to-manage-database-account.yml#manual-failover) (once safe to do so, as described above).  
+>  In the event of a write region outage, where the Azure Cosmos DB account promotes a secondary region to be the new primary write region via *service-managed failover*, the original write region will **not be be promoted back as the write region automatically** once it is recovered. It is your responsibility to switch back to the recovered region as the write region using [PowerShell, the Azure CLI, or the Azure portal](../cosmos-db/how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account) (once safe to do so, as described above).  
 
 
 #### Outage detection, notification, and management
@@ -257,7 +257,7 @@ For single-region accounts, clients experience a loss of read and write availabi
 
 #### Testing for high availability
 
-Even if your Azure Cosmos DB account is highly available, your application might not be correctly designed to remain highly available. To test the end-to-end high availability of your application as a part of your application testing or disaster recovery (DR) drills, temporarily disable service-managed failover for the account. Invoke [manual failover by using PowerShell, the Azure CLI, or the Azure portal](../cosmos-db/how-to-manage-database-account.yml#manual-failover), and then monitor your application. After you complete the test, you can fail back over to the primary region and restore service-managed failover for the account.
+Even if your Azure Cosmos DB account is highly available, your application might not be correctly designed to remain highly available. To test the end-to-end high availability of your application as a part of your application testing or disaster recovery (DR) drills, temporarily disable service-managed failover for the account. Invoke [manual failover by using PowerShell, the Azure CLI, or the Azure portal](../cosmos-db/how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account), and then monitor your application. After you complete the test, you can fail back over to the primary region and restore service-managed failover for the account.
 
   > [!IMPORTANT]
   > Don't invoke manual failover during an Azure Cosmos DB outage on either the source or destination region. Manual failover requires region connectivity to maintain data consistency, so it won't succeed.

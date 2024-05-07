@@ -47,7 +47,7 @@ Azure implements multi-tier isolation approach with rack, DC, zone, and region i
 
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Enable service-managed failover for multi-region accounts with single write region** 
 
-Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the [Service-Managed failover](#service-managed-failover) option allows Azure Cosmos DB to be failed over by the service to the next available region with no user action needed.
+Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the [Service-Managed failover](./reliability-cosmos-db-nosql.md#service-managed-failover) option allows Azure Cosmos DB to be failed over by the service to the next available region with no user action needed.
 
 
 
