@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.author: cherylmc
 ms.custom: references_regions
 ---
@@ -18,7 +18,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 :::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
 
 > [!IMPORTANT]
-> During Preview, Bastion Developer SKU is free of charge. Pricing details will be released at GA for a usage-based pricing model.
+> During Preview, Bastion Developer SKU is free of charge.
 
 [!INCLUDE [regions](../../includes/bastion-developer-sku-regions.md)]
 
@@ -27,11 +27,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 
 ## About the Developer SKU
 
-The Bastion Developer SKU is a new [lower-cost](https://azure.microsoft.com/pricing/details/azure-bastion/), lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs if they don't need additional features or scaling. With the Developer SKU, you can connect to one Azure VM at a time directly through the virtual machine connect page.
-
-When you deploy Bastion using the Developer SKU, the deployment requirements are different than when you deploy using other SKUs. Typically when you create a bastion host, a host is deployed to the AzureBastionSubnet in your virtual network. The Bastion host is dedicated for your use. When using the Developer SKU, a bastion host isn't deployed to your virtual network and you don't need an AzureBastionSubnet. However, the Developer SKU bastion host isn't a dedicated resource and is, instead, part of a shared pool.
-
-Because the Developer SKU bastion resource isn't dedicated, the features for the Developer SKU are limited. See the Bastion configuration settings [SKU](configuration-settings.md) section for features by SKU. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
+[!INCLUDE [Developer SKU](../../includes/bastion-developer-sku-description.md)]
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -76,7 +72,7 @@ You can use the following example values when creating this configuration as an 
 
 ## <a name="createvmset"></a>Deploy Bastion and connect to VM
 
-These steps help you deploy Bastion using the developer SKU and auotmatically connect to your VM via the portal. To connect to a VM, your NSG rules must allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
+These steps help you deploy Bastion using the developer SKU and automatically connect to your VM via the portal. To connect to a VM, your NSG rules must allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides are used to create the Bastion deployment. The VM must be located in a region that supports the Developer SKU.
@@ -85,7 +81,7 @@ These steps help you deploy Bastion using the developer SKU and auotmatically co
 
    :::image type="content" source="./media/quickstart-developer-sku/deploy-bastion-developer.png" alt-text="Screenshot of the Bastion page showing Deploy Bastion." lightbox="./media/quickstart-developer-sku/deploy-bastion-developer.png":::
 
-1. Bastion deploys using the Developer SKU. 
+1. Bastion deploys using the Developer SKU.
 1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
    * When you connect, the desktop of the VM might look different than the example screenshot.

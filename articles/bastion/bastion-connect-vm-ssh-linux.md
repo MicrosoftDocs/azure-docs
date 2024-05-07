@@ -41,7 +41,7 @@ In order to make a connection, the following roles are required:
 In order to connect to the Linux VM via SSH, you must have the following ports open on your VM:
 
 * Inbound port: SSH (22) ***or***
-* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion). This setting is not available for the Basic or Developer SKU.
+* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion). This setting isn't available for the Basic or Developer SKU.
 
 ## Bastion connection page
 
@@ -61,13 +61,13 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 1. Use the following sections in this article to configure authentication settings and connect to your VM.
 
+   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication-preview)
    * [Username and password](#password-authentication)
    * [Password - Azure Key Vault](#password-authentication---azure-key-vault)
    * [SSH private key from local file](#ssh-private-key-authentication---local-file)
    * [SSH private key - Azure Key Vault](#ssh-private-key-authentication---azure-key-vault)
-   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication-preview)
 
-## Microsoft Entra ID Authentication (Preview)
+## Microsoft Entra ID authentication (Preview)
 
 > [!NOTE]
 > Microsoft Entra ID Authentication support for SSH connections within the portal is in Preview and is currently being rolled out.
@@ -82,6 +82,23 @@ Prerequisites:
 
   * **Virtual Machine Administrator Login**: This role is necessary if you want to sign in with administrator privileges.
   * **Virtual Machine User Login**: This role is necessary if you want to sign in with regular user privileges.
+
+Use the following steps to authenticate using Microsoft Entra ID.
+
+:::image type="content" source="./media/bastion-connect-vm-ssh-linux/entra-id.png" alt-text="Screenshot shows authentication type as Microsoft Entra ID." lightbox="./media/bastion-connect-vm-ssh-linux/entra-id.png":::
+
+1. To authenticate using Microsoft Entra ID, configure the following settings.
+
+   * **Connection Settings**: Only available for SKUs higher than the Basic SKU.
+
+     * **Protocol**: Select SSH.
+     * **Port**: Specify the port number.
+
+   * **Authentication type**: Select **Microsoft Entra ID** from the dropdown.
+
+1. To work with the VM in a new browser tab, select **Open in new browser tab**.
+
+1. Click **Connect** to connect to the VM.
 
 ## Password authentication
 

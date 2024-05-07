@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Fortinet FortiWeb Web Application Firewall connector for Microsoft Sentinel

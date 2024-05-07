@@ -431,8 +431,6 @@ items:
         href: azure-monitor-operations-manager.md
       - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
     - name: Tutorials
@@ -623,25 +621,30 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Data collection rules
+    - name: Azure Monitor pipeline
       items:
       - name: Overview
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-overview.md
-      - name: Best practices
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-best-practices.md
-      - name: Create and edit
+        displayName: Pipeline
+        href: essentials/pipeline-overview.md
+      - name: Data collection rules
         items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+        - name: Overview
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-overview.md
+        - name: Best practices
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-best-practices.md
+        - name: Create and edit
+          items:
+          - name: Create
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-create-edit.md
+          - name: Edit tutorial
+            displayName: data collection rules
+            href: essentials/data-collection-rule-edit.md
+          - name: Structure
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -671,6 +674,8 @@ items:
         href: essentials/data-collection-rule-samples.md      
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
+      - name: Edge pipeline configuration
+        href: essentials/edge-pipeline-configure.md
     - name: Diagnostic Settings
       items:
       - name: Overview

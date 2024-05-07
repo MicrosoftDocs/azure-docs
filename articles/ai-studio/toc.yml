@@ -16,22 +16,16 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-  - name: Get started with Assistants and code interpreter in the playground
-    href: quickstarts/assistants.md
-  - name: Hear and speak with chat in the playground
-    href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with content safety
     href: quickstarts/content-safety.md
-  - name: Analyze images and video with GPT-4 for Vision in the playground
-    href: quickstarts/multimodal-vision.md
+  - name: Use Azure AI Studio with a screen reader
+    href: tutorials/screen-reader.md
 - name: Tutorials
   items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
-  - name: Use Azure AI Studio with a screen reader
-    href: tutorials/screen-reader.md
 - name: How-to
   expanded: true
   items:
@@ -62,7 +56,7 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-  - name: Create Azure AI projects and resources
+  - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
       href: concepts/ai-resources.md
@@ -86,16 +80,14 @@ items:
     items:
     - name: Data for your copilot
       items:
-      - name: Retrieval augmented generation (RAG)
-        items:
-        - name: Overview of RAG
-          href: concepts/retrieval-augmented-generation.md
-          displayName: RAG
-        - name: Add data to your project
-          href: how-to/data-add.md
-          displayName: index
-        - name: Create a vector index
-          href: how-to/index-add.md
+      - name: Overview of retrieval augmented generation (RAG)
+        href: concepts/retrieval-augmented-generation.md
+        displayName: RAG
+      - name: Add data to your project
+        href: how-to/data-add.md
+        displayName: index
+      - name: Create a vector index
+        href: how-to/index-add.md
     - name: Build apps with prompt flow in AI Studio
       items:
       - name: Prompt flow overview
@@ -124,40 +116,12 @@ items:
             href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
           - name: Index Lookup tool
             href: how-to/prompt-flow-tools/index-lookup-tool.md
-          - name: Vector Index Lookup tool
-            href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
           - name: Content Safety tool
             href: how-to/prompt-flow-tools/content-safety-tool.md
-          - name: Faiss Index Lookup tool
-            href: how-to/prompt-flow-tools/faiss-index-lookup-tool.md
-          - name: Vector DB Lookup tool
-            href: how-to/prompt-flow-tools/vector-db-lookup-tool.md
           - name: Embedding tool
             href: how-to/prompt-flow-tools/embedding-tool.md
           - name: Serp API tool
             href: how-to/prompt-flow-tools/serp-api-tool.md
-    - name: Evaluate apps in AI Studio
-      items:
-      - name: Evaluations concepts
-        items:
-        - name: Approach to generative AI evaluations
-          href: concepts/evaluation-approach-gen-ai.md
-        - name: Evaluation and monitoring metrics for generative AI
-          href: concepts/evaluation-metrics-built-in.md
-        - name: Harms mitigation strategies with Azure AI
-          href: concepts/evaluation-improvement-strategies.md
-      - name: Manually evaluate prompts in Azure AI Studio playground
-        href: how-to/evaluate-prompts-playground.md
-      - name: Evaluate with Azure AI Studio
-        href: how-to/evaluate-generative-ai-app.md
-      - name: View evaluation results in Azure AI Studio
-        href: how-to/evaluate-flow-results.md
-      - name: Evaluate flows in AI Studio
-        items:
-          - name: Submit batch run and evaluate a flow
-            href: how-to/flow-bulk-test-evaluation.md
-          - name: Develop an evaluation flow in Prompt flow
-            href: how-to/flow-develop-evaluation.md
     - name: Deploy and monitor generative AI apps
       items:
       - name: Deploy a flow for real-time inference
@@ -167,16 +131,58 @@ items:
         href: how-to/monitor-quality-safety.md
       - name: Troubleshoot deployments and monitoring
         href: how-to/troubleshoot-deploy-and-monitor.md
-  - name: Azure AI services
+  - name: Evaluate apps in AI Studio
+    items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: concepts/evaluation-metrics-built-in.md
+      - name: Content risk mitigation strategies with Azure AI
+        href: concepts/evaluation-improvement-strategies.md
+    - name: Manually evaluate prompts in Azure AI Studio playground
+      href: how-to/evaluate-prompts-playground.md
+    - name: Evaluate with Azure AI Studio
+      href: how-to/evaluate-generative-ai-app.md
+    - name: View evaluation results in Azure AI Studio
+      href: how-to/evaluate-flow-results.md
+    - name: Evaluate flows in AI Studio
+      items:
+        - name: Submit batch run and evaluate a flow
+          href: how-to/flow-bulk-test-evaluation.md
+        - name: Develop an evaluation flow in Prompt flow
+          href: how-to/flow-develop-evaluation.md
+  - name: Get started with Azure AI services
     items:
     - name: What are AI services?
       href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
-      displayName: applied, cognitive, form recognizer
-    - name: Try out Azure AI services
-      href: how-to/models-foundation-azure-ai.md
-    - name: Use your image data with Azure OpenAI
-      href: how-to/data-image-add.md
-      displayName: vision, gpt, turbo
+      displayName: cognitive
+    - name: Get started with AI services in AI Studio
+      href: ai-services/get-started.md
+    - name: Connect AI services in AI Studio
+      href: ai-services/connect-ai-services.md
+    - name: Azure OpenAI
+      items:
+      - name: Get started with Assistants and code interpreter in the playground
+        href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
+      - name: Analyze images and video with GPT-4 for Vision in the playground
+        href: quickstarts/multimodal-vision.md
+      - name: Use your image data with Azure OpenAI
+        href: how-to/data-image-add.md
+        displayName: vision, gpt, turbo
+    - name: Speech
+      items:
+      - name: Real-time speech to text
+        href: ../ai-services/speech-service/get-started-speech-to-text.md?context=/azure/ai-studio/context/context
+      - name: Speech analytics
+        items:
+          - name: Speech analytics overview
+            href: ../ai-services/speech-service/speech-analytics-overview.md?context=/azure/ai-studio/context/context
+          - name: Post-call transcription and analytics
+            href: ../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context
+      - name: Hear and speak with chat in the playground
+        href: quickstarts/hear-speak-playground.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs

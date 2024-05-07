@@ -22,8 +22,6 @@ In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-ser
 
 ## Prerequisites
 
-[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
-
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio. 
 

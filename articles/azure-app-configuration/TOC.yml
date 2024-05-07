@@ -31,6 +31,8 @@
           href: quickstart-azure-functions-csharp.md
     - name: Feature management
       items:
+        - name: Manage feature flags
+          href: manage-feature-flags.md
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET/.NET Framework
@@ -118,8 +120,6 @@
           href: integrate-kubernetes-deployment-helm.md
     - name: Feature management
       items:
-        - name: Manage feature flags
-          href: manage-feature-flags.md
         - name: Use feature flags
           items:
             - name: ASP.NET Core

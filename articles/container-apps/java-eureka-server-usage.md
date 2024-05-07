@@ -64,26 +64,26 @@ The `az containerapp update` command uses the `--configuration` parameter to con
 
 The following configuration settings are available on the `eureka.server` configuration property.
 
-| Name | Description | Default Value|
+| Name | Description | Default value |
 |--|--|--|
-| `enable-self-preservation` | When enabled, the server keeps track of the number of renewals it should receive from the server. Anytime, the number of renewals drops below the threshold percentage as defined by `renewal-percent-threshold`. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Spring Cloud Eureka Java component](#limitations)  | `false` |
-| `renewal-percent-threshold` | The minimum percentage of renewals expected from the clients in the period specified by `renewal-threshold-update-interval-ms`. If renewals drop below the threshold, expirations are disabled when `enable-self-preservation` is enabled. | `0.85` |
-| `renewal-threshold-update-interval-ms` | The interval at which the threshold as specified in `renewal-percent-threshold` is updated. | `0` |
-| `expected-client-renewal-interval-seconds` | The interval at which clients are expected to send their heartbeats. The default value is to `30` seconds. If clients send heartbeats at a different frequency, make this value match the sending frequency to ensure self-preservation works as expected. | `30` |
-| `response-cache-auto-expiration-in-seconds` | Gets the time the registry payload is kept in the cache when not invalidated by change events. | `180` |
-| `response-cache-update-interval-ms` | Gets the time interval the payload cache of the client is updated.| `0` |
-| `use-read-only-response-cache` | The `com.netflix.eureka.registry.ResponseCache` uses a two level caching strategy to responses. A `readWrite` cache with an expiration policy, and a `readonly` cache that caches without expiry.| `true` |
-| `disable-delta` | Checks to see if the delta information is served to client or not. | `false` |
-| `retention-time-in-m-s-in-delta-queue` | Gets the time delta information is cached for the clients to retrieve the value without missing it. | `0` |
-| `delta-retention-timer-interval-in-ms` | Get the time interval the cleanup task wakes up to check for expired delta information. | `0` |
-| `eviction-interval-timer-in-ms` | Gets the time interval the task that expires instances wakes up and runs.| `60000` |
-| `sync-when-timestamp-differs` | Checks whether to synchronize instances when timestamp differs. | `true` |
-| `rate-limiter-enabled` | Indicates whether the rate limiter is enabled or disabled. | `false` |
-| `rate-limiter-burst-size`  | The rate limiter, token bucket algorithm property. | 10 |
-| `rate-limiter-registry-fetch-average-rate` | The rate limiter, token bucket algorithm property. Specifies the average enforced request rate. | `500` |
-| `rate-limiter-privileged-clients` | List of certified clients is in addition to standard Eureka Java clients. | N/A |
-| `rate-limiter-throttle-standard-clients` | Indicates if rate limit standard clients. If set to `false`, only nonstandard clients are rate limited. | `false` |
-| `rate-limiter-full-fetch-average-rate` | Rate limiter, token bucket algorithm property. Specifies the average enforced request rate. | `100` |
+| `eureka.server.enable-self-preservation` | When enabled, the server keeps track of the number of renewals it should receive from the server. Any time, the number of renewals drops below the threshold percentage as defined by eureka.server.renewal-percent-threshold. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Spring Cloud Eureka Java component](#limitations)  | false |
+| `eureka.server.renewal-percent-threshold`| The minimum percentage of renewals that is expected from the clients in the period specified by eureka.server.renewal-threshold-update-interval-ms. If the renewals drop below the threshold, the expirations are disabled if the eureka.server.enable-self-preservation is enabled. | 0.85 |
+| `eureka.server.renewal-threshold-update-interval-ms` | The interval with which the threshold as specified in eureka.server.renewal-percent-threshold needs to be updated. | 0 |
+| `eureka.server.expected-client-renewal-interval-seconds` | The interval with which clients are expected to send their heartbeats. Defaults to 30 seconds. If clients send heartbeats with different frequency, say, every 15 seconds, then this parameter should be tuned accordingly, otherwise, self-preservation won't work as expected. | 30 |
+| `eureka.server.response-cache-auto-expiration-in-seconds`| Gets the time for which the registry payload should be kept in the cache if it is not invalidated by change events. | 180|
+| `eureka.server.response-cache-update-interval-ms` | Gets the time interval with which the payload cache of the client should be updated.| 0 |
+| `eureka.server.use-read-only-response-cache`| The com.netflix.eureka.registry.ResponseCache currently uses a two level caching strategy to responses. A readWrite cache with an expiration policy, and a readonly cache that caches without expiry.| true |
+| `eureka.server.disable-delta`| Checks to see if the delta information can be served to client or not. | false |
+| `eureka.server.retention-time-in-m-s-in-delta-queue`| Get the time for which the delta information should be cached for the clients to retrieve the value without missing it.| 0 |
+| `eureka.server.delta-retention-timer-interval-in-ms` | Get the time interval with which the clean up task should wake up and check for expired delta information. | 0 |
+| `eureka.server.eviction-interval-timer-in-ms` | Get the time interval with which the task that expires instances should wake up and run.| 60000|
+| `eureka.server.sync-when-timestamp-differs` | Checks whether to synchronize instances when timestamp differs. | true |
+| `eureka.server.rate-limiter-enabled` | Indicates whether the rate limiter should be enabled or disabled. | false |
+| `eureka.server.rate-limiter-burst-size`  | Rate limiter, token bucket algorithm property. | 10 |
+| `eureka.server.rate-limiter-registry-fetch-average-rate`| Rate limiter, token bucket algorithm property. Specifies the average enforced request rate. | 500 |
+| `eureka.server.rate-limiter-privileged-clients` | A list of certified clients. This is in addition to standard eureka Java clients. | N/A |
+| `eureka.server.rate-limiter-throttle-standard-clients` | Indicate if rate limit standard clients. If set to false, only non standard clients will be rate limited. | false |
+| `eureka.server.rate-limiter-full-fetch-average-rate` | Rate limiter, token bucket algorithm property. Specifies the average enforced request rate. | 100 |
 
 ### Common configurations
 

@@ -70,4 +70,4 @@ Dashboard view allows you to compare the scores of multiple models across datase
 
 ## Next steps
 
-- [Explore Azure AI foundation models in Azure AI Studio](models-foundation-azure-ai.md)
+- [Explore Azure AI services](../ai-services/connect-ai-services.md)

@@ -62,7 +62,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
     > [!IMPORTANT]
     > For Meta Llama 3 models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **Sweden Central** regions.
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
     - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
@@ -85,15 +85,15 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 # [Meta Llama 2](#tab/llama-two)
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
     > For Meta Llama 2 models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
 
-- An [AI Studio project](../how-to/create-projects.md).
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription—to subscribe the project to the Azure Marketplace offering, once for each project, per offering:
+    - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
@@ -104,7 +104,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
-    - On the project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
+    - On the Azure AI project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
 
