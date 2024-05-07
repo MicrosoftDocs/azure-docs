@@ -3,7 +3,7 @@ title: Best practices for high availability with Azure VMs and managed disks
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 05/06/2024
+ms.date: 05/07/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -90,7 +90,7 @@ Regional Virtual Machine Scale Sets don't protect against large-scale outages li
 
 #### Use availability sets
 
-[Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time.  With this configuration, the storage fault domains of disks are aligned to the VM fault domains, preventing VMs from going down if a single storage fault domain has an outage. Availability sets also have better VM to VM latencies compared to availability zones.
+[Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time. Availability sets also have better VM to VM latencies compared to availability zones.
 
 Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't protect against data center or region-wide outages, and don't currently support Ultra Disks or Premium SSD v2 disks.
 
