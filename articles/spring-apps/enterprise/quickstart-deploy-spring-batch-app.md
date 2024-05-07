@@ -269,29 +269,6 @@ az group delete --name ${RESOURCE_GROUP}
 
 ---
 
-## 7. Next steps
-
-> [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](./structured-app-log.md)
-
-> [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
-
-> [!div class="nextstepaction"]
-> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
-
-> [!div class="nextstepaction"]
-> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI](../../service-connector/quickstart-cli-spring-cloud-connection.md)
-
-> [!div class="nextstepaction"]
-> [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
-
 For more information, see the following articles:
 
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
