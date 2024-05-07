@@ -75,7 +75,7 @@ To create a deployment:
     1. Select **+ Create deployment**.
     1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
 
-        :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-starting-from-project.png"::: 
+        :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png"::: 
 
     1. Select **Confirm** to open a serverless API deployment window for the model.
 
@@ -364,7 +364,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 Models deployed as a service with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
-## Next steps
+## Related content
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)

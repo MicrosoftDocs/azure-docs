@@ -48,10 +48,10 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Cohere family models, the serverless API model deployment offering is only available with AI hubs created in **EastUS2** or **Sweden Central** region.
+    > For Cohere family models, the serverless API model deployment offering is only available with hubs created in **EastUS2** or **Sweden Central** region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -77,7 +77,7 @@ To create a deployment:
     1. Select **+ Create deployment**.
     1. Search for and select **Cohere-command-r**. to open the Model Details page.
  
-       :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-starting-from-project.png"::: 
+       :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-start-from-project.png"::: 
 
     1. Select **Confirm** to open a serverless API deployment window for the model.
 
@@ -813,7 +813,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 Models deployed as a service with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
-## Next steps
+## Related content
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
