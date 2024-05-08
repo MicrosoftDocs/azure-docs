@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 05/08/2024
 ms.author: cshoe
 ---
 
@@ -29,15 +29,24 @@ You can set up Azure Key Vault to manage your container app's certificates to ha
     az extension add --name containerapp --upgrade`
     ```
 
-## Enable managed identity
+- [Managed identity](./managed-identity.md): Enable managed identity on your Container Apps environment.
+
+## Secret configuration
 
 An [Azure Key Vault](/azure/key-vault/general/manage-with-cli2) instance is required to store your certificate. Make the following updates to your Key Vault instance:
 
-1. Open the [Azure portal](https://portal.azure.com) and find your instance of Azure Key Vault.
+1. Open the [Azure portal](https://portal.azure.com).
 
-1. Edit the Identity Access Management (IAM) access control and set yourself as a *Key Vault Administrator*.
+1. Go to your Azure Container Apps environment.
+
+1. From *Settings*, select Access control (IAM).
+
+1. From the *Roles* tab, and set yourself as a *Key Vault Administrator*.
 
 1. Go to your certificate's details and copy the value for *Secret Identifier* and paste it into a text editor for use in an upcoming step.
+
+    > [!NOTE]
+    > The secret identifier with a version suffix only attempts to get a certificate from the specified version. If you are using a secret identifier without a version suffix, it uses the latest version.
 
 ## Assign roles
 
@@ -47,7 +56,7 @@ An [Azure Key Vault](/azure/key-vault/general/manage-with-cli2) instance is requ
 
 ## Import a certificate
 
-Once you authorize your container app to read the vault, you can use the `az containerapp env certificate upload` command to associate your vault with your Container Apps environment.
+Once you authorize your container app to read the vault, you can use the `az containerapp env certificate upload` command to import your vault to your Container Apps environment.
 
 Before you run the following command, replace the placeholder tokens surrounded by `<>` brackets with your own values.
 
