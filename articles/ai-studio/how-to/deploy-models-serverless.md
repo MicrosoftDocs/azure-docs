@@ -101,7 +101,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
         > [!IMPORTANT]
         > Do not include the version when copying the **Model ID**. Serverless API endpoints always deploy the model's latest version available. For example, for the model ID `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct/versions/3`, copy `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct`.
 
-    :::image type="content" source="../media/deploy-monitor/serverless/model-card.png" alt-text="A screenshot showing a model's details page." lightbox="../media/deploy-monitor/serverleses/model-card.png":::
+    :::image type="content" source="../media/deploy-monitor/serverless/model-card.png" alt-text="A screenshot showing a model's details page." lightbox="../media/deploy-monitor/serverless/model-card.png":::
 
 1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer.
 
@@ -111,9 +111,9 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
     1. Select the project in which you want to deploy your models. Notice that not all the regions are supported.
 
-        :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="../media/deploy-monitor/serverleses/deploy-pay-as-you-go.png"::: 
+        :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png"::: 
 
-    1. If you see the note *You already have a Azure Marketplace subscription for this project*, you don't need to create the subscription since you already have one. You can proceed to [Serverless API endpoints](#serverless-api-endpoints).
+    1. If you see the note *You already have a Azure Marketplace subscription for this project*, you don't need to create the subscription since you already have one. You can proceed to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint).
 
     1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 
