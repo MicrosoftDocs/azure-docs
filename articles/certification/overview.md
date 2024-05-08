@@ -16,7 +16,7 @@ ms.service: certification
 Edge Secured-Core is Microsoft's recommended standard for highly secured embedded devices. Such devices must include hardware security features, must be shipped in a secured state, and must be able to connect to services that enable that security monitoring and maintenance for the lifetime of the device. 
 
 ## Program purpose ##
-Edge Secured-core is a security certification for devices running a full operating system. Edge Secured-core currently supports [Windows IoT Enterprise](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/whats-new/release-history) and Azure Sphere OS. Linux support is coming in the future. Devices meeting this criteria enable these promises:
+Edge Secured-core is a security certification for devices running a full operating system. Edge Secured-core currently supports [Windows IoT Enterprise](/windows/iot/iot-enterprise/whats-new/release-history) and Azure Sphere OS. Linux support is coming in the future. Devices meeting this criteria enable these promises:
 
 1. Hardware-based device identity 
 2. Capable of enforcing system integrity 
