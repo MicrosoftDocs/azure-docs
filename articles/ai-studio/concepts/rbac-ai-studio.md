@@ -102,7 +102,7 @@ The minimum permissions needed to create a project is a role that has the allowe
 
 ## Dependency service Azure RBAC permissions
 
-The hub has dependencies on other Azure services. The following table lists the permissions required for these services when you create a hub. The person that creates the hub needs these permissions. They person who creates a project from the hub doesn't need them.
+The hub has dependencies on other Azure services. The following table lists the permissions required for these services when you create a hub. The person that creates the hub needs these permissions. The person who creates a project from the hub doesn't need them.
 
 | Permission | Purpose |
 |------------|-------------|
