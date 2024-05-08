@@ -622,7 +622,6 @@ def generate_count():
     while True:
         yield f"counting, {count}\n\n"
         count += 1
-        time.sleep(1)
 
 @app.route(route="stream", methods=[func.HttpMethod.GET])
 async def stream_count(req: Request) -> StreamingResponse:
