@@ -121,6 +121,12 @@ kubectl apply -f https://github.com/Azure/prometheus-collector/blob/main/otelcol
 kubectl apply -f https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/example-custom-resources/service-monitor/service-monitor-reference-app.yaml
 ```
 
+##### Limitations
+> [!NOTE]
+>
+> Pod and Service monitors currently do not support basic authentication. Support for the same is coming up soon.
+>
+
 ### Troubleshooting
 
 When the pod or service monitors are successfully applied, the addon should automatically start collecting metrics from the targets. To confirm this, follow the instructions [here](prometheus-metrics-troubleshoot.md#prometheus-interface) for general troubleshooting of custom resources and also to ensure the targets show up in 127.0.0.1/targets.
