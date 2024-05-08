@@ -38,7 +38,7 @@ In this example, you learn how to deploy a **Meta-Llama-3-8B-Instruct** model as
 
     # [Azure CLI](#tab/cli)
 
-    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](../../machine-learning/how-to-configure-cli.md).
+    The [Azure CLI](/cli/azure/) and the [ml extension for Azure Machine Learning](../../machine-learning/how-to-configure-cli.md).
 
     ```azurecli
     az extension add -n ml
@@ -82,7 +82,7 @@ In this example, you learn how to deploy a **Meta-Llama-3-8B-Instruct** model as
 
     # [ARM](#tab/arm)
 
-    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or use any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
+    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or use any of the deployment tools. This tutorial uses the [Azure CLI](/cli/azure/).
 
 
 ## Subscribe your project to the model offering
