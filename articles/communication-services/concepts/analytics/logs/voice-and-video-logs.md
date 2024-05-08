@@ -147,6 +147,7 @@ This log provides detailed information on actions taken during a call and can be
 |     `EndpointId`    |             The unique ID that represents each endpoint connected to the call, where endpointType defines the endpoint type. When the value is null, the connected entity is the Communication Services server (endpointType = "Server").  <BR><BR> The endpointId value can sometimes persist for the same user across multiple calls (correlationId) for native clients. The number of endpointId values determines the number of call summary logs. A distinct summary log is created for each endpointId value.                |
 |     `OperationPayload`    |     A dynamic payload that varies based on the operation providing more operation specific details.       |
 
+
 <!-- ### Call client media stats time series log schema
 [!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
