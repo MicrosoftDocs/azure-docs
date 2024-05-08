@@ -35,14 +35,14 @@ Extractive summarization extracts sentences that collectively represent the most
 
 There are two aspects of text summarization this API provides:
 
-* [**Extractive summarization**](how-to/document-summarization.md#try-document-extractive-summarization): Produces a summary by extracting salient sentences within the document.
+* [**Extractive summarization**](how-to/document-summarization.md#try-text-extractive-summarization): Produces a summary by extracting salient sentences within the document.
 
   * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
   * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
   * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
   * Positional information: The start position and length of extracted sentences.
 
-* [**Abstractive summarization**](how-to/document-summarization.md#try-document-abstractive-summarization): Generates a summary that doesn't use the same words as in the document, but captures the main idea.
+* [**Abstractive summarization**](how-to/document-summarization.md#try-text-abstractive-summarization): Generates a summary that doesn't use the same words as in the document, but captures the main idea.
   * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document can be segmented so multiple groups of summary texts can be returned with their contextual input range.
   * Contextual input range: The range within the input document that was used to generate the summary text.
 
@@ -74,7 +74,7 @@ This documentation contains the following article types:
 
 # [Text summarization](#tab/text-summarization)
 
-A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-document-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-document-extractive-summarization) capabilities.
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-extractive-summarization) capabilities.
 
  Currently **Text Summarization** supports the following native document formats:
 
