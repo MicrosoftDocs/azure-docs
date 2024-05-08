@@ -62,7 +62,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Next hop
 
-**Next hop** allows you to detect routing issues. It checks if traffic is routed correctly to the intended destination. It provides you with information about the Next hop type, IP address, and Route table ID for a specific destination IP address. For more information, see [Next hop overview](network-watcher-next-hop-overview.md) and [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
+**Next hop** allows you to detect routing issues. It checks if traffic is routed correctly to the intended destination or whether the traffic is being sent nowhere. It provides you with information about the Next hop type, IP address, and Route table ID for a specific destination IP address. For more information, see [Next hop overview](network-watcher-next-hop-overview.md) and [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
 
 ### Effective security rules
 
