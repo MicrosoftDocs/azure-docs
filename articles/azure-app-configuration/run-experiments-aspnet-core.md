@@ -418,7 +418,7 @@ Either follow the steps below to learn how to create this new app to run an expe
 1. Register a second user named *userb@contoso.com*, enter another password, and validate this second email.
 
     > [!NOTE]
-    > It's important for the purpose of this quickstart to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
+    > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
 
 1. Select **Login** at the top right to sign in as userb (userb@contoso.com).
 
@@ -465,7 +465,7 @@ The app we created only specifies one event, but you can have multiple events an
     | **Measure as**                      | **Count**           | The following options are available: <br><ul><li>**Count**: counts the number of times the event is triggered by your users.</li><li>**Average**: averages the value of the event for your users.</li><li>**Sum**: adds up the values of the event for your users. Shows the average summed value.</li><li>**Percent**: calculates the percentage of users that triggered the event.</li></ul> |
     | **Desired Impact**                  | **Increase**        | This setting represents the ultimate goal or purpose behind measuring your created metric. |
 
-    In the quickstart shared above, our hypothesis is that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code tracks this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote*, to be able to validate the given hypothesis. If there's a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
+    In this tutorial, our hypothesis is that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code tracks this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote*, to be able to validate the given hypothesis. If there's a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
 
 1. Once created, the new metric is displayed in the portal. You can edit it or delete it by selecting the (**...**) context menu on the right side of the screen.
 
@@ -489,7 +489,7 @@ Any edit to a variant feature flag generates a new version of the experimentatio
 > To get experimentation results, you need at least 30 events per variant, but we suggest you have more that the minimum sampling size to make sure that your experimentation is producing reliable results.
 
 > [!NOTE]
-> Application Insights sampling is enabled by default and it may impact your experimentation results. For this tutorial, you are recommended to turn off sampling in Application Insights as directed in the quickstart application. Learn more about [Sampling in Application Insights](../azure-monitor/app/sampling-classic-api.md).
+> Application Insights sampling is enabled by default and it may impact your experimentation results. For this tutorial, you are recommended to turn off sampling in Application Insights. Learn more about [Sampling in Application Insights](../azure-monitor/app/sampling-classic-api.md).
 
 ## Next step
 
