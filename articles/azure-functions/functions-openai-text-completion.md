@@ -39,6 +39,21 @@ Before you begin, you must complete the [quickstart: Create a C# function in Azu
 
 1. Once the creation has completed, navigate to the Azure OpenAI resource blade in the Azure portal, and, under **Essentials**, select **Click here to view endpoints**. Copy the **endpoint** url and the **keys**. Paste these values into a temporary document for later use.
 
+## Requirements
+To complete this article and walkthrough, you will need the following:
+
+- .NET 6 SDK or greater (Visual Studio 2022 recommended)
+- Azure Functions Core Tools v4.x
+- Update settings in Azure Function or the local.settings.json file for local development with the following keys:
+    -  For Azure, AZURE_OPENAI_ENDPOINT - Azure OpenAI resource (e.g. https://***.openai.azure.com/) set.
+    - For Azure, assign the user or function app managed identity Cognitive Services OpenAI User role on the Azure OpenAI resource. It is strongly recommended to use managed identity to avoid overhead of secrets maintenance, however if there is a need for key based authentication add the setting AZURE_OPENAI_KEY and its value in the settings.
+    - For non- Azure, OPENAI_API_KEY - An OpenAI account and an API key saved into a setting.If using environment variables, Learn more in .env readme.
+    - Update CHAT_MODEL_DEPLOYMENT_NAME and EMBEDDING_MODEL_DEPLOYMENT_NAME keys to Azure Deployment names or override default OpenAI model names.
+    - If using user assigned managed identity, add AZURE_CLIENT_ID to environment variable settings with value as client id of the managed identity.
+    - Visit binding specific samples README for additional settings that might be required for each binding.
+- Azure Storage emulator such as Azurite running in the background
+- The target language runtime (e.g. dotnet, nodejs, powershell, python, java) installed on your machine. Refer the official supported versions.
+
 
 ## Register binding extensions
 
