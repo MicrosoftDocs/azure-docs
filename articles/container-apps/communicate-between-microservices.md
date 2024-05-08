@@ -36,7 +36,7 @@ In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web
 
 ## Setup
 
-If you're currently authenticated to Azure and have the environment variables that are defined from the quickstart, then skip the following steps. You can directly go to the [Prepare the GitHub repository](#prepare-the-github-repository) section.
+If you're currently authenticated to Azure and have the environment variables that are defined from the quickstart, then skip the following steps and go directly to [Prepare the GitHub repository](#prepare-the-github-repository).
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
@@ -261,7 +261,7 @@ $ContainerArgs = @{
 $ContainerObj = New-AzContainerAppTemplateObject @ContainerArgs
 ```
 
-You need to run the following command to get your registry credentials.
+Run the following command to get your registry credentials.
 
 ```azurepowershell
 $RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
