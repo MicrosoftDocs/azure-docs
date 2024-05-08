@@ -21,10 +21,13 @@ landingContent:
         links:
           - text: What is Split Experimentation Workspace
             url: overview.md
-
   # Card
-  - title: Manage and set up Split Experimentation Workplace
+  - title: Create a Split Experimentation Workspace
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a new instance
+            url: create.md
       - linkListType: how-to-guide
         links:
           - text: Set up data access control
