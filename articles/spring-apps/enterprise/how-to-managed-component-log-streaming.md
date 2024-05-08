@@ -239,8 +239,6 @@ The command returns logs similar to the following example:
 ```output
 ...
 {"app":"config-server","ts":"2024-05-08T05:38:29.44Z","logger":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","level":"INFO","class":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","method":"prepareWebApplicationContext","file":"ServletWebServerApplicationContext.java","line":291,"thread":"main","message":"Root WebApplicationContext: initialization completed in 3771 ms"}
-{"app":"config-server","ts":"2024-05-08T05:38:30.845Z","logger":"org.apache.tomcat.util.net.NioEndpoint.certificate","level":"INFO","class":"org.apache.juli.logging.DirectJDKLog","method":"log","file":"DirectJDKLog.java","line":173,"thread":"main","message":"Connector [https-jsse-nio-8888], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [file:/etc/azure-spring-cloud/data-plane-shared-secret/ssl-certificate.p12] using alias [tomcat] with trust store [null]"}
-{"app":"config-server","ts":"2024-05-08T05:38:30.87Z","logger":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","level":"INFO","class":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","method":"start","file":"TomcatWebServer.java","line":220,"thread":"main","message":"Tomcat started on port(s): 8888 (https) with context path ''"}
 {"app":"config-server","ts":"2024-05-08T05:38:31.058Z","logger":"com.microsoft.azure.spring.service.CloudConfigServerApplication","level":"INFO","class":"org.springframework.boot.StartupInfoLogger","method":"logStarted","file":"StartupInfoLogger.java","line":57,"thread":"main","message":"Started CloudConfigServerApplication in 6.888 seconds (process running for 8.986)"}
 ...
 ```
