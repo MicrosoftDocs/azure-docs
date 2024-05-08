@@ -59,13 +59,28 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | Container registry | Project workspaces images are isolated by naming convention, and can only access their own containers. |
 | Application insights | One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
 
-The following
+Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members. See [
 
-Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members.
+## Create a project workspace using a hub
 
-## Create a workspace using a hub
+Once a hub is created, there are multiple ways to create a project workspace with it:
+
+1. [Using ML Studio]()
+1. [Using AI Studio]()
+2. [Using Azure SDK]()
+4. [Using automation templates]()
+
+## Default project resource group
+
+To create project workspaces using a hub, users must have a role assignment on the hub workspace resource using a role that includes the **Microsoft.MachineLearningServices/workspaces/hubs/join/action** action. Azure AI developer role is an example built-in role that supports this action.
+
+Optionally, when creating a hub as an administrator, you may specify a default resource group for project workspace creation. If this default resource group is set, users who use the SDK/CLI/Studio experience to create workspaces, will be able to create workspaces in this designated resource group without requiring further Azure RBAC permissions on a resource group-scope. The creating user, will become an owner on the project workspace Azure resource. Use this capability to provide limited self-serve workspace creation.
+
+Project workspaces can be created in other resource groups than the default project resource group. For this, users need Microsoft.MachineLearning/Workspaces/write permissions.
 
 ## Supported capabilities by workspace kind
+
+
 
 ## Converting a regular workspace into a hub workspace
 
