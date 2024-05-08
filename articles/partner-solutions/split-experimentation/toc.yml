@@ -1,7 +1,12 @@
 items:
-- name: Split Experimentation Workspace Documentation
+- name: Split Experimentation Workspace
   href: index.yml
 - name: Overview
   items:
   - name: What is Split Experimentation Workspace?
     href: overview.md
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a Split Experimentation Workspace
+    href: create.md
