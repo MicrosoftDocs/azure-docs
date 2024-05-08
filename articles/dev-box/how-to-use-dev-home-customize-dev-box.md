@@ -69,6 +69,7 @@ To create a new dev box:
    :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-create-environment.png" alt-text="Screenshot of Dev Home, showing the Environments page with Create Environment highlighted." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-create-environment.png":::
   
 1. On the **Select environment** page, select **Microsoft DevBox**, and then select **Next**.
+
    :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-create-dev-box.png" alt-text="Screenshot of Dev Home, showing the Select environment page with Microsoft Dev Box highlighted." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-create-dev-box.png":::
 
 1. On the **Configure your environment** page:
@@ -104,7 +105,7 @@ If the Windows App isn't installed, selecting Launch takes you to the web client
 
 1. You can also start and stop the dev box from the **Launch** menu.
 
-  :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-start-stop.png" alt-text="Screenshot of the Launch menu with Start and Stop options." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-start-stop.png":::
+   :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-start-stop.png" alt-text="Screenshot of the Launch menu with Start and Stop options." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-start-stop.png":::
 
 For more information on the Windows App, see [Windows App](https://aka.ms/windowsapp).
 
