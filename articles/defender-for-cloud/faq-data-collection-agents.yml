@@ -224,9 +224,10 @@ sections:
       - question: |
           Which data is collected from snapshots?
         answer: |
-          Agentless scanning collects data similar to the data an agent collects to perform the same analysis. Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
+          Agentless scanning collects data similar to the data an agent collects to perform the same analysis. 
+          Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
     
-    - question: |
+     - question: |
           What time of the day my VM is scanned, including start and end time? 
         answer: |
           The time of the day is dynamic and can change across different account and subscriptions. 
