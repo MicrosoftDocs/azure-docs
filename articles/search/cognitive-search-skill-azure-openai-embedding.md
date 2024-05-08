@@ -8,17 +8,17 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 04/23/2024
+ms.date: 05/08/2024
 ---
 
 #	Azure OpenAI Embedding skill
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
+> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports the first iteration of this feature. The [2024-05-01-preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) adds more properties and supports more text embedding models on Azure OpenAI.
 
-The **Azure OpenAI Embedding** skill connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings.
+The **Azure OpenAI Embedding** skill connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings during indexing.
 
-The [Import and vectorize data](search-get-started-portal-import-vectors.md) uses the **Azure OpenAI Embedding** skill to vectorize content. You can run the wizard and review the generated skillset to see how the wizard builds it.
+The [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) in the Azure portal uses the **Azure OpenAI Embedding** skill to vectorize content. You can run the wizard and review the generated skillset to see how the wizard builds the skill for the text-embedding-ada-002 model. 
 
 > [!NOTE]
 > This skill is bound to Azure OpenAI and is charged at the existing [Azure OpenAI pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing).
@@ -42,10 +42,10 @@ Parameters are case-sensitive.
 | `apiKey`   |  The secret key used to access the model. If you provide a key, leave `authIdentity` empty. If you set both the `apiKey` and `authIdentity`, the `apiKey` is used on the connection. |
 | `deploymentId`   | The name of the deployed Azure OpenAI embedding model. The model should be an embedding model, such as text-embedding-ada-002. See the [List of Azure OpenAI models](/azure/ai-services/openai/concepts/models) for supported models.|
 | `authIdentity`   | A user-managed identity used by the search service for connecting to Azure OpenAI. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `apiKey` and `authIdentity` blank. The system-managed identity is used automatically. A managed identity must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to send text to Azure OpenAI. |
-| `modelName` | (Required in API version 2024-05-01-Preview and later). The name of the Azure OpenAI embedding model that is deployed at the provided `resourceUri` and `deploymentId`. Currently supported values are `text-embedding-ada-002`, `text-embedding-3-large`, and `text-embedding-3-small` |
-| `dimensions` | (Optional, supported in API version 2024-05-01-Preview and later) The dimensions of embeddings that you would like to generate if the model supports reducing the embedding dimensions. Supported ranges are listed below. Defaults to the maximum dimensions for each model if not specified.  |
+| `modelName` | This property is required if your skillset is created using the 2024-05-01-preview REST API. Set this property to the deployment name of an Azure OpenAI embedding model deployed on the provider specified through `resourceUri` and identified through `deploymentId`. Currently, the supported values are `text-embedding-ada-002`, `text-embedding-3-large`, and `text-embedding-3-small`.  |
+| `dimensions` | (Optional, introduced in the 2024-05-01-preview REST API). The dimensions of embeddings that you would like to generate if the model supports reducing the embedding dimensions. Supported ranges are listed below. Defaults to the maximum dimensions for each model if not specified. For skillsets created using the 2023-10-01-preview, dimensions are fixed at 1536. |
 
-## Supported dimensions by modelName
+## Supported dimensions by `modelName`
 
 The supported dimensions for an Azure OpenAI Embedding skill depend on the `modelName` that is configured.
 
@@ -130,11 +130,20 @@ The output resides in memory. To send this output to a field in the search index
 ## Best practices
 
 The following are some best practices you need to consider when utilizing this skill:
+
 - If you are hitting your Azure OpenAI TPM (Tokens per minute) limit, consider the [quota limits advisory](../ai-services/openai/quotas-limits.md) so you can address accordingly. Refer to the [Azure OpenAI monitoring](../ai-services/openai/how-to/monitoring.md) documentation for more information about your Azure OpenAI instance performance.
+
 -	The Azure OpenAI embeddings model deployment you use for this skill should be ideally separate from the deployment used for other use cases, including the [query vectorizer](vector-search-how-to-configure-vectorizer.md). This helps each deployment to be tailored to its specific use case, leading to optimized performance and identifying traffic from the indexer and the index embedding calls easily.
+
 - Your Azure OpenAI instance should be in the same region or at least geographically close to the region where your AI Search service is hosted. This reduces latency and improves the speed of data transfer between the services.
+
 -	If you have a larger than default Azure OpenAI TPM (Tokens per minute) limit as published in [quotas and limits](../ai-services/openai/quotas-limits.md) documentation, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) with the Azure AI Search team, so this can be adjusted accordingly. This helps your indexing process not being unnecessarily slowed down by the documented default TPM limit, if you have higher limits.
 
+- For examples and working code samples using this skill, see the following links:
+
+  - [Integrated vectorization (Python)](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/readme.md)
+  - [Integrated vectorization (C#)](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-dotnet/DotNetIntegratedVectorizationDemo/readme.md)
+  - [Integrated vectorization (Java)](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-java/demo-integrated-vectorization/readme.md)
 
 ## Errors and warnings
 
