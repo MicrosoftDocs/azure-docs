@@ -284,6 +284,32 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 - Explore known call issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
 
 
+<!-- 
+
+
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this, we have a dedicated support and help options page which lists your options for support.
+
+Support and help options for Azure Communication Services | Microsoft Learn
+You can review our documentation on troubleshooting strategies for more information on isolating call issues.
+
+[Overview of general troubleshooting strategies](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md)
+
+Here are resources for common call issues.
+
+- If you see common error messages or descriptions. Please see: 
+[Understanding error messages and codes](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md)
+
+- If users are unable to join calls. Please see:
+[Overview of call setup issues](../../resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md)
+
+- If users have camera or microphone issues. For example, they can’t hear someone. Please see: [Overview of device and permission issues](../../resources/troubleshooting/voice-video-calling/device-issues/overview.md)
+
+- If call participants have audio issues. For example, they sound like a robot or hear an echo. Please see: [Overview of audio issues](../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md)
+
+- If call participants have video issues. For example, their video looks fuzzy, or cuts in and out. Please see: [Overview of video issues](../../resources/troubleshooting/voice-video-calling/video-issues/overview.md)
+
+ -->
+
 <!-- added to the toc.yml file at row 583.
 
     - name: Monitor and manage call quality
