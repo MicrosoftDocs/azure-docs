@@ -118,7 +118,7 @@ View the status of the Cluster:
 
 ```azurecli
 az networkcloud cluster show --resource-group "$CLUSTER_RG" \
-  --resource-name "$CLUSTER_RESOURCE_NAME"
+  --cluster-name "$CLUSTER_RESOURCE_NAME"
 ```
 
 The Cluster creation is complete when the `provisioningState` of the resource
@@ -238,7 +238,7 @@ View the status of the cluster on the portal, or via the Azure CLI:
 
 ```azurecli
 az networkcloud cluster show --resource-group "$CLUSTER_RG" \
-  --resource-name "$CLUSTER_RESOURCE_NAME"
+  --cluster-name "$CLUSTER_RESOURCE_NAME"
 ```
 
 The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment. 
