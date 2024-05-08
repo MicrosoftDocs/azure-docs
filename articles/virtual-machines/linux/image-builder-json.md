@@ -849,7 +849,8 @@ imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
 
 az resource show \
-  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"
+  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName" \
+--api-version=2023-07-01
 ```
 
 Output:
@@ -1723,7 +1724,7 @@ vnetConfig: {
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Run -Force
 ```
 
 ```azurecli-interactive
@@ -1743,7 +1744,7 @@ The build can be canceled anytime. If the distribution phase has started you can
 Examples of `cancel` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Cancel -Force
 ```
 
 ```azurecli-interactive
