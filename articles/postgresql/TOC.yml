@@ -26,8 +26,6 @@
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
-    - name: In-database Embeddings (azure_local_ai)
-      href: ./flexible-server/azure-local-ai.md
 - name: Azure Database for PostgreSQL - Flexible Server
   expanded: true
   items:
@@ -114,6 +112,8 @@
         href: flexible-server/generative-ai-recommendation-system.md
       - name: Integrate Azure AI capabilities
         href: flexible-server/how-to-integrate-azure-ai.md
+      - name: In-database Embeddings (azure_local_ai)
+        href: flexible-server/azure-local-ai.md
     - name: Azure Storage Extension
       href: flexible-server/concepts-storage-extension.md
     - name: Microsoft Entra authentication
