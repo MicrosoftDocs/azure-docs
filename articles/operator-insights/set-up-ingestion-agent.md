@@ -326,7 +326,7 @@ If you're running the ingestion agent on an Azure VM or on an on-premises VM con
 
 To collect ingestion agent logs, follow [the Azure Monitor documentation to install the Azure Monitor Agent and configure log collection](../azure-monitor/agents/data-collection-text-log.md).
 
-- These docs use the Az PowerShell module to create a logs table. Follow the [Az PowerShell module install documentation](https://learn.microsoft.com/powershell/azure/install-azure-powershell) first.
+- These docs use the Az PowerShell module to create a logs table. Follow the [Az PowerShell module install documentation](/powershell/azure/install-azure-powershell) first.
   - The `YourOptionalColumn` section from the sample `$tableParams` JSON is unnecessary for the ingestion agent, and can be removed.
 - When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
 - After adding the data collection rule, you can query these logs through the Log Analytics workspace. Use the following query to make them easier to work with:
