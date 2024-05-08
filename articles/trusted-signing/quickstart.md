@@ -249,21 +249,12 @@ To create an identity validation request:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-<<<<<<< HEAD
 | Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you're validated are up to date. |
 | Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it is created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
 | More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Processing your identity validation request takes from 1 to 7 business days (possibly longer if we need to request more documentation from you). |
-=======
-| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. For a quicker onboarding process ensure public records for the Legal Entity being validated are upto date. |
-| Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
-| Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
-| Failure to perform email verification            | You are required to initiate a new Identity Validation request if you missed verifying your email address within 7 days of receiving the verification link.|
-| Identity Validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
-| Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need extra documentation from you) to process your Identity Validation request.|
->>>>>>> ced3aedb65a1c195bb9fa6531b45424ba691c20c
 
 ## Create a certificate profile  
 
@@ -315,22 +306,17 @@ To create a certificate profile in the Azure portal:
 
 # [Azure CLI](#tab/certificateprofile-cli)
 
-<<<<<<< HEAD
+### Prerequisites
+
+You need the identity validation ID for the entity that the certificate profile is being created for. Complete these steps get your identity validation ID in the Azure portal.
+
+1. In the Azure portal, go to your Trusted Signing account.
+1. On the Trusted Signing account **Overview** pane or on the **Objects** pane, select **Identity Validation**.
+1. Select the hyperlink for the relevant entity. In the **Identity validation** pane, you can copy the value for **Identity validation Id**.
+
+:::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for a Trusted Signing account." lightbox="media/trusted-signing-identity-validation-id.png":::
+
 To create a certificate profile by using the Azure CL:
-=======
-**Prerequisites**
-You need the Identity Validation ID for the entity that the certificate profile is being created for. The below steps will guide you to obtain your Identity Validation ID from Azure portal. 
-
-1. Navigate to your Trusted Signing account in the Azure portal.
-2. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
-3. Select the hyperlink for the relevant entity, from the panel on the right you can copy the **Identity validation Id**.
-
-:::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot of trusted-signing-identity-validation-id." lightbox="media/trusted-signing-identity-validation-id.png":::
-
-
-
-To create a certificate profile with Azure CLI, follow these steps:
->>>>>>> ced3aedb65a1c195bb9fa6531b45424ba691c20c
 
 1. Create a certificate profile by using the following command:
 
