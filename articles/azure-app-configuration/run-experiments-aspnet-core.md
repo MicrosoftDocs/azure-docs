@@ -31,7 +31,7 @@ In this tutorial, you:
 
 * An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
-* A [Split Experimentation Workspace resource](../partner-solutions/split-experimentation/create).
+* A [Split Experimentation Workspace resource](../partner-solutions/split-experimentation/create.md).
 * A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
 
 ## Create a variant feature flag (preview)
@@ -57,7 +57,7 @@ To run experiments in Azure App Configuration, you're going to use Split Experim
 
     :::image type="content" source="./media/run-experiments-aspnet-core/add-split-experimentation-workspace.png" alt-text="Screenshot of the Azure portal, adding a Split Experimentation Workspace to the App Configuration store." lightbox="./media/run-experiments-aspnet-core/add-split-experimentation-workspace.png":::
 
-1. Select a **Split Experimentation Workspace**, then **Save**. If you don't have a Split Experimentation Workspace, follow the [Split Experimentation Workspace quickstart](../partner-solutions/split-experimentation/create) to create one.
+1. Select a **Split Experimentation Workspace**, then **Save**. If you don't have a Split Experimentation Workspace, follow the [Split Experimentation Workspace quickstart](../partner-solutions/split-experimentation/create.md) to create one.
 
     > [!NOTE]
     > The data source selected in the Split Experimentation Workspace must be the same Application Insights resource as selected in the previous step.
@@ -455,7 +455,7 @@ The app we created only specifies one event, but you can have multiple events an
 
 1. Select or enter the following information under **Create an Experimentation Metric** and save with **Create**.
 
-    :::image type="content" source="./media/run-experiments-aspnet-core/create-metric.png" alt-text="Screenshot of the Azure portal, creating a new experimentation metrics.":::
+    :::image type="content" source="./media/run-experiments-aspnet-core/create-metric.png" alt-text="Screenshot of the Azure portal, creating a new experimentation metric.":::
 
     | Setting                             | Example value       | Description                                                                                                                                                                                                                                                                                                                                                                                    |
     |-------------------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -477,7 +477,7 @@ To put your newly setup experiment to the test and generate results for you to a
 
 To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, select the **Active** link under the **Experiment** label in the grid view or click on **...** > **Experiment**.
 
-On the results page, a **Version** of the Experiment, a **Baseline** to compare the results against, and a **Comparison** variant are selected by default. If needed change the defaults per your liking, then select **Apply** to view the result of your experiment.
+On the results page, a **Version** of the Experiment, a **Baseline** to compare the results against, and a **Comparison** variant are selected by default. If needed, change the defaults per your liking, then select **Apply** to view the result of your experiment.
 
 :::image type="content" source="./media/run-experiments-aspnet-core/experimentation-result.png" alt-text="Screenshot of the Azure portal showing an experimentation result." lightbox="./media/run-experiments-aspnet-core/experimentation-result.png":::
 
