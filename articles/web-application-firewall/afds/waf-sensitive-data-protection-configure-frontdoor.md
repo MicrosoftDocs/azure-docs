@@ -62,4 +62,4 @@ To verify your Sensitive Data Protection rules, open the Front Door firewall log
 
 ## Next steps
 
-- [Use Log Analytics to examine Application Gateway Web Application Firewall (WAF) logs](../ag/log-analytics.md)
+- [Azure Web Application Firewall monitoring and logging](../afds/waf-front-door-monitor.md)
