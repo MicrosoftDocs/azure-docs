@@ -33,7 +33,7 @@ You must create a resource group before you create your NFC.
 You create resource groups by running the following commands:
 
 ```azurecli
-az group create -n NFCResourceGroupName -l "Location"
+az group create -n NFCResourceGroupName -l "<Location>"
 ```
 
 ## Attributes for NFC creation
@@ -54,13 +54,13 @@ For more information, see [attributes section](#attributes-for-nfc-creation).
 ```azurecli
 az networkfabric controller create \
   --resource-group "NFCResourceGroupName" \
-  --location "eastus"  \
+  --location "<Location>"  \
   --resource-name "nfcname" \
   --ipv4-address-space "10.0.0.0/19" \
   --ipv6-address-space "FC00::/59" \
   --infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]'
   --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]' \
-location='eastus' --debug --no-wait
+location='<Location>' --debug --no-wait
 ```
 
 **Note:** The NFC creation takes between 30-45 mins.
@@ -88,7 +88,7 @@ Expected output:
   "ipv4AddressSpace": "10.0.0.0/19",
   "ipv6AddressSpace": "FC00::/59",
   "isWorkloadManagementNetworkEnabled": "True",
-  "location": "eastus",
+  "location": "<Location>",
   "managedResourceGroupConfiguration": {},
   "name": "NFCName",
   "nfcSku": "Standard",
@@ -123,7 +123,7 @@ Update Network Fabrc Controller with multiple `ExpressRoute` circuits.
 ```Azure CLI
 az networkfabric controller update \ 
  --resource-group "NFCResourceGroupName" \ 
- --location "eastus"  \ 
+ --location "<Location>"  \ 
  --resource-name "nfcname" \ 
  --ipv4-address-space "10.0.0.0/19" \ 
 --infra-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02',expressRouteAuthorizationKey:'<auth-key>'}]"
@@ -155,7 +155,7 @@ Expected output:
   "ipv4AddressSpace": "10.0.0.0/19",
   "ipv6AddressSpace": "FC00::/59",
   "isWorkloadManagementNetworkEnabled": "True",
-  "location": "eastus",
+  "location": "<Location>",
   "managedResourceGroupConfiguration": {},
   "name": "NFCName",
   "nfcSku": "Standard",
@@ -195,7 +195,7 @@ The PATCH feature in the Network Fabric Controller provide users the ability to 
 ```Azure CLI
 az networkfabric controller update \ 
   --resource-group "NFCResourceGroupName" \ 
-  --location "eastus"  \ 
+  --location "<Location>"  \ 
   --resource-name "nfcname" \ 
   --ipv4-address-space "10.0.0.0/19" \ 
   --infra-er-connections '[{"expressRouteCircuitId":"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]' 
