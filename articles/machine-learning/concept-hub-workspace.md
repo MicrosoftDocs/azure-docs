@@ -27,9 +27,9 @@ Create a hub workspace if you or your team are planning for multiple machine lea
 
 ## Fast, but secure, AI exploration without bottleneck on IT
 
-Successfully building AI applications or models often requires prototyping as a steppingstone towards project funding or a full-scale implementation. It may be embodied to prove the feasibility of an idea, assess quality of data or a model, for a particular task.
+Successfully building machine learning models often requires heavy prototyping as steppingstone for a full-scale implementation. It may be embodied to prove the feasibility of an idea, assess quality of data or a model, for a particular task.
 
-In the transition from proving feasibility of an idea, to a funded project, many organizations encounter a bottleneck in productivity because a single platform team is responsible for the setup of cloud resources. Such a team may be the only one authorized to configure security, connectivity or other resources that may incur costs. This may cause a huge backlog, resulting in development teams getting blocked on innovating with a new idea.
+In the transition from proving feasibility of an idea, to a funded project, many organizations encounter a bottleneck in productivity because a single platform team is responsible for the setup of cloud resources. Such a team may be the only one authorized to configure security, connectivity or other resources that may incur costs. This may cause a huge backlog, resulting in development teams getting blocked to start innovating with a new idea.
 
 The goal of hubs is to take away this bottleneck, by letting IT set up a pre-configured, reusable, environment for a team to prototype, build and operate machine learning models.
 
