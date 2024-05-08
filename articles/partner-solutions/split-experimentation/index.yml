@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Split Experimentation Workspace
             url: overview.md
+          - text: Manage Split Experimentation
+            url: manage.md
   # Card
   - title: Create a Split Experimentation Workspace
     linkLists:

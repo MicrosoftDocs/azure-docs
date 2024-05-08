@@ -12,6 +12,8 @@ items:
     href: create.md
 - name: How to
   items:
+  - name: Manage Split Experimentation
+    href: manage.md
   - name: Set up data access control
     href: how-to-set-up-data-access.md
   - name: Troubleshoot
