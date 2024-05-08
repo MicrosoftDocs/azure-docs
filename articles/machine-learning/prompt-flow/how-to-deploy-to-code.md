@@ -12,7 +12,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 02/22/2024
+ms.date: 05/08/2024
 ---
 
 # Deploy a flow to online endpoint for real-time inference with CLI
@@ -139,6 +139,9 @@ If you create a Kubernetes online endpoint, you need to specify the following ad
 
 
 For more configurations of endpoint, see [managed online endpoint schema](../reference-yaml-endpoint-online.md).
+
+> [!IMPORTANT]
+> If your flow uses Micorsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
 
 ### Use user-assigned identity
 
@@ -439,11 +442,25 @@ While tuning above parameters, you need to monitor the following metrics to ensu
     - If you receive a 429 response, this typically indicates that you need to either re-tune your concurrency settings following the above guide or scale your deployment.
 - Azure OpenAI throttle status
 
-### Monitor the endpoint
+### Monitor endpoints
 
-#### Monitor prompt flow deployment metrics
+#### Collect general metrics
 
-You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (token consumption, flow latency, etc.) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
+You can view [general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more)](../how-to-monitor-online-endpoints.md#metrics).
+
+#### Collect tracing data and system metrics during inference time
+
+You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-prompt-flow-endpoints-specific-metrics-and-tracing-data-optional).
+
+Prompt flow specific metrics and trace can be specified to other Application Insights other than the workspace linked one. You can speicify an environment variable in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
+
+```yaml
+environment_variables:
+  APPLICATIONINSIGHTS_CONNECTION_STRING: <connection_string>
+```
+
+> [!NOTE]
+> If you specify both `app_insights_enabled: true` and the above environment variable at the same time, the tracing data and metrics will be sent to workspace linked Application Insights. Hence, if you want to specify a different Application Insights, you only need to keep the environment variable.
 
 
 ## Common errors

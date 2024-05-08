@@ -11,7 +11,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 02/22/2024
+ms.date: 05/08/2024
 ---
 
 
@@ -100,7 +100,6 @@ This step allows you to configure the basic settings of the deployment.
 |Virtual machine| The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).|
 |Instance count| The number of instances to use for the deployment. Specify the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)|
 |Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
-|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
 
 
 After you finish the basic settings, you can directly **Review+Create** to finish the creation, or you can select **Next** to configure **Advanced settings**.
@@ -138,6 +137,9 @@ If you created the associated endpoint with **User Assigned Identity**, user-ass
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
 
 See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
+
+> [!IMPORTANT]
+> If your flow uses Micorsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
 
 ### Advanced settings - Deployment
 
@@ -186,6 +188,12 @@ inference_config:
     port: 8080
     path: /score
 ```
+
+#### Enable tracing by turning-on Application Insights diagnostics (preview)
+
+If you enable this, tracing data and system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace linked Application Insights. To learn more, see [prompt flow serving tracing data and metrics](#view-prompt-flow-endpoints-specific-metrics-and-tracing-data-optional).
+
+If you want to specify a different Application Insights other than the workspace linked one, [you can configure by CLI](./how-to-deploy-to-code.md#collect-tracing-data-and-system-metrics-during-inference-time).
 
 ### Advanced settings - Outputs & Connections
 
@@ -273,7 +281,7 @@ Note that you need to fill the data values according to your flow inputs. Take t
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/consume-endpoint.png" alt-text="Screenshot of the endpoint detail page with consumption code. " lightbox = "./media/how-to-deploy-for-real-time-inference/consume-endpoint.png":::
 
-## View endpoint metrics 
+## Monitor endpoints 
 
 ### View managed online endpoints common metrics using Azure Monitor (optional)
 
@@ -286,7 +294,7 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md#metrics).
 
-### View prompt flow endpoints specific metrics (optional)
+### View prompt flow endpoints specific metrcis and tracing data (optional)
 
 If you enable **Application Insights diagnostics** in the UI deploy wizard, or set `app_insights_enabled=true` in the deployment definition using code, there will be following prompt flow endpoints specific metrics collected in the workspace default Application Insights.
 
@@ -312,6 +320,15 @@ Open the Application Insights, and select **Usage and estimated costs** from the
 Select **Metrics** tab in the left navigation. Select **promptflow standard metrics** from the **Metric Namespace**, and you can explore the metrics from the **Metric** dropdown list with different aggregation methods.
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
+
+This setting will also enable trace during inference time. You can view the detailed tracing data within Application Insights.
+
+The **Dependency** type events record calls from your deployments. The name of that event is the name of flow folder.
+
+The following screenshot shows an example of a deployed flow containing multiple nodes, and you can select each node to view its detailed trace.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/tracing-app-insights.png" alt-text="Screenshot of tracing data in application insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/tracing-app-insights.png":::
+
 
 ## Troubleshoot endpoints deployed from prompt flow
 
