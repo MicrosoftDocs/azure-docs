@@ -109,11 +109,11 @@ Deploying a model through MaaS allows users to get access to ready to use infere
 
 ### Fine-tune models through MaaS with Pay-as-you-go 
 
-For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
+For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](fine-tune-model-llama.md) in Azure AI Studio. 
 
 ### RAG with models deployed through MaaS 
 
-Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed via MaaS can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information, refer to [How to create a vector index](../ai-studio/how-to/index-add.md). 
+Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed via MaaS can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information, refer to [How to create a vector index](index-add.md). 
 
 ### Regional availability of offers and models 
 
