@@ -101,7 +101,7 @@ The following example gets you started with text abstractive summarization:
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2022-10-01-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2023-04-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
@@ -233,13 +233,20 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
       }
     ]
   },
-  "tasks": [
+"tasks": [
     {
-      "kind": "ExtractiveSummarization",
-      "taskName": "Text Extractive Summarization Task 1",
+      "kind": "AbstractiveSummarization",
+      "taskName": "Query-based Abstractive Summarization",
       "parameters": {
-        "query": "XYZ-code",
-        "summaryLength": short
+          "query": "XYZ-code",
+          "summaryLength": "short"
+      }
+    },    {
+      "kind": "ExtractiveSummarization",
+      "taskName": "Query_based Extractive Summarization",
+      "parameters": {
+          "query": "XYZ-code",
+          "sentenceCount": 3
       }
     }
   ]
@@ -249,6 +256,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 
 ### Using the summaryParameter
 For the `summaryLength` parameter, three values are accepted:
+* single_sentence: Generates a summary of mostly 1 sentence, with around 80 tokens.
 * short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.
 * medium: Generates a summary of mostly 4-6 sentences, with around 170 tokens.
 * long: Generates a summary of mostly over 7 sentences, with around 210 tokens.

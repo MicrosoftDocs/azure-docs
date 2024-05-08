@@ -32,7 +32,7 @@ Some summarization features are only available in limited regions. More regions 
 |France Central    |&#9989;                           |&#9989;                                        |&#10060;            |
 |Japan East        |&#9989;                           |&#9989;                                        |&#10060;            |
 |North Central US  |&#9989;                           |&#9989;                                        |&#10060;            |
-|South Central US  |&#9989;                           |&#9989;                                        |&#10060;            |
+|Central Sweden    |&#9989;                           |&#9989;                                        |&#10060;            |
 |Switzerland North |&#9989;                           |&#9989;                                        |&#10060;            |
 |West Europe       |&#9989;                           |&#9989;                                        |&#10060;            |
 |Italy North       |&#9989;                           |&#9989;                                        |&#10060;            |

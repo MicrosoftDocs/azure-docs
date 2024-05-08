@@ -139,7 +139,6 @@ Conversation summarization feature would simplify the text as follows:
 
 [!INCLUDE [development options](./includes/development-options.md)]
 
-
 ## Input requirements and service limits
 
 # [Text summarization](#tab/text-summarization)

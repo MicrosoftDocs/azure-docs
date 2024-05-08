@@ -56,9 +56,8 @@ Install the client library by right-clicking on the solution in the **Solution E
 # [Document summarization](#tab/document-summarization)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Make sure **Include prerelease** is checked. Select version `5.3.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
 ---
-
-
 
 ## Code example
 
@@ -455,4 +454,5 @@ Sentence: This feature is provided as an API for developers.
 
 Sentence: They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
 ```
+
 ---
