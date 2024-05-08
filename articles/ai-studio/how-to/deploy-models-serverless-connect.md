@@ -19,7 +19,7 @@ author: santiagxf
 
 In this article, you learn how to configure an existing serverless API endpoint in a different project or hub than the one that was used to create the deployment.
 
-Certain models in the model catalog can be deployed as serverless APIs with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as serverless APIs. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
 The need to consume a serverless API endpoint in a different project or hub than the one that was used to create the deployment might arise in situations such as these:
 
@@ -136,15 +136,39 @@ Follow these steps to create a connection:
     print(endpoint_keys.secondary_key)
     ```
 
-    Now, you can connect to the project where you need to create the connection and consume the endpoint.
-
-1. Create the connection in the project:
+1. Now, connect to the project or hub **where you want to create the connection**:
 
     # [AI Studio](#tab/azure-ai-studio)
 
     Go to [Azure AI Studio](https://ai.azure.com) and follow these steps:
 
     1. Navigate to the project where the connection needs to be created to.
+
+    # [Azure CLI](#tab/cli)
+
+    Configure the CLI to point to the project:
+
+    ```azurecli
+    az account set --subscription <subscription>
+    az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
+    ```
+
+    # [Python SDK](#tab/sdk)
+
+    Create a client connected to your project:
+
+    ```python
+    client = MLClient(
+        credential=InteractiveBrowserCredential(tenant_id="<tenant-id>"),
+        subscription_id="<subscription-id>",
+        resource_group_name="<resource-group>",
+        workspace_name="<project-name>",
+    )
+    ```
+
+1. Create the connection in the project:
+
+    # [AI Studio](#tab/azure-ai-studio)
 
     1. Select the **Settings** option in the left navigation bar.
 
