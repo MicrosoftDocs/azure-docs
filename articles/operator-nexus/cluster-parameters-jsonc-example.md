@@ -1,3 +1,19 @@
+---
+title: "Azure Operator Nexus - Example of cluster.parameters.jsonc template file"
+description: Example of cluster.parameters.jsonc template file to use with ARM template in creating a cluster.
+author: jmmason70
+ms.author: jmmason70
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 05/08/2024
+ms.custom: template-how-to
+---
+
+
+### Example of cluster.parameter.jsonc template file.
+
+```cluster.parameter.jsonc
+
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
