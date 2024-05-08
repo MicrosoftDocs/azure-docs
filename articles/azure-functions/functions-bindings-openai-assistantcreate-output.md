@@ -153,8 +153,6 @@ The binding supports these properties, which are defined in your code:
 | **instructions** | _Optional_. The instructions that are provided to assistant to follow. |
 ::: zone-end  
 
-See the [Example section](#example) for complete examples.
-
 ## Usage
 
 See the [Example section](#example) for complete examples.

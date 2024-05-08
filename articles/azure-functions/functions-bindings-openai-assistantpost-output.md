@@ -44,19 +44,24 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
@@ -66,6 +71,8 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 Here's the _function.json_ file for {{example}}:
@@ -77,7 +84,7 @@ For more information about *function.json* file properties, see the [Configurati
 {{This comes from the example code comment}} 
 
 :::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
-
+-->
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
@@ -86,32 +93,15 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
 ::: zone-end  
 <!--- End code examples section -->  
-<!--- Begin the actual references (Attributes/Annotations/Properties/Decorators) section 
-All of the tables share essentially the same content, which comes from the .NET code definitions and comments.
-In an ideal world, these sections would be generated directly from the definitions in the source code. 
--->  
 ::: zone pivot="programming-language-csharp"  
 ## Attributes
 
-The specific attribute you apply to define an assistant post output binding depends on your C# process mode. 
-
-### [Isolated process](#tab/isolated-process)
-
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `PostUserQuery` to define an assistant post output binding.
-
-### [In-process](#tab/in-process)
-
-In the [in-process model](./functions-dotnet-class-library.md), apply `PostUserQuery` to define an assistant post output binding.
-
----
-
-The attribute supports these parameters:
+Aapply the `PostUserQuery` attribute to define an assistant post output binding, which supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
 | **Id** | Gets the ID of the assistant to update. |
 | **Model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
-
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -128,15 +118,14 @@ The `PostUserQuery` annotation enables you to define an assistant post output bi
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
-<!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `PostUserQuery` decorator supports these parameters:
+<!--- Replace with typed decorator when available.-->
+During the preview, define the output binding as a `generic_output_binding` binding of type `postUserQuery`, which supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **id** | Gets the ID of the assistant to update. |
 | **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
-
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -151,7 +140,6 @@ The binding supports these configuration properties that you set in the function
 | **name** | The name of the output binding. |
 | **id** | Gets the ID of the assistant to update. |
 | **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
-
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -164,24 +152,16 @@ The binding supports these properties, which are defined in your code:
 | **id** | Gets the ID of the assistant to update. |
 | **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
 
-
 ::: zone-end  
-
-See the [Example section](#example) for complete examples.
 
 ## Usage
 
-<!---Usage information goes here. This should be brief, language-specific, and related to:
-    1. Supported types.
-    2. Binding-speficic connection details (if not already covered in the overview article).
--->
+See the [Example section](#example) for complete examples.
 
 ## Related content
 
-{{To be added}}
-
-<!--- Add links to:
-1. How-to articles.
-2. Related references.
-3. External references (Azure OpenAI overview, etc.).
--->
++ [Assistant samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant)
++ [Azure OpenAI extension](functions-bindings-openai.md)
++ [Azure OpenAI assistant trigger](functions-bindings-openai-assistant-trigger.md)
++ [Azure OpenAI assistant query input binding ](functions-bindings-openai-assistantcreate-output.md)
++ [Azure OpenAI assistant create output binding ](functions-bindings-openai-assistantcreate-output.md)
