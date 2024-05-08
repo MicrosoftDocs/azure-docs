@@ -10,6 +10,7 @@ ms.author: eur
 |--|--|
 |Arabic (Egypt)|`ar-EG`<sup>1</sup> |
 |Arabic (Saudi Arabia)|`ar-SA` |
+|Catalan|`ca-ES`<sup>1</sup>|
 |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |Chinese (Taiwanese Mandarin, Traditional)|`zh-TW`<sup>1</sup>|
