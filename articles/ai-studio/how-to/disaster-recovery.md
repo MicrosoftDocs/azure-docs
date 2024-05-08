@@ -2,20 +2,18 @@
 title: Customer enabled disaster recovery
 titleSuffix: Azure AI Studio
 description: Learn how to plan for disaster recovery for Azure AI Studio.
-services: 
-ms.service: 
-ms.subservice: enterprise-readiness
+manager: scottpolly
+ms.service: azure-ai-studio
 ms.topic: how-to
-ms.author: 
-author: 
+ms.author: larryfr
+author: Blackmist
 ms.reviewer: andyaviles
-ms.date: 
-monikerRange:
+ms.date: 5/21/2024
 ---
 
 # Customer enabled disaster recovery
 
-To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery with Azure AI Studio. Since Azure AI Studio builds on [Azure Machine Learning architecture](), it is beneficial to reference the foundational architecture.
+To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery with Azure AI Studio. Since Azure AI Studio builds on [Azure Machine Learning architecture](/azure/machine-learning/architecture), it's beneficial to reference the foundational architecture.
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occur. We recommend having a disaster recovery plan in place for handling regional service outages. In this article, you learn how to:
 
@@ -33,7 +31,7 @@ Azure AI Studio depends on multiple Azure services. Some of these services are p
 
 Azure services include:
 
-* **Azure AI Studio infrastructure**: A Microsoft-managed environment for the Azure AI Studio hub and project. The [underlying architecture](Azure AI Studio architcture doc) is provided by Azure Machine Learning.
+* **Azure AI Studio infrastructure**: A Microsoft-managed environment for the Azure AI Studio hub and project. The [underlying architecture](Azure AI Studio architecture doc) is provided by Azure Machine Learning.
 
 * **Required associated resources**: Resources provisioned in your subscription during Azure AI Studio hub and project creation. These resources include Azure Storage and Azure Key Vault.
   * Default storage has data such as model, training log data, and references to data assets.
@@ -72,7 +70,7 @@ A multi-regional deployment relies on creation of Azure AI Studio and other reso
 * __Service availability__: Decide whether the resources used by your solution should be hot/hot, hot/warm, or hot/cold.
     
     * __Hot/hot__: Both regions are active at the same time, with one region ready to begin use immediately.
-    * __Hot/warm__: Primary region active, secondary region has critical resources (for example, deployed models) ready to start. Non-critical resources would need to be manually deployed in the secondary region.
+    * __Hot/warm__: Primary region active, secondary region has critical resources (for example, deployed models) ready to start. Noncritical resources would need to be manually deployed in the secondary region.
     * __Hot/cold__: Primary region active, secondary region has Azure AI Studio and other resources deployed, along with needed data. Resources such as models, model deployments, or pipelines would need to be manually deployed.
 
 > [!TIP]
@@ -85,7 +83,7 @@ Azure AI Studio builds on top of other services. Some services can be configured
 | AI Studio hub and projects | You | Create a hub/projects in the selected regions. |
 | AI Studio compute | You | Create the compute resources in the selected regions. For compute resources that can dynamically scale, make sure that both regions provide sufficient compute quota for your needs. |
 | Key Vault | Microsoft | Use the same Key Vault instance with the Azure AI Studio hub and resources in both regions. Key Vault automatically fails over to a secondary region. For more information, see [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance).|
-| Storage Account | You | Azure ML doesn't support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Configure a storage account according to your needs and then use it for your hub. All subsequent projects will use the hub's storage account. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy). |
+| Storage Account | You | Azure Machine Learning doesn't support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Configure a storage account according to your needs and then use it for your hub. All subsequent projects use the hub's storage account. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy). |
 | Container Registry | Microsoft | Configure the Container Registry instance to geo-replicate registries to the paired region for Azure AI Studio. Use the same instance for both hub instances. For more information, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication). |
 | Application Insights | You | Create Application Insights for the hub in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](/azure/azure-monitor/logs/data-retention-archive). |
 
@@ -108,17 +106,17 @@ For more information, see [Availability zone service and regional support](/azur
 
 Determine the level of business continuity that you're aiming for. The level might differ between the components of your solution. For example, you might want to have a hot/hot configuration for production pipelines or model deployments, and hot/cold for development.
 
-Azure AI studio is a regional service and stores data both service-side and on a storage account in your subscription. In case of a regional disaster, service data cannot be recovered, but you can recover the data stored by the service on the storage account in your subscription given storage redundancy is enforced. Service-side stored data is mostly metadata (tags, asset names, descriptions). Stored on your storage account is typically non-metadata e.g. uploaded data. 
+Azure AI studio is a regional service and stores data both service-side and on a storage account in your subscription. In case of a regional disaster, service data can't be recovered, but you can recover the data stored by the service on the storage account in your subscription given storage redundancy is enforced. Service-side stored data is mostly metadata (tags, asset names, descriptions). Stored on your storage account is typically non-metadata, e.g., uploaded data. 
 
-For connections, it is recommended to create two separate resources in two distinct regions and then create two connections for the hub. For example, if AI Services is a critical resource for business continuity, creating two AI Services resources and two connections for the hub, would be a good strategry for business continuity. This is in case one region goes down, you can still have one region operational. 
+For connections, it's recommended to create two separate resources in two distinct regions and then create two connections for the hub. For example, if AI Services is a critical resource for business continuity, creating two AI Services resources and two connections for the hub, would be a good strategy for business continuity. This is in case one region goes down, there is still have one region operational. 
 
 For any hubs that are essential to business continuity, deploy resources in two regions.
 
 ### Isolated storage
 
-In the scenraio in which you are connecting with data to customize your AI application, typically your datasets could be used in Azure AI but also outside of Azure AI. Dataset volume could be quite large, so for this it may be good practice to keep this data in a separate storage account. Evaluate what data replication strategy makes most sense for your use case.
+In the scenario in which you're connecting with data to customize your AI application, typically your datasets could be used in Azure AI but also outside of Azure AI. Dataset volume could be quite large, so for this it may be good practice to keep this data in a separate storage account. Evaluate what data replication strategy makes most sense for your use case.
 
-In AI Studio, make a connection to your data. If you have multiple AI Studio instances in different regions you may still point to the same storage account because connections work across regions. 
+In AI Studio, make a connection to your data. If you have multiple AI Studio instances in different regions, you may still point to the same storage account because connections work across regions. 
 
 ## Initiate a failover
 
@@ -133,9 +131,9 @@ Azure AI Studio can't sync or recover artifacts or metadata between hubs. Depend
 
 ## Recovery options
 
-### resource deletion
+### Resource deletion
 
-If a hub and its existing resources are accidentally deleted, there are some resources that have soft delete enabled, allowing for resource recovery. Note that hubs and projects do not support soft delete. A hub or project that is deleted cannot be recovered. The underlying resources may or may not have soft delete so they could potentially be recovered. See table for which services have a soft delete option.
+If a hub and its existing resources are accidentally deleted, there are some resources that have soft delete enabled, allowing for resource recovery. Note that hubs and projects don't support soft delete. A hub or project that is deleted can't be recovered. The underlying resources may or may not have soft delete so they could potentially be recovered. See table for which services have a soft delete option.
 
 | Service | soft delete enabled |
 | ------- | ------------------- |
