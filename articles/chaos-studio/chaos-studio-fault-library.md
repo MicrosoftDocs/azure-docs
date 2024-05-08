@@ -1653,6 +1653,7 @@ Currently, a maximum of 4 process names can be listed in the processNames parame
 * Rules are applied at the start of the action. Any external changes to the rule during the duration of the action cause the experiment to fail.
 * Creating or modifying Application Security Group rules isn't supported.
 * Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another causes the experiment to fail.
+* The NSG Security Rule **version 1.1** fault supports an additional `flushConnection` parameter. This functionality has an **active known issue**: if `flushConnection` is enabled, the fault may result in a "FlushingNetworkSecurityGroupConnectionIsNotEnabled" error. To avoid this error temporarily, disable the `flushConnection` parameter or use the NSG Security Rule version **1.0** fault.
 
 
 ### Service Bus: Change Queue State
