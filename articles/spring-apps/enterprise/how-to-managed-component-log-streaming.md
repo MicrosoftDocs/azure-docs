@@ -18,7 +18,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
-For streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
+> [!NOTE]
+> - For streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
+> - For streaming logs of jobs in Azure Spring Apps, see [Stream Azure Spring Apps job logs in real time](./how-to-asa-job-log-streaming.md).
 
 ## Prerequisites
 
@@ -289,7 +291,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
    :::image type="content" source="media/how-to-managed-component-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
-#### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 Use the following command to enable the log stream public endpoint.
 
@@ -325,3 +327,4 @@ The following table shows an example of a basic rule that we recommend. You can 
 - [Troubleshoot VMware Spring Cloud Gateway](./how-to-troubleshoot-enterprise-spring-cloud-gateway.md)
 - [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md)
 - [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md)
+- [Stream Azure Spring Apps job logs in real time](./how-to-asa-job-log-streaming.md)

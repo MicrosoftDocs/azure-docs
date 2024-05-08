@@ -226,6 +226,8 @@ items:
       href: diagnostic-services.md
     - name: Stream app logs in real time
       href: how-to-log-streaming.md
+    - name: Stream job logs in real time
+      href: how-to-asa-job-log-streaming.md
     - name: Stream managed component logs in real time
       href: how-to-managed-component-log-streaming.md
     - name: Application Insights using Java In-Process Agent
