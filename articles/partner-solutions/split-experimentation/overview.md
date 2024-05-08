@@ -19,7 +19,7 @@ This new feature experimentation in Azure App Configuration is built by integrat
 
 The below diagram depicts the Azure resources for experimentation and the high-level data flow for experiments.
 
-   :::image type="content" source="media/overview/diagram.png" alt-text="Diagram that shows how Split Experimentation Workspace interact with other Azure resources.":::
+   :::image type="content" source="media/overview/diagram.png" alt-text="Diagram that shows how Split Experimentation Workspace interacts with other Azure resources." lightbox="media/overview/diagram.png":::
 
 To get started, follow the quickstart to create a Split Experimentation Workspace, and then set up the experiments for your application in App Configuration store using this tutorial. <!-- add link to /azure/azure-app-configuration/set-up-experiments.aspnet)-->  
 
