@@ -63,7 +63,7 @@ There are four savings plan-specific RBAC roles:
 - **Savings plan administrator**: Allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](../../role-based-access-control/role-assignments-portal.yml) to other users.
 - **Savings plan purchaser**: Allows purchase of savings plans with a specified subscription.
     - Allows savings plans purchase or [reservation trade-in](reservation-trade-in.md) by nonbilling admins and nonsubscription owners.
-    - Savings plan purchasing by nonbilling admins must be enabled. For more information, see [Buy an Azure savings plan](buy-savings-plan.md#who-can-buy-a-savings-plan).
+    - Savings plan purchasing by nonbilling admins must be enabled. For more information, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
 - **Savings plan contributor**: Allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
 - **Savings plan reader**: Allows read-only access to one or more savings plans in a tenant.
 
