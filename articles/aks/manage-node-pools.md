@@ -322,50 +322,7 @@ When creating a node pool, you can add taints, labels, or tags to it. When you a
 
 ### Set node pool taints
 
-1. Create a node pool with a taint using the [`az aks nodepool add`][az-aks-nodepool-add] command. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
-
-    ```azurecli-interactive
-    az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name taintnp \
-        --node-count 1 \
-        --node-taints sku=gpu:NoSchedule \
-        --no-wait
-    ```
-
-2. Check the status of the node pool using the [`az aks nodepool list`][az-aks-nodepool-list] command.
-
-    ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
-    ```
-
-    The following example output shows that the *taintnp* node pool is *Creating* nodes with the specified *nodeTaints*:
-
-    ```output
-    [
-      {
-        ...
-        "count": 1,
-        ...
-        "name": "taintnp",
-        "orchestratorVersion": "1.15.7",
-        ...
-        "provisioningState": "Creating",
-        ...
-        "nodeTaints":  [
-          "sku=gpu:NoSchedule"
-        ],
-        ...
-      },
-     ...
-    ]
-    ```
-
-The taint information is visible in Kubernetes for handling scheduling rules for nodes. The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
-
-* A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
-* A **toleration** is then applied to a pod that allows them to *tolerate* a node's taint.
+AKS supports two kinds of node taints: node taints and node initialization taints (preview). For more information, see [Use node taints in an Azure Kubernetes Service (AKS) cluster][use-node-taints].
 
 For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
 
@@ -583,4 +540,4 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [use-tags]: use-tags.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-
+[use-node-taints]: ./use-node-taints.md
