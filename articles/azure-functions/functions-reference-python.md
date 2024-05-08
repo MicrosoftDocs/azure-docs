@@ -681,7 +681,7 @@ async def stream_response(response):
         async for chunk in response.aiter_raw():
             print(f"Received chunk: {len(chunk)} bytes")
     else:
-        print(f"Error: {response.status_code}")
+        print(f"Error: {response}")
 
 async def main():
     print('helloworld')
