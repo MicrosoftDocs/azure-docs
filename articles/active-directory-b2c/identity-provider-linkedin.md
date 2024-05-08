@@ -102,7 +102,7 @@ You need to store the client secret that you previously recorded in your Azure A
 
 ## Configure LinkedIn as an identity provider
 
-To enable users to sign in using an LinkedIn account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+To enable users to sign in using a LinkedIn account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 Define a LinkedIn account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
@@ -336,7 +336,7 @@ As part of the LinkedIn migration from v1.0 to v2.0, an additional call to anoth
     </OrchestrationStep>
     ```
 
-Obtaining the email address from LinkedIn during sign-up is optional. If you choose not to obtain the email from LinkedIn but require one during sign up, the user is required to manually enter the email address and validate it.
+Obtaining the email address from LinkedIn during sign-up is optional. If you choose not to obtain the email from LinkedIn but require one during sign-up, the user is required to manually enter the email address and validate it.
 
 For a full sample of a policy that uses the LinkedIn identity provider, see the [Custom Policy Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
 
