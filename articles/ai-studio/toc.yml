@@ -53,6 +53,9 @@ items:
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
+    - name: Deploy models as serverless API endpoints
+      href: how-to/deploy-models-serverless.md
+      displayName: maas, paygo, models-as-a-service
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
