@@ -96,11 +96,11 @@ By default, all hubs share the same quota as the subscription-level quota for VM
 
 1. In Azure AI Studio, select your hub and then select **View subscription quota** from **Hub properties**.
 
-    :::image type="content" source="../media/cost-management/view-subscription-quota.png" alt-text="Screenshot of the hub properties page in Azure AI Studio.":::
+    :::image type="content" source="../media/cost-management/view-subscription-quota.png" alt-text="Screenshot of the hub properties page in Azure AI Studio." lightbox="../media/cost-management/view-subscription-quota.png":::
 
 1. From **Quota**, select the **Azure ML** tab to view the quota for the VM families. The quota is displayed at the subscription level in the selected Azure region. To request more quota, select the VM family and then select **Request quota**. 
 
-    :::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for VM families in Azure AI Studio." lightbox="../media/cost-management/quota-vm-family.png":::
+    :::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for VM families in Azure AI Studio." lightbox="../media/cost-management/quota-manage.png":::
 
 ## Next steps 
 
