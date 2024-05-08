@@ -76,7 +76,7 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
 
-* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
+\* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
 
 ## Events limits in Event Grid namespace
 
