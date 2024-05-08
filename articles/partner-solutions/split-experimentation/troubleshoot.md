@@ -4,7 +4,7 @@ description: This article provides information about getting support and trouble
 ms.author: malev
 author: maud-lv
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/08/2024
 ---
 
 # Troubleshoot Split Experimentation Workspace
@@ -21,7 +21,7 @@ To contact support about a Split Experimentation Workspace, follow these steps:
 
 1. Under **How can we help you?**, briefly describe the issue and select **Go**.
 
-    :::image type="content" source="media/troubleshoot/support-request.png" alt-text="Screenshot of the Azure platform showing the a new support Support + Troubleshooting page.":::
+    :::image type="content" source="media/troubleshoot/support-request.png" alt-text="Screenshot of the Azure platform showing the new support Support + Troubleshooting page.":::
 
 1. Share more information about the issue by answering the questions on screen.
 1. Check the help resources shared on screen. If you need more help, select **Contact support** and select one of the provided options.
@@ -58,13 +58,13 @@ If the data is more than 10 minutes old, requesting results will cause a recalcu
 
 1. Open your Application Insights resource and go to **Monitoring** > **Logs**. Run the query `customEvents` and sort results by timestamp.
 
-- You should see events with name *FeatureEvaluation*. Under **customDimension**:
-  - Ensure the **ETag** value matches the **Etag** in step 1.
-  - Ensure that **TargetingId** has a value.
+    - You should see events with name *FeatureEvaluation*. Under **customDimension**:
+      - Ensure the **ETag** value matches the **Etag** in step 1.
+      - Ensure that **TargetingId** has a value.
 
-      :::image type="content" source="media/troubleshoot/logs-customdimensions.png" alt-text="Screenshot of the Azure platform showing customDimension field.":::
+          :::image type="content" source="media/troubleshoot/logs-customdimensions.png" alt-text="Screenshot of the Azure platform showing customDimension field.":::
 
-- Under **Name**, you should see events with different names. These are the events you can build metrics from. Take note of these names. These strings were defined by your code in the `TrackEvent` calls to App Insights.
+    - Under **Name**, you should see events with different names. These are the events you can build metrics from. Take note of these names. These strings were defined by your code in the `TrackEvent` calls to App Insights.
 
 1. Go to **Split Experimentation Workspace > Experimentation Metrics**:
     1. Select **...** > **Edit** on the right side of your metric.

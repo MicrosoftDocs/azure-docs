@@ -52,9 +52,9 @@ Configure the application ID URI to allow the Entra application to be used as gl
 
     :::image type="content" source="media/data-access/app-registration.png" alt-text="Screenshot of the Microsoft Entra admin center showing the App registrations page.":::
 
-### Allow users to request access to Split Experimentation from Azure Portal
+### Allow users to request access to Split Experimentation from Azure portal
 
-The Azure Portal user interface is effectively the UX for Split Experimentation Workspace. It interacts with the Split Experimentation data plane to set up Metrics, Create/Update/Archive/Delete experiments, Get experiment results, etc.
+The Azure portal user interface is effectively the UX for Split Experimentation Workspace. It interacts with the Split Experimentation data plane to set up Metrics, Create/Update/Archive/Delete experiments, Get experiment results, etc.
 
 You must preauthorize the Azure portal Split UI to achieve that.
 
@@ -64,14 +64,14 @@ In the Microsoft Entra admin center, go to your app and open the **Expose an API
 
 :::image type="content" source="media/data-access/add-scope.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to add a scope.":::
 
-- Under **Who can consent?**, select **Admins and users**.
-- Enter an **Admin consent display name** and an **Admin consent description**.
+1. Under **Who can consent?**, select **Admins and users**.
+1. Enter an **Admin consent display name** and an **Admin consent description**.
 
 #### Authorize Split Experimentation Resource Provider ID
 
 1. Staying in the **Expose an API** menu, scroll down to **Authorized client applications** > **Add a client application** and enter the Client ID corresponding to the Split Experimentation Resource Provider ID: *d3e90440-4ec9-4e8b-878b-c89e889e9fbc*.
 
-:::image type="content" source="media/data-access/add-split-resource-provider-id.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to authorize the Split Experimentation Resource Provider ID.":::
+    :::image type="content" source="media/data-access/add-split-resource-provider-id.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to authorize the Split Experimentation Resource Provider ID.":::
 
 1. Select **Add application**.
 

@@ -36,7 +36,7 @@ Under **Configuration** > **Data Source**, configure the Log Analytics workspace
 
 The **Edit** button at the top enables you to select another storage account to store data for your Split Experimentation workspace.
 
-:::image type="content" source="media/manage/data-source.png" alt-text="View monitored resources":::
+:::image type="content" source="media/manage/data-source.png" alt-text="Screenshot of the Azure portal showing the data source used for the experimentation.":::
 
 ## Next step
 
