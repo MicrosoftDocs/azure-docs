@@ -39,7 +39,7 @@ The error message will mention an "unknown field" and direct you to our official
 
 We have updated our documentation to include the proper capitalization and field names ahead of the API release. Below is a list of the documentation changes we made to match the field names in API version 2024-02-01:
 
-In the [Create an Azure Image Builder Bicep or ARM template JSON template](../linux/image-builder-json.md) documentation:
+In the [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md) documentation:
 
 **Fields Updated:**
 
@@ -50,7 +50,7 @@ In the [Create an Azure Image Builder Bicep or ARM template JSON template](../li
 
 - `apiVersion`: We recommend avoiding the inclusion of this field in your requests because it is not explicitly specified in our API, so including it in your JSON template _may_ lead to errors in your image build.
 
-In the [Azure VM Image Builder networking options](../linux/image-builder-networking.md) documentation:
+In the [Azure VM Image Builder networking options](./linux/image-builder-networking.md) documentation:
 
 **Field Updated:**
 
@@ -66,7 +66,7 @@ If you’d like to avoid making changes to the properties in your image template
 
 Follow these steps to pin your API calls to an older version:
 
-1. Review the REST API Documentation: Visit the [Azure Image Builder REST API documentation](https://learn.microsoft.com/en-us/rest/api/imagebuilder/virtual-machine-image-templates/create-or-update?view=rest-imagebuilder-2022-07-01&tabs=HTTP) for Azure Image Builder (AIB). This documentation provides detailed information on how to create or update an Azure Image Builder template using the API.
+1. Review the REST API Documentation: Visit the [Azure Image Builder REST API documentation](https://learn.microsoft.com/rest/api/imagebuilder/virtual-machine-image-templates/create-or-update) for Azure Image Builder (AIB). This documentation provides detailed information on how to create or update an Azure Image Builder template using the API.
 
 2. Add the `api-version` URI Parameter: When making a `PUT` call to create or update an image template, include the `api-version` URI parameter. Specify the desired API version (e.g., api-version=2022-07-01) to ensure compatibility with your existing templates. Example:
 
