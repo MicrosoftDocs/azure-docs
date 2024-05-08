@@ -36,8 +36,6 @@ NVIDIA NVLink Interconnect: Supported <br>
 
 >[!IMPORTANT]
 >To get started with ND MI300X v5 VMs, refer to HPC Workload Configuration and Optimization for steps including driver and network configuration. Due to increased GPU memory I/O footprint, the ND MI300X v5 requires the use of Generation 2 VMs and marketplace images.
->
->Azure supports Ubuntu 20.04/22.04, RHEL 7.9/8.7/9.3, AlmaLinux 8.8/9.2, and SLES 15 for ND MI300X v5 VMs. On Azure marketplace, there are offerings of optimized and pre-configured [Linux VM images](configure.md#vm-images) for HPC/AI workloads with a variety of HPC tools and libraries installed, and thus they are strongly recommended. Currently, Ubuntu-HPC 20.04/22.04 and AlmaLinux-HPC 8.6/8.7 VM images are supported.
 
 ## Example
 [comment]: # (The ND MI300X v5 series supports the following kernel version: Ubuntu 20.04: 5.4.0-1046-azure)
