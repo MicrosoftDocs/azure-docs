@@ -12,7 +12,7 @@ ms.service: azure-operator-nexus
 
 This document provides the list of software versioning supported in Release 2404.2 of Azure Operator Nexus.
 
-## Supported Software Versions
+## Supported software versions
 
 | **Software**                             | **Version(s)**                           | **Nexus Network Fabric run-time version** |
 |------------------------------------------|------------------------------------------|--------------------------|
