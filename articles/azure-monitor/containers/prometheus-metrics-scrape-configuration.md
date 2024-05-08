@@ -118,6 +118,7 @@ The new label also shows up in the cluster parameter dropdown in the Grafana das
 
 > [!NOTE]
 > Only alphanumeric characters are allowed. Any other characters are replaced with `_`. This change is to ensure that different components that consume this label adhere to the basic alphanumeric convention.
+> If you are enabling recording and alerting rules, please make sure to use the cluster alias name in the cluster name parameter of the rule onboarding template for the rules to work.
 
 ### Debug mode
 
