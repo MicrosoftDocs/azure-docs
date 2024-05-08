@@ -10,6 +10,6 @@
  ms.custom: include file
 ---
 > [!IMPORTANT]
-> Network security groups (NSGs) on the GatewaySubnet are not supported. Associating a network security group to this subnet might cause your virtual network gateway (VPN and ExpressRoute gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../articles/virtual-network/network-security-groups-overview.md).
+> Network security groups (NSGs) on the gateway subnet are not supported. Associating a network security group to this subnet might cause your virtual network gateway (VPN and ExpressRoute gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../articles/virtual-network/network-security-groups-overview.md).
 > 
 >
