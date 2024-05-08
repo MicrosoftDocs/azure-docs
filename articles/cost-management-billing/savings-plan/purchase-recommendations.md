@@ -39,14 +39,14 @@ Keep the following points in mind:
 
 When available, a savings plan purchase recommendation can also be found in Azure Advisor. While we might generate up to 10 recommendations, Azure Advisor only surfaces the single three-year recommendation with the greatest savings for each billing subscription. Keep the following points in mind:
 
-- If you want to see recommendations for a one-year term or for other scopes, navigate to the savings plan purchase experience in Azure portal. For example, enrollment account, billing profile, resource groups, and so on. For more information, see [Who can buy a savings plan](buy-savings-plan.md#who-can-buy-a-savings-plan).
+- If you want to see recommendations for a one-year term or for other scopes, navigate to the savings plan purchase experience in Azure portal. For example, enrollment account, billing profile, resource groups, and so on. For more information, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
 - Recommendations in Advisor currently only consider your last 30 days of usage.
 - Recommendations in Advisor are only for three-year savings plans.
 - If you recently purchased a savings plan or reserved instance, it can take up to five days for the purchases to affect your recommendations in Advisor and Azure portal.
 
 ## Purchase recommendations in the Azure portal
 
-When available, up to 10 savings plan commitment recommendations can be found in the savings plan purchase experience in Azure portal. For more information, see [Who can buy a savings plan](buy-savings-plan.md#who-can-buy-a-savings-plan). Each recommendation includes the commitment amount, the estimated savings percentage (off your current pay-as-you-go costs), and the percentage of your compute usage costs that would get covered by this and any other previously purchased savings plans and reservations.
+When available, up to 10 savings plan commitment recommendations can be found in the savings plan purchase experience in Azure portal. For more information, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md). Each recommendation includes the commitment amount, the estimated savings percentage (off your current pay-as-you-go costs), and the percentage of your compute usage costs that would get covered by this and any other previously purchased savings plans and reservations.
 
 By default, the recommendations are for the entire billing scope (billing profile for MCA and enrollment account for EA). You can also view separate subscription and resource group-level recommendations by changing benefit application to one of those levels. We don't currently support management group-level recommendations.
 

@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Split Experimentation Workspace
             url: overview.md
+          - text: Manage Split Experimentation
+            url: manage.md
   # Card
   - title: Create a Split Experimentation Workspace
     linkLists:
@@ -28,3 +30,9 @@ landingContent:
         links:
           - text: Create a new instance
             url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up data access control
+            url: how-to-set-up-data-access.md
+          - text: Troubleshoot
+            url: troubleshoot.md
