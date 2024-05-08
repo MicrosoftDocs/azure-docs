@@ -57,18 +57,18 @@ ms.author: antchu
 
         Replace `<AZURE_OPENAI_ENDPOINT>` with the Azure OpenAI account endpoint and `<SESSION_POOL_MANAGEMENT_ENDPOINT>` with the session pool management endpoint.
 
-1. The app uses `DefaultAzureCredential` to authenticate with Azure services. On your local machine, it uses your current Azure CLI login credentials. You must give yourself the *Cognitive Services OpenAI User* role on the Azure OpenAI account for the app to access the model endpoints.
-
-    1. Run the following commands to retrieve the Azure OpenAI account resource ID:
-
-        ```bash
-        az cognitiveservices account show --name $AZURE_OPENAI_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv
-        ```
+1. The app uses `DefaultAzureCredential` to authenticate with Azure services. On your local machine, it uses your current Azure CLI login credentials. You must give yourself the *Cognitive Services OpenAI User* role on the Azure OpenAI account for the app to access the model endpoints, and the *Azure ContainerApps Session Creator* role on the session pool for the app to access the session pool.
 
     1. Retrieve your Azure CLI user name:
 
         ```bash
         az account show --query user.name --output tsv
+        ```
+
+    1. Run the following commands to retrieve the Azure OpenAI account resource ID:
+
+        ```bash
+        az cognitiveservices account show --name $AZURE_OPENAI_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv
         ```
 
     1. Assign the *Cognitive Services OpenAI User* role to your Azure CLI user on the Azure OpenAI account:
@@ -77,5 +77,21 @@ ms.author: antchu
         az role assignment create --role "Cognitive Services OpenAI User" --assignee <CLI_USERNAME> --scope <AZURE_OPENAI_RESOURCE_ID>
         ```
 
-    Replace `<CLI_USERNAME>` with your Azure CLI user name and `<AZURE_OPENAI_RESOURCE_ID>` with the Azure OpenAI account resource ID.
-    
+        Replace `<CLI_USERNAME>` with your Azure CLI user name and `<AZURE_OPENAI_RESOURCE_ID>` with the Azure OpenAI account resource ID.
+
+    1. Run the following commands to retrieve the session pool resource ID:
+
+        ```bash
+        az containerapp sessionpool show --name $SESSION_POOL_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv
+        ```
+
+    1. Assign the *Azure ContainerApps Session Creator* role using its ID to your Azure CLI user on the session pool:
+
+        ```bash
+        az role assignment create \
+            --role "/providers/Microsoft.Authorization/roleDefinitions/0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --assignee <CLI_USERNAME> \
+            --scope <SESSION_POOL_RESOURCE_ID>
+        ```
+
+        Replace `<CLI_USERNAME>` with your Azure CLI user name and `<SESSION_POOL_RESOURCE_ID>` with the session pool resource ID.

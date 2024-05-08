@@ -62,13 +62,19 @@ You then need to configure managed identity for the app and assign it the proper
         --output tsv
     ```
 
-1. Assign the managed identity the `Azure ContainerApps Session Creator` role on the session pool:
+1. Assign the managed identity the `Azure ContainerApps Session Creator` and `Contributor` roles on the session pool:
 
     Before you run the following command, replace `<PRINCIPAL_ID>` and `<SESSION_POOL_RESOURCE_ID>` with the values you retrieved in the previous steps.
 
     ```bash
+    # Assign the Azure ContainerApps Session Creator role using its ID
     az role assignment create \
-        --role "Azure ContainerApps Session Creator" \
+        --role "/providers/Microsoft.Authorization/roleDefinitions/0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+        --assignee <PRINCIPAL_ID> \
+        --scope <SESSION_POOL_RESOURCE_ID>
+
+    az role assignment create \
+        --role "Contributor" \
         --assignee <PRINCIPAL_ID> \
         --scope <SESSION_POOL_RESOURCE_ID>
     ```
