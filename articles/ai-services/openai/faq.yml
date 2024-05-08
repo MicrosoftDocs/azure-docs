@@ -114,7 +114,7 @@ sections:
         answer:
           You can minimize the occurrence of these errors by reducing the temperature of your prompts to less than 1 and ensuring you're using a client with retry logic. Reattempting the request often results in a successful response.
       - question: |
-          We noticed charges associated with API calls that failed to complete with status code 400. Why is failed called generating a charge? 
+          We noticed charges associated with API calls that failed to complete with status code 400. Why are failed API calls generating a charge? 
         answer:
           If the service performs processing, you will be charged even if the status code is not successful (not 200).
           Common examples of this are, a 400 error due to a content filter or input limit, or a 408 error due to a timeout. Charges will also occur when a `status 200` is received with a `finish_reason` of `content_filter`.
