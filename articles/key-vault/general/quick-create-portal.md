@@ -44,6 +44,19 @@ Take note of these two properties:
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
+## Key Vault Integration
+**For secure access control to secrets used by your VMs, enable Key Vault integration during deployment.**
+  
+Under "Access configuration," locate the "Resource access" section. This section outlines security considerations for deploying Azure Virtual Machines (VMs).
+
+## Deployment Methods
+
+- **Azure portal:** A user-friendly interface for VM creation.
+
+- **Azure Resource Manager (ARM) templates:** For infrastructure as code (IaC) deployments with greater control and repeatability.
+
+- **Azure Disk Encryption:** Protect your VM data at rest by enabling Azure Disk Encryption during deployment. This encrypts the VM's storage disks.
+
 :::image type="content" source="../media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
 
 ## Clean up resources
