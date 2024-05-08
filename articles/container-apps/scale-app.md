@@ -214,6 +214,9 @@ az containerapp create \
   --image <CONTAINER_IMAGE_LOCATION>
   --min-replicas 0 \
   --max-replicas 5 \
+  --transport tcp \
+  --ingress <external/internal> \
+  --target-port <CONTAINER_TARGET_PORT> \
   --scale-rule-name azure-tcp-rule \
   --scale-rule-type tcp \
   --scale-rule-tcp-concurrency 100
