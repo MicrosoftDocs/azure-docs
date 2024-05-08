@@ -131,6 +131,8 @@ Conversation summarization feature would simplify the text as follows:
 | Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
 | Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
+# [Document summarization](#tab/document-summarization)
+
 ---
 
 ## Get started with summarization
@@ -150,7 +152,7 @@ Conversation summarization feature would simplify the text as follows:
 * Conversation summarization takes structured text for analysis. For more information, see [data and service limits](../concepts/data-limits.md).
 * Conversation summarization accepts text in English. For more information, see [language support](language-support.md?tabs=conversation-summarization).
 
-# [Text summarization](#tab/document-summarization)
+# [Document summarization](#tab/document-summarization)
 
 * Summarization takes text for analysis. For more information, see [Data and service limits](../concepts/data-limits.md) in the how-to guide.
 * Summarization works with various written languages. For more information, see [language support](language-support.md?tabs=document-summarization).
