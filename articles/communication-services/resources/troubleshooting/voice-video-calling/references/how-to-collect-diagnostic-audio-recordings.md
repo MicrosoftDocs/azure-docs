@@ -30,3 +30,25 @@ After you finish an ACS call, you should be able to see files saved in the folde
 `*.input.M.wav` is the audio input captured from the microphone.
 
 `*.aecdump` contains the necessary wav files for debugging audio after processed by the audio processing module in browsers.
+
+## How to inspect aecdump files
+
+To inspect `*.aecdump` files, you must use the `unpack_aecdump` utility program, the source code of which is available on the Internet.
+
+Run the command:
+
+```
+unpack_aecdump.exe audio_debug.5.aecdump
+```
+
+:::image type="content" source="./media/extract-aecdump.png" alt-text="Screenshot of the extracted aecdump file.":::
+
+There are three different types of audio files extracted from the aecdump file
+
+* reverseN.wav: the rendered audio originated from the same process
+* inputN.wav: the captured audio, before audio processing.
+* ref\_outN.wav: the captured audio, after audio processing and will be sent to the network.
+
+If you think that audio quality issues are on the sending end, you can first check ref\_outN.wav, find the possible problem time points, and compare them with the same time points in inputN.wav to see if the audio quality issues are caused by the audio processing module, or if the audio quality was already poor in the source.
+
+
