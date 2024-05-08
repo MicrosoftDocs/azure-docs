@@ -14,12 +14,6 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
-* [Astra Storage extension for Azure Kubernetes Service (AKS)](astra-storage-extension-manage.md)
-
-    Astra Storage is a first-party [AKS extension](../aks/cluster-extensions.md) and orchestrator to manage Kubernetes workloads with Azure NetApp Files. 
-
-=======
 ## May 2024
 
 * [Azure NetApp Files backup](backup-introduction.md) is now generally available (GA).
@@ -42,7 +36,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
   
->>>>>>> 7b20951a863f4a9379661018f1365f3f5af75625
 ## March 2024
 
 * [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
