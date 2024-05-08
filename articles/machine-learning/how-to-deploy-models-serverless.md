@@ -120,6 +120,8 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
     name: meta-llama3-8b-qwerty
     model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
     ```
+    
+    Use the previous file to create the subscription:    
 
     ```azurecli
     az ml marketplace-subscription create -f subscription.yml
@@ -259,14 +261,14 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [CLI](#tab/cli)
 
-    Use the previous file to create the endpoint:
-
     __endpoint.yml__
 
     ```yml
     name: meta-llama3-8b-qwerty
     model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
     ```
+
+    Use the previous file to create the endpoint:
 
     ```azurecli
     az ml serverless-endpoint create -f endpoint.yml

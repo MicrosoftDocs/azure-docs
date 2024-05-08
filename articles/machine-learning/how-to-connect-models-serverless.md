@@ -19,7 +19,7 @@ Certain models in the model catalog can be deployed as a serverless API endpoint
 
 On some cases, you want to centralize your deployments on a given workspace and consume them from different workspaces on your organization. On another situations, you may need to deploy models on a workspace on a given region and consume it from a workspace on another region. Some models supporting serverless API endpoint deployment are only available on specific Azure regions.
 
-In this example, we will learn how to configured an existing serverless API endpoint on a new workspace.
+In this example, you learn how to configure an existing serverless API endpoint on a new workspace.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this example, we will learn how to configured an existing serverless API endp
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md) where you want to consume the existing deployment.
 
-- A model [deployed to a serverless API endpoint](how-to-deploy-models-serverless.md). In this example we assumed you have deployed **Meta-Llama-3-8B-Instruct**.
+- A model [deployed to a serverless API endpoint](how-to-deploy-models-serverless.md). In this example, we assumed you deployed **Meta-Llama-3-8B-Instruct**.
 
 - You need to install the following software to work with Azure Machine Learning:
 
@@ -79,7 +79,7 @@ In this example, we will learn how to configured an existing serverless API endp
 
 ## Create a serverless API endpoint connection
 
-Follow this steps to create a connection:
+Follow these steps to create a connection:
 
 1. Connect to the workspace where the endpoint is deployed:
 
@@ -113,7 +113,7 @@ Follow this steps to create a connection:
 
     You can use any compatible web browser to [deploy ARM templates](../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
 
-1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example we get the details for an endpoint name **meta-llama3-8b-qwerty**.
+1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, we get the details for an endpoint name **meta-llama3-8b-qwerty**.
 
     # [Portal](#tab/portal)
 
@@ -166,7 +166,7 @@ Follow this steps to create a connection:
 
     # [CLI](#tab/cli)
 
-    Create a connection defintion
+    Create a connection definition:
 
     __connection.yml__
     
@@ -193,7 +193,7 @@ Follow this steps to create a connection:
 
     # [ARM](#tab/arm)
 
-1. At this point, the connection will be available for consumption.
+1. At this point, the connection is available for consumption.
 
 1. To validate the connection is working:
 
