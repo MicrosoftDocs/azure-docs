@@ -70,6 +70,8 @@ To run experiments in Azure App Configuration, we're going to use Split Experime
 
 Now that you’ve connected the Application Insights resource to the App Configuration store, set up an app to run your experiment.
 
+Either follow the steps below to learn how to create a brand new app to run an experiment, or to complete this tutorial faster, download/clone the app code available from the [App Configuration repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore)<!--update when app PR is merged-->, create a user secret for the application and another one that holds the connection string for Application Insights by running the steps 2 and 3 below, and then move on to [the build and run step](#build-and-run-the-app) below.
+
 ### Create an app and add user secrets
 
 1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
@@ -435,7 +437,7 @@ Enable telemetry and create an experiment in your variant feature flag by follow
 1. In your App Configuration store, go to **Operations** > **Feature manager**.
 1. Select the **...** context menu all the way to the right of your variant feature flag "Greeting", and select **Edit**.
 
-    :::image type="content" source="./media/run-experiments-aspnet-core/edit-variant-feature-flag.png" alt-text="Screenshot of the Azure portal, editing a variant feature flag.":::
+    :::image type="content" source="./media/run-experiments-aspnet-core/edit-variant-feature-flag.png" alt-text="Screenshot of the Azure portal, editing a variant feature flag." lightbox="./media/run-experiments-aspnet-core/edit-variant-feature-flag.png":::
 
 1. Go to the **Telemetry** tab and check the box **Enable Telemetry**.
 1. Go to the **Experiment** tab, check the box **Create Experiment**, and give a name to your experiment.
