@@ -16,8 +16,10 @@ In this tutorial, you'll use the targeting filter to roll out a feature to targe
 
 ## Prerequisites
 
-- [A feature flag with targeting filter](./howto-targetingfilter.md)
-- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
 ## Create a web application with a feature flag
 
