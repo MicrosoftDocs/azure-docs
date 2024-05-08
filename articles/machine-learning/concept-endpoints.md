@@ -92,7 +92,7 @@ Both online and batch endpoints are based on the idea of endpoints and deploymen
 
 The following table shows a summary of the different features available to online and batch endpoints.
 
-| Feature                               | [serverless API endpoints](how-to-deploy-models-serverless.md) | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
+| Feature                               | [Serverless API endpoints](how-to-deploy-models-serverless.md) | [Online endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |---------------------------------------|--------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
 | Stable invocation URL                 | Yes                                              | Yes                                             | Yes                                           |
 | Support for multiple deployments      | No                                               | Yes                                             | Yes                                           |
@@ -109,7 +109,7 @@ The following table shows a summary of the different features available to onlin
 
 The following table shows a summary of the different features available to online and batch endpoints at the deployment level. These concepts apply to each deployment under the endpoint.
 
-| Feature                       | [serverless API endpoints](how-to-deploy-models-serverless.md) | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
+| Feature                       | [Serverless API endpoints](how-to-deploy-models-serverless.md) | [Online endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |-------------------------------|-------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
 | Deployment types              | Models                                          | Models                                          | Models and Pipeline components                |
 | MLflow model deployment       | No, only specific models in the catalog         | Yes                                             | Yes                                           |
@@ -123,7 +123,7 @@ The following table shows a summary of the different features available to onlin
 | Autoscaling compute<sup>3</sup> | Built-in                                        | Yes, based on resources' load                 | Yes, based on job count                       |
 | Overcapacity management       | Throttling                                      | Throttling                                      | Queuing                                       |
 | Cost basis<sup>4</sup>        | Per endpoint and per tokens                     | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
-| Local testing of deployments  | NA                                              | Yes                                             | No                                            |
+| Local testing of deployments  | No                                              | Yes                                             | No                                            |
 
 <sup>1</sup> Deploying MLflow models to endpoints without outbound internet connectivity or private networks requires [packaging the model](concept-package-models.md) first.
 
