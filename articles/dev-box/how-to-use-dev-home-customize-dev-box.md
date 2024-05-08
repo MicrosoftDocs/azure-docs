@@ -28,7 +28,7 @@ To complete the steps in this article, you must:
 
 ## Install or update Dev Home
 
-Dev Home is available in the Microsoft Store. To install or update Dev Home, go to the [Microsoft Store](https://aka.ms/devhome) and select **Get** or **Update**.
+Dev Home is available in the Microsoft Store. To install or update Dev Home, go to the Dev Home (Preview) page in the [Microsoft Store](https://aka.ms/devhome) and select **Get** or **Update**.
 
 You might also see Dev Home in the Start menu. If you see it there, you can select it to open the app.
 
@@ -70,12 +70,15 @@ To create a new dev box:
   
 1. On the **Select environment** page, select **Microsoft DevBox**, and then select **Next**.
    :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-create-dev-box.png" alt-text="Screenshot of Dev Home, showing the Select environment page with Microsoft Dev Box highlighted." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-create-dev-box.png":::
+
 1. On the **Configure your environment** page:
     - Enter a name for your dev box.
     - Select the **Project** you want to create the dev box in.
     - Select the **DevBox Pool** where you want to create the dev box. Select a pool located close to you to reduce latency.
     - Select **Next**.
+
       :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-configure-environment.png" alt-text="Screenshot showing the Configure your environment page." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-configure-environment.png":::
+
 1. On the **Review your environment** page, review the details and select **Create environment**.
 1. Select **Go to Environments** to see the status of your dev box.
 
@@ -96,8 +99,11 @@ If the Windows App isn't installed, selecting Launch takes you to the web client
 1. From the left menu, select **Environments**.
 1. Select the dev box you want to launch.
 1. Select **Launch**.
+
    :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-launch.png" alt-text="Screenshot showing a dev box with the Launch menu highlighted.":::
+
 1. You can also start and stop the dev box from the **Launch** menu.
+
   :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-start-stop.png" alt-text="Screenshot of the Launch menu with Start and Stop options." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-start-stop.png":::
 
 For more information on the Windows App, see [Windows App](https://aka.ms/windowsapp).
@@ -110,6 +116,7 @@ Dev home enables you to pin your dev box to the start menu or task bar.
 1. From the left menu, select **Environments**.
 1. Select the dev box you want to pin or unpin.
 1. Select **Pin to start** or **Pin to taskbar**.
+   
    :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-menu.png" alt-text="Screenshot showing a dev box with the Pin to start and Pin to taskbar options highlighted." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-menu.png":::
 
 ## Customize an existing dev box
@@ -121,10 +128,14 @@ Dev home gives you the opportunity to clone repositories and add software to you
 1. Select the environment you want to customize, and then select **Next**.
 1. On the **Set up an environment** page, if you want to clone a repository to your dev box, select **Add repository**. 
 1. In the **Add repository** dialog, enter the source and destination paths for the repository you want to clone, and then select **Add**.
+
    :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-clone-repository.png" alt-text="Screenshot showing the Add repository dialog box." lightbox="media/how-to-use-dev-home-customize-dev-box/dev-home-clone-repository.png":::
+
 1. When you finish adding repositories, select **Next**.
 1. From the list of application Winget provides, choose the software you want to install on your dev box, and then select **Next**. You can also search for software by name.
+
     :::image type="content" source="media/how-to-use-dev-home-customize-dev-box/dev-home-software-install.png" alt-text="Screenshot showing the Add software page.":::
+
 1. On the **Review and finish** page, under **See details**:
     1. Select the **Environment** tab to see the virtual machine you're configuring.
     1. Select the **Applications** tab to see a list of the software you're installing.
