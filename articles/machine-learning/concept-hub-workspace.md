@@ -84,8 +84,9 @@ Features that are supported using hub/project workspaces differs from regular wo
 
 | Feature | Default workspace | Hub workspace | Project workspace | Note |
 |--|--|--|--|--|
-|Create project workspaces from ML studio| - | - | X | - |
+|Self-serve create project workspaces from Studio| - | X | X | - |
 |Create shared connections on hub | |X|X| Only in AI studio |
+|Consume shared connections from hub | |X|X| - |
 |Reuse compute instance across workspaces|-|X|X|
 |Share quota across workspaces|-|X|X||
 |Build GenAI apps in AI studio|-|X|X||
