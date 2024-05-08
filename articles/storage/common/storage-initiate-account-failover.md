@@ -14,12 +14,6 @@ ms.subservice: storage-common-concepts
 
 # Initiate a storage account failover
 
-<!--
-If the primary endpoint for your geo-redundant storage account becomes unavailable for any reason, you can initiate an account failover. An account failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary region. Forced failover enables you to maintain high availability for your applications.
-
-This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or Azure CLI. To learn more about account failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
--->
-
 Azure Storage supports customer-initiated account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary storage service endpoints become unavailable, or to perform disaster recovery testing. The failover updates the Domain Name System (DNS) entries for the storage service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
 
 This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or the Azure CLI.
@@ -33,15 +27,6 @@ To learn more about account failover, see [Azure storage disaster recovery plann
 
 ## Prerequisites
 
-<!--
-Before you can perform an account failover on your storage account, make sure that:
-
-> [!div class="checklist"]
-> - Your storage account is configured for geo-replication (GRS, GZRS, RA-GRS or RA-GZRS). For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
-> - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
-> - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
--->
-
 Review these important topics detailed in the [disaster recovery guidance](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article before initiating a customer-managed failover.
 
 - **Potential data loss**: Data loss should be expected during an unplanned storage account failover. For details on the implications of an unplanned account failover and to how to prepare for data loss, see the [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies) section.
@@ -49,11 +34,9 @@ Review these important topics detailed in the [disaster recovery guidance](stora
 - **Understand the different types of account failover**: There are two types of customer-managed failover. See the [Plan for failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover) article to learn about potential use cases for each type, and how they differ.
 - **Plan for unsupported features and services**: Review the [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) article and take appropriate action before initiating a failover.
 - **Supported storage account types**: Ensure that your storage account type can be used to initiate a failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
-- **Set your expectations for timing and cost**: The time it takes the customer-managed failover process to complete can vary, but typically takes less than one hour. An unplanned failover results in the loss of geo-redundancy configuration. Reconfiguring GRS typically incurs extra time and cost. For more information, see the [time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over) section.
+- **Set your expectations for timing and cost**: The time it takes the customer-managed failover process to complete can vary, but typically takes less than one hour. An unplanned failover results in the loss of geo-redundancy configuration. Reconfiguring geo-redundant storage (GRS) typically incurs extra time and cost. For more information, see the [time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over) section.
 
 ## Initiate the customer-managed failover
-
-<!--You can initiate an account failover from the Azure portal, PowerShell, or the Azure CLI.-->
 
 You can initiate either a planned or unplanned customer-managed failover using the Azure portal, PowerShell, or the Azure CLI.
 
@@ -64,11 +47,6 @@ You can initiate either a planned or unplanned customer-managed failover using t
 Complete the following steps to initiate an account failover using the Azure portal:
 
 1. Navigate to your storage account.
-
-<!--
-1. Under **Settings**, select **Geo-replication**. The following image shows the geo-replication and failover status of a storage account.
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing geo-replication and failover status":::
--->
 
 1. Select **Redundancy** from within the **Data management** group. The following image shows the geo-redundancy configuration and failover status of a storage account.
 
@@ -102,20 +80,8 @@ Complete the following steps to initiate an account failover using the Azure por
     A message is displayed to indicate that the failover is in progress:
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress.png" alt-text="Screenshot showing the failover in-progress message." lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png":::
-<!--
-1. Verify that your storage account is configured for geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). If it's not, then select **Configuration** under **Settings** to update your account to be geo-redundant.
-1. The **Last Sync Time** property indicates how far the secondary is behind from the primary. **Last Sync Time** provides an estimate of the extent of data loss that you will experience after the failover is completed. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
-1. Select **Prepare for failover**.
-1. Review the confirmation dialog. When you are ready, enter **Yes** to confirm and initiate the failover.
-
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot showing confirmation dialog for an account failover":::
--->
 
 ## [PowerShell](#tab/azure-powershell)
-
-<!--
-To use PowerShell to initiate an account failover, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later. For more information about installing Azure PowerShell, see [Install the Azure Az PowerShell module](/PowerShell/azure/install-azure-PowerShell).
--->
 
 To get the current redundancy and failover information for your storage account, and then initiate a failover, follow these steps:
 
@@ -123,23 +89,14 @@ To get the current redundancy and failover information for your storage account,
 > - [Install the Azure Storage preview module for PowerShell](#install-the-azure-storage-preview-module-for-powershell)
 > - [Get the current status of the storage account with PowerShell](#get-the-current-status-of-the-storage-account-with-powershell)
 > - [Initiate a failover of the storage account with PowerShell](#initiate-a-failover-of-the-storage-account-with-powershell)
+
 ### Install the Azure Storage preview module for PowerShell
 
 To use PowerShell to initiate and monitor a **planned** customer-managed account failover (preview) in addition to a customer-initiated failover, install the [Az.Storage 5.2.2-preview module](https://www.powershellgallery.com/packages/Az.Storage/5.2.2-preview). Earlier versions of the module support customer-managed failover (unplanned), but not planned failover. The preview version supports the new `FailoverType` parameter. Valid values include either `planned` or `unplanned`.
 
 #### Installing and running the preview module on PowerShell 5.1
 
-Recommended best practices include the installation and use of the latest version of PowerShell. If you're installing the preview module on Windows PowerShell 5.1 and receive following error, you need to [update PowerShellGet to the latest version](/powershell/gallery/powershellget/update-powershell-51) before installing the Az.Storage 5.2.2 preview module:
-
-```Sample
-PS C:\Windows\system32> Install-Module -Name Az.Storage -RequiredVersion 5.2.2-preview -AllowPrerelease
-Install-Module : Cannot process argument transformation on parameter 'RequiredVersion'. Cannot convert value "5.2.2-preview" to type "System.Version". Error: "Input string was not in a correct format."
-At line:1 char:50
-+ ... nstall-Module -Name Az.Storage -RequiredVersion 5.2.2-preview -AllowP ...
-+                                                     ~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidData: (:) [Install-Module], ParameterBindingArgumentTransformationException
-    + FullyQualifiedErrorId : ParameterArgumentTransformationError,Install-Module
-```
+Recommended best practices include the installation and use of the latest version of PowerShell. If you're having trouble installing the preview module using older PowerShell versions, you might need to [update PowerShellGet to the latest version](/powershell/gallery/powershellget/update-powershell-51) before installing the Az.Storage 5.2.2 preview module.
 
 To install the latest version of PowerShellGet and the Az.Storage preview module, perform the following steps:
 
@@ -204,14 +161,6 @@ Check the status of the storage account before failing over. Examine properties 
        -IncludeGeoReplicationStats
 ```
 
-<!--
-To initiate an account failover from PowerShell, call the following command:
-
-```PowerShell
-Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name>
-```
--->
-
 To refine the list of properties in the display to the most relevant set, consider replacing the `Get-AzStorageAccount` command in the previous example with the following command:
 
 ```powershell
@@ -237,16 +186,7 @@ Invoke-AzStorageAccountFailover `
 
 ## [Azure CLI](#tab/azure-cli)
 
-<!--
-To use Azure CLI to initiate an account failover, call the following commands:
-
-```azurecli-interactive
-az storage account show \ --name accountName \ --expand geoReplicationStats
-az storage account failover \ --name accountName
-```
--->
-
-To get the current redundancy and failover information for your storage account, and then initiate a failover, follow these steps:
+Complete the following steps to get the current redundancy and failover information for your storage account, and then initiate a failover:
 
 > [!div class="checklist"]
 > - [Install the Azure Storage preview extension for Azure CLI](#install-the-azure-storage-preview-extension-for-azure-cli)
@@ -302,25 +242,6 @@ az storage account failover --help
 ```
 
 ---
-
-<!--
-## Important implications of account failover
-
-When you initiate an account failover for your storage account, the DNS records for the secondary endpoint are updated so that the secondary endpoint becomes the primary endpoint. Make sure that you understand the potential impact to your storage account before you initiate a failover.
-
-To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
-
-The time it takes to failover after initiation can vary though typically less than one hour.
-
-After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. The cost is due to the network egress charges to re-replicate the data to the new secondary region. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time depends on many factors, which include:
-
-- The number and size of the objects in the storage account. Many small objects can take longer than fewer and larger objects.
-- The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
-- If using Blob storage, the number of snapshots per blob.
-- If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
--->
 
 ## Monitor the failover
 

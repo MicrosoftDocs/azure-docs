@@ -81,7 +81,7 @@ Customer-managed planned failover (preview) can be used to to test your disaster
 
 Planned failover can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when workloads in your primary region are disrupted but your storage service endpoints are available.
 
-During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. For more detail, see the [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies) article.
+During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. For more detail, see the [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies) section.
 
 To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the planned failover and failback processes. For details about how this process works, see [How customer-managed (planned) failover works](storage-failover-customer-managed-planned.md).
 
@@ -208,24 +208,9 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 
 #### Azure Data Lake Storage Gen2
 
-> [!IMPORTANT]
-> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
->
-> - (Asia Pacific) Central India
-> - (Asia Pacific) South East Asia
-> - (Europe) North Europe
-> - (Europe) Switzerland North
-> - (Europe) Switzerland West
-> - (Europe) West Europe
-> - (North America) Canada Central
-> - (North America) East US 2
-> - (North America) South Central US
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> During a significant disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
+[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
+
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
 
 ### Unsupported features and services
 

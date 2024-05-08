@@ -20,11 +20,11 @@ Current: 100 (1779/0)
 
 # How customer-managed planned failover (preview) works
 
-Customer-managed planned failover (preview) can be used to to test your disaster recovery plan. During the planned failover process, the primnary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary, while the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
+Customer-managed planned failover (preview) can be used to test your disaster recovery plan. During the planned failover process, the primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
 Customer-managed planned failover (preview) can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
 
-This article describes what happens during a customer-managed planned storage account failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
+This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
 
 > [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW. This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -36,8 +36,9 @@ This article describes what happens during a customer-managed planned storage ac
 ## Redundancy management during planned failover and failback
 
 > [!TIP]
-> To understand the varying redundancy states during the storage account failover and failback process in detail, see [Azure Storage redundancy](storage-redundancy.md) for definitions of each.
+> To understand the varying redundancy states during customer-managed failover and failback process in detail, see [Azure Storage redundancy](storage-redundancy.md) for definitions of each.
 
+<!--
 Azure storage provides a wide variety of redundancy options to help protect your data.
 
 Locally redundant storage (LRS) automatically maintains three copies of your storage account within a single datacenter. LRS is the least expensive replication option, but isn't recommended for applications requiring high availability or durability. Zone-redundant storage (ZRS) replicates your storage account synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location, and your data is still accessible for both read and write operations if a zone becomes unavailable.
@@ -45,21 +46,22 @@ Locally redundant storage (LRS) automatically maintains three copies of your sto
 Geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) redundancy options can be used to ensure that your data is highly durable. GRS and RA-GRS use LRS to replicate your data three times locally within both the primary and secondary regions. Configuring your account for read access (RA) allows your data to be read from the secondary region, as long as the region's storage service endpoints are available.
 
 Geo-zone-redundant storage (GZRS) and read-access geo-zone-redundant storage (GZRS) use ZRS replication within the primary region, and LRS within the secondary. As with RA-GRS, configuring RA allows you to read data from the secondary region as long as the storage service endpoints to that region are available.
+-->
 
-During the planned failover process, the storage service endpoints to the primary region become read-only and any remaining updates are allowed to finish replicating to the secondary region. Next, storage service endpoint domain name service (DNS) entries are switched. Your storage account's secondary endpoints become the new primary endpoints, and the original primary endpoints become the new secondary. Data replication within each region remains unchanged even though the primary and secondary regions are switched. Replication within the new primary is always configured to use LRS, and replication within the original primary remains the same, whether LRS or ZRS.
+During the planned failover process, the primary region's storage service endpoints become read-only while remaining updates finish replicating to the secondary region. Next, all storage service endpoint's domain name service (DNS) entries are switched. Your storage account's secondary endpoints become the new primary endpoints, and the original primary endpoints become the new secondary. Data replication within each region remains unchanged even though the primary and secondary regions are switched. Replication within the new primary is always configured to use LRS, and replication within the original primary remains the same, whether LRS or ZRS.
 
-Azure stores your storage account's original redundancy configuration within it's metadata, allowing you fail back when ready.
+Azure stores your storage account's original redundancy configuration within its metadata, allowing you fail back when ready.
 
 After failover, your storage account's new redundancy configuration temporarily becomes GRS. The way in which data is replicated within the primary region at a given point in time determines the storage account's zone-redundancy configuration. Replication within the new primary is always configured to use LRS, so the account is temporarily nonzonal. Azure immediately begins copying data from the new primary region to the new secondary. If your storage account's original secondary region was configured for RA, access is configured for the new secondary region during failover and failback.
 
-The failback process is essentially the same as the failover process, except Azure stores the original redundancy configuration of your storage account and restores it to its original state upon failback. So, if your storage account was originally configured as GZRS, the storage account will be GZRS after failback.
+The planned failback process is essentially the same as the planned failover process, but with one exception. During planned failback, Azure stores the original redundancy configuration of your storage account and restores it to its original state upon failback. For example, if your storage account was originally configured as GZRS, the storage account will be GZRS after failback.
 
 > [!NOTE]
-> Unlike [customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md), during planned failover, replication from the primary to secondary region is allowed to finish before the DNS entries for the endpoints are changed to the new secondary. Because of this, data loss is not expected during failover or failback as long as both the primary and secondary regions are available throughout the process.
+> Unlike [customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md), during planned failover, replication from the primary to secondary region is allowed to finish before the DNS entries for the endpoints are changed to the new secondary. Because of this, data loss is not expected during planned failover or failback as long as both the primary and secondary regions are available throughout the process.
 
 ## How to initiate a failover
 
-To learn how to initiate a failover, see [Initiate a storage account failover](storage-initiate-account-failover.md).
+To learn how to initiate a failover, see [Initiate an account failover](storage-initiate-account-failover.md).
 
 ## The planned failover and failback process
 
@@ -149,6 +151,6 @@ After the failback is complete, the storage account is restored to its original 
 
 ## See also
 
-- [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
+- [Disaster recovery and account failover](storage-disaster-recovery-guidance.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
 - [How customer-managed (unplanned) failover works](storage-failover-customer-managed-unplanned.md)
