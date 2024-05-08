@@ -51,7 +51,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 #### IoT Edge Module
 
-Use this option to add Microsoft modules, partner modules, or custom modules. You provide the module name and container image URI. The container image URI is the location of the module image in a container registry.
+Use this option to add Microsoft modules, partner modules, or custom modules. You provide the module name and container image URI. The container image URI is the location of the module image in a container registry. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?search=iot%20edge&amp;type=partial). For partner modules, contact the IoT Edge module publisher to obtain the container image URI.
 
 For example to add the Microsoft simulated temperature sensor module:
 
@@ -59,16 +59,12 @@ For example to add the Microsoft simulated temperature sensor module:
 
     | Setting | Value |
     |---------|-------|
-    |Image URI | `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` |
+    |Image URI | `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor` |
     |Restart Policy | always |
     |Desired Status | running |
     
     :::image type="content" source="media/how-to-deploy-modules-portal/add-edge-module.png" alt-text="Screenshot showing adding IoT Edge settings for the simulated temperature sensor module in the Azure portal.":::
-    
-    For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?search=iot%20edge&amp;type=partial). 
-    
-    For a list of partner modules, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Contact the IoT Edge module publisher to obtain the updated container image URI.
-    
+  
 1. Select **Add**.
 1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary.
 
