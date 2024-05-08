@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 12/01/2022
+ms.date: 05/08/2024
 ---
 
 # AML skill in an Azure AI Search enrichment pipeline
@@ -19,7 +19,9 @@ ms.date: 12/01/2022
 
 The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (AML) model. Once an AML model is [trained and deployed](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), an **AML** skill integrates it into AI enrichment.
 
-Like built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML online endpoint as a JSON object, which outputs a JSON payload as a response along with a success status code. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
+Like other built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML online endpoint as a JSON object, which outputs a JSON payload as a response along with a success status code. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
+
+If you're using the [Azure AI Studio model catalog vectorizer (preview)](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for integrated vectorization at query time, you should also use the **AML** skill for integrated vectoring during indexing. See [How to implement integrated vectorization using models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md) for instructions. This scenario is supported through the 2024-05-01-preview REST API and the Azure portal.
 
 > [!NOTE]
 > The indexer will retry twice for certain standard HTTP status codes returned from the AML online endpoint. These HTTP status codes are:
