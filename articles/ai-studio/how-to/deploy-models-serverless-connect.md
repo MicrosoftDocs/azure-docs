@@ -153,7 +153,7 @@ Follow these steps to create a connection:
     az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
     ```
 
-    # [Python SDK](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     Create a client connected to your project:
 
