@@ -21,7 +21,7 @@ There are several steps to using the Azure Migration Tools to migrate a VMware d
 <br>
 
 ## Prerequisites
-Make sure you checkout out the [support matrix](migrate-support-matrix-vmware.md) before getting started.
+Make sure you checkout the [support matrix](migrate-support-matrix-vmware.md) before getting started.
 
 ## Discover
 You need a list of all of the servers in your environment. To get the list, you have 2 choices: 
