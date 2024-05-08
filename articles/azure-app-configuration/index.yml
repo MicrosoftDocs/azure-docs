@@ -131,6 +131,8 @@ landingContent:
         links:
           - text: What are feature flags?
             url: concept-feature-management.md
+          - text: Experimentation
+            url: concept-experimentation.md
       - linkListType: quickstart
         links:
         - text: Manage feature flags
