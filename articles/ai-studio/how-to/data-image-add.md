@@ -1,6 +1,6 @@
 ---
 title: 'Use your image data with Azure OpenAI Service'
-titleSuffix: Azure OpenAI
+titleSuffix: Azure AI Studio
 description: Use this article to learn about using your image data for image generation in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
@@ -11,7 +11,9 @@ ms.author: pafarley
 author: PatrickFarley
 ---
 
-# Azure OpenAI enterprise chat with images using GPT-4 Turbo with Vision (preview)
+# Azure OpenAI enterprise chat with images using GPT-4 Turbo with Vision
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI's vision model. GPT-4 Turbo with Vision enterprise chat allows the model to generate more customized and targeted answers using retrieval augmented generation based on your own images and image metadata. 
 

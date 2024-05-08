@@ -94,7 +94,7 @@ To protect AWS resources in Defender for Cloud, set up an AWS connector using a 
   - Use all KMS keys only for RDS on source account
   - Create & full control on all KMS keys with tag prefix *DefenderForDatabases*
   - Create alias for KMS keys
-- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal extra cost, according to AWS KMS pricing.
+- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key might incur a minimal extra cost, according to AWS KMS pricing.
 
 ### Discovering GCP storage buckets
 

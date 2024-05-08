@@ -7,13 +7,15 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 2/5/2024
+ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist
 ---
 
 # How to create and manage an Azure AI Studio hub
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 As an administrator, you can create and manage Azure AI Studio hubs. Hubs provide a hosting environment for the AI Studio projects of a team, and help you as an IT admin centrally set up security settings and govern usage and spend. You can create and manage a hub from the Azure portal or from the AI Studio. 
 
@@ -23,62 +25,42 @@ In this article, you learn how to create and manage a hub in AI Studio (for gett
 
 To create a new hub, you need either the Owner or Contributor role on the resource group or on an existing hub. If you're unable to create a hub due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the hub [in the Azure portal](#create-a-secure-hub-in-the-azure-portal) instead.
 
-Follow these steps to create a new hub in AI Studio.
-
-1. Go to the **Manage** page in [Azure AI Studio](https://ai.azure.com).
-1. Select **+ New hub**.
-
-1. Enter your hub name, subscription, resource group, and location details.
-
-1. In the **Azure OpenAI** dropdown, you can select an existing Azure OpenAI resource to bring all your deployments into AI Studio. If you don't bring one, we'll create one for you.
-
-    :::image type="content" source="../media/how-to/resource-create-advanced.png" alt-text="Screenshot of the Create a hub wizard with the option to set basic information." lightbox="../media/how-to/resource-create-advanced.png":::
-
-1. Optionally, connect an existing Azure AI Search instance to share search indices with all projects in this hub. An Azure AI Search instance isn't created for you if you don't provide one.
-1. Select **Next**.
-1. On the **Review and finish** page, you see the **AI Services** provider for you to access the Azure AI services such as Azure OpenAI.
-
-    :::image type="content" source="../media/how-to/resource-create-studio-review.png" alt-text="Screenshot of the review and finish page for creating a hub." lightbox="../media/how-to/resource-create-studio-review.png":::
-
-1. Select **Create**.
-
-When the hub is created, you can see it on the **Manage** page in AI Studio. You can see that initially no projects are created in the hub. You can [create a new project](./create-projects.md).
-
-:::image type="content" source="../media/how-to/hub-resource-overview.png" alt-text="Screenshot of the new hub overview." lightbox="../media/how-to/hub-resource-overview.png":::
+[!INCLUDE [Create Azure AI Studio hub](../includes/create-hub.md)]
 
 ## Create a secure hub in the Azure portal
 
 If your organization is using [Azure Policy](../../governance/policy/overview.md), set up a hub that meets your organization's requirements instead of using AI Studio for resource creation. 
 
-1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
+1. From the Azure portal, search for `Azure AI Studio` and create a new hub by selecting **+ New Azure AI hub**
 1. Enter your hub name, subscription, resource group, and location details.
-1. For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
-
+1. For **Azure AI services base models**, select an existing AI services resource or create a new one. Azure AI services include multiple API endpoints for Speech, Content Safety, and Azure OpenAI. 
+    
     :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set hub basic information." lightbox="../media/how-to/resource-create-basics.png":::
 
-1. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
+1. Select the **Storage** tab to specify storage account settings.
 
-    :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create a hub with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
+    :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create a hub with the option to set storage resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
 
-1. Set up Network isolation. Read more on [network isolation](configure-managed-network.md). For a walkthrough of creating a secure hub, see [Create a secure hub](create-secure-ai-hub.md).
+1. Select the **Networking** tab to set up Network isolation. Read more on [network isolation](configure-managed-network.md). For a walkthrough of creating a secure hub, see [Create a secure hub](create-secure-ai-hub.md).
 
     :::image type="content" source="../media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create a hub with the option to set network isolation information." lightbox="../media/how-to/resource-create-networking.png":::  
 
-1. Set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
+1. Select the **Encryption** tab to set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
 
     :::image type="content" source="../media/how-to/resource-create-encryption.png" alt-text="Screenshot of the Create a hub with the option to select your encryption type." lightbox="../media/how-to/resource-create-encryption.png":::
 
-1. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
+1. Select the **Identity** tab. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in **Storage**.
 
     :::image type="content" source="../media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create a hub with the option to select a managed identity." lightbox="../media/how-to/resource-create-identity.png":::
-    >[!Note]
-    >If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new hub.
+
+    > [!NOTE]
+    > If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new hub.
     
-1. Add tags.
+1. Select the **Tags** tab to add tags.
 
     :::image type="content" source="../media/how-to/resource-create-tags.png" alt-text="Screenshot of the Create a hub with the option to add tags." lightbox="../media/how-to/resource-create-tags.png":::
 
-1. Select **Review + create**
+1. Select **Review + create** > **Create**. 
 
 ## Manage your hub from the Azure portal
 
@@ -123,45 +105,7 @@ To use custom environments for Prompt Flow, you're required to configure an Azur
 
 You can configure your hub for these resources during creation or update after creation. To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your hub in the Azure portal, then select **Change Application Insights**. You can also use the Azure SDK/CLI options or infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the hub.
 
-:::image type="content" source="../media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the Azure AI resource in the Azure portal." lightbox="../media/how-to/resource-manage-update-associated-resources.png":::
-
-## Manage your hub from the Manage tab within the AI Studio
-
-### Getting started with the AI Studio
-
-On the **Manage** page in [Azure AI Studio](https://ai.azure.com), you have the options to create a new hub, manage an existing hub, or view your quota.
-
-:::image type="content" source="../media/how-to/resource-manage-studio.png" alt-text="Screenshot of the Manage page of the Azure AI Studio." lightbox="../media/how-to/resource-manage-studio.png":::
-
-### Managing a hub
-When you manage a resource, you see an Overview page that lists **Projects**, **Description**, **Resource Configuration**, **Connections**, and **Permissions**. You also see pages to further manager **Permissions**, **Compute instances**, **Connections**, **Policies**, and **Billing**.
-
-You can view all Projects that use this hub. Be linked to the Azure portal to manage the Resource Configuration. Manage who has access to this hub. View all of the connections within the resource. Manage who has access to this hub.
-
-:::image type="content" source="../media/how-to/resource-manage-details.png" alt-text="Screenshot of the Details page of the Azure AI Studio showing an overview of the resource." lightbox="../media/how-to/resource-manage-details.png":::
-
-### Permissions
-Within Permissions you can view who has access to the hub and also manage permissions. Learn more about [permissions](../concepts/rbac-ai-studio.md).
-To add members:
-1.    Select **+ Add member**
-1.    Enter the member's name in **Add member** and assign a **Role**. For most users, we recommend the AI Developer role. This permission applies to the entire hub. If you wish to only grant access to a specific Project, manage permissions in the [Project](create-projects.md)
-
-### Compute instances
-View and manage computes for your hub. Create computes, delete computes, and review all compute resources you have in one place.
-
-### Connections
-From the Connections page, you can view all Connections in your hub by their Name, Authentication method, Category type, if the connection is shared to all projects in the resource or specifically to a Project, Target, Owner, and Provisioning state.
-
-You can also add a connection through **+ Connection**  
-
-Learn more on how to [create and manage Connections](connections-add.md). Connections created in the hub Manage page are automatically shared across all projects. If you want to make a project specific connection, make that within the Project.
-
-### Policies
-View and configure policies for your hub. See all the policies you have in one place. Policies are applied across all Projects.
-
-### Billing
-Here you're linked to the Azure portal to review the cost analysis information for your hub.
-
+:::image type="content" source="../media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the hub resource in the Azure portal." lightbox="../media/how-to/resource-manage-update-associated-resources.png":::
 
 ## Next steps
 

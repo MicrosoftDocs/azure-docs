@@ -15,6 +15,8 @@ author: ssalgadodev
 
 # How to create a vector index
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this article, you learn how to create and use a vector index for performing [Retrieval Augmented Generation (RAG)](../concepts/retrieval-augmented-generation.md).
 
 ## Prerequisites

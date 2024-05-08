@@ -15,6 +15,8 @@ ms.custom: [references_regions]
 
 # How to deploy Meta Llama models with Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either as a service with pay-as you go billing or with hosted infrastructure in real-time endpoints.
 
   > [!IMPORTANT]

@@ -15,14 +15,14 @@ author: PatrickFarley
 
 # QuickStart: Moderate text and images with content safety in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service in Azure AI Studio. Content Safety detects harmful user-generated and AI-generated content in applications and services. 
 
 > [!CAUTION]
 > Some of the sample content provided by Azure AI Studio might be offensive. Sample images are blurred by default. User discretion is advised.
 
 ## Prerequisites
-
-[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
 
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio. 

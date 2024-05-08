@@ -13,6 +13,8 @@ author: lgayhardt
 
 # Overview of prompt flow tools in Azure AI Studio
 
+[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+
 The following table provides an index of tools in prompt flow.
 
 | Tool name | Description | Package name |
@@ -25,9 +27,6 @@ The following table provides an index of tools in prompt flow.
 | [Embedding](./embedding-tool.md) | Use Azure OpenAI embedding models to create an embedding vector that represents the input text. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Serp API](./serp-api-tool.md) | Use Serp API to obtain search results from a specific search engine. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Index Lookup](./index-lookup-tool.md) | Search a vector-based query for relevant results using one or more text queries. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
-| [Vector Index Lookup](./vector-index-lookup-tool.md)<sup>1</sup> | Search text or a vector-based query from a vector index. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
-| [Faiss Index Lookup](./faiss-index-lookup-tool.md)<sup>1</sup> | Search a vector-based query from the Faiss index file. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
-| [Vector DB Lookup](./vector-db-lookup-tool.md)<sup>1</sup> | Search a vector-based query from an existing vector database. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 
 <sup>1</sup> The Index Lookup tool replaces the three deprecated legacy index tools: Vector Index Lookup, Vector DB Lookup, and Faiss Index Lookup. If you have a flow that contains one of those tools, follow the [migration steps](./index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool) to upgrade your flow.
 

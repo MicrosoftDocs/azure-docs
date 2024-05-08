@@ -13,7 +13,9 @@ ms.author: lagayhar
 author: lgayhardt
 ---
 
-# Monitor quality and safety of deployed prompt flow applications 
+# Monitor quality and safety of deployed prompt flow applications
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Monitoring models that are deployed in production is an essential part of the generative AI application lifecycle. Changes in data and consumer behavior can influence your application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputation risks. 
 

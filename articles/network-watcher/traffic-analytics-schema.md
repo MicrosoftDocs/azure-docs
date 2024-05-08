@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 04/24/2024
+ms.date: 05/03/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -208,7 +208,7 @@ The following table lists the fields in the schema and what they signify for vir
 > | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
 > | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine to which the source IP in the flow belongs to. |
 > | **DestRegion** | Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to. |
-> | **SecNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
+> | **SrcNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
 > | **DestNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
 > | **SrcVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
 > | **DestVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
@@ -232,7 +232,6 @@ The following table lists the fields in the schema and what they signify for vir
 > | **DeniedInFlows** | - | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured). |
 > | **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
 > | **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
-> | **FlowCount** | Deprecated. Total flows that matched the same four-tuple. In flow types ExternalPublic and AzurePublic, count includes the flows from various PublicIP addresses as well. | - |
 > | **PacketsDestToSrc** | Represents packets sent from the destination to the source of the flow | Populated only for the Version 2 of network security group flow log schema. |
 > | **PacketsSrcToDest** | Represents packets sent from the source to the destination of the flow  | Populated only for the Version 2 of network security group flow log schema. |
 > | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of network security group flow log schema. |
@@ -241,6 +240,9 @@ The following table lists the fields in the schema and what they signify for vir
 > | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 > | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
+> | **PrivateEndpointResourceId** | <ResourceGroup/privateEndpointResource> | Resource ID of the private endpoint resource. Populated when traffic is flowing to or from a private endpoint resource. |
+> | **PrivateLinkResourceId** | <ResourceGroup/ResourceType/privateLinkResource> | Resource ID of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
+> | **PrivateLinkResourceName** | Plain text | Resource name of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
 > | **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
 
 > [!NOTE]
