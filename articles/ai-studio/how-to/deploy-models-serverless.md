@@ -117,10 +117,17 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     # [CLI](#tab/cli)
 
+    __subscription.yml__
+
+    ```yml
+    name: meta-llama3-8b-qwerty
+    model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
+    ```
+
+    Use the previous file to create the subscription:
+
     ```azurecli
-    az ml marketplace-subscription create \
-        --name "Meta-Llama-3-8B-Instruct" \
-        --model_id "azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct"
+    az ml marketplace-subscription create -f subscription.yml
     ```
 
     # [Python](#tab/sdk)
@@ -257,12 +264,17 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [CLI](#tab/cli)
 
+    __endpoint.yml__
+
+    ```yml
+    name: meta-llama3-8b-qwerty
+    model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
+    ```
+
     Use the previous file to create the endpoint:
 
     ```azurecli
-    az ml serverless-endpoint create \
-        --name "meta-llama3-8b-qwerty" \
-        --model_id "azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct"
+    az ml serverless-endpoint create -f endpoint.yml
     ```
 
     # [Python](#tab/sdk)
@@ -409,6 +421,13 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
     # [ARM](#tab/arm)
 
     Use REST APIs to query this information.
+
+1. At this point, you endpoint is ready to be used.
+
+1. If you need to consume this deployment from a different project or hub, or you plan to use **prompt flow** to build intelligent applications, you need to create a connection to the serverless API deployment. Follow the steps on [Consume deployed serverless API endpoints from a different project or from Prompt flow](deploy-models-serverless-connect.md).
+
+    > [!TIP]
+    > If you are using **prompt flow** in the same project or hub where the deployment was deployed, you still need to create the connection.
 
 ## Delete endpoints and subscriptions
 

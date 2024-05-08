@@ -56,6 +56,9 @@ items:
     - name: Deploy models as serverless API endpoints
       href: how-to/deploy-models-serverless.md
       displayName: maas, paygo, models-as-a-service
+    - name: Connect deployed serverless API models from a different project or hub
+      href: how-to/deploy-models-serverless-connect.md
+      displayName: maas, paygo, models-as-a-service
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
