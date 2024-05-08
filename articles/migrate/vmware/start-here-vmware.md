@@ -39,7 +39,7 @@ Assess your VMware environment for moving to [Azure Virtual Machines](tutorial-a
 Before you begin your migration, you need to [choose whether to use an agent-based migration or agentless](server-migrate-overview.md?context=/azure/migrate/context/vmware-context).
 
 
-Depending on whether you choose agent-based of agentless migration, the next step would be to review the migration topics for your choice.
+Depending on whether you choose agent-based or agentless migration, the next step would be to review the migration topics for your choice.
 
 ### Agent-based:
 
