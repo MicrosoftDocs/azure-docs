@@ -26,7 +26,7 @@ When you deploy models in Azure Machine Learning, the following types of data ar
 
 ## Generating inferencing outputs with real-time endpoints
 
-Deploying models to managed online endpoints deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the [Model Catalog to real-time endpoints](concept-model-catalog.md). You manage the infrastructure for these real-time endpoints, and Azure’s data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure Machine Learning.
+Deploying models to managed online endpoints deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the [Model Catalog to real-time endpoints](concept-model-catalog.md). You manage the infrastructure for these real-time endpoints, and Azure’s data, privacy, and security commitments apply. Learn more about [Azure compliance offerings](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) applicable to Azure Machine Learning.
 
 Although containers for models “Curated by Azure AI” have been scanned for vulnerabilities that could exfiltrate data, not all models available through the Model Catalog have been scanned. To reduce the risk of data exfiltration, you can protect your deployment using virtual networks. Follow this link to [learn more](./how-to-network-isolation-model-catalog.md). You can also use [Azure Policy](./how-to-regulate-registry-deployments.md) to regulate the models that can be deployed by your users.
 
