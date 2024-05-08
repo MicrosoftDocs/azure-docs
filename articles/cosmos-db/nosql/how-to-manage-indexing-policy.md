@@ -102,10 +102,10 @@ Here are some examples of indexing policies shown in [their JSON format](../inde
 In addition to including or excluding paths for individual properties, you can also specify a [vector index](../index-policy.md#vector-indexes). In general, vector indexes should be specified whenever you the `VectorDistance` system function is used to mesasure similarity between a query vector and a vector property. 
 
 > [!NOTE]
-> You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](vector-search.md#enroll-in-the-preview-feature) to use vector search in Azure Cosmos DB for NoSQL.> 
+> You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](vector-search.md#enroll-in-the-vector-search-preview-feature) to use vector search in Azure Cosmos DB for NoSQL.> 
 
 >[!IMPORTANT]
-> A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](vector-search.md#create-a-container-vector-policy).)
+> A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](vector-search.md#container-vector-policies).)
 
 ```json
 {

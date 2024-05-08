@@ -51,6 +51,9 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 
 This enrolls every Azure Cosmos DB resource in your subscription in the vector search preview. Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
 
+> [!div class="nextstepaction"]
+> [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
+
 ## Container Vector Policies
 Performing vector search with Azure Cosmos DB for NoSQL requires you to define a vector policy for the container. This provides essential information for the database engine to conduct efficient similarity search for vectors found in the container's documents. This also informs the vector indexing policy of necessary information, should you choose to specify one. The following information is included in the contained vector policy:
 

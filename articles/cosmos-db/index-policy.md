@@ -155,10 +155,10 @@ Here's an example of a indexing policy with a vector index:
 ```
 
 > [!NOTE]
->  You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](nosql/vector-search.md#enroll-in-the-preview-feature) to specify a vector indexing policy.> 
+>  You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](nosql/vector-search.md#enroll-in-the-vector-search-preview-feature) to specify a vector indexing policy.> 
 
 > [!IMPORTANT]
-> A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](nosql/vector-search.md#create-a-container-vector-policy).
+> A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](nosql/vector-search.md#container-vector-policies).
 > Vector indexes must also be defined at the time of Container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
 
 
