@@ -471,8 +471,6 @@ You can use these valid `level` values to specify in the `applicationinsights.js
 | TRACE (or FINEST) | TRACE  | TRACE   | TRACE  | FINEST  |
 | ALL               | ALL    | ALL     | ALL    | ALL     |
 
-You can turn off autocollected logging completedly by setting the environment variable `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_ENABLED` to `false`. It's on by default. 
-
 > [!NOTE]
 > If an exception object is passed to the logger, the log message (and exception object details) will show up in the Azure portal under the `exceptions` table instead of the `traces` table. If you want to see the log messages across both the `traces` and `exceptions` tables, you can write a Logs (Kusto) query to union across them. For example:
 >
@@ -693,6 +691,9 @@ Starting from version 3.0.3, specific autocollected telemetry can be suppressed 
     "kafka": {
       "enabled": false
     },
+    "logging": {
+      "enabled": false
+    },
     "micrometer": {
       "enabled": false
     },
@@ -722,6 +723,7 @@ You can also suppress these instrumentations by setting these environment variab
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
