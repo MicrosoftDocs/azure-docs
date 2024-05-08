@@ -136,7 +136,7 @@ The **Settings** section allows you to access and configure the following settin
 
 - [Authentication](#authentication)
   - [Access keys](#access-keys)
-  - [Microsoft Entra Authentication](#microsoft-entra-authentication)
+  - [Microsoft Entra Authentication](#entra)
 - [Advanced settings](#advanced-settings)
 - [Scale](#scale)
 - [Cluster size](#cluster-size)
@@ -153,7 +153,7 @@ The **Settings** section allows you to access and configure the following settin
 
 You have two options for authentication: access keys and Microsoft Entra Authentication.
 
-#### [Access keys](####tab/access keys)
+#### [Access keys](####tab/access-keys)
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
