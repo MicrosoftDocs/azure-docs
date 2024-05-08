@@ -121,7 +121,7 @@ On Windows, the high availability configuration of SAP central services (ASCS an
 | ------------------------- | ------------------------------------------------------------ |
 | SMB on Azure Files        | [Robocopy](../../storage/files/storage-files-migration-robocopy.md) |
 | SMB on Azure NetApp Files | [Cross Region Replication](../../azure-netapp-files/cross-region-replication-introduction.md) |
-| Azure Shared Disk         | [Azure Site Recovery with Shared Disks (preview)](https://learn.microsoft.com/en-us/azure/site-recovery/shared-disk-support-matrix) |
+| Azure Shared Disk         | [Azure Site Recovery with Shared Disks (preview)](../../site-recovery/shared-disk-support-matrix.md) |
 
 > [!NOTE]
 >

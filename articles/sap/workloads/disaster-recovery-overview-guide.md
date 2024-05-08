@@ -124,7 +124,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - Different native Azure storage services (like Azure Files, Azure NetApp Files) might not be not available in all regions. So to have similar SAP setup on the DR region after failover, ensure the respective storage service is offered in DR site. For more information, check [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/).
 
-- If you're using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Premium file shares ZRS support]([Azure Files zone-redundant storage (ZRS) support for premium file shares | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/redundancy-premium-file-shares)), and [ZRS for managed disks](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
+- If you're using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Premium file shares ZRS support]([Azure Files zone-redundant storage (ZRS) support for premium file shares | Microsoft Learn](../../storage/files/redundancy-premium-file-shares.md)), and [ZRS for managed disks](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
 
 - If using [availability zones for disaster recovery](../../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md), keep in mind the following points:
 
