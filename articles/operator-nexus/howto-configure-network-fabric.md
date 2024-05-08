@@ -45,7 +45,7 @@ The following table specifies parameters used to create Network Fabric,
 | Parameter | Description | Example | Required | Type|
 |-----------|-------------|---------|----------|----------|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
-| location | Operator-Nexus Azure region | "Location" |True | 
+| location | Operator-Nexus Azure region | "<Location>" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
 |  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Four SKUs are supported (**M4-A400-A100-C16-aa**, **M8-A400-A100-C16-aa**, **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
 |nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
@@ -83,7 +83,7 @@ Run the following command to create the Network Fabric:
 
 az networkfabric fabric create \ 
 --resource-group "NFResourceGroupName" 
---location "Location" \
+--location "<Location>" \
 --resource-name "NFName" \
 --nf-sku "NFSKU" \
 --nfc-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName" 
@@ -106,7 +106,7 @@ Expected output:
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
   "name": "NFName",
   "type": "microsoft.managednetworkfabric/networkfabrics",
-  "location": "Location",
+  "location": "<Location>",
   "systemData": {
     "createdBy": "97fdd529-68de-4ba5-aa3c-adf86bd564bf",
     "createdByType": "Application",
@@ -196,7 +196,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "Location",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -289,7 +289,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "Location",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -404,7 +404,7 @@ Run the following command to create the Network to Network Interconnect (Default
 
 az networkfabric nni create \
 --resource-group "NFResourceGroup" \
---location "Location" \
+--location "<Location>" \
 --resource-name "NFNNIName" \
 --fabric "NFFabric" \
 --is-management-type "True" \
@@ -573,7 +573,7 @@ Expected output:
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
   "name": "Network-Device-Name",
   "type": "microsoft.managednetworkfabric/networkdevices",
-  "location": "Location",
+  "location": "<Location>",
   "systemData": {
     "createdBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
     "createdByType": "Application",
@@ -622,7 +622,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "CE",
     "networkDeviceSku": "DefaultSku",
@@ -646,7 +646,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "AR-MGMT2",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -670,7 +670,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "NPB",
     "networkDeviceSku": "DefaultSku",
@@ -694,7 +694,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "CE",
     "networkDeviceSku": "DefaultSku",
@@ -718,7 +718,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -742,7 +742,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -766,7 +766,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -790,7 +790,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -814,7 +814,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -838,7 +838,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
@@ -862,7 +862,7 @@ Expected output:
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "Location",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
@@ -897,7 +897,7 @@ Expected output:
   "configurationState": "Succeeded",
   "hostName": "example-hostname",
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-  "location": "Location",
+  "location": "<Location>",
   "name": "Network-Device-Name",
   "networkDeviceRole": "ToR",
   "networkDeviceSku": "DefaultSku",
@@ -943,7 +943,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "Location",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1037,7 +1037,7 @@ Expected output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "Location",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1138,7 +1138,7 @@ Sample output:
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "Location",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
