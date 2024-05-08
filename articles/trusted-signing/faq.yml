@@ -17,12 +17,13 @@ sections:
     questions:
       - question: What Windows versions does Trusted Signing support?
         answer: | 
-          For details about Windows support for Trusted Signing, see [Trusted Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4).
-          The service is supported on all currently supported versions of:
-    
-          - General User Mode Code Integrity (UMCI) support for Trusted Signing.
+          The service is supported on all currently supported versions of General User Mode Code Integrity (UMCI).  
+          
+          UMCI support for Trusted Signing: 
 
-             - Support for signed binaries was added in the July 2021 Certificate Trust List (CTL) update delivered by Windows. In typical scenarios, when an end-entity certificate from a chain is encountered on a machine, the system retrieves the root CA certificate and adds it to the trust root store.  
+          - Support for signed binaries was added in the July 2021 Certificate Trust List (CTL) update delivered by Windows. In typical scenarios, when an end-entity certificate from a chain is encountered on a machine, the system retrieves the root CA certificate and adds it to the trust root store.  
+
+          For more information about Windows support for Trusted Signing, see [Trusted Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4).  
       - question: How do I grant API access to Trusted Signing in Microsoft Entra ID?
         answer: | 
          Ask your tenant admin to provide you with an approval. For more information about permissions, see these articles:
@@ -31,16 +32,17 @@ sections:
           - [Review permissions granted to applications](https://learn.microsoft.com/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal)
       - question: What if I don't see Microsoft.CodeSigning as a resource provider? 
         answer: | 
-          Register the Microsoft.CodeSigning app on the subscription resource provider pane by using the following figure as a guide:
+          Register the Microsoft.CodeSigning app on the subscription **Resource providers** pane by using the following figure as a guide:
           
           :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png":::
 
       - question: What if I fail identity validation?
         answer: | 
-          To verify the result of your identity verification request: 
-          - A link to verify whether identity validation was successful is sent to the primary email address that you provide when you request identity validation. We recommend that you use the link to check to see if you failed identity validation and why. You must use the link within seven days of receiving the link.
-          Steps to take if your identity validation request fails:
-          - If the validation team is unable to make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In that scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+          To verify the result of your identity verification request:  
+          - A link to verify whether identity validation was successful is sent to the primary email address that you provide when you request identity validation. We recommend that you use the link to check to see if you failed identity validation and why. You must use the link within seven days of receiving the link.  
+
+          Steps to take if your identity validation request fails:  
+          - If the validation team is unable to make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: What is the cost of using Trusted Signing?
         answer: | 
           Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
@@ -54,11 +56,12 @@ sections:
           Follow the persistent identity guidance in the [MSIX persistent identity](/windows/msix/package/persistent-identity) article.
       - question: Does deleting a certificate profile revoke the certificates? 
         answer: |
-          No. If you delete a certificate profile, any certificates that were previously issued or used under that profile remaina valid. The certificates aren't revoked.
+          No. If you delete a certificate profile, any certificates that were previously issued or used under that profile remain valid. The certificates aren't revoked.
       - question: Can I use a custom CN with Trusted Signing? 
         answer: |
           For CN:
-          - Per Certification Authority/Browser Forum (CA/Browser Forum) Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must be the legal entity's validated name (for example, Microsoft Corporation), so there's no flexibility in CN values.
+          - Per Certification Authority/Browser Forum (CA/Browser Forum) Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must be the legal entity's validated name (for example, Microsoft Corporation), so there's no flexibility in CN values.  
+
           For O:
           - At, this time the service doesn't support customization.
       - question: What do I do if the New identity validation button in the Azure portal is greyed out?
@@ -98,7 +101,7 @@ sections:
           - Confirm that the version of SignTool that's installed and the dlib are both 64-bit.
           - Download and install [C++ Redistributables](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170).
           - Search for the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool).
-          - We recommend that you use [this version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
+          - We recommend that you use [a specific version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
       - question: How do I check whether the time stamp service is healthy? 
         answer: |
           Run the following command: `curl http://timestamp.acs.microsoft.com`. If status code 200 is returned, the time stamp service is healthy and running. 
