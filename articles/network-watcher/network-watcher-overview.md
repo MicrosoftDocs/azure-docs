@@ -54,7 +54,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### IP flow verify
 
-**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic. For more information, see [IP flow verify overview](ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+**IP flow verify** allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which Network Security Group (NSG) rule allowed or denied the traffic. For more information, see [IP flow verify overview](ip-flow-verify-overview.md) and [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### NSG diagnostics
 
