@@ -117,4 +117,4 @@ Azure Container Apps offers support for the following Spring Components as manag
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure build environment variables](java-build-environment-variables.md)
+> [Launch your first Java App](java-quickstart.md)

@@ -1,25 +1,22 @@
 ---
-title: Deploy a WAR file on Tomcat in Azure Container Apps
-description: Learn how to deploy a WAR file on Tomcat in Azure Container Apps.
+title: Launch your first Java application in Azure Container Apps
+description: Learn how to deploy a java project in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
-ms.topic: tutorial
-ms.date: 02/27/2024
+ms.topic: quickstart
+ms.date: 05/07/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Deploy a WAR file on Tomcat in Azure Container Apps
+# Quickstart: Launch your first Java application in Azure Container Apps
 
-Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java application directly from a web application archive (WAR) file. This article demonstrates how to deploy a Java application on Tomcat using a WAR file to Azure Container Apps.
+This article explains how to deploy a Spring PetClinic sample application to run on Azure Container Apps. By the end of this tutorial you will get an application accessible online, and you can manage it through the Azure portal.
 
-By the end of this tutorial you deploy an application on Container Apps that displays the home page of the Spring PetClinic sample application.
+Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java application directly from a Java Archive(JAR) file or a web application archive (WAR) file.
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic app.":::
-
-> [!NOTE]
-> If necessary, you can specify the Tomcat version in the build environment variables.
 
 ## Prerequisites
 
@@ -32,7 +29,39 @@ By the end of this tutorial you deploy an application on Container Apps that dis
 | Java | Install the [Java Development Kit](/java/openjdk/install). Use version 17 or later. |
 | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
 
-## Deploy a WAR file on Tomcat
+## Prepare the project
+
+### [JAR](#tab/jar)
+1. Get the sample application.
+
+    Clone the Spring PetClinic sample application to your machine.
+
+    ```bash
+    git clone https://github.com/spring-projects/spring-petclinic.git
+    ```
+
+1. Build the JAR package.
+> [!NOTE]
+> If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
+
+    First, change into the *spring-framework-petclinic* folder.
+
+    ```bash
+    cd spring-framework-petclinic
+    ```
+
+    Then, clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+
+    After you execute the build command, a file named *petclinic.jar* is generated in the */target* folder.
+
+### [WAR](#tab/war)
+
+> [!NOTE]
+> If necessary, you can specify the Tomcat version in the [Java build environment variables](java-build-environment-variables.md).
 
 1. Get the sample application.
 
@@ -57,8 +86,31 @@ By the end of this tutorial you deploy an application on Container Apps that dis
     ```
 
     After you execute the build command, a file named *petclinic.war* is generated in the */target* folder.
-  
-1. Deploy the WAR package to Azure Container Apps.
+
+## Deploy the project
+
+### [JAR](#tab/jar)
+    Deploy the JAR package to Azure Container Apps.
+
+    Now you can deploy your WAR file with the `az containerapp up` CLI command.
+
+    ```azurecli
+    az containerapp up \
+      --name <YOUR_CONTAINER_APP_NAME> \
+      --resource-group <YOUR_RESOURCE_GROUP> \
+      --subscription <YOUR_SUBSCRIPTION>\
+      --location <LOCATION> \
+      --environment <YOUR_ENVIRONMENT_NAME> \
+      --artifact <YOUR_JAR_FILE_PATH> \
+      --ingress external \
+      --target-port 8080 \
+      --query properties.configuration.ingress.fqdn
+    ```
+
+    You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
+
+### [WAR](#tab/war)
+    Deploy the WAR package to Azure Container Apps.
 
     Now you can deploy your WAR file with the `az containerapp up` CLI command.
 
@@ -83,7 +135,7 @@ By the end of this tutorial you deploy an application on Container Apps that dis
 
     You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
 
-1. Verify the app status.
+## Verify the app status.
 
     In this example, `containerapp up` command includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL.
 
