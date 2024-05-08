@@ -58,4 +58,5 @@ By comparing the recordings, you may be able to determine where the issue is com
 We found in some scenarios that when the browser is playing sound, especially if the sound is loud,
 and the user starts speaking, the user's audio input in the first few seconds may be overly processed,
 leading to distortion in the sound. This can be observed by comparing the ref\_out.wav and input.wav files in aecdump files.
+In this case, reducing the volume of audio playing sound may help.
 
