@@ -128,7 +128,7 @@
           href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
-        - name: Debug event handlers locally
+        - name: Debug event handlers
           href: howto-local-debug-event-handler.md
         - name: Collect network trace
           href: howto-troubleshoot-network-trace.md
