@@ -22,6 +22,29 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## May 2024
+### Packet core 2404
+
+**Type:** New release
+
+**Date available:** May 9, 2024
+
+The 2404 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2404 release notes](azure-private-5g-core-release-notes-2404.md).
+
+### High Availability
+
+***TBC***.
+
+### In Service Software Upgrade 
+
+In our commitment to continuous improvement and minimizing service impact, we’re excited to announce that future release updates of
+either of both AP5GC and ASE will include the capability for In-Service Software Upgrades (ISSU). This means that during a designated maintenance window, software upgrades can be performed seamlessly, ensuring minimal disruption to your services.
+
+### Azure Resource Health 
+
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health, a service which processes and displays health signals from your resource and displays the health in the Azure portal. This gives you a personalised dashboard showing all the times your resource has been unavailable or in a degraded state, along with recommended actions to take to restore health.
+For more information, see [Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview).
+
 ## April 2024
 ### Packet core 2403
 
