@@ -409,7 +409,7 @@
   items:
     - name: Access preview features
       href: ../access-previews.md
-    - name: How to change capacity mode
+    - name: Change capacity mode
       href: how-to-change-capacity-mode.md
     - name: Develop applications
       items:
