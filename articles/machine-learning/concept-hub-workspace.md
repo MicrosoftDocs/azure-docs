@@ -108,4 +108,5 @@ To learn more about setting up Azure Machine Learning, see:
 + [Get started with Azure Machine Learning](quickstart-create-resources.md)
 
 To learn more about hub workspace support in AI Studio, see:
+
 + [How to configure a managed network for hubs](../ai-studio/how-to/configure-managed-network)
