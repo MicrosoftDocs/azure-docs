@@ -80,7 +80,7 @@ selected call.
 
 The search field allows you to search by callID. See our documentation to [access your client call ID.](../troubleshooting-info.md#access-your-client-call-id)
 
-![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/cd-all-calls.png)
+![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/cd-all-calls2.png)
 
 
 > [!NOTE]
@@ -94,7 +94,7 @@ the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
 directly or navigate to the Call Issues tab for further analysis.
 
-![Screenshot of the Call Diagnostics Call Overview tab which which shows you an overview of the call you selected in the previous Call Search view.](media/cd-call-overview.png)
+![Screenshot of the Call Diagnostics Call Overview tab which which shows you an overview of the call you selected in the previous Call Search view.](media/cd-call-overview2.png)
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -110,7 +110,7 @@ failures during a call. If you want to explore a detected issue, select
 the highlighted item and you'll see a pre-populated view of the
 related events in the Timeline tab.
 
-![Screenshot of the Call Diagnostics Call Issues tab showing you the top issues detected in the call you selected.](media/cd-call-issues.png)
+![Screenshot of the Call Diagnostics Call Issues tab showing you the top issues detected in the call you selected.](media/cd-call-issues2.png)
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -129,7 +129,7 @@ results and reduce complexity.
 
 You can view detailed call logs for each participant within a call. Call information may not be present, this can be due to various reasons such as privacy constraints between different calling resources. See frequently asked questions to learn more.
 
-![Screenshot of the Call Diagnostics Call Timeline tab showing you the detailed events in a timeline view for the call you selected.](media/cd-call-timeline.png)
+![Screenshot of the Call Diagnostics Call Timeline tab showing you the detailed events in a timeline view for the call you selected.](media/cd-call-timeline2.png)
 
 <!-- > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
@@ -271,6 +271,9 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 ## Next steps
 
 - Learn how to manage call quality, see: [Improve and manage call quality](manage-call-quality.md)
+
+
+- Explore troubleshooting guidance, see: [Overview of general troubleshooting strategies](../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md) 
 
 - Continue to learn other quality best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 
