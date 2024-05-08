@@ -58,8 +58,12 @@
       href: jobs.md
     - name: Dynamic sessions
       items:
+      - name: Overview
+        href: sessions.md
       - name: Code interpreter sessions
         href: sessions-code-interpreter.md
+      - name: Custom container sessions
+        href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
     - name: Build and deliver apps with Container Apps (video)
@@ -136,6 +140,8 @@
               href: sessions-tutorial-llamaindex.md
             - name: Semantic Kernel
               href: sessions-tutorial-semantic-kernel.md
+          - name: Custom container sessions
+            href: sessions-tutorial-custom-container.md
     - name: Event-driven processing
       items:
         - name: With an app
