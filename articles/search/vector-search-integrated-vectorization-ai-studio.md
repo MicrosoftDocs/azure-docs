@@ -48,7 +48,7 @@ After the model is deployed, you can use it for [integrated vectorization](vecto
 
    + To use the model during indexing, see [steps to enable integrated vectorization](vector-search-integrated-vectorization.md#how-to-use-integrated-vectorization). Be sure to use the [Azure Machine Learning (AML) skill](cognitive-search-aml-skill.md), and not the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md). The next section describes the skill configuration.
 
-   + To use the model as a vectorizer at query time, see [Configure a vectorizer](vector-search-how-to-configure-vectorizer.md). Be sure to use the [AML vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for this step.
+   + To use the model as a vectorizer at query time, see [Configure a vectorizer](vector-search-how-to-configure-vectorizer.md). Be sure to use the [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for this step.
 
 ## Sample AML skill payloads
 
@@ -65,14 +65,14 @@ This AML skill payload works with the following models from AI Studio:
 
 It assumes that you're chunking your content using the [Text Split skill](cognitive-search-skill-textsplit.md) and that the text to be vectorized is in the `/document/pages/*` path. If your text comes from a different path, update all references to the `/document/pages/*` path accordingly.
 
-The URI and key values are generated when you deploy an embedding model from the model catalog. You can get these values from your project in Azure AI Studio.
+The URI and key are generated when you deploy the model from the catalog. For more information about these values, see [How to deploy large language models with Azure AI Studio](/azure/ai-studio/how-to/deploy-models-open).
 
 ```json
 {
   "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
   "context": "/document/pages/*",
-  "uri": "{YOUR_AZURE_AI_STUDIO_DEPLOYED_MODEL_URL_HERE}",
-  "key": "{YOUR_AZURE_OPENAI_PRIMARY_KEY_HERE}",
+  "uri": "{YOUR_MODEL_URL_HERE}",
+  "key": "{YOUR_MODEL_KEY_HERE}",
   "inputs": [
     {
       "name": "input_data",
@@ -112,12 +112,14 @@ This AML skill payload works with the following models from AI Studio:
 
 It assumes that your images come from the `/document/normalized_images/*` path that is created by enabling [built in image extraction](cognitive-search-concept-image-scenarios.md). If your images come from a different path or are stored as URLs, update all references to the `/document/normalized_images/*` path according.
 
+The URI and key are generated when you deploy the model from the catalog. For more information about these values, see [How to deploy large language models with Azure AI Studio](/azure/ai-studio/how-to/deploy-models-open).
+
 ```json
 {
   "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
   "context": "/document/normalized_images/*",
-  "uri": "{YOUR_AZURE_AI_STUDIO_DEPLOYED_MODEL_URL_HERE}",
-  "key": "{YOUR_AZURE_OPENAI_PRIMARY_KEY_HERE}",
+  "uri": "{YOUR_MODEL_URL_HERE}",
+  "key": "{YOUR_MODEL_HERE}",
   "inputs": [
     {
       "name": "input_data",
@@ -157,12 +159,14 @@ It assumes that you're chunking your content using the SplitSkill and therefore 
 
 You must add the `/v1/embed` path onto the end of the URL that you copied from your AI Studio deployment. You might also change the values for the `input_type`, `truncate` and `embedding_types` inputs to better fit your use case. For more information on the available options, review the [Cohere Embed API reference](../ai-studio/how-to/deploy-models-cohere-embed.md#v1embed).
 
+The URI and key are generated when you deploy the model from the catalog. For more information about these values, see [How to deploy Cohere Embed models with Azure AI Studio](/ai-studio/how-to/deploy-models-cohere-embed).
+
 ```json
 {
   "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
   "context": "/document/pages/*",
-  "uri": "{YOUR_AZURE_AI_STUDIO_DEPLOYED_MODEL_URL_HERE}/v1/embed",
-  "key": "{YOUR_AZURE_OPENAI_PRIMARY_KEY_HERE}",
+  "uri": "{YOUR_MODEL_URL_HERE}/v1/embed",
+  "key": "{YOUR_MODEL_KEY_HERE}",
   "inputs": [
     {
       "name": "texts",
