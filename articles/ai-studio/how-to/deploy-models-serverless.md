@@ -1,5 +1,5 @@
 ---
-title: Azure AI Model Inference API
+title: Deploy models as serverless APIs
 titleSuffix: Azure AI Studio
 description: Learn about to deploy models as serverless API.
 manager: scottpolly
