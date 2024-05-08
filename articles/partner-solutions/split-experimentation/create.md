@@ -18,9 +18,9 @@ Split Experimentation allows you to run A/B tests for your applications and gath
 ## Prerequisites
 
 - An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-- An Entra ID app with required configuration <!--Add link to Entra ID doc when doc is merged-->
+- An [Entra ID app with required configuration](./how-to-set-up-data-access.md).
 - An [Azure storage account](../../storage/common/storage-account-create.md)
-- A Workspace-based Application Insights resource connected to an App Configuration store. <!--Add link to How to create experiments in App Configuration > ## Add an Application Insights resource to your App Configuration store when doc is merged-->
+- A [Workspace-based Application Insights resource connected to an App Configuration store](../../azure-app-configuration/run-experiments-aspnet-core.md#connect-an-application-insights-preview-resource-to-your-configuration-store).
 
 ## Create a Split Experimentation Workspace from an App Configuration store
 
@@ -74,9 +74,7 @@ The Azure portal provides direct access to create a Split Experimentation Worksp
 
 [!INCLUDE [Split Experimentation Workspace create form](../includes/split-experimentation-workspace-create-form.md)]
 
-## Next steps
+## Next step
 
-<!--content tbd
-- Manage Split Experimentation Workspace
-- How to set up experiments in Azure App Configuration
--->
+> [!div class="nextstepaction"]
+> [Manage Split Experimentation Workspace](manage.md)

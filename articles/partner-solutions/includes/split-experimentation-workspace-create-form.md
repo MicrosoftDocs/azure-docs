@@ -34,6 +34,6 @@ ms.author: malev
 
     :::image type="content" source=".\media\split-experimentation\create-data-access-policy-tab.png" alt-text="Screenshot of the Azure portal, filling out the data access policy tab to create a new resource.":::
 
-    If your group already uses a shared enterprise application, you may contact the administrator of your group to add you as a user. Otherwise, create and set up your Microsoft Entra ID application for Split Experimentation Workspace<!--link to the Microsoft Entra ID doc)-->, then add yourself as a user.
+    If your group already uses a shared enterprise application, you may contact the administrator of your group to add you as a user. Otherwise, [create and set up your Microsoft Entra ID application](../../partner-solutions/split-experimentation/how-to-set-up-data-access.md) for Split Experimentation Workspace, then add yourself as a user.
 
 1. Under **Review + create**, review the information listed for your new Split Experimentation resource, read the terms, and select **Create**.
