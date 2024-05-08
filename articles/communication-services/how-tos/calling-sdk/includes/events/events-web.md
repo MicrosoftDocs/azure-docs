@@ -179,7 +179,7 @@ The `isMutedChanged` event is fired when the call is muted or unmuted.
 
 <details>
 <summary>View event details</summary>
-**How might your application react to the event ?**
+**How might your application react to the event?**
 
 Your application should update the mute / unmute button to the proper state.
 
@@ -361,12 +361,12 @@ call.on('roleChanged', () => {
 
 ### Event: `mutedByOthers`
 
-The `mutedByOthers` event happens when other participant in the call have muted the local participant.
+The `mutedByOthers` event happens when other participants in the call muted the local participant.
 
 <summary>View event details</summary>
 
 **How might your application react to the event?**
-Your application should display a message to the user notifying it has been muted.
+Your application should display a message to the user notifying it was muted.
 
 **Code Sample:**
 
@@ -474,7 +474,7 @@ The `videoStreamsUpdated` when a remote participant adds or removes a VideoStrea
 
 **How might your application react to the event?**
 
-If your application was processing a stream that is removed. Your application should stop the processing. When a new stream is added your application may want to render or process it.
+If your application was processing a stream that is removed. Your application should stop the processing. When a new stream is added, your application may want to render or process it.
 
 **Code Sample:**
 
@@ -507,7 +507,7 @@ This event occurs when the audio effect selected is applied to the audio stream.
 
 **How might your application react to the event?**
 
-Your application can display or enable a button that allow the user to disable the audio effect.
+Your application can display or enable a button that allows the user to disable the audio effect.
 
 **Code Sample:**
 
@@ -528,7 +528,7 @@ This event occurs when the audio effect selected is applied to the audio stream.
 
 **How might your application react to the event?**
 
-Your application can display or enable a button that allow the user to enable the audio effect.
+Your application can display or enable a button that allows the user to enable the audio effect.
 
 **Code Sample:**
 
@@ -549,7 +549,7 @@ This event occurs when an error happens while an audio effect is started or appl
 
 **How might your application react to the event?**
 
-Your application should display an alert or an error message that the audio effect is not working as expected.
+Your application should display an alert or an error message that the audio effect isn't working as expected.
 
 **Code Sample:**
 
