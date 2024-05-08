@@ -73,10 +73,6 @@ The models are made available through [Azure Machine Learning registries](concep
 
 * Supports enterprise security requirements as [limiting access to models with Azure Policy](how-to-regulate-registry-deployments.md) and [secure deployment with managed virtual networks](how-to-network-isolation-model-catalog.md). 
 
-### Evaluating and fine-tuning models deployed as Real-time endpoints
-
-You can evaluate and fine-tune in the "Curated by Azure AI" collection in Azure Machine Learning using Azure Machine Learning Pipelines. You can either choose to bring your own evaluation and fine-tuning code and just access model weights or use Azure Machine Learning components that offer built-in evaluation and fine-tuning capabilities. Learn more about how to use [Foundation Models](how-to-use-foundation-models.md).
-
 ### Deploying models for inference as Real-time endpoints 
 
 Models available for deployment to Real-time endpoints can be deployed to Azure Machine Learning Online Endpoints for real-time inference or can be used for Azure Machine Learning Batch Inference to batch process your data. Deploying to Online endpoints requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](how-to-use-foundation-models.md). Learn more about deploying models: 
@@ -84,7 +80,7 @@ Models available for deployment to Real-time endpoints can be deployed to Azure 
 * [Deploy Meta Llama models](deploy-models-llama.md) 
 * [Deploy Open models Created by Azure AI](deploy-models-open.md)
 
-### Building Generative AI Apps with Real-time endpoints
+### Build Generative AI Apps with Real-time endpoints
 
 Prompt flow offers a great experience for prototyping. You can use models deployed as Real-time endpoints in Prompt Flow with the [Open Model LLM tool](/prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
@@ -93,12 +89,7 @@ Prompt flow offers a great experience for prototyping. You can use models deploy
 
 [Azure AI Content Safety (AACS)](/ai-services/content-safety/overview/) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
-### Working with models not in the Model Catalog 
-
-For models not available in the Model Catalog, Azure Machine Learning provides an open and extensible platform for working with models of your choice. You can bring a model with any framework or runtime using Azure Machine Learning's open and extensible platform capabilities such as [Azure Machine Learning environments](concept-environments.md) for containers that can package frameworks and runtimes and [Azure Machine Learning pipelines](concept-ml-pipelines.md) for code to evaluate or fine-tune the models. Refer to this notebook for sample reference to import models and work with the [built-in runtimes and pipelines](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
-
-
-## Models as a Service (Pay-as-you-go)
+### Models as a Service (Pay-as-you-go)
 
 Certain models in the Model Catalog can be deployed using Pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS). Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with token-based pricing.   
 
@@ -108,15 +99,15 @@ Certain models in the Model Catalog can be deployed using Pay-as-you-go billing;
 
 Models that are available for pay-as-you-go deployment are offered by the model provider but hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models, while Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content output by models deployed via MaaS. Learn more about data processing for MaaS at the [data privacy](concept-data-privacy.md) article. 
 
-### Paying for model usage in MaaS    
+### Pay for model usage in MaaS    
 
 The discovery, subscription, and consumption experience for models deployed via MaaS is in the Azure AI Studio and Azure Machine Learning Studio. Users accepted, during deployment. Models from third party providers are billed through Azure Marketplace, in accordance with the [Commercial Marketplace Terms of Use](../legal/marketplace/marketplace-terms.md); models from Microsoft are billed using Azure meters as First Party Consumption Services. As described in the [Product Terms](../licensing/terms/welcome/welcomepage.md), First Party Consumption Services are available for purchase using Azure meters but aren't Azure products and the Azure terms don't apply; the license terms provided with the model apply. 
 
-### Deploying models for inference through MaaS 
+### Deploy models for inference through MaaS 
 
 Deploying a model through MaaS allows users to get access to ready to use inference APIs without the need to configure infrastructure or provision GPUs, saving engineering time and resources. These APIs can be integrated with several LLM tools and usage is billed as described in the previous section. 
 
-### Fine-tuning models through MaaS with Pay-as-you-go 
+### Fine-tune models through MaaS with Pay-as-you-go 
 
 For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
 

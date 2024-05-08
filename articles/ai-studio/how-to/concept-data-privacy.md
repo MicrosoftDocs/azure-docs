@@ -24,7 +24,7 @@ When you deploy models in Azure AI Studio, the following types of data are proce
 
 **Uploaded** **data**. For models that support fine-tuning, customers can upload their data to a [datastore](../concepts/connections.md#connections-to-datastores) for use for fine-tuning.
 
-**Generating inferencing outputs** **with** **real-time endpoints**
+**Generate inferencing outputs** **with** **real-time endpoints**
 
 Deploying models to managed online endpoints deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the Model Catalog to real-time endpoints [here](model-catalog-overview.md). You manage the infrastructure for these real-time endpoints, and Azure's data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3).
 
@@ -32,7 +32,7 @@ Although containers for models "Curated by Azure AI" are scanned for vulnerabili
 
 :::image type="content" source="../media/explore/platform-service.png" alt-text="A diagram showing the platform service life cycle." lightbox="../media/explore/platform-service.png":::
 
-**Generating inferencing outputs with pay-as-you-go** **deployments (Models-as-a-Service)** 
+**Generate inferencing outputs with pay-as-you-go** **deployments (Models-as-a-Service)** 
 -
 When you deploy a model from the Model Catalog (base or fine-tuned) to a pay-as-you-go managed endpoint for inferencing, an API is provisioned giving you access to the model in a central GPU managed by Microsoft. Learn more about Models-as-a-Service in [Model catalog and collections](./model-catalog-overview.md). The model processes your input prompts and generates outputs based on the functionality of the model, as described in the model details provided for the model. While the model is provided by the model provider, and your use of the model (and the model provider's accountability for the model and its outputs) is subject to the license terms provided with the model, Microsoft provides and manages the hosting infrastructure and API endpoint. The models hosted in Models-as-a-Service are subject to Azure's data, privacy, and security commitments. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3). 
 
@@ -43,7 +43,7 @@ Microsoft acts as the data processor for prompts and outputs sent to and generat
 > [!NOTE]
 > As explained during the deployment process for Models-as-a-Service, Microsoft may share customer contact information and transaction details (including usage volume associated with the > offering) with the model publisher so that they can contact customers regarding the model. Learn more about information available to model publishers here [Analytics for the Microsoft > commercial marketplace in Partner Center - Partner Center | Microsoft Learn](https://learn.microsoft.com/partner-center/analytics)]. 
 
-**Fine-tuning a model for pay-as-you-go** **deployment (Models-as-a-Service)**
+**Fine-tune a model for pay-as-you-go** **deployment (Models-as-a-Service)**
 
 If a model available for pay-as-you-go deployment (MaaS) supports fine-tuning, you can upload data to (or designate data already in) a [datastore](../concepts/connections.md#connections-to-datastores) to fine-tune the model. You can then create a pay-as-you-go deployment for the fine-tuned model. The fine-tuned model can't be downloaded, but the fine-tuned model:
 
