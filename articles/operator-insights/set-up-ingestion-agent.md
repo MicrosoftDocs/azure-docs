@@ -322,15 +322,12 @@ The configuration you need is specific to the type of source and your Data Produ
 
 ## [Optional] Configure log collection for access through Azure Monitor
 
-Accessing logs on the VM can be difficult. To make diagnosing issues with ingestion easier, you can set up collection of logs through Azure Monitor. You can set up log collection for Azure VMs, and also machines deployed in other environments (referred to as hybrid machines) by using Azure Arc.
+If you're running the ingestion agent on an Azure VM or on an on-premises VM connected by Azure Arc, you can send ingestion agent logs to Azure Monitor using the Azure Monitor Agent. Using Azure Monitor to access logs can be simpler than accessing logs directly on the VM.
 
-To collect agent logs, follow these instructions to install the Azure Monitor Agent, and configure the logs to be collected - [Collect logs from text or JSON files](../azure-monitor/agents/data-collection-text-log.md).
+To collect ingestion agent logs, follow [the Azure Monitor documentation to install the Azure Monitor Agent and configure log collection](../azure-monitor/agents/data-collection-text-log.md).
 
-- When creating a table for storing the logs, you can follow the PowerShell instructions in the Azure Monitor documentation, or use the Log Analytics workspace portal view to create an `MMA-based` table
-  - Creating a table through the portal requires a sample log file. You can find a sample logs.
-  - Use a record delimiter of `Timestamp` with the format `yyyy-MM-ddTHH:mm:ssK`  
-    :::image type="content" source="media/configure-custom-logs-table.png" alt-text="A screenshot of configuring a logs table in the Azure portal":::
-  - You don't need to add any custom columns
+- These docs use the Az PowerShell module to create a logs table. Follow the [Az PowerShell module install documentation](https://learn.microsoft.com/powershell/azure/install-azure-powershell) first.
+  - The `YourOptionalColumn` section from the sample `$tableParams` JSON is unnecessary for the ingestion agent, and can be removed.
 - When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
 - After adding the data collection rule, you can query these logs through the Log Analytics workspace. Use the following query to make them easier to work with:
   ```
@@ -339,7 +336,8 @@ To collect agent logs, follow these instructions to install the Azure Monitor Ag
   | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message  // Parse the log lines into the TimeGenerated, Level and Message columns for easy filtering
   | order by TimeGenerated desc
   ```
-  - Note, this query can't be used as a data source transform since `replace_regex` isn't available in data source transforms
+  > [!NOTE]
+  > This query can't be used as a data source transform, because `replace_regex` isn't available in data source transforms.
 
 ### Sample logs
 ```
