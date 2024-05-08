@@ -66,7 +66,7 @@ Other models | Available | Not available
 
 The capability to deploy models to real-time endpoints builds on platform capabilities of Azure Machine Learning to enable seamless integration, across the entire LLMOps lifecycle, of the wide collection of models in the Model Catalog. 
 
-:::image type="content" source="media/concept-model-catalog/llmops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle." lightbox="media/concept-model-catalog/llmops-life-cycle.png":::
+:::image type="content" source="media/concept-model-catalog/llm-ops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle." lightbox="media/concept-model-catalog/llm-ops-life-cycle.png":::
 
 ### How are models made available for Real-time endpoints?
 
