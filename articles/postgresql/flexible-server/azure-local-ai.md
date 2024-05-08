@@ -15,7 +15,7 @@ ms.custom:
 
 # What is Azure Database for PostgreSQL - Flexible Server: azure_local_ai extension (Preview)
 
-The azure_local_ai extension for Azure Database for PostgreSQL flexible server allows you to use registered, pretrained, open-source models deployed locally to your Azure Database for PostgreSQL server. These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency by removing the need to make more remote API calls to AI embedding models hosted outside of the PostgreSQL boundary. In this release, the extension deploys a single model, multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small), to your Azure Database for PostgreSQL Flexible Server instance. Other third-party open-source models might become available for installation on an ongoing basis.
+The azure_local_ai extension for Azure Database for PostgreSQL flexible server allows you to use registered, pretrained, open-source models deployed locally to your Azure Database for PostgreSQL server. These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency by removing the need to make more remote API calls to AI embedding models hosted outside of the PostgreSQL boundary. In this release, the extension deploys a single model, [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small), to your Azure Database for PostgreSQL Flexible Server instance. Other third-party open-source models might become available for installation on an ongoing basis.
 
 Local embeddings help customers:
 
@@ -88,7 +88,7 @@ Installing the extension azure_local_ai creates the following schema:
 
 ## Functions provided by the azure_local_ai extension
 
-The azure_local_ai extension provides a set of functions that enable you to apply registered, pretrained, open-source models deployed locally to your Azure Database for PostgreSQL server. These functions allow you to create vector embeddings from text data, making it easier to develop generative AI applications. The extension offers functions for creating embeddings, getting settings, loading and unloading models, and more. By using these functions, you can simplify the development process and reduce latency by eliminating the need for additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary.
+The azure_local_ai extension provides a set of functions. These functions allow you to create vector embeddings from text data, making it easier to develop generative AI applications. The extension offers functions for creating embeddings, getting settings, and more. By using these functions, you can simplify the development process and reduce latency by eliminating the need for additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary.
 
 |  Schema  |  Name  |  Result data type  |  Argument data types  |  
 |---|---|---|---|
@@ -111,10 +111,29 @@ These can be displayed via the PSQL command,
 \df azure_local_ai.*
 ```
 
+# ONNX Runtime Configuration
+
+azure_local_ai supports changing configuration parameters of ONNX Runtime thread-pool within the ONNX Runtime Service. Changes are not allowed when a model is loaded into memory. You must unload all models and then apply configuration changes. (No restart required). Currently supported list of parameters:
+
+- intra_op_parallelism: chooses total number of threads used for parallelizing single operator by ONNX Runtime thread-pool. By default, we maximize the number of intra ops threads as much as possible as it improves the overall throughput much (all available cpus by default).
+- inter_op_parallelism: chooses total number of threads used for computing multiple operators in parallel by ONNX Runtime thread-pool. By default, we set it to minimum possible thread, which is 1. Increasing it often hurts performance due to frequent context switches between threads.
+- spin_control: switches ONNX Runtime thread-pool's spinning for requests. When disabled, it uses less cpu and hence causes more latency. By default, it is set to true (enabled).
+
+>[!NOTE]
+> Only a member of the azure_pg_admin role can make these changes. 
+
+You can review these settings with the get_setting function. 
+
+```psql
+local_ai.get_setting()
+```
+
+[See ONNX Runtime performance tuning.](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
+
 ## Permissions
 
-Only users with the azure_pg_admin or azure_local_ai_setting_manager role in PostgreSQL can change the settings within azure_local_ai.
+Only users with the azure_pg_admin role in PostgreSQL can change the settings within azure_local_ai.
 
 ## Related content
-
+- Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview) 
 - [How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server](how-to-use-pgvector.md)
