@@ -734,6 +734,20 @@
           href: how-to-secure-rag-workflows.md
         - name: RAG cloud to local 
           href: how-to-retrieval-augmented-generation-cloud-to-local.md
+    - name: Azure AI Model Inference API
+      items:
+        - name: What's the Azure AI Model Inference API?
+          href: reference-model-inference-api.md
+        - name: Reference
+          items:
+            - name: Embeddings
+              href: reference-model-inference-embeddings.md
+            - name: Images/Embeddings
+              href: reference-model-inference-embeddings.md
+            - name: reference
+              href: concept-model-inference-completions.md
+            - name: Chat/Completions
+              href: reference-model-inference-chat.md
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview

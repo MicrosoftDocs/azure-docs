@@ -72,11 +72,6 @@ In this example, you learn how to configure an existing serverless API endpoint 
     from azure.ai.ml.entities import ServerlessEndpoint, ServerlessConnection
     ```
 
-    # [ARM](#tab/arm)
-
-    You can use any compatible web browser to [deploy ARM templates](../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
-
-
 ## Create a serverless API endpoint connection
 
 Follow these steps to create a connection:
@@ -109,10 +104,6 @@ Follow these steps to create a connection:
     )
     ```
 
-    # [ARM](#tab/arm)
-
-    You can use any compatible web browser to [deploy ARM templates](../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
-
 1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, we get the details for an endpoint name **meta-llama3-8b-qwerty**.
 
     # [Portal](#tab/portal)
@@ -137,8 +128,6 @@ Follow these steps to create a connection:
     print(endpoint_keys.primary_key)
     print(endpoint_keys.secondary_key)
     ```
-
-    # [ARM](#tab/arm)
 
 1. Connect now to the workspace where you need to create the connection and consume the endpoint.
 
@@ -190,8 +179,6 @@ Follow these steps to create a connection:
         api_key="1234567890qwertyuiop"
     ))
     ```
-
-    # [ARM](#tab/arm)
 
 1. At this point, the connection is available for consumption.
 
