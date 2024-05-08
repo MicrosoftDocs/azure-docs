@@ -11,51 +11,25 @@ ms.author: ankitadutta
 ---
 # Azure Site Recovery support for Azure trusted launch virtual machines (preview)
 
-Trusted launch protects against advanced and persistent attack techniques. It is composed of several coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. Learn more about [trusted virtual machines](../virtual-machines/trusted-launch.md).
-
-
-## Deploy an Azure trusted launch virtual machine
-
-To deploy an Azure trusted launch virtual machine, [follow these steps](../virtual-machines/trusted-launch-portal.md#deploy-a-trusted-launch-vm). 
+[Trusted launch](../virtual-machines/trusted-launch.md) protects against advanced and persistent attack techniques. It is composed of several coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. To deploy an Azure trusted launch VM, follow [these steps](../virtual-machines/trusted-launch-portal.md).
 
 
 ## Support matrix
 
 Find the support matrix for Azure trusted launch virtual machines with Azure Site Recovery:
 
-- **Availability**: Available only for Azure-to-Azure scenario. 
 - **Region**: Available in all [Azure Site Recovery supported public regions](./azure-to-azure-support-matrix.md#region-support). 
-    > [!IMPORTANT]
+    > [!NOTE]
     > For [Azure government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
-- **Operating system**: Support available only for Windows OS. Linux OS is not supported.
-- **Private endpoints**: Azure trusted virtual machines can be protected using private endpoint configured recovery services vault with [these conditions](#protect-azure-trusted-vms-using-recovery-services-vault-with-private-endpoint). 
-- **Migration**: Migration of Gen 1 and Gen 2 Azure virtual machines to trusted virtual machines isn't supported.
-- **Access**: Azure Site Recovery creates disks with public access enabled by default. To disable public access, follow [these steps](./azure-to-azure-common-questions.md#disk-network-access).
+- **Operating system**: Support available only for Windows OS. Linux OS is currently not supported.
+- **Private endpoints**: Azure trusted virtual machines can be protected using private endpoint configured recovery services vault with the following conditions:
+    - You can create a new recovery services vault and then configure private endpoints on it. You can then start protecting Azure Trusted VMs using it. You cannot protect Azure Trusted VMs using recovery services vault which are already created before public preview and have private endpoints configured.
+- **Migration**: Migration of Azure Site Recovery protected existing Generation 1 Azure VMs to trusted VMs and [Generation 2 Azure virtual machines to trusted VMs](../virtual-machines/trusted-launch-existing-vm.md) isn't supported. [Learn more](#migrate-azure-site-recovery-protected-azure-generation-2-vm-to-trusted-vm)
+- **Access**: Azure Site Recovery creates disks (replica and target disks) with public access enabled by default. To disable public access for these disks follow [these steps](./azure-to-azure-common-questions.md#disk-network-access).
 - **Boot integrity monitoring**: Replication of [Boot integrity monitoring](../virtual-machines/boot-integrity-monitoring-overview.md) state isn't supported. If you want to use it, enable it explicitly on the failed over virtual machine.
 - **Shared disks**: Trusted virtual machines with attached shared disks aren't supported.
-
-> [!NOTE]
-> Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow isn't supported.
-
-
-
-## Protect Azure trusted VMs using recovery services vault with private endpoint
-
-You can't protect Azure trusted virtual machines using a recovery services vault that was created before the public preview and already has private endpoints configured. To protect Azure trusted virtual machines using a recovery services vault, you need to configure a private endpoint. 
-
-Review the following conditions for public preview:
-
-| Recovery services vault creation | Pre-configured vault with private endpoint | Pre-existing protection | Eligibility for Azure trusted VM protection |
-| --- | --- | --- | --- |
-| Created before public preview release | Yes, vault is pre-configured | Yes, items are already protected in vault | **No** |
-| Created before public preview release | Yes, vault is pre-configured | No, items aren't protected in vault  | **No** |
-| Created before public preview release |  No, vault isn't pre-configured | Yes, items are already protected in vault | **No**, [private endpoints can only be configured on new recovery services vault](./azure-to-azure-how-to-enable-replication-private-endpoints.md#prerequisites-and-caveats) that doesn't have any item already added to it.  |
-| Created before public preview release |  No, vault isn't pre-configured | No, items aren't protected in vault  | **Yes**, you can configure private endpoints on the vault and start protecting virtual machines.  |
-| Created after public preview release | No, vault isn't pre-configured | No, items aren't protected in vault | **Yes** |
-
-> [!IMPORTANT]
-- You can use an existing recovery services vault created before the public preview but without private endpoints already configured and without any items added to the vault. Configure private endpoints on this vault to begin protecting trusted virtual machines using it.
-- Alternatively, you can create a new recovery services vault, configure private endpoints on it, and start protecting Azure trusted virtual machines using it.
+- **Availability**: Available only for Azure-to-Azure scenario. 
+- **Action**: Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow is currently not supported.
 
 
 ## Azure Site Recovery for trusted VMs 
@@ -63,8 +37,25 @@ Review the following conditions for public preview:
 You can follow the same steps for Azure Site Recovery with trusted virtual machines as for Azure Site Recovery with standard Azure virtual machines. 
 
 - To configure Azure Site Recovery on trusted virtual machines to another region, [follow the steps](./azure-to-azure-tutorial-enable-replication.md).
+- To enable replication to another zone within the same region, [follow the steps](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 - To failover and failback trusted virtual machines, [follow the steps](./azure-to-azure-tutorial-failover-failback.md).
 
+
+## Migrate Azure Site Recovery protected Azure Generation 2 VM to trusted VM 
+
+Azure Generation 2 VMs protected by Azure Site Recovery cannot be migrated to trusted launch. While the portal blocks this migration, other channels like PowerShell and CLI do not. Before proceeding, review the migration [prerequisites](../virtual-machines/trusted-launch-existing-vm.md) and plan accordingly. If you still wish to migrate your Generation 2 Azure VM protected by Azure Site Recovery to Trusted Launch, follow these steps:
+
+1. Disable Azure Site Recovery replication. 
+1. Uninstall Azure Site Recovery agent from the VM. To do this, follow these steps:
+    1. On the Azure portal, go to the virtual machine.
+    1. Select **Settings** > **Extensions**.
+    1. Select Site Recovery extension.
+    1. Select **Uninstall**.
+    1. Uninstall Azure Site Recovery mobility service using these commands.
+1.	Trigger the migration of Generation 2 VM to trusted launch VM.
+
+> [!NOTE]
+> After migrating the virtual machine, the existing protection is disabled, deleting the existing recovery points. The migrated virtual machine is no longer protected by Azure Site Recovery. You must re-enable Azure Site Recovery protection on the trusted virtual machine, if needed.
 
 
 ## Next steps

@@ -133,8 +133,6 @@
       href: azure-to-azure-support-matrix.md
     - name: VMware/physical to Azure
       href: vmware-physical-azure-support-matrix.md
-    - name: Azure trusted launch VMs
-      href: concepts-trusted-vm.md
     - name: Azure to Azure shared disks
       href: shared-disk-support-matrix.md
     - name: On-premises Hyper-V VMs to Azure
@@ -159,6 +157,8 @@
     items:
     - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
+    - name: Azure trusted launch VMs
+      href: concepts-trusted-vm.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery
