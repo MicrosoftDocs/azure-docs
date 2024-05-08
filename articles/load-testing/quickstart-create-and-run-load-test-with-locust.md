@@ -26,6 +26,10 @@ Before you deploy an application, you want to make sure that the application can
 
 In this quickstart, you create a load test for your application endpoint by using Azure Load Testing and the Locust testing framework. You create a load testing resource in the Azure portal, and then create a load test by uploading the Locust test script and configuring the load parameters.
 
+> [!IMPORTANT]
+> Support for Locust in Azure Load Testing is currently in limited preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sign up [here](https://aka.ms/alt-locust-signup) to onboard your Azure subscription for the preview. 
+
 ## Create an Azure Load Testing resource
 
 First, you create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
@@ -67,15 +71,16 @@ To create a load test for a Locust-based test in the Azure portal:
     :::image type="content" source="./media/quickstart-create-and-run-load-test-with-locust/create-new-test-test-plan.png" alt-text="Screenshot that shows the button for uploading test artifacts." lightbox="./media/quickstart-create-and-run-load-test-with-locust/create-new-test-test-plan.png":::
 
     > [!NOTE]
-    > You can also upload other files that you reference in the test script. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
+    > You can also upload other files that you reference in the test script. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). To use a configuration file with your Locust script, upload the file and select **Locust configuration** as the **File relevance**
 1. On the **Load** tab, enter the details for the amount of load to generate:
 
     |Field  |Description  |
     |-|-|
     | **Test engine instances** | Select the number of parallel test engine instances. Each test engine simulates the traffic of **Number of users**. |
     | **Number of users**       | Enter the number of virtual users to simulate per test engine instance. |
-    | **Duration (seconds)**    | The total duration of the load test in seconds. |
+    | **Duration (minutes)**    | The total duration of the load test in minutes. |
     | **Spawn rate of users**   | (Optional) Rate to add users at (users per second). |
+    | **Host endpoint**   | (Optional) The HTTP endpoint URL. For example, https://www.contoso.com/products.|
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
