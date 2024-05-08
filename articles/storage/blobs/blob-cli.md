@@ -7,7 +7,7 @@ author: StevenMatthew
 ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 05/08/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
