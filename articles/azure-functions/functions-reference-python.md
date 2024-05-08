@@ -685,6 +685,7 @@ async def stream_response(response):
 
 async def main():
     print('helloworld')
+    # Customize your streaming endpoint served from core tool in variable 'url' if different.
     url = 'http://localhost:7071/api/streaming_upload'
     file_path = r'<file path>'
 
