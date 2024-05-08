@@ -60,7 +60,7 @@ When your P2S configuration specifies Microsoft Entra ID authentication, the VPN
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connect.png" alt-text="Screenshot that shows the VPN and Connect button selected." lightbox="./media/point-to-site-entra-vpn-client-windows/connect.png":::
 
-1. Authenticate using your credentials, if asked.
+1. Authenticate using your credentials, if prompted.
 
 1. Once connected, the icon turns green and shows  **Connected**.
 

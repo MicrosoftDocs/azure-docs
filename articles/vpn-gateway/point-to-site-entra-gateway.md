@@ -95,5 +95,5 @@ Next, you examine the profile configuration package, configure the Azure VPN Cli
 Configure the Azure VPN Client.
 
 * [Azure VPN Client for Linux](point-to-site-entra-vpn-client-linux.md)
-* [Azure VPN Client for Windows](/point-to-site-entra-vpn-client-windows.md)
+* [Azure VPN Client for Windows](point-to-site-entra-vpn-client-windows.md)
 * [Azure VPN Client for macOS](openvpn-azure-ad-client-mac.md)
