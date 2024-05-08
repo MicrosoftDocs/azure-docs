@@ -488,24 +488,21 @@ To use SDK type bindings in Azure Functions with Python, please use the v2 progr
 ::: zone pivot="python-mode-decorators" 
 Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered.   
 
-When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
+Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
 
 Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model.
 
-Only Azure Storage Blob SDK type bindings are supported for Azure Functions in Python.
-
-
 ### Prerequisites
 
-* Azure Functions runtime version
-* Azure Functions Core Tools version
-* Python version 3.9+
+* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python)
+* [Azure Functions Core Tools version](https://learn.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Cisolated-process%2Cnode-v4%2Cpython-v2%2Chttp-trigger%2Ccontainer-apps&pivots=programming-language-python)
+* [Python](https://www.python.org/downloads/) version 3.9+
 
 ### Enable SDK type bindings for Azure Storage Blob
 
 #### Install the extension package
 
-Add the following to the `requirements.txt` file in the project
+Add the extension package to the `requirements.txt` file in the project.
 
 ```
 azure-functions
@@ -514,7 +511,7 @@ azurefunctions-extensions-bindings-blob
 
 #### Import the library
 
-Add the following to the `function_app.py` file in the project
+Add the library to the `function_app.py` file in the project.
 
 ```python
 import azurefunctions.extensions.bindings.blob as blob
@@ -540,7 +537,7 @@ def blob_trigger(client: blob.BlobClient):
     logging.info(
         f"Python blob trigger function processed blob \n"
         f"Properties: {client.get_blob_properties()}\n"
-        f"{len(blob_size)} bytes"
+        f"{len(file)} bytes"
     )
 
 
@@ -553,7 +550,7 @@ def blob_input(req: func.HttpRequest, client: blob.BlobClient):
     logging.info(
         f"Python blob input function processed blob \n"
         f"Properties: {client.get_blob_properties()}\n"
-        f"{len(blob_size)} bytes"
+        f"{len(file)} bytes"
     )
     return "ok"
 ```
@@ -582,12 +579,13 @@ Note that HTTP streaming support for Python is currently in preview, and is only
 
 * Azure Functions runtime version
 * Azure Functions Core Tools version
+* [Python](https://www.python.org/downloads/) version 3.8+
 
 ### Enable streams
 
 #### Install the extension package
 
-Add the following to the `requirements.txt` file in the project
+Add the extension package to the `requirements.txt` file in the project.
 
 ```
 azure-functions
@@ -596,7 +594,7 @@ azurefunctions-extensions-http-fastapi
 
 #### Import the library
 
-Add the following with the relevant responses to the `function_app.py` file in the project
+Add the library with the relevant responses to the `function_app.py` file in the project.
 
 ```python
 from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
@@ -629,7 +627,7 @@ async def stream_count(req: Request) -> StreamingResponse:
     return StreamingResponse(generate_count(), media_type="text/event-stream")
 ```
 
-Check out additional samples for HTTP streaming downloading on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download].
+Check out additional samples for HTTP streaming downloading on [GitHub](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download).
 
 Following is an example of a HTTP triggered Azure Function which receives streaming data from a client via an HTTP POST request and processes it in real-time. It demonstrates streaming upload capabilities which can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
 
@@ -695,7 +693,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Check out this example and more for HTTP streaming uploading on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload].
+Check out this example and more for HTTP streaming uploading on [GitHub](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload).
 
 ::: zone-end
 
