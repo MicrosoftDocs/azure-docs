@@ -31,109 +31,115 @@ Rather than manually creating a Dockerfile and directly using a container regist
 
 ## Prepare the project
 
+Get the sample application.
+
+Clone the Spring PetClinic sample application to your machine.
+
 ### [JAR](#tab/jar)
-1. Get the sample application.
+```bash
+git clone https://github.com/spring-projects/spring-petclinic.git
+```
 
-    Clone the Spring PetClinic sample application to your machine.
+### [WAR](#tab/war)
+```bash
+git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+```
 
-    ```bash
-    git clone https://github.com/spring-projects/spring-petclinic.git
-    ```
+---
 
-1. Build the JAR package.
+## Build the project
+
+### [JAR](#tab/jar)
 > [!NOTE]
 > If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
 
-    First, change into the *spring-framework-petclinic* folder.
+First, change into the *spring-petclinic* folder.
 
-    ```bash
-    cd spring-framework-petclinic
-    ```
+```bash
+cd spring-petclinic
+```
 
-    Then, clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
+Then, clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
 
-    ```bash
-    mvn clean package -DskipTests
-    ```
+```bash
+mvn clean package -DskipTests
+```
 
-    After you execute the build command, a file named *petclinic.jar* is generated in the */target* folder.
+After you execute the build command, a file named *petclinic.jar* is generated in the */target* folder.
 
 ### [WAR](#tab/war)
 
 > [!NOTE]
 > If necessary, you can specify the Tomcat version in the [Java build environment variables](java-build-environment-variables.md).
 
-1. Get the sample application.
+First, change into the *spring-framework-petclinic* folder.
 
-    Clone the Spring PetClinic sample application to your machine.
+```bash
+cd spring-framework-petclinic
+```
 
-    ```bash
-    git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
-    ```
+Then, clean the Maven build area, compile the project's code, and create a WAR file, all while skipping any tests.
 
-1. Build the WAR package.
+```bash
+mvn clean package -DskipTests
+```
 
-    First, change into the *spring-framework-petclinic* folder.
+After you execute the build command, a file named *petclinic.war* is generated in the */target* folder.
 
-    ```bash
-    cd spring-framework-petclinic
-    ```
-
-    Then, clean the Maven build area, compile the project's code, and create a WAR file, all while skipping any tests.
-
-    ```bash
-    mvn clean package -DskipTests
-    ```
-
-    After you execute the build command, a file named *petclinic.war* is generated in the */target* folder.
+---
 
 ## Deploy the project
 
 ### [JAR](#tab/jar)
-    Deploy the JAR package to Azure Container Apps.
+Deploy the JAR package to Azure Container Apps.
 
-    Now you can deploy your WAR file with the `az containerapp up` CLI command.
+Now you can deploy your WAR file with the `az containerapp up` CLI command.
 
-    ```azurecli
-    az containerapp up \
-      --name <YOUR_CONTAINER_APP_NAME> \
-      --resource-group <YOUR_RESOURCE_GROUP> \
-      --subscription <YOUR_SUBSCRIPTION>\
-      --location <LOCATION> \
-      --environment <YOUR_ENVIRONMENT_NAME> \
-      --artifact <YOUR_JAR_FILE_PATH> \
-      --ingress external \
-      --target-port 8080 \
-      --query properties.configuration.ingress.fqdn
-    ```
+```azurecli
+az containerapp up \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP> \
+  --subscription <YOUR_SUBSCRIPTION>\
+  --location <LOCATION> \
+  --environment <YOUR_ENVIRONMENT_NAME> \
+  --artifact <YOUR_JAR_FILE_PATH> \
+  --ingress external \
+  --target-port 8080 \
+  --query properties.configuration.ingress.fqdn
+```
 
-    You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
+> [!NOTE]
+> The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-var BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
+
+You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
 
 ### [WAR](#tab/war)
-    Deploy the WAR package to Azure Container Apps.
+Deploy the WAR package to Azure Container Apps.
 
-    Now you can deploy your WAR file with the `az containerapp up` CLI command.
+Now you can deploy your WAR file with the `az containerapp up` CLI command.
 
-    ```azurecli
-    az containerapp up \
-      --name <YOUR_CONTAINER_APP_NAME> \
-      --resource-group <YOUR_RESOURCE_GROUP> \
-      --subscription <YOUR_SUBSCRIPTION>\
-      --location <LOCATION> \
-      --environment <YOUR_ENVIRONMENT_NAME> \
-      --artifact <YOUR_WAR_FILE_PATH> \
-      --build-env-var BP_TOMCAT_VERSION=10.* \
-      --ingress external \
-      --target-port 8080 \
-      --query properties.configuration.ingress.fqdn
-    ```
+```azurecli
+az containerapp up \
+  --name <YOUR_CONTAINER_APP_NAME> \
+  --resource-group <YOUR_RESOURCE_GROUP> \
+  --subscription <YOUR_SUBSCRIPTION>\
+  --location <LOCATION> \
+  --environment <YOUR_ENVIRONMENT_NAME> \
+  --artifact <YOUR_WAR_FILE_PATH> \
+  --build-env-var BP_TOMCAT_VERSION=10.* \
+  --ingress external \
+  --target-port 8080 \
+  --query properties.configuration.ingress.fqdn
+```
 
-    > [!NOTE]
-    > The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-var BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
+> [!NOTE]
+> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-var BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
 
-    In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
+In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
 
-    You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
+You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
+
+---
 
 ## Verify the app status.
 

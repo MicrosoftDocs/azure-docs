@@ -24,7 +24,9 @@ When you use Container Apps for your containerized Java applications, you get:
 
 - **Build environment variables**: You can configure [custom key-value pairs](java-build-environment-variables.md) to control the Java image build from source code.
 
-- **WAR deployment**: You can deploy your container app directly from a [WAR file](java-deploy-war-file.md).
+- **JAR deployment**: You can deploy your container app directly from a [JAR file](java-quickstart.md?tabs=jar).
+
+- **WAR deployment**: You can deploy your container app directly from a [WAR file](java-quickstart.md?tabs=war).
 
 This article details the information you need to know as you build Java applications on Azure Container Apps.
 
