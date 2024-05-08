@@ -37,7 +37,7 @@ To use summary rules in Microsoft Sentinel:
 
 - Microsoft Sentinel must be enabled in at least one workspace, and actively consume logs.
 - You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
-- **SummaryLogs** diagnostic settings must be enabled on your workspace. If this isn't done ahead of time, you're prompted to enable SummaryLogs diagnostic settings when creating your first rule. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
+- **SummaryLogs** diagnostic settings must be enabled on your workspace. If diuagnostic settings aren't configured ahead of time, you're prompted to enable SummaryLogs diagnostic settings when creating your first rule. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
 
 - To use summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
@@ -61,7 +61,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
 
     If they're already enabled, but you want to modify the settings, select **Configure advanced diagnostic settings**. When you come back to the **Summary rule wizard** page, make sure to select **Refresh** to refresh your setting details. 
 
-    For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
+    For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 1. Select **Next: Set summary logic >** to continue.
 
@@ -85,7 +85,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
 
 1. Select **Next: Review + create >** > **Save** to complete the summary rule.
 
-Existing summary rules are listed on the **Summary rules (Preview)** page, where you can review your rule status. For each rule, select the options menu at the end of the row to do any of the following:
+Existing summary rules are listed on the **Summary rules (Preview)** page, where you can review your rule status. For each rule, select the options menu at the end of the row to take any of the following actions:
 
 - View the rule's current data in the **Logs** page, as if you were to run the query immediately
 - View the run history for the selected rule
@@ -106,13 +106,13 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 **Solution**: We recommend that Shay use summary rules to do the following:
 
-1. **Use a summary rule to create a summary data set** for each IP address related to the incident, including the `SourceIP`, `DestinationIP`, `MaliciousIP`, `RemoteIP`, each listing important attributes, such as `IPType`, `FirstTimeSeen`, and `LastTimeSeen`.
+1. **Create a summary data set** for each IP address related to the incident, including the `SourceIP`, `DestinationIP`, `MaliciousIP`, `RemoteIP`, each listing important attributes, such as `IPType`, `FirstTimeSeen`, and `LastTimeSeen`.
 
     The summary dataset enables Shay to quickly search for a specific IP address and narrow down the time range where the IP address is found. Shay can do this even when the searched events happened more than 90 days ago, which is beyond their workspace retention period.
 
 1. **Create a query** that runs for less than two minutes against the summary dataset, quickly drilling into the specific time range when the malicious IP address interacted with the company network.
 
-    Make sure to configure run intervals of up to five minutes at a minimum, to accomodate different summary payload sizes. This ensures that there's no loss even when there's an event ingestion delay. <!--what does this mean? •	Support both frontfill (scheduled queries on a fixed-interval schedule).-->
+    Make sure to configure run intervals of up to five minutes at a minimum, to accommodate different summary payload sizes. This ensures that there's no loss even when there's an event ingestion delay. <!--what does this mean? •	Support both frontfill (scheduled queries on a fixed-interval schedule).-->
 
     In this example, Shay configured the summary to run daily, so that the query adds new summary records every day until it expires.
 
@@ -122,43 +122,59 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 Detect when an event feed stops by summarizing multiple tables at once.
 
-Context: Bob has data in 65 tables in Sentinel and one of their detection & reporting goals is to detect and report when an event feed stops. Bob from the team needs to create an Analytics rule for this detection scenario. To monitor the health of the event feeds, this rule needs to run frequently at 10 minutes frequency. He currently schedules a Logic app that runs every 10 minutes to generate a summary of the 65 tables in a custom table called EventFeed_CL. 
-Problem/Requirements Rationale:
-•	With 65 feeds to monitor, it’s extremely inefficient and time-consuming to set up a different rule for each table, so summarizing multiple tables at once is required. 
-•	Also, with frequent monitoring, it’s required to run summary at small intervals (10 mins).  
-Jobs-to-be-done:
-•	Summarize data volume every 10 minutes for 65 event feeds and persist the results in a single summary in Sentinel table. 
-•	To ensure no duplication and data loss, summary must consider both TimeGenerated for query lookback and ingestion_time for summary. Refer to this article for more context.
-•	Create an Analytics rule on this summary data to raise alerts on possible event feed disruption.
-Requirements
-•	User can configure 15-minute interval at minimum for scheduled summary.
-•	User can use Union of multiple tables in summary query.
-•	User can reconcile and audit summary in case of delayed events. (DSR suggest considering these two timestamps in each query run to handle ingestion delay).
+**Scenario**: Bobby has data in 65 Microsoft Sentinel table, and one of their team goals is to detect and report whenever a specific event feed stops running. Bobby needs to create an analytics rule for this detection scenario and configure the rule to run every 10 minutes.
 
+Currently, Bobby has a logic app that runs every 10 minutes to generate a summary of all 65 tables into a custom table named `EventFeed_CL`. 
+
+**Challenge**: With 65 feeds to monitor, using a logic app that must be monitored frequently is an inefficient use of system and team resources.
+
+**Solution**: We recommend that Bobby use summary rules to do the following:
+
+1. Summarize data volume for all event feeds every 10 minutes, collecting the updated results in a single summary table.
+
+    To avoid duplication and data loss, the summary must consider both the `TimeGenerate` for query lookbacks and the `ingestion_time` for the summary. For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
+
+1. Create an analytics rule on the summary data to raise alerts for any event feed disruptions. Configure the rule to run every 15 minutes.
+
+    If there are delayed events, Bobby can reconcile and audit the summary data, such as considering both timestamps in the query run.
+
+<!--not sure what this means-->
 ### Enrich alerts with summaries on entities
 
-Context: Team needs to build an alert rule for Sentinel customers to detect suspicious logins to their system from sensitive, privileged users. 
-Jobs-to-be-done:
-•	The rule looks back only last 75 minutes for user login events but need to look up user information from the last 7 days. 
-•	Find if the user has any privilege access by querying against a summary dataset of user information from the IdentityInfo table. To create this summary, they need to generate a table that will hold a daily snapshot of all users' profile such as user roles, risk level, etc.
-•	Alert if any suspicious SAP logins from a privileged user are found.
-Problem:
-•	Query against the IdentityInfo table often gets timed out when there are a large number of user records, hence resulting in missing alerts from failed alert rule. As a result, a daily summary of user profiles is needed to solve this query timeout problem.
-Requirements:
-•	Support scalable summarization of large datasets.
+Speed up and improve your investigations by adding summary data to alerts.
 
-### Detect potential SPN scanning by a specific user
+**Scenario**: Tan's team needs to create an analytics rule for Microsoft Sentinel customers to detect suspicious sign-ins to their system from sensitive and privileged accounts.
 
-Service Principal Name (SPN) scanning performed by a user account.
+**Challenge**: While analytics rules only look back on the last 75 minutes of user sign-in events, Tan's team needs to watch user information from the last seven days. Also, queries that run directly against the `IdentityInfo` table often time out when there are a large number of records, resulting in missing alerts.
 
-Context: Detection engineering team currently generate 20-30 detections that require data summaries. Prateek is a detection engineer and his goal is to create a highly accurate detection that detects SPN scanning performed by a user account. The detection looks for Security events with EventID 4796 (A Kerberos service ticket was requested). It creates a baseline on the number of unique tickets requested by a user account per day and then alerts when there is a major deviation from that baseline.
-Problem:
-•	Because the detection rule runs on 14 days or max data lookback in Analytics, it creates a lot of false positives. While thresholds have been defined in the detection to prevent false positives, the detection can trigger if a user legitimately requests considerably more service tickets than they generally do. Possible false positive scenarios include but are not limited to scheduled vulnerability scanners, administration systems and misconfigured systems. To create a more accurate baseline, Shain needs more than 14 days of baseline data. 
-•	Team had to disable some detection rules because of too many false positives due to the short (14 days) baseline detection.
-•	For each detection, he runs a summary query on a separate Logic App, which adds additional work for setup, maintenance and incur extra costs. 
-Jobs-to-be-done:
-•	Generate a daily summary of the count of unique tickets per user. This summarizes SecurityEvents on EventID 4769 with additional filtering for user account. 
-•	Reference at least 30 days’ worth of summary data to create a strong baseline and apply percentile() to calculate deviations from this baseline and generate potential SPN scanning alerts. 
+**Solution**: Use summary rules to do the following:
+
+1. Create a summary dataset of user information from the `IdentityInfo` table, including a daily snapshot of all user profile data, such as user roles, risk levels, and so on. 
+
+1. Configure an analytics rule to generate an alert if any suspicious SAP sign-ins are found from a privileged user account.
+
+### Detect potential SPN scanning in your network
+
+Detect potential Service Principal Name (SPN) scanning in your network traffic.
+
+**Scenario**: Prateek is a SOC engineer who needs to create a highly accurate detection for any SPN scanning performed by a user account. The detection currently does the following:
+
+1. Looks for Security events with EventID 4796 (A Kerberos service ticket was requested).
+1. Creates a baseline with the number of unique tickets typically requested by a user account per day.
+1. Generates an alert when there's a major deviation from that baseline.
+
+**Challenge**: The current detection runs on 14 days, or the maximum data lookback in the Analytics table, and creates many false positives. While the detection includes thresholds that are designed to prevent false positives, alerts are still generated for legitimate requests as long as there are more requests than usual. This might happen for vulnerability scanners, administration systems, and in misconfigured systems. In Prateeks team, there were so many false positives that they needed to turn off some of the analytics rules. To create a more accurate baseline, Prateek needs more than 14 days of baseline data.
+
+The current detection also runs a summary query on a separate logic app for each alert. This involves extra work for the setup and maintenance of those logic apps, and incurs extra costs.
+
+**Solution**: We recommend that Prateek use summary rules to do the following:
+
+1. Generate a daily summary of the count of unique tickets per user. This summarizes the `SecurityEvents` table data for EventID 4769, with extra filtering for specific user accounts.
+
+1. In the summary rule, to generate potential SPN scanning alerts:
+
+    - Reference at least 30 days worth of summary data to create a strong baseline.
+    - Apply `percentile()` in your query to calculate the deviation from the baseline
 
 ## Related content
 
