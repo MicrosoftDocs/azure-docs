@@ -1,7 +1,7 @@
 ---
 title: Enable and work with cross-region replication
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Enable and disable cross-region replication, promote cluster replica in another region for disaser recovery (DR), and use the same connection strings in your application after promotion on Azure Cosmos DB for MongoDB vCore cluster.
+description: Enable and disable cross-region replication, promote cluster replica in another region for disaster recovery (DR), and use the same connection strings in your application after promotion on Azure Cosmos DB for MongoDB vCore cluster.
 author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/07/2024
 ---
 
-# Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster
+# Manage cross-region replication on your Azure Cosmos DB for MongoDB vCore cluster
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
