@@ -75,7 +75,7 @@ The models are made available through [Azure Machine Learning registries](../../
 
 ### Deploy models for inference as Real-time endpoints 
 
-Models available for deployment to Real-time endpoints can be deployed to Azure Machine Learning Online Endpoints for real-time inference or can be used for Azure Machine Learning Batch Inference to batch process your data. Deploying to Online endpoints requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](../../machine-learning/how-to-use-foundation-models.md). Learn more about deploying models: 
+Models available for deployment to Real-time endpoints can be deployed to Azure Machine Learning Online Endpoints for real-time inference or can be used for Azure Machine Learning Batch Inference to batch process your data. Deploying to Online endpoints requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](deploy-models-open.md). Learn more about deploying models: 
 
 * [Deploy Meta Llama models](deploy-models-llama.md) 
 * [Deploy Open models Created by Azure AI](deploy-models-open.md)
