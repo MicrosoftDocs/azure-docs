@@ -28,7 +28,7 @@ Local embeddings help customers:
 
 - Leverage embedding models at a predictable cost.
 
-- Keep data within their database with no need to transmit data to a remote endpoint.
+- Keep data within their database eliminating the need to transmit data to a remote endpoint.
 
 >[!IMPORTANT]
 > The azure_local_ai extension is currently in preview.  Open-source AI models made available by Microsoft for installation through the Azure Local AI extension are deemed to be Non-Microsoft Products under the Microsoft Product Terms. Customer’s use of open-source AI models are governed by the separate license terms provided in product documentation associated with such model made available through the azure_local_ai extension.
