@@ -1,0 +1,32 @@
+- name: Azure Extended Zones documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Extended Zones?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Deploy a virtual machine in an Extended Zone - Portal
+    href: deploy-vm-portal.md
+  - name: Deploy a virtual machine in an Extended Zone - ARM template
+    href: deploy-vm-arm-template.md
+  expanded: true
+- name: Tutorials
+  items:
+  - name: Deploy an AKS cluster in an Extended Zone
+    href: deploy-aks-cluster.md
+  - name: Deploy a storage account in an Extended Zone
+    href: deploy-storage-account.md
+- name: Concepts
+  items:
+  - name: Extended Zones FAQ
+    href: faq.md
+- name: How-to guides
+  items:
+  - name: Back up a virtual machine
+    href: backup-virtual-machine.md
+  - name: Request quota increase
+    href: request-quota-increase.md
+  - name: Troubleshoot Extended Zones
+    href: troubleshoot.md
+
