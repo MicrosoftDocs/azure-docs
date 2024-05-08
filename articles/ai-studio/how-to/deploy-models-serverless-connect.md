@@ -115,11 +115,11 @@ Follow these steps to create a connection:
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. Go to **Endpoints** and select **Serverless**.
+    1. Go to **deployments** section.
 
-    1. Locate the endpoint you want to connect to and select it.
+    1. Locate the deployment you want to connect to and select it.
 
-    1. On the **Details** tab, copy the URL on **Target** and the value for **Key**.
+    1. Copy the URL on **Target** and the value for **Key**.
 
     # [Azure CLI](#tab/cli)
 
