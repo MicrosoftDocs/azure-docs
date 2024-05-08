@@ -169,9 +169,9 @@ items:
       href: logic-apps-add-run-inline-code.md
     - name: Create cross-environment parameters for workflows
       href: create-parameters-workflows.md
-    - name: Add and run code with Azure Functions
-      href: logic-apps-azure-functions.md
-    - name: Call logic apps with Azure Functions
+    - name: Call Azure Functions
+      href: call-azure-functions-from-workflows.md
+    - name: Call logic apps from Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
