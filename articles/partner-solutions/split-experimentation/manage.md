@@ -41,4 +41,4 @@ The **Edit** button at the top enables you to select another storage account to 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Set up data access control](./split-experimentation/create.md)
+> [Set up data access control](./create.md)
