@@ -155,8 +155,8 @@
           href: vpn-gateway-radius-mfa-nsp.md
       - name: Microsoft Entra ID authentication
         items:
-        - name: Configure P2S - Microsoft-registered App ID
-          href: point-to-site-entra-registered-app.md
+        - name: Configure point-to-site VPN
+          href: point-to-site-entra-gateway.md
         - name: Configure P2S - manually registered App ID
           href: openvpn-azure-ad-tenant.md
         - name: Configure access based on users and groups
