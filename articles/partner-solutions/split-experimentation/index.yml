@@ -21,3 +21,10 @@ landingContent:
         links:
           - text: What is Split Experimentation Workspace
             url: overview.md
+  # Card
+  - title: Create a Split Experimentation Workspace
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a new instance
+            url: create.md
