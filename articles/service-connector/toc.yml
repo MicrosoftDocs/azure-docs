@@ -37,6 +37,8 @@ items:
       items: 
         - name: Azure portal
           href: quickstart-portal-aks-connection.md
+        - name: Azure CLI
+          href: quickstart-cli-aks-connection.md
     - name: Azure Spring Apps
       expanded: false
       items: 
