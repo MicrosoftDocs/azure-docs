@@ -1,18 +1,16 @@
 ---
 title: Azure OpenAI semantic search input binding for Azure Functions
-description: Learn how to use the Azure OpenAI semantic search input binding to {{do soomething}} during function execution in Azure Functions.
+description: Learn how to use the Azure OpenAI semantic search input binding to use semantic search on your embeddings during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 04/14/2024
+ms.date: 05/08/2024
 ms.devlang: csharp, java, javascript, powershell, python, typescript
 zone_pivot_groups: programming-languages-set-functions
 ---
-<!--- Question: It seems like this binding uses Azure AI Search and not Azure OpenAI. Do we need to rename the article to:
-"Azure AI Search semantic input binding" or something like that?-->
 # Azure OpenAI semantic search input binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI semantic search input binding allows you to leverage semantic search on your embeddings.
+The Azure OpenAI semantic search input binding allows you to use semantic search on your embeddings.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -33,7 +31,7 @@ A C# function can be created using one of the following C# modes:
 
 ### [Isolated process](#tab/isolated-process)
 
-This example shows how to perform a semantic serach on a file.
+This example shows how to perform a semantic search on a file.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="66-73"::: 
 
@@ -46,30 +44,38 @@ This example shows how to perform a semantic serach on a file.
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="typescript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
-
+-->
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 Here's the _function.json_ file for {{example}}:
@@ -81,15 +87,17 @@ For more information about *function.json* file properties, see the [Configurati
 {{This comes from the example code comment}} 
 
 :::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
-
+-->
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="python" source="~/functions-openai-extension/samples/{{link to the correct sample.py}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
-
+-->
 ::: zone-end  
 <!--- End code examples section -->  
 <!--- Begin the actual references (Attributes/Annotations/Properties/Decorators) sections 
@@ -115,13 +123,13 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **ConnectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **ConnectionName** | Gets or sets the name of an app setting or environment variable that contains a connection string value. This property supports binding expressions. |
 | **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **Query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **EmbeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **SystemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **MaxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **Query** |  Gets or sets the semantic query text to use for searching. This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **EmbeddingsModel** | Gets or sets the ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **SystemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
+| **MaxKnowledgeCount** | _Optional_.  Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
 
 
 ::: zone-end
@@ -135,31 +143,29 @@ The `SemanticSearchInput` annotation enables you to define a semantic search inp
 | **name** | Gets or sets the name of the input binding. |
 | **connectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **systemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **maxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **query** |  Gets or sets the semantic query text to use for searching. This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
+| **maxKnowledgeCount** | _Optional_.  Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
 
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
-<!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `SemanticSearchInput` decorator supports these parameters:
+<!--- Replace with typed decorator when available.-->
+During the preview, define the input binding as a `generic_input_binding` binding of type `semanticSearch`, which supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **connection_name** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **connection_name** | Gets or sets the name of an app setting or environment variable that contains a connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **embeddings_model** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **chat_model** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **system_prompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **max_knowledge_count** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
-
-
+| **query** |  Gets or sets the semantic query text to use for searching. This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddings_model** | Gets or sets the ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chat_model** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **system_prompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
+| **max_knowledge_count** | _Optional_.  Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -172,15 +178,14 @@ The binding supports these configuration properties that you set in the function
 | **type** | Must be `SemanticSearchInput`. |
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
-| **connectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
+| **connectionName** | Gets or sets the name of an app setting or environment variable that contains a connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **systemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **maxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
+| **query** |  Gets or sets the semantic query text to use for searching. This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
+| **maxKnowledgeCount** | _Optional_.  Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
 
- 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ## Configuration
@@ -191,30 +196,21 @@ The binding supports these properties, which are defined in your code:
 |-----------------------|-------------|
 | **connectionName** | Gets or sets the name of an app setting or environment variable which contains a connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
-| **query** |  Gets or sets the semantic query text to use for searching.This property is only used for the semantic search input binding. This property supports binding expressions.|
-| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings.The default value is "text-embedding-3-small". This property supports binding expressions.|
-| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is "gpt-3.5-turbo". This property supports binding expressions.|
-| **systemPrompt** | _Optional._ Gets or sets the system prompt to use for prompting the large language model.The system prompt will be appended with knowledge that is fetched as a result of the <see cref="Query"/>. The combined prompt will then be sent to the OpenAI Chat API. This property supports binding expressions.|
-| **maxKnowledgeCount** | _Optional._  Gets or sets the number of knowledge items to inject into the <see cref="SystemPrompt"/>.|
-
+| **query** |  Gets or sets the semantic query text to use for searching. This property is only used for the semantic search input binding. This property supports binding expressions.|
+| **embeddingsModel** | Gets or sets the ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
+| **maxKnowledgeCount** | _Optional_.  Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
 
 ::: zone-end  
 
-See the [Example section](#example) for complete examples.
-
 ## Usage
 
-<!---Usage information goes here. This should be brief, language-specific, and related to:
-    1. Supported types.
-    2. Binding-speficic connection details (if not already covered in the overview article).
--->
+See the [Example section](#example) for complete examples.
 
 ## Related content
 
-{{To be added}}
++ [Semantic search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch)
++ [Azure OpenAI extensions for Azure Functions](functions-bindings-openai.md)
++ [Azure OpenAI semantic search output binding for Azure Functions](functions-bindings-openai-semanticsearch-output.md)
 
-<!--- Add links to:
-1. How-to articles.
-2. Related references.
-3. External references (Azure OpenAI overview, etc.).
--->

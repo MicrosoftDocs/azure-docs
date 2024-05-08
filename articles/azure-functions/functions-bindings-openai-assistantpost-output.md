@@ -110,7 +110,7 @@ The attribute supports these parameters:
 | Parameter | Description |
 | --------- | ----------- |
 | **Id** | Gets the ID of the assistant to update. |
-| **Model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
+| **Model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
 
 
 ::: zone-end
@@ -123,7 +123,7 @@ The `PostUserQuery` annotation enables you to define an assistant post output bi
 | ------- | ----------- |
 | **name** | Gets or sets the name of the output binding. |
 | **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
+| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -135,7 +135,7 @@ The `PostUserQuery` decorator supports these parameters:
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
+| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
 
 
 ::: zone-end
@@ -150,7 +150,7 @@ The binding supports these configuration properties that you set in the function
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
 | **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
+| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
 
  
 ::: zone-end  
@@ -162,7 +162,7 @@ The binding supports these properties, which are defined in your code:
 |Property | Description |
 |-----------------------|-------------|
 | **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model <em>deployment</em>. |
+| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
 
 
 ::: zone-end  

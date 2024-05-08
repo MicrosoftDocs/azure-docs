@@ -2,7 +2,7 @@
 title: Azure OpenAI text completion input binding for Azure Functions
 description: Learn how to use the Azure OpenAI text completion input binding to access Azure OpenAI text completion APIs during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 04/14/2024
+ms.date: 05/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -116,9 +116,9 @@ The attribute supports these parameters:
 | --------- | ----------- |
 | **Prompt** | Gets or sets the prompt to generate completions for, encoded as a string. |
 | **Model** | Gets or sets the ID of the model to use as a string, with a default value of `gpt-3.5-turbo`. |
-| **Temperature** | _Optional._ Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
-| **TopP** | _Optional._ Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
-| **MaxTokens** | _Optional._ Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
+| **Temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
+| **TopP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
+| **MaxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
 
 
 ::: zone-end
@@ -133,24 +133,24 @@ The `TextCompletion` annotation enables you to define a text completion input bi
 | **name** | Gets or sets the name of the input binding. |
 | **prompt** | Gets or sets the prompt to generate completions for, encoded as a string. |
 | **model** | Gets or sets the ID of the model to use as a string, with a default value of `gpt-3.5-turbo`. |
-| **temperature** | _Optional._ Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
-| **topP** | _Optional._ Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
-| **maxTokens** | _Optional._ Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
+| **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
+| **topP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
+| **maxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
-<!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `TextCompletion` decorator supports these parameters:
+<!--- Replace with typed decorator when available.-->
+During the preview, define the input binding as a `generic_input_binding` binding of type  `textCompletion`, which supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **prompt** | Gets or sets the prompt to generate completions for, encoded as a string. |
 | **model** | Gets or sets the ID of the model to use as a string, with a default value of `gpt-3.5-turbo`. |
-| **temperature** | _Optional._ Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
-| **top_p** | _Optional._ Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
-| **max_tokens** | _Optional._ Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
+| **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
+| **top_p** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
+| **max_tokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
 
 ::: zone-end
 
@@ -166,9 +166,9 @@ The binding supports these configuration properties that you set in the function
 | **name** | The name of the input binding. |
 | **prompt** | Gets or sets the prompt to generate completions for, encoded as a string. |
 | **model** | Gets or sets the ID of the model to use as a string, with a default value of `gpt-3.5-turbo`. |
-| **temperature** | _Optional._ Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
-| **topP** | _Optional._ Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
-| **maxTokens** | _Optional._ Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
+| **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
+| **topP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
+| **maxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -180,30 +180,17 @@ The binding supports these properties, which are defined in your code:
 |-----------------------|-------------|
 | **prompt** | Gets or sets the prompt to generate completions for, encoded as a string. |
 | **model** | Gets or sets the ID of the model to use as a string, with a default value of `gpt-3.5-turbo`. |
-| **temperature** | _Optional._ Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
-| **topP** | _Optional._ Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
-| **maxTokens** | _Optional._ Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
+| **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
+| **topP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
+| **maxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
 
 ::: zone-end  
 
-See the [Example section](#example) for complete examples.
-
 ## Usage
 
-<!---Usage information goes here. This should be brief, language-specific, and related to:
-    1. Supported types.
-    2. Binding-speficic connection details (if not already covered in the overview article).
--->
+See the [Example section](#example) for complete examples.
 
 ## Related content
 
-[Find the Github Repo for the text completion samples.](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion)
-
-
-{{To be added}}
-
-<!--- Add links to:
-1. How-to articles.
-2. Related references.
-3. External references (Azure OpenAI overview, etc.).
--->
++ [Text completion samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion)
++ [Azure OpenAI extensions for Azure Functions](functions-bindings-openai.md)

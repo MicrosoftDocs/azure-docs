@@ -1,16 +1,16 @@
 ---
-title: Azure OpenAI Extensions for Azure Functions
-description: Learn to use the OpenAI triggers and bindings with Azure Functions to do a thing....
+title: Azure OpenAI Extension for Azure Functions
+description: Learn to comnfigure the Azure OpenAI extension to be able to integrate your Azure Functions code executions with Azure OpenAI APIs. 
 ms.topic: reference
-ms.date: 04/12/2024
+ms.date: 05/07/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure OpenAI extensions for Azure Functions
+# Azure OpenAI extension for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI extensions for Azure Functions implement a set of triggers and bindings that enable you to easily integrate features and behaviors of the [Azure OpenAI service](../ai-services/openai/overview.md) into your function code executions. 
+The Azure OpenAI extension for Azure Functions implements a set of triggers and bindings that enable you to easily integrate features and behaviors of the [Azure OpenAI service](../ai-services/openai/overview.md) into your function code executions. 
 
 Azure Functions is an event-driven compute service that provides a set of [triggers and bindings](./functions-triggers-bindings.md) to easily connect with other Azure services. Dapr provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
@@ -34,7 +34,7 @@ The extension NuGet package you install depends on the C# mode [in-process](func
 
 ### [Isolated process](#tab/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Functions.Worker.Extensions.OpenAI), version {{update to latest}}.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Functions.Worker.Extensions.OpenAI).
 
 Using the .NET CLI:
 
@@ -44,7 +44,7 @@ dotnet add package Functions.Worker.Extensions.OpenAI --prerelease
 
 ### [In-process](#tab/in-process)
 
-This extension is available by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI), version {{update to latest}}.
+This extension is available by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI).
 
 Using the .NET CLI:
 
@@ -80,23 +80,6 @@ You can add the preview extension by adding or replacing the following code in y
 ## host.json settings
 -->
 
-## Next steps
+## Related content
 
-<!-- ## Create your Azure OpenAI Resource
-
-1. Follow the [Azure OpenAI create quickstart](/../ai-services/openai/how-to/create-resource) to create an Azure OpenAI resource.
-
-<!-- https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal -->
-
-<!-- 1. Provide the following information at the prompts:
-
-    |Prompt| Selection|
-    |--|--|
-    |**Resource group**|Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
-    |**Name**|Enter `mySampleOpenAI`.|
-  
-
-1. Once the creation has completed, navigate to the Azure OpenAI resource blade in the Azure portal, and, under **Essentials**, select **Click here to view endpoints**. Copy the **endpoint** url and the **keys**. Paste these values into a temporary document for later use.
- -->
-
-<!-- [Learn more about Dapr.](https://docs.dapr.io/) -->
++ [Azure OpenAI extension samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples)

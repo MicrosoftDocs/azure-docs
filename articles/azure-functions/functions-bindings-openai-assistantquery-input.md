@@ -36,7 +36,6 @@ This example demonstrates the creation process, where the HTTP GET function that
 
 :::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantSample/AssistantApis.cs" range="91-101"::: 
 
-
 ### [In-process](#tab/in-process)
 
 [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
@@ -45,11 +44,14 @@ This example demonstrates the creation process, where the HTTP GET function that
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
@@ -100,11 +102,11 @@ The specific attribute you apply to define an assistant query input binding depe
 
 ### [Isolated process](#tab/isolated-process)
 
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `GetChatState` to define an assistant query input binding.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `AssistantQuery` to define an assistant query input binding.
 
 ### [In-process](#tab/in-process)
 
-In the [in-process model](./functions-dotnet-class-library.md), apply `GetChatState` to define an assistant query input binding.
+In the [in-process model](./functions-dotnet-class-library.md), apply `AssistantQuery` to define an assistant query input binding.
 
 ---
 
@@ -113,32 +115,32 @@ The attribute supports these parameters:
 | Parameter | Description |
 | --------- | ----------- |
 | **Id** |  Gets the ID of the assistant to query. |
-| **TimeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **TimeStampUtc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `GetChatState` annotation enables you to define an assistant query input binding, which supports these parameters: 
+The `assistantQuery` annotation enables you to define an assistant query input binding, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
 | **id** |  Gets the ID of the assistant to query. |
-| **timeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **timeStampUtc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
-<!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `GetChatState` decorator supports these parameters:
+<!--- Replace with typed decorator when available.-->
+During the preview, define the input binding as a `generic_input_binding` binding of type `assistantQuery`, which supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **id** |  Gets the ID of the assistant to query. |
-| **time_stamp_utc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **time_stamp_utc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 
 ::: zone-end
@@ -149,11 +151,11 @@ The binding supports these configuration properties that you set in the function
 
 |Property | Description |
 |-----------------------|-------------|
-| **type** | Must be `GetChatState`. |
+| **type** | Must be `assistantQuery`. |
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
 | **id** |  Gets the ID of the assistant to query. |
-| **timeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **timeStampUtc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -164,25 +166,18 @@ The binding supports these properties, which are defined in your code:
 |Property | Description |
 |-----------------------|-------------|
 | **id** |  Gets the ID of the assistant to query. |
-| **timeStampUtc** |_Optional._ Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
+| **timeStampUtc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
 
 ::: zone-end  
+## Usage
 
 See the [Example section](#example) for complete examples.
 
-## Usage
-
-<!---Usage information goes here. This should be brief, language-specific, and related to:
-    1. Supported types.
-    2. Binding-speficic connection details (if not already covered in the overview article).
--->
-
 ## Related content
 
-{{To be added}}
++ [Assistant samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant)
++ [Azure OpenAI extension](functions-bindings-openai.md)
++ [Azure OpenAI assistant trigger](functions-bindings-openai-assistant-trigger.md)
++ [Azure OpenAI assistant create output binding ](functions-bindings-openai-assistantcreate-output.md)
++ [Azure OpenAI assistant post output binding ](functions-bindings-openai-assistantpost-output.md)
 
-<!--- Add links to:
-1. How-to articles.
-2. Related references.
-3. External references (Azure OpenAI overview, etc.).
--->
