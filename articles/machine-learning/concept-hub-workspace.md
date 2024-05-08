@@ -51,7 +51,7 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 
 | Configuration | Note |
 | ---- | ---- |
-| Network settings | One [managed virtual network]() is shared between hub and project workspaces. Create a single private link endpoint on the hub workspace, to access content in hub and project workspaces. |
+| Network settings | One [managed virtual network](how-to-managed-network.md) is shared between hub and project workspaces. Create a single private link endpoint on the hub workspace, to access content in hub and project workspaces. |
 | Encryption settings | Encryption settings pass down from hub to project. |
 | Encryption storage resource | When bringing your customer-managed keys for encryption, hub and project workspaces share the same [managed resource group]() for storing encrypted service data. |
 | Connections | Project workspaces can consume shared connections created on the hub. This feature is currently only supported in [AI studio]()  |
@@ -62,16 +62,16 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | Container registry | Project workspaces images are isolated by naming convention, and can only access their own containers. |
 | Application insights | One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
 
-Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members. See [
+Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members.
 
 ## Create a project workspace using a hub
 
-Once a hub is created, there are multiple ways to create a project workspace with it:
+Once a hub is created, there are multiple ways to create a project workspace using it:
 
-1. [Using ML Studio]()
-1. [Using AI Studio]()
-2. [Using Azure SDK]()
-4. [Using automation templates]()
+1. [Using ML Studio](how-to-manage-workspace.md?view=azureml-api-2&tabs=mlstudio)
+1. [Using AI Studio](../ai-studio/how-to/create-projects.md)
+2. [Using Azure SDK](how-to-manage-workspace.md?view=azureml-api-2&tabs=python)
+4. [Using automation templates](how-to-create-workspace-template.md)
 
 ![Create workspace using hub in ML studio](media/concept-hub-workspace/project-workspace-create.png)
 
@@ -97,7 +97,7 @@ Features that are supported using hub/project workspaces differ from regular wor
 |Build GenAI apps in AI studio|-|X|X||
 |Single private link endpoint across workspaces|-|X|X||
 |Managed virtual network|X|X|X|-|
-|BYO virtual network|X|-|-|Use alternative [managed virtual network]()|
+|BYO virtual network|X|-|-|Use alternative [managed virtual network](how-to-managed-network.md)|
 |Compute clusters|X|-|-|Use alternative [serverless compute]()|
 |Parallel run step|X|-|-|-|
 
