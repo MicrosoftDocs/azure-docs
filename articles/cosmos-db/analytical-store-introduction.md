@@ -6,7 +6,7 @@ ms.author: rosouz
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 05/08/2024
 ms.custom: devx-track-azurecli
 ---
 
