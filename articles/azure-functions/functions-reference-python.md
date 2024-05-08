@@ -549,7 +549,7 @@ def blob_trigger(client: blob.BlobClient):
     arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
 )
 def blob_input(req: func.HttpRequest, client: blob.BlobClient):
-    blob_size = client.download_blob().readall()
+    file = client.download_blob().readall()
     logging.info(
         f"Python blob input function processed blob \n"
         f"Properties: {client.get_blob_properties()}\n"
