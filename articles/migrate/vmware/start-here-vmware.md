@@ -26,7 +26,7 @@ Make sure you checkout out the [support matrix](migrate-support-matrix-vmware.md
 ## Discover
 You need a list of all of the servers in your environment. To get the list, you have 2 choices: 
 
-- Deploy an appliance that continually discovers servers. For more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md)[Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md)
+- Deploy an appliance that continually discovers servers. For more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md).
 
 - Use RVTools XLSX to discover servers and store the information in a .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
 
