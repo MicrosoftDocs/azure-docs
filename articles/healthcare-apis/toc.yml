@@ -20,6 +20,8 @@
       href: ./azure-api-for-fhir/overview.md
     - name: Business continuity & disaster recovery
       href: business-continuity-disaster-recovery.md
+    - name: Manage network access security
+      href: network-access-security.md
 - name: Quickstarts
   items: 
     - name: Workspace provisioning
@@ -52,6 +54,8 @@
       href: ./events/events-deploy-portal.md
     - name: Enable diagnostic logging
       href: logging.md
+    - name: Built-in policy definitions
+      href: azure-health-data-services-policy-reference.md
 - name: Release notes
   expanded: false
   items: 

@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/26/2024
+ms.date: 05/02/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -12,7 +12,7 @@ ms.custom: references_regions
 # Support matrix for Azure Update Manager
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly.
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
 
@@ -36,7 +36,7 @@ Update Manager doesn't support driver updates.
 
 ### Extended Security Updates (ESU) for Windows Server
 
-Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. To enroll in Windows Server 2012 Extended Security Updates, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc)
+Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. To enroll in Windows Server 2012 Extended Security Updates, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2.](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc)
 
 ### First-party updates on Windows
 
@@ -44,7 +44,7 @@ By default, the Windows Update client is configured to provide updates only for 
 
 Use one of the following options to perform the settings change at scale:
 
-- For servers configured to patch on a schedule from Update Manager (with VM `PatchSettings` set to `AutomaticByPlatform = Azure-Orchestrated`), and for all Windows Servers running on an earlier operating system than Windows Server 2016, run the following PowerShell script on the server you want to change:
+- For servers configured to patch on a schedule from Update Manager (with virtual machine `PatchSettings` set to `AutomaticByPlatform = Azure-Orchestrated`), and for all Windows Servers running on an earlier operating system than Windows Server 2016, run the following PowerShell script on the server you want to change:
 
     ```powershell
     $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -53,7 +53,7 @@ Use one of the following options to perform the settings change at scale:
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
 
-- For servers running Windows Server 2016 or later that aren't using Update Manager scheduled patching (with VM `PatchSettings` set to `AutomaticByOS = Azure-Orchestrated`), you can use Group Policy to control this process by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Windows Server 2016 or later that aren't using Update Manager scheduled patching (with virtual machine `PatchSettings` set to `AutomaticByOS = Azure-Orchestrated`), you can use Group Policy to control this process by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 > [!NOTE]
 > Run the following PowerShell script on the server to disable first-party updates:
@@ -65,11 +65,11 @@ Use one of the following options to perform the settings change at scale:
 > $ServiceManager.RemoveService($ServiceId)
 > ```
 
-### Third-party updates
+### Third party updates
 
-**Windows**: Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+**Windows**: Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
-**Linux**: If you include a specific third-party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package isn't available for assessment and installation if you remove it.
+**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package isn't available for assessment and installation if you remove it.
 
 Update Manager doesn't support managing the Configuration Manager client.
 
@@ -77,11 +77,14 @@ Update Manager doesn't support managing the Configuration Manager client.
 
 Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public cloud where you can use Update Manager.
 
-# [Azure VMs](#tab/azurevm)
+#### [Azure Public cloud](#tab/public)
+
+### Azure VMs
 
 Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
 
-# [Azure Arc-enabled servers](#tab/azurearc)
+### Azure Arc-enabled servers
+
 
 Azure Update Manager is currently supported in the following regions. It implies that VMs must be in the following regions.
 
@@ -105,13 +108,26 @@ UAE | UAE North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3
 
+#### [Azure for US Government (preview)](#tab/gov)
+
+**Geography** | **Supported regions** | **Details** 
+--- | --- | ---
+United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For Azure VMs only
+
+#### [Azure operated by 21Vianet (preview)](#tab/21via)
+
+**Geography** | **Supported regions** | **Details** 
+--- | --- | ---
+China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> ChinaEast2 </br>  ChinaNorth2 | For Azure VMs only </br> For Azure VMs only </br> For Azure VMs only </br> For Azure VMs only </br> For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers.
+
+
 ---
 
 ## Supported operating systems
 
 >[!NOTE]
 > - All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
-> - Update Manager doesn't support VMs created from CIS-hardened images.
+> - Update Manager doesn't support virtual machines created from CIS-hardened images.
 
 ### Support for Azure Update Manager operations
 
@@ -153,12 +169,12 @@ Following is the list of supported images and no other marketplace images releas
 
 | **Publisher**| **Offer** | **SKU**|  **Unsupported image(s)** |
 |----------|-------------|-----| ---|
-|microsoftwindowsserver | windowsserver | * | windowsserver 2008|
+|microsoftwindowsserver | windows server | * | windowsserver 2008|
 |microsoftbiztalkserver | biztalk-server | *|
 |microsoftdynamicsax | dynamics | * |
 |microsoftpowerbi |* |* |
 |microsoftsharepoint | microsoftsharepointserver | *|
-|microsoftvisualstudio | Visualstudio* |  *-ws2012r2. </br> *-ws2016-ws2019 </br> *-ws2022 |
+|microsoftvisualstudio | Visualstudio* |  *-ws2012r2 </br> *-ws2016-ws2019 </br> *-ws2022 |
 |microsoftwindowsserver | windows-cvm | * |
 |microsoftwindowsserver | windowsserverdotnet | *|
 |microsoftwindowsserver | windowsserver-gen2preview | *|

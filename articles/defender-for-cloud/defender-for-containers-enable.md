@@ -37,9 +37,9 @@ You can also learn more by watching these videos from the Defender for Cloud in 
 - [Microsoft Defender for Containers in a multicloud environment](episode-nine.md)
 - [Protect Containers in GCP with Defender for Containers](episode-ten.md)
 
-::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
+::: zone pivot="defender-for-container-arc"
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE is a preview feature. The preview feature is available on a self-service, opt-in basis.
+> Defender for Containers' support for Arc-enabled Kubernetes clusters is a preview feature. The preview feature is available on a self-service, opt-in basis.
 >
 > Previews are provided "as is" and "as available" and are excluded from the service level agreements and limited warranty.
 >

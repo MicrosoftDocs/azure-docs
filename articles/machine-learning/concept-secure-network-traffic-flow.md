@@ -52,7 +52,7 @@ This article assumes the following configuration:
 | [Use AutoML, the designer, the dataset, and the datastore from the studio](#scenario-use-automl-the-designer-the-dataset-and-the-datastore-from-the-studio) | Not applicable | Not applicable | <ul><li>Configure the workspace service principal</li><li>Allow access from trusted Azure services</li></ul>For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). |
 | [Use a compute instance and a compute cluster](#scenario-use-a-compute-instance-and-a-compute-cluster) | <ul><li>Azure Machine Learning on port 44224</li><li>Azure Batch on ports 29876-29877</li></ul> | <ul><li>Microsoft Entra ID</li><li>Azure Resource Manager</li><li>Azure Machine Learning</li><li>Azure Storage</li><li>Azure Key Vault</li></ul> | If you use a firewall, create user-defined routes. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md). |
 | [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | Not applicable | For information on the outbound configuration for AKS, see [Secure Azure Kubernetes Service inferencing environment](how-to-secure-kubernetes-inferencing-environment.md). | |
-| [Use Docker images that Azure Machine Learning manages](#scenario-use-docker-images-that-azure-machine-learning-manages) | Not applicable | <ul><li>Microsoft Artifact Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the container registry for your workspace is behind the virtual network, configure the workspace to use a compute cluster to build images. For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). |
+| [Use Docker images that Azure Machine Learning manages](#scenario-use-docker-images-that-azure-machine-learning-manages) | Not applicable | Microsoft Artifact Registry | If the container registry for your workspace is behind the virtual network, configure the workspace to use a compute cluster to build images. For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). |
 
 ## Purposes of storage accounts
 
@@ -159,9 +159,9 @@ If your model requires extra inbound or outbound connectivity, such as to an ext
 
 ## Scenario: Use Docker images that Azure Machine Learning manages
 
-Azure Machine Learning provides Docker images that you can use to train models or perform inference. These images are hosted on Microsoft Artifact Registry. They're also hosted on a geo-replicated Azure Container Registry instance named `viennaglobal.azurecr.io`.
+Azure Machine Learning provides Docker images that you can use to train models or perform inference. These images are hosted on Microsoft Artifact Registry.
 
-If you provide your own Docker images, such as on a container registry that you provide, you don't need the outbound communication with Artifact Registry or `viennaglobal.azurecr.io`.
+If you provide your own Docker images, such as on a container registry that you provide, you don't need the outbound communication with Artifact Registry.
 
 > [!TIP]
 > If your container registry is secured in the virtual network, Azure Machine Learning can't use it to build Docker images. Instead, you must designate an Azure Machine Learning compute cluster to build images. For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).

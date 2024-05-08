@@ -41,7 +41,7 @@ When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines
 
 ## Videos
 
-To help you set up identity-based authentication for some common use cases, we published two videos with step-by-step guidance for the following scenarios:
+To help you set up identity-based authentication for some common use cases, we published two videos with step-by-step guidance for the following scenarios. Note that Azure Active Directory is now Microsoft Entra ID. For more info, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
 | Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Azure Virtual Desktop (including setup on AD authentication and FSLogix configuration)  |
 |-|-|

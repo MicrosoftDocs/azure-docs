@@ -37,7 +37,6 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
   - [Identity](#identity)
-  - [Alerts](#alerts)
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)
@@ -50,12 +49,6 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - [Insights](#insights)  
-  - [Alerts](#alerts)
-  - [Metrics](#metrics)
-  - [Diagnostic settings](#diagnostic-settings)
-  - [Advisor recommendations](#advisor-recommendations)
-  - [Workbooks](#workbooks)
 - Automation
   - [Tasks (preview)](#tasks)
   - [Export template](#export-template)
@@ -69,15 +62,15 @@ The **Overview** section provides you with basic information about your cache, s
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](monitor-cache.md#azure-activity-log).
 
 ### Access control (IAM)
 
-The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Tags
 
-The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
+The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources).
 
 ### Diagnose and solve problems
 
@@ -87,7 +80,7 @@ Select **Diagnose and solve problems** to be provided with common issues and str
 
 Select **Events** to add event subscriptions to your cache. Use events to build reactive, event-driven apps with the fully managed event routing service that is built into Azure.
 
-The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](../event-grid/overview.md).
+The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](/azure/event-grid/overview).
 
 ## Redis console
 
@@ -135,7 +128,7 @@ You can move your cache to a new subscription by selecting **Move**.
 
 :::image type="content" source="media/cache-configure/redis-cache-move.png" alt-text="Move Azure Cache for Redis":::
 
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 
 ## Settings
 
@@ -319,7 +312,7 @@ Select **Properties** to view information about your cache, including the cache 
 
 ### Locks
 
-The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
+The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](/azure/azure-resource-manager/management/lock-resources).
 
 ## Administration settings
 
@@ -367,26 +360,20 @@ To reboot one or more nodes of your cache, select the desired nodes and select *
 
 ## Monitoring
 
-The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis.
-For more information on Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
+The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis instance.
+
+- For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
+- For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
 
 :::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
 
-- [Insights](#insights)
-- [Metrics](#metrics)
-- [Alerts](#alerts)
-- [Diagnostic settings](#diagnostic-settings)
-- [Advisor recommendations](#advisor-recommendations)
-
 ### Insights
 
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics.
-
-For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Insights](monitor-cache.md#insights).
 
 ### Metrics
 
-Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 ### Alerts
 
@@ -394,11 +381,10 @@ Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. Fo
 
 ### Diagnostic settings
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
->
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
 
 ### Advisor recommendations
 
@@ -437,11 +423,11 @@ Azure Automation delivers a cloud-based automation, operating system updates, an
 
 Select **Tasks** to  help you manage Azure Cache for Redis resources more easily. These tasks vary in number and availability, based on the resource type. Presently, you can only use the **Send monthly cost for resource** template to create a task while in preview.
 
-For more information, see [Manage Azure resources and monitor costs by creating automation tasks](../logic-apps/create-automation-tasks-azure-resources.md).
+For more information, see [Manage Azure resources and monitor costs by creating automation tasks](/azure/logic-apps/create-automation-tasks-azure-resources).
 
 ### Export template
 
-Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
+Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Support & troubleshooting settings
 
@@ -454,7 +440,7 @@ The settings in the **Support + troubleshooting** section provide you with optio
 
 ### Resource health
 
-**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../service-health/resource-health-overview.md).
+**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](/azure/service-health/resource-health-overview).
 
 > [!NOTE]
 > Resource health is currently unable to report on the health of Azure Cache for Redis instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)

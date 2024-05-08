@@ -196,4 +196,4 @@ The streamed logs look like this:
 > [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Multi-container app tutorial](../../tutorial-multi-container-app.md)
+> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)

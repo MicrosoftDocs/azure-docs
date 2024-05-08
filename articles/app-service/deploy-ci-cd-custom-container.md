@@ -43,6 +43,9 @@ Once you authorize your Azure account with GitHub, **select** the **Organization
 ::: zone pivot="container-linux"
 ## 3. Configure registry settings
 
+> [!NOTE]
+> Sidecar containers (preview) will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+
 To deploy a multi-container (Docker Compose) app, **select** **Docker Compose** in **Container Type**.
 
 If you don't see the **Container Type** dropdown, scroll back up to **Source** and **select** **Container Registry**.

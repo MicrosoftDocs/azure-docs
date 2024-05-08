@@ -63,7 +63,7 @@ The limits in this table apply per Speech resource when you create a custom spee
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
-| Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
+| Max text size when you're using the `text` parameter in the [Models_Create](/rest/api/speechtotext/models/create) API request | 200 KB | 500 KB |
 
 ### Text to speech quotas and limits per resource
 
@@ -86,10 +86,10 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-|REST API limit | Not available for F0 | 50 requests per 5 seconds |
-| Max JSON payload size to create a synthesis job  | N/A | 500 kilobytes |
-| Concurrent active synthesis jobs | N/A | 200 |
-| Max number of text inputs per synthesis job | N/A | 1000 |
+|REST API limit | Not available for F0 | 100 requests per 10 seconds |
+| Max JSON payload size to create a synthesis job  | N/A | 2 megabytes |
+| Concurrent active synthesis jobs | N/A | No limit |
+| Max number of text inputs per synthesis job | N/A | 10000 |
 |Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
 #### Custom neural voice - professional

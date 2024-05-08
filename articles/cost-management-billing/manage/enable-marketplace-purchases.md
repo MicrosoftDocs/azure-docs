@@ -93,7 +93,7 @@ To set permission for a subscription:
 1. Enter the email address of the user to whom you want to give access.
 1. Select **Save** to assign the role.
 
-For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
+For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
 
 
 ## Set user permission to accept private offers

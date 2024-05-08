@@ -12,7 +12,7 @@ ms.custom: cli-validate, devx-track-azurecli
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
 > [!NOTE]
-> Multi-container is in preview.
+> Sidecar containers (preview) will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 [Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.32 or later).
 

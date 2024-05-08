@@ -22,6 +22,8 @@ If you're using the API for NoSQL or PostgreSQL, you can also migrate your Try A
 
 This article walks you through how to create your account, limits, and upgrading your account. This article also walks through how to migrate your data from your Try Azure Cosmos DB sandbox to your own account using the API for NoSQL.
 
+If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
+
 ## Limits to free account
 
 ### [NoSQL / Cassandra/ Gremlin / Table](#tab/nosql+cassandra+gremlin+table)
@@ -58,7 +60,7 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 ² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
 
 > [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans. If the account exceeds the maximum resource limits, it's automatically deleted.
 
 ### [PostgreSQL](#tab/postgresql)
 

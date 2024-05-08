@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about cluster autoscaling in Azure Kubernetes Service (AKS) using the cluster autoscaler.
 ms.topic: conceptual
 ms.date: 01/05/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Cluster autoscaling in Azure Kubernetes Service (AKS) overview
@@ -110,3 +113,4 @@ Depending on how long the scaling operations have been experiencing failures, it
 <!-- LINKS --->
 [vertical-pod-autoscaler]: vertical-pod-autoscaler.md
 [horizontal-pod-autoscaler]:concepts-scale.md#horizontal-pod-autoscaler
+

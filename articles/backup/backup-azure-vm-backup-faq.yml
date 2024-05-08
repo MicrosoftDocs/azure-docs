@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/19/2024
+  ms.date: 04/12/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -295,6 +295,10 @@ sections:
       - question: Can I use Enhanced policy for Cross Zonal Restore?
         answer: |
           Yes, it's supported for [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options).
+
+      - question: How do I clear iSCSI session and it's processes after running the Python script for Linux ILR?
+        answer: |
+          After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
   - name: Manage VM backups
     questions:

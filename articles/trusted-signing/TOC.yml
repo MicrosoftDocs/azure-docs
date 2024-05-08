@@ -10,6 +10,14 @@
     items:
     - name: Signing Integrations with Trusted Signing
       href: how-to-signing-integrations.md
+    - name: Sign CI Policies with Trusted Signing
+      href: how-to-sign-ci-policy.md
+    - name: Access signed transactions in Trusted Signing 
+      href: how-to-sign-history.md
+    - name: Revoke a certificate profile in Trusted Signing
+      href: how-to-cert-revocation.md
+    - name: Renew Trusted Signing Identity Validation
+      href: how-to-renew-identity-validation.md
   - name: Quickstart
     items:
     - name: Quickstart onboarding
@@ -24,5 +32,9 @@
       href: faq.yml
   - name: Concept
     items:
-    - name: Signing concepts
-      href: concept.md
+    - name: Trusted Signing trust models
+      href: concept-trusted-signing-trust-models.md
+    - name: Trusted Signing resources and roles
+      href: concept-trusted-signing-resources-roles.md
+    - name: Trusted Signing certificate management
+      href: concept-trusted-signing-cert-management.md

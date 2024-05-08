@@ -12,7 +12,7 @@
       href: quickstart-send-telemetry-cli.md
     - name: Send telemetry using SDK
       displayName: IoT Plug and Play, Azure IoT Explorer
-      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       displayName: direct method, Azure IoT Explorer
       href: quickstart-control-device.md
@@ -535,15 +535,12 @@
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      displayName: MXCHIP, microchip, NXP MIMXRT, evaluation kit, STMicroelectronics
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: ../iot-develop/about-iot-sdks.md
+        href: ../iot/iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)

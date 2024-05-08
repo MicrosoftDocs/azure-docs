@@ -29,7 +29,7 @@ For other configurations, see:
 * [Application routing add-on configuration][custom-ingress-configurations]
 * [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
 
-With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
+With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on with OSM is not recommended.
 
 ## Prerequisites
 
@@ -42,7 +42,8 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 - The application routing add-on supports up to five Azure DNS zones.
 - All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
-- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap, isn't supported.
+- Editing the ingress-nginx `ConfigMap` in the `app-routing-system` namespace isn't supported.
+- The following snippet annotations are blocked and will prevent an Ingress from being configured: `load_module`, `lua_package`, `_by_lua`, `location`, `root`, `proxy_pass`, `serviceaccount`, `{`, `}`, `'`.
 
 ## Enable application routing using Azure CLI
 
@@ -513,3 +514,4 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [ingress-backend]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api
+

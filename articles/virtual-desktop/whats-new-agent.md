@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 03/18/2024
+ms.date: 05/07/2024
 ms.author: helohr
 ms.custom: references_regions
 ---
@@ -26,11 +26,33 @@ A rollout may take several weeks before the agent is available in all environmen
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.8297.800 |
-| Validation | 1.0.8431.1500  |
+| Production | 1.0.8431.2300 |
+| Validation | 1.0.8804.1400  |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
+
+## Version 1.0.8804.1400 (validation)
+
+*Published: April 2024*
+
+In this update, we've made the following changes: 
+
+- Fixed the logic to display deprecated client message.  
+
+- Enable customers to change relative path while leaving image path the same. 
+
+- Update app attach packages to fetch and store timestamp info from certificate. 
+
+## Version 1.0.8431.2300
+
+*Published: April 2024*
+
+In this update, we made the following changes:
+
+- Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
+
+- General improvements and bug fixes. 
 
 ## Version 1.0.8431.1500 (validation)
 

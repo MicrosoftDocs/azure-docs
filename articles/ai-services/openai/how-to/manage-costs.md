@@ -48,7 +48,16 @@ Azure OpenAI fine-tuned models are charged based on three factors:
 
 The hosting hours cost is important to be aware of since after a fine-tuned model is deployed, it continues to incur an hourly cost regardless of whether you're actively using it. Monitor fine-tuned model costs closely.
 
-[!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md)]
+> [!IMPORTANT]
+> After you deploy a customized model, if at any time the deployment remains inactive for greater than fifteen (15) days,
+> the deployment is deleted. The deployment of a customized model is _inactive_ if the model was deployed more than fifteen (15) days ago
+> and no completions or chat completions calls were made to it during a continuous 15-day period.
+>
+> The deletion of an inactive deployment doesn't delete or affect the underlying customized model,
+> and the customized model can be redeployed at any time.
+>
+> Each customized (fine-tuned) model that's deployed incurs an hourly hosting cost regardless of whether completions
+> or chat completions calls are being made to the model. .
 
 ### Other costs that might accrue with Azure OpenAI Service
 

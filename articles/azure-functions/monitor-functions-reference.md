@@ -18,7 +18,7 @@ See [Monitor executions in Azure Functions](functions-monitoring.md) for details
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-There are two metrics specific to Functions that are of interest:
+There are two metrics that are of specific interest to function apps:
 
 | Metric | Description |
 | ---- | ---- |
@@ -28,7 +28,11 @@ There are two metrics specific to Functions that are of interest:
 These metrics are used specifically when [estimating Consumption plan costs](functions-consumption-costs.md). 
 
 ### Supported metrics for Microsoft.Web/sites
-The following table lists the metrics available for the Microsoft.Web/sites resource type. Most of these metrics apply to both FunctionApps and WebApps.
+
+The following table lists the metrics available for the Microsoft.Web/sites resource type. Most of these metrics apply to both function app and web apps, which both run on App Service.
+
+>[!NOTE]  
+>These metrics aren't available when your function app runs on Linux in a [Consumption plan](./consumption-plan.md).
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Web/sites](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-web-sites-metrics-include.md)]

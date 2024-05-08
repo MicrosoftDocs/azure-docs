@@ -102,7 +102,7 @@ $getParams = @{
     AutomationAccountName = '<your-automation-account-name>'
 }
 
-Get-AzAutomationDscConfiguration @params
+Get-AzAutomationDscConfiguration @getParams
 ```
 
 ```Output

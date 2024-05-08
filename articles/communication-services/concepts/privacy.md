@@ -38,6 +38,15 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
+> [!Note]
+> Advanced Messaging for WhatsApp is only available in the following Regions.
+
+- Asia Pacific
+- Australia
+- Europe
+- United Kingdom
+- United States
+
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 

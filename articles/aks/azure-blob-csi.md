@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom:
 ms.subservice: aks-storage
 ms.date: 11/24/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Azure Blob storage Container Storage Interface (CSI) driver
@@ -234,3 +237,4 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+

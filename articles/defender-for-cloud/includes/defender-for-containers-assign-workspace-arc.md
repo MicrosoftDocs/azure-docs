@@ -13,6 +13,7 @@ The Log Analytics workspace is used by the Defender sensor as a data pipeline to
 The Defender sensor uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender sensor is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
 
 The naming convention for the default Log Analytics workspace and resource group is:
+
 - **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
 - **Resource Group**: DefaultResourceGroup-\[geo]
 
@@ -42,7 +43,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 1. Follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps if the policy hasn't yet been assigned to the relevant scope. Or, follow the [Update assignment with custom workspace](#update-assignment-with-custom-workspace) steps if the policy is already assigned and you want to change it to use a custom workspace.
 
-#### Create a new assignment with custom workspace 
+#### Create a new assignment with custom workspace
 
 If the policy hasn't been assigned, you'll see `Assignments (0)`.
 
@@ -56,15 +57,15 @@ If the policy hasn't been assigned, you'll see `Assignments (0)`.
 
 1. Select a LogAnalyticsWorkspaceResource ID from the dropdown menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for Arc." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for Arc." lightbox="../media/defender-for-containers/drop-down-menu-arc.png":::
 
 1. Select **Review + create**.
 
 1. Select **Create**.
 
-#### Update assignment with custom workspace 
+#### Update assignment with custom workspace
 
-If the policy has already been assigned to a workspace, you'll see `Assignments (1)`. 
+If the policy has already been assigned to a workspace, you'll see `Assignments (1)`.
 
 > [!NOTE]
 > If you have more than one subscription the number might be higher. If you have a number 1 or higher, the assignment might still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.
@@ -83,7 +84,7 @@ If the policy has already been assigned to a workspace, you'll see `Assignments 
 
 1. Select a LogAnalyticsWorkspaceResource ID from the dropdown menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for Arc." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for Arc." lightbox="../media/defender-for-containers/drop-down-menu-arc.png":::
 
 1. Select **Review + save**.
 

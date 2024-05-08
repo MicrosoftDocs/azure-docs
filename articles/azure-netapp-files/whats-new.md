@@ -14,11 +14,33 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2024
+
+* [Azure NetApp Files backup](backup-introduction.md) is now generally available (GA).
+
+    Azure NetApp Files online snapshots are enhanced with backup of snapshots. With this backup capability, you can offload (vault) your Azure NetApp Files snapshots to a Backup vault in a fast and cost-effective way, further protecting your data from accidental deletion. 
+     
+    Backup further extends Azure NetApp Files’ built-in snapshot technology; when snapshots are vaulted to a Backup vault only changed data blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots however are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative full-incremental recovery process.   
+
+    This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
+
+## April 2024 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
+
+    Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
+
+    Application volume group for Oracle has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for Oracle. All required volumes, such as up to eight data volumes, online redo log and archive redo log, backup and binary, are created in a single "atomic" operation (through the Azure portal, RP, or API).
+
+    Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. It supports up to eight data volumes with latency-optimized performance and is only limited by the database VM's network capabilities. 
+
+    Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
+  
+## March 2024
+
 * [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
 
     Large volumes support a minimum size of 50 TiB. Large volumes still support a maximum quota of 500 TiB. 
-
-## March 2024
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) is now generally available (GA).
 

@@ -366,10 +366,10 @@ After you've verified that the function runs correctly on your local computer, i
 ## Test your function in Azure
 
 ::: zone pivot="python-mode-configuration"
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function must be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function must be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 ::: zone-end
 ::: zone pivot="python-mode-decorators"
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function must be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/hello_orchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function must be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/hello_orchestrator`
 ::: zone-end
 
 

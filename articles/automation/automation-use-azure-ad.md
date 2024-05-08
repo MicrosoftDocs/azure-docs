@@ -4,7 +4,7 @@ description: This article tells how to use Microsoft Entra ID within Azure Autom
 services: automation
 ms.date: 05/26/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure

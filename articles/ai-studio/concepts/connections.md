@@ -21,11 +21,11 @@ Connections in Azure AI Studio are a way to authenticate and consume both Micros
 
 ## Connections to Azure AI services
 
-You can create connections to Azure AI services such as Azure OpenAI and Azure AI Content Safety. You can then use the connection in a prompt flow tool such as the LLM tool.
+You can [create connections](../how-to/connections-add.md) to Azure AI services such as Azure OpenAI and Azure AI Content Safety. You can then use the connection in a prompt flow tool such as the LLM tool.
 
 :::image type="content" source="../media/prompt-flow/llm-tool-connection.png" alt-text="Screenshot of a connection used by the LLM tool in prompt flow." lightbox="../media/prompt-flow/llm-tool-connection.png":::
 
-As another example, you can create a connection to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Vector DB Lookup tool.
+As another example, you can [create a connection](../how-to/connections-add.md) to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Vector DB Lookup tool.
 
 :::image type="content" source="../media/prompt-flow/vector-db-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Vector DB Lookup tool in prompt flow." lightbox="../media/prompt-flow/vector-db-lookup-tool-connection.png":::
 

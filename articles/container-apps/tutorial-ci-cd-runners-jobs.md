@@ -68,113 +68,57 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 Refer to [jobs restrictions](jobs.md#jobs-restrictions) for a list of limitations.
 
-## Setup
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
+## Create environment variables
 
-    # [Bash](#tab/bash)
-    ```bash
-    az login
-    ```
+Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    az login
-    ```
+::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
-    ---
+# [Bash](#tab/bash)
+```bash
+RESOURCE_GROUP="jobs-sample"
+LOCATION="northcentralus"
+ENVIRONMENT="env-jobs-sample"
+JOB_NAME="github-actions-runner-job"
+```
 
-1. Ensure you're running the latest version of the CLI via the `upgrade` command.
+# [PowerShell](#tab/powershell)
+```powershell
+$RESOURCE_GROUP="jobs-sample"
+$LOCATION="northcentralus"
+$ENVIRONMENT="env-jobs-sample"
+$JOB_NAME="github-actions-runner-job"
+```
 
-    # [Bash](#tab/bash)
-    ```bash
-    az upgrade
-    ```
+---
 
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    az upgrade
-    ```
+::: zone-end
 
-    ---
+::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
 
-1. Install the latest version of the Azure Container Apps CLI extension.
+# [Bash](#tab/bash)
+```bash
+RESOURCE_GROUP="jobs-sample"
+LOCATION="northcentralus"
+ENVIRONMENT="env-jobs-sample"
+JOB_NAME="azure-pipelines-agent-job"
+PLACEHOLDER_JOB_NAME="placeholder-agent-job"
+```
 
-    # [Bash](#tab/bash)
-    ```bash
-    az extension add --name containerapp --upgrade
-    ```
+# [PowerShell](#tab/powershell)
+```powershell
+$RESOURCE_GROUP="jobs-sample"
+$LOCATION="northcentralus"
+$ENVIRONMENT="env-jobs-sample"
+$JOB_NAME="azure-pipelines-agent-job"
+$PLACEHOLDER_JOB_NAME="placeholder-agent-job"
+```
 
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    az extension add --name containerapp --upgrade
-    ```
+---
 
-    ---
-
-1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
-
-    # [Bash](#tab/bash)
-    ```bash
-    az provider register --namespace Microsoft.App
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    az provider register --namespace Microsoft.App
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-    ---
-
-1. Define the environment variables that are used throughout this article.
-
-    ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
-
-    # [Bash](#tab/bash)
-    ```bash
-    RESOURCE_GROUP="jobs-sample"
-    LOCATION="northcentralus"
-    ENVIRONMENT="env-jobs-sample"
-    JOB_NAME="github-actions-runner-job"
-    ```
-
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    $RESOURCE_GROUP="jobs-sample"
-    $LOCATION="northcentralus"
-    $ENVIRONMENT="env-jobs-sample"
-    $JOB_NAME="github-actions-runner-job"
-    ```
-
-    ---
-
-    ::: zone-end
-
-    ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
-
-    # [Bash](#tab/bash)
-    ```bash
-    RESOURCE_GROUP="jobs-sample"
-    LOCATION="northcentralus"
-    ENVIRONMENT="env-jobs-sample"
-    JOB_NAME="azure-pipelines-agent-job"
-    PLACEHOLDER_JOB_NAME="placeholder-agent-job"
-    ```
-
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    $RESOURCE_GROUP="jobs-sample"
-    $LOCATION="northcentralus"
-    $ENVIRONMENT="env-jobs-sample"
-    $JOB_NAME="azure-pipelines-agent-job"
-    $PLACEHOLDER_JOB_NAME="placeholder-agent-job"
-    ```
-
-    ---
-
-    ::: zone-end
+::: zone-end
 
 ## Create a Container Apps environment
 
@@ -406,7 +350,7 @@ You can now create a job that uses to use the container image. In this section, 
         --cpu "2.0" \
         --memory "4Gi" \
         --secrets "personal-access-token=$GITHUB_PAT" \
-        --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
+        --env-vars "GITHUB_PAT=secretref:personal-access-token" "GH_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
@@ -429,7 +373,7 @@ You can now create a job that uses to use the container image. In this section, 
         --cpu "2.0" `
         --memory "4Gi" `
         --secrets "personal-access-token=$GITHUB_PAT" `
-        --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" `
+        --env-vars "GITHUB_PAT=secretref:personal-access-token" "GH_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" `
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 

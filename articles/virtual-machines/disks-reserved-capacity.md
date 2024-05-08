@@ -54,6 +54,8 @@ In rare circumstances, Azure limits the purchase of new reservations to a subset
 
 You can purchase Azure Disk Storage reservations through the [Azure portal](https://portal.azure.com/). You can pay for the reservation either up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase reservations with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md#buy-reservations-with-monthly-payments).
 
+To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+
 Follow these steps to purchase reserved capacity:
 
 1. Go to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) pane in the Azure portal.

@@ -15,8 +15,6 @@ ms.date: 02/27/2024
 
 The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
 
-For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-functions-redis-extension/tree/mapalan/UpdateReadMe/samples/dotnet/RedisStreamTrigger).
-
 | Tier    | Basic | Standard, Premium | Enterprise, Enterprise Flash |
 |---------|:-----:|:-----------------:|:----------------------------:|
 | Streams | Yes   | Yes               | Yes                          |
@@ -76,6 +74,8 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisStreamT
 ```
 
 ### [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ```csharp
 

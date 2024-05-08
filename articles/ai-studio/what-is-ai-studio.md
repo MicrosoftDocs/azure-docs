@@ -24,7 +24,7 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 [Azure AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
-- Directly from the studio you can interact with a project code-first via the [Azure AI SDK](how-to/sdk-install.md) and [Azure AI CLI](how-to/cli-install.md). 
+- Directly from the studio you can interact with a project code-first via the [Azure AI SDK](how-to/sdk-install.md).
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
 - Build together as one team. Your [Azure AI hub resource](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
@@ -65,7 +65,7 @@ Build is an experience where AI Devs and ML Pros can build or customize AI solut
 
 # [Manage](#tab/manage)
 
-As a developer, you can manage settings such as connections and compute. Your admin will mainly use this section to look at access control, usage, and billing.
+As a developer, you can manage settings such as connections and compute. Your admin mainly uses this section to look at access control, usage, and billing.
 
 - Centralized backend infrastructure to reduce complexity for developers.
 - A single Azure AI hub resource for enterprise configuration, unified data story, and built-in governance.
@@ -76,8 +76,8 @@ As a developer, you can manage settings such as connections and compute. Your ad
 
 ## Azure AI Studio enterprise chat solution demo
 
-Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
-> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
+Learn how to build your own copilot with Azure AI Studio in this [overview video from Microsoft Mechanics on YouTube](https://youtu.be/3hZorLy6JiA).
+> [!VIDEO https://www.youtube.com/embed/3hZorLy6JiA]
 
 ## Pricing and Billing
 
@@ -89,7 +89,7 @@ Azure AI Studio is available in most regions where Azure AI services are availab
 
 ## How to get access
 
-You can explore Azure AI Studio without signing in, but for full functionality an Azure account is needed and apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription has been added.
+You can explore Azure AI Studio without signing in, but for full functionality an Azure account is needed. You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
 
 ## Next steps 
 

@@ -1,9 +1,9 @@
 ---
 title: Use Apache Flink on HDInsight on AKS with Azure Service Bus 
-description: Use Apache Flink DataStream API on HDInsight on AKS with Azure Service Bus
+description: Use Apache Flink DataStream API on HDInsight on AKS with Azure Service Bus.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 04/02/2024
 ---
 # Use Apache Flink on HDInsight on AKS with Azure Service Bus
 
@@ -13,7 +13,7 @@ This article provides an overview and demonstration of Apache Flink DataStream A
 
 ## Prerequisites
 
--  [Flink Cluster 1.16.0 on HDInsight on AKS](./flink-create-cluster-portal.md)
+-  [Flink Cluster 1.17.0 on HDInsight on AKS](./flink-create-cluster-portal.md)
 -  For this demonstration, we use a Window VM as maven project develop env in the same VNET as HDInsight on AKS.
 -  During the [creation](./flink-create-cluster-portal.md) of the Flink cluster, you are required to ensure that SSH access is selected. This enables you to access the cluster using Secure Shell (SSH).
 -  Set up an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) instance.
@@ -76,7 +76,7 @@ In the POM.xml file, we define the project's dependencies using Maven, ensuring 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>

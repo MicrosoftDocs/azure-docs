@@ -7,8 +7,8 @@ ms.service: azure-ai-studio
 ms.topic: quickstart
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: pafarley
+author: PatrickFarley
 ---
 
 # Quickstart: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 
@@ -34,7 +34,7 @@ Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Visi
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the [regions that support GPT-4 Turbo with Vision](../../ai-services/openai/concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability): Australia East, Switzerland North, Sweden Central, and West US. When you deploy from your Azure AI project's **Deployments** page, select: `gpt-4` as the model name and `vision-preview` as the model version.
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the [regions that support GPT-4 Turbo with Vision](../../ai-services/openai/concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability). When you deploy from your Azure AI project's **Deployments** page, select: `gpt-4` as the model name and `vision-preview` as the model version.
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio. 
 
 ## Start a chat session to analyze images or video

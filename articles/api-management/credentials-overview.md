@@ -11,6 +11,8 @@ ms.custom: references_regions
 
 # About API credentials and credential manager
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
 
 > [!NOTE]
@@ -137,7 +139,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the classic and v2 service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 

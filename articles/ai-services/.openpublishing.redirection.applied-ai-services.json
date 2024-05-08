@@ -214,6 +214,11 @@
             "source_path_from_root": "/articles/ai-services/luis/luis-migration-authoring.md",
             "redirect_url": "/azure/ai-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
+            "redirect_url": "/azure/ai-services/openai/concepts/fine-tuning-considerations",
+            "redirect_document_id": true
           }
-     ]
+	]
 }

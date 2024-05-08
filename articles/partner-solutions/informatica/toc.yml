@@ -1,0 +1,22 @@
+items:
+- name: Informatica Intelligent Data Management Cloud 
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Informatica Intelligent Data Management Cloud (IDMC) 
+    href: informatica-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Informatica IDMC organization
+    href: informatica-create.md
+  - name: Create an Informatica IDMC advanced serverless runtime
+    href: informatica-create-advanced-serverless.md
+- name: How to
+  items:
+  - name: Manage your Informatica IDMC organization
+    href: informatica-manage.md
+  - name: Manage your advanced serverless runtime and Informatica IDMC organization
+    href: informatica-manage-serverless.md
+  - name: Troubleshoot an Informatica IDMC organization
+    href: informatica-troubleshoot.md

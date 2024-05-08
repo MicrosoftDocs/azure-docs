@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 10/13/2023
+ms.date: 04/26/2024
 ms.author: cherylmc
 ---
 # What is Azure Bastion?
@@ -13,10 +13,6 @@ ms.author: cherylmc
 Azure Bastion is a fully managed PaaS service that you provision to securely connect to virtual machines via private IP address. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly over TLS from the Azure portal, or via the native SSH or RDP client already installed on your local computer. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 
 Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtual network for which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
-
-The following diagram shows connections to virtual machines via a Bastion deployment that uses a Basic or Standard SKU.
-
-:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
 
 ## <a name="key"></a>Key benefits
 
@@ -33,29 +29,36 @@ The following diagram shows connections to virtual machines via a Bastion deploy
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion offers multiple SKU tiers. The following table shows features and corresponding SKUs.
+Azure Bastion offers multiple SKU tiers. The following table shows features and corresponding SKUs. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-For more information about SKUs, including how to upgrade a SKU and information about the new Developer SKU (currently in Preview), see the [Configuration settings](configuration-settings.md#skus) article.
-
 ## <a name="architecture"></a>Architecture
 
-This section applies to all SKU tiers except the Developer SKU, which is deployed differently. Azure Bastion is deployed to a virtual network and supports virtual network peering. Specifically, Azure Bastion manages RDP/SSH connectivity to VMs created in the local or peered virtual networks.
+Azure Bastion offers multiple deployment architectures, depending on the selected SKU and option configurations. For most SKUs, Bastion is deployed to a virtual network and supports virtual network peering. Specifically, Azure Bastion manages RDP/SSH connectivity to VMs created in the local or peered virtual networks.
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, as well as further inside the network.
 
-Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions might, or might not, be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
+**Diagram: Bastion - Basic SKU and higher**
 
 :::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
-
-This figure shows the architecture of an Azure Bastion deployment. This diagram doesn't apply to the Developer SKU. In this diagram:
 
 * The Bastion host is deployed in the virtual network that contains the AzureBastionSubnet subnet that has a minimum /26 prefix.
 * The user connects to the Azure portal using any HTML5 browser.
 * The user selects the virtual machine to connect to.
 * With a single click, the RDP/SSH session opens in the browser.
+* For some configurations, the user can connect to the virtual machine via the native operating system client.
 * No public IP is required on the Azure VM.
+
+**Diagram: Bastion - Developer SKU**
+
+:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
+
+[!INCLUDE [Developer SKU](../../includes/bastion-developer-sku-description.md)]
+
+## Availability zones
+
+[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
 
 ## <a name="host-scaling"></a>Host scaling
 

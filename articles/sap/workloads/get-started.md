@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 01/22/2024
+ms.date: 04/01/2024
 ms.author: juergent
 ---
 
@@ -55,9 +55,10 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- April 1, 2024: Reference the considerations section for sizing HANA shared file system in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md), [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [Azure Files NFS for SAP](planning-guide-storage-azure-files.md)
 - March 18, 2024: Added considerations for sizing the HANA shared file system in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - February 07, 2024: Clarified disk allocation when using PPGs to bind availability set in specific Availability Zone in [Configuration options for optimal network latency with SAP applications](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
-- February 01, 2024: Added guidance for [SAP front-end printing to Universal Print](./universal-print-sap-frontend.md).
+- February 01, 2024: Added guidance for [SAP front-end printing to Universal Print](./universal-print-sap-frontend.md)
 - January 24, 2024: Split [SAP RISE integration documentation](./rise-integration.md) into multiple segments for improved legibility, additional overview information added.
 - January 22, 2024: Changes in all high availability documentation to include guidelines for setting the “probeThreshold” property to 2 in the load balancer’s health probe configuration.
 - January 21, 2024: Change recommendations around LARGEPAGES in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)

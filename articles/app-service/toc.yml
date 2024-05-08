@@ -373,6 +373,8 @@
       href: deploy-container-github-action.md
     - name: End-to-end tutorials
       items:
+        - name: Configure a sidecar container
+          href: tutorial-custom-container-sidecar.md
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions
@@ -429,6 +431,8 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
+    - name: Deploy an application that uses OpenAI on App Service
+      href: deploy-intelligent-apps.md
     - name: gRPC configuration
       href: configure-grpc.md
     - name: Recommended services (preview)
