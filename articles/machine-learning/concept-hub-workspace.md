@@ -43,7 +43,7 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | ---- | ---- |
 | Network settings | One managed virtual network is shared between hub and project workspaces. Create a private link endpoint on the hub workspace, to access both hub and project workspaces. |
 | Encryption settings | Encryption settings pass down from hub to project. |
-| Connections | Shared connections created in AI Studio  |
+| Connections | Project workspaces can consume shared connections created on the hub. This feature is currently only supported in [AI studio]()  |
 | Compute instance | Reuse a compute instance across all project workspaces associated to the same hub. |
 | Compute quota | Any compute quota consumed by project workspaces are deducted from the hub workspace quota balance. |
 | Storage | Project workspaces have designated containers starting with a prefix {workspaceGUID}, and conditioned [Azure Attribute Based Access] for the workspace identity. |
