@@ -118,7 +118,7 @@ Multiple address prefixes on a subnet is a feature that offers the ability to mo
 
 - Customers can only use on VM and VMSS subnets. Delegated subnets aren't supported.
 
-Pricing: this virtual network feature is offered free of charge.
+**Pricing**: Multiple address prefixes on a subnet is offered free of charge.
 
 We welcome you to share your feedback about this feature in this [quick survey](https://aka.ms/multiple-prefixes-feedback).  
 
