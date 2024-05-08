@@ -31,7 +31,7 @@ Text summarization uses natural language processing techniques to generate a sum
 
 Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content. Abstractive summarization generates a summary with concise, coherent sentences or words that aren't verbatim extract sentences from the original document. These features are designed to shorten content that could be considered too long to read.
 
-## Key features
+## Key features for text summarization
 
 There are two aspects of text summarization this API provides:
 
@@ -86,7 +86,7 @@ A native document refers to the file format used to create the original document
 
 For more information, *see* [**Use native documents for language processing**](../native-document-support/use-native-documents.md)
 
-## Key features
+## Key features for conversation summarization
 
 Conversation summarization supports the following features:
 
