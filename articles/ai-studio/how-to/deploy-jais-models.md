@@ -64,22 +64,22 @@ To create a deployment:
 
 1. In the model catalog, on the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
 
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png":::
+    :::image type="content" source="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png":::
 
 1. Select the project in which you want to deploy your model. To deploy the model your project must be in the EastUS2 or Sweden Central region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
 
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/cohere-command/command-r-marketplace-terms.png":::
+    :::image type="content" source="../media/deploy-monitor/jais/jais-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/jais/jais-marketplace-terms.png":::
 
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
 
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/cohere-command/command-r-existing-subscription.png":::
+    :::image type="content" source="../media/deploy-monitor/jais/jais-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/jais/jais-existing-subscription.png":::
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/cohere-command/command-r-deployment-name.png":::
+    :::image type="content" source="../media/deploy-monitor/jais/jais-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/jais/jais-deployment-name.png":::
 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Select **Open in playground** to start interacting with the model.
@@ -255,13 +255,7 @@ Response:
 
 | **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
-| CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
-| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
-| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
-
+| CLI using CURL and Python web requests - Jais   | [jais.ipynb](https://aka.ms/samples/jais/webrequests)|
 
 ## Cost and quotas
 
