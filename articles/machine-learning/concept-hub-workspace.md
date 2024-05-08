@@ -35,7 +35,7 @@ The goal of hubs is to take away this bottleneck, by letting IT set up a pre-con
 
 ## Set up and secure a hub for your team
 
-Create a hub in [Azure Portal](), or using [Azure Resource Manager templates]. You may customize networking, identity, encryption, monitoring or tags, to meet compliance with your organization’s requirements. 
+Create a hub workspace in [Azure Portal](), or using [Azure Resource Manager templates](). You may customize networking, identity, encryption, monitoring or tags, to meet compliance with your organization’s requirements. 
 
 Project workspaces that are created using a hub, obtain the hub’s security settings and shared resource configuration. This includes the following configurations:
 
@@ -51,10 +51,7 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | Container registry | Project workspaces images are isolated by naming convention, and can only access their own containers. |
 | Application insights | One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
 
-Project workspaces that are created using a hub, obtain the hub’s security settings and shared resource configuration. This includes virtual network, encryption settings, computing and storage. Since project workspaces act as containers for data isolation and restrict access, you can reuse the hub as environment for a larger team while minimizing setup cost. Project workspaces are interoperable between AI Studio and ML Studio.
-
-Connections help you access objects that are managed outside of your Azure AI hub. For example uploaded data on an Azure storage account, or model deployments on an existing Azure OpenAI resources. A connection is either shared with all projects on the hub, or specific to one project. For example, as a team lead, you can create a shared connection to a common data source, so developers who create a new project, can directly get to work. If granular role-based access is important for your use case, you can now use EntraID passthrough as authorization mechanism for a connection.
-
+Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members.
 
 ## Create a workspace using a hub
 
