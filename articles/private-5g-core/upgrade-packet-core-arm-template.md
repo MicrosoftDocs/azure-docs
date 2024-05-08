@@ -118,6 +118,12 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
 Once the upgrade completes, check if your deployment is operating normally.
 
+
+1. Select **Resource Health** under the **Help** section on the left side.
+
+    - Check that the resource is healthy and there are no unexpected alerts.
+    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
