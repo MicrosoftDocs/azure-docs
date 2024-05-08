@@ -51,6 +51,8 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | Container registry | Project workspaces images are isolated by naming convention, and can only access their own containers. |
 | Application insights | One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
 
+The following
+
 Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members.
 
 ## Create a workspace using a hub
@@ -67,3 +69,4 @@ To learn more about setting up Azure Machine Learning, see:
 
 + [Create and manage a workspace](how-to-manage-workspace.md)
 + [Get started with Azure Machine Learning](quickstart-create-resources.md)
++ [How to configure a managed network for hubs](../ai-studio/how-to/configure-managed-network)
