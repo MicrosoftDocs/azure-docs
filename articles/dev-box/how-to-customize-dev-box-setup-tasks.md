@@ -1,7 +1,7 @@
 ---
-title: Customize your dev box with setup tasks
+title: Customize your dev box with tasks
 titleSuffix: Microsoft Dev Box
-description: Customize your dev box by using a catalog of setup tasks and a configuration file to install software, configure settings, and more.
+description: Customize your dev box by using a catalog of tasks and a configuration file to install software, configure settings, and more.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
@@ -14,9 +14,11 @@ ms.date: 05/07/2024
 
 # Create reusable dev box customizations
 
-In this article, you learn how to customize dev boxes by using a catalog of setup tasks and a configuration file to install software, configure settings, and more. These tasks are applied to the new dev box in the final stage of the creation process. Microsoft Dev Box customization is a config-as-code approach to customizing dev boxes. You can add other settings and software without having to create a custom virtual machine (VM) image. 
+In this article, you learn how to customize dev boxes by using a catalog of tasks and a configuration file to install software, add extensions, clone repositories, and more. These tasks are applied to the new dev box in the final stage of the creation process. Microsoft Dev Box customization is a config-as-code approach to customizing dev boxes. You can add other settings and software without having to create a custom virtual machine (VM) image. 
 
-By using customizations, you can automate common setup steps, save time, and reduce the chance of configuration errors. Some example setup tasks include: 
+Customizations are useful for development teams. Developer team leads can use customizations to preconfigure the software required for their specific development team, and author configuration files that apply only the tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image. 
+
+By using customizations, you can automate common setup steps, save time, and reduce the chance of configuration errors. Some example tasks include: 
 
 - Installing software with the WinGet or Chocolatey package managers. 
 - Setting OS settings like enabling Windows Features. 
@@ -32,55 +34,6 @@ You can implement customizations in stages, building from a simple but functiona
 > [!IMPORTANT]
 > Customizations in Microsoft Dev Box are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-### Team-specific customization scenarios 
-
-Customizations are useful for configuring settings, installing software, adding extensions, and enabling Windows Features on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
-
-### What are tasks? 
-
-A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a *task.yaml* file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated setup tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure DevOps repository as a catalog, and scans a specified folder of the catalog recursively to find task definitions. 
-
-Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common setup tasks: 
-
-- Installing software with the WinGet or Chocolatey package managers
-- Cloning a repository by using git-clone 
-- Configuring applications like installing Visual Studio extensions 
-- Running PowerShell scripts 
-
-The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
-
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png":::
-
-### What is a configuration file?
-
-Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more 'tasks', which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a `git clone` task to clone a repository. 
-
-```yaml
-# From https://github.com/microsoft/devcenter-examples
-$schema: 1.0
-tasks:
-  - name: winget
-    parameters:
-      package: Microsoft.VisualStudioCode
-      runAsUser: true
-  - name: git-clone
-    description: Clone this repository into C:\Workspaces
-    parameters:
-      repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
-      directory: C:\Workspaces
-```
-
-### Permissions required to configure Microsoft Dev Box for customizations
-
-To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
-
-|Action  |Permission / Role  |
-|---------|---------|
-|Attach a catalog to a dev center |Platform engineer with Contributor permission to the dev center. |
-|Use the developer portal to upload and apply a yaml file during dev box creation | Dev Box User |
-|Create a configuration file    | Anyone can create a configuration file.  |
-|Add tasks to a catalog     | Permission to add to the repository hosting the catalog.        |
 
 ## Prerequisites
 
@@ -145,6 +98,50 @@ When the creation process is complete, the new dev box has nodejs and Visual Stu
 
 For more examples, see the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples).
 
+### What is a configuration file?
+
+Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more 'tasks', which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a `git clone` task to clone a repository. 
+
+```yaml
+# From https://github.com/microsoft/devcenter-examples
+$schema: 1.0
+tasks:
+  - name: winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+      runAsUser: true
+  - name: git-clone
+    description: Clone this repository into C:\Workspaces
+    parameters:
+      repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
+      directory: C:\Workspaces
+```
+
+### What are tasks? 
+
+A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a *task.yaml* file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure DevOps repository as a catalog, and scans a specified folder of the catalog recursively to find task definitions. 
+
+Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common tasks: 
+
+- Installing software with the WinGet or Chocolatey package managers
+- Cloning a repository by using git-clone 
+- Configuring applications like installing Visual Studio extensions 
+- Running PowerShell scripts 
+
+The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
+
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png":::
+
+### Permissions required to configure Microsoft Dev Box for customizations
+
+To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
+
+|Action  |Permission / Role  |
+|---------|---------|
+|Attach a catalog to a dev center |Platform engineer with Contributor permission to the dev center. |
+|Use the developer portal to upload and apply a yaml file during dev box creation | Dev Box User |
+|Create a configuration file    | Anyone can create a configuration file.  |
+|Add tasks to a catalog     | Permission to add to the repository hosting the catalog.        |
 
 ## Write a configuration file
 
