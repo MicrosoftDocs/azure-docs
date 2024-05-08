@@ -276,8 +276,6 @@ Overrides have the following properties:
 
 One override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they're specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](./definition-structure-parameters.md)).
 
-
-
 ## Enforcement mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
