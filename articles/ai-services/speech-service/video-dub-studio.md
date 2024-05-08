@@ -18,7 +18,7 @@ ms.custom: references_regions
 
 In this article, you learn how to use Azure AI Speech video dubbing in Speech Studio.
 
-All it takes to get started is an original video. See if video dubbing supports your [language](language-support.md?tabs=speech-translation#video-dub) and [region](video-dub-overview.md#supported-regions-and-languages).
+All it takes to get started is an original video. See if video dubbing supports your [language](language-support.md?tabs=speech-translation#video-dubbing) and [region](video-dub-overview.md#supported-regions-and-languages).
 
 ## Create a video dubbing project
 
