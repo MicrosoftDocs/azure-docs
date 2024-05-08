@@ -73,6 +73,8 @@ Once a hub is created, there are multiple ways to create a project workspace wit
 2. [Using Azure SDK]()
 4. [Using automation templates]()
 
+![Create workspace using hub in ML studio](media/concept-hub-workspace/project-workspace-create.png)
+
 ## Default project resource group
 
 To create project workspaces using a hub, users must have a role assignment on the hub workspace resource using a role that includes the **Microsoft.MachineLearningServices/workspaces/hubs/join/action** action. Azure AI developer role is an example built-in role that supports this action.
