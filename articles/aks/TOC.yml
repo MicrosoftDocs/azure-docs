@@ -352,6 +352,8 @@
           href: use-tags.md
         - name: Labels
           href: use-labels.md
+        - name: Node taints
+          href: use-node-taints.md
     - name: Security
       items:
         - name: Container security
@@ -564,6 +566,8 @@
           items:
               - name: Azure Disks
                 items:
+                    - name: Provision Azure Disk storage
+                      href: azure-csi-disk-storage-provision.md
                     - name: Azure Disks CSI driver
                       href: azure-disk-csi.md
                     - name: Use Azure Premium SSD v2 disks
