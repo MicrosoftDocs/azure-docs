@@ -135,7 +135,7 @@ In this section, you learn how to use the script file that you downloaded in the
     > [!NOTE]
     > When not all network interfaces in the subnet have flow logging enabled before the migration, or they don't share the same network security group flow log, then a virtual network flow log is created on the subnet with the same configurations as one of the network interfaces of the scale set.
 
-- **PaaS**: The migration script doesn't support environments with PaaS solutions that point to resources in different subscriptions. For such environments, you should manually enable virtual network flow logs on the virtual network or subnet level.
+- **PaaS**: The migration script doesn't support environments with PaaS solutions that point to resources in different subscriptions. For such environments, you should manually enable virtual network flow logging on the virtual network or subnet of the PaaS solution.
 
 ## Related content
 
