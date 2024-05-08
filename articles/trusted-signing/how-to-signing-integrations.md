@@ -74,6 +74,7 @@ The components that SignTool uses to interface with Trusted Signing require the 
 
 ### Download and install the Trusted Signing dlib package
 
+<<<<<<< HEAD
 To download and install the Trusted Signing dlib package (a .zip file):
 
 1. Download the [Trusted Signing dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client).
@@ -85,7 +86,7 @@ To download and install the Trusted Signing dlib package (a .zip file):
 To sign by using Trusted Signing, you need to provide the details of your Trusted Signing account and certificate profile that were created as part of the prerequisites. You provide this information on a JSON file by completing these steps:
 
 1. Create a new JSON file (for example, *metadata.json*).
-1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing dlib package or use the following example:
+1. Add the specific values for your Trusted Signing account and certificate profile to the JSON file. The Trusted Signing account is interchangeably called *code signing account*. For more information, see the *metadata.sample.json* file that’s included in the Trusted Signing dlib package or use the following example:
 
    ```json
    {
