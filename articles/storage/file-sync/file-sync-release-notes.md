@@ -170,6 +170,7 @@ The following release notes are for Azure File Sync version 17.0.0.0 (released D
 - New cloud tiering low disk space mode metric
 	- You can now configure an alert if a server is in low disk space mode. To learn more, see [Monitor Azure File Sync](file-sync-monitoring.md).
 - Fixed an issue that caused the agent upgrade to hang
+- Fixed a bug that caused the ESE database engine (also known as JET) to generate logs under C:\Windows\System32 directory
 - Miscellaneous reliability and telemetry improvements for cloud tiering and sync
 
 ### Evaluation Tool

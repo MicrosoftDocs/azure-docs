@@ -1417,6 +1417,13 @@ Learn more in [Introduction to Microsoft Defender for Storage](defender-for-stor
 
 **Severity**: Low
 
+### [Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d103537b-9f3d-4658-a568-31dd66eb05cb)
+
+**Description**: Over-provisioned identities in subscription should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage
+(No related policy).
+
+**Severity**: Medium
+
 ### [Private endpoint connections on Azure SQL Database should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/75396512-3323-9be4-059d-32ecb113c3de)
 
 **Description**: Private endpoint connections enforce secure communication by enabling private connectivity to Azure SQL Database.
@@ -2125,20 +2132,13 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 **Severity**: Medium
 
+### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6)
+
+**Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
+
+**Severity**: Low
+
 ## Deprecated recommendations
-
-### Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
-
-**Description**: Over-provisioned identities in subscription should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage
-(No related policy).
-
-**Severity**: Medium
-
-### Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)
-
-**Description**: Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage.
-
-**Severity**: Medium
 
 ### Access to App Services should be restricted
 

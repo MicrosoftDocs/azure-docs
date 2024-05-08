@@ -1,5 +1,5 @@
 ---
-title: Resource model for same account restore 
+title: Resource model for same account restore  
 titleSuffix: Azure Cosmos DB
 description: Review the required parameters and resource model for the same account(in-account) point-in-time restore feature of Azure Cosmos DB.
 author: kanshiG
@@ -11,7 +11,8 @@ ms.topic: conceptual
 ms.date: 03/21/2024
 ---
 
-# Resource model for restore in same account for Azure Cosmos DB 
+# Resource model for restore in same account for Azure Cosmos DB  
+ 
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 

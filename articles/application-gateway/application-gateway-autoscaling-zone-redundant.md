@@ -15,6 +15,11 @@ ms.custom: fasttrack-edit, references_regions
 Application Gateway and WAF can be configured to scale in two modes:
 
 - **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale out or in based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak-provisioned capacity for expected maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even without traffic. Each instance is roughly equivalent to 10 more reserved Capacity Units. Zero signifies no reserved capacity and is purely autoscaling in nature. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You are only billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 10 if not specified.
+
+
+> [!NOTE]
+> If the maximum instance count is updated to a value less than the current instance count, the new setting will not take immediate effect. The newly updated maximum will only be enforced after a scale-in operation brings  the  current count below newly updated maximum count. If the scale-in operation does not occur because the autoscaling  scale in thresholds are not met, the new maximum setting will not be applied.
+
 - **Manual** - You can also choose Manual mode where the gateway doesn't autoscale. In this mode, if there's more traffic than what Application Gateway or WAF can handle, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
 ## Autoscaling and High Availability

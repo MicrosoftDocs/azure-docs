@@ -71,8 +71,6 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 > [!NOTE]
 > [!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
->
-
 > - We don't recommend deploying Azure DNS Private Resolver into a virtual network that has an ExpressRoute virtual network gateway and setting wildcard rules to direct all name resolution to a specific DNS server. Such a configuration can cause management connectivity issues.
 
 
@@ -90,7 +88,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
-You can also deploy ExpressRoute gateways in Azure Availability Zones. This configuration physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures.
+You can also deploy ExpressRoute gateways in Azure Availability Zones. This configuration physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures. 
 
 ![Zone-redundant ExpressRoute gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
@@ -101,6 +99,8 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 * ErGw3AZ
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
+
+To learn about migrating an ExpressRoute gateway, see [Gateway migration](gateway-migration.md).
 
 ## VNet to VNet and VNet to Virtual WAN connectivity
 

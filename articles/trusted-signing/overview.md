@@ -4,7 +4,7 @@ description: Learn about the Trusted Signing service. #Required; article descrip
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
-ms.service: azure-code-signing
+ms.service: trusted-signing
 ms.date: 03/21/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
@@ -17,7 +17,7 @@ Trusted Signing (formerly Azure Code Signing) is a Microsoft fully managed end-t
 ## Features
 
 * Simplifies the signing process with an intuitive experience in Azure
-* Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 compliant.
+* Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 certified HSMs.
 * Integrations into leading developer toolsets.
 * Supports Public Trust, Test, Private Trust, and CI policy signing scenarios.
 * Timestamping service. 
@@ -28,11 +28,11 @@ Here’s a high-level overview of the service’s resource structure:
 
 ![Diagram of Azure Code Signing resource group and cert profiles.](./media/trusted-signing-resource-structure-overview.png)
 
-* You create a resource group within a subscription. You then create a Trusted Signing account within the resource group.
-* Two resources within an account:
-    *	Identity validation 
+* You create a resource group within a subscription. You then create a Trusted Signing account within that resource group.
+* There are two resources within a Trusted Signing account:
+    * Identity validation 
     * Certificate profile 
-* Two types of accounts (depending on the SKU you choose):
+* There are two types of Trusted Signing accounts (depending on the SKU(Pricing tier) you choose):
     * Basic 
     * Premium
 
