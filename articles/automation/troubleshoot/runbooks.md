@@ -12,7 +12,7 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 
-## New functions added to custom module aren't displayed in textual and graphical PowerShell runbooks.
+## New functions added to custom module aren't displayed in textual and graphical PowerShell runbooks
 
 ### Issue
 After you add new functions to a custom module and reimport the module, the functions aren't getting displayed in textual and graphical PowerShell runbooks.
