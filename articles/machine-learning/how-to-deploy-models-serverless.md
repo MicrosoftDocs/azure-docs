@@ -114,10 +114,15 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     # [CLI](#tab/cli)
 
+    __subscription.yml__
+
+    ```yml
+    name: meta-llama3-8b-qwerty
+    model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
+    ```
+
     ```azurecli
-    az ml marketplace-subscription create \
-        --name "Meta-Llama-3-8B-Instruct" \
-        --model_id "azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct"
+    az ml marketplace-subscription create -f subscription.yml
     ```
 
     # [Python](#tab/sdk)
@@ -256,10 +261,15 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     Use the previous file to create the endpoint:
 
+    __endpoint.yml__
+
+    ```yml
+    name: meta-llama3-8b-qwerty
+    model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
+    ```
+
     ```azurecli
-    az ml serverless-endpoint create \
-        --name "meta-llama3-8b-qwerty" \
-        --model_id "azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct"
+    az ml serverless-endpoint create -f endpoint.yml
     ```
 
     # [Python](#tab/sdk)
@@ -407,6 +417,13 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     Use REST APIs to query this information.
 
+1. At this point, you endpoint is ready to be used.
+
+1. If you need to consume this deployment from a different workspace, or you plan to use **prompt flow** to build intelligent applications, you need to create a connection to the endpoint. Follow the steps on [Consume deployed serverless API endpoints from a different workspace or from Prompt flow](how-to-connect-models-serverless.md).
+
+    > [!TIP]
+    > If you are using **prompt flow** in the same workspace where the endpoint was deployed, you still need to create the connection.
+
 ## Delete endpoints and subscriptions
 
 You can delete model subscriptions and endpoints. Deleting a model subscription makes any associated endpoint to become *Unhealthy* and unusable.
@@ -491,3 +508,4 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 ## Related content
 
 - [Model Catalog and Collections](concept-model-catalog.md)
+- [Consume deployed serverless API endpoints from a different workspace](how-to-connect-models-serverless.md)
