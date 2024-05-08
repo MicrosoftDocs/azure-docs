@@ -485,7 +485,7 @@ Azure Functions triggers and bindings allow you to easily integrate event and da
 To use SDK type bindings in Azure Functions with Python, please use the v2 programming model.
 ::: zone-end
 
-::: zone pivot="python-mode-decorators". 
+::: zone pivot="python-mode-decorators" 
 Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered.   
 
 When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
