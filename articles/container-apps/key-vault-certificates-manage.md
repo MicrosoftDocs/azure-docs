@@ -17,16 +17,10 @@ You can set up Azure Key Vault to manage your container app's certificates to ha
 
 - [Azure Key Vault](/azure/key-vault/): Make sure you have a certificate stored in Azure Key Vault.
 
-- [Azure CLI](/cli/azure/install-azure-cli): You need the Azure CLI updated with the Azure Container Apps extension version `0.3.49` or higher. Use the `list-available` command to view your extension's version number.
+- [Azure CLI](/cli/azure/install-azure-cli): You need the Azure CLI updated with the Azure Container Apps extension version `0.3.49` or higher. Use the `az extension add` command to install the latest version.
 
     ```azurecli
-    az extension list-available --output table | findstr containerapp
-    ```
-
-    If you need to upgrade your extension, then use the `upgrade` parameter with the `add` command:
-
-    ```azurecli
-    az extension add --name containerapp --upgrade`
+    az extension add --name containerapp --upgrade --allow-preview`
     ```
 
 - [Managed identity](./managed-identity.md): Enable managed identity on your Container Apps environment.
