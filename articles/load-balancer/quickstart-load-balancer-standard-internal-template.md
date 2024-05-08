@@ -12,7 +12,9 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-t
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template
 
-In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network. The template creates a virtual network, network interfaces, and an internal load balancer.
+In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the internal load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
@@ -37,6 +39,12 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks): Virtual network for load balancer and virtual machines.
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkInterfaces): Network interfaces for virtual machines.
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers): Internal load balancer.
+- [**Microsoft.Network/natGateways**](/azure/templates/microsoft.network/natGateways)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): Public IP addresses for the NAT Gateway and Azure Bastion.
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): Virtual machines in the backend pool.
+- [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts): Azure Bastion instance.
+- [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets): Subnets for the virtual network.
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): Storage account for the virtual machines.
 
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -46,17 +54,51 @@ In this step, you deploy the template using Azure PowerShell with the `[New-AzRe
 
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
-   ```azurepowershell-interactive
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+   # [CLI](#tab/CLI)
+
+   ```azurecli
+    echo "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
+    read projectName
+    echo "Enter the location (i.e. centralus)"
+    read location
+    
+    resourceGroupName="${projectName}rg"
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/internal-loadbalancer-create/azuredeploy.json"
+    
+    az group create --name $resourceGroupName --location $location
+    az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --name $projectName --parameters location=$location
+    
+    read -p "Press [ENTER] to continue."
+   ```
+
+   # [PowerShell](#tab/PowerShell)
+
+   ```azurepowershell
    $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
    $resourceGroupName = "${projectName}rg"
    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/internal-loadbalancer-create/azuredeploy.json"
-    
+
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Name $projectName -location $location
 
    Write-Host "Press [ENTER] to continue."
+    ```
+    ---
+
+    You're prompted to enter the following values:
+
+    - **projectName**: used for generating resource names.
+    - **adminUsername**: virtual machine administrator username.
+    - **adminPassword**: virtual machine administrator password.
+
+It takes about 10 minutes to deploy the Bicep file.
+
+   ```azurepowershell-interactive
+
    ```
 
    Wait until you see the prompt from the console.
