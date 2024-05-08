@@ -22,7 +22,7 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 In this article, you will learn how to add and configure a targeting filter for your feature flags.
 
-## Add a targeting filter to a feature flag
+## Add a targeting filter
 
 1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
