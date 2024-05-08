@@ -352,6 +352,8 @@
           href: use-tags.md
         - name: Labels
           href: use-labels.md
+        - name: Node taints
+          href: use-node-taints.md
     - name: Security
       items:
         - name: Container security
