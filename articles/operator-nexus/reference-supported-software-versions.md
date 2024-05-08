@@ -14,7 +14,7 @@ This document provides the list of software versioning supported in Release 2404
 
 ## Supported Software Versions
 
-| **Software**                             | **Version(s)**                           | **NNF run-time version** |
+| **Software**                             | **Version(s)**                           | **Nexus Network Fabric run-time version** |
 |------------------------------------------|------------------------------------------|--------------------------|
 | **Arista Firmware**                      | 4.30.0F-30849330.bhimarel                | 1.0.0                    |
 |                                          | MD5 checksum: c52cff01ed950606d36f433470110dca |                          |
