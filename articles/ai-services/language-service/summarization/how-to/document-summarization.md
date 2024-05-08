@@ -14,9 +14,9 @@ ms.custom:
   - ignite-2023
 ---
 
-# How to use document summarization
+# How to use text summarization
 
-Document summarization is designed to shorten content that users consider too long to read. Both extractive and abstractive summarization condense articles, papers, or documents to key sentences.
+Text summarization is designed to shorten content that users consider too long to read. Both extractive and abstractive summarization condense articles, papers, or documents to key sentences.
 
 **Extractive summarization**: Produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
 
@@ -32,8 +32,8 @@ For easier navigation, here are links to the corresponding sections for each ser
 
 |Aspect       |Section                                                            |
 |-------------|-------------------------------------------------------------------|
-|Extractive   |[Extractive Summarization](#try-document-extractive-summarization) |
-|Abstractive  |[Abstrctive Summarization](#try-document-abstractive-summarization)|
+|Extractive   |[Extractive Summarization](#try-text-extractive-summarization) |
+|Abstractive  |[Abstrctive Summarization](#try-text-abstractive-summarization)|
 |Query-focused|[Query-focused Summarization](#query-based-summarization)          |
 
 
@@ -61,7 +61,7 @@ You submit documents to the API as strings of text. Analysis is performed upon r
 
 When you use this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-### Getting document summarization results
+### Getting text summarization results
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
@@ -69,7 +69,7 @@ The following is an example of content you might submit for summarization, which
  
 *"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code enables us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pretrained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
 
-The document summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API is returned. The output is available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response might contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
+The text summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API is returned. The output is available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response might contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
 
 When you use the above example, the API might return the following summarized sentences:
 
@@ -81,9 +81,9 @@ When you use the above example, the API might return the following summarized se
 **Abstractive summarization**:
 - "Microsoft is taking a more holistic, human-centric approach to learning and understanding. We believe XYZ-code enables us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. Over the past five years, we have achieved human performance on benchmarks in."
 
-### Try document extractive summarization
+### Try text extractive summarization
 
-You can use document extractive summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
+You can use text extractive summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
 
 You can use the `sentenceCount` parameter to guide how many sentences are returned, with `3` being the default. The range is from 1 to 20.
 
@@ -94,9 +94,9 @@ You can also use the `sortby` parameter to specify in what order the extracted s
 |Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
 |Offset    | Keeps the original order in which the sentences appear in the input document.        |
 
-### Try document abstractive summarization
+### Try text abstractive summarization
 
-The following example gets you started with document abstractive summarization:
+The following example gets you started with text abstractive summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
@@ -107,7 +107,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 -d \
 ' 
 {
-  "displayName": "Document Abstractive Summarization Task Example",
+  "displayName": "Text Abstractive Summarization Task Example",
   "analysisInput": {
     "documents": [
       {
@@ -120,7 +120,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
   "tasks": [
     {
       "kind": "AbstractiveSummarization",
-      "taskName": "Document Abstractive Summarization Task 1",
+      "taskName": "Text Abstractive Summarization Task 1",
       "parameters": {
         "summaryLength": short
       }
@@ -153,7 +153,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
 
-### Abstractive document summarization example JSON response
+### Abstractive text summarization example JSON response
 
 ```json
 {
@@ -163,7 +163,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
     "expirationDateTime": "2022-09-09T16:44:53Z",
     "status": "succeeded",
     "errors": [],
-    "displayName": "Document Abstractive Summarization Task Example",
+    "displayName": "Text Abstractive Summarization Task Example",
     "tasks": {
         "completed": 1,
         "failed": 0,
@@ -172,7 +172,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
         "items": [
             {
                 "kind": "AbstractiveSummarizationLROResults",
-                "taskName": "Document Abstractive Summarization Task 1",
+                "taskName": "Text Abstractive Summarization Task 1",
                 "lastUpdateDateTime": "2022-09-08T16:45:14.0717206Z",
                 "status": "succeeded",
                 "results": {
@@ -212,7 +212,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ## Query based summarization
 
-The query-based document summarization API is an extension to the existing document summarization API.
+The query-based text summarization API is an extension to the existing text summarization API.
 
 The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there's a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long, which we recommend using instead of `sentenceCount`, especially when using abstractive. Below is an example request:
 
@@ -223,7 +223,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 -d \
 ' 
 {
-  "displayName": "Document Extractive Summarization Task Example",
+  "displayName": "Text Extractive Summarization Task Example",
   "analysisInput": {
     "documents": [
       {
@@ -236,7 +236,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
   "tasks": [
     {
       "kind": "ExtractiveSummarization",
-      "taskName": "Document Extractive Summarization Task 1",
+      "taskName": "Text Extractive Summarization Task 1",
       "parameters": {
         "query": "XYZ-code",
         "summaryLength": short
