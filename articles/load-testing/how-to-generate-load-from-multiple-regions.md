@@ -29,17 +29,13 @@ To specify the load distribution for a load test in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your load testing resource.
 
-1. On the left pane, select **Tests** to view a list of tests, and then select your test.
+1. On the left pane, select **Tests** to view a list of tests, select your test and then select **Edit**.
 
     :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource.":::  
 
     Alternately, create a new load test by selecting **Create** > **Create a URL-based test** or **Create** > **Upload a JMeter script**.
 
-1. Go to the **Load** tab, and then select the **Distribute load across regions** checkbox.
-
-    :::image type="content" source="media/how-to-generate-load-from-multiple-regions/select-distribute-load.png" alt-text="Screenshot that shows the selection of option to distribute load across regions"::: 
-
-1. Select **Add/Edit regions** to modify the list of Azure regions to generate load from.
+1. Go to the **Load** tab, and then select **Add/Edit regions** to modify the list of Azure regions to generate load from.
 
     :::image type="content" source="media/how-to-generate-load-from-multiple-regions/select-add-edit-regions.png" alt-text="Screenshot that shows the option to add or edit regions for load distribution."::: 
 
@@ -49,7 +45,7 @@ To specify the load distribution for a load test in the Azure portal:
    
     :::image type="content" source="media/how-to-generate-load-from-multiple-regions/select-add-edit-regions.png" alt-text="Screenshot that shows the selection of regions to distribute load.":::   
 
-1. Optionally, update the **Number of engines** to update the percentage of load to generate from each region.
+1. Optionally, update the **% of load** or **Number of engines** to update the percentage of load to be generated from each region.
 
     The total number of engines corresponds with the value you specified in **Engine instances**.
 
