@@ -7,7 +7,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable inline image support by using the Azure Communication Services Chat SDK for C#.
+This tutorial shows you how to enable inline image support by using the Azure Communication Services Chat SDK for C#.
+
+In this tutorial, you learn how to:
+
+- Handle inline images for new messages.
 
 ## Prerequisites
 
@@ -122,7 +126,7 @@ You also include a list of the attachment URIs to be shown along with the messag
 
 ## Demo
 
-* Run the application from the integrated development environment.
+* Run the application from the integrated development environment (IDE).
 * Enter a Teams meeting link.
 * Join the meeting.
 * Admit the user on the Teams side.

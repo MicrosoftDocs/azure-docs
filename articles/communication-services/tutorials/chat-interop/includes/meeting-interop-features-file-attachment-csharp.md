@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 
 This tutorial describes how to enable file attachment support by using the Azure Communication Services Chat SDK for C#.
 
-## Sample code
-Find the finalized code for this tutorial at [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
+In this tutorial, you learn how to:
+
+- Handle file attachments.
+- Handle image attachments.
 
 ## Prerequisites
 
@@ -18,6 +20,9 @@ Find the finalized code for this tutorial at [GitHub](https://github.com/Azure-S
 * Create an Azure Communication Services resource as described in [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to *record your connection string* for this tutorial.
 * Set up a Teams meeting by using your business account and have the meeting URL ready.
 * Download the Chat SDK for C# (@azure/communication-chat) 1.3.0 or the latest. For more information, see [Azure Communication Chat client library](https://www.nuget.org/packages/Azure.Communication.Chat).
+
+## Sample code
+Find the finalized code for this tutorial at [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
 
 ## Handle file attachments
 
