@@ -14,6 +14,8 @@ author: santiagxf
 
 # Deploy models as serverless APIs
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Certain models in the model catalog can be deployed as a serverless API endpoint with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
 In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** model as a serverless API endpoint.
@@ -55,8 +57,6 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
     az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
     ```
 
-    [!INCLUDE [Feature preview](../includes/feature-preview.md)]
-
     # [Python](#tab/sdk)
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
@@ -80,8 +80,6 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
     )
     ```
 
-    [!INCLUDE [Feature preview](../includes/feature-preview.md)]
-
     # [ARM](#tab/arm)
 
     You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
@@ -93,21 +91,27 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
 1. Ensure your account has the **Azure AI Developer** role permissions on the Resource Group.
 
-1. Navigate to the model catalog, find the model card of the model you want to deploy, and copy the **Model ID**. If you are deploying the model using Azure AI portal, you don't need to copy the **Model ID**.
+1. Navigate to the model catalog, find the model card of the model you want to deploy. 
+    
+    1. If you are deploying the model using Azure CLI, Python, or ARM, copy the **Model ID**.
+
+    1. Do not include the version when copying the **Model ID**. Serverless API endpoints always deploy the latest version available of the model. For example for `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct/versions/3` copy `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct`.
 
 1. Create the model marketplace subscription
 
     # [Portal](#tab/portal)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
+    1. On the model's **Details** page, select **Deploy** and then select **Serverless API**.
 
-        :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
+        :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with serverless API option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
 
     2. Select the project in which you want to deploy your models. Notice that not all the regions are supported.
 
-    3. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
+    3. If you see the legend *You already have a Azure Marketplace subscription for this project*, you don't need to create the subscription since you already have one. You can proceed to [Serverless API endpoints](#serverless-api-endpoints).
 
-    4. Select Subscribe and Deploy.
+    4. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
+
+    5. Select Subscribe and Deploy.
 
         :::image type="content" source="../media/deploy-monitor/llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/llama/deploy-marketplace-terms.png":::
 
