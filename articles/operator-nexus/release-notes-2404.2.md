@@ -23,7 +23,7 @@ runtime patch.
 
 * Bare Metal Machine (BMM)/BMC KeySets - Enhanced handling of Entra disconnected state.
 
-*  Prevents simultaneous disruptive BMM actions against K8s Control Plane nodes.
+*  Prevents simultaneous disruptive BMM actions against Kubernetes Control Plane nodes.
 
 * Prevents user from adding or deleting a hybrid-compute machine  extension on the Cluster MRG.
 
@@ -49,7 +49,7 @@ runtime patch.
 
 * Enable storage appliance logs.
 
-### Other Updates
+### Other updates
 
 * Enable high-availability for NFS Storage.
 
