@@ -25,8 +25,6 @@ This article describes what happens during a customer-managed (unplanned) failov
 
 [!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
-[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
-
 ## Redundancy management during unplanned failover and failback
 
 > [!TIP]

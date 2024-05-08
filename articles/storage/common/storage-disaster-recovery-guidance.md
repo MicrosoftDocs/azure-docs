@@ -77,6 +77,8 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
 
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+
 Customer-managed planned failover (preview) can be used to to test your disaster recovery plan. During the planned failover process, the primnary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary, while the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
 Planned failover can also be used during a partial networking or compute outage in your primary region. These outages might occur, for example, when workloads in your primary region are disrupted but your storage service endpoints are available.
@@ -209,8 +211,6 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 #### Azure Data Lake Storage Gen2
 
 [!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
-
-[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
 
 ### Unsupported features and services
 

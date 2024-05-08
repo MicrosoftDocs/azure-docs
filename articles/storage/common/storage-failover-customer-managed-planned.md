@@ -33,6 +33,8 @@ This article describes what happens during a customer-managed planned failover a
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name.
 
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+
 ## Redundancy management during planned failover and failback
 
 > [!TIP]
