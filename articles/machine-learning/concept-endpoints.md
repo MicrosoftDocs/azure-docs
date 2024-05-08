@@ -84,7 +84,7 @@ Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pi
 > * Your model's inputs are stored in a storage account or in an Azure Machine Learning data asset.
 > * You can take advantage of parallelization.
 
-### Comparison of online and batch endpoints
+### Comparison of serverless API, online, and batch endpoints
 
 Both online and batch endpoints are based on the idea of endpoints and deployments, which help you transition easily from one to the other. However, when moving from one to another, there are some differences that are important to take into account. Some of these differences are due to the nature of the work:
 
