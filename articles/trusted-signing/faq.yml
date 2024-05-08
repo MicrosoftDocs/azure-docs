@@ -146,7 +146,7 @@ sections:
           | No certificates were found that met all the given criteria.         |  Check dlib path, dlib version, dlib name, filename, check sign tool version. This error means it's trying to pull certificates from your local machine and not using Trusted Signing certificates.|
           | Error: SignerSign() failed." (-2147024846/0x80070032)           |  Ensure you're using the latest signtool version.|
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, indicates that the publisher in the manifest doesn't match the cert subject. Can you check the publisher in the manifest file?|
-          | No error codes, Signtool silently fails          |  Ensure the relevant .Net runtime is installed.|
+          | No error codes, Signtool silently fails          |  Ensure the relevant .NET runtime is installed.|
           | Azure.Identity.CredentialUnavailableException         |  You should expect to see the error on environments outside of Azure [see here](https://github.com/Azure/azure-sdk-for-net/issues/29471). Recommendation is to "exclude ManagedIdentity" if you're outside of Azure.|
   
   - name: Unenroll from the Service
