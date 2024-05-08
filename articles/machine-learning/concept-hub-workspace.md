@@ -29,15 +29,36 @@ Successfully building AI applications or models often requires prototyping as a 
 
 In the transition from proving feasibility of an idea, to a funded project, many organizations encounter a bottleneck in productivity because a single platform team is responsible for the setup of cloud resources. Such a team may be the only one authorized to configure security, connectivity or other resources that may incur costs. This may cause a huge backlog, resulting in development teams getting blocked on innovating with a new idea.
 
-The goal of hubs is to take away this bottleneck, by letting IT set up a pre-configured, reusable, environment for a team to prototype, build and operate AI applications.
+The goal of hubs is to take away this bottleneck, by letting IT set up a pre-configured, reusable, environment for a team to prototype, build and operate machine learning models.
+
+## Interoperability for ML studio and AI studio
 
 ## Set up and secure a hub for your team
+
+Create a hub in [Azure Portal](), or using [Azure Resource Manager templates]. You may customize networking, identity, encryption, monitoring or tags, to meet compliance with your organization’s requirements. 
+
+Project workspaces that are created using a hub, obtain the hub’s security settings and shared resource configuration. This includes the following configurations:
+
+| Configuration | Note |
+| === | === |
+| Network settings | One managed virtual network is shared between hub and project workspaces. Create a private link endpoint on the hub workspace, to access both hub and project workspaces. |
+| Encryption settings | Encryption settings pass down from hub to project. |
+| Connections | Shared connections created in AI Studio  |
+| Compute instance | Reuse a compute instance across all project workspaces associated to the same hub. |
+| Compute quota | Any compute quota consumed by project workspaces are deducted from the hub workspace quota balance. |
+| Storage | Project workspaces have designated containers starting with a prefix {workspaceGUID}, and conditioned [Azure Attribute Based Access] for the workspace identity. |
+| Key vault | Project workspaces identities can only access their own secrets. |
+| Container registry | Project workspaces images are isolated by naming convention, and can only access their own containers. |
+| Application insights | One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
+
+Project workspaces that are created using a hub, obtain the hub’s security settings and shared resource configuration. This includes virtual network, encryption settings, computing and storage. Since project workspaces act as containers for data isolation and restrict access, you can reuse the hub as environment for a larger team while minimizing setup cost. Project workspaces are interoperable between AI Studio and ML Studio.
+
+Connections help you access objects that are managed outside of your Azure AI hub. For example uploaded data on an Azure storage account, or model deployments on an existing Azure OpenAI resources. A connection is either shared with all projects on the hub, or specific to one project. For example, as a team lead, you can create a shared connection to a common data source, so developers who create a new project, can directly get to work. If granular role-based access is important for your use case, you can now use EntraID passthrough as authorization mechanism for a connection.
+
 
 ## Create a workspace using a hub
 
 ## Supported capabilities by workspace kind
-
-## Interoperability for ML studio and AI studio
 
 ## Converting a regular workspace into a hub workspace
 
