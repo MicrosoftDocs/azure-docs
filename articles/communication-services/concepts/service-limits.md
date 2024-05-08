@@ -170,7 +170,7 @@ Alternatively, you can choose not to set a retention policy on a chat thread.
 If you have strict compliance needs, we recommend that you delete chat threads using the API [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
 
 > [!NOTE] 
-> If you accidentally deleted messages, they can't be recovered by the system. Additionally, if you submit a support request for a deleted chat thread after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available.
+> If you accidentally deleted messages, they can't be recovered by the system. Additionally, if you submit a support request for a deleted chat thread after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, open a support ticket as quickly as possible within the 30 day window after you created a thread so we can assist you.
 
 ## Voice and video calling
 
