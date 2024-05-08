@@ -166,7 +166,7 @@ Below are sample REST calls demonstrating how to disable the legacy portal and t
 To disable the legacy portal:
 
 ````
-PATCH https://management.azure.com/subscriptions/1fb8fadf-03a3-4253-8993-65391f432d3a/resourceGroups/APIM-RESOURCES/providers/Microsoft.ApiManagement/service/tehnoonr-apim2?api-version=2023-03-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ApiManagement/service/<apim_service_name>?api-version=2023-03-01-preview
 Authorization: Bearer <<redacted>>
 Content-type: application/json
 
@@ -180,7 +180,7 @@ Content-type: application/json
 To disable the new developer portal:
 
 ```
-PATCH https://management.azure.com/subscriptions/1fb8fadf-03a3-4253-8993-65391f432d3a/resourceGroups/APIM-RESOURCES/providers/Microsoft.ApiManagement/service/tehnoonr-apim2?api-version=2023-05-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ApiManagement/service/<apim_service_name>?api-version=2023-05-01-preview
 Authorization: {{oauthToken}}
 Content-type: application/json
 
