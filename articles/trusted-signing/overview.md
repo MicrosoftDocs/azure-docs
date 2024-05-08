@@ -20,9 +20,9 @@ Trusted Signing is Microsoft fully managed, end-to-end signing solution that sim
 The Trusted Signing service has these features:
 
 - Simplifies the signing process through an intuitive experience in Azure.
-- Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 compliant.
+- Zero-touch certificate lifecycle management that is FIPS 140-2 Level 3 certified HSMs.
 - Provides integrations with leading developer toolsets.
-- Supports Public Trust, Public Trust test, Private Trust, and Private Trust CI policy signing scenarios.
+- Supports Public Trust, Public Trust test, Private Trust, and CI policy signing scenarios.
 - Includes a timestamping service.
 - Offers content-confidential signing. Your file never leaves your endpoint, and you get digest signing that is fast and reliable.
 
