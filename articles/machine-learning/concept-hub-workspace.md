@@ -23,6 +23,8 @@ Workspaces that are created using a hub, referred to as 'project workspaces', ob
 
 Create a hub workspace if you or your team are planning for multiple machine learning projects. Use a hub to organize projects in the same data or business domain.
 
+![Diagram showing hub and project workspace relation](media/concept-hub-workspace/hub-workspace-relation.png)
+
 ## Fast, but secure, AI exploration without bottleneck on IT
 
 Successfully building AI applications or models often requires prototyping as a steppingstone towards project funding or a full-scale implementation. It may be embodied to prove the feasibility of an idea, assess quality of data or a model, for a particular task.
@@ -33,7 +35,7 @@ The goal of hubs is to take away this bottleneck, by letting IT set up a pre-con
 
 ## Interoperability between ML studio and AI studio
 
-Hubs can be used as your team's environment for both ML studio and [AI studio](). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications reponsibly.
+Hubs can be used as your team's collaboration environment for both ML studio and [AI studio](). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications reponsibly.
 
 | Workspace Kind | ML Studio | AI Studio |
 | --- | --- | --- |
