@@ -21,12 +21,12 @@ Fast transcription API is used to transcribe audio files with returning results 
 - Video dubbing  
 
 > [!NOTE]
-> Fast transcription API is only available via the speech to text REST API version 3.3. 
+> Fast transcription API is only available via the speech to text REST API version 2024-05-15-preview. 
 
 ## Prerequisites
 
-- An Azure AI Speech resource in one of the regions where the fast transcription API is available. The supported regions are: Australia East, Brazil South, Central India, East US, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, Sweden Central, West Europe, West US, and West US 2. For more information about regions supported for other Speech service features, see [Speech service regions](./regions.md).
-- An audio file (less than 2 hours long and less than 200 MB in size) in one of the supported formats and codecs: WAV, MP3, OPUS/OGG, FLAC, WMA, AAC, ALAW in WAV container, MULAW in WAV container, AMR, WebM, M4A, and SPEEX.
+- An Azure AI Speech resource in one of the regions where the fast transcription API is available. The supported regions are: Central India, East US, Southeast Asia, and West Europe. For more information about regions supported for other Speech service features, see [Speech service regions](./regions.md).
+- An audio file (less than 2 hours long and less than 200 MB in size) in one of the formats and codecs supported by the batch transcription API. For more information about supported audio formats, see [supported audio formats](./batch-transcription-audio-data.md#supported-audio-formats-and-codecs).
 
 ## Use the fast transcription API
 
@@ -241,5 +241,5 @@ Here's an example response. Only the first 60 seconds of the provided audio file
 
 ## Related content
 
-- [Speech to text real-time API for short audio](./rest-speech-to-text-short.md)
+- [Speech to text quickstart](./get-started-speech-to-text.md)
 - [Batch transcription API](./batch-transcription.md)

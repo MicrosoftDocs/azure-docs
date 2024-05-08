@@ -26,7 +26,7 @@ You can specify one or multiple audio files when creating a transcription. We re
 
 ## Supported audio formats and codecs
 
-The batch transcription API supports many different formats and codecs, such as:
+The batch transcription API (and [fast transcription API](./fast-transcription-create.md)) supports many different formats and codecs, such as:
 
 - WAV
 - MP3
