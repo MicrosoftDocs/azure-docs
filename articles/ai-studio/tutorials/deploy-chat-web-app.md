@@ -15,6 +15,8 @@ author: aahill
 
 # Tutorial: Deploy an Azure AI Enterprise Chat web app
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this article, you deploy an enterprise chat web app that uses your own data with a large language model in AI Studio.
 
 Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your original data source

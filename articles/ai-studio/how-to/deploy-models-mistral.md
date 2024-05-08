@@ -15,6 +15,8 @@ ms.custom: [references_regions]
 
 # How to deploy Mistral models with Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
 Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
 
@@ -49,8 +51,6 @@ Mistral Small is:
 - **Responsible AI compliant.** Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
 
 ---
-
-[!INCLUDE [generic-preview](../includes/generic-preview.md)]
 
 ## Deploy Mistral family of models as a serverless API
 

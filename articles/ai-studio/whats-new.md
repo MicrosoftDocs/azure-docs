@@ -14,16 +14,11 @@ author: eric-urban
 
 # What's new in Azure AI Studio?
 
+[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+
 Azure AI Studio is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## May 2024
-
-### Azure AI Studio (GA)
-
-Azure AI Studio is now generally available. Azure AI Studio is a unified platform that brings together various Azure AI capabilities that were previously available as standalone Azure services. Azure AI Studio provides a seamless experience for developers, data scientists, and AI engineers to build, deploy, and manage AI models and applications. With Azure AI Studio, you can access a wide range of AI capabilities, including language models, speech, vision, and more, all in one place.
-
-> [!NOTE]
-> Some features are still in public preview and might not be available in all regions. For more information about availability, see [Azure AI Studio feature availability across cloud regions](./reference/region-support.md).
 
 ### Mistral Small
 

@@ -33,6 +33,8 @@ items:
     items:
     - name: Model catalog
       href: how-to/model-catalog.md
+    - name: Model benchmarks
+      href: how-to/model-benchmarks.md
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
@@ -179,8 +181,10 @@ items:
         items:
           - name: Speech analytics overview
             href: ../ai-services/speech-service/speech-analytics-overview.md?context=/azure/ai-studio/context/context
-          - name: Post-call transcription and analytics
+          - name: Post-call transcription analytics (Preview)
             href: ../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context
+          - name: Customize post-call transcription analytics (Preview)
+            href: ../ai-services/speech-service/speech-analytics-post-call-customize.md?context=/azure/ai-studio/context/context
       - name: Hear and speak with chat in the playground
         href: quickstarts/hear-speak-playground.md
   - name: Costs and quotas

@@ -14,6 +14,8 @@ author: lgayhardt
 
 # How to evaluate generative AI apps with Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 To thoroughly assess the performance of your generative AI application when applied to a substantial dataset, you can initiate an evaluation process. During this evaluation, your application is tested with the given dataset, and its performance will be quantitatively measured with both mathematical based metrics and AI-assisted metrics. This evaluation run provides you with comprehensive insights into the application's capabilities and limitations.
 
 To carry out this evaluation, you can utilize the evaluation functionality in Azure AI Studio, a comprehensive platform that offers tools and features for assessing the performance and safety of your generative AI model. In AI Studio, you're able to log, view, and analyze detailed evaluation metrics.

@@ -15,6 +15,8 @@ author: lgayhardt
 
 # Evaluation of generative AI applications
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Advancements in language models such as GPT-4 via Azure OpenAI Service offer great promise while coming with challenges related to responsible AI. If not designed carefully, systems built upon these models can perpetuate existing societal biases, promote misinformation, create manipulative content, or lead to a wide range of other negative impacts. Addressing these risks while maximizing benefits to users is possible with an iterative approach through four stages: [identify, measure, and mitigate, operate](https://aka.ms/LLM-RAI-devstages).
 
 The measurement stage provides crucial information for steering development toward quality and safety. On the one hand, this includes evaluation of performance and quality. On the other hand, when evaluating risk and safety, this includes evaluation of an AI system’s predisposition toward different risks (each of which can have different severities). In both cases, this is achieved by establishing clear metrics, creating test sets, and completing iterative, systematic testing. This measurement stage provides practitioners with signals that inform targeted mitigation steps such as prompt engineering and the application of content filters. Once mitigations are applied, one can repeat evaluations to test effectiveness.

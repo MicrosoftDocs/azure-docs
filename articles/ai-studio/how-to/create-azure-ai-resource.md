@@ -15,6 +15,8 @@ author: Blackmist
 
 # How to create and manage an Azure AI Studio hub
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 As an administrator, you can create and manage Azure AI Studio hubs. Hubs provide a hosting environment for the AI Studio projects of a team, and help you as an IT admin centrally set up security settings and govern usage and spend. You can create and manage a hub from the Azure portal or from the AI Studio. 
 
 In this article, you learn how to create and manage a hub in AI Studio (for getting started).
