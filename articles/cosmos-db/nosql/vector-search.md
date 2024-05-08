@@ -51,7 +51,8 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 
 5. Select "Enable" to enroll in the preview. 
 
-Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
+> [!NOTE]  
+> The registration request will be autoapproved, however it may take several minutes to take effect.  
 
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
@@ -183,15 +184,14 @@ ORDER BY VectorDistance(c.contentVector, [1,2,3])  
 ```
 
 ## Current limits and constraints
-Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations while in early stages of public preview. These limitations and constraints will be eased in the future as improvements are released.
+Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations while in early stages of public preview.
 - You can specify, at most, one index type per path in the vector index policy
 - You can specify, at most, one DiskANN index type per container
-- Vector indexing a search is only supported on new Containers.
+- Vector indexing is only supported on new containers.
 - Vectors indexed with the `flat` index type can be at most 505 dimensions. Vectors indexed with the `quantizedFlat` or `DiskANN` index type can be at most 4,096 dimensions.
-- `quantizedFlat` is based off Product Quantization 
+- `quantizedFlat` utilizes the same quantization method as DiskANN and is not configurable at this time. 
 - Shared throughput databases can't use the vector search preview feature at this time.
-- DiskANN will be available in June 2024. Until then, this index type won't be available for use. 
-- Ingestion rate should be limited while using early preview of DiskANN.
+- Ingestion rate should be limited while using an early preview of DiskANN.
 
 ## Next step
 - [.NET - How-to Index and query vector data](how-to-python-vector-index-query.md)

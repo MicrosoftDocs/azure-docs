@@ -45,8 +45,9 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 
 6. Select "Enable" to enroll in the preview. 
 
-Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
-
+> [!NOTE]  
+> The registration request will be autoapproved, however it may take several minutes to take effect. 
+ 
 ## Understanding the steps involved in vector search 
 
 The following steps assume that you know how to [setup a Cosmos DB NoSQL account and create a database](quickstart-portal.md). The vector search feature is currently only supported on new containers, not existing container. You need to create a new container and then specify the container-level vector embedding policy and the vector indexing policy at the time of creation. 

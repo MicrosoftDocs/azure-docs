@@ -45,8 +45,8 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 
 6. Select "Enable" to enroll in the preview. 
 
-Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
-
+> [!NOTE]  
+> The registration request will be autoapproved, however it may take several minutes to take effect. 
 
 ## Understanding the steps involved in vector search 
 
