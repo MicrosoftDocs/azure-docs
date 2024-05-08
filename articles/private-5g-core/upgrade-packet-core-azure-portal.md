@@ -18,7 +18,7 @@ If your deployment contains multiple sites, we recommend upgrading the packet co
 
 ## Prerequisites
 
-- You must have a running packet core. Use Azure monitor platform metrics or the packet core dashboards to confirm your packet core instance is operating normally.
+- You must have a running packet core. Refer to [Verify the packet core is running](#verify-the-packet-core-is-running) for details on how to check this.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - If you use Microsoft Entra ID to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
@@ -40,6 +40,17 @@ To check which version your packet core instance is currently running, and wheth
 1. Check the **Version** field under the **Configuration** heading to view the current software version. If there's a warning that you're running an unsupported version, we advise that you upgrade your packet core instance to a version that Microsoft currently supports.
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource overview." lightbox="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png":::
+
+## Verify the packet core is running
+
+1. Use Azure Resource Health to confirm the packet core instance is healthy.
+
+    - Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version).
+    - Select **Resource Health** under the **Help** section on the left side.
+    - Check that the resource is healthy and there are no unexpected alerts.
+    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 
 ## Plan for your upgrade
 
@@ -109,12 +120,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 Once the upgrade completes, check if your deployment is operating normally.
 
 1. Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version). Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
-1. Select **Resource Health** under the **Help** section on the left side.
-
-    - Check that the resource is healthy and there are no unexpected alerts.
-    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
-1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
+1. Follow the steps in [Verify the packet core is running](#verify-the-packet-core-is-running) to confirm that the upgrade has succeeded and packet core is running correctly.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
 ## Rollback
