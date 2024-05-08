@@ -190,7 +190,7 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - Vectors indexed with the `flat` index type can be at most 505 dimensions. Vectors indexed with the `quantizedFlat` or `DiskANN` index type can be at most 4,096 dimensions.
 - `quantizedFlat` is based off Product Quantization 
 - Shared throughput databases can't use the vector search preview feature at this time.
-- DiskANN will be available starting on June 1, 2024. Until then, this index type won't be available for use. 
+- DiskANN will be available in June 2024. Until then, this index type won't be available for use. 
 - Ingestion rate should be limited while using early preview of DiskANN.
 
 ## Next step
