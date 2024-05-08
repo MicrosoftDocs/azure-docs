@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Supported Kubernetes versions in Azure Operator Nexus
 
-This document provides the list of software versioning supported in Azure Operator Nexus with Release 2404.2.
+This document provides the list of software versioning supported in Release 2404.2 of Azure Operator Nexus.
 
 ## Supported Software Versions
 
