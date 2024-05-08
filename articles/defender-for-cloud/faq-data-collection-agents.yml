@@ -3,7 +3,7 @@ metadata:
   title: Common questions - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud. Data collection agents are a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: elkrieger
+  author: ElazarK
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
