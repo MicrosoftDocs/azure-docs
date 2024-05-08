@@ -34,7 +34,7 @@ For information on Azure OpenAI models, refer to [Azure OpenAI Service](../ai-se
 
 For models **Curated by Azure AI** and **Open models from the Hugging Face hub**, some of these can be deployed as Real-time endpoints and some of these are available to be deployed using Pay-as-you-go billing (Models as a Service). These models can be discovered, compared, evaluated, finetuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
 
-* **Discover:** Review model cards, try sample inference and browse code samples to evaluate, fine-tune, or deploy the model. 
+* **Discover:** Review model cards, try sample inference and browse code samples to evaluate, finetune, or deploy the model. 
 * **Compare:** Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. 
 * **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario. 
 * **Finetune:** Customize finetunable models using your own training data and pick the best model by comparing metrics across all your finetuning jobs. Built-in optimizations speed up finetuning and reduce the memory and compute needed for finetuning. 
@@ -122,7 +122,7 @@ Deploying a model through MaaS allows users to get access to ready to use infere
 
 ### Finetune models through MaaS with Pay-as-you-go 
 
-For models that are available through MaaS and support fine-tuning, users can take advantage of hosted finetuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [finetune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
+For models that are available through MaaS and support finetuning, users can take advantage of hosted finetuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [finetune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
 
 ### RAG with models deployed through MaaS 
 
@@ -130,7 +130,7 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 ### Regional availability of offers and models 
 
-Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see “offer availability region” in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or fine-tuning, as applicable (see “Workspace region” columns in the table below). 
+Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see “offer availability region” in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or finetuning, as applicable (see “Workspace region” columns in the table below). 
 
 Model | Offer availability region | Workspace Region for Deployment | Workspace Region for Finetuning
 --|--|--|--
@@ -147,6 +147,6 @@ Azure Machine Learning implements a default configuration of [Azure AI Content S
 
 ## Learn more
 
-* Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
+* Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for finetuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
 * Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
 * [Evaluate, finetune, and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
