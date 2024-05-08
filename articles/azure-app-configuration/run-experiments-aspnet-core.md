@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial:  Run exoeriments on variant feature flags in Azure App Configuration'
+title: 'Tutorial:  Run experiments with variant feature flags in Azure App Configuration'
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
-#customerintent: As a user of Azure App Configuration, I want to learn how I can run experiments on variant feature flags, using Split Experimentation Workspace and Application Insights.
+#customerintent: As a user of Azure App Configuration, I want to learn how I can run experiments with variant feature flags, using Split Experimentation Workspace and Application Insights.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration 
@@ -10,9 +10,9 @@ ms.topic: tutorial
 ms.date: 05/07/2024
 ---
 
-# Tutorial: Run experiments on variant feature flags in Azure App Configuration
+# Tutorial: Run experiments with variant feature flags (preview)
 
-Running experiments on your application can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation/index.yml).
+Running experiments on your application can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights (preview), and [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation/index.yml).
 
 By doing so, you can make data-driven decisions to improve your application.
 
@@ -34,61 +34,61 @@ In this tutorial, you:
 * A Split Experimentation Workspace resource<!--Add quickstart link when doc is merged-->
 * A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
 
-## Create a variant feature flag
+## Create a variant feature flag (preview)
 
 Create a variant feature flag called *Greeting* with two variants, *Off* and *On*, as described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
-## Connect an Application Insights resource to your configuration store
+## Connect an Application Insights (preview) resource to your configuration store
 
 To run an experiment, you first need to connect a workspace-based Application Insights resource to your App Configuration store. Connecting this resource to your App Configuration store sets the configuration store with the telemetry source for the experimentation.
 
 1. In your App Configuration store, select **Telemetry > Application Insights (preview)**.
 
-    :::image type="content" source="./media/run-experiments-aspnet-core/select-application-insights.png" alt-text="Screenshot of the Azure portal, adding an Application Insights to a store.":::
+    :::image type="content" source="./media/run-experiments-aspnet-core/select-application-insights.png" alt-text="Screenshot of the Azure portal, adding an Application Insights to a store." lightbox="./media/run-experiments-aspnet-core/find-in-app-configuration-store.png":::
 
 1. Select the Application Insights resource you want to use as the telemetry provider for your variant feature flags and application, and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
 1. A notification indicates that the Application Insights resource was updated successfully for the App Configuration store.
 
 ## Connect a Split Experimentation Workspace (preview) to your store
 
-To run experiments in Azure App Configuration, we're going to use Split Experimentation Workspace. Follow the steps below to connect a Split Experimentation Workspace to your store.
+To run experiments in Azure App Configuration, you're going to use Split Experimentation Workspace. Follow the steps below to connect a Split Experimentation Workspace to your store.
 
 1. In your App Configuration store, select **Experimentation** > **Split Experimentation Workspace (preview)** from the left menu.
 
-    :::image type="content" source="./media/run-experiments-aspnet-core/find-in-app-configuration-store.png" alt-text="Screenshot of the Azure portal, finding Split Experimentation Workspace from the App Configuration store left menu.":::
+    :::image type="content" source="./media/run-experiments-aspnet-core/add-split-experimentation-workspace.png" alt-text="Screenshot of the Azure portal, adding a Split Experimentation Workspace to the App Configuration store." lightbox="./media/run-experiments-aspnet-core/add-split-experimentation-workspace.png":::
 
 1. Select a **Split Experimentation Workspace**, then **Save**. If you don't have a Split Experimentation Workspace, follow the Split Experimentation Workspace quickstart to create one<!--link to Split Experimentation workspace quickstart-->.
 
     > [!NOTE]
     > The data source selected in the Split Experimentation Workspace must be the same Application Insights resource as selected in the previous step.
 
-    :::image type="content" source="./media/run-experiments-aspnet-core/add-split-experimentation-workspace.png" alt-text="Screenshot of the Azure portal, adding a Split Experimentation Workspace to the App Configuration store.":::
-
 1. A notification indicates that the operation was successful.
 
 ## Set up an app to run an experiment
 
-Now that you’ve connected the Application Insights resource to the App Configuration store, set up an app to run your experiment.
+Now that you’ve connected the Application Insights (preview) resource to the App Configuration store, set up an app to run your experiment (preview).
 
-Either follow the steps below to learn how to create a brand new app to run an experiment, or to complete this tutorial faster, download/clone the app code available from the [App Configuration repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore)<!--update when app PR is merged-->, create a user secret for the application and another one that holds the connection string for Application Insights by running the steps 2 and 3 below, and then move on to [the build and run step](#build-and-run-the-app) below.
+In this example, you create an ASP.NET web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can hit the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. You create the _Greeting_ feature flag in Azure App Configuration with two variants, _Off_ and _On_. Users who receive the _Off_ variant will see a standard title. Users who receive the _On_ variant will get a greeting message. You collect and save the telemetry of your user interactions in Application Insights. With Split Experimentation Workspace, you can analyze the effectiveness of your experiment.
+
+Either follow the steps below to learn how to create this new app to run an experiment, or, to complete this tutorial faster, download/clone the app code available from the [App Configuration repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore)<!--update when app PR is merged-->, then create a user secret for the application and another one that holds the connection string for Application Insights by running the steps 2 and 3 below, and directly move on to [the build and run section](#build-and-run-the-app) below.
 
 ### Create an app and add user secrets
 
 1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
 
-    ```cmd
+    ```dotnetcli
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
 1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the connection string for App Configuration.
 
-    ```cmd
+    ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfiguration "<App Configuration Connection string>"
     ```
 
 1. Create another user secret that holds the connection string for Application Insights.
 
-    ```cmd
+    ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppInsights "<Application Insights Connection string>"
     ```
 
@@ -420,7 +420,7 @@ Either follow the steps below to learn how to create a brand new app to run an e
     > [!NOTE]
     > It's important for the purpose of this quickstart to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
 
-1. Select the **Login** at the top right to sign in as user b (userb@contoso.com).
+1. Select **Login** at the top right to sign in as userb (userb@contoso.com).
 
     :::image type="content" source="media/run-experiments-aspnet-core/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
 
@@ -428,7 +428,7 @@ Either follow the steps below to learn how to create a brand new app to run an e
 
     :::image type="content" source="media/run-experiments-aspnet-core/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
 
-    *user@contoso.com* is the only user who sees the special message.
+    *userb@contoso.com* is the only user who sees the special message.
 
 ## Enable telemetry and create an experiment in your variant feature flag
 
@@ -442,7 +442,7 @@ Enable telemetry and create an experiment in your variant feature flag by follow
 1. Go to the **Telemetry** tab and check the box **Enable Telemetry**.
 1. Go to the **Experiment** tab, check the box **Create Experiment**, and give a name to your experiment.
 1. **Select Review + update**, then **Update**.
-1. A notification indicates that the operation was successful. In **Feature manager**, the variant feature flag now has the word **Active** under **Experiment**.
+1. A notification indicates that the operation was successful. In **Feature manager**, the variant feature flag should have the word **Active** under **Experiment**.
 
 ## Create metrics for your experiment
 
