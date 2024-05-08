@@ -83,7 +83,6 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | Tomcat 10.1 Java 11     | Ubuntu        | MSFT OpenJDK 11           |
 | Tomcat 10.1 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
 | Tomcat 10.1 Java 21     | Ubuntu        | MSFT OpenJDK 21           |
-| Tomcat 11 Java 21       | Ubuntu        | MSFT OpenJDK 21           |
 | JBoss 7.3 Java 8        | Ubuntu        | Adoptium Temurin 8        |
 | JBoss 7.3 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
 | JBoss 7.4 Java 8        | Ubuntu        | Adoptium Temurin 8        |
