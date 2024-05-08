@@ -196,4 +196,4 @@ For more information on using Event Hubs to monitor UE usage in your deployment,
 
 - [Learn more about the key components of a private mobile network](key-components-of-a-private-mobile-network.md)
 - [Learn more about the design requirements for deploying a private mobile network](private-mobile-network-design-requirements.md)
-- [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) 
+- [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)
