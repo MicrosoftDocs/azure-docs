@@ -118,9 +118,7 @@ Jais accepts the following parameters for a `v1/chat/completions` response infer
 | `max_tokens` | `integer` | `None` | The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, generates tokens until end of sequence. |
 | `temperature` | `float` | `0.3` | Controls randomness in the model. Lower values will make the model more deterministic and higher values will make the model more random. |
 | `top_p` | `float` |`None`|The cumulative probability of parameter highest probability vocabulary tokens to keep for nucleus sampling, defaults to null.|
-| `do_sample` | `boolean` |`False`   |Whether or not to use sampling; use greedy decoding otherwise.|
-| `return_full_text` | `boolean` |`False`   |Whether or not to return the full text (prompt + response) or only the generated part (response). |
-| `ignore_eos` | `boolean` |`False`   |Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
+| `top_k` | `integer` |`None`|The number of highest probability vocabulary tokens to keep for top-k-filtering, defaults to null.|
 
 
 A System or User Message supports the following properties:
