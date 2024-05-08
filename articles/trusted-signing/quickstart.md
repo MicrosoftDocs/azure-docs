@@ -231,7 +231,7 @@ Here are the steps to create an Identity Validation request:
 | Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. For a quicker onboarding process ensure public records for the Legal Entity being validated are upto date. |
 | Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
 | Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
-| Failure to perform email verification            | You are required to initiate a new Identity Validation request if you missed to verify your emaail address within 7 days of receiving the verification link.|
+| Failure to perform email verification            | You are required to initiate a new Identity Validation request if you missed verifying your email address within 7 days of receiving the verification link.|
 | Identity Validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need extra documentation from you) to process your Identity Validation request.|
 
