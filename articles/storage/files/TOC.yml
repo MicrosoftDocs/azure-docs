@@ -13,7 +13,6 @@
     href: files-nfs-protocol.md
   - name: What's new in Azure Files?
     href: files-whats-new.md
-  expanded: true
 - name: Tutorials
   items:
   - name: Create a Windows SMB file share
