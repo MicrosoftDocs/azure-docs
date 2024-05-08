@@ -58,8 +58,7 @@ landingContent:
           url: concept-soft-delete.md
         - text: Geo-replication 
           url: concept-geo-replication.md
-          
-        
+
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -150,13 +149,14 @@ landingContent:
           url: use-feature-flags-spring-boot.md
         - text: Enable a feature for specified users/groups
           url: howto-targetingfilter-aspnet-core.md
+        - text: Run experiments with variant feature flags
+          url: run-experiments-aspnet-core.md
       - linkListType: reference
         links:
         - text: .NET library
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
-
   - title: Configuration SDKs and samples
     linkLists:
       - linkListType: sample
