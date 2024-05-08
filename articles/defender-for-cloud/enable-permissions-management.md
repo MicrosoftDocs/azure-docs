@@ -50,6 +50,14 @@ When Permission Management (CIEM) is disabled, the CIEM recommendations within t
 
 The applicable permissions management (CIEM) recommendations appear on your subscription within a few hours.
 
+List of Azure recommendations:
+
+- Azure overprovisioned identities should have only the necessary permissions
+
+- Unused identities in your Azure environment should be revoked/removed
+
+- Super identities in your Azure environment should be revoked/removed
+
 ## Enable permissions management (CIEM) for AWS
 
 When you enabled the Defender CSPM plan on your AWS account, the **AWS CSPM** [standard is automatically assigned to your subscription](concept-regulatory-compliance-standards.md). The AWS CSPM standard provides Cloud Infrastructure Entitlement Management (CIEM) recommendations. 
@@ -86,6 +94,12 @@ When Permission Management is disabled, the CIEM recommendations within the AWS 
 1. Select **Update**.
 
 The applicable permissions management (CIEM) recommendations appear on your subscription within a few hours.
+
+List of AWS recommendations:
+
+- AWS overprovisioned identities should have only the necessary permissions
+
+- Unused identities in your Azure environment should be revoked/removed
 
 ## Enable permissions management (CIEM) for GCP
 
@@ -126,6 +140,14 @@ When Permission Management (CIEM) is disabled, the CIEM recommendations within t
 1. Select **Update**.
 
 The applicable permissions management **(CIEM)** recommendations appear on your subscription within a few hours.
+
+List of GCP recommendations:
+
+- GCP overprovisioned identities should have only necessary permissions
+
+- Unused identities in your GCP environment should be revoked/removed
+
+- Super identities in your GCP environment should be revoked/removed
 
 ## Next step
 
