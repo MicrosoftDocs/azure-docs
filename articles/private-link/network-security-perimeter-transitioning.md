@@ -103,6 +103,6 @@ The behavior of public network access on PaaS resources according to the associa
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn to [create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
 
  

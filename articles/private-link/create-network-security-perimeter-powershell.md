@@ -13,7 +13,7 @@ ms.date: 03/07/2024
 
 Get started with network security perimeter by creating a network security perimeter for an Azure key vault using the Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows Azure PaaS resources to communicate within an explicit trusted boundary.
 
-In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-concepts.md#onboarded-private-link-resources), using the Azure PowerShell. Next, You'll learn to create and update a PaaS resources association in a network security perimeter profile, as well as how to create and update network security perimeter access rules. To finish, you'll delete all resources created in this quickstart.
+In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-concepts.md#onboarded-private-link-resources), using the Azure PowerShell. Next, You learn to create and update a PaaS resources association in a network security perimeter profile, as well as how to create and update network security perimeter access rules. To finish, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -121,6 +121,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ```azurepowershell-interactive
     # Associate the PaaS resource with the above created profile
+    
     $nspassociation = @{ 
         AssociationName = 'nsp-association' 
         ResourceGroupName = $rgParams.name 
@@ -130,67 +131,56 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
         PrivateLinkResourceId = $keyVault.ResourceID
         }
 
-New-AzNetworkSecurityPerimeterAssociation @nspassociation | format-list
+    New-AzNetworkSecurityPerimeterAssociation @nspassociation | format-list
 ```
 
 3. Update association by changing the access mode to `enforced` with the `Update-AzNetworkSecurityPerimeterAssociation` command as follows:
 
-Update association. We will change the access mode to “Enforced” in this example. 
-
 ```azurepowershell-interactive
-
-Update-AzNetworkSecurityPerimeterAssociation -Name $nspassociation.AssociationName -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AccessMode 'Enforced' | format-list
+    # Update the association to enforce the access mode
+    Update-AzNetworkSecurityPerimeterAssociation -Name $nspassociation.AssociationName -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AccessMode 'Enforced' | format-list
 ``` 
 
 ## Create and update network security perimeter access rules
 
-In this step, you create and update network security perimeter access rules with the `New-AzNetworkSecurityPerimeterAccessRule` command.
-
-Create an inbound access rule for the profile created. 
+In this step, you create and update network security perimeter access rules.
 
 ```azurepowershell-interactive
-$inboundrule = @{ 
-    Name = 'nsp-inboundRule' 
-    ProfileName = $nspprofile.Name  
-    ResourceGroupName = $rgParams.Name  
-    SecurityPerimeterName = $nsp.Name  
-    Direction = 'Inbound'  
-    AddressPrefix = "10.1.0.0/24" 
-    } 
+    # Create an inbound access rule for the profile created
+    $inboundrule = @{ 
+        Name = 'nsp-inboundRule' 
+        ProfileName = $nspprofile.Name  
+        ResourceGroupName = $rgParams.Name  
+        SecurityPerimeterName = $nsp.Name  
+        Direction = 'Inbound'  
+        AddressPrefix = "10.1.0.0/24" 
+        } 
 
     New-AzNetworkSecurityPerimeterAccessRule @inboundrule | format-list
-```
 
-
-Update an inbound access rule for the profile created.
-    
-```azurepowershell-interactive
-Update-AzNetworkSecurityPerimeterAccessRule -Name $inboundrule.Name -ProfileName $nspprofile.Name -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AddressPrefix @('10.1.0.0/24','10.2.0.0/24') | format-list
+    # Update the inbound access rule to add more address prefixes
+    Update-AzNetworkSecurityPerimeterAccessRule -Name $inboundrule.Name -ProfileName $nspprofile.Name -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AddressPrefix @('10.1.0.0/24','10.2.0.0/24') | format-list
 ```
 
 ## Delete a network security perimeter 
 
-To delete a network security perimeter, use the `Remove-AzNetworkSecurityPerimeter` command as follows:
+To delete a network security perimeter, use the following commands:
 
-Get the network security perimeter to be deleted. 
+    ```azurepowershell-interactive
 
-```azurepowershell-interactive
+    # Retrieve the network security perimeter and place it in a variable
+    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.ResourceGroupName
 
-$nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.ResourceGroupName 
- 
-```
-Delete network security perimeter. 
-
-```azurepowershell-interactive
-Remove-AzNetworkSecurityPerimeterAssociation -Name nsp-association -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name
-
-Remove-AzNetworkSecurityPerimeter -Name $nsp.Name -ResourceGroupName $rgParams.Name
-
-
-Remove-AzResourceGroup -Name "test-rg" -Force
-```
+    # Delete the network security perimeter and all associated resources
+    Remove-AzNetworkSecurityPerimeterAssociation -Name nsp-association -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name
+    
+    Remove-AzNetworkSecurityPerimeter -Name $nsp.Name -ResourceGroupName $rgParams.Name
+    
+    # Remove the resource group
+    Remove-AzResourceGroup -Name "test-rg" -Force
+    ```
  
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn to monitor with [diagnostic logs in network security perimeter](./network-security-perimeter-diagnostic-logs.md)
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)

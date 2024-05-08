@@ -150,4 +150,4 @@ To delete a network security perimeter and other resources in this quickstart, u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn to monitor with [diagnostic logs in network security perimeter](./network-security-perimeter-diagnostic-logs.md)
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)

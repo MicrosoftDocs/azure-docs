@@ -60,4 +60,5 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ## Next steps
 
-- [Create a Network Security Perimeter](create-network-security-perimeter-portal.md)
+> [!div class="nextstepaction"]
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
