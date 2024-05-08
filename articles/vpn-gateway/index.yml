@@ -53,7 +53,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: About point-to-site VPN
+          - text: About point-to-site VPNs
             url: point-to-site-about.md
           - text: About point-to-site VPN routing
             url: vpn-gateway-about-point-to-site-routing.md
@@ -61,12 +61,12 @@ landingContent:
         links:
           - text: Configure point-to-site VPN Certificate authentication
             url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
-          - text: Configure point-to-site VPN RADIUS authentication
-            url: point-to-site-how-to-radius-ps.md
           - text: Configure point-to-site VPN Microsoft Entra ID authentication
             url: openvpn-azure-ad-tenant.md
           - text: Configure point-to-site VPN using Multiple authentication types
             url: howto-point-to-site-multi-auth.md
+          - text: Configure point-to-site VPN RADIUS authentication
+            url: point-to-site-how-to-radius-ps.md
 
 # Card
   - title: Site-to-site VPN
