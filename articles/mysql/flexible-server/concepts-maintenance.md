@@ -28,6 +28,9 @@ In certain scenarios, such as the need to deploy urgent security fixes or update
 ### Locating Maintenance Details
 For specific details about what each maintenance update entails, please refer to our release notes. These notes provide comprehensive information about the updates applied during maintenance, allowing you to understand and prepare for any changes impacting your environment.
 
+>[!NOTE]
+> Not all servers will necessarily undergo maintenance during scheduled updates, whether routine or exceptional. The Azure MySQL team employs specific criteria to determine which servers require maintenance. This selective approach ensures that maintenance is both efficient and essential, tailored to the unique needs of each server environment. 
+
 ## Select a maintenance window
 
 You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system will alert you seven days before running any maintenance. The system will also let you know when maintenance is started, and when it is successfully completed.
