@@ -18,7 +18,7 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.2.jar"` somewhere before `-jar`, for example:
 
-```
+```console
 java -javaagent:"path/to/applicationinsights-agent-3.5.2.jar" -jar <myapp.jar>
 ```
 

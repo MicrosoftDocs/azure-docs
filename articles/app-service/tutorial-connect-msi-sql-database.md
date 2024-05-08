@@ -172,6 +172,9 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
+    > [!NOTE]
+    > The token caching feature for Managed Identity is available starting from Azure.Identity version 1.8.0. To help reduce network port usage, consider updating Azure.Identity to this version or later.
+    
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp

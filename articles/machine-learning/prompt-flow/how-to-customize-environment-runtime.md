@@ -52,6 +52,9 @@ Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
 
 For more information about structuring the `requirements.txt` file, see [Requirements file format](https://pip.pypa.io/en/stable/reference/requirements-file-format/) in the pip documentation.
 
+> [!NOTE]
+> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image.
+
 #### Define the `Dockerfile`
 
 Create a `Dockerfile` and add the following content, then save the file:
@@ -65,7 +68,7 @@ RUN pip install -r requirements.txt
 > [!NOTE]
 > This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
-### Step 2: Create custom Azure Machine Learning environment 
+### Step 2: Create custom Azure Machine Learning environment
 
 #### Define your environment in `environment.yaml`
 
@@ -75,10 +78,6 @@ In your local compute, you can use the CLI (v2) to create a customized environme
 > - Make sure to meet the [prerequisites](../how-to-manage-environments-v2.md#prerequisites) for creating environment.
 > - Ensure you have [connected to your workspace](../how-to-manage-environments-v2.md?#connect-to-the-workspace).
 
-> [!IMPORTANT]
-> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
->
->Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
 ```shell
 az login # if not already authenticated
@@ -118,7 +117,7 @@ To learn more about environment CLI, see [Manage environments](../how-to-manage-
 ## Customize environment with flow folder for automatic runtime (preview)
 
 In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section we can define the environment for the flow. It includes two parts:
-- image: which is the base image for the flow, if omitted, it uses the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
+- image: which is the base image for the flow, if omitted, it uses the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
 - You can also specify packages `requirements.txt`, Both automatic runtime and flow deployment from UI will use the environment defined in `flow.dag.yaml` file.
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png":::

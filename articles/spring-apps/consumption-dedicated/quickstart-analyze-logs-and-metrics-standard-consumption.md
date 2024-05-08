@@ -123,7 +123,7 @@ Azure Spring Apps provides the metrics described in the following table:
 
 The Azure Monitor metrics explorer enables you to create charts from metric data to help you analyze your Azure Spring Apps resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Getting started with metrics explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 1. Create a chart by selecting a metric in the **Metric** dropdown menu. You can modify the chart by changing the aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 

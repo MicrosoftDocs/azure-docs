@@ -1496,8 +1496,6 @@ This example shows an HTTP triggered function that streams a file's content as t
 
 ### Stream considerations
 
-+ The `request.params` object isn't supported when using HTTP streams during preview. Refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information and suggested workaround.
-
 + Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
 ::: zone-end  
 

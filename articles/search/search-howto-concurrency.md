@@ -33,9 +33,9 @@ Every time you update a resource, its ETag changes automatically. When you imple
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API or SDK is used for resource updates.
 
-## Use cases and sample code
+## Example
 
-The following code demonstrates optimistic concurrency for an update operation. It fails the second update because the object's ETag is changed by a previous update. More specifically, when the ETag in the request header no longer matches the ETag of the object, the search service return a status 400 bad request message, and the update fails.
+The following code demonstrates optimistic concurrency for an update operation. It fails the second update because the object's ETag is changed by a previous update. More specifically, when the ETag in the request header no longer matches the ETag of the object, the search service return a status code of 400 (bad request), and the update fails.
 
 ```csharp
 using Azure;
@@ -183,6 +183,6 @@ private static Index AddSynonymMapsToFields(Index index)
 
 ## See also
 
-+ [ETag Struct](/dotnet/api/azure.etag?view=azure-dotnet)
++ [ETag Struct](/dotnet/api/azure.etag?view=azure-dotnet&preserve-view=true)
 + [Common HTTP request and response headers](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 + [HTTP status codes](/rest/api/searchservice/http-status-codes)

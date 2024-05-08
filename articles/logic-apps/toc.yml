@@ -83,38 +83,42 @@ items:
   items:
   - name: Single-tenant Azure Logic Apps
     items:
-    - name: Single-tenant overview
+    - name: Overview
       href: single-tenant-overview-compare.md
     - name: About the Standard workflow designer
       href: designer-overview.md
-    - name: Create single-tenant workflows - Portal
+    - name: Built-in versus Azure connector operations
+      href: ../connectors/compare-built-in-azure-connectors.md
+    - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Get AI-powered help from the workflow assistant
       href: workflow-assistant-standard.md
-    - name: Create single-tenant workflows - Visual Studio Code
+    - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
-    - name: Set up SQL storage for single-tenant workflows
+    - name: Estimate storage costs
+      href: estimate-storage-costs.md
+    - name: Set up SQL storage
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
-    - name: Built-in versus Azure connector operations
-      href: ../connectors/compare-built-in-azure-connectors.md
-    - name: Edit app settings and host settings
-      href: edit-app-settings-host-settings.md
     - name: Create and run .NET Framework code
       href: create-run-custom-code-functions.md
     - name: Enable stateful mode for stateless built-in connectors
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: DevOps deployment for single-tenant
-      href: devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Set up DevOps deployment for single-tenant
-      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Secure traffic between single-tenant logic apps and virtual networks
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
-    - name: Deploy single-tenant Standard logic apps to private storage accounts
-      href: deploy-single-tenant-logic-apps-private-storage-account.md
-    - name: Estimate storage costs for single-tenant workflows
-      href: estimate-storage-costs.md
-    - name: Create custom built-in connectors for single-tenant workflows
+    - name: Create custom built-in connectors
       href: create-custom-built-in-connector-standard.md
+    - name: Set up deployment slots
+      href: set-up-deployment-slots.md
+    - name: DevOps deployment
+      href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Set up DevOps deployment
+      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Automate DevOps build and deployment
+      href: automate-build-deployment-standard.md
+    - name: Deploy Standard logic apps to private storage accounts
+      href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app

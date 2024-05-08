@@ -643,7 +643,7 @@
       href: breaking-changes/metrics-retirement-aug-2023.md
     - name: Virtual network changes (September 2023)
       href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-    - name: API version retirements (September 2023)
+    - name: API version retirements (June 2024)
       href: breaking-changes/api-version-retirement-sep-2023.md
     - name: Self-hosted gateway v0/v1 retirements (October 2023)
       href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
