@@ -135,8 +135,6 @@ For information on moving resources from one resource group to another, and from
 The **Settings** section allows you to access and configure the following settings for your cache.
 
 - [Authentication](#authentication)
-  - [Access keys](#access-keys)
-  - [Microsoft Entra Authentication](#entra)
 - [Advanced settings](#advanced-settings)
 - [Scale](#scale)
 - [Cluster size](#cluster-size)

@@ -7,17 +7,14 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 05/07/2024
 ms.author: franlanglois
 
 ---
 
 # Use Microsoft Entra ID for cache authentication
 
-Azure Cache for Redis offers two methods to authenticate to your cache instance:
-
-- [Access keys](cache-configure.md#access-keys)
-- [Microsoft Entra ID](cache-configure.md#microsoft-entra-authentication)
+Azure Cache for Redis offers two methods to [authenticate](cache-configure.md#authentication) to your cache instance: Access keys and Microsoft Entra ID
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
@@ -47,7 +44,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. Select **Authentication** from the Resource menu.
 
-1. In the working pane, select ** Enable Microsoft Entra Authentication**.
+1. In the working pane, select **Enable Microsoft Entra Authentication**.
 
 1. Select **Enable Microsoft Entra Authentication**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 
