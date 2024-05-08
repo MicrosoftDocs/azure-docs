@@ -116,8 +116,8 @@ It assumes that your images come from the `/document/normalized_images/*` path t
 {
   "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
   "context": "/document/normalized_images/*",
-  "uri": "{YOUR_URL_HERE}",
-  "key": "{YOUR_PRIMARY_KEY_HERE}",
+  "uri": "{YOUR_AZURE_AI_STUDIO_DEPLOYED_MODEL_URL_HERE}",
+  "key": "{YOUR_AZURE_OPENAI_PRIMARY_KEY_HERE}",
   "inputs": [
     {
       "name": "input_data",
@@ -161,8 +161,8 @@ You must add the `/v1/embed` path onto the end of the URL that you copied from y
 {
   "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
   "context": "/document/pages/*",
-  "uri": "{YOUR_URL_HERE}/v1/embed",
-  "key": "{YOUR_PRIMARY_KEY_HERE}",
+  "uri": "{YOUR_AZURE_AI_STUDIO_DEPLOYED_MODEL_URL_HERE}/v1/embed",
+  "key": "{YOUR_AZURE_OPENAI_PRIMARY_KEY_HERE}",
   "inputs": [
     {
       "name": "texts",
