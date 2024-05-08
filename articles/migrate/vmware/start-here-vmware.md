@@ -5,7 +5,7 @@ author: cynthn
 ms.author: cynthn
 ms.topic: overview
 ms.service: azure-migrate
-ms.date: 04/09/2024
+ms.date: 05/08/2024
 ms.custom: vmware-scenario-422
 
 # Customer intent - overview  of the options for assessing an existing VMware deployment for migration
@@ -26,7 +26,7 @@ Make sure you checkout out the [support matrix](migrate-support-matrix-vmware.md
 ## Discover
 You need a list of all of the servers in your environment. To get the list, you have 2 choices: 
 
-- Deploy an appliance that continually discovers servers. More more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md?context=/azure/migrate/context/vmware-context)[Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md?context=/azure/migrate/context/vmware-context)
+- Deploy an appliance that continually discovers servers. For more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md?context=/azure/migrate/context/vmware-context)[Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md?context=/azure/migrate/context/vmware-context)
 
 - Use RVTools XLSX to discover servers and store the information in a .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md?context=/azure/migrate/context/vmware-context).
 
@@ -43,9 +43,9 @@ Depending on whether you choose agent-based of agentless migration, the next ste
 
 ### Agent-based:
 
-   - Review the [VMware agent-based migration architecture](agent-based-migration-architecture.md?context=/azure/migrate/context/vmware-context).
+   - Review the [VMware agent-based migration architecture](agent-based-migration-architecture.md).
 
-   - [Migrate with agent-based migration](tutorial-migrate-vmware-agent.md?context=/azure/migrate/context/vmware-context).
+   - [Migrate with agent-based migration](tutorial-migrate-vmware-agent.md).
 
 
 ### Agentless:
@@ -65,4 +65,4 @@ Depending on whether you choose agent-based of agentless migration, the next ste
 
 ## Next steps
 
-[Migrate your SQL servers to Azure](../tutorial-assess-sql.md)
+[Support matrix for VMware discovery](migrate-support-matrix-vmware.md?context=/azure/migrate/context/vmware-context).
