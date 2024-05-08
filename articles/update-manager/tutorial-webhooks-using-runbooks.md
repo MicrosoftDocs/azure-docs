@@ -89,34 +89,29 @@ In this tutorial, you learn how to:
         if ($resourceSubscriptionIds.Count -gt 0) {    
 
             Write-Output "Querying ARG to get machine details[MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]"    
-
             $argQuery = @"maintenanceresources     
-
             | where type =~ 'microsoft.maintenance/applyupdates'    
-            | where properties.correlationId =~ '$($maintenanceRunId)'    
+            | where properties.correlationId =~ '$($maintenanceRunId)'  
             | where id has '/providers/microsoft.compute/virtualmachines/'    
             | project id, resourceId = tostring(properties.resourceId)    
             | order by id asc 
-        "@            
-
+            "@  
+          
         Write-Output "Arg Query Used: $argQuery"    
         $allMachines = [System.Collections.ArrayList]@()    
-        $skipToken = $null    
-        do    
-        
+        $skipToken = $null     
         $res = Search-AzGraph -Query $argQuery -First 1000 -SkipToken $skipToken -Subscription $resourceSubscriptionIds    
         $skipToken = $res.SkipToken    
         $allMachines.AddRange($res.Data)    
-        } while ($skipToken -ne $null -and $skipToken.Length -ne 0)    
+        } while ($skipToken -ne $null -and $skipToken.Length -ne 0)  
+  
         if ($allMachines.Count -eq 0) {    
         Write-Output "No Machines were found."    
         break    
         }   
-    }    
-    
-    ```
-    
-    4. To customize you can use either your existing scripts with the above modifications done or use the following scripts.
+        ```
+
+   1. To customize you can use either your existing scripts with the above modifications done or use the following scripts.
 
  
 ### Sample scripts
@@ -352,11 +347,11 @@ Invoke-AzRestMethod `
 1. On the **Maintenance Configuration** page, select the configuration. 
 1. Under **Settings**, select **Events**.
     
-    :::image type="content" source="./media/tutorial-webhooks-using-runbooks/pre-post-select-events.png" alt-text="Screenshot that shows the options to select the events menu option." lightbox="tutorial-webhooks-using-runbooks/pre-post-select-events.png":::
+    :::image type="content" source="./media/tutorial-webhooks-using-runbooks/pre-post-select-events.png" alt-text="Screenshot that shows the options to select the events menu option." lightbox="./media/tutorial-webhooks-using-runbooks/pre-post-select-events.png":::
  
 1. Select **+Event Subscription** to create a pre/post maintenance event.
 
-    :::image type="content" source="./media/tutorial-webhooks-using-runbooks/select-event-subscriptions.png" alt-text="Screenshot that shows the options to select the events subscriptions." lightbox="tutorial-webhooks-using-runbooks/select-event-subscriptions.png":::
+    :::image type="content" source="./media/tutorial-webhooks-using-runbooks/select-event-subscriptions.png" alt-text="Screenshot that shows the options to select the events subscriptions." lightbox="./media/tutorial-webhooks-using-runbooks/select-event-subscriptions.png":::
 
 1. On the **Create Event Subscription** page, enter the following details:
     1. In the **Event Subscription Details** section, provide an appropriate name. 
@@ -368,7 +363,7 @@ Invoke-AzRestMethod `
         1. Select **Post Maintenance Event** for a post-event.
             - In the **Endpoint details** section, the **Webhook** endpoint and select **Configure and Endpoint**.
             - Provide the appropriate details such as post-event webhook **URL** to trigger the event.
-    :::image type="content" source="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png" alt-text="Screenshot that shows the options to create the events subscriptions." lightbox="tutorial-webhooks-using-runbooks/create-event-subscription.png":::
+    :::image type="content" source="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png" alt-text="Screenshot that shows the options to create the events subscriptions." lightbox="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png":::
 
 1. Select **Create**.
 
