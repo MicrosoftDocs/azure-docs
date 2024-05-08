@@ -494,8 +494,7 @@ Note that SDK type bindings support for Python is currently in preview, and is o
 
 ### Prerequisites
 
-* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python)
-* [Azure Functions Core Tools version](https://learn.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Cisolated-process%2Cnode-v4%2Cpython-v2%2Chttp-trigger%2Ccontainer-apps&pivots=programming-language-python)
+* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34+
 * [Python](https://www.python.org/downloads/) version 3.9+
 
 ### Enable SDK type bindings for Azure Storage Blob
@@ -577,8 +576,7 @@ Note that HTTP streaming support for Python is currently in preview, and is only
 
 ### Prerequisites
 
-* Azure Functions runtime version
-* Azure Functions Core Tools version
+* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34+
 * [Python](https://www.python.org/downloads/) version 3.8+
 
 ### Enable streams
