@@ -8,7 +8,7 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 05/08/2024
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
@@ -105,7 +105,9 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 ### Storage
 
-- On enabling Azure Site Recovery for a VM to set up DR, the OS and local data disks attached to VMs are replicated to the DR site. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during DR, a recovery point is used to restore the VM in the target region. But Azure Site Recovery doesn’t support all storages types that are available in Azure. For more information, see [Azure Site Recovery support matrix for storages](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
+- On enabling Azure Site Recovery for a VM to set up DR, the local managed disks attached to the VMs are replicated to the DR region. During replication, the VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during DR, a recovery point is used to restore the VM in the target region. But Azure Site Recovery doesn’t support all storages types that are available in Azure. For more information, see [Azure Site Recovery support matrix for storages](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
+
+- For SAP system running on Windows with Azure shared disk, you could use [Azure Site Recovery with Azure Shared Disk (preview)](https://azure.microsoft.com/updates/public-preview-dr-for-shared-disks-azure-site-recovery/). As the feature is in public preview, we don't recommend implementing the scenario for most critical SAP production workloads. For more information on supported scenarios for Azure Shared Disk, see [Support matrix for shared disks in Azure VM disaster recovery (preview)](../../site-recovery/shared-disk-support-matrix.md)
 
 - In addition to Azure managed data disks attached to VMs, different Azure native storage solutions are used to run SAP application on Azure. The DR approach for each Azure storage solution may differ, as not all storage services available in Azure are supported with Azure Site Recovery. Below are the list of storage type that is typically used for SAP workload.
 
@@ -114,22 +116,21 @@ An SAP workload running on Azure uses different infrastructure components to run
   | Managed disk                    | Azure Site Recovery                                          |
   | NFS on Azure files (LRS or ZRS) | Custom script to replicate data between two sites (for example, rsync) |
   | NFS on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../azure-netapp-files/cross-region-replication-introduction.md) |
-  | Azure shared disk (LRS or ZRS)  | Custom solution to replicate data between two sites          |
+  | Azure Shared Disk (LRS or ZRS)  | [Azure Site Recovery with Azure Shared Disk (in preview)](../../site-recovery/tutorial-shared-disk.md) |
   | SMB on Azure files (LRS or ZRS) | Use [RoboCopy](../../storage/files/storage-files-migration-robocopy.md) to copy files between two sites |
   | SMB on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../azure-netapp-files/cross-region-replication-introduction.md) |
 
 - For custom built storage solutions like NFS cluster, you need to make sure the appropriate DR strategy is in place.
 
-- Different native Azure storage services (like Azure Files, Azure NetApp Files, Azure Shared Disk) may not be not available in all regions. So to have similar SAP setup on the DR region after failover, ensure the respective storage service is offered in DR site. For more information, check [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/).
+- Different native Azure storage services (like Azure Files, Azure NetApp Files) may not be not available in all regions. So to have similar SAP setup on the DR region after failover, ensure the respective storage service is offered in DR site. For more information, check [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/).
+
+- If you are using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Premium file shares ZRS support]([Azure Files zone-redundant storage (ZRS) support for premium file shares | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/redundancy-premium-file-shares)), and [ZRS for managed disks](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
 
 - If using [availability zones for disaster recovery](../../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md), keep in mind the following points:
 
   - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. So it may happen that the Azure NetApp Files service isn't available in the chosen availability zone for your DR strategy.
   - Cross region replication of Azure NetApp File volumes is only available in fixed [region pairs](../../azure-netapp-files/cross-region-replication-introduction.md#supported-region-pairs), not across zones.
-  
 - If you've configured your storage with Active Directory integration, similar setup should be done on the DR site storage account as well.
-
-- Azure shared disks require cluster software like Windows Server Failover Cluster (WSFC) that handles cluster node communication and write locking. So to have DR strategy for Azure shared disk, you need to have shared disk managed by cluster software in DR site as well. You can then use script to copy data from shared disk attached to a cluster in primary region to the shared disk attached to another cluster in DR region.
 
 ## Next steps
 

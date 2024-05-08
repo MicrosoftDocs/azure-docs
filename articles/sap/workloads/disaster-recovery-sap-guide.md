@@ -8,7 +8,7 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 05/08/2024
 ---
 
 # Disaster recovery guidelines for SAP application
@@ -88,7 +88,8 @@ Irrespective of the operating system (SLES or RHEL) and its version, pacemaker r
 
 *ZRS for Azure shared disk is available in [limited regions](../../virtual-machines/disks-redundancy.md#limitations).
 
->[!Note]
+> [!NOTE]
+>
 > We recommend to have same fencing mechanism for both primary and DR region for ease of operation and failover. It is not advised to have different fencing mechanism after failover to DR site.
 
 #### [Windows](#tab/windows)
@@ -97,32 +98,34 @@ For SAP system, the redundancy of SPOF component in the primary region is achiev
 
 ![SAP system Windows architecture](media/disaster-recovery/disaster-recovery-sap-windows-architecture.png)
 
-##### SAP system configured with File share
-
-If you've configured your SAP system using file share on primary region, you need to make sure all components and the data in the file share (SMB on Azure Files, SMB on ANF) are replicated to the disaster recovery region if there is failover. You can use Azure Site Recovery to replicate the cluster VMs and other application server VMs to the disaster recovery region. There are some additional considerations that are outlined below.
-
-###### Load balancer
+##### Load balancer
 
 Azure Site Recovery replicates VMs to the DR site, but it doesn’t replicate Azure load balancer. You'll need to create a separate internal load balancer on DR site beforehand or after failover. If you create internal load balancer beforehand, create an empty backend pool and add VMs after the failover event.
 
-###### Quorum (cloud witness)
+##### Quorum (cloud witness)
 
 If you have configured cluster with cloud witness at its quorum mechanism, then you would need to create a separate storage account on DR region. On the event of failover, quorum setting must be updated with the new storage account name and access keys.
 
-###### Windows server failover cluster
+##### Windows server failover cluster
 
-If there is failover, SAP ASCS/ERS VMs configured with WSFC won’t work out-of-the-box. Additional reconfiguration is required to start SAP system on the DR region.
+If there is failover, SAP ASCS/ERS VMs configured with WSFC won’t work out-of-the-box. Additional reconfiguration is required to start SAP system on the DR region. Based on the type of your deployment (file share or shared disk), refer to following blog to learn more on the additional steps to be performed in the DR region.
 
-Read [SAP NetWeaver HA deployment with File Share running on Windows failover to DR Region using ASR](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-netweaver-ha-deployment-with-file-share-running-on-windows/ba-p/3727034) blog to learn more about the additional steps that are required in the DR region.
+- [SAP NetWeaver HA deployment with File Share running on Windows failover to DR Region using ASR](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-netweaver-ha-deployment-with-file-share-running-on-windows/ba-p/3727034).
+- [Disaster Recovery for SAP NetWeaver HA deployment with Azure Shared Disk on Windows using ASR](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/disaster-recovery-for-sap-netweaver-ha-deployment-with-azure/ba-p/4127908).
 
-###### File share directories
+##### SAP shared directories for Windows
 
-The high availability setup of SAP NetWeaver or ABAP platform uses enqueue replication server for achieving application level redundancy for the enqueue service of SAP system with WSFC configuration. The high availability setup of SAP central services (ASCS and ERS) with file share uses SMB shares. You will need to make sure that the SAP binaries and data on these SMB shares are replicated to the DR site. Azure Site Recovery replicates VMs and local managed disk attached, but it doesn't replicate the file shares. Choose the replication method, based on the type of file share storage you've configured for the setup. The cross regional replication methodology for each storage is presented at abstract level. You need to confirm exact steps to replicate storage and perform testing. 
+On Windows, the high availability configuration of SAP central services (ASCS and ERS) is set up with either a file share or shared disk. Depending on the type of cluster disk, you'll need to implement the suitable method to replicate the data on this disk type to the DR region. The replication methodology for each cluster disk type is presented at abstract level. You need to confirm exact steps to replicate storage and perform testing.
 
-| SAP file share directories | Cross region replication mechanism                           |
-| -------------------------- | ------------------------------------------------------------ |
-| SMB on Azure Files         | [Robocopy](../../storage/files/storage-files-migration-robocopy.md) |
-| SMB on Azure NetApp Files  | [Cross Region Replication](../../azure-netapp-files/cross-region-replication-introduction.md) |
+| SAP shared directories    | Cross region replication mechanism                           |
+| ------------------------- | ------------------------------------------------------------ |
+| SMB on Azure Files        | [Robocopy](../../storage/files/storage-files-migration-robocopy.md) |
+| SMB on Azure NetApp Files | [Cross Region Replication](../../azure-netapp-files/cross-region-replication-introduction.md) |
+| Azure Shared Disk         | [Azure Site Recovery with Shared Disks (preview)](https://learn.microsoft.com/en-us/azure/site-recovery/shared-disk-support-matrix) |
+
+> [!NOTE]
+>
+> Azure Site Recovery with shared disk is currently in public preview. So, we don't recommend implementing the scenario for most critical SAP production workloads
 
 ---
 
