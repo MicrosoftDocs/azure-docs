@@ -40,6 +40,10 @@
     href: l4-load-balancing.md
   - name: Use taints and tolerations to schedule workloads
     href: use-taints-tolerations.md
+  - name: Customize cluster scoped resources with cluster resource overrides
+    href: cluster-resource-override.md
+  - name: Customized namespace scoped resources with resource overrides
+    href: resource-override.md
 - name: Resources
   items:
   - name: Pricing
