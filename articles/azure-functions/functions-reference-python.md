@@ -659,7 +659,7 @@ def process_data_chunk(chunk: bytes):
 Note, you will need to use an HTTP client library to make streaming calls to the Fast API endpoints for the functions. The client tool or browser you are using may not natively support streaming or may only return the first chunk of data, which is why the script can be helpful to test the function locally. Alternatively, you can leverage tools that support HTTP streaming. Following is an example client script:
 
 ```python
-import httpx
+import httpx # Be sure to add 'httpx' to 'requirements.txt'
 import asyncio
 
 async def stream_generator(file_path):
