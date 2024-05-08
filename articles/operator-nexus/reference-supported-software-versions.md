@@ -10,11 +10,11 @@ ms.service: azure-operator-nexus
 
 # Supported Kubernetes versions in Azure Operator Nexus
 
-This document provides the list of software versioning supported in Azure Operator Nexus with Release 2404.2.
+This document provides the list of software versioning supported in Release 2404.2 of Azure Operator Nexus.
 
-## Supported Software Versions
+## Supported software versions
 
-| **Software**                             | **Version(s)**                           | **NNF run-time version** |
+| **Software**                             | **Version(s)**                           | **Nexus Network Fabric run-time version** |
 |------------------------------------------|------------------------------------------|--------------------------|
 | **Arista Firmware**                      | 4.30.0F-30849330.bhimarel                | 1.0.0                    |
 |                                          | MD5 checksum: c52cff01ed950606d36f433470110dca |                          |
