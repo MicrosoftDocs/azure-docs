@@ -15,14 +15,14 @@ ms.author: banders
 
 Savings plan purchase recommendations are calculated by analyzing your hourly pay-as-you-go usage and cost data. Recommendations are generated for the selected savings plan term (1- or 3-years), [benefit scope](scope-savings-plan.md) (shared, subscription  and look back period (7-, 30-, or 60-days). For each term, benefit scope and look back period combination, Azure simulates what your total costs would have been if you had a savings plan, and compares this simulated cost to the pay-as-you-go costs you actually incurred. The commitment amount that returns the greatest savings for each term, benefit scope and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
 
-Azure does not currently provide savings plan recommendations for management groups. See [Recommendations for management groups](choose-commitment-amount.md#recommendations-for-management-groups) for more details
+Azure doesn't currently provide savings plan recommendations for management groups. See [Recommendations for management groups](choose-commitment-amount.md#recommendations-for-management-groups) for more details
 
 Savings plan recommendations are available [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), [Azure portal](https://portal.azure.com/) and the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
 
 ## Recommendations in Azure Advisor
 Recommendations for 1- and 3-year savings plans in [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost) are currently only available for subscription scopes. These recommendations currently only have a 30-day look back period.
 
-## Recommendations in Azure Portal
+## Recommendations in Azure portal
 Recommendations for 1- and 3-year savings plans in [Azure portal](https://portal.azure.com/) are available for shared, subscription and resource group scopes. These recommendations currently only have a 30-day look back period.
 
 ## Savings plan Recommendations API
