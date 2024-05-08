@@ -359,6 +359,25 @@ call.on('roleChanged', () => {
 
 </details>
 
+### Event: `mutedByOthers`
+
+The `mutedByOthers` event happens when other participant in the call have muted the local participant.
+
+<summary>View event details</summary>
+
+**How might your application react to the event?**
+Your application should display a message to the user notifying it has been muted.
+
+**Code Sample:**
+
+```javascript
+call.on('mutedByOthers', () => {
+    messageBanner.innerText = "You have been muted by other participant in this call";
+});
+```
+
+</details>
+
 <!---- RemoteParticipant  ---->
 ### Events on the `RemoteParticipant` object
 
@@ -473,4 +492,72 @@ remoteParticipant.on('videoStreamsUpdated', (videoStreamsUpdatedEvent) => {
     });
 });
 ```
+</details>
+
+<!-- AudioEffectsFeature -->
+
+### Event on the `AudioEffectsFeature` object
+
+#### Event: `effectsStarted`
+
+This event occurs when the audio effect selected is applied to the audio stream.
+
+<details>
+<summary>View event details</summary>
+
+**How might your application react to the event?**
+
+Your application can display or enable a button that allow the user to disable the audio effect.
+
+**Code Sample:**
+
+```javascript
+audioEffectsFeature.on('effectsStarted', (effects) => {
+    stopEffectButton.style.visibility = "visible"; 
+});
+```
+
+</details>
+
+#### Event: `effectsStopped`
+
+This event occurs when the audio effect selected is applied to the audio stream.
+
+<details>
+<summary>View event details</summary>
+
+**How might your application react to the event?**
+
+Your application can display or enable a button that allow the user to enable the audio effect.
+
+**Code Sample:**
+
+```javascript
+audioEffectsFeature.on('effectsStopped', (effects) => {
+    startEffectButton.style.visibility = "visible"; 
+});
+```
+
+</details>
+
+#### Event: `effectsError`
+
+This event occurs when an error happens while an audio effect is started or applied.
+
+<details>
+<summary>View event details</summary>
+
+**How might your application react to the event?**
+
+Your application should display an alert or an error message that the audio effect is not working as expected.
+
+**Code Sample:**
+
+```javascript
+audioEffectsFeature.on('effectsError', (error) => {
+    console.log(`Error with the audio effect ${error}`);
+    alert(`Error with the audio effect`);
+});
+```
+
 </details>
