@@ -38,10 +38,7 @@ The **Edit** button at the top enables you to select another storage account to 
 
 :::image type="content" source="media/manage/data-source.png" alt-text="View monitored resources":::
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> Set up experiments in App Configuration
-<!-- update to following next step when doc is published
-> [!div class="nextstepaction"]
-> [Set up experiments in App Configuration](:/howto-setup-experiments.md) -->
+> [Set up data access control](./split-experimentation\create.md)

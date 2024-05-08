@@ -111,4 +111,4 @@ When creating metrics, creating experiments, or getting experiment results, data
 
 ## Related content
 
-- Learn about [setting up data access control for Split Experimentation Workspace](how-to-set-up-data-access.md).
+- Learn about [setting up data access control for Split Experimentation Workspace](./how-to-set-up-data-access.md).
