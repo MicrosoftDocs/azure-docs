@@ -101,11 +101,16 @@ You can test the flow in two ways: run single node or run the whole flow.
 
 To run a single node, select the **Run** icon on node in flatten view. Once running is completed, check result in node output section.
 
-To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, as well as the results of flow results defined in the flow. You can always change the flow input value and run the flow again.
+To run the whole flow, select the **Run** button at the right top. In the run banner, you can click **View trace** to view the trace of the flow run for checking the result and observing the flow execution, where you can see the input and output of the whole flow and each node, along with more detailed information for debugging.
 
 :::image type="content" source="./media/how-to-develop-flow/view-flow-output.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/view-flow-output.png":::
 
-:::image type="content" source="./media/how-to-develop-flow/flow-output.png" alt-text="Screenshot of outputs on the output tab." lightbox ="./media/how-to-develop-flow/flow-output.png":::
+:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
+
+After the flow run is completed, you can click on the **View test results** button to check all history runs and their results. By default, the runs created in the last 7 days are displayed. You can select the **Filter** to change the condition.
+
+:::image type="content" source="./media/how-to-develop-flow/authoring-test-result.png" alt-text="Screenshot of flow test result." lightbox ="./media/how-to-develop-flow/authoring-test-result.png":::
+
 
 ## Develop a chat flow
 
@@ -180,9 +185,10 @@ The chat box provides an interactive way to test your chat flow by simulating a 
 
 1. Select the "Chat" button to open the chat box.
 2. Type your test inputs into the chat box and select **Enter** to send them to the chatbot.
-3. Review the chatbot's responses to ensure they're contextually appropriate and accurate.
+1. Review the chatbot's responses to ensure they're contextually appropriate and accurate.
+1. View trace for observing and debugging.
 
-:::image type="content" source="./media/how-to-develop-flow/chat-box.png" alt-text=" Screenshot of Chat flow chat box experience." lightbox ="./media/how-to-develop-flow/chat-box.png":::
+:::image type="content" source="./media/how-to-develop-flow/authoring-chat-trace.png" alt-text=" Screenshot of Chat flow chat box experience." lightbox ="./media/how-to-develop-flow/authoring-chat-trace.png":::
 
 ## Next steps
 
