@@ -15,7 +15,7 @@ author: eric-urban
 
 # How to get started with Azure AI SDKs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 
 Microsoft offers a family of packages that you can use for generative AI applications like a copilot. These packages provide APIs and SDKs that you can use to create, manage, and deploy AI models. 
 
