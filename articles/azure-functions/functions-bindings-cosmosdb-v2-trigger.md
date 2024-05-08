@@ -301,7 +301,7 @@ import azure.functions as func
 app = func.FunctionApp()
 
 @app.function_name(name="CosmosDBTrigger")
-@app.cosmos_db_trigger(name="documents", 
+@app.cosmos_db_trigger(arg_name="documents", 
                        connection="CONNECTION_SETTING",
                        database_name="DB_NAME", 
                        container_name="CONTAINER_NAME", 
