@@ -64,7 +64,7 @@ aoai_config = AzureOpenAIModelConfiguration.from_connection(
 `Simulator` class supports interacting between the system large language model and the following:
 
 - A local function that follows a protocol.
-- A local standard chat PromptFlow as defined with the interface in the [develop a chat flow example](https://microsoft.github.io/promptflow/how-to-guides/develop-a-flow/develop-chat-flow.html).
+- A local standard chat PromptFlow as defined with the interface in the [develop a chat flow example](https://microsoft.github.io/promptflow/how-to-guides/chat-with-a-flow/index.html).
 
 ```python
 function_simulator = Simulator.from_fn(
