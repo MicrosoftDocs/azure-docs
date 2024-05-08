@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Deploy an AKS cluster in an Extended Zone"
-description: #Required; Include the word "tutorial"
+description: Learn how to deploy an AKS cluster in an Azure Extended Zone.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
@@ -9,7 +9,7 @@ ms.date: 05/08/2024
 
 ---
 
-# Tutorial: Deploy an AKS cluster in an Extended Zone
+# Tutorial: Deploy an AKS cluster in an Azure Extended Zone
 
 In this tutorial, you learn how to:
 

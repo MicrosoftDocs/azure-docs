@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Deploy a storage account in an Extended Zone"
-description: #Required; Include the word "tutorial"
+description: Learn how to deploy a storage account in an Azure Extended Zone.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
@@ -9,7 +9,7 @@ ms.date: 05/08/2024
 
 ---
 
-# Tutorial: Deploy a storage account in an Extended Zone
+# Tutorial: Deploy a storage account in an Azure Extended Zone
 
 In this tutorial, you learn how to:
 
@@ -33,5 +33,5 @@ If you're not going to continue to use this application, delete the resources th
 ## Related content
 
 - [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
-- [Deploy an AKS cluster in an Extended Zone](deploy-aka-cluster.md)
+- [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Frequently asked questions](faq.md)
