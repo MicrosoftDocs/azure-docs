@@ -74,11 +74,11 @@ Complete these steps to download and install the Trusted Signing Dlib package (.
 ### Create JSON file
 To sign using Trusted Signing, you need to provide the details of your Trusted Signing Account and Certificate Profile that were created as part of the prerequisites. You provide this information on a JSON file by completing these steps: 
 1.	Create a new JSON file (for example `metadata.json`).
-2.	Add the specific values for your Trusted Signing Account and Certificate Profile to the JSON file. For more information, see the metadata.sample.json file that’s included in the Trusted Signing Dlib package or refer to the following example: 
+2.	Add the specific values for your Trusted Signing Account and Certificate Profile to the JSON file. The Trusted Signing Account is also interchangeably called Code Signing Account. For more information, see the metadata.sample.json file that’s included in the Trusted Signing Dlib package or refer to the following example: 
 ```
 { 
   "Endpoint": "<Trusted Signing Account Endpoint>", 
-  "TrustedSigningAccountName": "<Trusted Signing Account Name>", 
+  "CodeSigningAccountName": "<Trusted Signing Account Name>", 
   "CertificateProfileName": "<Certificate Profile Name>", 
   "CorrelationId": "<Optional CorrelationId*>" 
 } 
