@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 2/6/2024
+ms.date: 5/21/2024
 ms.reviewer: siarora
 ms.author: larryfr
 author: Blackmist 
@@ -94,11 +94,13 @@ Use quotas to manage compute target allocation between multiple Azure AI Studi
 
 By default, all hubs share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on hubs in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
 
-In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure OpenAI resources. 
+1. In Azure AI Studio, select your hub and then select **View subscription quota** from **Hub properties**.
 
-:::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for virtual machines and Azure OpenAI models." lightbox="../media/cost-management/quota-manage.png":::
+    :::image type="content" source="../media/cost-management/view-subscription-quota.png" alt-text="Screenshot of the hub properties page in Azure AI Studio.":::
 
-To request more quota, select the **Request quota** button for subscription and region.
+1. From **Quota**, select the **Azure ML** tab to view the quota for the VM families. The quota is displayed at the subscription level in the selected Azure region. To request more quota, select the VM family and then select **Request quota**. 
+
+    :::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for VM families in Azure AI Studio." lightbox="../media/cost-management/quota-vm-family.png":::
 
 ## Next steps 
 
