@@ -62,7 +62,7 @@ The Azure portal provides direct access to create a Split Experimentation Worksp
 
 1. Open the Azure portal homepage, go to the search bar at the top, and enter *Split Experimentation Workspace*. Under **Services**, select **Split Experimentation Workspace (preview)**.
 
-    :::image type="content" source="./media/create/find-in-Azure-portal-search-bar.png" alt-text="Screenshot of the Azure portal, finding Split Experimentation Workspace from the search bar.":::
+    :::image type="content" source="./media/create/find-in-azure-portal-search-bar.png" alt-text="Screenshot of the Azure portal, finding Split Experimentation Workspace from the search bar.":::
 
 1. Select **Create** or **Create Split Experimentation Workspace (preview)**.
 
