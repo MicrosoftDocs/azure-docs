@@ -72,10 +72,10 @@ definition or initiative is retrieved each time the policy assignment is evaluat
 recommended that if multiple policies are often assigned together, to use an
 [initiative](./initiative-definition-structure.md) instead.
 
-For built-in definitions and initiaitive, you can use specific the `definitionVersion` of which to assess on. By default, the version will set to the newest major version and auto-ingeest minor and patch changes. 
+For built-in definitions and initiaitive, you can use specific the `definitionVersion` of which to assess on. By default, the version will set to the latest major version and auto-ingeest minor and patch changes. 
 
-To auto-ingest any minor changes of the definition, the version number would be "#.*". Wildcard represents auto-ingesting updates. 
-To pin to a minor version path, the version format would be "#.#"
+To auto-ingest any minor changes of the definition, the version number would be "#.*.*". Wildcard represents auto-ingesting updates. 
+To pin to a minor version path, the version format would be "#.#.*"
 All patch changes must be auto-injested for security purposes. Patch changes are limited to text changes and break glass scenarios. 
 
 ## Display name and description
@@ -223,7 +223,7 @@ A **resource selector** can contain multiple **selectors**. To be applicable to 
 
 The optional `overrides` property allows you to change the effect of a policy definition without changing the underlying policy definition or using a parameterized effect in the policy definition.
 
-The most common use case for overrides is policy initiatives with a large number of associated policy definitions. In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time. Overrides can be used to simultaneously update the effects of multiple policy definitions within an initiative.
+A common use case for overrides on effect is policy initiatives with a large number of associated policy definitions. In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time. Overrides can be used to simultaneously update the effects of multiple policy definitions within an initiative.
 
 Let's take a look at an example. Imagine you have a policy initiative named _CostManagement_ that includes a custom policy definition with `policyDefinitionReferenceId` _corpVMSizePolicy_ and a single effect of `audit`. Suppose you want to assign the _CostManagement_ initiative, but don't yet want to see compliance reported for this policy. This policy's 'audit' effect can be replaced by 'disabled' through an override on the initiative assignment, as shown in the following sample:
 
@@ -251,22 +251,32 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 }
 ```
 
-Overrides have the following properties:
-- `kind`: The property the assignment will override. The supported kind is `policyEffect` and `policyVersion`.
+Another common use case for overrides is rolling out a new version of a definition. For recommended steps on safely updating an assignment version, see [Policy Safe deployment](../how-to/policy-safe-deployment-practices.md#steps-for-safely-updating-built-in-definition-version-within-azure-policy-assignment)
 
-- `value`: The new value that overrides the existing value. The supported values are [effects](effects.md).
+Overrides have the following properties:
+- `kind`: The property the assignment will override. The supported kinds are `policyEffect` and `policyVersion`.
+
+- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effects.md). For `kind: policyVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
 
 - `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
 
-  - `kind`: The property of a selector that describes what characteristic will narrow down the scope of the override. Allowed value for `kind: policyEffect` is:
+  - `kind`: The property of a selector that describes what characteristic will narrow down the scope of the override. Allowed values for `kind: policyEffect`:
 
     - `policyDefinitionReferenceId`: This specifies which policy definitions within an initiative assignment should take on the effect override.
+
+    - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
+
+    Allowed value for  `kind: policyVersion`: 
+
+    - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 
   - `in`: The list of allowed values for the specified `kind`. Can't be used with `notIn`. Can contain up to 50 values.
 
   - `notIn`: The list of not-allowed values for the specified `kind`. Can't be used with `in`. Can contain up to 50 values.
 
-Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they're specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](./definition-structure-parameters.md)).
+One override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they're specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](./definition-structure-parameters.md)).
+
+
 
 ## Enforcement mode
 

@@ -200,24 +200,7 @@ critical ring. We are using a combination of _overrides_ to change the definitio
       }]
     }] 
     ```
-    Example override updating the version of the definition to `2.0.*` for a particular definition within an initiative and only apply it to resources in `EastUs`. 
-
-    ```json
-    "overrides":[{ 
-      "kind": "definitionVersion", 
-      "value": "2.0.*",
-      "selectors": [
-        {
-          "kind": "resourceLocation",
-          "in": [ "eastus"]
-        }, 
-        {
-          "kind": "policyDefinitionReferenceId",
-          "in": [ "corpVMSizePolicy" ]
-        }
-      ]
-    }] 
-    ```
+    
 2. Once the assignment is updated and the initial compliance scan has completed,
 validate that the compliance result is as expected.
 
