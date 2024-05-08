@@ -1,6 +1,7 @@
 - name: Azure Files documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
