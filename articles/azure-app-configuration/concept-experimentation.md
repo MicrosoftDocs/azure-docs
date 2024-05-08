@@ -41,8 +41,6 @@ To start an experimentation, first you need to identify the feature and its vari
 
 Consider the following example: you want to see if customers of your e-commerce website are more likely to click the checkout button if it's yellow in color (variant A) or blue in color (variant B). To set up this comparison, you're likely to divide traffic between the two variants of the feature flag, and use number of clicks as a metric to measure their performance. It's unlikely that all your features are as simple to measure and immediately evaluate, and that is where experimentation comes in. Running an experiment involves setting up a timeline for this process of comparing the performance of each variant relevant to the metrics you're interested in. The terms "A/B testing" and "experimentation" are often used interchangeably, where experimentation is essentially an extended A/B test where you're systematically testing hypotheses.
 
-All A/B tests are experiments, but not all experiments are A/B tests, essentially implying that in the digital world, an A/B test is the simplest form of an experiment. Experimentation encompasses various controlled tests, including A/B testing. It can include tests like multivariate, which have in-depth statistical analysis and more complex combinations of variant feature flags.
-
 ### Setting up your experiment
 
 Before starting, consider the following questions in your hypothesis discovery stage:
@@ -84,13 +82,13 @@ Here, experimentation enhances application scalability, reliability, and respons
 
 - **Create experiment**: Experiment can be created on a variant feature flag emitting telemetry. Once an experiment is created, an experiment version is created with the experiment as well. Any further edits to the feature flag result in a new experiment version getting created for that experiment.
 
-* **Archive experiment**: Archiving an experiment puts it in an archived state. While an experiment is archived, no calculations are performed on the experiment. You can always restore the experiment later to resume the calculations and go back to active state.
+- **Archive experiment**: Archiving an experiment puts it in an archived state. While an experiment is archived, no calculations are performed on the experiment. You can always restore the experiment later to resume the calculations and go back to active state.
 
-* **Recover experiment**: Recovering an experiment puts an archived experiment in an active state, and calculations are resumed for the experiment.
+- **Recover experiment**: Recovering an experiment puts an archived experiment in an active state, and calculations are resumed for the experiment.
 
-* **Delete experiment**: Deleting an experiment deletes the experiment in Split and all of its related data. It's an irreversible operation so there's no restore after deleting.
+- **Delete experiment**: Deleting an experiment deletes the experiment in Split and all of its related data. It's an irreversible operation so there's no restore after deleting.
 
-* **Check experiment results**: Checking the results of an active experiment allows you to see how each variant in the experimentation performed.
+- **Check experiment results**: Checking the results of an active experiment allows you to see how each variant in the experiment is performing.
 
 ## Access requirements for experiment operations
 
