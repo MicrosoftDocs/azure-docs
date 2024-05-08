@@ -18,19 +18,19 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-*Job* is a key concept in the resource model of Azure Spring Apps. Comparing with *App* in Azure Spring Apps, They are both resources under Service.
+*Job* is a key concept in the resource model of Azure Spring Apps. Comparing with *App* in Azure Spring Apps, they're both resources under Service.
 
-*Job* enables customers to run workloads which completes in finite duration, while the workload in *App* runs continuously. Examples of apps include web apps and background services that process input continuously, while examples of jobs include batch processes and on demand tasks.
+*Job* enables customers to run workloads that complete in finite duration, while the workload in *App* runs continuously. Examples of apps include web apps and background services that process input continuously, while examples of jobs include batch processes and on demand tasks.
 
 ## Job execution
 
 A job execution refers to the process of running a particular task or set of tasks defined within a job. It encompasses the entire lifecycle of executing those tasks, including initializing, processing, and completing the job according to its specifications.
 
-A common lifecycle of a job execution in Azure Spring Apps is from `pending`, `running` to termination status `completed` or `failed` depeding on whether the execution finishes successfully or not.
+A common lifecycle of a job execution in Azure Spring Apps is from `pending`, `running` to termination status `completed` or `failed` depending on whether the execution finishes successfully or not.
 
 Each time the job is executed, it adopts its preset configuration from the job, with certain aspects allowing for customization to accommodate different runs.
 
-In non-parallel job execution, only one instance runs at a time, whereas in parallel execution, multiple instances can run simultaneously.
+In nonparallel job execution, only one instance runs at a time, whereas in parallel execution, multiple instances can run simultaneously.
 
 ## Configuration
 
@@ -38,20 +38,20 @@ The job establishes the default configuration utilized for each execution, encom
 
 ### Trigger configuration
 
-Belows are the trigger configuration of the Job.
+Bellows are the trigger configuration of the Job.
 
-- **Trigger type**: Job is only supported to be triggered manually for public preview. More trigger types will be supported later.
-- **Parallelism**: The count of instances of the job which executes in the same time. The default value is 1. For parallel job, you can get the index of each instance through `JOB_COMPLETION_INDEX` environment variable.
-- **Retry limit**: The maximum number of a job attempts to execution after encountering a failure or error. The default value is 0 which means the job does not retry if it fails.
-- **Timeout**: The maximum time in seconds when the job failed. You can leave it unset or set the value 0 which means the job has no timeout.
+- **Trigger type**: Job is supported to be triggered manually for public preview. More trigger types are supported later.
+- **Parallelism**: The count of instances of the job that executes in the same time. The default value is 1. For parallel job, you can get the index of each instance through `JOB_COMPLETION_INDEX` environment variable.
+- **Retry limit**: The maximum number of a job attempts to execution after encountering a failure or error. The default value is 0 that means the job does not retry if it fails.
+- **Timeout**: The maximum time in seconds when the job failed. You can leave it unset or set the value 0, which means the job has no timeout.
 
 ### Arguments and environment variables
 
 You can specify arguments and environment variables both in Job level and execution level. The value of arguments specified for the execution override that of the job.
 
-The environment variables consist of key and value. You can specify the value in secret environment variable for secret values. The environment variables specified in job level are default values for each execution, the environment variables specified in execution level has higher priority. You can specify part of those environment variables when start an execution to override the value in job level.
+The environment variables consist of key and value. You can specify the value in secret environment variable for secret values. The environment variables specified in job level are default values for each execution. The environment variables specified in execution level has higher priority. You can specify part of those environment variables when start an execution to override the value in job level.
 
 ### Resource request
 CPU and memory can also be specified both in Job level and execution level. The value of cpu and memory specified for the execution override that of the job.
 
-You can add `--cpu` and `--memory` in `az spring job create` or `az spring job update` command to specify the default value of the job, or specify them in `az spring job start` command which only applies for this execution.
+You can add `--cpu` and `--memory` in `az spring job create` or `az spring job update` command to specify the default value of the job, or specify them in `az spring job start` command that only applies for this execution.

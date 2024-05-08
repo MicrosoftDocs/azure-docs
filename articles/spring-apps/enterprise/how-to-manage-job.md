@@ -45,7 +45,7 @@ To create a job using the Azure portal, follow the steps:
 
 ---
 
-For public preview, at most ten jobs can be created per service instance.
+For public preview, at most 10 jobs can be created per service instance.
 
 ## Start and cancel a job execution
 
@@ -65,7 +65,7 @@ To query the status of the job execution, use the command, replace the `<executi
 az spring job execution show --job <job-name> --name <execution-name>
 ```
 
-To cancel those job executions which are running, run the following command.
+To cancel those job executions that are running, run the following command.
 
 ```
 az spring job execution cancel --job <job-name> --name <execution-name>
@@ -78,7 +78,7 @@ az spring job execution cancel --job <job-name> --name <execution-name>
 1. Input specific arguments and add environment variables as wanted for this execution, click *Run* button to run the execution.
 1. In the *Executions* blade of *Jobs* overview page, find the latest job execution and select *View execution detail* to see the configuration both in job level and execution level
 
-To rerun the job execution, select *Rerun Job* to trigger a new job execution with the same configuration
+To rerun the job execution, select *Rerun Job* to trigger a new job execution with the same configuration.
 
 To cancel the running job execution, select *Cancel Job*.
 
@@ -103,7 +103,7 @@ az spring job execution list --job <job-name>
 
 ---
 
-For public preview, the latest ten job execution history per job which are completed or failed are remained.
+For the public preview, we retain the latest 10 completed or failed job execution records per job in the history.
 
 
 ## Query job execution logs
@@ -116,7 +116,7 @@ AppPlatformLogsforSpring
 | order by TimeGenerated asc
 ```
 
-The step to setup log analytics workspace can be found
+See the step to [set up log analytics workspace]((../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites)).
 
 For real time log, use the following command:
 
@@ -126,9 +126,10 @@ az spring job logs --name <job-name> --execution <execution-name>
 
 If there are multiple instances for the job execution, specify `--instance <instance-name>` to view logs of one instance.
 
+
 ## Integrate with managed components
 
-For public preview, jobs are supported to integrate with Spring Cloud Config Server for configuration management and Tanzu Service Registry for service discovery.
+During the public preview, jobs are enabled to integrate seamlessly with Spring Cloud Config Server for efficient configuration management and Tanzu Service Registry for service discovery.
 
 ### Spring Cloud Config
 
@@ -145,10 +146,10 @@ az spring job create --bind-config-server true
 # [Azure portal](#tab/azure-portal)
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Spring Cloud Config Server* in *Managed components*.
-1. If it's not enabled, select *Manage* to enable it.
+1. If it's disabled, select *Manage* to enable it.
 1. In the *Settings* tab, configure Spring Cloud Config Server with the right git repository. Click *Validate* and *Apply* to make it take effect.
 1. In *Job binding* tab, select *Bind job* and choose the job to apply.
-1. After binding successfully, the job name shows in the list below.
+1. After binding successfully, the job name shows in the list.
 1. Run the job
 
 ---
@@ -159,7 +160,7 @@ To make the job discover the other apps in the same Azure Spring Apps service, y
 
 # [Azure CLI](#tab/azure-cli)
 
-using the following Azure CLI command:
+Using the following Azure CLI command:
 
 ```
 az spring job create --bind-service-registry true
