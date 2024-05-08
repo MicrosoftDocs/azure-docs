@@ -312,7 +312,7 @@
         href: java-overview.md
         displayName: java
       - name: Launch your first Java app
-        href: java-quickstart.md
+        href: java-get-started.md
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md

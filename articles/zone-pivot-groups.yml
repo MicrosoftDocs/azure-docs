@@ -2453,6 +2453,15 @@ groups:
   - id: aca-vnet-custom
     title: Custom
 # Owner: cshoe
+- id: container-apps-java-artifacts
+  title: Artifact type
+  prompt: Select an artifact type
+  pivots:
+  - id: war
+    title: WAR file
+  - id: jar
+    title: JAR file
+# Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
   prompt: Select the type of container registry
