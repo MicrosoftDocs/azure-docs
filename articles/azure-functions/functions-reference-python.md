@@ -536,7 +536,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
     arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
 )
 def blob_trigger(client: blob.BlobClient):
-    blob_size = client.download_blob().readall()
+    file = client.download_blob().readall()
     logging.info(
         f"Python blob trigger function processed blob \n"
         f"Properties: {client.get_blob_properties()}\n"
