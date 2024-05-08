@@ -40,7 +40,7 @@ The video dubbing feature provided by Azure AI Speech has a wide range of use ca
 
 Currently, video dubbing in Azure AI Speech is only supported in the East US region.
 
-We support video dubbing between various languages, enabling you to tailor your content to specific linguistic preferences. For the languages supported for video dubbing, refer to the [supported source and target languages](language-support.md?tabs=speech-translation#video-dubbing). 
+We support video dubbing between various languages, enabling you to tailor your content to specific linguistic preferences. For the languages supported for video dubbing, refer to the [supported source and target languages](language-support.md?tabs=speech-translation#video-dub). 
 
 ## Core features
 
@@ -52,7 +52,7 @@ We support video dubbing between various languages, enabling you to tailor your 
 
 ## Get started 
 
-To get started with video dubbing, refer to [video dubbing in the studio](video-dubbing-studio.md). 
+To get started with video dubbing, refer to [video dubbing in the studio](video-dub-studio.md). 
 
 ## Price 
 
@@ -60,5 +60,5 @@ Pricing details for the video dubbing service will be effective from June 2024.
 
 ## Related content
 
-* Try the [video dubbing in the studio](video-dubbing-studio.md)
+* Try the [video dubbing in the studio](video-dub-studio.md)
   

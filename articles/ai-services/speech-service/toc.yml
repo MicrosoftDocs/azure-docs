@@ -249,9 +249,9 @@ items:
     - name: Video dubbing (preview)
       items:
        - name: Video dubbing overview
-         href: video-dubbing-overview.md
+         href: video-dub-overview.md
        - name: Video dubbing in the studio
-         href: video-dubbing-studio.md
+         href: video-dub-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview

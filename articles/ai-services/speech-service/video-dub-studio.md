@@ -18,7 +18,7 @@ ms.custom: references_regions
 
 In this article, you learn how to use Azure AI Speech video dubbing in Speech Studio.
 
-All it takes to get started is an original video. See if video dubbing supports your [language](language-support.md?tabs=speech-translation#video-dubbing) and [region](video-dubbing-overview.md#supported-regions-and-languages).
+All it takes to get started is an original video. See if video dubbing supports your [language](language-support.md?tabs=speech-translation#video-dub) and [region](video-dub-overview.md#supported-regions-and-languages).
 
 ## Create a video dubbing project
 
@@ -40,7 +40,7 @@ To create a video dubbing project, follow these steps:
 
    You can select **Personal voice** or **Prebuilt neural voice** for **Voice type**. For prebuilt neural voice, the system automatically matches the voice that most closely matches the tone of the video. For personal voice, the system provides the latest model with superior voice cloning similarity.
 
-   :::image type="content" source="media/video-dubbing/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
+   :::image type="content" source="media/video-dub/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
 
 1. After reviewing the pricing information and copyright statement, then proceed to create the project.
 
@@ -58,18 +58,18 @@ You can also add or remove segments as needed. When you want to add a segment, e
 
 If you encounter segments with an "unidentified" voice name, it might be because the system couldn't accurately detect the voice, especially in situations where speaker voices overlap. In such cases, it's advisable to manually change the voice name.  
 
-:::image type="content" source="media/video-dubbing/voice-unidentified.png" alt-text="Screenshot of one segment with unidentified voice name.":::
+:::image type="content" source="media/video-dub/voice-unidentified.png" alt-text="Screenshot of one segment with unidentified voice name.":::
 
 If you want to adjust the voice, select **Voice settings** to make some changes. On the **Voice settings** page, you can adjust the voice type, gender, and the voice. Select the voice sample on the right of **Voice** to determine your voice selection. If you find there's missing voice, you can add the new voice name by selecting **Add speaker**. After changing the settings, select **Update**. 
 
- :::image type="content" source="media/video-dubbing/voice-settings.png" alt-text="Screenshot of adjusting voice settings on the voice settings page.":::
+ :::image type="content" source="media/video-dub/voice-settings.png" alt-text="Screenshot of adjusting voice settings on the voice settings page.":::
 
 If you make changes multiple times but haven't finished, you only need to save the changes you've made by selecting **Save**. After making all changes, select **Apply changes** to apply them to the video. You'll be charged only after you select **Apply changes**.
 
- :::image type="content" source="media/video-dubbing/apply-changes.png" alt-text="Screenshot of selecting apply changes button after making all changes.":::
+ :::image type="content" source="media/video-dub/apply-changes.png" alt-text="Screenshot of selecting apply changes button after making all changes.":::
 
 You can translate the original video into a new language by selecting **New language**. On the **Translate** page, you can choose a new translated language and voice type. Once the video file has been translated, a new project is automatically created. 
 
 ## Related content
 
-- [Video dubbing overview](video-dubbing-overview.md)
+- [Video dubbing overview](video-dub-overview.md)
