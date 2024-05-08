@@ -266,7 +266,12 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
     1. They have a poor call experience (audio/video quality).  -->
 
 
+<!-- FAQ - Clear cache - Ask Nan.
+People need to do X, in case your cache is stale or causing issues, 
 
+choose credential A vs. B
+
+Clear your cache to ensure X, you may need clear your cache occasionally if you experience issues using Call Diagnostics. -->
 
 ## Next steps
 
