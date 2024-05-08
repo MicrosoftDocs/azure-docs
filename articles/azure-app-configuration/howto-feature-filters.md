@@ -1,7 +1,7 @@
 ---
 title: Enable conditional features with feature filters
 titleSuffix: Azure App Configuration
-description: Learn how to use feature filters in Azure App Configuration to enable conditional feature flags for your app.
+description: Learn how to use feature filters in Azure App Configuration to enable conditional feature flags for your application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp

@@ -1,7 +1,7 @@
 ---
 title: Roll out features to targeted audiences in an ASP.NET Core app
 titleSuffix: Azure App Configuration
-description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core app.
+description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Tutorial: Roll out features to targeted audiences in an ASP.NET Core app
+# Tutorial: Roll out features to targeted audiences in an ASP.NET Core application
 
-In this tutorial, you'll use the targeting filter to roll out a feature to targeted audience for your ASP.NET Core app. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+In this tutorial, you'll use the targeting filter to roll out a feature to targeted audience for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this tutorial, you'll use the targeting filter to roll out a feature to targe
 
 ## Create a web application with a feature flag
 
-In this section, you will create a web application that allows users to sign in and use the *Beta* feature flag you created before. Most of the steps are very similar to what you have done in [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+In this section, you will create a web application that allows users to sign in and use the *Beta* feature flag you created before.
 
 1. Create a web application that authenticates against a local database using the following command.
 
@@ -45,7 +45,7 @@ In this section, you will create a web application that allows users to sign in 
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-1. Add Azure App Configuration and feature management to your app.
+1. Add Azure App Configuration and feature management to your application.
 
     Update the *Program.cs* file with the following code. 
 
@@ -75,7 +75,7 @@ In this section, you will create a web application that allows users to sign in 
     // ... ...
     ```
 
-1. Call the `UseAzureAppConfiguration` method. It enables your app to use the App Configuration middleware to update the feature flag configuration for you automatically.
+1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
 
     Update Program.cs withe the following code.
 
@@ -199,36 +199,25 @@ The targeting filter evaluates a user's feature state based on the user's target
 
 ## Targeting filter in action
 
-1. Build and run the web app. Initially, the **Beta** item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
+1. Build and run the application. Initially, the **Beta** item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 
-> [!div class="mx-imgBorder"]
-> ![User not logged in and Beta item not displayed](./media/feature-filters/beta-not-targeted-by-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![User not logged in and Beta item not displayed](./media/feature-filters/beta-not-targeted-by-default.png)
 
-1. Select the **Register** link in the upper right corner to create a new user account. Use an email address of `test@contoso.com`.
+1. Select the **Register** link in the upper right corner to create a new user account. Use an email address of `test@contoso.com`. On the **Register Confirmation** screen, select **Click here to confirm your account**.
 
-> [!div class="mx-imgBorder"]
-> ![Register a new account](./media/feature-filters/register-a-new-account.png)
+1. Sign in as `test@contoso.com`, using the password you set when registering the account. 
 
-On the **Register Confirmation** screen, select **Click here to confirm your account**.
+    The **Beta** item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
-> [!div class="mx-imgBorder"]
-> ![Register confirmation](./media/feature-filters/register-confirmation.png)
+    > [!div class="mx-imgBorder"]
+    > ![User logged in and Beta item displayed](./media/feature-filters/beta-targeted-by-user.png)
 
-1. Now sign in as `test@contoso.com`, using the password you set when registering. 
+    Now sign in as `testuser@contoso.com`, using the password you set when registering the account. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
 
-> [!div class="mx-imgBorder"]
-> ![Login an account](./media/feature-filters/login-an-account.png)
+    You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
 
-The **Beta** item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
-
-> [!div class="mx-imgBorder"]
-> ![User logged in and Beta item displayed](./media/feature-filters/beta-targeted-by-user.png)
-
-Now sign in as `testuser@contoso.com`, using the password you set when registering. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
-
-You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
-
-Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
+    Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
 
 ## Next steps
 

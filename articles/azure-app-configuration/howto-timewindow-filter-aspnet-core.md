@@ -1,7 +1,7 @@
 ---
-title: Enable features on a schedule in an ASP.NET Core app
+title: Enable features on a schedule in an ASP.NET Core application
 titleSuffix: Azure App Configuration
-description: Learn how to enable feature flags on a schedule in an ASP.NET Core app.
+description: Learn how to enable feature flags on a schedule in an ASP.NET Core application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang
@@ -10,21 +10,21 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Tutorial: Enable features on a schedule in an ASP.NET Core app
+# Tutorial: Enable features on a schedule in an ASP.NET Core application
 
-In this tutorial, you use the time window filter to enable a feature on a schedule for an ASP.NET Core app. 
+In this tutorial, you use the time window filter to enable a feature on a schedule for an ASP.NET Core application. 
 
-The example used in this tutorial is based on the ASP.NET Core app introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core app with a *Beta* feature flag. Once completed, you must [add a time window filter](./howto-timewindow-filter.md) to the *Beta* feature flag in your App Configuration store.
+The example used in this tutorial is based on the ASP.NET Core application introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core application with a *Beta* feature flag. Once completed, you must [add a time window filter](./howto-timewindow-filter.md) to the *Beta* feature flag in your App Configuration store.
 
 ## Prerequisites
 
-- Create an [ASP.NET Core app with a feature flag](./quickstart-feature-flag-aspnet-core.md).
+- Create an [ASP.NET Core application with a feature flag](./quickstart-feature-flag-aspnet-core.md).
 - [Add a time window filter to the feature flag](./howto-timewindow-filter.md)
 - Update the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package to version **3.0.0** or later.
 
 ## Use the time window filter
 
-You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your ASP.NET Core app.
+You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your ASP.NET Core application.
 
 Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call. You don't need to add `TimeWindowFilter` manually.
 
