@@ -65,7 +65,7 @@ Go to your notification hub on the Azure portal, and select **Settings > Google 
 
 #### Option 2: Update FcmV1 credentials via management plane hub operation
 
-See the [description of a NotificationHub FcmV1Credential.](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
+See the [description of a NotificationHub FcmV1Credential](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
 
 - Use API version: 2023-10-01-preview
 - **FcmV1CredentialProperties**:
