@@ -39,17 +39,19 @@ In a vector store, vector search algorithms are used to index and query embeddin
 In the Integrated Vector Database in Azure Cosmos DB for NoSQL, embeddings can be stored, indexed, and queried alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
 
 ## Enroll in the Vector Search Preview Feature
-Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](../../azure-resource-manager/management/preview-features.md). Follow the below steps to register: 
+Vector search for Azure Cosmos DB for NoSQL requires preview feature registration on the Features page of your Azure Cosmos DB . Follow the below steps to register: 
 
-1. Navigate to your Subscription page. 
+1. Navigate to your Azure Cosmos DB for NoSQL resource page.
+   
+2. Select the "Features" pane under the "Settings" menu item.
 
-2. Under the “Settings” menu in the left panel, select on the “Preview features”. 
+3. Select for “Vector Search in Azure Cosmos DB for NoSQL”.
 
-3. Search for “Vector” in the search bar for the Preview features. 
+4. Read the description of the feature to confirm you want to enroll in the preview.
 
-4. Check the “Vector search in Azure Cosmos DB for NoSQL” and select Register. 
+5. Select "Enable" to enroll in the preview. 
 
-This enrolls every Azure Cosmos DB resource in your subscription in the vector search preview. Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
+Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
 
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)

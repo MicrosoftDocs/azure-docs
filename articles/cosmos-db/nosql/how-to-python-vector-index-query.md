@@ -15,7 +15,7 @@ ms.custom: query-reference, devx-track-python
 # Index and query vectors in Azure Cosmos DB for NoSQL in Python. 
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
-Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. You are required to register for the preview before use. This article covers the following steps: 
+Vector search in Azure Cosmos DB for NoSQL is currently a preview feature. You are required to register for the preview before use. This article covers the following steps: 
 
 1. Registering for the preview of Vector Search in Azure Cosmos DB for NoSQL 
 2. Setting up the Azure Cosmos DB container for vector search 
@@ -33,17 +33,19 @@ Vector search in Azure Cosmos DB for NoSQL is currently a Preview feature. You a
 - Latest version of the Azure Cosmos DB [Python](sdk-python.md) SDK.
 
 ## Registering for the preview
-Vector search for Azure Cosmos DB for NoSQL requires preview feature registration at the subscription level using [Azure Feature Enablement Control (AFEC)](../../azure-resource-manager/management/preview-features.md). Follow the below steps to register: 
+Vector search for Azure Cosmos DB for NoSQL requires preview feature registration. Follow the below steps to register: 
 
-1. Navigate to your Subscription page 
+1. Navigate to your Azure Cosmos DB for NoSQL resource page.
+   
+2. Select the "Features" pane under the "Settings" menu item.
 
-2. Under the “Settings” menu in the left panel, select on the “Preview features” 
+3. Select for “Vector Search in Azure Cosmos DB for NoSQL”.
 
-3. Search for “Vector” in the search bar for the Preview features 
+5. Read the description of the feature to confirm you want to enroll in the preview.
 
-4. Check the “Vector search in Azure Cosmos DB for NoSQL” and select Register. 
+6. Select "Enable" to enroll in the preview. 
 
-This enrolls every Azure Cosmos DB resource in your subscription in the vector search preview. Note that the registration request will be auto-approved, however it may take several minutes to take effect. After this time, you can follow the subsequent steps. 
+Note that the registration request will be autoapproved, however it may take several minutes to take effect. 
 
 ## Understanding the steps involved in vector search 
 
