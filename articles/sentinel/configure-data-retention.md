@@ -36,6 +36,19 @@ To complete the steps in this tutorial, you must have the following resources an
 
 - Log Analytics workspace.
 
+## Review interactive and auxiliary retention policies
+
+On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention period**. The auxiliary retention (archive) period equals the total retention period in days minus the interactive retention in days. For example, you set the following values:
+
+   | Field | Value |
+   | ----- | ----- |
+   | Interactive retention | 90 days |
+   | Total retention period | 1.1 years |
+
+So the **Tables** page shows the following an archive period of 310 days.
+
+:::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
+
 ## Set the retention policy for a table
 
 In your Log Analytics workspace, clear the **Use default workspace settings** setting if you want to change the interactive retention period from its default of 31 days (90 days for Microsoft Sentinel workspaces). Then, change the total retention policy for a table like **SecurityAlert** to 3 years of data. The *total retention* period is the sum of the *interactive* and *auxiliary* (archive) retention periods.
@@ -52,25 +65,12 @@ In your Log Analytics workspace, clear the **Use default workspace settings** se
    | Field | Value |
    | ----- | ----- |
    | Use default workspace settings | Clear the checkbox |
-   | Interactive retention | 60 days |
+   | Interactive retention | 120 days |
    | Total retention period | 3 years |
 
    :::image type="content" source="media/configure-data-retention/data-retention-settings.png" alt-text="Screenshot of the data retention settings that shows the changes to the fields under the data retention section.":::
 
 1. Select **Save**.
-
-## Review interactive and auxiliary retention policies
-
-On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention period**. The auxiliary retention (archive) period equals the total retention period in days minus the interactive retention in days. For example, you set the following values:
-
-   | Field | Value |
-   | ----- | ----- |
-   | Interactive retention | 30 days |
-   | Total retention period | 60 days |
-
-So the **Tables** page shows the following an archive period of 30 days.
-
-:::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
 
 ## Clean up resources
 
