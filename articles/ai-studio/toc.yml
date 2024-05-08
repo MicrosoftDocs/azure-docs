@@ -41,6 +41,8 @@ items:
     items:
     - name: Model catalog
       href: how-to/model-catalog-overview.md
+    - name: Model benchmarks
+      href: how-to/model-benchmarks.md
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models
