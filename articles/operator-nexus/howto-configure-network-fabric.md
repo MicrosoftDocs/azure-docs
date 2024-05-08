@@ -45,7 +45,7 @@ The following table specifies parameters used to create Network Fabric,
 | Parameter | Description | Example | Required | Type|
 |-----------|-------------|---------|----------|----------|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
-| location | Operator-Nexus Azure region | "<Location>" |True | 
+| location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
 |  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Four SKUs are supported (**M4-A400-A100-C16-aa**, **M8-A400-A100-C16-aa**, **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
 |nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
