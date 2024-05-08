@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Create an Azure AI Studio hub inside a managed virtual network. The managed virtual network secures access to managed resources such as computes.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 05/07/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
@@ -28,11 +28,11 @@ You can secure your Azure AI Studio hub, projects, and managed resources in a ma
 ## Create a hub
 
 1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**.
-1. Enter your hub name, subscription, resource group, and location details.
+1. Enter your hub name, subscription, resource group, and location details. You can also select an existing Azure AI services resource or create a new one.
 
     :::image type="content" source="../media/how-to/network/ai-hub-basics.png" alt-text="Screenshot of the option to set hub basic information." lightbox="../media/how-to/network/ai-hub-basics.png":::
 
-1. Select **Next: Resources** to specify resources. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety, and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
+1. Select **Next: Storage**. Select an existing **Storage account** and **Key vault** resource or create new ones. Optionally, choose an existing **Application insights**, and **Container Registry** for logs and docker images.
 
     :::image type="content" source="../media/how-to/network/ai-hub-resources.png" alt-text="Screenshot of the Create a hub with the option to set resource information." lightbox="../media/how-to/network/ai-hub-resources.png"::: 
 
