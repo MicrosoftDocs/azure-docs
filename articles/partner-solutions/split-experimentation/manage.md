@@ -23,7 +23,7 @@ If you need your Slit Experimentation Workspace to access data from another appl
 
 Configure your experimentation metrics by opening **Configuration** > **Experimentation Metrics** from the left menu. Create a new metric by selecting the **Create** button.
 
-For more information about the experimentation metrics, go to Create experimentation metrics<!--link to [Create experimentation metrics](:/howto-setup-experiments.md)-->.
+For more information about the experimentation metrics, go to [Create experimentation metrics](../../azure-app-configuration/run-experiments-aspnet-core.md#create-metrics-for-your-experiment)
 
 :::image type="content" source="media/manage/experimentation-metrics.png" alt-text="Screenshot of the Azure platform showing experimentation metrics.":::
 
