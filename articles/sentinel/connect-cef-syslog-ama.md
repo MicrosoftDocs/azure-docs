@@ -65,7 +65,7 @@ Set up the appropriate data connector in one of two ways:
 
 Select the appropriate tab below to see the instructions for each way.
 
-# [Microsoft Sentinel](#tab/portal/syslog)
+# [Syslog in portal](#tab/syslog)
 
 ### Create data collection rule
 
@@ -102,7 +102,7 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 1. Review your changes and select **Next: Collect >**. 
 
-### Select facilities and severities and create the DCR
+### Select facilities and severities
 
 Be aware that using the same facility for both Syslog and CEF messages may result in data ingestion duplication. Learn how to [avoid data ingestion duplication](#avoid-data-ingestion-duplication).
 
@@ -122,7 +122,7 @@ Be aware that using the same facility for both Syslog and CEF messages may resul
 
 - Select **Refresh** on the connector page to see the DCR displayed in the list.
 
-# [Microsoft Sentinel portal](#tab/portal/cef)
+# [CEF in portal](#tab/cef)
 
 ### Create data collection rule
 
