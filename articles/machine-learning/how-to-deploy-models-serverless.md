@@ -23,7 +23,7 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 
-- An [Azure Machine Learning workspace](create-azure-ai-resource.md).
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure Machine Learning](how-to-assign-roles.md).
 
@@ -35,7 +35,7 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
 
     # [CLI](#tab/cli)
 
-    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](../../machine-learning/how-to-configure-cli.md).
+    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](machine-learning/how-to-configure-cli.md).
 
     ```azurecli
     az extension add -n ml
@@ -79,7 +79,7 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
 
     # [ARM](#tab/arm)
 
-    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
+    You can use any compatible web browser to [deploy ARM templates](../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
 
 
 ## Model marketplace subscriptions
@@ -100,7 +100,7 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     1. On the model's **Details** page, select **Deploy** and then select **Serverless API**.
 
-        :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with serverless API option." lightbox="media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
+        :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with serverless API option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
 
     2. Select the workspace in which you want to deploy your models. Notice that not all the regions are supported.
 
@@ -484,10 +484,10 @@ Each time a workspace subscribes to a given offer from the Azure Marketplace, a 
 
 For more information on how to track costs, see monitor costs for models offered throughout the Azure Marketplace.
 
-:::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
+:::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-## Next steps
+## Related content
 
-* [Fine-tune a Meta Llama 2 model in Azure Machine Learning](fine-tune-model-llama.md)
+- [Model Catalog and Collections](concept-model-catalog.md)
