@@ -18,7 +18,7 @@ This article lists the Azure built-in roles in the General category.
 
 ## Contributor
 
-Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+Grants full access to manage all resources and allows you to create a new tenant in Microsoft Entra ID, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
 
 [Learn more](/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
