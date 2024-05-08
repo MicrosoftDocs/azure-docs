@@ -12,16 +12,23 @@ ms.custom: template-how-to
 
 # Configure routers for a Highly Available (HA) deployment
 
-In a Highly Available Azure Private 5G Core deployment, the Azure Kubernetes Service (AKS) cluster runs on a pair of ASE devices. The ASE devices are deployed in an active / standby configuration, with the backup ASE rapidly taking over service in the event of a failure. Incoming traffic uses a virtual IP address which is routed to the physical IP address of the active ASE. Bidirectional Forwarding Detection (BFD) is used to detect failures.
+In a Highly Available Azure Private 5G Core deployment, the Azure Kubernetes Service (AKS) cluster runs on a two-node cluster of ASE devices. The ASE devices are deployed in an active / standby configuration, with the backup ASE rapidly taking over service in the event of a failure. Incoming traffic uses a virtual IP address which is routed to the active ASE's virtual network interface card (vNIC). Bidirectional Forwarding Detection (BFD) is used to detect failures.
 
 This requires you to deploy a gateway router between the ASE cluster and:
 
 - the RAN equipment in the access network
 - the data networks.
 
-The routers should rapidly detect the failure of an ASE device through a BFD session going down and immediately redirect all traffic to the other ASE. With the recommended settings, BFD should be able to detect failure in about one second, ensuring that traffic should be restored in less than 2.5 seconds.
+The routers should rapidly detect the failure of an ASE device through a BFD session going down and immediately redirect all traffic to the other ASE. With the recommended settings, BFD should be able to detect failure in about one second, ensuring that traffic should be restored in less than 2.5 seconds. User plane state is replicated across the two ASEs to ensure the backup can take over immediately.
+
+:::image type="content" source="media/ha-summary.png" alt-text="Diagram showing the routing configuration in a highly available deployment.":::
 
 This how-to guide describes the configuration required on your router or routers to support an HA deployment. The gateway router for the access network and the gateway router for the data networks may be the same device or separate devices.
+
+## Prerequisites
+
+- Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Commission the AKS cluster](commission-cluster.md).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Collect router configuration values
 
