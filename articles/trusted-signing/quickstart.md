@@ -271,7 +271,7 @@ A certificate profile resource is the logical container of the certificates that
 # [Azure CLI](#tab/certificateprofile-cli)
 
 **Prerequisites**
-You need the Identity Validation ID for the entity that the certificate profile is being created for. The below steps will guide you to obtain your Identity Validation ID from Azure Portal. 
+You need the Identity Validation ID for the entity that the certificate profile is being created for. The below steps will guide you to obtain your Identity Validation ID from Azure portal. 
 
 1. Navigate to your Trusted Signing account in the Azure portal.
 2. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
