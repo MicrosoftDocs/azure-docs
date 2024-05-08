@@ -20,7 +20,7 @@ searchScope:
 
 # Azure Database for PostgreSQL - Flexible Server: azure_local_ai extension (Preview)
 
-The azure_local_ai extension for Azure Database for PostgreSQL Flexible server will allow you to use registered, pre-trained, open-source models deployed locally to your Azure Database for PostgreSQL server.  These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency, by removing the need to make additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary. In this release, the extension will deploy a single model, [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small), to your Azure Database for PostgreSQL Flexible Server instance. Additional third-party open-source models may become available for installation on an ongoing basis. 
+The azure_local_ai extension for Azure Database for PostgreSQL Flexible server allows you to use registered, pre-trained, open-source models deployed locally to your Azure Database for PostgreSQL server.  These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency, by removing the need to make additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary. In this release, the extension will deploy a single model, [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small), to your Azure Database for PostgreSQL Flexible Server instance. Additional third-party open-source models may become available for installation on an ongoing basis. 
 
 Local embeddings help customers:
 
@@ -61,7 +61,7 @@ Select AZURE_LOCAL_AI from the extensions list.
 
 ![extensions_allow-list-2](media/azure-local-ai/extensions-allow-list-2.png)
 
-Click “Save” to apply the changes and begin the Azure Local AI deployment. 
+Click “Save” to apply the changes and begin the allow-list deployment process.
 
 ![extensions_allow-list-3](media/azure-local-ai/extensions-allow-list-3.png)
 
@@ -71,8 +71,8 @@ You can monitor this deployment via the bell icon at the top of the Azure Portal
 
 Once the deployment is completed, you can continue with the installation process.
 
->[!NOTE]
->Enabling Azure Local AI preview will deploy the [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small) model to your Azure Database for PostgreSQL Flexible Server instance. 
+> [!NOTE]
+> Enabling Azure Local AI preview will deploy the [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small) model to your Azure Database for PostgreSQL Flexible Server instance. The linked documentation provides licensing terms from the e5 team.
 > Additional third-party open-source models may become available for installation on an ongoing basis. 
  
 
@@ -138,7 +138,7 @@ Only users with the azure_pg_admin or azure_local_ai_setting_manager role in Pos
 
 ### Next steps
 
-[Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview)](Generate%20vector%20embeddings%20with%20azure_local_ai%20on%20Azure%20Database%20for%20PostgreSQL%20Flexible%20Server%20(Preview))
+Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview)
 
 __[Learn more about vector similarity search using pgvector](/azure/postgresql/flexible-server/how-to-use-pgvector)__
 
