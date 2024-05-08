@@ -1,15 +1,15 @@
 ---
 title: "Azure Operator Nexus - Example of clusterManager.jsonc template file"
 description: Example of clusterManager.jsonc template file to use with ARM template in creating a cluster manager.
-author: jmmason70
-ms.author: jmmason70
+author: jeffreymason
+ms.author: jeffreymason
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/08/2024
 ms.custom: template-how-to
 ---
 
-### Example of clusterManager.jsonc template file.
+# Example of clusterManager.jsonc template file.
 
 ```clusterManager.jsonc
 
