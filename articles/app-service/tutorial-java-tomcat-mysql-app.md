@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 03/31/2024
+ms.date: 05/08/2024
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli
 zone_pivot_groups: app-service-portal-azd
 ---
@@ -266,6 +266,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 :::row:::
     :::column span="2":::
         **Step 6:**
+        Back in the Deployment Center page in the Azure portal:
         1. Select **Logs**. A new deployment run is already started from your committed changes.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
@@ -298,7 +299,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** Add a few fruits to the list.
+        **Step 2:** Add a few tasks to the list.
         Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
     :::column-end:::
     :::column:::
@@ -488,7 +489,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     ```
 
     > [!TIP]
-    > You can also just use `azd up` always, which does both `azd provision` and `azd deploy`.
+    > You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
+    >
+    > To find out how the War file is packaged, you can run `azd package --debug` by itself.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -505,7 +508,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 2. Add a few tasks to the list.
 
-    :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Tomcat web app with MySQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png":::
+    :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Tomcat web app with MySQL running in Azure showing tasks." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png":::
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
 

@@ -26,7 +26,7 @@ Sensitive data discovery is available in the Defender CSPM, Defender for Storage
 
 ## What's supported
 
-The table summarizes support for data-aware posture management.
+The table summarizes availability and supported scenarios for sensitive data discovery.
 
 |**Support** | **Details**|
 |--- | ---|
