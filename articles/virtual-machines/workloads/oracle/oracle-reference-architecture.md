@@ -57,7 +57,7 @@ For Oracle Database Enterprise Edition, Oracle Data Guard is a useful feature fo
 
 If your application permits the latency, consider setting up the Data Guard Far Sync instance in a different availability zone than your Oracle primary database. Test the configuration thoroughly. Use a *Maximum Availability* mode to set up synchronous transport of your redo files to the Far Sync instance. These files are then transferred asynchronously to the standby database.
 
-Your application might not allow for the performance loss when setting up Far Sync instance in another availability zone in *Maximum Availability* mode (synchronous). If not, you might set up a Far Sync instance in the same availability zone as your primary database. For added availability, consider setting up multiple Far Sync instances close to your primary database and at least one instance close to your standby database, if the role transitions. For more information, see [Oracle Active Data Guard Far Sync](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf).
+Your application might not allow for the performance loss when setting up Far Sync instance in another availability zone in *Maximum Availability* mode (synchronous). If not, you might set up a Far Sync instance in the same availability zone as your primary database. For added availability, consider setting up multiple Far Sync instances close to your primary database and at least one instance close to your standby database, if the role transitions.
 
 When you use Oracle Standard Edition databases, there are ISV solutions that allow you to set up high availability and disaster recovery, such as DBVisit Standby.
 
@@ -247,4 +247,3 @@ Review the following Oracle reference articles that apply to your scenario.
 - [Oracle Data Guard Broker Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
 - [Configuring Oracle GoldenGate for Active-Active High Availability](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Oracle Sharding Overview](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
-- [Oracle Active Data Guard Far Sync Zero Data Loss at Any Distance](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)
