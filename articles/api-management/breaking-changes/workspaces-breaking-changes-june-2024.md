@@ -74,19 +74,19 @@ The Developer tier was designed for single-user or single-team use cases. It's u
 
 * **Aggregate in a Premium tier instance**
 
-    Aggregate multiple non-production environments in a single Premium tier instance. Use workspaces in the Premium tier to isolate the different environments.
+    Aggregate multiple nonproduction environments in a single Premium tier instance. Use workspaces in the Premium tier to isolate the different environments.
 
 * **Use Developer tier instances for development, migrate to workspaces in Premium tier**
 
-    You might use Developer tier instances for development environments. For higher environments, you can migrate the configuration of these Developer-tier services into workspaces of a Premium tier service. Note that with this approach you may run into issues or conflicts when managing the configurations across environments. 
+    You might use Developer tier instances for development environments. For higher environments, you can migrate the configuration of these Developer-tier services into workspaces of a Premium tier service. With this approach you may run into issues or conflicts when managing the configurations across environments. 
 
-    If you are currently using workspaces in a Developer tier instance, you can migrate the workspace configurations to a Developer tier instance without workspaces:
+    If you're currently using workspaces in a Developer tier instance, you can migrate the workspace configurations to a Developer tier instance without workspaces:
 
-    1. Export a Resource Manager template from your API Management instance. You can export the template from the [Azure portal](..azure-resource-manager/templates/export-template-portal.md) or by using other tools.
+    1. Export a Resource Manager template from your API Management instance. You can export the template from the [Azure portal](../../azure-resource-manager/templates/export-template-portal.md) or by using other tools.
     1. Remove the following substring of the resource ID values: `/workspaces/[^/]+`
-    1. Deploy the template. For more information, see [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+    1. Deploy the template. For more information, see [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-    Depending on your use case, you may need to perform additional configuration changes in your API Management instance.
+    Depending on your use case, you may need to perform other configuration changes in your API Management instance.
 
 ### Assignment of workspace-level entities
 
