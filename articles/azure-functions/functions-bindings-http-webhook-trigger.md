@@ -36,6 +36,14 @@ The Python v2 programming model lets you define bindings using decorators direct
 # [v1](#tab/python-v1)
 The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
+## HTTP Streams (Preview)
+
+Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
+
+For scenarios where real time exchange and interaction between client and server over HTTP connections is needed, this feature will be helpful. Additionally, FastAPI response types are also supported when using HTTP streaming.
+
+Note that HTTP streaming support for Python is currently in preview, and is only supported for the v2 programming model. To learn more and get started today, see [HTTP streams in Python](./functions-reference-python/#http-streams-preview).
+
 ---
 
 This article supports both programming models.

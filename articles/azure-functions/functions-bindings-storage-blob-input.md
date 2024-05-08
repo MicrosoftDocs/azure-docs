@@ -216,6 +216,12 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
+## SDK type bindings for Azure Storage Blob (Preview)
+
+SDK type bindings take integration with bindings a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
+
+Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model. Only Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. To learn more, see [SDK type bindings](./functions-reference-python.md/#sdk-type-bindings-preview).
+
 The following example shows blob input and output bindings. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
