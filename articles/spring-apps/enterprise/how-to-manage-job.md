@@ -40,8 +40,9 @@ To create a job using the Azure portal, follow the steps:
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Jobs* in *Settings*.
 1. Select *Create Job* in the *Jobs* blade.
-1. Input the job name and other configurations of the job, click *Create* button to create the job.
-1. After the job is created successfully, select *Deploy Job*. Copy the Azure CLI commands in the panel and run the commands in terminal to deploy the job. 
+1. Input the job name and other configurations of the job, click *Create* button and wait until the job is created succesfully.
+1. Select *Deploy Job* next to *Create Job*, a panel is open.
+1. To deploy the job, copy the Azure CLI commands in the panel and run the commands in command line.
 
 ---
 
@@ -57,7 +58,7 @@ To start a job execution with Azure CLI, run the following command.
 az spring job start --name <job-name>
 ```
 
-If the command runs successfully, the name of the job execution is returned. With `--wait-until-finished true` parameter, the command does not return until the job execution finishes.
+If the command runs successfully, the name of the job execution is returned. With `--wait-until-finished true` parameter, the command doesn't return until the job execution finishes.
 
 To query the status of the job execution, use the command, replace the `<execution-name>` with the name returned from start command
 
@@ -108,7 +109,7 @@ For the public preview, we retain the latest 10 completed or failed job executio
 
 ## Query job execution logs
 
-For history job executions, you can query the logs in the log analytics using the query in Azure Portal:
+For history job executions, you can query the logs in the log analytics using the query in Azure portal:
 
 ```
 AppPlatformLogsforSpring
@@ -146,7 +147,7 @@ az spring job create --bind-config-server true
 # [Azure portal](#tab/azure-portal)
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Spring Cloud Config Server* in *Managed components*.
-1. If it's disabled, select *Manage* to enable it.
+1. If the component is disabled, select *Manage* to enable it.
 1. In the *Settings* tab, configure Spring Cloud Config Server with the right git repository. Click *Validate* and *Apply* to make it take effect.
 1. In *Job binding* tab, select *Bind job* and choose the job to apply.
 1. After binding successfully, the job name shows in the list.
@@ -169,9 +170,9 @@ az spring job create --bind-service-registry true
 # [Azure portal](#tab/azure-portal)
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
-1. If it's not enabled, select *Manage* to enable it.
+1. If the component is disabled, select *Manage* to enable it.
 1. In *Job binding* tab, select *Bind job* and choose the job to apply.
-1. After binding successfully, the job name shows in the list below.
+1. After binding successfully, the job name shows in the list.
 1. Run the job
 
 ---
