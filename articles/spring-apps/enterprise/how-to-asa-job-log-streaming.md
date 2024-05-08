@@ -87,7 +87,7 @@ This section provides examples of using the Azure CLI to produce tail logs.
 
 ### View tail logs for a specific instance
 
-To view the tail logs for a specific instance, use the `az spring job logs` command with the `-i/--instance` argument, as shown in the next section.
+To view the tail logs for a specific instance, use the `az spring job logs` command with the `-i/--instance` argument.
 
 ```azurecli
 az spring job logs \
