@@ -15,15 +15,15 @@ ms.subservice: flexible-server
 
 # Azure Database for PostgreSQL - Flexible Server: azure_local_ai extension (Preview)
 
-The azure_local_ai extension for Azure Database for PostgreSQL Flexible server will allow you to use registered, pre-trained, open-source models deployed locally to your Azure Database for PostgreSQL server.  These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency, by removing the need to make additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary.
+The azure_local_ai extension for Azure Database for PostgreSQL Flexible server will allow you to use registered, pre-trained, open-source models deployed locally to your Azure Database for PostgreSQL server.  These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency, by removing the need to make additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary. In this release, the extension will deploy a single model, [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small), to your Azure Database for PostgreSQL Flexible Server instance. Additional third-party open-source models may become available for installation on an ongoing basis. 
 
-This feature helps customers:
+Local embeddings help customers:
 
-- Reduce embedding creation time to single-digit millisecond latency.
+- Reduce latency during embedding creation.
 
 - Leverage embedding models at a predictable cost.
 
-- Keep data compliant by using local embeddings.
+- Keep data within their database with no need to transmit data to a remote endpoint.
 
 >[!IMPORTANT]
 > The azure_local_ai extension is currently in preview.  Open-source AI models made available by Microsoft for installation through the Azure Local AI extension are deemed to be Non-Microsoft Products under the Microsoft Product Terms. Customer’s use of open-source AI models are governed by the separate license terms provided in product documentation associated with such model made available through the azure_local_ai extension.
@@ -95,10 +95,37 @@ Installing the extension azure_local_ai creates the following schema:
 
  
 
->[!IMPORTANT]
->You want to enable the __[pgvector extension](/azure/postgresql/flexible-server/how-to-use-pgvector),__ as it is required to store vectors with azure_local_ai.
+> [!IMPORTANT]
+> You want to enable the [vector extension](/azure/postgresql/flexible-server/how-to-use-pgvector)__,__ as it is required to store text embeddings in your PostgreSQL database.
+##   Functions provided by the azure_local_ai extension
 
-  
+ 
+
+|Schema|Name|Result data type|Argument data types|Type|
+| -------- | -------- | -------- | -------- | -------- |
+|__Schema__|__Name__| __Result data type__           |   __Argument data types__|__Type__|
+| __azure_local_ai__| create_embeddings| TABLE(embedding real[])               | model_uri text, inputs text[], batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000              | func|
+| __azure_local_ai__| create_embeddings| TABLE(id anyelement, embedding real[])| model_uri text, inputs text[], ids anyarray, batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000| func|
+| __azure_local_ai__| create_embeddings| real[]                                | model_uri text, input text, timeout_ms integer DEFAULT 3600000                                                | func|
+| __azure_local_ai__| get_setting      | jsonb                                 | keys text[] DEFAULT ARRAY[]::text[], timeout_ms integer DEFAULT 3600000                                       | func|
+| __azure_local_ai__| get_setting      | text                                  | key text, timeout_ms integer DEFAULT 3600000                                                                  | func|
+| __azure_local_ai__| model_loaded     | boolean                               | model_uri text, timeout_ms integer DEFAULT 3600000                                                            | func|
+| __azure_local_ai__| model_metadata   | jsonb                                 | model_uri text                                                                                                | func|
+| __azure_local_ai__| model_register   | bigint                                | model_uri text, model_path text, tokenizer_path text DEFAULT NULL::text, timeout_ms integer DEFAULT 3600000   | func|
+| __azure_local_ai__| model_unload     | void                                  | model_uri text, timeout_ms integer DEFAULT 3600000                                                            | func|
+| __azure_local_ai__| model_unregister | void                                  | model_uri text, timeout_ms integer DEFAULT 3600000                                                            | func|
+| __azure_local_ai__| set_setting      | void                                  | keys text[], "values" text[], timeout_ms integer DEFAULT 3600000                                              | func|
+| __azure_local_ai__| set_setting      | void                                   | key text, value text, timeout_ms integer DEFAULT 3600000                                                      | func|
+
+ 
+
+These can be displayed via the PSQL command,
+
+
+```
+\df azure_local_ai.*
+
+```
 
 ## Permissions
 
