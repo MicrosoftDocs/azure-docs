@@ -22,7 +22,7 @@ ms.date: 04/28/2024
 
 This article discusses cross-region disaster recovery (DR) for Azure Cosmos DB for MongoDB vCore. It also covers read capabilities of the cluster replicas in other regions for read operations scalability.
 
-The cross-region replication feature allows you to replicate data from a cluster to a read-only cluster in another Azure region. Replicas are updated asynchronously with physical replication technology. You can have one cluster replica in another region of choice for the primary Azure Cosmos DB for MongoDB vCore cluster. In a rare case of region outage, you can promote cluster replica in another region to become the new read-write cluster for continuous operation of your MongoDB database. Applications might continue to use the same connection strings after cluster replica in another region is promoted to become the new primary cluster.   
+The cross-region replication feature allows you to replicate data from a cluster to a read-only cluster in another Azure region. Replicas are updated with asynchronous replication technology. You can have one cluster replica in another region of choice for the primary Azure Cosmos DB for MongoDB vCore cluster. In a rare case of region outage, you can promote cluster replica in another region to become the new read-write cluster for continuous operation of your MongoDB database. Applications might continue to use the same connection strings after cluster replica in another region is promoted to become the new primary cluster.   
 
 Replicas are new clusters that you manage similar to regular clusters. For each read replica, you're billed for the provisioned compute in vCores and storage in GiB/month. Compute and storage costs for replica clusters have the same structure as the regular clusters and prices of the Azure region where they're created.
 
@@ -36,14 +36,18 @@ When cross-region replication is enabled on an Azure Cosmos DB for MongoDB vCore
 
 Replica clusters are also available for reads. It helps offload intensive read operations from the primary cluster or deliver reduced latency for read operations to the clients that are located closer to the replication region.
 
-When a cross-region replication is enabled a read-only connection string is created. Applications can use this string to perform reads from the cluster replica. The primary cluster is available for read and write operations using a read-write connection string. 
+When you create a replica by enabling cross-region replication, it doesn't inherit networking settings such as firewall rules of the primary cluster. These settings must be set up independently for the replica.
+
+The replica inherits the admin account from the primary cluster. User accounts need to be managed on the primary cluster. You can connect to the primary cluster as well as its replica cluster using the same user accounts.
+
+When cross-region replication is enabled a read-only connection string is created. Applications can use this string to perform reads from the cluster replica. The primary cluster is available for read and write operations using a read-write connection string.
 
 ### Replica cluster promotion
 
 In the event of region outage you can perform disaster recovery operation by promoting your cluster replica in another region to become available for writes. During replica promotion operation the following is happening:
 
 - Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster. 
-- The former primary cluster in region A is replaced with a replica cluster that is synchronized with the new read-write cluster (former replica cluster). The replica cluster is located in the original Azure region A and becomes the destination for the promoted replica cluster.
+- The former primary cluster in region A is **replaced** with a replica cluster that is synchronized with the new read-write cluster (former replica cluster). The replica cluster is located in the original Azure region A and becomes the destination for the promoted replica cluster.
 - Read-write connection string is now pointing to the promoted replica cluster in region B.
 - Read-only connection string is now pointing to the new replica cluster in region A.
 
@@ -53,5 +57,5 @@ In the event of region outage you can perform disaster recovery operation by pro
 
 ## Next steps
 
-- Learn how to enable cross-region replication and promote replica cluster
+- [Learn how to enable cross-region replication and promote replica cluster](./how-to-cluster-replica.md)
 - [Learn about reliability in Azure Cosmos DB for MongoDB vCore](../../../reliability/reliability-cosmos-mongodb.md)
