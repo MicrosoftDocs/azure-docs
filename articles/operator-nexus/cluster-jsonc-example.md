@@ -1,15 +1,15 @@
 ---
 title: "Azure Operator Nexus - Example of cluster.jsonc template file"
 description: Example of cluster.jsonc template file to use with ARM template in creating a cluster.
-author: jmmason70
-ms.author: jmmason70
+author: jeffreymason
+ms.author: jeffreymason
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/08/2024
 ms.custom: template-how-to
 ---
 
-### Example of cluster.jsonc template file.
+# Example of cluster.jsonc template file.
 
 ```cluster.jsonc
 
