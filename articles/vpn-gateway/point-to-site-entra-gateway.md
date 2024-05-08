@@ -54,7 +54,7 @@ The articles in the [Next steps](#next-steps) section help you:
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**.
 
-   :::image type="content" source="./media/point-to-site-entra-registered-app/configuration.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings." lightbox="./media/point-to-site-entra-registered-app/configuration.png":::
+   :::image type="content" source="./media/point-to-site-entra-gateway/configuration.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings." lightbox="./media/point-to-site-entra-gateway/configuration.png":::
 
    Configure the following values:
 
