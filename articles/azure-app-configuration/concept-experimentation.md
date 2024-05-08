@@ -25,7 +25,7 @@ High-level data flow for experimentation in Azure.
 
 :::image type="content" source="./media/concept-experimentation/experimentation-data-flow.png" alt-text="Data Flow for experimentation in Azure." lightbox="./media/concept-experimentation/experimentation-data-flow.png":::
 
-To start an experimentation, first you need to identify the feature and its variations that you want to experiment on. Next are the metrics that form the basis of the feature evaluation. To get started on your first experiment in Azure, follow the steps outlined in this [tutorial](./azure-app-configuration/run-experiments-aspnet-core.md).
+To start an experimentation, first you need to identify the feature and its variations that you want to experiment on. Next are the metrics that form the basis of the feature evaluation. To get started on your first experiment in Azure, follow the steps outlined in this [tutorial](./run-experiments-aspnet-core.md).
 
 ### Concepts related to experimentation
 
