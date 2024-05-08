@@ -15,6 +15,8 @@ author: eric-urban
 
 # Retrieval augmented generation and indexes
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 This article talks about the importance and need for Retrieval Augmented Generation (RAG) and Index in generative AI. 
 
 ## What is RAG?

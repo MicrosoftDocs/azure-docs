@@ -12,10 +12,9 @@ ms.author: eur
 
 # How to customize post-call analytics in AI Studio (Preview)
 
-[!INCLUDE [Feature preview include](../../ai-studio/includes/generic-preview.md)]
+[!INCLUDE [Feature preview include](../../ai-studio/includes/feature-preview.md)]
 
 [!INCLUDE [Customize post-call include](./includes/how-to/speech-analytics/post-call-customize-ai-studio.md)]
-
 
 
 ## Related content

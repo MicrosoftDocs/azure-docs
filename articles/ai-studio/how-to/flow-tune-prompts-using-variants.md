@@ -15,6 +15,8 @@ author: lgayhardt
 
 # Tune prompts using variants in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this article, you learn how to use variants to tune prompts and evaluate the performance of different variants.
 
 Crafting a good prompt is a challenging task that requires much creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.

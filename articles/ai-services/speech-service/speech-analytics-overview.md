@@ -13,7 +13,7 @@ author: eric-urban
 
 # Speech analytics overview
 
-[!INCLUDE [Feature preview include](../../ai-studio/includes/generic-preview.md)]
+[!INCLUDE [Feature preview include](../../ai-studio/includes/feature-preview.md)]
 
 With Speech analytics in [AI Studio](https://ai.azure.com), you transcribe audio and video recordings and generate enhanced outputs like summaries, special industry record formats, captioning data, or extract valuable information such as key topics, sentiment, and more. The service also allows you to redact recordings to remove personal information or to remove disfluencies. To get started, use one of the provided out-of-box scenario templates and start retrieving results. Leverage the flexibility to customize to your business as needed, if necessary.
 

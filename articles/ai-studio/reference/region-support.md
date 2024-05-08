@@ -14,6 +14,8 @@ ms.custom: references_regions
 
 # Azure AI Studio feature availability across clouds regions
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Azure AI Studio brings together various Azure AI capabilities that previously were only available as standalone Azure services. While we strive to make all features available in all regions where Azure AI Studio is supported at the same time, feature availability may vary by region. In this article, you'll learn what Azure AI Studio features are available across cloud regions.  
 
 ## Azure Public regions
