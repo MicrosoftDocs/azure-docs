@@ -28,7 +28,7 @@ This option is designed to make enabling authentication simple and requires just
 
     A client secret is created and stored as a [secret](manage-secrets.md) in the container app.
 
-1. If you're configuring the first identity provider for this application, you prompt to a **Container Apps authentication settings** section. Otherwise, you move on to the next step.
+1. If you're configuring the first identity provider for this application, you're prompted with a **Container Apps authentication settings** section. Otherwise, you move on to the next step.
 
     These options determine how your application responds to unauthenticated requests, and the default selections redirect all requests to sign in with this new provider. You can customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
 
@@ -39,7 +39,7 @@ You're now ready to use the Microsoft identity platform for authentication in yo
 
 ## <a name="entra-id-advanced"> </a>Option 2: Use an existing registration created separately
 
-You can also manually register your application for the Microsoft identity platform, customizing the registration, and configuring Container Apps Authentication with the registration details. This approach is useful if you want to use an app registration from a different Microsoft Entra tenant other than the one your application is defined.
+You can also manually register your application for the Microsoft identity platform, customize the registration, and configure Container Apps Authentication with the registration details. This approach is useful when you want to use an app registration from a different Microsoft Entra tenant other than the one in which your application is defined.
 
 ### <a name="entra-id-register"> </a>Create an app registration in Microsoft Entra ID for your container app
 
@@ -60,7 +60,7 @@ To register the app, perform the following steps:
 1. After the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
 1. Select **Authentication**. Under **Implicit grant and hybrid flows**, enable **ID tokens** to allow OpenID Connect user sign-ins from Container Apps. Select **Save**.
 1. (Optional) Select **Branding**. In **Home page URL**, enter the URL of your container app and select **Save**.
-1. Select **Expose an API**, and select **Set** next to *Application ID URI*. This value uniquely identifies the application when it used as a resource, allowing tokens to be requested that grant access. The value is also used as a prefix for scopes you create.
+1. Select **Expose an API**, and select **Set** next to *Application ID URI*. The ID value uniquely identifies your application when it's used as a resource, which allows requested tokens to grant access. The value is also used as a prefix for scopes you create.
 
     For a single-tenant app, you can use the default value, which is in the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multitenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
 
@@ -71,7 +71,7 @@ To register the app, perform the following steps:
    1. In **Scope name**, enter *user_impersonation*.
    1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access &lt;application-name&gt;*.
    1. Select **Add scope**.
-1. (Optional) To create a client secret, select **Certificates & secrets** > **Client secrets** > **New client secret**. Enter a description and expiration and select **Add**. Copy the client secret value shown in the page. It doesn't show again.
+1. (Optional) To create a client secret, select **Certificates & secrets** > **Client secrets** > **New client secret**. Enter a description and expiration and select **Add**. Copy the client secret value shown on the page as the site won't display it to you again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
 ### <a name="entra-id-secrets"> </a>Enable Microsoft Entra ID in your container app
@@ -84,13 +84,13 @@ To register the app, perform the following steps:
     |Field|Description|
     |-|-|
     |Application (client) ID| Use the **Application (client) ID** of the app registration. |
-    |Client Secret| Use the client secret you generated in the app registration. With a client secret, hybrid flow is used and the Container Apps returns access and refresh tokens. When the client secret isn't set, implicit flow is used and only an ID token is returned. The provider sends the tokens and stores in the EasyAuth token store.|
+    |Client Secret| Use the client secret you generated in the app registration. With a client secret, hybrid flow is used and the app returns access and refresh tokens. When the client secret isn't set, implicit flow is used and only an ID token is returned. The provider sends the tokens and they're stored in the EasyAuth token store.|
     |Issuer Url| Use `<authentication-endpoint>/<TENANT-ID>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (for example, "https://login.microsoftonline.com" for global Azure), also replacing *\<TENANT-ID>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Microsoft Entra tenant, and to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.|
     |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If this value refers to a cloud or server app and you want to accept authentication tokens from a client container app (the authentication token can be retrieved in the `X-MS-TOKEN-AAD-ID-TOKEN` header), add the **Application (client) ID** of the client app here. |
 
     The client secret is stored as [secrets](manage-secrets.md) in your container app.
 
-1. If this is the first identity provider configured for the application, you also be prompted with a **Container Apps authentication settings** section. Otherwise, you move on to the next step.
+1. If this is the first identity provider configured for the application, you're also prompted with a **Container Apps authentication settings** section. Otherwise, you move on to the next step.
 
     These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to sign in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
 
@@ -100,7 +100,7 @@ You're now ready to use the Microsoft identity platform for authentication in yo
 
 ## Configure client apps to access your container app
 
-In the prior section, you registered your container app to authenticate users. This section explains to you how to register native client or daemon apps. They can then request access to APIs exposed by your container app on behalf of users or themselves. Completing the steps in this section isn't required if you only wish to authenticate users.
+In the prior section, you registered your container app to authenticate users. In this section, you register native client or daemon apps. They can then request access to APIs exposed by your container app on behalf of users or themselves. Completing the steps in this section isn't required if you only wish to authenticate users.
 
 ### Native client application
 
@@ -118,7 +118,7 @@ You can register native clients to request access your container app's APIs on b
 1. Select the app registration you created earlier for your container app. If you don't see the app registration, make sure that you added the **user_impersonation** scope in [Create an app registration in Microsoft Entra ID for your container app](#entra-id-register).
 1. Under **Delegated permissions**, select **user_impersonation**, and then select **Add permissions**.
 
-You configured a native client application that can request access your container app on behalf of a user.
+In this section, you configured a native client application that can request access your container app on behalf of a user.
 
 ### Daemon client application (service-to-service calls)
 
@@ -129,9 +129,9 @@ Your application can acquire a token to call a Web API hosted in your container 
 1. For a daemon application, you don't need a Redirect URI so you can keep that empty.
 1. Select **Create**.
 1. After the app registration is created, copy the value of **Application (client) ID**.
-1. Select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It doesn't show again.
+1. Select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It isn't shown again.
 
-You can now [request an access token using the client ID and client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) by setting the `resource` parameter to the **Application ID URI** of the target app. The resulting access token can then be presented to the target app using the standard [OAuth 2.0 Authorization header](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#use-a-token), and Container Apps Authentication / Authorization validates and uses the token as usual to now indicate that the caller (an application in this case, not a user) is authenticated.
+You can now [request an access token using the client ID and client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) by setting the `resource` parameter to the **Application ID URI** of the target app. The resulting access token can then be presented to the target app using the standard [OAuth 2.0 Authorization header](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#use-a-token), and Container Apps Authentication / Authorization validates and uses the token as usual to indicate that the caller (an application in this case, not a user) is authenticated.
 
 This process allows _any_ client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce _authorization_ to allow only certain client applications, you must adjust the configuration.
 
@@ -141,9 +141,9 @@ This process allows _any_ client application in your Microsoft Entra tenant to r
 1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
 1. Make sure to select **Grant admin consent** to authorize the client application to request the permission.
 1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token includes a `roles` claim containing the App Roles that were authorized for the client application.
-1. Within the target Container Apps code, you can now validate that the expected roles are present in the token. The Container Apps auth layer doesn't perform the Validation steps. For more information, see [Access user claims](authentication.md#access-user-claims-in-application-code).
+1. Within the target Container Apps code, you can now validate that the expected roles are present in the token. The Container Apps auth layer doesn't perform the validation steps. For more information, see [Access user claims](authentication.md#access-user-claims-in-application-code).
 
-Now you configured a daemon client application that can access your container app using its own identity.
+In this section, you configured a daemon client application that can access your container app using its own identity.
 
 ## Working with authenticated users
 
