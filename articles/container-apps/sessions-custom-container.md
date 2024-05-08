@@ -11,7 +11,7 @@ ms.author: antchu
 
 # Azure Container Apps custom container sessions (preview)
 
-In addition to the built-in code interpreter that Azure Container Apps dynamic sessions provides, you can also use custom containers to define your own session sandboxes.
+In addition to the built-in code interpreter that Azure Container Apps dynamic sessions provide, you can also use custom containers to define your own session sandboxes.
 
 > [!NOTE]
 > Azure Container Apps dynamic sessions is currently in preview.
@@ -20,9 +20,9 @@ In addition to the built-in code interpreter that Azure Container Apps dynamic s
 
 Custom containers allow you to build solutions tailored to your needs. They enable you to execute code or applications in environments that are fast and ephemeral and offer secure, sandboxed spaces with Hyper-V. Additionally, they can be configured with optional network isolation. Some examples include:
 
-* **Code interpreters**: Executing untrusted code in secure sandboxes by a language not supported in the built-in interpreter, or you need full control over the code interpreter environment.
+* **Code interpreters**: When you need to execute untrusted code in secure sandboxes by a language not supported in the built-in interpreter, or you need full control over the code interpreter environment.
 
-* **Isolated execution**: Running applications in hostile, multi-tenant scenarios where each tenant or user has their own sandboxed environment. These environments are isolated from each other and from the host application. Some examples include applications that run user-provided code, code that grants end user access to a cloud-based shell, and development environments.
+* **Isolated execution**: When you need to run applications in hostile, multitenant scenarios where each tenant or user has their own sandboxed environment. These environments are isolated from each other and from the host application. Some examples include applications that run user-provided code, code that grants end user access to a cloud-based shell, and development environments.
 
 ## Using custom container sessions
 
@@ -88,7 +88,7 @@ This command creates a session pool with the following settings:
 | `--cpu` | `1.0` | The required CPU in cores. |
 | `--memory` | `2.0Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
-| `--cooldown-period` | `300` | The number of seconds that a session can be idle before it's terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
+| `--cooldown-period` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
 | `--egress-enabled` | `false` | Whether the session can make outbound network requests. |
 | `--max-concurrent-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
 | `--ready-session-instances` | `5` | The target number of sessions that are ready in the session pool all the time. |
@@ -98,7 +98,7 @@ To update the session pool, use the `az containerapp sessionpool update` command
 
 # [Azure Resource Manager](#tab/arm)
 
-To create a custom container session pool using ARM, create a session pool resource with the `Microsoft.ContainerApps/sessionPools` resource type. The following example shows an ARM template snippet that creates a custom container session pool.
+To create a custom container session pool using Azure Resource Manager, create a session pool resource with the `Microsoft.ContainerApps/sessionPools` resource type. The following example shows an ARM template snippet that creates a custom container session pool.
 
 Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
 

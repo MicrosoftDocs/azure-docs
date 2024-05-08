@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Use custom container sessions with Azure Container Apps"
-description: 
+description: Learn to use custom container sessions in Azure Container Apps. 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps

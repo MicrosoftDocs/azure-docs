@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Use code interpreter sessions in LangChain with Azure Container Apps"
-description: 
+description: Learn to use code interpreter sessions in LangChain on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps

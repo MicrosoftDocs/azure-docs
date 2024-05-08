@@ -29,7 +29,7 @@ Your applications can also integrate with code interpreter session using a [REST
 
 ## Code interpreter session pool
 
-To use code interpreter sessions, you need an Azure resource called a session pool that defines the configuration for code interpreter sessions. In the session pool, you can specify settings such as the maximum number of concurrent sessions and how long a session can be idle before it is terminated.
+To use code interpreter sessions, you need an Azure resource called a session pool that defines the configuration for code interpreter sessions. In the session pool, you can specify settings such as the maximum number of concurrent sessions and how long a session can be idle before the session is terminated.
 
 You can create a session pool using the Azure portal, Azure CLI, or Azure Resource Manager templates. After you create a session pool, you can use the pool's management API endpoints to manage and execute code inside a session.
 
@@ -212,7 +212,7 @@ Authorization: Bearer <token>
 }
 ```
 
-To re-use a session, specify the same session identifier in subsequent requests.
+To reuse a session, specify the same session identifier in subsequent requests.
 
 #### Upload a file to a session
 
@@ -285,11 +285,11 @@ The following listing shows a sample of the type of response you can expect from
 }
 ```
 
-## Pre-installed packages
+## Preinstalled packages
 
 Python code interpreter sessions include popular Python packages such as NumPy, pandas, and scikit-learn.
 
-To output the list of pre-installed packages, call the `code/execute` endpoint with the following code.
+To output the list of preinstalled packages, call the `code/execute` endpoint with the following code.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 

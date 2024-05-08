@@ -1,6 +1,6 @@
 ---
 title: Azure Container Apps dynamic sessions overview
-description: 
+description: Learn how when to use dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -64,6 +64,7 @@ A session is a sandboxed environment that runs your code or application. Each se
 When you interact with sessions in a pool, you must define a session identifier to manage each session. The session identifier is a free-form string, meaning you can define it in any way that suits your application's needs. This identifier is a key element in determining the behavior of the session:
 
 - Reuse of existing sessions: This session is reused if there's already a running session that matches the identifier.
+
 - Allocation of new sessions: If no running session matches the identifier, a new session is automatically allocated from the pool.
 
 The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
