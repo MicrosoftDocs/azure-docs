@@ -320,6 +320,41 @@ The configuration you need is specific to the type of source and your Data Produ
     sudo systemctl enable az-aoi-ingestion.service
     ```
 
+## [Optional] Configure log collection for access through Azure Monitor
+
+If you're running the ingestion agent on an Azure VM or on an on-premises VM connected by Azure Arc, you can send ingestion agent logs to Azure Monitor using the Azure Monitor Agent. Using Azure Monitor to access logs can be simpler than accessing logs directly on the VM.
+
+To collect ingestion agent logs, follow [the Azure Monitor documentation to install the Azure Monitor Agent and configure log collection](../azure-monitor/agents/data-collection-text-log.md).
+
+- These docs use the Az PowerShell module to create a logs table. Follow the [Az PowerShell module install documentation](/powershell/azure/install-azure-powershell) first.
+  - The `YourOptionalColumn` section from the sample `$tableParams` JSON is unnecessary for the ingestion agent, and can be removed.
+- When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
+- After adding the data collection rule, you can query these logs through the Log Analytics workspace. Use the following query to make them easier to work with:
+  ```
+  RawAgentLogs_CL
+  | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')  // Remove any color tags
+  | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message  // Parse the log lines into the TimeGenerated, Level and Message columns for easy filtering
+  | order by TimeGenerated desc
+  ```
+  > [!NOTE]
+  > This query can't be used as a data source transform, because `replace_regex` isn't available in data source transforms.
+
+### Sample logs
+```
+[2m2024-04-30T17:16:00.000544Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Starting run with 'last checkpoint' timestamp: None
+[2m2024-04-30T17:16:00.000689Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Starting Completion Handler task
+[2m2024-04-30T17:16:00.073495Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::sftp_file_tree_explorer[0m[2m:[0m Start traversing files with base path "/"
+[2m2024-04-30T17:16:00.086427Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::sftp_file_tree_explorer[0m[2m:[0m Finished traversing files
+[2m2024-04-30T17:16:00.086698Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m File explorer task is complete, with result Ok(())
+[2m2024-04-30T17:16:00.086874Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Send files to sink task is complete
+[2m2024-04-30T17:16:00.087041Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Processed all completion notifications for run
+[2m2024-04-30T17:16:00.087221Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Run complete with no retryable errors - updating last checkpoint timestamp
+[2m2024-04-30T17:16:00.087351Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Run lasted 0 minutes and 0 seconds with result: RunStats { successful_uploads: 0, retryable_errors: 0, non_retryable_errors: 0, blob_already_exists: 0 }
+[2m2024-04-30T17:16:00.087421Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::file[0m[2m:[0m Closing 1 active SFTP connections
+[2m2024-04-30T17:16:00.087966Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_common::scheduler[0m[2m:[0m Run completed successfully. Update the 'last checkpoint' time to 2024-04-30T17:15:30.000543200Z
+[2m2024-04-30T17:16:00.088122Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m [2maz_ingestion_common::scheduler[0m[2m:[0m Schedule next run at 2024-04-30T17:17:00Z
+```
+
 ## Related content
 
 Learn how to:
