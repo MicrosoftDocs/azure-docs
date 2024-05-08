@@ -20,6 +20,8 @@
   items:
   - name: Fleets and member clusters
     href: concepts-fleet.md
+  - name: Choosing a fleet type
+    href: concepts-choosing-fleet.md
   - name: Scheduler and scheduling framework
     href: concepts-scheduler-scheduling-framework.md
   - name: Update orchestration across multiple member clusters
@@ -30,6 +32,8 @@
     href: concepts-l4-load-balancing.md
 - name: How-to guides
   items:
+  - name: Upgrade from hubless to hubful fleet
+    href: upgrade-hubless-hubful.md
   - name: Orchestrate updates across multiple member clusters
     href: update-orchestration.md
   - name: Multi-cluster Layer 4 Load Balancing
