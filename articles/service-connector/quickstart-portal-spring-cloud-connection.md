@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom:
   - kr2b-contr-experiment
-#Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a storage account in the Azure portal.
+#Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a Key Vault in the Azure portal.
 ---
 
 # Quickstart: Create a service connection in Azure Spring Apps from the Azure portal
