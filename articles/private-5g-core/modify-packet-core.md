@@ -81,6 +81,11 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
+1. Verify the system is healthy before making any changes.
+   - Select **Resource Health** under the **Help** section on the left side.
+   - Check that the resource is healthy and there are no unexpected alerts.
+   - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+   - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 1. Select **Modify packet core**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
