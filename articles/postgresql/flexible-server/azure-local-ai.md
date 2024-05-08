@@ -44,25 +44,27 @@ Before you can enable azure_local_ai on your Azure Database for PostgreSQL fle
  SHOW azure.extensions;
 ```
 
-Select “Server parameters” from the Settings section of the Azure Database for PostgreSQL Flexible Server Azure Portal Blade.
+Select “Server parameters” from the Settings section of the Resource Menu in the Azure Database for PostgreSQL Flexible Server Azure Portal Blade.
 
-![](file:///C:/Users/jojohnso/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)
+![PGSQL_server_parameters-2](media/azure-local-ai/pgsql-server-parameters-2.png)
 
- 
+Search for "extensions" or "azure.extensions"
+
+![extensions_allow-list-1](media/azure-local-ai/extensions-allow-list-1.png)
 
 Select AZURE_LOCAL_AI from the extensions list. 
 
- 
-
-![A screenshot of a computerDescription automatically generated](file:///C:/Users/jojohnso/AppData/Local/Temp/msohtmlclip1/01/clip_image008.png)
-
- 
+![extensions_allow-list-2](media/azure-local-ai/extensions-allow-list-2.png)
 
 Click “Save” to apply the changes and begin the Azure Local AI deployment. 
 
- 
+![extensions_allow-list-3](media/azure-local-ai/extensions-allow-list-3.png)
 
-![A screenshot of a computerDescription automatically generated](file:///C:/Users/jojohnso/AppData/Local/Temp/msohtmlclip1/01/clip_image010.png)
+You can monitor this deployment via the bell icon at the top of the Azure Portal.
+
+![extensions_allow-list-4](media/azure-local-ai/extensions-allow-list-4.png)
+
+Once the deployment is completed, you can continue with the installation process.
 
 >[!NOTE]
 >Enabling Azure Local AI preview will deploy the [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small) model to your Azure Database for PostgreSQL Flexible Server instance. 
@@ -73,60 +75,30 @@ Once allow-listed, you can install the extension by connecting to your target da
 
  
 
-List extensions allow listed from Azure Portal - Server Parameters blade
+List extensions allow listed from Azure Portal - Server Parameters blade. 
 
-SQLCopy
 
+```sql
 SHOW azure.extensions;
+```
 
- 
+Create the extension within the database. 
 
-SQLCopy
 
+```sql
 CREATE EXTENSION azure_local_ai;
-
- 
+```
 
 Installing the extension azure_local_ai creates the following schema:
 
-·         azure_local_ai: principal schema in which the extension creates tables, functions and any other SQL-related object it requires to implement and expose its functionality. 
+-  azure_local_ai: principal schema in which the extension creates tables, functions, and any other SQL-related object it requires to implement and expose its functionality. 
 
  
 
 >[!IMPORTANT]
 >You want to enable the __[pgvector extension](/azure/postgresql/flexible-server/how-to-use-pgvector),__ as it is required to store vectors with azure_local_ai.
 
- 
-
- 
-
- 
-
-## Configure the azure_local_ai extension
-
-Configuring the extensions requires the user to be a member of the “admin” role.
-
- 
-
-The following functions to configure the azure_local_ai extension settings require azure_pg_admin or azure_local_ai_setting_manager role membership:
-
-·         azure_local_ai.set_setting
-
-·         azure_local_ai.get_setting
-
-azure_local_ai.set_setting
-
-Used to set configuration options.
-
-azure_ai.set_setting(key TEXT, value TEXT)
-
- 
-
-azure_local_ai.get_setting
-
-Used to obtain current values of configuration options.
-
-azure_local_ai.get_setting(key TEXT)
+  
 
 ## Permissions
 
