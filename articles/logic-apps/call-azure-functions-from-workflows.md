@@ -403,7 +403,7 @@ Now that you have the tenant ID and the application ID, you can set up your func
 
 1. Copy the app registration's **App (client) ID** to use later in the Azure Functions action's **Audience** property for your workflow.
 
-   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-application-id.png" alt-text="Screenshot shows new identity provider for function app" lightbox="media/logic-apps-azure-functions/identity-provider-application-id.png":::
+   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-application-id.png" alt-text="Screenshot shows new identity provider for function app." lightbox="media/logic-apps-azure-functions/identity-provider-application-id.png":::
 
 1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity) by using the built-in Azure Functions action.
 
