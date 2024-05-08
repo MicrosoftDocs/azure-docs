@@ -32,7 +32,7 @@ Recommendations for 1- and 3-year savings plans in [Azure portal](https://portal
 Currently, the Azure portal doesn't provide savings plan recommendations for management groups. As a workaround, you can perform the following steps:
 1. Aggregate the recommended hourly commitments for all subscriptions within the management group.
 2. Purchase up to ~70% of the above value.
-3. Wait at least 3 days for the newly purchased savings plan to affect your subscription recommendations.
+3. Wait at least three days for the newly purchased savings plan to affect your subscription recommendations.
 4. Repeat steps 1-3 until you have achieved your desired coverage levels.
 
 
