@@ -71,6 +71,145 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 ---
 
+## Data ingestion duplication
+
+Using the same facility for both Syslog and CEF messages may result in data ingestion duplication between the CommonSecurityLog and Syslog tables. 
+
+To avoid this scenario, use one of these methods:
+
+- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+
+    To see an example of how to arrange a DCR to ingest both Syslog and CEF messages from the same agent, go to [Syslog and CEF streams in the same DCR](#syslog-and-cef-streams-in-the-same-dcr) later in this article.
+
+- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication, as shown in the query example below. The data will be sent twice from the collector machine to the workspace.
+
+    ```kusto
+    source |
+    where ProcessName !contains "CEF"
+    ```
+
+## Examples of facilities and log levels sections
+
+Review these examples of the facilities and log levels settings. The `name` field includes the filter name.
+
+For CEF message ingestion, the value for `"streams"` should be `"Microsoft-CommonSecurityLog"` instead of `"Microsoft-Syslog"`.
+
+This example collects events from the `cron`, `daemon`, `local0`, `local3` and `uucp` facilities, with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels:
+
+```json
+    "dataSources": {
+      "syslog": [
+        {
+        "name": "SyslogStream0",
+        "streams": [
+          "Microsoft-Syslog"
+        ],
+        "facilityNames": [ 
+          "cron",
+          "daemon",
+          "local0",
+          "local3", 
+          "uucp"
+        ],
+        "logLevels": [ 
+          "Warning", 
+          "Error", 
+          "Critical", 
+          "Alert", 
+          "Emergency"
+        ]
+      }
+    ]
+  }
+```
+
+## Syslog and CEF streams in the same DCR
+
+This example shows how you can collect **Syslog and CEF** messages in the same DCR.
+
+See [Avoid data ingestion duplication](#avoid-data-ingestion-duplication) earlier in this article for more information about steps to take when ingesting Syslog and CEF messages using a single agent and DCR.
+
+The DCR collects CEF event messages for:
+- The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
+- The `daemon` facility with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
+
+It collects Syslog event messages for:
+- The `kern`, `local0`, `local5`, and `news` facilities with the `Critical`, `Alert`, and `Emergency` log levels 
+- The `mail` and `uucp` facilities with the `Emergency` log level
+
+```json
+    "dataSources": {
+      "syslog": [
+        {
+          "name": "CEFStream1",
+          "streams": [ 
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [ 
+            "authpriv", 
+            "mark"
+          ],
+          "logLevels": [
+            "Info",
+            "Notice", 
+            "Warning", 
+            "Error", 
+            "Critical", 
+            "Alert", 
+            "Emergency"
+          ]
+        },
+        {
+          "name": "CEFStream2",
+          "streams": [ 
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [ 
+            "daemon"
+          ],
+          "logLevels": [ 
+            "Warning", 
+            "Error", 
+            "Critical", 
+            "Alert", 
+            "Emergency"
+          ]
+        },
+        {
+          "name": "SyslogStream3",
+          "streams": [ 
+            "Microsoft-Syslog"
+          ],
+          "facilityNames": [ 
+            "kern",
+            "local0",
+            "local5", 
+            "news"
+          ],
+          "logLevels": [ 
+            "Critical", 
+            "Alert", 
+            "Emergency"
+          ]
+        },
+        {
+          "name": "SyslogStream4",
+          "streams": [ 
+            "Microsoft-Syslog"
+          ],
+          "facilityNames": [ 
+            "mail",
+            "uucp"
+          ],
+          "logLevels": [ 
+            "Emergency"
+          ]
+        }
+      ]
+    }
+
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
