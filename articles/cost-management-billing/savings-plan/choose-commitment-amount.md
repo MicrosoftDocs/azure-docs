@@ -17,7 +17,7 @@ Savings plan purchase recommendations are calculated by analyzing your hourly pa
 
 Azure does not currently provide savings plan recommendations for management groups. See [Recommendations for management groups](choose-commitment-amount.md#recommendations-for-management-groups) for more details
 
-Savings plan recommendations are available [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), [Azure portal](https://portal.azure.com/) and the [savings plan benefit recommendations API](https://learn.microsoft.com/rest/api/cost-management/benefit-recommendations?view=rest-cost-management-2023-11-01)
+Savings plan recommendations are available [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), [Azure portal](https://portal.azure.com/) and the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
 
 ## Recommendations in Azure Advisor
 Recommendations for 1- and 3-year savings plans in [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost) are currently only available for subscription scopes. These recommendations currently only have a 30-day look back period.
@@ -26,7 +26,7 @@ Recommendations for 1- and 3-year savings plans in [Azure Advisor](https://porta
 Recommendations for 1- and 3-year savings plans in [Azure portal](https://portal.azure.com/) are available for shared, subscription and resource group scopes. These recommendations currently only have a 30-day look back period.
 
 ## Savings plan Recommendations API
-1- and 3-year savings plan recommendations from the [savings plan benefit recommendations API](https://learn.microsoft.com/rest/api/cost-management/benefit-recommendations?view=rest-cost-management-2023-11-01)  are available for shared, subscription and resource group scopes. These recommendations are available for 7-, 30- and 60-day look back periods.
+1- and 3-year savings plan recommendations from the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list) are available for shared, subscription and resource group scopes. These recommendations are available for 7-, 30- and 60-day look back periods.
 
 ## Recommendations for management groups
 Currently, the Azure portal doesn't provide savings plan recommendations for management groups. As a workaround, you can perform the following steps:
