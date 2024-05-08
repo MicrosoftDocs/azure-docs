@@ -13,7 +13,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ---
 
-# Model Catalog and Collections
+# Model Catalog and Collections in Azure AI Studio
 
 The model catalog in Azure Machine Learning studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in [Microsoft's Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), and subject to the terms provided with the model.   
 

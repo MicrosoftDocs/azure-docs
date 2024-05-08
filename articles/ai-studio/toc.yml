@@ -40,7 +40,7 @@ items:
   - name: Explore the model catalog
     items:
     - name: Model catalog
-      href: how-to/model-catalog.md
+      href: how-to/model-catalog-overview.md
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models
