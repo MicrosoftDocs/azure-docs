@@ -33,6 +33,8 @@ items:
     items:
     - name: Model catalog
       href: how-to/model-catalog.md
+    - name: Model benchmarks
+      href: how-to/model-benchmarks.md
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
