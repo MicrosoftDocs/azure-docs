@@ -12,7 +12,7 @@ ms.author: eur
 
 # How to use post-call analytics in AI Studio (Preview)
 
-[!INCLUDE [Feature preview include](../../ai-studio/includes/generic-preview.md)]
+[!INCLUDE [Feature preview include](../../ai-studio/includes/feature-preview.md)]
 
 [!INCLUDE [AI Studio include](./includes/how-to/speech-analytics/post-call-ai-studio.md)]
 

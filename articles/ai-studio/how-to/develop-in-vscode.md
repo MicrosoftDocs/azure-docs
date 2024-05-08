@@ -14,11 +14,11 @@ author: sdgilley
 # customer intent: As a Developer, I want to use Azure AI Studio projects in VS Code.
 ---
 
-# Get started with Azure AI Studio projects in VS Code (preview)
+# Get started with Azure AI Studio projects in VS Code (Preview)
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio supports developing in VS Code - Desktop and Web. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance.
-
-[!INCLUDE [preview](../includes/generic-preview.md)]
 
 ## Launch VS Code from Azure AI Studio 
 

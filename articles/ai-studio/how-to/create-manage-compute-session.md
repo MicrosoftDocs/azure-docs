@@ -16,6 +16,8 @@ author: sdgilley
 
 # Create and manage prompt flow compute sessions in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 You need a compute session to run [prompt flows](prompt-flow.md). Use Azure AI Studio to create and manage prompt flow compute sessions.
 
 A prompt flow compute session has computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, Azure AI Studio uses the compute session to ensure the accuracy and functionality of the tools incorporated within the flow when you make updates to the prompt or code content.

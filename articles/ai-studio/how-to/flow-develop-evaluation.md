@@ -15,6 +15,8 @@ author: lgayhardt
 
 # Develop an evaluation flow in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Evaluation flows are special types of flows that assess how well the outputs of a run align with specific criteria and goals.
 
 In prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use it to evaluate other flows. In this document you learn:

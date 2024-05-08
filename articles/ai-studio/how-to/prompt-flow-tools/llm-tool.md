@@ -15,6 +15,8 @@ author: lgayhardt
 
 # LLM tool for flows in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 To use large language models (LLMs) for natural language processing, you use the prompt flow LLM tool.
 
 > [!NOTE]

@@ -15,6 +15,8 @@ author: lgayhardt
 
 # Content risk mitigation strategies with Azure AI
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Mitigating content risks and poor quality generations presented by large language models (LLMs) such as the Azure OpenAI models requires an iterative, layered approach that includes experimentation and continual measurement. We recommend developing a mitigation plan that encompasses four layers of mitigations for the identified risks in the earlier stages of the process:
 
 :::image type="content" source="../media/evaluations/mitigation-layers.png" alt-text="Diagram of strategy to mitigate potential risks of generative AI applications." lightbox="../media/evaluations/mitigation-layers.png":::
