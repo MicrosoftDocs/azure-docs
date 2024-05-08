@@ -31,9 +31,33 @@ After you finish an ACS call, you should be able to see files saved in the folde
 
 `*.aecdump` contains the necessary wav files for debugging audio after processed by the audio processing module in browsers.
 
-## How to inspect aecdump files
+## How to build tools for inspecting aecdump files
+To inspect `*.aecdump` files, you must use the `unpack_aecdump` utility program, the source code can be found at [unpack\_aecdump](https://chromium.googlesource.com/external/webrtc/+/HEAD/rtc_tools/unpack_aecdump?autodive=0)
 
-To inspect `*.aecdump` files, you must use the `unpack_aecdump` utility program, the source code of which is available on the Internet.
+You need to prepare the build environment (Here we use Windows as an example)
+
+Prerequisites:
+
+* Visual Studio 2022
+* Python 3
+* depot\_tools: See Install depot\_tools in [Checking out and Building Chromium for Windows](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/windows_build_instructions.md#Install) 
+
+Make sure you add depot\_tools to the start of your PATH and it must be ahead of any installs of Python.
+
+Run the following commands
+```sh
+mkdir webrtc
+cd webrtc
+gclient
+fetch --nohooks webrtc
+gclient sync
+cd src
+gn gen out/Default
+ninja -C out/Default unpack_aecdump
+```
+The file is available at webrtc/src/out/Default/unpack\_aecdump.exe
+
+## How to inspect aecdump files
 
 Run the command:
 
