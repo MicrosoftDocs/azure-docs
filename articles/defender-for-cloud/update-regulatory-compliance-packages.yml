@@ -37,7 +37,7 @@ procedureSection:
 
           :::image type="content" source="media/update-regulatory-compliance-packages/manage-compliance.png" alt-text="Screenshot of the regulatory compliance page that shows you where to select the manage compliance policy button." lightbox="media/update-regulatory-compliance-packages/manage-compliance.png":::
       - |
-        Select an account or management account (Azure subscription or nmanagement group, AWS account or management account, GCP project or organization) on which you want to assign the security standard.
+        Select an account or management account (Azure subscription or management group, AWS account or management account, GCP project or organization) on which you want to assign the security standard.
 
           > [!NOTE]
           > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources.
@@ -53,11 +53,11 @@ procedureSection:
         The selected standard appears in **Regulatory compliance** dashboard as enabled for the subscription it was enabled on.
 
 relatedContent:
-  - text: Create custom standards for Azure
+  - text: Create custom standards for Azure.
     url: custom-security-policies.md
-  - text: Create custom standards for AWS, and GCP
+  - text: Create custom standards for AWS and GCP.
     url: create-custom-recommendations.md
-  - text: Improve regulatory compliance
+  - text: Improve regulatory compliance.
     url: regulatory-compliance-dashboard.md
 
 # - Create custom standards for [Azure](custom-security-policies.md), [AWS, and GCP](create-custom-recommendations.md).
