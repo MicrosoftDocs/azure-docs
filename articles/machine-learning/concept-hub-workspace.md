@@ -31,7 +31,7 @@ In the transition from proving feasibility of an idea, to a funded project, many
 
 The goal of hubs is to take away this bottleneck, by letting IT set up a pre-configured, reusable, environment for a team to prototype, build and operate machine learning models.
 
-## Interoperability for ML studio and AI studio
+## Interoperability between ML studio and AI studio
 
 Hubs can be used as your team's environment for both ML studio and [AI studio](). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications reponsibly.
 
