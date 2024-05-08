@@ -499,6 +499,7 @@ Only Azure Storage Blob SDK type bindings are supported for Azure Functions in P
 
 * Azure Functions runtime version
 * Azure Functions Core Tools version
+* Python version 3.9+
 
 ### Enable SDK type bindings for Azure Storage Blob
 
@@ -508,7 +509,7 @@ Add the following to the `requirements.txt` file in the project
 
 ```
 azure-functions
-azure-functions-extension-blob
+azurefunctions-extensions-bindings-blob
 ```
 
 #### Import the library
@@ -516,7 +517,7 @@ azure-functions-extension-blob
 Add the following to the `function_app.py` file in the project
 
 ```python
-import azure.functions.extension.blob as blob
+import azurefunctions.extensions.bindings.blob as blob
 ```
 
 ### Examples
@@ -610,7 +611,7 @@ Following is an example of an HTTP triggered Azure Function that streams data as
 ```python
 import time
 import azure.functions as func
-from azure.functions.extension.fastapi import Request, StreamingResponse
+from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
@@ -635,7 +636,7 @@ Following is an example of a HTTP triggered Azure Function which receives stream
 
 ```python
 import azure.functions as func
-from azure.functions.extension.fastapi import JSONResponse, Request
+from azurefunctions.extensions.http.fastapi import JSONResponse, Request
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
@@ -694,7 +695,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Check out additional samples for HTTP streaming downloading on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload].
+Check out this example and more for HTTP streaming uploading on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload].
 
 ::: zone-end
 
