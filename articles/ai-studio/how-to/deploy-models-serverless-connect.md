@@ -1,25 +1,30 @@
 ---
 title: Consume deployed serverless API endpoints from a different project or hub
-titleSuffix: Azure Machine Learning
-description: Learn about to consume deployed serverless API endpoints from a different project or hub
+titleSuffix: Azure AI Studio
+description: Learn about to consume deployed serverless API endpoints from a different project or hub.
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-ms.date: 05/03/2024
+ms.date: 05/08/2024
 ms.reviewer: msakande 
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
 ---
 
-# Consume deployed serverless API endpoints from a different project or hub
+# Consume serverless API endpoints from a different Azure AI Studio project or hub
 
-Certain models in the model catalog can be deployed as a serverless API endpoint with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-On some cases, you want to centralize your deployments on a given project or hub and consume them from different projects or hubs on your organization. On another situations, you may need to deploy models on a hub on a given region and consume it from another region. Some models supporting serverless API endpoint deployment are only available on specific Azure regions.
+In this article, you learn how to configure an existing serverless API endpoint in a different project or hub than the one that was used to create the deployment.
 
-In this example, you learn how to configure an existing serverless API endpoint on a new project or hub.
+Certain models in the model catalog can be deployed as serverless APIs with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
+
+The need to consume a serverless API endpoint in a different project or hub than the one that was used to create the deployment might arise in situations such as these:
+
+- You want to centralize your deployments in a given project or hub and consume them from different projects or hubs in your organization.
+- You need to deploy a model in a hub in a particular Azure region where serverless deployment for that model is available. However, you need to consume it from another region, where serverless deployment isn't available for the particular models.
 
 ## Prerequisites
 
@@ -29,17 +34,17 @@ In this example, you learn how to configure an existing serverless API endpoint 
 
 - An [Azure AI Studio project](create-projects.md).
 
-- A model [deployed to a serverless API endpoint](deploy-models-serverless.md). In this example, we assumed you deployed **Meta-Llama-3-8B-Instruct**.
+- A model [deployed to a serverless API endpoint](deploy-models-serverless.md). This article assumes that you previously deployed the **Meta-Llama-3-8B-Instruct** model. To learn how to deploy this model as a serverless API, see [Deploy models as serverless APIs](deploy-models-serverless.md).
 
-- You need to install the following software to work with Azure Machine Learning:
+- You need to install the following software to work with Azure AI Studio:
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
-    You can use any compatible web browser to navigate [Azure Machine Learning](https://ai.azure.com).
+    You can use any compatible web browser to navigate [Azure AI Studio](https://ai.azure.com).
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
-    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](how-to-configure-cli.md).
+    The [Azure CLI](/cli/azure/) and the [ml extension for Azure Machine Learning](../../machine-learning/how-to-configure-cli.md).
 
     ```azurecli
     az extension add -n ml
@@ -58,7 +63,7 @@ In this example, you learn how to configure an existing serverless API endpoint 
     az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
@@ -80,11 +85,11 @@ Follow these steps to create a connection:
 
 1. Connect to the project or hub where the endpoint is deployed:
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
     Go to [Azure AI Studio](https://ai.azure.com) and follow these steps and navigate to the project where the endpoint you want to connect to is deployed.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     Configure the CLI to point to the project:
 
@@ -93,7 +98,7 @@ Follow these steps to create a connection:
     az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     Create a client connected to your project:
 
@@ -106,9 +111,9 @@ Follow these steps to create a connection:
     )
     ```
 
-1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, we get the details for an endpoint name **meta-llama3-8b-qwerty**.
+1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, you get the details for an endpoint name **meta-llama3-8b-qwerty**.
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
     1. Go to **Endpoints** and select **Serverless**.
 
@@ -116,13 +121,13 @@ Follow these steps to create a connection:
 
     1. On the **Details** tab, copy the URL on **Target** and the value for **Key**.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az ml serverless-endpoint get-credentials -n meta-llama3-8b-qwerty
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     endpoint_name = "meta-llama3-8b-qwerty"
@@ -131,11 +136,11 @@ Follow these steps to create a connection:
     print(endpoint_keys.secondary_key)
     ```
 
-1. Connect now to the project where you need to create the connection and consume the endpoint.
+    Now, you can connect to the project where you need to create the connection and consume the endpoint.
 
 1. Create the connection in the project:
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
     Go to [Azure AI Studio](https://ai.azure.com) and follow these steps:
 
@@ -155,7 +160,7 @@ Follow these steps to create a connection:
 
     1. Select **Add connection**.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     Create a connection definition:
 
@@ -172,7 +177,7 @@ Follow these steps to create a connection:
     az ml connection create -f connection.yml
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     client.connections.create(ServerlessConnection(
@@ -184,16 +189,22 @@ Follow these steps to create a connection:
 
 1. At this point, the connection is available for consumption.
 
-1. To validate the connection is working:
+1. To validate that the connection is working:
 
-    1. On the **Tools** section on the navigation bar, select **Prompt flow**.
+    1. From the left sidebar of your project in AI Studio, go to **Tools** > **Prompt flow**.
 
-    1. Select **Create** and then select **Chat**.
+    1. Select **Create** and then select **Chat flow**.
 
     1. Give your *Prompt flow* a name and select **Create**.
 
     1. On the **chat** node, select the option **Connection** and select the connection you just created, in this case **meta-llama3-8b-connection**.
 
-    1. On the top navigation bar, select **Start compute session** to start a **Prompt flow** automatic runtime.
+    1. From the top navigation bar, select **Start compute session** to start a prompt flow automatic runtime.
 
-    1. Select the **Chat** option. You should be able to send messages and get responses.
+    1. Select the **Chat** option. You can now send messages and get responses.
+
+
+## Related content
+
+- [What is Azure AI Studio?](../what-is-ai-studio.md)
+- [Azure AI FAQ article](../faq.yml)
