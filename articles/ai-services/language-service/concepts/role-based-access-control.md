@@ -79,7 +79,7 @@ A user that should only be validating and reviewing the Language apps, typically
       Only Export POST operation under: 
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
       All the Batch Testing Web APIs
-         *[Language Runtime CLU APIs](/rest/api/language/2023-04-01/conversation-analysis-runtime)
+         *[Language Runtime CLU APIs](/rest/api/language)
          *[Language Runtime Text Analysis APIs](https://go.microsoft.com/fwlink/?linkid=2239169)
     :::column-end:::
 :::row-end:::
