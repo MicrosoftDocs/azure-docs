@@ -210,12 +210,49 @@ sections:
 
   - name: Agentless
     questions:
+      
+      - question: |
+          Does Agentless scanning scan deallocated VMs in my subscription?
+        answer: |
+          No.
+     
+      - question: |
+          Does Agentless scanning scan OS Disk and Data Disks?
+        answer: |
+          Yes.Agentless scanning scans both OS disk and Data disks.
+      
       - question: |
           Which data is collected from snapshots?
         answer: |
           Agentless scanning collects data similar to the data an agent collects to perform the same analysis. Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
-
-
+    
+    - question: |
+          What time of the day my VM is scanned, including start and end time? 
+        answer: |
+          The time of the day is dynamic and can change across different account and subscriptions. 
+      
+      - question: |
+          Is there any telemetry regarding the copied snapshot? 
+        answer: | 
+          In AWS, the operations on the customer account are traceable through CloudTrail. 
+     
+      - question: |
+          Where are the Disk snapshots copied?  
+        answer: | 
+          The analysis of the snapshots takes place in secure environments managed by Defender for Cloud. The environments are regional across multi-cloud, such that snapshots remain at the same cloud region as the VM they originated from (for example – a snapshot of an EC2 instance in US west will be analysed at the same region, without being copied to another region or cloud). 
+          The scanning environment where disks are analyzed is volatile, isolated, and highly secure. [Agentless machine scanning] (https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection#how-agentless-scanning-works)
+     
+      - question: |
+          Where are the Disk snapshots copied?How is the Disk snapshot handled in Microsoft Account? Can Microsoft share Agentless scanning platform security & privacy principles?  
+        answer: | 
+          Agentless scanning platform is audited & compliant with Microsoft’s strict security and privacy standards. Some of the measures taken are (not a comprehensive list): 
+          -- Physical isolation per region, additional isolation per customer and subscription​ 
+          -- E2E encryption at rest and transit​ 
+          -- Disk snapshots immediately purged after scan​ 
+          -- Only metadata (i.e. security findings) leaves the isolated scanning environment​ 
+          -- The scanning environment is autonomous​ 
+          -- All operations are internally audited 
+      
       - question: |
           What are the costs related to agentless scanning?
         answer: |
