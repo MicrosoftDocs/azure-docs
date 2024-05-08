@@ -165,16 +165,18 @@ landingContent:
           url: cli-samples.md
       - linkListType: reference
         links:
+        - text: .NET provider
+          url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+        - text: Spring Boot provider
+          url: https://github.com/microsoft/spring-cloud-azure/tree/master/
+      - linkListType: reference
+        links:
         - text: Azure CLI
           url: /cli/azure/appconfig
         - text: PowerShell
           url: /powershell/module/az.appconfiguration/
         - text: Terraform
           url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html          
-        - text: .NET provider
-          url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-        - text: Spring Boot provider
-          url: https://github.com/microsoft/spring-cloud-azure/tree/master/
         - text: Azure SDK for .NET
           url: https://go.microsoft.com/fwlink/?linkid=2092056
         - text: Azure SDK for Java
@@ -183,5 +185,7 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2103727
         - text: Azure SDK for JavaScript
           url: https://go.microsoft.com/fwlink/?linkid=2103664
+        - text: Azure SDK for Go
+          url: https://go.microsoft.com/fwlink/?linkid=2270866
         - text: Data plane REST API
           url: rest-api.md
