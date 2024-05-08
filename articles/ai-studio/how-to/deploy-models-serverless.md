@@ -14,8 +14,6 @@ author: santiagxf
 
 # Deploy models as serverless APIs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
-
 Certain models in the model catalog can be deployed as a serverless API endpoint with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
 In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** model as a serverless API endpoint.
@@ -57,6 +55,8 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
     az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
     ```
 
+    [!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
     # [Python](#tab/sdk)
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
@@ -79,6 +79,8 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
         workspace_name="<project-name>",
     )
     ```
+
+    [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
     # [ARM](#tab/arm)
 
