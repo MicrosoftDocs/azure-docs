@@ -191,7 +191,7 @@ inference_config:
 
 #### Enable tracing by turning-on Application Insights diagnostics (preview)
 
-If you enable this, tracing data and system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace linked Application Insights. To learn more, see [prompt flow serving tracing data and metrics](#view-prompt-flow-endpoints-specific-metrics-and-tracing-data-optional).
+If you enable this, tracing data and system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace linked Application Insights. To learn more, see [prompt flow serving tracing data and metrics](#view-prompt-flow-endpoints-specific-metrcis-and-tracing-data-optional).
 
 If you want to specify a different Application Insights other than the workspace linked one, [you can configure by CLI](./how-to-deploy-to-code.md#collect-tracing-data-and-system-metrics-during-inference-time).
 
@@ -323,9 +323,9 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 This setting will also enable trace during inference time. You can view the detailed tracing data within Application Insights.
 
-The **Dependency** type events record calls from your deployments. The name of that event is the name of flow folder.
+The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Trasaction search, and you can select each node to view its detailed trace. 
 
-The following screenshot shows an example of a deployed flow containing multiple nodes, and you can select each node to view its detailed trace.
+The **Dependency** type events record calls from your deployments. The name of that event is the name of flow folder. Learn more about [Transaction search and diagnostics in Application Insights](../../azure-monitor/app/transaction-search-and-diagnostics.md).
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/tracing-app-insights.png" alt-text="Screenshot of tracing data in application insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/tracing-app-insights.png":::
 

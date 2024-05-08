@@ -450,7 +450,7 @@ You can view [general metrics of online deployment (request numbers, request lat
 
 #### Collect tracing data and system metrics during inference time
 
-You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-prompt-flow-endpoints-specific-metrics-and-tracing-data-optional).
+You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-prompt-flow-endpoints-specific-metrcis-and-tracing-data-optional).
 
 Prompt flow specific metrics and trace can be specified to other Application Insights other than the workspace linked one. You can speicify an environment variable in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
 
