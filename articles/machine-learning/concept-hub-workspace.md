@@ -74,13 +74,26 @@ Once a hub is created, there are multiple ways to create a project workspace wit
 
 To create project workspaces using a hub, users must have a role assignment on the hub workspace resource using a role that includes the **Microsoft.MachineLearningServices/workspaces/hubs/join/action** action. Azure AI developer role is an example built-in role that supports this action.
 
-Optionally, when creating a hub as an administrator, you may specify a default resource group for project workspace creation. If this default resource group is set, users who use the SDK/CLI/Studio experience to create workspaces, will be able to create workspaces in this designated resource group without requiring further Azure RBAC permissions on a resource group-scope. The creating user, will become an owner on the project workspace Azure resource. Use this capability to provide limited self-serve workspace creation.
+Optionally, when creating a hub as an administrator, you may specify a default project resource group to allow users to create project workspaces in a self-service manner. If this default resource group is set, users who use the SDK/CLI/Studio experience can create workspaces in this particular resource group without needing further Azure RBAC permissions on a resource group-scope. The creating user, will become an owner on the project workspace Azure resource. 
 
 Project workspaces can be created in other resource groups than the default project resource group. For this, users need Microsoft.MachineLearning/Workspaces/write permissions.
 
 ## Supported capabilities by workspace kind
 
+Features that are supported using hub/project workspaces differs from regular workspaces. The following support matrix provides an overview.
 
+| Feature | Default workspace | Hub workspace | Project workspace | Note |
+|--|--|--|--|--|
+|Create project workspaces from ML studio| - | - | X | - |
+|Create shared connections on hub | |X|X| Only in AI studio |
+|Reuse compute instance across workspaces|-|X|X|
+|Share quota across workspaces|-|X|X||
+|BYO virtual network|X|-|-||
+|Managed virtual network|X|X|X|-|
+|Single private link endpoint across workspaces|-|X|X||
+|Named compute clusters|X|-|-|Use serverless jobs instead|
+|Parallel run step|X|-|-|-|
+|Build GenAI apps in AI studio|-|X|X||
 
 ## Converting a regular workspace into a hub workspace
 
