@@ -54,7 +54,7 @@ When your P2S configuration specifies Microsoft Entra ID authentication, the VPN
 
 1. Change the name of the Connection name (optional). Click **Save** to save the connection profile.
 
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connection-properties.png" alt-text="Save the profile." lightbox="./media/point-to-site-entra-vpn-client-windows/connection-properties.png":::
+   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connection-properties.png" alt-text="Screenshot shows Save the profile." lightbox="./media/point-to-site-entra-vpn-client-windows/connection-properties.png":::
 
 1. In the left pane, select the connection profile that you want to use. Then click **Connect** to initiate the connection.
 
