@@ -20,7 +20,11 @@ Azure Extended Zones are small-footprint extensions of Azure placed in metros, i
 
 When deploying Azure Virtual Desktop in an Azure Extended Zone, all of the Azure Virtual Desktop control plane components (web service, broker service, gateway service, diagnostics, and extensibility components) remain in the main Azure region, and only the session hosts are deployed in the Azure Extended Zone. 
 
-Azure Extended Zones uses [RDP Shortpath](rdp-shortpath.md) for reduced latency. RDP Shortpath establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods. An existing Azure Load Balancer is needed on the virtual network that the session hosts are being deployed to. You'll need to use the frontend IP address(es) of the load balancer for outbound connectivity to the internet in order for the session hosts to join a host pool. See [Azure's outbound connectivity methods](../load-balancer/load-balancer-outbound-connections.md#scenarios) for more information. 
+You can benefit from reduced latency using Azure Extended Zones, as Azure Extended Zones uses [RDP Shortpath](rdp-shortpath.md). RDP Shortpath establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods. 
+
+[Azure Private Link](private-link-overview.md) can be used with Azure Extended Zones. Azure Private Link can help with reducing latency and improving security. By creating a [private endpoint](../private-link/private-endpoint-overview.md), traffic between your virtual network and the service remains on the Microsoft network, so you no longer need to expose your service to the public internet. 
+
+Unlike Azure regions, Azure Extended Zones doesn't have any default outbound connectivity. An existing Azure Load Balancer is needed on the virtual network that the session hosts are being deployed to. You'll need to use the frontend IP address(es) of the load balancer for outbound connectivity to the internet in order for the session hosts to join a host pool. See [Azure's outbound connectivity methods](../load-balancer/load-balancer-outbound-connections.md#scenarios) for more information. 
 
 
 ## Gaining access to an Azure Extended Zone 
