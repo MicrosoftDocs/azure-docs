@@ -19,10 +19,11 @@ Here's an example of where you would copy and paste the Azure portal parameter i
 
 [![Screenshot that shows Azure portal parameter location.](images/azure-portal-parameter-examples.png)](images/azure-portal-parameter-examples.png#lightbox)
 
-[!NOTE] Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. For more information, see [Experiment permissions](chaos-studio-permissions-security.md). 
-<br>
-<br>
-View all available role assignments [here](chaos-studio-fault-providers.md) to determine which permissions are required for your target resources. 
+> [!NOTE]
+> Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. For more information, see [Experiment permissions](chaos-studio-permissions-security.md). 
+><br>
+><br>
+>View all available role assignments [here](chaos-studio-fault-providers.md) to determine which permissions are required for your target resources. 
 
 ---
 Azure Kubernetes Service (AKS) Network Delay
