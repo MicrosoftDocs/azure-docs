@@ -65,7 +65,7 @@ Set up the appropriate data connector in one of two ways:
 
 Select the appropriate tab for instructions.
 
-# [Syslog in portal](#tab/syslog)
+# [Syslog or CEF in portal](#tab/portal)
 
 ### Create data collection rule
 
@@ -73,13 +73,21 @@ To get started, open the data connector in Microsoft Sentinel and create a data 
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
 
-1. Type *Syslog* in the **Search** box. From the results, select the **Syslog via AMA** connector.
+1. For syslog, type *Syslog* in the **Search** box. From the results, select the **Syslog via AMA** connector. <br> For CEF, type *CEF* in the **Search** box. From the results, select the **Common Event Format (CEF) via AMA** connector.
 
 1. Select **Open connector page** on the details pane.
 
 1. In the **Configuration** area, select **+Create data collection rule**. 
 
-    :::image type="content" source="media/connect-cef-ama/syslog-connector-page-create-dcr.png" alt-text="Screenshot showing the CEF via AMA connector page." lightbox="media/connect-cef-ama/cef-connector-page-create-dcr.png":::
+    # [Syslog via AMA](#tab/syslog)
+
+    :::image type="content" source="media/connect-cef-ama/syslog-connector-page-create-dcr.png" alt-text="Screenshot showing the Syslog via AMA connector page." lightbox="media/connect-cef-ama/syslog-connector-page-create-dcr.png":::
+
+   # [CEF via AMA](#tab/cef)
+
+    :::image type="content" source="media/connect-cef-ama/cef-connector-page-create-dcr.png" alt-text="Screenshot showing the CEF via AMA connector page." lightbox="media/connect-cef-ama/cef-connector-page-create-dcr.png":::
+    
+    ---
 
 1. In the **Basic** tab: 
     - Type a DCR name.
