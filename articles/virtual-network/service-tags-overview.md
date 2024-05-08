@@ -46,9 +46,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
-| **AutonomousDevelopmentPlatform** | Autonomous Development Platform | Both | Yes | Yes |
 | **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
-| **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
+| **[AzureActiveDirectoryDomainServices](/entra/identity/domain-services/network-considerations#inbound-connectivity)** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
 | **[AzureAdvancedThreatProtection](/defender-for-identity/deploy/configure-proxy#enable-access-with-a-service-tag)** | Microsoft Defender for Identity. | Outbound | No | Yes |
 | **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. | Outbound | No | Yes |
 | **AzureAttestation** | Azure Attestation. | Outbound | No | Yes | 
@@ -63,7 +62,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDatabricks** | Azure Databricks. | Both | No | Yes |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | Yes |
 | **[AzureDeviceUpdate](/azure/iot-hub-device-update/network-security)** | Device Update for IoT Hub. | Both | No | Yes |
-| **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | Yes |
 | **[AzureDevOps](/azure/devops/organizations/security/allow-list-ip-url)** | Azure DevOps. | Inbound | Yes | Yes |
 | **[AzureDigitalTwins](/azure/digital-twins/concepts-security#service-tags)** | Azure Digital Twins.<br/><br/>**Note**: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. | Inbound | No | Yes |
 | **[AzureEventGrid](/azure/event-grid/network-security#service-tags    )** | Azure Event Grid. | Both | No | Yes |
@@ -73,8 +71,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | Yes | Yes |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This only includes probe traffic, not real traffic to your backend resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
-| **AzureLoadTestingInstanceManagement** | This service tag is used for inbound connectivity from Azure Load Testing service to the load generation instances injected into your virtual network in the private load testing scenario. <br/><br/>**Note:** This tag is intended to be used in Azure Firewall, NSG, UDR and all other gateways for inbound connectivity. | Inbound | No | Yes |
-| **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
 | **[AzureMachineLearningInference](/azure/machine-learning/how-to-access-azureml-behind-firewall)** | This service tag is used for restricting public network ingress in private network managed inferencing scenarios. | Inbound | No | Yes |
 | **AzureManagedGrafana** | Azure Managed Grafana instance endpoint. | Outbound | No | Yes |
 | **[AzureMonitor](/azure/azure-monitor/ip-addresses)** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>**Note**: For Log Analytics, the **Storage** tag is also required. If Linux agents are used, **GuestAndHybridManagement** tag is also required. | Outbound | No | Yes |
@@ -83,14 +79,14 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzurePlatformIMDS](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations)** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **[AzureResourceManager](/azure/azure-resource-manager/management/service-tags)** | Azure Resource Manager. | Outbound | No | Yes |
-| **AzureSentinel** | Microsoft Sentinel. | Inbound | No | Yes |
+| **[AzureSentinel](/AZURE/sentinel/define-playbook-access-restrictions)** | Microsoft Sentinel. | Inbound | No | Yes |
 | **[AzureSignalR](/azure/azure-signalr/howto-service-tags)** | Azure SignalR. | Outbound | No | Yes |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | Yes |
 | **[AzureSphere](/azure-sphere/network/restrict-vnet-service-tag)** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
 | **[AzureSpringCloud](/azure/spring-apps/enterprise/concept-security-controls)** | Allow traffic to applications hosted in Azure Spring Apps. | Outbound | No | Yes |
 | **AzureStack** | Azure Stack Bridge services. <br/> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
-| **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>**Note**: This tag provides access to Windows Update metadata services. To successfully download updates, you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul> | Outbound | No | Yes |  
+| **AzureUpdateDelivery** | The Azure Update Delivery service tag used for accessing Windows Updates is marked for deprecation and in the future it will be decommissioned. </br></br> Customers are advised to not take a dependency on this service tag and for customers already using it they are advised to migrate to one of the following options: </br></br>Configure Azure Firewall for your Windows 10/11 devices as documented: </br></br> • **[Manage connection endpoints for Windows 11 Enterprise](/windows/privacy/manage-windows-11-endpoints)** </br></br> • **[Manage connection endpoints for Windows 10 Enterprise, version 21H2](/windows/privacy/manage-windows-21h2-endpoints)** </br></br> Deploy the Windows Server Update Services (WSUS) </br></br> **[Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus/)** then proceed to </br> **[Step 2: Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet)** | Outbound | No | Yes |  
 | **AzureWebPubSub** | AzureWebPubSub | Both | Yes | Yes |
 | **[BatchNodeManagement](/azure/batch/batch-virtual-network)** | Management traffic for deployments dedicated to Azure Batch. | Both | Yes | Yes |
 | **[ChaosStudio](/azure/chaos-studio/chaos-studio-permissions-security)** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | No | Yes |
@@ -104,19 +100,17 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
-| **HDInsight** | Azure HDInsight. | Inbound | Yes | Yes |
+| **[HDInsight](/azure/hdinsight/hdinsight-service-tags#get-started-with-service-tags)** | Azure HDInsight. | Inbound | Yes | Yes |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
 | **KustoAnalytics** | Kusto Analytics. | Both | No | No |
 | **LogicApps** | Logic Apps. | Both | No | Yes |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | Yes |
-| **Marketplace** | Represents the entire suite of Azure 'Commercial Marketplace Experiences' services. | Both | No | Yes |
 | **[M365ManagementActivityApi](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **[M365ManagementActivityApiWebhook](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Outbound | No | Yes |
 | **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | Yes |
 | **[MicrosoftContainerRegistry](/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-ip-address-range)** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
-| **MicrosoftDefenderForEndpoint** | Microsoft Defender for Endpoint. </br> This service tag is available in public preview. </br> For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-device-connectivity) | Both | No | Yes |
-| **MicrosoftPurviewPolicyDistribution** | This tag should be used within the outbound security rules for a data source (e.g. Azure SQL MI) configured with private endpoint to retrieve policies from Microsoft Purview | Outbound| No | No |
+| **[MicrosoftDefenderForEndpoint](/defender-endpoint/configure-device-connectivity`)** | Microsoft Defender for Endpoint. </br> This service tag is available in public preview. </br> For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-device-connectivity) | Both | No | Yes |
 | **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/>**Note:** does not include frontend endpoints at the moment (e.g., app.powerbi.com).<br/><br/>Access to frontend endpoints should be provided through AzureCloud tag (Outbound, HTTPS, can be regional). | Both | No | Yes |
 | **[PowerPlatformInfra](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
 | **[PowerPlatformPlex](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
