@@ -41,17 +41,6 @@ To check which version your packet core instance is currently running, and wheth
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource overview." lightbox="media/upgrade-packet-core-azure-portal/packet-core-control-plane-overview.png":::
 
-## Verify the packet core is running
-
-1. Use Azure Resource Health to confirm the packet core instance is healthy.
-
-    - Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version).
-    - Select **Resource Health** under the **Help** section on the left side.
-    - Check that the resource is healthy and there are no unexpected alerts.
-    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
-1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
-
 ## Plan for your upgrade
 
 The service will be unavailable during the upgrade period. We recommend upgrading your packet core instance during a maintenance window to minimize the impact of the upgrade on your service.
@@ -66,6 +55,17 @@ In addition, consider the following points for pre- and post-upgrade steps you m
   - If you're currently running a packet core version that the ASE version you're upgrading to doesn't support, it's possible that packet core won't operate normally with the new ASE version. In this case, we recommend planning a maintenance window that allows you time to upgrade both ASE and packet core. Refer to [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md) for how long the ASE upgrade will take.
 - Prepare a testing plan with any steps you'll need to follow to validate your deployment post-upgrade. This plan should include testing some registered devices and sessions, and you'll execute it as part of [Verify upgrade](#verify-upgrade).
 - Review [Restore backed up deployment information](#restore-backed-up-deployment-information) and [Verify upgrade](#verify-upgrade) for the post-upgrade steps you'll need to follow to ensure your deployment is fully operational. Make sure your upgrade plan allows sufficient time for these steps.
+
+## Verify the packet core is running
+
+1. Use Azure Resource Health to confirm the packet core instance is healthy.
+
+    - Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version).
+    - Select **Resource Health** under the **Help** section on the left side.
+    - Check that the resource is healthy and there are no unexpected alerts.
+    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 
 ## Upgrade the packet core instance
 
