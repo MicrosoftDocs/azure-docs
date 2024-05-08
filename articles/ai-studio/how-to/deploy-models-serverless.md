@@ -5,7 +5,7 @@ description: Learn about to deploy models as serverless API.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 04/03/2025
+ms.date: 05/03/2024
 ms.reviewer: msakande 
 reviewer: msakande
 ms.author: fasantia
@@ -50,6 +50,13 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
     az extension update -n ml
     ```
 
+    Once the extension is installed, configure it:
+
+    ```azurecli
+    az account set --subscription <subscription>
+    az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
+    ```
+
     # [Python](#tab/sdk)
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
@@ -58,9 +65,24 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
     pip install -U azure-ai-ml
     ```
 
+    Once installed, import necessary namespaces and create a client connected to your project:
+
+    ```python
+    from azure.ai.ml import MLClient
+    from azure.identity import InteractiveBrowserCredential
+    from azure.ai.ml.entities import MarketplaceSubscription, ServerlessEndpoint
+
+    client = MLClient(
+        credential=InteractiveBrowserCredential(tenant_id="<tenant-id>"),
+        subscription_id="<subscription-id>",
+        resource_group_name="<resource-group>",
+        workspace_name="<project-name>",
+    )
+    ```
+
     # [ARM](#tab/arm)
 
-    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools.
+    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
 
 
 ## Model marketplace subscriptions
@@ -115,7 +137,7 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     Use the following template to create a model subscription:
 
-    __Template__
+    __template.json__
 
     ```json
     {
@@ -148,6 +170,21 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
             }
         ]
     }
+    ```
+
+    Then create the deployment:
+
+    ```azurecli
+    az deployment group create \
+        --name model-subscription-deployment \
+        --resource-group <resource-group> \
+        --template-file template.json
+    ```
+
+    The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
+
+    ```output
+    "provisioningState": "Succeeded",
     ```
 
 1. Creating a subscription will accept the terms and conditions associated with the model offer.
@@ -185,7 +222,12 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     # [ARM](#tab/arm)
 
-    Use REST APIs to query this information.
+    You can use the Resource Management tools to query the resources. In the following example, we use Azure CLI:
+
+    ```azurecli
+    az resource list \
+        --query "[?type=='Microsoft.SaaS']"
+    ```
 
 ## Serverless API endpoints
 
@@ -236,7 +278,7 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     Use the following template to create an endpoint:
 
-    __Template__
+    __template.json__
 
     ```json
     {
@@ -280,6 +322,21 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
     }
     ```
 
+    Then create the deployment:
+
+    ```azurecli
+    az deployment group create \
+        --name model-subscription-deployment \
+        --resource-group <resource-group> \
+        --template-file template.json
+    ```
+
+    The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
+
+    ```output
+    "provisioningState": "Succeeded",
+    ```
+
 1. At any point, you can see the endpoints deployed to your project:
 
     # [Portal](#tab/portal)
@@ -313,13 +370,21 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [ARM](#tab/arm)
 
-    Use REST APIs to query this information.
+    You can use the Resource Management tools to query the resources. In the following example, we use Azure CLI:
+
+    ```azurecli
+    az resource list \
+        --query "[?type=='Microsoft.MachineLearningServices/workspaces/serverlessEndpoints']"
+    ```
 
 1. The created endpoint uses key authentication for authorization. Use the following steps to get the keys associated with a given endpoint.
 
     # [Portal](#tab/portal)
 
     You can return to the Deployments page, select the deployment, and note the endpoint's Target URL and the Secret Key. Use them to call the deployment and generate predictions.
+
+    > [!NOTE]
+    > When using [Azure Portal](https://portal.azure.com), serverless API endpoints aren't displayed by default on the resource group. Use **Show hidden types** option to display them on the resource group.
 
     # [CLI](#tab/cli)
 
@@ -400,7 +465,11 @@ client.marketplace_subscriptions.begin_delete(subscription_name).wait()
 
 # [ARM](#tab/arm)
 
-Use REST APIs to delete the resources.
+    You can use the Resource Management tools to manage the resources. In the following example, we use Azure CLI:
+
+    ```azurecli
+    az resource delete --name <resource-name>
+    ```
 
 ---
 
