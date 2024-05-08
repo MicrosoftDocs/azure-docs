@@ -19,7 +19,9 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 A hub is a kind of workspace that can be used by IT security to centrally manage security, connectivity and compute resources for a team. Once setup, they enable developers to create their own workspaces to organize their work, reuse compute resources across workspaces, and connect with shared company resources made available by the administrator.
 
-Workspaces that are created using a hub, referred to as 'project workspaces', obtain the same security settings and shared resource access. They don't require their own security settings or Azure dependent resources. Create as many project workspaces as you need to organize your work, isolate data, or restrict access. Create a hub for a team that operates in the same data or business domain. 
+Workspaces that are created using a hub, referred to as 'project workspaces', obtain the same security settings and shared resource access. They don't require their own security settings or Azure dependent resources. Create as many project workspaces as you need to organize your work, isolate data, or restrict access. 
+
+Create a hub workspace if you or your team are planning for multiple machine learning projects. Use a hub to organize projects in the same data or business domain.
 
 ## Fast, but secure, AI exploration without bottleneck on IT
 
