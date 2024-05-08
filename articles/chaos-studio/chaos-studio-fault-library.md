@@ -23,6 +23,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 |---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
 | Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | Compute capacity loss, resource pressure                    |
 | Windows, Linux      | [Kill Process](#kill-process)                                               | Dependency disruption                                       |
+| Windows             | [Pause Process](#pause-process)                                             | Dependency disruption, service disruption                   |
 | Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
 | Windows, Linux      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
 | Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
@@ -765,6 +766,50 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 }
 ```
 
+### Pause Process
+
+| Property | Value |
+|-|-|
+| Capability name | PauseProcess-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows. |
+| Description | Pauses (suspends) the specified processes for the specified duration. If there are multiple processes with the same name, this fault suspends all of those processes. Within the fault's duration, the processes are paused repetitively at the specified interval. At the end of the duration or if the experiment is canceled, the processes will resume. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:agent:pauseProcess/1.0 |
+| Parameters (key, value) |  |
+| processNames | Delimited JSON array of process names defining which processes are to be paused. Maximum of 4. The process name can optionally include the ".exe" extension. |
+| pauseIntervalInMilliseconds | Amount of time the fault waits between successive pausing attempts, in milliseconds. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:pauseProcess/1.0",
+      "parameters": [
+        {
+          "key": "processNames",
+          "value": "[ \"test-0\", \"test-1.exe\" ]"
+        },
+        {
+          "key": "pauseIntervalInMilliseconds",
+          "value": "1000"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+Currently, a maximum of 4 process names can be listed in the processNames parameter.
 
 ### Time Change
 
