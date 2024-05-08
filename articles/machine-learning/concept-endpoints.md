@@ -89,7 +89,7 @@ All serverless API, online, and batch endpoints are based on the idea of endpoin
 
 #### Endpoints
 
-The following table shows a summary of the different features available to online and batch endpoints.
+The following table shows a summary of the different features available to serverless API, online, and batch endpoints.
 
 | Feature                               | [Serverless API endpoints](how-to-deploy-models-serverless.md) | [Online endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |---------------------------------------|--------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
