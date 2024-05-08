@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI assistant create output binding allows you to {{do something cool}}. {{More information here.}}
+The Azure OpenAI assistant create output binding allows you to create a new assistant chat bot.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -32,11 +32,9 @@ A C# function can be created using one of the following C# modes:
 
 ### [Isolated process](#tab/isolated-process)
 
-{{This comes from the example code comment}} 
+This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="csharp" source="~/functions-openai-extension/samples/{{link to the correct sample.cs}}" range="{{named is better than range}}"::: 
-
-{{Add more examples if available}}
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantSample/AssistantApis.cs" range="20-45"::: 
 
 ### [In-process](#tab/in-process)
 
@@ -59,14 +57,13 @@ A C# function can be created using one of the following C# modes:
 :::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-{{This comes from the example code comment}} 
+This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
-
-{{Add more examples if available}}
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="7-29":::
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -84,11 +81,10 @@ For more information about *function.json* file properties, see the [Configurati
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
-{{This comes from the example code comment}} 
+This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="python" source="~/functions-openai-extension/samples/{{link to the correct sample.py}}" range="{{named is better than range}}":::
 
-{{Add more examples if available}}
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="7-22":::
 
 ::: zone-end  
 <!--- End code examples section -->  
@@ -103,11 +99,11 @@ The specific attribute you apply to define an assistant create output binding de
 
 ### [Isolated process](#tab/isolated-process)
 
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `{{attribute_name}}` to define an assistant create output binding.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `CreateAssistant` to define an assistant create output binding.
 
 ### [In-process](#tab/in-process)
 
-In the [in-process model](./functions-dotnet-class-library.md), apply `{{attribute_name}}` to define an assistant create output binding.
+In the [in-process model](./functions-dotnet-class-library.md), apply `CreateAssistant` to define an assistant create output binding.
 
 ---
 
@@ -115,30 +111,32 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| {{param name from source code}} | {{Description from source code}} |
-
+| **Id** | The identifier of the assistant to create. |
+| **Instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `{{annotation_name}}` annotation enables you to define an assistant create output binding, which supports these parameters: 
+The `CreateAssistant` annotation enables you to define an assistant create output binding, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the output binding. |
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
 <!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `{{decorator_name}}` decorator supports these parameters:
+The `CreateAssistant` decorator supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 
 
 ::: zone-end
@@ -149,10 +147,11 @@ The binding supports these configuration properties that you set in the function
 
 |Property | Description |
 |-----------------------|-------------|
-| **type** | Must be `{{binding_name}}`. |
+| **type** | Must be `CreateAssistant`. |
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
-| {{lowercase of param name from source code}} | {{Description from source code}} 
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -162,8 +161,8 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| {{lowercase of param name from source code}} | {{Description from source code}} |
-
+| **id** | The identifier of the assistant to create. |
+| **instructions** | _Optional._ The instructions that are provided to assistant to follow. |
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.

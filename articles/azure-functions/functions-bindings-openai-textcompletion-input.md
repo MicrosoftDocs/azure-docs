@@ -197,6 +197,9 @@ See the [Example section](#example) for complete examples.
 
 ## Related content
 
+[Find the Github Repo for the text completion samples.](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion)
+
+
 {{To be added}}
 
 <!--- Add links to:

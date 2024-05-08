@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI assistant trigger allows you to execute your function code when {{something happens}}. {{More information here.}}
+The Azure OpenAI assistant binding allows you to trigger custom chat bots and skills into your code executions. You can define the binding to define a skill.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -32,11 +32,9 @@ A C# function can be created using one of the following C# modes:
 
 ### [Isolated process](#tab/isolated-process)
 
-{{This comes from the example code comment}} 
+This example demonstrates the initalization of an assistant defined to add a new todo task to a database. Here the trigger function takes a `taskDescription` parameter and embeds it into a skills prompt, which is then utlizes the OpenAI function calling. The response to the prompt is returned in the HTTP response. 
 
-:::code language="csharp" source="~/functions-openai-extension/samples/{{link to the correct sample.cs}}" range="{{named is better than range}}"::: 
-
-{{Add more examples if available}}
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantSample/AssistantSkills.cs" range="{{31-43}}"::: 
 
 ### [In-process](#tab/in-process)
 
@@ -54,19 +52,19 @@ A C# function can be created using one of the following C# modes:
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
+
 {{This comes from the example code comment}} 
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
+:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-{{This comes from the example code comment}} 
+This example demonstrates the initalization of an assistant defined to add a new todo task to a database. Here the trigger function takes a `taskDescription` parameter and embeds it into a skills prompt, which is then utlizes the OpenAI function calling. The response to the prompt is returned in the HTTP response. 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
-
-{{Add more examples if available}}
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantSkills.ts" range="{{9-24}}":::
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -84,9 +82,10 @@ For more information about *function.json* file properties, see the [Configurati
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
-{{This comes from the example code comment}} 
 
-:::code language="python" source="~/functions-openai-extension/samples/{{link to the correct sample.py}}" range="{{named is better than range}}":::
+This example demonstrates the initalization of an assistant defined to add a new todo task to a database. Here the trigger function takes a `taskDescription` parameter and embeds it into a skills prompt, which is then utlizes the OpenAI function calling. The response to the prompt is returned in the HTTP response. 
+
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_skills.py" range="13-23":::
 
 {{Add more examples if available}}
 
@@ -103,11 +102,11 @@ The specific attribute you apply to define an assistant trigger depends on your 
 
 ### [Isolated process](#tab/isolated-process)
 
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `{{attribute_name}}` to define an assistant trigger.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `AssistantSkillTriggerInput` to define an assistant trigger.
 
 ### [In-process](#tab/in-process)
 
-In the [in-process model](./functions-dotnet-class-library.md), apply `{{attribute_name}}` to define an assistant trigger.
+In the [in-process model](./functions-dotnet-class-library.md), apply `AssistantSkillTrigger` to define an assistant trigger.
 
 ---
 
@@ -115,30 +114,39 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| {{param name from source code}} | {{Description from source code}} |
+| **FunctionName** | Gets or sets the name of the function to be invoked by the assistant.|
+| **FunctionDescription** | Gets the description of the assistant function, which is provided to the LLM|
+| **ParameterDescriptionJson** | Gets or sets a JSON description of the function parameter, which is provided to the LLM. If no description is provided, the description will be autogenerated.For more information on the syntax of the parameter description JSON, see the OpenAI API documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools. |
+| **Model** | _Optional._ Gets or sets the OpenAI chat model to use. Default model used is "gpt-3.5-turbo". When using Azure OpenAI the name of the model should be <em>deployment</em>|
+
 
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `{{annotation_name}}` annotation enables you to define an assistant trigger, which supports these parameters: 
+The `AssistantSkillTrigger` annotation enables you to define an assistant trigger, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |
-| **name** | Gets or sets the name of the trigger. |
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **name** | Gets or sets the name of the input binding. |
+| **FunctionName** | Gets or sets the name of the function to be invoked by the assistant.|
+| **FunctionDescription** | Gets the description of the assistant function, which is provided to the LLM|
+| **ParameterDescriptionJson** | Gets or sets a JSON description of the function parameter, which is provided to the LLM. If no description is provided, the description will be autogenerated.For more information on the syntax of the parameter description JSON, see the OpenAI API documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools. |
+| **Model** | _Optional._ Gets or sets the OpenAI chat model to use. Default model used is "gpt-3.5-turbo". When using Azure OpenAI the name of the model should be <em>deployment</em>|
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
 <!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `{{decorator_name}}` decorator supports these parameters:
+The `AssistantSkillTrigger` decorator supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
-| **arg_name** | The name of the variable that represents the binding parameter. |
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **function_name** | Gets or sets the name of the function to be invoked by the assistant.|
+| **function_description** | Gets the description of the assistant function, which is provided to the LLM|
+| **parameter_description_json** | Gets or sets a JSON description of the function parameter, which is provided to the LLM. If no description is provided, the description will be autogenerated.For more information on the syntax of the parameter description JSON, see the OpenAI API documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools. |
+| **model** | _Optional._ Gets or sets the OpenAI chat model to use. Default model used is "gpt-3.5-turbo". When using Azure OpenAI the name of the model should be <em>deployment</em>|
 
 
 ::: zone-end
@@ -149,10 +157,12 @@ The binding supports these configuration properties that you set in the function
 
 |Property | Description |
 |-----------------------|-------------|
-| **type** | Must be `{{binding_name}}`. |
+| **type** | Must be `AssistantSkillTrigger`. |
 | **direction** | Must be `out`. |
 | **name** | The name of the trigger. |
-| {{lowercase of param name from source code}} | {{Description from source code}} 
+| **functionName** | Gets or sets the name of the function to be invoked by the assistant.|
+| **functionDescription** | Gets the description of the assistant function, which is provided to the LLM|
+| **parameterDescriptionJson** | Gets or sets a JSON description of the function parameter, which is provided to the LLM. If no description is provided, the description will be autogenerated.For more information on the syntax of the parameter description JSON, see the OpenAI API documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -162,7 +172,12 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **type** | Must be `AssistantSkillTrigger`. |
+| **direction** | Must be `out`. |
+| **name** | The name of the trigger. |
+| **functionName** | Gets or sets the name of the function to be invoked by the assistant.|
+| **functionDescription** | Gets the description of the assistant function, which is provided to the LLM|
+| **parameterDescriptionJson** | Gets or sets a JSON description of the function parameter, which is provided to the LLM. If no description is provided, the description will be autogenerated.For more information on the syntax of the parameter description JSON, see the OpenAI API documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools. |
 
 ::: zone-end  
 

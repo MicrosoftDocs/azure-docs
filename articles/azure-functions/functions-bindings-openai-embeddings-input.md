@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI embeddings input binding allows you to {{do something cool}}. {{More information here.}}
+The Azure OpenAI embeddings input binding allows you to generate embeddings for inputs. The binding can generate embeddings from files or raw text inputs.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about embeddings in Azure OpenAI Service, see [Understand embeddings in Azure OpenAI Service](../ai-services/openai/concepts/understand-embeddings.md).
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -32,11 +32,13 @@ A C# function can be created using one of the following C# modes:
 
 ### [Isolated process](#tab/isolated-process)
 
-{{This comes from the example code comment}} 
+This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/{{link to the correct sample.cs}}" range="{{named is better than range}}"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="38-54"::: 
 
-{{Add more examples if available}}
+This example shows how to generate embeddings for text contained in a file on the file syste.
+
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="60-76"::: 
 
 ### [In-process](#tab/in-process)
 
@@ -103,11 +105,11 @@ The specific attribute you apply to define an embeddings input binding depends o
 
 ### [Isolated process](#tab/isolated-process)
 
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `{{attribute_name}}` to define an embeddings input binding.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `EmbeddingsInput` to define an embeddings input binding.
 
 ### [In-process](#tab/in-process)
 
-In the [in-process model](./functions-dotnet-class-library.md), apply `{{attribute_name}}` to define an embeddings input binding.
+In the [in-process model](./functions-dotnet-class-library.md), apply `EmbeddingsInput` to define an embeddings input binding.
 
 ---
 
@@ -115,30 +117,42 @@ The attribute supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| {{param name from source code}} | {{Description from source code}} |
+| **Model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **MaxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **MaxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **Input** | Gets the input to generate embeddings for. |
+| **InputType** | Gets the type of the input. |
 
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `{{annotation_name}}` annotation enables you to define an embeddings input binding, which supports these parameters: 
+The `EmbeddingsInput` annotation enables you to define an embeddings input binding, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **maxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **maxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **inputType** | Gets the type of the input. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ## Decorators
 <!--- Are we going to have a specific decorator defined for this binding? Right now, examples are using a generic binding decorator.-->
-The `{{decorator_name}}` decorator supports these parameters:
+The `EmbeddingsInput` decorator supports these parameters:
 
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **max_chunk_length** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **max_overlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **input_type** | Gets the type of the input. |
 
 
 ::: zone-end
@@ -149,10 +163,14 @@ The binding supports these configuration properties that you set in the function
 
 |Property | Description |
 |-----------------------|-------------|
-| **type** | Must be `{{binding_name}}`. |
+| **type** | Must be `EmbeddingsInput`. |
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
-| {{lowercase of param name from source code}} | {{Description from source code}} 
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **maxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **maxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **inputType** | Gets the type of the input. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -162,7 +180,11 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| {{lowercase of param name from source code}} | {{Description from source code}} |
+| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
+| **maxChunkLength** | _Optional._ Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **maxOverlap** | _Optional._ Gets or sets the maximum number of characters to overlap between chunks.|
+| **input** | Gets the input to generate embeddings for. |
+| **inputType** | Gets the type of the input. |
 
 ::: zone-end  
 
