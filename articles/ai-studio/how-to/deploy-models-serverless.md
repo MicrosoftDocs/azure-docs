@@ -414,7 +414,7 @@ To delete a serverless API endpoint:
 
 1. Go to [Azure AI Studio](https://ai.azure.com).
 
-1. Go to **Build** and then select **Deployments**.
+1. Go to **Components** section, and then select **Deployments**.
 
 1. Open the deployment you want to delete.
 
@@ -465,11 +465,11 @@ client.marketplace_subscriptions.begin_delete(subscription_name).wait()
 
 # [ARM](#tab/arm)
 
-    You can use the Resource Management tools to manage the resources. In the following example, we use Azure CLI:
+You can use the Resource Management tools to manage the resources. In the following example, we use Azure CLI:
 
-    ```azurecli
-    az resource delete --name <resource-name>
-    ```
+```azurecli
+az resource delete --name <resource-name>
+```
 
 ---
 
