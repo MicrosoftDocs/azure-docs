@@ -137,8 +137,4 @@ Only users with the azure_pg_admin or azure_local_ai_setting_manager role in Pos
 
 __[Learn more about vector similarity search using pgvector](/azure/postgresql/flexible-server/how-to-use-pgvector)__
 
-### Feedback
-
-Coming soon: Throughout 2024 we will be phasing out GitHub Issues as the feedback mechanism for content and replacing it with a new feedback system. For more information see: __[https://aka.ms/ContentUserFeedback](https://aka.ms/ContentUserFeedback)__.
-
 ---
