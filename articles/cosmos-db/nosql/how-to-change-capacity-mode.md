@@ -14,14 +14,15 @@ ms.custom: build-2024
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB allows a user to change the capacity mode of an account from serverless to provisioned capacity. Changing from serverless to provisioned capacity mode converts all containers within the account to manual provisioned throughput containers in-place. The containers' throughput is determined according to the following formula.
+Azure Cosmos DB allows a user to change the capacity mode of an account from serverless to provisioned capacity. Changing from serverless to provisioned capacity mode converts all containers within the account to manual provisioned throughput containers in-place. The containers' throughput is approximately determined according to the following formula.
 
-`Throughput(RU/s) = max(5000, StorageInGB * 10)`
+`Throughput(RU/s) = max(5000, number of partitions (physical) * 1000)`
 
 Users can also change the throughput or provisioning mode from manual to autoscale once the migration is complete.
 
 >[!Caution]
->This is an irreversible operation. Once migrated, the capacity mode can't be changed back to serverless.
+> This is an irreversible operation. Once migrated, the capacity mode can't be changed back to serverless.
+> The throughput calculation and default provisioning mode (manual) is subject to change in future. 
 
 ## Getting started
 
@@ -39,7 +40,7 @@ Follow the steps below to change the capacity mode using Azure portal.
 
 4. Once the migration is complete, the capacity mode will be changed to **provisioned capacity**.
 
-> [!Note] 
+>[!Note] 
 > There are no SLA's associated with the duration of the capacity mode change.
 > Users cannot execute any management operation while the migration is in progress. However, the containers can be accessed as usual by any client application.
 
