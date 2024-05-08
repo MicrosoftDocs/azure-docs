@@ -22,7 +22,7 @@ For streaming logs of applications in Azure Spring Apps, see [Stream Azure Sprin
 
 ## Prerequisites
 
-- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, version 1.19.0 or higher. You can install the extension by using the following command: `az extension add --name spring`.
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, version 1.24.0 or higher. You can install the extension by using the following command: `az extension add --name spring`.
 
 ## Supported managed components
 
@@ -32,6 +32,7 @@ The following table lists the managed components that are currently supported, a
 |-----------------------------------|----------------------------------------------------------------------------------------------------|
 | Application Configuration Service | `application-configuration-service` <br/> `flux-source-controller` (Supported in ACS Gen2 version) |
 | Spring Cloud Gateway              | `spring-cloud-gateway` <br/> `spring-cloud-gateway-operator`                                       |
+| Spring Cloud Config Server        | `config-server`                                                                                    |
 
 You can use the following command to list all subcomponents:
 
@@ -49,6 +50,7 @@ To stream logs of managed components, you must have the relevant Azure roles ass
 |-----------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Application Configuration Service | Azure Spring Apps Application Configuration Service Log Reader Role | `Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action` |
 | Spring Cloud Gateway              | Azure Spring Apps Spring Cloud Gateway Log Reader Role              | `Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action`              |
+| Spring Cloud Config Server        | Azure Spring Apps Config Server Log Reader Role                     | `Microsoft.AppPlatform/Spring/configService/logstream/action`                   |
 
 ### [Azure portal](#tab/azure-Portal)
 
@@ -217,6 +219,29 @@ The command returns logs similar to the following example:
 2023-12-01T08:37:14.379Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
 2023-12-01T08:37:15.274Z  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
 2023-12-01T08:37:15.366Z  INFO 1 --- [           main] c.v.t.s.OperatorApplication              : Started OperatorApplication in 11.489 seconds (process running for 12.467)
+...
+```
+
+#### View tail logs for an instance of config-server
+
+Use the following command to view the tail logs for `config-server`:
+
+```azurecli
+az spring component logs \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name config-server \
+    --instance <instance-name>
+```
+
+The command returns logs similar to the following example:
+
+```output
+...
+{"app":"config-server","ts":"2024-05-08T05:38:29.44Z","logger":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","level":"INFO","class":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","method":"prepareWebApplicationContext","file":"ServletWebServerApplicationContext.java","line":291,"thread":"main","message":"Root WebApplicationContext: initialization completed in 3771 ms"}
+{"app":"config-server","ts":"2024-05-08T05:38:30.845Z","logger":"org.apache.tomcat.util.net.NioEndpoint.certificate","level":"INFO","class":"org.apache.juli.logging.DirectJDKLog","method":"log","file":"DirectJDKLog.java","line":173,"thread":"main","message":"Connector [https-jsse-nio-8888], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [file:/etc/azure-spring-cloud/data-plane-shared-secret/ssl-certificate.p12] using alias [tomcat] with trust store [null]"}
+{"app":"config-server","ts":"2024-05-08T05:38:30.87Z","logger":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","level":"INFO","class":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","method":"start","file":"TomcatWebServer.java","line":220,"thread":"main","message":"Tomcat started on port(s): 8888 (https) with context path ''"}
+{"app":"config-server","ts":"2024-05-08T05:38:31.058Z","logger":"com.microsoft.azure.spring.service.CloudConfigServerApplication","level":"INFO","class":"org.springframework.boot.StartupInfoLogger","method":"logStarted","file":"StartupInfoLogger.java","line":57,"thread":"main","message":"Started CloudConfigServerApplication in 6.888 seconds (process running for 8.986)"}
 ...
 ```
 
