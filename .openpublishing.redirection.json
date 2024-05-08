@@ -4004,6 +4004,11 @@
 			"source_path_from_root":"/articles/service-connector/quickstart-cli-aks-connection.md",
 			"redirect_url":"/azure/service-connector/quickstart-portal-aks-connection",
 			"redirect_document_id":false
-		}
+		},
+        {
+            "source_path_from_root":"/articles/aks/generation-2-vm-windows.md",
+            "redirect_url":"/azure/aks/generation-2-vm",
+            "redirect_document_id":false
+        }
     ]
 }

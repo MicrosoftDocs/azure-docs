@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/15/2024
+ms.date: 05/02/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -108,13 +108,13 @@ UAE | UAE North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3
 
-#### [Azure for US Government](#tab/gov)
+#### [Azure for US Government (preview)](#tab/gov)
 
 **Geography** | **Supported regions** | **Details** 
 --- | --- | ---
 United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For Azure VMs only
 
-#### [Azure operated by 21Vianet](#tab/21via)
+#### [Azure operated by 21Vianet (preview)](#tab/21via)
 
 **Geography** | **Supported regions** | **Details** 
 --- | --- | ---

@@ -16,7 +16,7 @@ ms.subservice: calling
 
 [!INCLUDE [Install SDK](../../../how-tos/calling-sdk/includes/install-sdk/install-sdk-android.md)]
 
-The audio filter feature allows different audio preprocessing options to be applied to outgoing audio. There are two types of audio filters: `OutgoingAudioFilters` and `LiveOutgoingAudioFilters`, with `OutgoingAudioFilters` changing settings before the call starts and `LiveOutgoingAudioFilters` changing settings while a call is in progress.
+The audio filter feature enables you to apply different audio preprocessing options to outgoing audio. There are two types of audio filters: `OutgoingAudioFilters` and `LiveOutgoingAudioFilters`. Use `OutgoingAudioFilters` to change settings before the call starts and `LiveOutgoingAudioFilters` to change settings while a call is in progress.
 
 You first need to import the Calling SDK and the associated classes:
 
@@ -45,7 +45,7 @@ outgoingAudioOptions.setAudioFilters(filters);
 
 ## During the call
 
-`LiveOutgoingAudioFilters` can be applied after a call has started. You can retrieve this object from the call object once the call has started. To change the setting in `LiveOutgoingAudioFilters`, set the members inside the class to a valid value and they're applied.
+You can apply `LiveOutgoingAudioFilters` after a call begins. You can retrieve this object from the call object during the call. To change the setting in `LiveOutgoingAudioFilters`, set the members inside the class to a valid value and they're applied.
 
 Only a subset of the filters available from `OutgoingAudioFilters` are available during an active call: music mode, echo cancellation, and noise suppression mode.
 

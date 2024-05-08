@@ -43,7 +43,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
 Limitations for log search alert rule queries:
- - Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+- Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
  - The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
  - The combined size of all data in the log alert rule properties cannot exceed 64KB.
 
@@ -122,6 +122,7 @@ Limitations for log search alert rule queries:
     |Frequency of evaluation|How often the query is run. Can be set anywhere from one minute to one day (24 hours).|
 
     > [!NOTE]
+    > It is important to note that the frequency is not a specific time that the alert runs every day, but it is how often the alert rule will run. 
     > There are some limitations to using a <a name="frequency">one minute</a> alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported: 
     > * The query contains the **search**, **union** * or **take** (limit) operations
     > * The query contains the **ingestion_time()** function
