@@ -86,7 +86,7 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 ```
 
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal parameters](#tab/azure-portal)
 
 ```Azure portal
 {"action":"delay","mode":"all","selector":{"namespaces":["default"]},"delay":{"latency":"200ms","correlation":"100","jitter":"0ms"}}
@@ -152,7 +152,7 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 ```
 
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal parameters](#tab/azure-portal)
 
 ```Azure portal
 {"action":"pod-failure","mode":"all","duration":"600s","selector":{"namespaces":["autoinstrumentationdemo"]}}
@@ -218,7 +218,7 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 ```
 
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal parameters](#tab/azure-portal)
 
 ```Azure portal
 {"mode":"all","selector":{"namespaces":["autoinstrumentationdemo"]},"stressors":{"memory":{"workers":4,"size":"95%"}}
