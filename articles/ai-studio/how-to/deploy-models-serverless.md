@@ -16,9 +16,10 @@ author: santiagxf
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
+In this article, you learn how to deploy a model from the model catalog as a serverless API endpoint.
+
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-In this example, you learn how to deploy a **Meta-Llama-3-8B-Instruct** model as a serverless API endpoint.
 
 ## Prerequisites
 
@@ -93,7 +94,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
 1. Ensure your account has the **Azure AI Developer** role permissions on the resource group.
 
-1. Select **Model catalog** from the left sidebar and find the model card of the model you want to deploy. 
+1. Select **Model catalog** from the left sidebar and find the model card of the model you want to deploy. In this article, you select a **Meta-Llama-3-8B-Instruct** model.
     
     1. If you're deploying the model using Azure CLI, Python, or ARM, copy the **Model ID**.
 
@@ -221,7 +222,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
     # [ARM](#tab/arm)
 
-    You can use the resource management tools to query the resources. The following example uses Azure CLI:
+    You can use the resource management tools to query the resources. The following code uses Azure CLI:
 
     ```azurecli
     az resource list \
@@ -232,7 +233,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
 Once you've created a model's subscription, you can deploy the associated model to a serverless API endpoint. The serverless API endpoint provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-In this example, you create an endpoint with name **meta-llama3-8b-qwerty**.
+In this article, you create an endpoint with name **meta-llama3-8b-qwerty**.
 
 1. Create the serverless endpoint
 
@@ -374,7 +375,7 @@ In this example, you create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [ARM](#tab/arm)
 
-    You can use the Resource Management tools to query the resources. The following example uses Azure CLI:
+    You can use the resource management tools to query the resources. The following code uses Azure CLI:
 
     ```azurecli
     az resource list \
@@ -476,7 +477,7 @@ client.marketplace_subscriptions.begin_delete(subscription_name).wait()
 
 # [ARM](#tab/arm)
 
-You can use the Resource Management tools to manage the resources. In the following example, we use Azure CLI:
+You can use the resource management tools to manage the resources. In the following code, we use Azure CLI:
 
 ```azurecli
 az resource delete --name <resource-name>
