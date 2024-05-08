@@ -6,11 +6,16 @@
 title: azure_local_ai extension
 description: Overview of the azure_local_ai extension and use cases.
 author:      jojohnso-msft # GitHub alias
-ms.author:   johnsonje.arc # Microsoft alias
+ms.author: jojohnso
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/20/2024
 ms.subservice: flexible-server
+searchScope:
+- Azure
+- Azure Database for PostgreSQL
+- Vector
+- pgvector
 ---
 
 # Azure Database for PostgreSQL - Flexible Server: azure_local_ai extension (Preview)
