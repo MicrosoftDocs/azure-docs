@@ -879,6 +879,10 @@
   items:
     - name: Endpoints for inferencing
       href: concept-endpoints.md
+    - name: Serverless API endpoints
+      items:
+        - name: How to deploy serverless API endpoints
+          href: how-to-deploy-models-serverless.md
     - name: Online endpoints (real-time)
       items:
         - name: Online endpoints

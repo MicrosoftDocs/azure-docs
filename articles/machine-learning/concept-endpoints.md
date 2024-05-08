@@ -49,11 +49,21 @@ A **deployment** is a set of resources and computes required for hosting the mod
 
 To function properly, __each endpoint must have at least one deployment__. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-## Online and batch endpoints
+## Serverless API, online, and batch endpoints
 
-Azure Machine Learning allows you to implement [online endpoints](concept-endpoints-online.md) and [batch endpoints](concept-endpoints-batch.md). Online endpoints are designed for real-time inference—when you invoke the endpoint, the results are returned in the endpoint's response. Batch endpoints, on the other hand, are designed for long-running batch inference. Each time you invoke a batch endpoint you generate a batch job that performs the actual work.
+Azure Machine Learning allows you to implement [serverless API endpoints](how-to-deploy-models-serverless.md), [online endpoints](concept-endpoints-online.md), and [batch endpoints](concept-endpoints-batch.md). Serverless API endpoints and online endpoints are designed for real-time inference—when you invoke the endpoint, the results are returned in the endpoint's response. Serverless API endpoints don't consume quota from your subscription and, instead, they are billed with pay-as-you-go.
 
-### When to use online vs batch endpoint for your use-case
+Batch endpoints, on the other hand, are designed for long-running batch inference. Each time you invoke a batch endpoint you generate a batch job that performs the actual work.
+
+### When to serverless API, online, and batch endpoint for your use-case
+
+Use [serverless API endpoints](how-to-deploy-models-serverless.md) to consume large foundational models for real-time inference off the shelf or by funi-tuning the model. Notice that not all the models are available for deployment in this mode. We recommend suing them when:
+
+> [!div class="checklist"]
+> * Your model is a foundational model or a fine-tuned version of it.
+> * You have low-latency requirements.
+> * Your model's inputs fit on the HTTP payload of the request.
+> * You can benefit from a quota-less deployment.
 
 Use [online endpoints](concept-endpoints-online.md) to operationalize models for real-time inference in synchronous low-latency requests. We recommend using them when:
 
@@ -62,6 +72,7 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 > * Your model can answer the request in a relatively short amount of time.
 > * Your model's inputs fit on the HTTP payload of the request.
 > * You need to scale up in terms of number of requests.
+> * Your model is a foundational model or a fine-tuned version of it, but it's not supported in serverless API endpoints.
 
 Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend using them when:
 
@@ -81,38 +92,38 @@ Both online and batch endpoints are based on the idea of endpoints and deploymen
 
 The following table shows a summary of the different features available to online and batch endpoints.
 
-| Feature                               | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
-|---------------------------------------|-------------------------------------------------|-----------------------------------------------|
-| Stable invocation URL                 | Yes                                             | Yes                                           |
-| Support for multiple deployments      | Yes                                             | Yes                                           |
-| Deployment's routing                  | Traffic split                                   | Switch to default                             |
-| Mirror traffic for safe rollout       | Yes                                             | No                                            |
-| Swagger support                       | Yes                                             | No                                            |
-| Authentication                        | Key and token                                   | Microsoft Entra ID                            |
-| Private network support               | Yes                                             | Yes                                           |
-| Managed network isolation             | Yes                                             | Yes [(see required additional configuration)](how-to-managed-network.md#scenario-use-batch-endpoints) |
-| Customer-managed keys                 | Yes                                             | Yes                                           |
-| Cost basis                            | None                                            | None                                          |
+| Feature                               | [serverless API endpoints](how-to-deploy-models-serverless.md) | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
+|---------------------------------------|--------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
+| Stable invocation URL                 | Yes                                              | Yes                                             | Yes                                           |
+| Support for multiple deployments      | No                                               | Yes                                             | Yes                                           |
+| Deployment's routing                  | None                                             | Traffic split                                   | Switch to default                             |
+| Mirror traffic for safe rollout       | No                                               | Yes                                             | No                                            |
+| Swagger support                       | Yes                                              | Yes                                             | No                                            |
+| Authentication                        | Key                                              | Key and Microsoft Entra ID (preview)            | Microsoft Entra ID                            |
+| Private network support               | Yes                                              | Yes                                             | Yes                                           |
+| Managed network isolation             | Yes                                              | Yes                                             | Yes [(see required additional configuration)](how-to-managed-network.md#scenario-use-batch-endpoints) |
+| Customer-managed keys                 | NA                                               | Yes                                             | Yes                                           |
+| Cost basis                            | Per tokens + per endpoint core hours             | None                                            | None                                          |
 
 #### Deployments
 
 The following table shows a summary of the different features available to online and batch endpoints at the deployment level. These concepts apply to each deployment under the endpoint.
 
-| Feature                       | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
-|-------------------------------|-------------------------------------------------|-----------------------------------------------|
-| Deployment types              | Models                                          | Models and Pipeline components                |
-| MLflow model deployment       | Yes                                             | Yes                                           |
-| Custom model deployment       | Yes, with scoring script                        | Yes, with scoring script                      |
-| Model package deployment  <sup>1</sup>    | Yes (preview)                                   | No                                            |
-| Inference server <sup>2</sup> | - Azure Machine Learning Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | Batch Inference        |
-| Compute resource consumed     | Instances or granular resources                 | Cluster instances                             |
-| Compute type                  | Managed compute and Kubernetes                  | Managed compute and Kubernetes                |
-| Low-priority compute          | No                                              | Yes                                           |
-| Scaling compute to zero       | No                                              | Yes                                           |
-| Autoscaling compute<sup>3</sup> | Yes, based on resources' load                 | Yes, based on job count                       |
-| Overcapacity management       | Throttling                                      | Queuing                                       |
-| Cost basis<sup>4</sup>        | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
-| Local testing of deployments  | Yes                                             | No                                            |
+| Feature                       | [serverless API endpoints](how-to-deploy-models-serverless.md) | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
+|-------------------------------|-------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
+| Deployment types              | Models                                          | Models                                          | Models and Pipeline components                |
+| MLflow model deployment       | No, only specific models in the catalog         | Yes                                             | Yes                                           |
+| Custom model deployment       | No, only specific models in the catalog         | Yes, with scoring script                        | Yes, with scoring script                      |
+| Model package deployment  <sup>1</sup>    | NA | Yes (preview)                                   | No                                            |
+| Inference server <sup>2</sup> | Azure AI Model Inference API                    | - Azure Machine Learning Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | Batch Inference        |
+| Compute resource consumed     | None (serverless)                               | Instances or granular resources                 | Cluster instances                             |
+| Compute type                  | None (serverless)                               | Managed compute and Kubernetes                  | Managed compute and Kubernetes                |
+| Low-priority compute          | NA                                              | No                                              | Yes                                           |
+| Scaling compute to zero       | Built-in                                        | No                                              | Yes                                           |
+| Autoscaling compute<sup>3</sup> | Built-in                                        | Yes, based on resources' load                 | Yes, based on job count                       |
+| Overcapacity management       | Throttling                                      | Throttling                                      | Queuing                                       |
+| Cost basis<sup>4</sup>        | Per endpoint and per tokens                     | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
+| Local testing of deployments  | NA                                              | Yes                                             | No                                            |
 
 <sup>1</sup> Deploying MLflow models to endpoints without outbound internet connectivity or private networks requires [packaging the model](concept-package-models.md) first.
 
