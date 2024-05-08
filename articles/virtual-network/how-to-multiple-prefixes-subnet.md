@@ -45,8 +45,6 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [CLI](#tab/cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
 - The how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ---
