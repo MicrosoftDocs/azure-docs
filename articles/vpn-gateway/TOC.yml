@@ -157,7 +157,7 @@
         items:
         - name: Configure a point-to-site VPN
           href: point-to-site-entra-gateway.md
-        - name: Configure P2S - manually registered App ID
+        - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
         - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
