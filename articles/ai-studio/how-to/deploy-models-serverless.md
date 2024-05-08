@@ -16,7 +16,7 @@ author: santiagxf
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API endpoint with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
 In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** model as a serverless API endpoint.
 
@@ -69,7 +69,7 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
 1. Ensure your account has the **Azure AI Developer** role permissions on the Resource Group.
 
-1. Navigate to the model catalog, find the model card of the model you want to deploy, and copy the **Model ID**. If you are deploying the model using Azure AI portal, you don't need to to copy the **Model ID**.
+1. Navigate to the model catalog, find the model card of the model you want to deploy, and copy the **Model ID**. If you are deploying the model using Azure AI portal, you don't need to copy the **Model ID**.
 
 1. Create the model marketplace subscription
 
@@ -164,7 +164,7 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     1. On the **Type** filter, select **SaaS**.
 
-    1. You will see all the offerings you are currently subscripted to.
+    1. You see all the offerings you are currently subscripted to.
 
     1. Select any resource to see the details.
 
@@ -189,9 +189,9 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
 ## Serverless API endpoints
 
-Once a you have a model subscription created, you can deploy the associated models to a serverless API endpoint. providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Once you have a model subscription created, you can deploy the associated models to a serverless API endpoint. They provide a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-In this example, we will create an endpoint with name **meta-llama3-8b-qwerty**.
+In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
 1. Create the serverless endpoint
 
@@ -288,7 +288,7 @@ In this example, we will create an endpoint with name **meta-llama3-8b-qwerty**.
 
     1. Select the section **Deployments**
 
-    1. Serverless API endpoints will be displayed.
+    1. Serverless API endpoints is displayed.
 
     # [CLI](#tab/cli)
 
@@ -319,7 +319,7 @@ In this example, we will create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [Portal](#tab/portal)
 
-    You can return to the Deployments page, select the deployment, and note the endpoint's Target URL and the Secret Key, which you can use to call the deployment and generate completions.
+    You can return to the Deployments page, select the deployment, and note the endpoint's Target URL and the Secret Key. Use them to call the deployment and generate predictions.
 
     # [CLI](#tab/cli)
 
@@ -341,7 +341,7 @@ In this example, we will create an endpoint with name **meta-llama3-8b-qwerty**.
 
 ## Delete endpoints and subscriptions
 
-You can delete model subscriptions and endpoints. Deleting a model subscription will make any associated endpoint to become *Unhealthy* and unusable.
+You can delete model subscriptions and endpoints. Deleting a model subscription makes any associated endpoint to become *Unhealthy* and unusable.
 
 # [Portal](#tab/portal)
 
