@@ -57,7 +57,7 @@ Batch endpoints, on the other hand, are designed for long-running batch inferenc
 
 ### When to serverless API, online, and batch endpoint for your use-case
 
-Use [serverless API endpoints](how-to-deploy-models-serverless.md) to consume large foundational models for real-time inference off-the-shelf or by fine-tuning the model. Notice that not all the models are available for deployment in this mode. We recommend using them when:
+Use [serverless API endpoints](how-to-deploy-models-serverless.md) to consume large foundational models for real-time inference off-the-shelf or by fine-tuning it. Notice that not all the models are available for deployment in this mode. We recommend using them when:
 
 > [!div class="checklist"]
 > * Your model is a foundational model or a fine-tuned version of it available for serverless API deployments.
@@ -104,12 +104,12 @@ The following table shows a summary of the different features available to onlin
 | Customer-managed keys                 | NA                                               | Yes                                             | Yes                                           |
 | Cost basis                            | Per endpoint, per minute<sup>1</sup>             | None                                            | None                                          |
 
-<sup>1</sup>An small amount of changes are applied for serverless APIs per minute. See deployments section for the charges related to consumption, which are billed per token.
+<sup>1</sup>An small fraction is charged for serverless API endpoints per minute. See deployments section for the charges related to consumption, which are billed per token.
 
 
 #### Deployments
 
-The following table shows a summary of the different features available to serverless API, online, and batch endpoints at the deployment level. These concepts apply to each deployment under the endpoint except for serverless API endpoints where the concept of deployment is built-in on the endpoint.
+The following table shows a summary of the different features available to serverless API, online, and batch endpoints at the deployment level. These concepts apply to each deployment under the endpoint except for serverless API endpoints where the concept of deployment is built in on the endpoint.
 
 | Feature                       | [Serverless API endpoints](how-to-deploy-models-serverless.md) | [Online endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |-------------------------------|-------------------------------------------------|-------------------------------------------------|-----------------------------------------------|

@@ -35,7 +35,7 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
 
     # [CLI](#tab/cli)
 
-    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](machine-learning/how-to-configure-cli.md).
+    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](how-to-configure-cli.md).
 
     ```azurecli
     az extension add -n ml
