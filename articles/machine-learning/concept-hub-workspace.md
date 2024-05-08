@@ -88,12 +88,12 @@ Features that are supported using hub/project workspaces differs from regular wo
 |Create shared connections on hub | |X|X| Only in AI studio |
 |Reuse compute instance across workspaces|-|X|X|
 |Share quota across workspaces|-|X|X||
-|BYO virtual network|X|-|-||
-|Managed virtual network|X|X|X|-|
+|Build GenAI apps in AI studio|-|X|X||
 |Single private link endpoint across workspaces|-|X|X||
+|Managed virtual network|X|X|X|-|
+|BYO virtual network|X|-|-||
 |Named compute clusters|X|-|-|Use serverless jobs instead|
 |Parallel run step|X|-|-|-|
-|Build GenAI apps in AI studio|-|X|X||
 
 ## Converting a regular workspace into a hub workspace
 
