@@ -127,8 +127,6 @@ This example collects events from the `cron`, `daemon`, `local0`, `local3` and `
 
 This example shows how you can collect **Syslog and CEF** messages in the same DCR.
 
-See [Avoid data ingestion duplication](#avoid-data-ingestion-duplication) earlier in this article for more information about steps to take when ingesting Syslog and CEF messages using a single agent and DCR.
-
 The DCR collects CEF event messages for:
 - The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
 - The `daemon` facility with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 

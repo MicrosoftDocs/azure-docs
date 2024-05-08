@@ -104,7 +104,7 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 ### Select facilities and severities
 
-Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. Learn how to [avoid data ingestion duplication](#avoid-data-ingestion-duplication).
+Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. Learn how to [Data ingestion duplication](cef-syslog-ama-overview.md#data-ingestion-duplication).
 
 1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
 
