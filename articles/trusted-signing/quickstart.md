@@ -103,16 +103,16 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From either the Azure portal menu or the Home page, select **Create a resource**.
-3. In the Search box, enter **Trusted Signing account**.
-4. From the results list, select **Trusted Signing account**.
-5. On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays.
-6. In the **Subscription** pull-down menu, select a subscription.
-7. In the **Resource group** field, select **Create new** and enter a resource group name.
-8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
-9. In the **Region** pull-down menu, select a region.
-10. In the **Pricing** tier pull-down menu, select a pricing tier.
-11. Select the **Review + Create** button.
+2. In the Search box, enter **Trusted Signing Accounts** or click "More services" to find **Trust Signing Accounts**.
+:::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot of trusted-signing-search-service." lightbox="media/trusted-signing-search-service.png":::
+3. From the results list, select **Trusted Signing Accounts**.
+4. On the Trusted Signing Accounts page, select **Create**. The Create Trusted Signing account section displays.
+5. In the **Subscription** pull-down menu, select a subscription.
+6. In the **Resource group** field, select **Create new** and enter a resource group name.
+7. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
+8. In the **Region** pull-down menu, select a region.
+9. In the **Pricing** tier pull-down menu, select a pricing tier.
+10. Select the **Review + Create** button.
 
     :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
 
@@ -231,7 +231,7 @@ Here are the steps to create an Identity Validation request:
 | Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. For a quicker onboarding process ensure public records for the Legal Entity being validated are upto date. |
 | Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
 | Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
-| Failure to perform email verification            | You are required to initiate a new Identity Validation request if you missed to verify your emaail address within 7 days of receiving the verification link.|
+| Failure to perform email verification            | You are required to initiate a new Identity Validation request if you missed verifying your email address within 7 days of receiving the verification link.|
 | Identity Validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need extra documentation from you) to process your Identity Validation request.|
 
@@ -271,7 +271,7 @@ A certificate profile resource is the logical container of the certificates that
 # [Azure CLI](#tab/certificateprofile-cli)
 
 **Prerequisites**
-You need the Identity Validation ID for the entity that the certificate profile is being created for. The below steps will guide you to obtain your Identity Validation ID from Azure Portal. 
+You need the Identity Validation ID for the entity that the certificate profile is being created for. The below steps will guide you to obtain your Identity Validation ID from Azure portal. 
 
 1. Navigate to your Trusted Signing account in the Azure portal.
 2. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
