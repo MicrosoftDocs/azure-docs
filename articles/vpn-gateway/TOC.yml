@@ -231,14 +231,20 @@
           href: point-to-site-vpn-client-configuration-radius-other.md
       - name: Microsoft Entra ID authentication
         items:
-        - name: Linux
-          href: point-to-site-entra-vpn-client-linux.md
-        - name: Windows
-          href: openvpn-azure-ad-client.md
-        - name: macOS
-          href: openvpn-azure-ad-client-mac.md
-        - name: Generate profile files
-          href: about-vpn-profile-download.md 
+        - name: Microsoft-registered App ID
+          items:
+          - name: Windows
+            href: point-to-site-entra-vpn-client-windows.md
+          - name: Linux
+            href: point-to-site-entra-vpn-client-linux.md
+        - name: Manually registered App ID
+          items:
+          - name: Windows
+            href: openvpn-azure-ad-client.md
+          - name: macOS
+            href: openvpn-azure-ad-client-mac.md
+      - name: Generate profile configuration files
+        href: about-vpn-profile-download.md
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
       - name: Azure VPN Client versions
