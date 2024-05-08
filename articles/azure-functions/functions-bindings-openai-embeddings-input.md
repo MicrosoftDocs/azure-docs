@@ -1,9 +1,8 @@
 ---
 title: Azure OpenAI embeddings input binding for Azure Functions
-description: Learn how to use the Azure OpenAI embeddings input binding to {{do soomething}} during function execution in Azure Functions.
+description: Learn how to use the Azure OpenAI embeddings input binding to generate embeddings during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 04/14/2024
-ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.date: 05/07/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -36,7 +35,7 @@ This example shows how to generate embeddings for a raw text string.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="38-54"::: 
 
-This example shows how to generate embeddings for text contained in a file on the file syste.
+This example shows how to generate embeddings for text contained in a file on the file system.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="60-76"::: 
 
@@ -48,30 +47,39 @@ This example shows how to generate embeddings for text contained in a file on th
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 
 {{This comes from the example code comment}} 
 
 :::code language="typescript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
-
- ::: zone-end  
+-->
+::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 Here's the _function.json_ file for {{example}}:
@@ -83,46 +91,31 @@ For more information about *function.json* file properties, see the [Configurati
 {{This comes from the example code comment}} 
 
 :::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
-
+-->
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 :::code language="python" source="~/functions-openai-extension/samples/{{link to the correct sample.py}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
-
+-->
 ::: zone-end  
 <!--- End code examples section -->  
-<!--- Begin the actual references (Attributes/Annotations/Properties/Decorators) sections 
-All of the tables share essentially the same content, which comes from the .NET code definitions and comments.
-In an ideal world, these sections would be generated directly from the definitions in the source code. 
--->  
 ::: zone pivot="programming-language-csharp"  
 ## Attributes
 
-The specific attribute you apply to define an embeddings input binding depends on your C# process mode. 
-
-### [Isolated process](#tab/isolated-process)
-
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `EmbeddingsInput` to define an embeddings input binding.
-
-### [In-process](#tab/in-process)
-
-In the [in-process model](./functions-dotnet-class-library.md), apply `EmbeddingsInput` to define an embeddings input binding.
-
----
-
-The attribute supports these parameters:
+Apply the `EmbeddingsInput` attribute to define an embeddings input binding, which supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **Model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **MaxChunkLength** | _Optional_. Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **Input** | The input string for which to generate embeddings. |
+| **Model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **MaxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **MaxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **Input** | Gets the input to generate embeddings for. |
-| **InputType** | Gets the type of the input. |
-
+| **InputType** | _Optional_. Gets the type of the input. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -133,11 +126,11 @@ The `EmbeddingsInput` annotation enables you to define an embeddings input bindi
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
-| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **maxChunkLength** | _Optional_. Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **input** | The input string for which to generate embeddings. |
+| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **input** | Gets the input to generate embeddings for. |
-| **inputType** | Gets the type of the input. |
+| **inputType** |  _Optional_. Gets the type of the input. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -148,10 +141,10 @@ During the preview, define the input binding as a `generic_input_binding` bindin
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **max_chunk_length** | _Optional_. Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **input** | The input string for which to generate embeddings. |
+| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **max_overlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **input** | Gets the input to generate embeddings for. |
 | **input_type** | Gets the type of the input. |
 
 
@@ -166,11 +159,11 @@ The binding supports these configuration properties that you set in the function
 | **type** | Must be `EmbeddingsInput`. |
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
-| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **maxChunkLength** | _Optional_. Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **input** | The input string for which to generate embeddings. |
+| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **input** | Gets the input to generate embeddings for. |
-| **inputType** | Gets the type of the input. |
+| **inputType** | _Optional_. Gets the type of the input. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -180,17 +173,21 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| **model** | Gets or sets the ID of the model to use. Changing the default embeddings model is a breaking change, since any changes will be stored in a vector database for lookup. Changing the default model can cause the lookups to start misbehaving if they don't match the data that was previously ingested into the vector database. |
-| **maxChunkLength** | _Optional_. Gets or sets the maximum number of characters to chunk the input into. At the time of writing, the maximum input tokens allowed for second-generation input embedding models like <c>text-embedding-ada-002</c> is 8191. 1 token is ~4 chars in English, which translates to roughly 32K characters of English input that can fit into a single chunk.|
+| **input** | The input string for which to generate embeddings. |
+| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **input** | Gets the input to generate embeddings for. |
-| **inputType** | Gets the type of the input. |
+| **inputType** | _Optional_. Gets the type of the input. |
 
 ::: zone-end  
 
+See the [Example section](#example) for complete examples.
+
 ## Usage
 
-See the [Example section](#example) for complete examples.
+Changing the default embeddings `model` changes the way that embeddings are stored in the vector database. Changing the default model can cause the lookups to start misbehaving when they don't match the rest of the data that was previously ingested into the vector database. The default model for embeddings is `text-embedding-ada-002`.
+
+When calculating the maximum character length for input chunks, consider that the maximum input tokens allowed for second-generation input embedding models like `text-embedding-ada-002` is `8191`. A single token is approximately four characters in length (in English), which translates to roughly 32,000 (English) characters of input that can fit into a single chunk.
 
 ## Related content
 

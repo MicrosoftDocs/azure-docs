@@ -3,7 +3,6 @@ title: Azure OpenAI assistant trigger for Azure Functions
 description: Learn how to use the Azure OpenAI assistant trigger to execute code based on custom chat bots and skills in Azure Functions.
 ms.topic: reference
 ms.date: 04/14/2024
-ms.devlang: csharp, java, javascript, powershell, python, typescript
 zone_pivot_groups: programming-languages-set-functions
 ---
 

@@ -3,7 +3,6 @@ title: Azure OpenAI assistant create output binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant create output binding to create Azure OpenAI assistants from your function code executions.
 ms.topic: reference
 ms.date: 05/07/2024
-ms.devlang: csharp, java, javascript, powershell, python, typescript
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -34,7 +33,7 @@ A C# function can be created using one of the following C# modes:
 
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantSample/AssistantApis.cs" range="20-45"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="20-45"::: 
 
 ### [In-process](#tab/in-process)
 

@@ -3,7 +3,6 @@ title: Azure OpenAI semantic search input binding for Azure Functions
 description: Learn how to use the Azure OpenAI semantic search input binding to use semantic search on your embeddings during function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/08/2024
-ms.devlang: csharp, java, javascript, powershell, python, typescript
 zone_pivot_groups: programming-languages-set-functions
 ---
 # Azure OpenAI semantic search input binding for Azure Functions

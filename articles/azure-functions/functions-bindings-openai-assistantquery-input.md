@@ -54,12 +54,15 @@ This example demonstrates the creation process, where the HTTP GET function that
 -->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 
 {{This comes from the example code comment}} 
 
 :::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
 
 {{Add more examples if available}}
+-->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
@@ -69,6 +72,8 @@ This example demonstrates the creation process, where the HTTP GET function that
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+<!---uncomment when code example is available:
 {{This comes from the example code comment}} 
 
 Here's the _function.json_ file for {{example}}:
@@ -80,43 +85,24 @@ For more information about *function.json* file properties, see the [Configurati
 {{This comes from the example code comment}} 
 
 :::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
-
+-->
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
 :::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="37-41":::
 
-
-
 ::: zone-end  
 <!--- End code examples section -->  
-<!--- Begin the actual references (Attributes/Annotations/Properties/Decorators) section 
-All of the tables share essentially the same content, which comes from the .NET code definitions and comments.
-In an ideal world, these sections would be generated directly from the definitions in the source code. 
--->  
 ::: zone pivot="programming-language-csharp"  
 ## Attributes
 
-The specific attribute you apply to define an assistant query input binding depends on your C# process mode. 
-
-### [Isolated process](#tab/isolated-process)
-
-In the [isolated worker model](./dotnet-isolated-process-guide.md), apply `AssistantQuery` to define an assistant query input binding.
-
-### [In-process](#tab/in-process)
-
-In the [in-process model](./functions-dotnet-class-library.md), apply `AssistantQuery` to define an assistant query input binding.
-
----
-
-The attribute supports these parameters:
+Apply the `AssistantQuery` attribute to define an assistant query input binding, which supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
 | **Id** |  Gets the ID of the assistant to query. |
 | **TimeStampUtc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
-
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -141,7 +127,6 @@ During the preview, define the input binding as a `generic_input_binding` bindin
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **id** |  Gets the ID of the assistant to query. |
 | **time_stamp_utc** |_Optional_. Gets or sets the timestamp of the earliest message in the chat history to fetch. The timestamp should be in ISO 8601 format - for example, 2023-08-01T00:00:00Z. |
-
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  

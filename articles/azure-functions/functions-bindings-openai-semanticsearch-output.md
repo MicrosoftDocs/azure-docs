@@ -3,7 +3,6 @@ title: Azure OpenAI semantic search output binding for Azure Functions
 description: Learn how to use the Azure OpenAI semantic search output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/08/2024
-ms.devlang: csharp, java, javascript, powershell, python, typescript
 zone_pivot_groups: programming-languages-set-functions
 ---
 <!--- Question: It seems like this binding uses Azure AI Search and not Azure OpenAI. Do we need to rename the article to:

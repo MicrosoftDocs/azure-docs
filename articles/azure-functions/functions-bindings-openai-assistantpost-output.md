@@ -1,9 +1,8 @@
 ---
 title: Azure OpenAI assistant post output binding for Azure Functions
-description: Learn how to use the Azure OpenAI assistant create output binding to {{do soomething}} during function execution in Azure Functions.
+description: Learn how to use the Azure OpenAI assistant create output binding to send prompts to chat bots during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 04/14/2024
-ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.date: 05/07/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -34,7 +33,7 @@ A C# function can be created using one of the following C# modes:
 
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantSample/AssistantApis.cs" range="58-78"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-78"::: 
 
 ### [In-process](#tab/in-process)
 
