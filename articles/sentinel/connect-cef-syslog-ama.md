@@ -1,5 +1,5 @@
 ---
-title: Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent 
+title: Ingest Syslog CEF messages to Microsoft Sentinel - AMA
 description: Ingest syslog messages from linux machines, devices, and appliances to Microsoft Sentinel using data connectors based on the Azure Monitor Agent (AMA).
 author: yelevin
 ms.author: yelevin
@@ -11,7 +11,7 @@ ms.date: 05/08/2024
 
 # Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). After you configure the connector using the steps in this article, configure the device.
+This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
 
 ## Prerequisites
 
