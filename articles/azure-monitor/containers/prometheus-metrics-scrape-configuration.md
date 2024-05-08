@@ -459,11 +459,6 @@ metric_relabel_configs:
 ---
 
 
-Prometheus supports TLS and basic authentication over its HTTP endpoints. Scraping target using HTTPS instead of HTTP is supported. You could fetch metrics using HTTPS, client-certificate authentication, and basic authentication.
-
-Below are the details on 2 mechanisms of authentication. 
-1. Basic authentication
-2. TLS based authentication
 
 ### Basic Authentication
 
@@ -504,8 +499,9 @@ basic_auth:
 
 > [!NOTE]
 >
-> The **/etc/prometheus/certs/** path is mandatory, but *password1* can be any string and needs to match the key for the data in the secret created above.
-This is because the secret **ama-metrics-mtls-secret** is mounted in the path **/etc/prometheus/certs/** within the container.
+> Pod and Service monitors currently do not support basic authentication. Support for the same is coming up soon.
+> 
+> The **/etc/prometheus/certs/** path is mandatory, but *password1* can be any string and needs to match the key for the data in the secret created above. This is because the secret **ama-metrics-mtls-secret** is mounted in the path **/etc/prometheus/certs/** within the container.
 >
 > The base64 encoded value is automatically decoded by the agent pods when the secret is mounted as file.
 >
