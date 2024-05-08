@@ -15,6 +15,8 @@ author: Blackmist
 
 # Azure AI Studio hubs for projects
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 The Azure AI Studio hub is the top-level Azure resource for AI Studio and provides the working environment for a team to build and manage AI applications. In Azure, resources enable access to Azure services for individuals and teams. Resources also provide a container for billing, security configuration, and monitoring.
 
 The hub can be used to access [multiple Azure AI services](#azure-ai-services-api-access-keys) with a single setup. Previously, different Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md), [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), [Azure AI Speech](../../ai-services/speech-service/overview.md), required their individual setup.

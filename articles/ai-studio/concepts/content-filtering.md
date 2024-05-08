@@ -15,6 +15,8 @@ author: PatrickFarley
 
 # Content filtering in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Azure AI Studio includes a content filtering system that works alongside core models. 
 
 > [!IMPORTANT]

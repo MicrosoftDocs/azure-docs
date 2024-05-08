@@ -15,6 +15,8 @@ author: Blackmist
 
 # Manage and increase quotas for resources with Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Quota provides the flexibility to actively manage the allocation of rate limits across the deployments within your subscription. This article walks through the process of managing quota for your Azure AI Studio virtual machines and Azure OpenAI models.
 
 Azure uses limits and quotas to prevent budget overruns due to fraud, and to honor Azure capacity constraints. It's also a good way to control costs for admins. Consider these limits as you scale for production workloads. 

@@ -15,6 +15,8 @@ ms.custom: [references_regions]
 
 # How to deploy Mistral models with Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
 Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
 
@@ -50,8 +52,6 @@ Mistral Small is:
 
 ---
 
-[!INCLUDE [generic-preview](../includes/generic-preview.md)]
-
 ## Deploy Mistral family of models as a serverless API
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
@@ -61,7 +61,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
     > The serverless API model deployment offering for eligible models in the Mistral family is only available in hubs created in the **East US 2** and **Sweden Central** regions. For _Mistral Large_, the serverless API model deployment offering is also available in the **France Central** region.

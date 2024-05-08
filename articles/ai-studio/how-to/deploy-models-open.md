@@ -11,7 +11,9 @@ ms.author: mopeakande
 author: msakande
 ---
 
-# How to deploy large language models with Azure AI Studio 
+# How to deploy large language models with Azure AI Studio
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Deployment of a large language model (LLM) makes it available for use in a website, an application, or other production environment. Deployment typically involves hosting the model on a server or in the cloud and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference of generative AI applications such as chat and copilot.
 
@@ -44,7 +46,7 @@ To delete deployments in Azure AI Studio, select the **Delete** button on the to
 
 To deploy and perform inferencing with real-time endpoints, you consume Virtual Machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for a quota increase.  
 
-## Next steps
+## Related content
 
 - Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
