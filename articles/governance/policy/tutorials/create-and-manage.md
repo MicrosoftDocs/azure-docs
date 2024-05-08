@@ -88,7 +88,7 @@ resources missing the tag.
    [remediate resources](../how-to/remediate-resources.md).
 
 1. **Create a Managed Identity** is automatically checked since this policy definition uses the
-   [modify](../concepts/effects.md#modify) effect. **Type of Managed Identity** is set to _Sytem Assigned_. **Permissions** is set to _Contributor_
+   [modify](../concepts/effect-modify.md) effect. **Type of Managed Identity** is set to _Sytem Assigned_. **Permissions** is set to _Contributor_
    automatically based on the policy definition. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and

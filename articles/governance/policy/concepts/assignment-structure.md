@@ -74,8 +74,8 @@ recommended that if multiple policies are often assigned together, to use an
 
 For built-in definitions and initiaitive, you can use specific the `definitionVersion` of which to assess on. By default, the version will set to the latest major version and auto-ingeest minor and patch changes. 
 
-To auto-ingest any minor changes of the definition, the version number would be "#.*.*". Wildcard represents auto-ingesting updates. 
-To pin to a minor version path, the version format would be "#.#.*"
+To auto-ingest any minor changes of the definition, the version number would be `#.*.*`. Wildcard represents auto-ingesting updates. 
+To pin to a minor version path, the version format would be `#.#.*`.
 All patch changes must be auto-injested for security purposes. Patch changes are limited to text changes and break glass scenarios. 
 
 ## Display name and description
@@ -256,7 +256,7 @@ Another common use case for overrides is rolling out a new version of a definiti
 Overrides have the following properties:
 - `kind`: The property the assignment will override. The supported kinds are `policyEffect` and `policyVersion`.
 
-- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effects.md). For `kind: policyVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
+- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: policyVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
 
 - `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
 
