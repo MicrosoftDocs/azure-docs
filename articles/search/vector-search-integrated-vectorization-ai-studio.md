@@ -22,7 +22,7 @@ The workflow includes model deployment steps. The model catalog includes embeddi
 
 After the model is deployed, you can use it for [integrated vectorization](vector-search-integrated-vectorization.md) during indexing, or with the [AI Studio vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for queries.
 
-## How to deploy an embedding model from the Azure AI Studio model catalog
+## Deploy an embedding model from the Azure AI Studio model catalog
 
 1. Open the [Azure AI Studio model catalog](https://ai.azure.com/explore/models). 
 
@@ -159,7 +159,7 @@ It assumes that you're chunking your content using the SplitSkill and therefore 
 
 You must add the `/v1/embed` path onto the end of the URL that you copied from your AI Studio deployment. You might also change the values for the `input_type`, `truncate` and `embedding_types` inputs to better fit your use case. For more information on the available options, review the [Cohere Embed API reference](../ai-studio/how-to/deploy-models-cohere-embed.md#v1embed).
 
-The URI and key are generated when you deploy the model from the catalog. For more information about these values, see [How to deploy Cohere Embed models with Azure AI Studio](/ai-studio/how-to/deploy-models-cohere-embed).
+The URI and key are generated when you deploy the model from the catalog. For more information about these values, see [How to deploy Cohere Embed models with Azure AI Studio](/azure/ai-studio/how-to/deploy-models-cohere-embed).
 
 ```json
 {
