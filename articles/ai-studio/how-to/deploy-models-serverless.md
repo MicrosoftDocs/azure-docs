@@ -1,11 +1,11 @@
 ---
 title: Deploy models as serverless APIs
 titleSuffix: Azure AI Studio
-description: Learn about to deploy models as serverless API.
+description: Learn to deploy models as serverless APIs, using Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 05/03/2024
+ms.date: 05/08/2024
 ms.reviewer: msakande 
 reviewer: msakande
 ms.author: fasantia
@@ -16,9 +16,9 @@ author: santiagxf
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-Certain models in the model catalog can be deployed as a serverless API endpoint with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** model as a serverless API endpoint.
+In this example, you learn how to deploy a **Meta-Llama-3-8B-Instruct** model as a serverless API endpoint.
 
 ## Prerequisites
 
@@ -32,11 +32,11 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
 
 - You need to install the following software to work with Azure AI Studio:
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
     You can use any compatible web browser to navigate [Azure AI Studio](https://ai.azure.com).
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](../../machine-learning/how-to-configure-cli.md).
 
@@ -57,7 +57,7 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
     az configure --defaults workspace=<project-name> group=<resource-group> location=<location>
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
@@ -82,40 +82,43 @@ In this example, you will learn how to deploy a **Meta-Llama-3-8B-Instruct** mod
 
     # [ARM](#tab/arm)
 
-    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
+    You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or use any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
 
 
-## Model marketplace subscriptions
+## Subscribe your project to the model offering
 
-Models offered through the Azure Marketplace can be deployed to serverless API endpoints to consume their predictions. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering from the Azure Marketplace. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+For models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the project, you have to subscribe your project for the particular model offering from the Azure Marketplace. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
 
-1. Ensure your account has the **Azure AI Developer** role permissions on the Resource Group.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 
-1. Navigate to the model catalog, find the model card of the model you want to deploy. 
+1. Ensure your account has the **Azure AI Developer** role permissions on the resource group.
+
+1. Select **Model catalog** from the left sidebar and find the model card of the model you want to deploy. 
     
-    1. If you are deploying the model using Azure CLI, Python, or ARM, copy the **Model ID**.
+    1. If you're deploying the model using Azure CLI, Python, or ARM, copy the **Model ID**.
 
-    1. Do not include the version when copying the **Model ID**. Serverless API endpoints always deploy the latest version available of the model. For example for `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct/versions/3` copy `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct`.
+        > [!IMPORTANT]
+        > Do not include the version when copying the **Model ID**. Serverless API endpoints always deploy the model's latest version available. For example, for the model ID `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct/versions/3`, copy `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct`.
 
-1. Create the model marketplace subscription
+    :::image type="content" source="../media/deploy-monitor/serverless/model-card.png" alt-text="A screenshot showing a model's details page." lightbox="../media/deploy-monitor/serverleses/model-card.png":::
 
-    # [Portal](#tab/portal)
+1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer.
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API**.
+    # [AI Studio](#tab/azure-ai-studio)
 
-        :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with serverless API option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
+    1. On the model's **Details** page, select **Deploy** and then select **Serverless API** to open the deployment wizard.
 
-    2. Select the project in which you want to deploy your models. Notice that not all the regions are supported.
+    1. Select the project in which you want to deploy your models. Notice that not all the regions are supported.
 
-    3. If you see the legend *You already have a Azure Marketplace subscription for this project*, you don't need to create the subscription since you already have one. You can proceed to [Serverless API endpoints](#serverless-api-endpoints).
+        :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="../media/deploy-monitor/serverleses/deploy-pay-as-you-go.png"::: 
 
-    4. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
+    1. If you see the note *You already have a Azure Marketplace subscription for this project*, you don't need to create the subscription since you already have one. You can proceed to [Serverless API endpoints](#serverless-api-endpoints).
 
-    5. Select Subscribe and Deploy.
+    1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 
-        :::image type="content" source="../media/deploy-monitor/llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/llama/deploy-marketplace-terms.png":::
+    1. Select **Subscribe and Deploy**.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     __subscription.yml__
 
@@ -130,7 +133,7 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
     az ml marketplace-subscription create -f subscription.yml
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     model_id="azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct"
@@ -185,46 +188,29 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
     }
     ```
 
-    Then create the deployment:
-
-    ```azurecli
-    az deployment group create \
-        --name model-subscription-deployment \
-        --resource-group <resource-group> \
-        --template-file template.json
-    ```
-
-    The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
-
-    ```output
-    "provisioningState": "Succeeded",
-    ```
-
-1. Creating a subscription will accept the terms and conditions associated with the model offer.
-
 1. Once you sign up the project for the particular Azure Marketplace offering, subsequent deployments of the same offering in the same project don't require subscribing again.
 
-1. At any point, you can see the models your project is currently subscribed:
+1. At any point, you can see the model offers to which your project is currently subscribed:
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
-    1. Go to [Azure Portal](https://portal.azure.com)
+    1. Go to the [Azure portal](https://portal.azure.com).
 
     1. Navigate to the resource group where the project is deployed.
 
     1. On the **Type** filter, select **SaaS**.
 
-    1. You see all the offerings you are currently subscripted to.
+    1. You see all the offerings to which you're currently subscribed.
 
     1. Select any resource to see the details.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az ml marketplace-subscription list
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     marketplace_sub_list = client.marketplace_subscriptions.list()
@@ -235,34 +221,34 @@ Models offered through the Azure Marketplace can be deployed to serverless API e
 
     # [ARM](#tab/arm)
 
-    You can use the Resource Management tools to query the resources. In the following example, we use Azure CLI:
+    You can use the resource management tools to query the resources. The following example uses Azure CLI:
 
     ```azurecli
     az resource list \
         --query "[?type=='Microsoft.SaaS']"
     ```
 
-## Serverless API endpoints
+## Deploy the model to a serverless API endpoint
 
-Once you have a model subscription created, you can deploy the associated models to a serverless API endpoint. They provide a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Once you've created a model's subscription, you can deploy the associated model to a serverless API endpoint. The serverless API endpoint provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
+In this example, you create an endpoint with name **meta-llama3-8b-qwerty**.
 
 1. Create the serverless endpoint
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
-    1. From the previous wizard, select **Continue to deploy**.
+    1. From the previous wizard, select **Deploy** (if you've just subscribed the project to the model offer in the previous section), or select **Continue to deploy** (if your deployment wizard had the note *You already have a Azure Marketplace subscription for this project*). 
 
-        :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png":::
+        :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go-subscribed-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/serverless/deploy-pay-as-you-go-subscribed-project.png":::
 
     1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
-        :::image type="content" source="../media/deploy-monitor/llama/deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/llama/deployment-name.png":::
+        :::image type="content" source="../media/deploy-monitor/serverless/deployment-name.png" alt-text="A screenshot showing how to specify the name of the deployment you want to create." lightbox="../media/deploy-monitor/serverless/deployment-name.png":::
 
-    1. Select Deploy. Wait until the deployment is ready and you're redirected to the Deployments page.
+    1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     __endpoint.yml__
 
@@ -271,13 +257,13 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
     model_id: azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct
     ```
 
-    Use the previous file to create the endpoint:
+    Use the _endpoint.yml_ file to create the endpoint:
 
     ```azurecli
     az ml serverless-endpoint create -f endpoint.yml
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     endpoint_name="meta-llama3-8b-qwerty"
@@ -357,21 +343,21 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
 1. At any point, you can see the endpoints deployed to your project:
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
     1. Go to your project.
 
     1. Select the section **Deployments**
 
-    1. Serverless API endpoints is displayed.
+    1. Serverless API endpoints are displayed.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az ml serverless-endpoint list
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     endpoint_name="meta-llama3-8b-qwerty"
@@ -388,7 +374,7 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [ARM](#tab/arm)
 
-    You can use the Resource Management tools to query the resources. In the following example, we use Azure CLI:
+    You can use the Resource Management tools to query the resources. The following example uses Azure CLI:
 
     ```azurecli
     az resource list \
@@ -397,20 +383,20 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
 1. The created endpoint uses key authentication for authorization. Use the following steps to get the keys associated with a given endpoint.
 
-    # [Portal](#tab/portal)
+    # [AI Studio](#tab/azure-ai-studio)
 
-    You can return to the Deployments page, select the deployment, and note the endpoint's Target URL and the Secret Key. Use them to call the deployment and generate predictions.
+    You can return to the Deployments page, select the deployment, and note the endpoint's _Target URI_ and _Key_. Use them to call the deployment and generate predictions.
 
     > [!NOTE]
-    > When using [Azure Portal](https://portal.azure.com), serverless API endpoints aren't displayed by default on the resource group. Use **Show hidden types** option to display them on the resource group.
+    > When using the [Azure portal](https://portal.azure.com), serverless API endpoints aren't displayed by default on the resource group. Use the **Show hidden types** option to display them on the resource group.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az ml serverless-endpoint get-credentials -n meta-llama3-8b-qwerty
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     endpoint_keys = client.serverless_endpoints.get_keys(endpoint_name)
@@ -422,24 +408,24 @@ In this example, we create an endpoint with name **meta-llama3-8b-qwerty**.
 
     Use REST APIs to query this information.
 
-1. At this point, you endpoint is ready to be used.
+1. At this point, your endpoint is ready to be used.
 
-1. If you need to consume this deployment from a different project or hub, or you plan to use **prompt flow** to build intelligent applications, you need to create a connection to the serverless API deployment. Follow the steps on [Consume deployed serverless API endpoints from a different project or from Prompt flow](deploy-models-serverless-connect.md).
+1. If you need to consume this deployment from a different project or hub, or you plan to use prompt flow to build intelligent applications, you need to create a connection to the serverless API deployment. To learn how to configure an existing serverless API endpoint on a new project or hub, see [Consume deployed serverless API endpoints from a different project or from Prompt flow](deploy-models-serverless-connect.md).
 
     > [!TIP]
-    > If you are using **prompt flow** in the same project or hub where the deployment was deployed, you still need to create the connection.
+    > If you're using prompt flow in the same project or hub where the deployment was deployed, you still need to create the connection.
 
 ## Delete endpoints and subscriptions
 
-You can delete model subscriptions and endpoints. Deleting a model subscription makes any associated endpoint to become *Unhealthy* and unusable.
+You can delete model subscriptions and endpoints. Deleting a model subscription makes any associated endpoint become *Unhealthy* and unusable.
 
-# [Portal](#tab/portal)
+# [AI Studio](#tab/azure-ai-studio)
 
 To delete a serverless API endpoint:
 
-1. Go to [Azure AI Studio](https://ai.azure.com).
+1. Go to the [Azure AI Studio](https://ai.azure.com).
 
-1. Go to **Components** section, and then select **Deployments**.
+1. Go to **Components** > **Deployments**.
 
 1. Open the deployment you want to delete.
 
@@ -448,7 +434,7 @@ To delete a serverless API endpoint:
 
 To delete the associated model subscription:
 
-1. Go to [Azure Portal](https://portal.azure.com)
+1. Go to the [Azure portal](https://portal.azure.com)
 
 1. Navigate to the resource group where the project is deployed.
 
@@ -458,7 +444,7 @@ To delete the associated model subscription:
 
 1. Select **Delete**.
 
-# [CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 To delete a serverless API endpoint:
 
@@ -474,7 +460,7 @@ az ml marketplace-subscription delete \
     --name "Meta-Llama-3-8B-Instruct"
 ```
 
-# [Python](#tab/sdk)
+# [Python SDK](#tab/python)
 
 To delete a serverless API endpoint:
 
@@ -500,16 +486,17 @@ az resource delete --name <resource-name>
 
 ## Cost and quota considerations for models deployed as serverless API endpoints
 
-Models deployed as a serverless API endpoint are offered through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or fine-tuning the models.
+Models deployed as serverless API endpoints are offered through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or fine-tuning the models.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see monitor costs for models offered throughout the Azure Marketplace.
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-:::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
+:::image type="content" source="../media/deploy-monitor/serverless/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="../media/deploy-monitor/serverless/costs-model-as-service-cost-details.png":::
+
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-## Next steps
+## Next step
 
 * [Fine-tune a Meta Llama 2 model in Azure AI Studio](fine-tune-model-llama.md)
