@@ -21,7 +21,7 @@ The below diagram depicts the Azure resources for experimentation and the high-l
 
    :::image type="content" source="media/overview/diagram.png" alt-text="Diagram that shows how Split Experimentation Workspace interacts with other Azure resources." lightbox="media/overview/diagram.png":::
 
-To get started, follow the quickstart to create a Split Experimentation Workspace, and then set up the experiments for your application in App Configuration store using this tutorial. <!-- add link to /azure/azure-app-configuration/set-up-experiments.aspnet)-->  
+To get started, follow the quickstart to [create a Split Experimentation Workspace](create.md), and then [set up the experiments for your application](../../azure-app-configuration/run-experiments-aspnet-core.md) in App Configuration store. 
 
 ## Next step
 
