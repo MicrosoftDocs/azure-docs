@@ -61,4 +61,4 @@ runtime patch.
 
 ## Next steps
 
-* Learn more about [supported software versions] (./reference-supported-software-versions.md).
+* Learn more about [supported software versions](./reference-supported-software-versions.md).
