@@ -40,7 +40,7 @@ Create a hub in [Azure Portal](), or using [Azure Resource Manager templates]. Y
 Project workspaces that are created using a hub, obtain the hub’s security settings and shared resource configuration. This includes the following configurations:
 
 | Configuration | Note |
-| === | === |
+| ---- | ---- |
 | Network settings | One managed virtual network is shared between hub and project workspaces. Create a private link endpoint on the hub workspace, to access both hub and project workspaces. |
 | Encryption settings | Encryption settings pass down from hub to project. |
 | Connections | Shared connections created in AI Studio  |
