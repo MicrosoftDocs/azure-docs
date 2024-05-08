@@ -10,7 +10,6 @@ ms.topic: overview
 ms.date: 05/07/2024
 ms.custom:
   - references_regions
-  - ignite-2023
 ---
 
 # What's new in Azure AI Search
@@ -28,9 +27,9 @@ ms.custom:
 | [Azure AI Vision vectorizer (preview)](vector-search-vectorizer-ai-services-vision.md) | Vectorizer | New vectorizer connects to an Azure AI Vision resource to generate embeddings at query time. It calls the [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md). This vectorizer is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true). |
 | [Azure AI Studio model catalog vectorizer (preview)](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) | Vectorizer | New vectorizer connects to an embedding model deployed from the [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md). This vectorizer is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true). <br><br>[How to implement integrated vectorization using models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md).|
 | [AzureOpenAIEmbedding skill (preview) supports more models on Azure OpenAI](cognitive-search-skill-azure-openai-embedding.md) | Skill | Updates to this skill make it compatible with more embedding models on Azure OpenAI. New `dimensions` and `modelName` are used for specifying models. Previously, the dimensions limits was fixed at 1536 dimensions. That limit is now configurable. This update is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true).|
-| [2024-05-01-preview Search REST AP*](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) | API | New preview version of the Search REST APIs for new skills and vectorizers, data type,  |
+| [2024-05-01-preview Search REST AP*](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) | API | New preview version of the Search REST APIs for new skills and vectorizers, new binary data type, OneLake files indexer, new query parameters for vector weighting, boosting, and recall.|
 <!-- | [More regions and more higher capacity tiers](search-limits-quotas-capacity.md#service-limits) | Infrastructure | Higher capacity tiers were announced in April 2024 for selected regions. Starting on May 17, 2024, the list of regions now includes South Africa North​, Germany North​, Germany West Central​, Switzerland West​, Israel Central​, East US 2 EUAP/PPE​, and Azure Government (all regions). Also starting on May 17, higher capacity is available for Storage Optimized tiers (L1 and L2).| -->
-| Network security perimeter support (preview) | Feature | A network security perimeter is a new service that provides a secure perimeter for communication, and controlled access to resources outside of the perimeter. Azure AI Search is one of the eight Azure services that can run within a nework security perimeter. This feature is provided by the [**2024-03-01-preview Management REST API**](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true) and the Azure portal. |
+| Network security perimeter support (preview) | Feature | A network security perimeter is a new service that provides a secure perimeter for communication, and controlled access to resources outside of the perimeter. Azure AI Search is one of the eight Azure services that can run within a nework security perimeter. This feature is provided by the [2024-03-01-preview Management REST API](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true) and the Azure portal. |
 <!-- | [Custom Web API vectorizer (preview)](vector-search-vectorizer-custom-web-api.md) | Vectorizer | Configure your search queries to call out to a Web API endpoint to generate embeddings at query time.  This vectorizer is available through the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true).|
 | [Azure OpenAI vectorizer (preview)](vector-search-vectorizer-azure-open-ai.md) | Vectorizer | Connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings at query time. This vectorizer is available through the Azure portal and the [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true).| -->
 
@@ -50,7 +49,7 @@ ms.custom:
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| **New dimension limits** | Feature | For vector fields, maximum dimension limits are now `3072`, up from `2048`. |
+| New dimension limits | Feature | For vector fields, maximum dimension limits are now `3072`, up from `2048`. |
 
 ## 2023 announcements
 
