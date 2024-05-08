@@ -11,7 +11,7 @@ ms.author: antchu
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)
 
-Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated and is safe to run untrusted code.
+Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated and is safe to run untrusted code.
 
 > [!NOTE]
 > Azure Container Apps dynamic sessions is currently in preview.
