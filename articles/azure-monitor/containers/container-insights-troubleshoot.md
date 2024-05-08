@@ -90,7 +90,7 @@ To diagnose the problem if you can't view status information or no results are r
 
 1. If the pods are in a running state, but there is no data in Log Analytics or data appears to only send during a certain part of the day, it might be an indication that the daily cap has been met. When this limit is met each day, data stops ingesting into the Log Analytics Workspace and resets at the reset time. For more information, see [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).
 
-1. If Containter insights is enabled using Terraform and `msi_auth_for_monitoring_enabled` is set to `true`, ensure that DCR and DCRA resources are also deployed to enable log collection. For detailed steps, see [enable Container insights](./kubernetes-monitoring-enable.md#terraform-1).
+1. If Containter insights is enabled using Terraform and `msi_auth_for_monitoring_enabled` is set to `true`, ensure that DCR and DCRA resources are also deployed to enable log collection. For detailed steps, see [enable Container insights](./kubernetes-monitoring-enable.md#terraform).
 
 ## Container insights agent ReplicaSet Pods aren't scheduled on a non-AKS cluster
 
