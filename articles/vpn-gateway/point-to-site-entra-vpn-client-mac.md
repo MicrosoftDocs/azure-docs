@@ -52,9 +52,14 @@ After you obtain the VPN client profile configuration package, extract the files
    :::image type="content" source="media/point-to-site-entra-vpn-client-mac/import.png" alt-text="Screenshot of Azure VPN Client import selection.":::
 1. Navigate to the folder containing the file that you want to import, select it, then click **Open**.
 
-1. On this screen, notice the connection values are populated using the imported VPN client configuration file. View the connection profile information. Verify that the **Certificate Information** value shows **DigiCert Global Root G2**, rather than the default or blank. Adjust the value if necessary, then click **Save**.
+1. On this screen, notice the connection values are populated using the values in the imported VPN client configuration file.
+
+   * Verify that the **Certificate Information** value shows **DigiCert Global Root G2**, rather than the default or blank. Adjust the value if necessary.
+   * Notice the Client Authentication values align with the values that were used to configure the VPN gateway for Microsoft Entra ID authentication. The Audience ID in this example aligns with the Microsoft-registered App ID for Azure Public.
 
    :::image type="content" source="media/point-to-site-entra-vpn-client-mac/values.png" alt-text="Screenshot of Azure VPN Client saving the imported profile settings.":::
+
+1. Click **Save** to save the connection profile configuration.
 1. In the VPN connections pane, select the connection profile that you saved. Then, click **Connect**.
 
    :::image type="content" source="media/point-to-site-entra-vpn-client-mac/connect.png" alt-text="Screenshot of Azure VPN Client clicking Connect.":::
