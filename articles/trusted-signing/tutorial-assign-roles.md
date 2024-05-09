@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Assign roles in Trusted Signing"
-description: Tutorial on assigning roles in the Trusted Signing service.
+description: Complete the steps to assign roles in the Trusted Signing service.
 author: microsoftshawarma
 ms.author: rakiasegev
 ms.service: trusted-signing
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 03/21/2024
 ---
 
-# Assign roles in Trusted Signing
+# Tutorial: Assign roles in Trusted Signing
 
 The Trusted Signing service has a few service-specific roles in addition to the standard Azure roles. Use [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) to assign user and group roles for the Trusted Signing-specific roles.
 

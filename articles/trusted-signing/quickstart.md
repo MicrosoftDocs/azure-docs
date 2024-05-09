@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Set up Trusted Signing"
-description: Complete this quickstart to get started with using Trusted Signing to sign your files.
+description: This quickstart helps you get started with using Trusted Signing to sign your files.
 author: mehasharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
@@ -18,11 +18,11 @@ Trusted Signing is a Microsoft fully managed, end-to-end certificate signing ser
 - An identity validation
 - A certificate profile
 
-Trusted Signing gives you both an Azure portal and an Azure CLI extension experience to create and manage your Trusted Signing resources.
-
-You can complete identity validation *only* in the Azure portal. You can't complete identity validation by using the Azure CLI.
+You can use either the Azure portal or an Azure CLI extension to create and manage most of your Trusted Signing resources. (You can complete identity validation *only* in the Azure portal. You can't complete identity validation by using the Azure CLI.) This quickstart shows you how.
 
 ## Prerequisites
+
+To complete this quickstart, you need:
 
 - A Microsoft Entra tenant ID.
 
@@ -36,9 +36,7 @@ You can complete identity validation *only* in the Azure portal. You can't compl
 
 Before you use Trusted Signing, you must register the Trusted Signing resource provider.
 
-To register a Trusted Signing resource provider:
-
-A resource provider is a service that supplies Azure resources. Use the Azure portal or the Azure CLI `az provider register` command to register the `Microsoft.CodeSigning` Trusted Signing resource provider.
+A resource provider is a service that supplies Azure resources. Use the Azure portal or the Azure CLI to register the `Microsoft.CodeSigning` Trusted Signing resource provider.
 
 # [Azure portal](#tab/registerrp-portal)
 
@@ -47,15 +45,19 @@ To register a Trusted Signing resource provider by using the Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In either the search box or under **All services**, select **Subscriptions**.
 1. Select the subscription where you want to create Trusted Signing resources.
+1. On the left menu under **Settings**, select **Resource providers**.
 
-   :::image type="content" source="media/trusted-signing-subscription-resource-provider.png" alt-text="Screenshot of trusted-signing-subscription-resource-provider." lightbox="media/trusted-signing-subscription-resource-provider.png":::
+1. In the list of resource providers, select **Microsoft.CodeSigning**.
 
-1. In the list of resource providers, select **Microsoft.CodeSigning**. By default, the resource provider is **NotRegistered**.
+   By default, the resource provider is **NotRegistered**.
+
+   :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows finding the Microsoft.CodeSigning resource provider for a subscription." lightbox="media/trusted-signing-resource-provider-registration.png":::
+
 1. Select the ellipsis, and then select **Register**.
 
-   The status changes to **Registered**.
+   :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource provider as registered." lightbox="media/trusted-signing-resource-provider.png":::
 
-   :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource provider as registered." lightbox="media/trusted-signing-resource-provider-registration.png":::
+   The status of the resource provider changes to **Registered**.
 
 # [Azure CLI](#tab/registerrp-cli)
 
@@ -63,15 +65,17 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
 1. If you're using a local installation of the Azure CLI, sign in to the Azure CLI by using the `az login` command.  
 
-1. To finish the authentication process, complete the steps that are described in your terminal. For other sign-in options, see [Sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
+1. To finish the authentication process, complete the steps that appear in your terminal. For other sign-in options, see [Sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-1. When you're prompted on first use, install the Azure CLI extension. For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+1. When you're prompted on first use, install the Azure CLI extension.
 
-   For more information about the Trusted Signing CLI extension, see [Trusted Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest).
+   For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+   For more information about the Trusted Signing Azure CLI extension, see [Trusted Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest).
 
 1. To see the versions of the Azure CLI and the dependent libraries that are installed, use the `az version` command.
 
-1. To upgrade to the latest versions, run the following command:
+1. To upgrade to the latest versions of the Azure CLI and dependent libraries, run the following command:
 
    ```bash
    az upgrade [--all {false, true}]
@@ -87,7 +91,7 @@ To register a Trusted Signing resource provider by using the Azure CLI:
    az provider register --namespace "Microsoft.CodeSigning"
    ```
 
-1. You can verify that registration is complete by using this command:
+1. Verify the registration:
 
    ```azurecli
    az provider show --namespace "Microsoft.CodeSigning"
@@ -107,7 +111,7 @@ A Trusted Signing account is a logical container that holds identity validation 
 
 ### Azure regions that support Trusted Signing
 
-You can create resources only in Azure regions where Trusted Signing is currently available. The following table lists the current Azure regions that support Trusted Signing resources:
+You can create Trusted Signing resources only in Azure regions where the service is currently available. The following table lists the Azure regions that currently support Trusted Signing resources:
 
 | Region                               | Region class fields  | Endpoint URI value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
@@ -125,8 +129,10 @@ Trusted Signing account names have some constraints.
 A Trusted Signing account name must:
 
 - Contain from 3 to 24 alphanumeric characters.
-- Begin with a letter, end with a letter or number, and not contain consecutive hyphens.
 - Be globally unique.
+- Begin with a letter.
+- End with a letter or number.
+- Not contain consecutive hyphens.
 
 A Trusted Signing account name is:
 
@@ -138,18 +144,15 @@ A Trusted Signing account name is:
 To create a Trusted Signing account by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-<<<<<<< HEAD
-1. On either the Azure portal menu or on the Home pane, select **Create a resource**.
-1. In the search box, enter **Trusted Signing Accounts**, or select "More services" to find **Trust Signing Accounts**.
+1. Search for and then select **Trusted Signing Accounts**.
 
-   :::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot of trusted-signing-search-service." lightbox="media/trusted-signing-search-service.png":::
-1. In the results list, select **Trusted Signing Accounts**.
-1. On the Trusted Signing Accounts page, select **Create**.
+   :::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot that shows searching for Trusted Signing Accounts in the Azure portal." lightbox="media/trusted-signing-search-service.png":::
+1. On the **Trusted Signing Accounts** pane, select **Create**.
 1. For **Subscription**, select your Azure subscription.
 1. For **Resource group**, select **Create new**, and then enter a resource group name.
-1. For **Account Name**, enter a unique account name.
+1. For **Account name**, enter a unique account name.
 
-   For naming requirements, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
+   For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
 1. For **Region**, select an Azure region that supports Trusted Signing.
 1. For **Pricing**, select a pricing tier.
 1. Select the **Review + Create** button.
@@ -170,7 +173,7 @@ To create a Trusted Signing account by using the Azure CLI:
 
 1. Create a unique Trusted Signing account by using the following command.
 
-   For naming requirements, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
+   For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
 
    To create a Trusted Signing account that has a Basic SKU:
 
@@ -202,19 +205,19 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 
 ## Create an identity validation request
 
-You can complete your own identity validation by filling out the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
+You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
-> You can't create an identity validation if you don't have the appropriate role assigned. If the **New identity validation** button is greyed out in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier roler to proceed with identity validation.
+> You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier roler to proceed with identity validation.
 
 To create an identity validation request:
 
 1. In the Azure portal, go to your new Trusted Signing account.
 1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
-   - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
-1. On either the Trusted Signing account **Overview** page or on the **Objects** pane, select **Identity Validation**.
-1. Select **New identity validation**, and then select either **Public** or **Private**.
+   To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
+1. On the Trusted Signing account **Overview** pane or on the left menu under **Objects**, select **Identity validation**.
+1. Select **New identity**, and then select either **Public** or **Private**.
 
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS enclave.
    - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI policy.
