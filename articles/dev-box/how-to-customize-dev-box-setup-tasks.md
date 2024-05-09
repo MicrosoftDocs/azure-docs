@@ -98,6 +98,9 @@ When the creation process is complete, the new dev box has nodejs and Visual Stu
 
 For more examples, see the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples).
 
+> [!Tip]
+> As an alternative to the developer portal, you can use Dev Home to create, customize and connect to your dev boxes. Dev Home is a native Windows app that provides a single place to manage your dev boxes. Learn more about Dev Home at [Create reusable dev box customizations with Dev Home](https://aka.ms/dev-box/dev-home-app).
+
 ### What is a configuration file?
 
 Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more 'tasks', which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a `git clone` task to clone a repository. 
