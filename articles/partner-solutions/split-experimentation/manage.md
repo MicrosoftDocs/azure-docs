@@ -1,15 +1,15 @@
 ---
-title: Manage Split Experimentation Workspace
-description: This article describes management of Split Experimentation Workspace on the Azure portal. How to configure some basic settings and delete the resource.
+title: Manage Split Experimentation Workspace (preview) 
+description: This article describes management of Split Experimentation Workspace (preview) in the Azure portal. How to configure some basic settings and delete the resource.
 ms.topic: conceptual
 ms.date: 04/30/2024
 author: maud-lv
 ms.author: malev
 ---
 
-# Manage Split Experimentation Workspace
+# Manage Split Experimentation Workspace (preview)
 
-This article describes how to manage Split Experimentation Workspace using the Azure portal. It shows how to configure basic settings and delete the Split Experimentation Workspace resource.
+This article describes how to manage Split Experimentation Workspace (preview) using the Azure portal. It shows how to configure basic settings and delete the Split Experimentation Workspace resource.
 
 ## Update data access policy
 

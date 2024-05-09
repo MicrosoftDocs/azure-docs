@@ -1,6 +1,6 @@
 ---
 title: Create a Split Experimentation Workspace (preview)
-description: Start running an experiment by creating a Split Experimentation Workspace from an App Configuration store, from Azure Marketplace or from the Azure search bar.
+description: Start running an experiment by creating a Split Experimentation Workspace (preview) from an App Configuration store, from Azure Marketplace or from the Azure search bar.
 #customerintent: As a developer, I want to learn how to get started with Split Experimentation, by creating a Split Experimentation workspace.
 author: maud-lv 
 ms.author: malev 

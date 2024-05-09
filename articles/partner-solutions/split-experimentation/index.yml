@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Split Experimentation in Azure
-summary: Split Experimentation for Azure App Configuration allows developers to test different variants of a feature and monitor the impact at the feature-level.
+title: Split Experimentation Workspace (preview)
+summary: Split Experimentation for Azure App Configuration (preview) allows developers to test different variants of a feature and monitor the impact at the feature-level.
 metadata:
-  title: Split Experimentation in Azure documentation
-  description: Split Experimentation for Azure App Configuration allows developers to test different variants of a feature and monitor the impact.
+  title: Split Experimentation Workspace (preview) documentation
+  description: Split Experimentation for Azure App Configuration (preview) allows developers to test different variants of a feature and monitor the impact.
   ms.service: partner-services
   ms.topic: landing-page
   author: maud-lv
@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Split Experimentation Workspace
+  - title: About Split Experimentation Workspace (preview)
     linkLists:
       - linkListType: overview
         links:
