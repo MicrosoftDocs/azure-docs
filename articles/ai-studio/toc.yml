@@ -41,6 +41,8 @@ items:
     items:
     - name: Model catalog
       href: how-to/model-catalog-overview.md
+    - name: Data, privacy, and security for Model Catalog
+      href: concept-data-privacy.md
     - name: Model benchmarks
       href: how-to/model-benchmarks.md
     - name: Cohere models
