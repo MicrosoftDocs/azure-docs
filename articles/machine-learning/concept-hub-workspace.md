@@ -53,7 +53,7 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | ---- | ---- |
 | Network settings | One [managed virtual network](how-to-managed-network.md) is shared between hub and project workspaces. Create a single private link endpoint on the hub workspace, to access content in hub and project workspaces. |
 | Encryption settings | Encryption settings pass down from hub to project. |
-| Encryption storage resource | When bringing your customer-managed keys for encryption, hub and project workspaces share the same [managed resource group]() for storing encrypted service data. |
+| Storage for encrypted data | When bringing your customer-managed keys for encryption, hub and project workspaces share the same [managed resource group]() for storing encrypted service data. |
 | Connections | Project workspaces can consume shared connections created on the hub. This feature is currently only supported in [AI studio]()  |
 | Compute instance | Reuse a compute instance across all project workspaces associated to the same hub. |
 | Compute quota | Any compute quota consumed by project workspaces are deducted from the hub workspace quota balance. |
