@@ -47,7 +47,7 @@ In addition, you need:
    | Resource type | RBAC role |
    |--|--|
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
-   | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+   | Session hosts (Azure and Azure Extended Zones) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
    | Session hosts (Azure Stack HCI) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
@@ -68,7 +68,11 @@ In addition, you need:
    
    - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
-- If you are going to deploy Azure Virtual Desktop in an [Azure Extended Zone](/azure/virtual-desktop/azure-extended-zones), you will need an existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. 
+To deploy session hosts to an [Azure Extended Zone](/azure/virtual-desktop/azure-extended-zones), you also need: 
+
+   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see TODO:
+   
+   - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. 
 
 # [Azure PowerShell](#tab/powershell)
 
