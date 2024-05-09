@@ -5,7 +5,7 @@ author: rajeeshr
 ms.author: rajeeshr
 ms.topic: how-to
 ms.service: virtual-machines
-ms.date: 05/07/2024
+ms.date: 05/09/2024
 ms.reviewer: jushiman
 ---
 
@@ -33,19 +33,19 @@ You can deploy a Compute Fleet with a Windows Server image or Linux image such a
 1. Under **Instance details**, set *myFleet* for your Compute Fleet name.
 1. Select a **Region** that is close to your area.
 1. Select a marketplace image for **Image**. 
-1. For **Virtual machine types**, select whether you are deploying Spot VMs, Standard VMs, or both. In this example, we have selected both. 
-1. Specify a minimum of 3 VM sizes, up to a max of 15 for **Sizes**.
+1. For **Virtual machine types**, select whether you're deploying Spot VMs, Standard VMs, or both. In this example, we select both. 
+1. Specify 3 to 15 virtual machine (VM) sizes for **Sizes**.
 1. **For Spot fleet deployment:** Under **VM capacity**, specify your target capacity for Spot VM instance count between 1 and 10,000.
-1. **For Standard fleet deployment:** Under **VM capacity**, specify your target capacity for Standard VM instance count between 1 and 10,000. You will also have an option to specify the minimum starting capacity to specify for your fleet. 
+1. **For Standard fleet deployment:** Under **VM capacity**, specify your target capacity for Standard VM instance count between 1 and 10,000. 
 
 1. Under **Administrator account** configure the admin username and set up an associated password or SSH public key.
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-   - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, we will have Azure generate a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, Azure generates a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Select **Next: Networking** to move the networking configuration options. For this quickstart, leave the default networking configurations.
 
 1. When you're done, select **Review + create**.
-1. After it passes validation, select **Create** to deploy the the Compute Fleet.
+1. After it passes validation, select **Create** to deploy the Compute Fleet.
 
 
 ## Clean up resources

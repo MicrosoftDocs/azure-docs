@@ -6,7 +6,7 @@ metadata:
   ms.author: rajeeshr
   ms.topic: faq
   ms.service: virtual-machines
-  ms.date: 05/07/2024
+  ms.date: 05/09/2024
   ms.reviewer: jushiman
 
 title: FAQ for Azure Compute Fleet
@@ -23,7 +23,7 @@ sections:
       - question: |
           Can I specify target capacity at a Compute Fleet level without specifying Spot and OnDemand capacity? 
         answer: |
-          No, target capacity is set individually for Spot and OnDemand, even if you're using a combination of both VM types. 
+          No, target capacity is set individually for Spot and OnDemand, even if you're using a combination of both virtual machine (VM) types. 
       - question: |
           Can I deploy both Spot VMs and OnDemand VMs in a single Compute Fleet request? 
         answer: |
@@ -47,11 +47,11 @@ sections:
       - question: |
           Can I modify my target capacity on my Compute Fleet? 
         answer: |
-          Yes, you're allowed to modify target capacity for OnDemand VMs. However, for Spot VMs, your Compute Fleet has to be configured for capacity preference "maintain capacity". 
+          Yes, you're allowed to modify target capacity for OnDemand VMs. However, for Spot VMs, your Compute Fleet has to be configured for capacity preference *maintain capacity*. 
       - question: |
           How many VM sizes/SKU types can I add while configuring the Compute Fleet? 
         answer: |
-          You can add a minimum  of 3 and maximum of 15 VM sizes to deploy Compute Fleet for Spot using the capacity preference "Maintain". However, there's no minimum number for OnDemand VMs. The maximum you can add is 15. 
+          You can add a minimum  of 3 and maximum of 15 VM sizes to deploy Compute Fleet for Spot using the capacity preference *Maintain*. However, there's no minimum number for OnDemand VMs. The maximum you can add is 15. 
       - question: |
           How long is my Compute Fleet request active? 
         answer: |
@@ -63,13 +63,13 @@ sections:
       - question: |
           What happens if I don't delete the Compute Fleet with Spot VMs, after workload completion? 
         answer: |
-          Your Spot VMs continue to run until evicted and you incur billing charges. Your OnDemand VMs continue to run and you incur billing charges until you delete . 
+          Your Spot VMs continue to run until evicted and you incur billing charges. Your OnDemand VMs continue to run and you incur billing charges until you delete. 
       - question: |
           Can I specify target capacity using VM based attribute selection like vCPU or memory? 
         answer: |
           No, target capacity is set using VM instance attribute only. 
       - question: |
-          Can I mix multiple CPU architecture while configuring my Compute Fleet? 
+          Can I mix multiple CPU architectures while configuring my Compute Fleet? 
         answer: |
           No, you can't mix multiple CPU architectures in a single Compute Fleet request. 
       - question: |
