@@ -35,12 +35,10 @@ You have two migration options:
 
 In the Azure portal, use the search bar to find the **Snapshots** functionality.
 
-:::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot showing Azure portal and search bar, with **Snapshots** highlighted":::
+:::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot showing Azure portal and search bar, with **Snapshots** highlighted.":::
 
 1. Select **Add**, to take you to the **Create snapshot** page. Select the subscription and resource group of your virtual machine. For **Region**, select the same region in which the target storage exists. Select the DSVM storage disk and other backup options. **Standard HDD** is an appropriate storage type for this backup scenario.
-
-:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot showing 'Create snapshot' options" lightbox="media/ubuntu_upgrade/create-snapshot-options.png":::
-
+   :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot showing 'Create snapshot' options." lightbox="media/ubuntu_upgrade/create-snapshot-options.png":::
 1. After you fill in the details and the validations pass, select **Review + create** to validate and create the snapshot. When the snapshot successfully completes, a message appears to tell you that the deployment is complete.
 
 ## In-place migration
@@ -66,7 +64,7 @@ After your VM upgrades and reboots, try to access it again via SSH. The IP addre
 
 If you receive the error **REMOTE HOST IDENTIFICATION HAS CHANGED**, you must regenerate your SSH credentials.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Screenshot showing PowerShell remote host identification changed warning" lightbox="media/ubuntu_upgrade/remote-host-warning.png":::
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Screenshot showing PowerShell remote host identification changed warning." lightbox="media/ubuntu_upgrade/remote-host-warning.png":::
 
 To do so on your local machine, run this command:
 
@@ -86,12 +84,12 @@ You can upgrade the operating system parts of the filesystem, and leave the user
 
 ### Migration at a glance
 
-1. Create a snapshot of your existing VM as described [previously](#snapshot-your-vm-in-case-you-need-to-roll-back)
-1. Create a disk from that snapshot
-1. Create a new Ubuntu DSVM
-1. Recreate user account(s) on the new virtual machine
-1. Mount the disk of the snapshotted VM as a data disk on your new DSVM
-1. Manually copy the relevant data
+1. Create a snapshot of your existing VM as described [previously](#snapshot-your-vm-in-case-you-need-to-roll-back).
+1. Create a disk from that snapshot.
+1. Create a new Ubuntu DSVM.
+1. Recreate user account(s) on the new virtual machine.
+1. Mount the disk of the snapshotted VM as a data disk on your new DSVM.
+1. Manually copy the relevant data.
 
 ### Create a disk from your VM snapshot
 
@@ -99,21 +97,21 @@ Create a VM snapshot as described previously, if you haven't already done so.
 
 1. In the Azure portal, search for **Disks** and select **Add**. This opens the **Disk** page
 
-:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot of Azure portal showing search for Disks page and the Add button" lightbox="media/ubuntu_upgrade/portal-disks-search.png":::
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot of Azure portal showing search for Disks page and the Add button." lightbox="media/ubuntu_upgrade/portal-disks-search.png":::
 
 2. Set the **Subscription**, **Resource group**, and **Region** to the values of your VM snapshot. Choose a **Name** for the disk to be created
 
 3. Select **Source type** as **Snapshot** and select the VM snapshot as the **Source snapshot**. Review and create the disk
 
-:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot of disk creation dialog showing the available options" lightbox="media/ubuntu_upgrade/disk-create-options.png":::
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot of disk creation dialog showing the available options." lightbox="media/ubuntu_upgrade/disk-create-options.png":::
 
 ### Create a new Ubuntu Data Science Virtual Machine
 
 Create a new Ubuntu Data Science Virtual Machine with the [Azure portal](https://portal.azure.com) or an [ARM template](./dsvm-tutorial-resource-manager.md).
 
-### Recreate user account(s) on your new Data Science Virtual Machine
+### Re-create user account(s) on your new Data Science Virtual Machine
 
-Since you'll only copy data from your old computer, you must recreate the user accounts and software environments that you want to use on the new machine.
+Since you'll only copy data from your old computer, you must re-create the user accounts and software environments that you want to use on the new machine.
 
 Linux has enough flexibility to allow you to customize directories and paths on your new installation, to mirror your old machine. In general, however, it's easier to use the preferred layout of modern Ubuntu, and modify your user environment and scripts to adapt.
 
@@ -124,7 +122,7 @@ For more information, visit [Quickstart: Set up the Data Science Virtual Machine
 1. In the Azure portal, verify that your Data Science Virtual Machine is running
 1. In the Azure portal, go to the page of your DSVM. Choose the **Disks** blade on the left rail. Choose **Attach existing disks**
 1. In the **Disk name** dropdown, select the disk that you created from your old VM's snapshot
-:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot of DSVM options page showing disk attachment options" lightbox="media/ubuntu_upgrade/attach-data-disk.png":::
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot of DSVM options page showing disk attachment options." lightbox="media/ubuntu_upgrade/attach-data-disk.png":::
 1. Select **Save** to update your virtual machine.
 
 > [!Important]
@@ -141,7 +139,7 @@ For more information, visit [Quickstart: Set up the Data Science Virtual Machine
 
     The results should resemble the next image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1`, but isn't yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
 
-    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive" lightbox="media/ubuntu_upgrade/lsblk-results.png":::
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive." lightbox="media/ubuntu_upgrade/lsblk-results.png":::
 
 1. To access the data drive, create a location for it and mount it. Replace `/dev/sdc1` with the appropriate value that `lsblk` returns:
 
@@ -163,11 +161,11 @@ cat /etc/os-release
 
 The terminal should show that you're running Ubuntu 20.04.
 
-:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot of an Ubuntu terminal showing OS version data" lightbox="media/ubuntu_upgrade/ssh-os-release.png":::
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot of an Ubuntu terminal showing OS version data." lightbox="media/ubuntu_upgrade/ssh-os-release.png":::
 
 The Azure portal also shows the version change.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot of the Azure portal showing DSVM properties, including OS version" lightbox="media/ubuntu_upgrade/portal-showing-os-version.png":::
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot of the Azure portal showing DSVM properties, including OS version." lightbox="media/ubuntu_upgrade/portal-showing-os-version.png":::
 
 ## Next steps
 
