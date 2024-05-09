@@ -93,7 +93,7 @@ It's important to keep an eye on the metrics for TCP SYN, UDP, and TCP detection
 
 You can make a chart for the public IP address resource. In this chart, include the Packet Count and SYN Count metrics. The Packet count includes both TCP and UDP Packets. This will show you the sum of traffic. 
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing mitigation policies." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing peace time telemetry." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
 
 >[!NOTE]
 > To make a fair comparison, you need to convert the data to packets-per-second. You can do this by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
