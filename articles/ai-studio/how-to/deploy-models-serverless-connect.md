@@ -87,7 +87,7 @@ Follow these steps to create a connection:
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    Go to [Azure AI Studio](https://ai.azure.com) and follow these steps and navigate to the project where the endpoint you want to connect to is deployed.
+    Go to [Azure AI Studio](https://ai.azure.com) and navigate to the project where the endpoint you want to connect to is deployed.
 
     # [Azure CLI](#tab/cli)
 
@@ -111,15 +111,15 @@ Follow these steps to create a connection:
     )
     ```
 
-1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, you get the details for an endpoint name **meta-llama3-8b-qwerty**.
+1. Get the endpoint's URL and credentials for the endpoint you want to connect to. In this example, you get the details for an endpoint name **meta-llama3-8b-qwerty**.
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. Go to **deployments** section.
+    1. From the left sidebar of your project in AI Studio, go to **Components** > **Deployments** to see the list of deployments in the project.
 
-    1. Locate the deployment you want to connect to and select it.
+    1. Select the deployment you want to connect to.
 
-    1. Copy the URL on **Target** and the value for **Key**.
+    1. Copy the values for **Target URI** and **Key**.
 
     # [Azure CLI](#tab/cli)
 
@@ -140,9 +140,7 @@ Follow these steps to create a connection:
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    Go to [Azure AI Studio](https://ai.azure.com) and follow these steps:
-
-    1. Navigate to the project where the connection needs to be created to.
+    Go to the project where the connection needs to be created to.
 
     # [Azure CLI](#tab/cli)
 
@@ -170,15 +168,15 @@ Follow these steps to create a connection:
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. Select the **Settings** option in the left navigation bar.
+    1. From the left sidebar of your project in AI Studio, select **Settings**.
 
-    1. On **Connected resources**, select **New connection**.
+    1. In the **Connected resources** section, select **New connection**.
 
     1. Select **Serverless Model**.
 
-    1. On **Target URI**, paste the value you copied on the previous section.
+    1. For the **Target URI**, paste the value you copied previously.
 
-    1. On **Key**, paste the value you copied on the previous section.
+    1. For the **Key**, paste the value you copied previously.
 
     1. Give the connection a name, in this case **meta-llama3-8b-connection**.
 
@@ -217,13 +215,17 @@ Follow these steps to create a connection:
 
     1. From the left sidebar of your project in AI Studio, go to **Tools** > **Prompt flow**.
 
-    1. Select **Create** and then select **Chat flow**.
+    1. Select **Create** to create a new flow.
+
+    1. Select **Create** in the **Chat flow** box.
 
     1. Give your *Prompt flow* a name and select **Create**.
 
-    1. On the **chat** node, select the option **Connection** and select the connection you just created, in this case **meta-llama3-8b-connection**.
+    1. Select the **chat** node from the graph to go to the _chat_ section.
 
-    1. From the top navigation bar, select **Start compute session** to start a prompt flow automatic runtime.
+    1. For **Connection**, open the dropdown list to select the connection you just created, in this case **meta-llama3-8b-connection**.
+
+    1. Select **Start compute session** from the top navigation bar, to start a prompt flow automatic runtime.
 
     1. Select the **Chat** option. You can now send messages and get responses.
 
