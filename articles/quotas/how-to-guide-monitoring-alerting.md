@@ -1,7 +1,7 @@
 ---
 title: Create alerts for quotas
 description: Learn how to create alerts for quotas
-ms.date: 05/06/2024
+ms.date: 05/09/2024
 ms.topic: how-to
 ---
 
