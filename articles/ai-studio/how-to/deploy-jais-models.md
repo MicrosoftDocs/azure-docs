@@ -31,7 +31,7 @@ You can find the Jais model in the [Model Catalog](model-catalog.md) by filterin
     > For Jais models, the pay-as-you-go model deployment offering is only available with AI hubs created in East US 2 or Sweden Central region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../ai-studio/concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
 ### Jais 30B Chat
