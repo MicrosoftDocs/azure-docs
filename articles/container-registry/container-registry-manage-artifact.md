@@ -1,26 +1,22 @@
 ---
-title: Manage OCI Artifacts and Supply Chain Artifacts using ORAS
-description: A comprehensive guide on how to use Azure Container Registry to store, manage, and retrieve both OCI artifacts and supply chain artifacts using Azure Container Registry.
+title: Manage OCI Artifacts and Supply Chain Artifacts with ORAS
+description: A comprehensive guide on how to use Azure Container Registry to store, manage, and retrieve OCI and supply chain artifacts.
 author: tejaswikolli-web
-ms.topic: how-to #Don't change
+ms.topic: how-to # Don't change
 ms.date: 01/24/2024
 ms.author: tejaswikolli
 ms.service: container-registry
+#customer intent: As a developer, I want a comprehensive guide on using Azure Container Registry to manage OCI and supply chain artifacts so that I can effectively store and retrieve them.
 ---
 
 # Manage OCI Artifacts and Supply Chain Artifacts with ORAS
 
-Azure Container Registry (ACR) helps you to manage both the Open Container Initiative (OCI) artifacts and supply chain artifacts. This article is a comprehensive guide on how to use Azure Container Registry (ACR) to store, manage, and retrieve both OCI artifacts and a graph of supply chain artifacts, including signatures, software bill of materials (SBOM), security scan results and other types.
-
-
-![Graph of artifacts, including a container image, signature and signed software bill of materials](./media/container-registry-artifacts/oras-artifact-graph.svg)
-
+Azure Container Registry (ACR) helps you manage both the Open Container Initiative (OCI) artifacts and supply chain artifacts. This article guides you how to use Azure Container Registry (ACR) for managing OCI artifacts and supply chain artifacts effectively. Learn to store, manage, and retrieve both OCI artifacts and a graph of supply chain artifacts, including signatures, software bill of materials (SBOM), security scan results, and other types.
 
 This article is divided into two main sections:
 
 * [Push and pull OCI artifacts with ORAS](container-registry-manage-artifact.md#push-and-pull-oci-artifacts-with-oras)
 * [Attach, push, and pull supply chain artifacts with ORAS](container-registry-manage-artifact.md#attach-push-and-pull-supply-chain-artifacts-with-oras)
-
 
 ## Prerequisites
 
@@ -29,24 +25,23 @@ This article is divided into two main sections:
 * **ORAS CLI** - Version `v1.1.0` or later version is required. See: [ORAS installation][oras-install-docs].
 * **Docker (Optional)** - To complete the walkthrough, a container image is referenced.
 You can use [Docker installed locally][docker-install] to build and push a container image, or use [`acr build`][az-acr-build] to build remotely in Azure.  
-While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.  
+While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.
 
+## Configure the registry
 
-## Configure a registry
+To configure your environment for easy command execution, follow these steps:
 
-Configure environment variables to easily copy/paste commands into your shell. The commands can be run locally or in the [Azure Cloud Shell](https://shell.azure.com/).
+1. Set the `ACR_NAME` variable to your registry name.
+2. Set the `REGISTRY` variable to `$ACR_NAME.azurecr.io`.
+3. Set the `REPO` variable to your repository name.
+4. Set the `TAG` variable to your desired tag.
+5. Set the `IMAGE` variable to `$REGISTRY/${REPO}:$TAG`.
 
-Configure a registry name and login credentials to push and pull artifacts. The following example uses the `myregistry` registry name. Replace with your own registry name.
+### Set environment variables
+
+Configure a registry name, login credentials, a repository name, and tag to push and pull artifacts. The following example uses the `net-monitor` repository name and `v1` tag. Replace with your own repository name and tag.
 
 ```bash
-ACR_NAME=myregistry
-REGISTRY=$ACR_NAME.azurecr.io
-```
-
-Configure a repository name and tag to push and pull artifacts. The following example uses the `net-monitor` repository name and `v1` tag. Replace with your own repository name and tag.
-
-```bash
-```console
 ACR_NAME=myregistry
 REGISTRY=$ACR_NAME.azurecr.io
 REPO=net-monitor
@@ -56,7 +51,7 @@ IMAGE=$REGISTRY/${REPO}:$TAG
 
 ### Sign in to a registry
 
-Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
+Authenticate with your[individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
 # Login to Azure
@@ -71,11 +66,13 @@ PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query acc
 
 Provide the credentials to `oras login`.
 
-  ```bash
-  oras login $REGISTRY \
+```bash
+oras login $REGISTRY \
     --username $USER_NAME \
     --password $PASSWORD
-  ```
+```
+
+This setup enables you to seamlessly push and pull artifacts to and from your Azure Container Registry. Adjust the variables as needed for your specific configuration.
 
 ## Push and Pull OCI Artifacts with ORAS
 
@@ -84,11 +81,13 @@ You can use an [Azure container registry][acr-landing] to store and manage [Open
 To demonstrate this capability, this section shows how to use the [OCI Registry as Storage (ORAS)][oras-cli] CLI to push and pull OCI artifacts to/from an Azure container registry. You can manage various OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
 
 > [!NOTE]
-> ACR and ORAS support multiple authentication options for users and system automation. This article uses individual identity, using an Azure token. For more authentication options see [Authenticate with an Azure container registry][acr-authentication]
+> ACR and ORAS support multiple authentication options for users and system automation. This article uses individual identity, using an Azure token. For more authentication options see [Authenticate with an Azure container registry.][acr-authentication]
 
 ### Push an artifact
 
-A root artifact is an artifact that has no `subject` parent. Root artifacts can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact. Reference artifacts can be anything from a signature, software bill of materials, scan report or other evolving types.
+An artifact that has no `subject` parent can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts can be anything from a signature, software bill of materials, scan reports, or other evolving types. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact.
+
+#### Push a Single-File Artifact
 
 For this example, create content that represents a markdown file:
 
@@ -127,13 +126,15 @@ Output for a successful push is similar to the following output:
 Uploading 2fdeac43552b readme.md
 Uploaded  2fdeac43552b readme.md
 Pushed <myregistry>.azurecr.io/samples/artifact:readme
-Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1aec5d9dcf7748dd702682d53
+Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1
+
+aec5d9dcf7748dd702682d53
 ```
 
-### Push a multi-file root artifact
+#### Push a multi-file root artifact
 
 When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
-For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles]
+For more information how to push a collection of files, see [Pushing artifacts with multiple files.][oras-push-multifiles]
 
 Create some documentation for the repository:
 
@@ -172,7 +173,7 @@ To view the manifest created as a result of `oras push`, use `oras manifest fetc
 oras manifest fetch --pretty $REGISTRY/samples/artifact:readme
 ```
 
-The output will be similar to:
+The output is similar to:
 
 ```json
 {
@@ -206,7 +207,7 @@ The output will be similar to:
 
 ### Pull a root artifact
 
-Create a clean directory for downloading
+Create a clean directory for downloading.
 
 ```bash
 mkdir ./download
@@ -234,22 +235,22 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 
 ## Attach, push, and pull supply chain artifacts with ORAS
 
-To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover` and `pull` a graph of supply chain artifacts to an Azure container registry.
+To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover`, and `pull` a graph of supply chain artifacts to an Azure container registry.
 Storing individual (root) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-oci-artifacts.md).
 
-To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI image manifest][oci-image-manifest], which is part of the [pre-release OCI 1.1 Distribution specification][oci-1_1-spec].
+To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI image manifest][oci-image-manifest], which is part of the [prerelease OCI 1.1 Distribution specification][oci-1_1-spec].
 
 ### Push a container image
 
-This example associates a graph of artifacts to a container image.
+To associate a graph of artifacts with a container image using the Azure CLI:
 
-Build and push a container image, or skip this step if `$IMAGE` references an existing image in the registry.
+You can build and push a container image, or skip this step if `$IMAGE` references an existing image in the registry.
 
 ```bash
 az acr build -r $ACR_NAME -t $IMAGE https://github.com/wabbit-networks/net-monitor.git#main
 ```
 
-### Create a sample signature to the container image
+### Attaching a Signature
 
 ```bash
 echo '{"artifact": "'${IMAGE}'", "signature": "jayden hancock"}' > signature.json
@@ -272,68 +273,6 @@ For more information on oras attach, see [ORAS documentation][oras-docs].
 When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
 For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles].
 
-### Push a container image
-
-This example associates a graph of artifacts to a container image.
-
-Build and push a container image, or skip this step if `$IMAGE` references an existing image in the registry.
-
-```bash
-az acr build -r $ACR_NAME -t $IMAGE https://github.com/wabbit-networks/net-monitor.git#main
-```
-
-### Create a sample signature to the container image
-
-```bash
-echo '{"artifact": "'${IMAGE}'", "signature": "jayden hancock"}' > signature.json
-```
-
-### Attach a signature to the registry, as a reference to the container image
-
-The `oras attach` command creates a reference between the file (`./signature.json`) to the `$IMAGE`. The `--artifact-type` provides for differentiating artifacts, similar to file extensions that enable different file types. One or more files can be attached by specifying `[file]:[mediaType]`.
-
-```bash
-oras attach $IMAGE \
-    --artifact-type signature/example \
-    ./signature.json:application/json
-```
-
-For more information on oras attach, see [ORAS documentation][oras-docs].
-
-### Attach a multi-file artifact as a reference
-
-When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
-For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles].
-
-Create some documentation around an artifact:
-
-```bash
-echo 'Readme Content' > readme.md
-mkdir details/
-echo 'Detailed Content' > details/readme-details.md
-echo 'More detailed Content' > details/readme-more-details.md
-```
-
-Attach the multi-file artifact as a reference to `$IMAGE`:
-
-**Linux, WSL2 or macOS**
-
-```bash
-oras attach $IMAGE \
-    --artifact-type readme/example \
-    ./readme.md:application/markdown \
-    ./details
-```
-
-**Windows**
-
-```cmd
-.\oras.exe attach $IMAGE ^
-    --artifact-type readme/example ^
-    .\readme.md:application/markdown ^
-    .\details
-```
-
 ### Discovering artifact references
 
 The [OCI v1.1 Specification][oci-spec] defines a [referrers API][oci-artifact-referrers] for discovering references to a `subject` artifact. The `oras discover` command can show the list of references to the container image.
@@ -354,9 +293,11 @@ myregistry.azurecr.io/net-monitor:v1
     └── sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
 ```
 
-### Creating a graphs of artifacts
+### Creating Artifacts graphs
 
 The OCI v1.1 Specification enables deep graphs, enabling signed software bill of materials (SBOM) and other artifact types.
+
+Here's how to create and attach an SBOM to the registry:
 
 #### Create a sample SBOM
 
@@ -392,7 +333,7 @@ SBOM_DIGEST=$(oras discover -o json \
                 $IMAGE | jq -r ".manifests[0].digest")
 ```
 
-Create a signature of an SBOM
+Create a signature of an SBOM.
 
 ```bash
 echo '{"artifact": "'$IMAGE@$SBOM_DIGEST'", "signature": "jayden hancock"}' > sbom-signature.json
@@ -426,15 +367,14 @@ myregistry.azurecr.io/net-monitor:v1
     └── sha256:00da2c1c3ceea087b16e70c3f4e80dbce6f5b7625d6c8308ad095f7d3f6107b5
 ```
 
-### Promote the graph
+### Promoting the Artifact Graph
 
-A typical DevOps workflow will promote artifacts from dev through staging, to the production environment
-Secure supply chain workflows promote public content to privately secured environments.
-In either case you'll want to promote the signatures, SBOMs, scan results and other related artifact with the root artifact to have a complete graph of dependencies.
+A typical DevOps workflow promotes artifacts from dev through staging, to the production environment. Secure supply chain workflows promote public content to privately secured environments.
+In either case you want to promote the signatures, SBOMs, scan results, and other related artifact with the root artifact to have a complete graph of dependencies.
 
 Using the [`oras copy`][oras-cli] command, you can promote a filtered graph of artifacts across registries.
 
-Copy the `net-monitor:v1` image, and it's related artifacts to `sample-staging/net-monitor:v1`:
+Copy the `net-monitor:v1` image, and related artifacts to `sample-staging/net-monitor:v1`:
 
 ```bash
 TARGET_REPO=$REGISTRY/sample-staging/$REPO
@@ -478,7 +418,7 @@ myregistry.azurecr.io/sample-staging/net-monitor:v1
     └── sha256:00da2c1c3ceea087b16e70c3f4e80dbce6f5b7625d6c8308ad095f7d3f6107b5
 ```
 
-### Pull a referenced artifact
+### Pulling Referenced Artifacts
 
 To pull a specific referenced artifact, the digest of reference is discovered with the `oras discover` command:
 
@@ -518,7 +458,7 @@ The output of `tree`:
 
 ### View the repository and tag listing
 
-ORAS enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. It also enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
+ORAS enables artifact graphs to be pushed, discovered, pulled, and copied without having to assign tags. It also enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts, and other artifacts.
 
 #### View a list of tags
 
@@ -557,9 +497,9 @@ In the output, the signature is untagged, but tracked as a `oci.artifact.manifes
 }
 ```
 
-### Delete all artifacts in the graph
+### Deleting all artifacts in the graph
 
-Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the root artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM and the signature of the SBOM).
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the root artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
 
 ```azurecli
 oras manifest delete -f $REGISTRY/$REPO:$TAG
@@ -567,9 +507,7 @@ oras manifest delete -f $REGISTRY/$REPO:$TAG
 oras manifest delete -f $REGISTRY/sample-staging/$REPO:$TAG
 ```
 
-#### View the remaining manifests
-
-By deleting the root artifact, all related artifacts are also deleted leaving a clean environment:
+You can view the list of manifests to confirm the deletion of the root artifact, and all related artifacts leaving a clean environment.
 
 ```azurecli
 az acr manifest list-metadata \
@@ -581,17 +519,17 @@ Output:
 ```output
 2023-01-10 18:38:45.366387 Error: repository "net-monitor" is not found.
 ```
+
 ## Summary
 
-In this article, a graph of supply chain artifacts is created, discovered, promoted and pulled providing lifecycle management of the artifacts you build and depend upon.
+In this article, you learned how to use Azure Container Registry to store, manage, and retrieve both OCI artifacts and supply chain artifacts. You used ORAS CLI to push and pull artifacts to/from an Azure Container Registry. You also discovered the manifest of the pushed artifacts and viewed the graph of artifacts attached to the container image.
 
 ## Next steps
 
-* Learn more about [the ORAS CLI][oras-cli]
 * Learn about [Artifact References](container-registry-oras-artifacts.md), associating signatures, software bill of materials and other reference types
 * Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
-* Learn more about [the ORAS CLI][oras-cli]
+
 
 <!-- LINKS - external -->
 [docker-install]:           https://www.docker.com/get-started/
@@ -611,19 +549,7 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 [az-acr-build]:             /cli/azure/acr#az_acr_build
 [az-acr-manifest-metadata]: /cli/azure/acr/manifest/metadata#az_acr_manifest_list_metadata
 [azure-cli-install]:        /cli/azure/install-azure-cli
-
-<!-- LINKS - external -->
-
-
-
-
-
-
-
-<!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
-
-<!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
 
 
