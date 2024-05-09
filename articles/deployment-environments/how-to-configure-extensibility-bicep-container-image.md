@@ -15,7 +15,7 @@ ms.topic: how-to
 
 In this article, you learn how to build custom Azure Resource Manager (ARM) and Bicep container images to deploy your environment definitions in Azure Deployment Environments (ADE).
 
-An environment definition comprises at least two files: a template file, like *azuredeploy.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the ARM and Bicep IaC frameworks. 
+An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the ARM and Bicep IaC frameworks. 
 
 The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like DockerHub. You can then reference these images in your environment definitions to deploy your environments.
 

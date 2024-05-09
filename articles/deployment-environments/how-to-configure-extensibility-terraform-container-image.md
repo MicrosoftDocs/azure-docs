@@ -15,7 +15,7 @@ ms.topic: how-to
 
 In this article, you learn how to build custom Terraform container images to deploy your environment definitions in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
 
-An environment definition comprises at least two files: a template file, like *azuredeploy.tf*, or *azuredeploy.tf.json*, and a manifest file named *environment.yaml*. You use a container to deploy environment definition that uses Terraform.
+An environment definition comprises at least two files: a template file, like *main.tf*, and a manifest file named *environment.yaml*. You use a container to deploy environment definition that uses Terraform.
 
 The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like DockerHub. You can then reference these images in your environment definitions to deploy your environments.
 
