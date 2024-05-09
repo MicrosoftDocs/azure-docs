@@ -3,7 +3,7 @@ title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 01/11/2024
+ms.date: 05/09/2024
 ---
 
 # Object functions for ARM templates
@@ -44,7 +44,7 @@ In Bicep, use the [contains](../bicep/bicep-functions-object.md#contains) functi
 
 ### Example
 
-The following example shows how to use contains with different types:
+The following example shows how to use `contains` with different types:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
@@ -154,7 +154,7 @@ An array or object with the common elements.
 
 ### Example
 
-The following example shows how to use intersection with arrays and objects.
+The following example shows how to use `intersection` with arrays and objects.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
 
@@ -369,7 +369,7 @@ An int.
 
 ### Example
 
-The following example shows how to use length with an array and string:
+The following example shows how to use `length` with an array and string:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
@@ -409,6 +409,55 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
+## objectKeys
+
+`objectKey(arg1)`
+
+Returns the keys from an object, where an object is a collection of key-value pairs.
+
+In Bicep, use the [objectKeys](../templates/template-functions-object.md#objectkeys) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |object |The object which is a collection of key-value pairs. |
+
+### Return value
+
+An array.
+
+### Example
+
+The following example shows how to use `objectKeys` with an object:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "obj": {
+      "a": 1,
+      "b": 2
+    },
+    "keys": "[objectKeys(variables('obj'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "keyArray": {
+      "type": "array",
+      "value": "[variables('keys')]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| keyArray | Array | [ "a", "b" ] |
+
 ## union
 
 `union(arg1, arg2, arg3, ...)`
@@ -441,7 +490,7 @@ The union function merges not only the top-level elements but also recursively m
 
 ### Example
 
-The following example shows how to use union with arrays and objects:
+The following example shows how to use `union` with arrays and objects:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
 

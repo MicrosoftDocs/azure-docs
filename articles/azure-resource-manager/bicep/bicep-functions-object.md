@@ -31,7 +31,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Example
 
-The following example shows how to use contains with different types:
+The following example shows how to use `contains` with different types:
 
 ```bicep
 param stringToTest string = 'OneTwoThree'
@@ -127,7 +127,7 @@ An array or object with the common elements.
 
 ### Example
 
-The following example shows how to use intersection with arrays and objects:
+The following example shows how to use `intersection` with arrays and objects:
 
 ```bicep
 param firstObject object = {
@@ -301,7 +301,7 @@ If you need to include a parameter value or variable in the JSON object, use the
 
 ### Example
 
-The following example shows how to use the json function. Notice that you can pass in **null** for an empty object.
+The following example shows how to use the `json` function. Notice that you can pass in **null** for an empty object.
 
 ```bicep
 param jsonEmptyObject string = 'null'
@@ -353,7 +353,7 @@ An int.
 
 ### Example
 
-The following example shows how to use length with an array and string:
+The following example shows how to use `length` with an array and string:
 
 ```bicep
 param arrayToTest array = [
@@ -405,7 +405,7 @@ An array.
 
 ### Example
 
-The following example shows how to use length with an array and string:
+The following example shows how to use `objectKeys` with an object:
 
 ```bicep
 var obj = { a: 1, b: 2 }
@@ -452,7 +452,7 @@ The union function merges not only the top-level elements but also recursively m
 
 ### Example
 
-The following example shows how to use union with arrays and objects:
+The following example shows how to use `union` with arrays and objects:
 
 ```bicep
 param firstObject object = {
