@@ -77,7 +77,7 @@ Consider either clicking the **watch** or **star** buttons on the web app's [Git
 
 You can enable chat history for your users of the web app. When you enable the feature, your users will have access to their individual previous queries and responses. 
 
-To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
+To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal).
 
 :::image type="content" source="../media/use-your-data/enable-chat-history.png" alt-text="A screenshot of the chat history enablement button on Azure OpenAI studio." lightbox="../media/use-your-data/enable-chat-history.png":::
 
@@ -94,4 +94,4 @@ Deleting your web app does not delete your Cosmos DB instance automatically. To 
 
 ## Next steps
 * [Prompt engineering](../concepts/prompt-engineering.md)
-* [Azure openAI on your data](../concepts/use-your-data.md)
+* [Azure OpenAI on your data](../concepts/use-your-data.md)
