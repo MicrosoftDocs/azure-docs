@@ -1,7 +1,7 @@
 ---
 title: Consume deployed serverless API endpoints from a different workspace
 titleSuffix: Azure Machine Learning
-description: Learn about to consume deployed serverless API endpoints from a different workspace
+description: Learn how to consume a serverless API endpoint from a different workspace than the one where it was deployed. 
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -13,13 +13,16 @@ ms.author: fasantia
 author: santiagxf
 ---
 
-# Consume deployed serverless API endpoints from a different workspace
+# Consume serverless API endpoints from a different workspace
 
-Certain models in the model catalog can be deployed as a serverless API endpoint with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+In this article, you learn how to configure an existing serverless API endpoint in a different workspace than the one where it was deployed.
 
-On some cases, you want to centralize your deployments on a given workspace and consume them from different workspaces on your organization. On another situations, you may need to deploy models on a workspace on a given region and consume it from a workspace on another region. Some models supporting serverless API endpoint deployment are only available on specific Azure regions.
+Certain models in the model catalog can be deployed as serverless APIs. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-In this example, you learn how to configure an existing serverless API endpoint on a new workspace.
+The need to consume a serverless API endpoint in a different workspace than the one that was used to create the deployment might arise in situations such as these:
+
+- You want to centralize your deployments in a given workspace and consume them from different workspaces in your organization.
+- You need to deploy a model in a workspace in a particular Azure region where serverless deployment for that model is available. However, you need to consume it from another region, where serverless deployment isn't available for the particular models.
 
 ## Prerequisites
 
@@ -27,13 +30,13 @@ In this example, you learn how to configure an existing serverless API endpoint 
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md) where you want to consume the existing deployment.
 
-- A model [deployed to a serverless API endpoint](how-to-deploy-models-serverless.md). In this example, we assumed you deployed **Meta-Llama-3-8B-Instruct**.
+- A model [deployed to a serverless API endpoint](how-to-deploy-models-serverless.md). This article assumes that you previously deployed the **Meta-Llama-3-8B-Instruct** model. To learn how to deploy this model as a serverless API, see [Deploy models as serverless APIs](how-to-deploy-models-serverless.md).
 
 - You need to install the following software to work with Azure Machine Learning:
 
     # [Studio](#tab/azure-studio)
 
-    You can use any compatible web browser to navigate [Azure Machine Learning](https://ml.azure.com).
+    You can use any compatible web browser to navigate [Azure Machine Learning studio](https://ml.azure.com).
 
     # [Azure CLI](#tab/cli)
 
@@ -80,7 +83,7 @@ Follow these steps to create a connection:
 
     # [Studio](#tab/azure-studio)
 
-    Go to [Azure Machine Learning Studio](https://ml.azure.com) and follow these steps and navigate to the workspace where the endpoint you want to connect to is deployed.
+    Go to [Azure Machine Learning studio](https://ml.azure.com) and navigate to the workspace where the endpoint you want to connect to is deployed.
 
     # [Azure CLI](#tab/cli)
 
@@ -104,15 +107,17 @@ Follow these steps to create a connection:
     )
     ```
 
-1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, we get the details for an endpoint name **meta-llama3-8b-qwerty**.
+1. Get the endpoint's URL and credentials for the endpoint you want to connect to. In this example, you get the details for an endpoint name **meta-llama3-8b-qwerty**.
 
     # [Studio](#tab/azure-studio)
 
-    1. Go to **Endpoints** and select **Serverless**.
+    1. Select **Endpoints** from the left sidebar.
 
-    1. Locate the endpoint you want to connect to and select it.
+    1. Select the **Serverless endpoints** tab to display the serverless API endpoints.
 
-    1. On the **Details** tab, copy the URL on **Target** and the value for **Key**.
+    1. Select the endpoint you want to connect to.
+
+    1. On the endpoint's **Details** tab, copy the values for **Target URI** and **Key**.
 
     # [Azure CLI](#tab/cli)
 
@@ -129,25 +134,23 @@ Follow these steps to create a connection:
     print(endpoint_keys.secondary_key)
     ```
 
-1. Connect now to the workspace where you need to create the connection and consume the endpoint.
+1. Now, connect to the workspace *where you want to create the connection and consume the endpoint*.
 
 1. Create the connection in the workspace:
 
     # [Studio](#tab/azure-studio)
 
-    Go to [Azure Machine Learning Studio](https://ml.azure.com) and follow these steps:
+    1. Go to the workspace where the connection needs to be created to.
 
-    1. Navigate to the workspace where the connection needs to be created to.
-
-    1. Go to **Manage** section in the left navigation bar and select **Connections**.
+    1. Go to the **Manage** section in the left navigation bar and select **Connections**.
 
     1. Select **Create**.
 
     1. Select **Serverless Model**.
 
-    1. On **Target URI**, paste the value you copied on the previous section.
+    1. For the **Target URI**, paste the value you copied previously.
 
-    1. On **Key**, paste the value you copied on the previous section.
+    1. For the **Key**, paste the value you copied previously.
 
     1. Give the connection a name, in this case **meta-llama3-8b-connection**.
 
@@ -182,16 +185,25 @@ Follow these steps to create a connection:
 
 1. At this point, the connection is available for consumption.
 
-1. To validate the connection is working:
+1. To validate that the connection is working:
 
-    1. On the **Authoring** section on the navigation bar, select **Prompt flow**.
+    1. From the left navigation bar of Azure Machine Learning studio, go to **Authoring** > **Prompt flow**.
 
-    1. Select **Create** and then select **Chat**.
+    1. Select **Create** to create a new flow.
+
+    1. Select **Create** in the **Chat flow** box.
 
     1. Give your *Prompt flow* a name and select **Create**.
 
-    1. On the **chat** node, select the option **Connection** and select the connection you just created, in this case **meta-llama3-8b-connection**.
+    1. Select the **chat** node from the graph to go to the _chat_ section.
 
-    1. On the top navigation bar, select **Start compute session** to start a **Prompt flow** automatic runtime.
+    1. For **Connection**, open the dropdown list to select the connection you just created, in this case **meta-llama3-8b-connection**.
 
-    1. Select the **Chat** option. You should be able to send messages and get responses.
+    1. Select **Start compute session** from the top navigation bar, to start a prompt flow automatic runtime.
+
+    1. Select the **Chat** option. You can now send messages and get responses.   
+
+## Related content
+
+- [Model Catalog and Collections](concept-model-catalog.md)
+- [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)

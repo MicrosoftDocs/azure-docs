@@ -13,7 +13,7 @@ ms.author: fasantia
 author: santiagxf
 ---
 
-# Deploy models as serverless APIs endpoints
+# Deploy models as serverless API endpoints
 
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token-based billing.
 
