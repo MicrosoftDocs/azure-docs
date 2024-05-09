@@ -60,7 +60,7 @@ az networkfabric controller create \
   --ipv6-address-space "FC00::/59" \
   --infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]'
   --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]' \
-location='<Location>' --debug --no-wait
+--debug --no-wait
 ```
 
 **Note:** The NFC creation takes between 30-45 mins.
@@ -91,7 +91,6 @@ Expected output:
   "location": "<Location>",
   "managedResourceGroupConfiguration": {},
   "name": "NFCName",
-  "nfcSku": "Standard",
   "provisioningState": "Succeeded",
   "resourceGroup": "NFCResourceGroupName",
   "systemData": {
@@ -158,7 +157,6 @@ Expected output:
   "location": "<Location>",
   "managedResourceGroupConfiguration": {},
   "name": "NFCName",
-  "nfcSku": "Standard",
   "provisioningState": "Succeeded",
   "resourceGroup": "NFCResourceGroupName",
   "systemData": {
