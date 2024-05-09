@@ -32,16 +32,16 @@ For more information on Azure Data Factory, see [What is Azure Data Factory](/az
 To connect Azure Data Factory to another Azure service, you must create a [linked service](/azure/data-factory/concepts-linked-services?tabs=data-factory). First, create a linked service to connect Azure Data Factory to the Data Product's key vault.
 
 1. In the [Azure portal](https://ms.portal.azure.com/#home), find the Azure Data Factory resource.
-2. From the **Overview** pane, launch the Azure Data Factory studio.
-3. Go to the **Manage** view, then find **Connections** and select **Linked Services**.
-4. Create a new linked service using the **New** button.
-    - Select the **Azure Key Vault** type.
-    - Set the target to the Data Product's key vault (the key vault is in the resource group with name starting with `<data-product-name>-HostedResources-` and is named `aoi-<uid>-kv`).
-    - Set the authentication method to **System Assigned Managed Identity**.
-5. Grant Azure Data Factory permissions on the Key Vault resource.
-    - Go to the Data Product's key vault in the Azure portal.
-    - In the **Access Control (IAM)** pane, add a new role assignment.
-    - Give the Data Factory managed identity (this has the same name as the Data Factory resource) the 'Key Vault Secrets User' role.
+1. From the **Overview** pane, launch the Azure Data Factory studio.
+1. Go to the **Manage** view, then find **Connections** and select **Linked Services**.
+1. Create a new linked service using the **New** button.
+   1. Select the **Azure Key Vault** type.
+   1. Set the target to the Data Product's key vault (the key vault is in the resource group with name starting with `<data-product-name>-HostedResources-` and is named `aoi-<uid>-kv`).
+   1. Set the authentication method to **System Assigned Managed Identity**.
+1. Grant Azure Data Factory permissions on the Key Vault resource.
+   1. Go to the Data Product's key vault in the Azure portal.
+   1. In the **Access Control (IAM)** pane, add a new role assignment.
+   1. Give the Data Factory managed identity (this has the same name as the Data Factory resource) the 'Key Vault Secrets User' role.
 
 ## Create a Blob Storage linked service
 
@@ -51,12 +51,12 @@ Data Products expose a Blob Storage endpoint for ingesting data. Use the newly c
 2. From the **Overview** pane, launch the Azure Data Factory studio.
 3. Go to the **Manage** view, then find **Connections** and select **Linked Services**.
 4. Create a new linked service using the **New** button.
-    - Select the Azure Blob Storage type.
-    - Set the authentication type to **SAS URI**.
-    - Choose **Azure Key Vault** as the source.
-    - Select the Key Vault linked service that you created in [Create a key vault linked service](#create-a-key-vault-linked-service).
-    - Set the secret name to `input-storage-sas`.
-    - Leave the secret version as the default value ('Latest version').
+    1. Select the Azure Blob Storage type.
+    1. Set the authentication type to **SAS URI**.
+    1. Choose **Azure Key Vault** as the source.
+    1. Select the Key Vault linked service that you created in [Create a key vault linked service](#create-a-key-vault-linked-service).
+    1. Set the secret name to `input-storage-sas`.
+    1. Leave the secret version as the default value ('Latest version').
 
 Now the Data Factory is connected to the Data Product ingestion endpoint.
 
@@ -68,13 +68,13 @@ To use the Data Product as the sink for a [Data Factory pipeline](/azure/data-fa
 2. From the **Overview** pane, launch the Azure Data Factory studio.
 3. Go to the **Author** view -> Add resource -> Dataset.
 4. Create a new Azure Blob Storage dataset.
-    - Select your output type.
-    - Set the linked service to the Data Product ingestion linked service that you created in [Create a blob storage linked service](#create-a-blob-storage-linked-service).
-    - Set the container name to the name of the data type that the dataset is associated with.
+    1. Select your output type.
+    1. Set the linked service to the Data Product ingestion linked service that you created in [Create a blob storage linked service](#create-a-blob-storage-linked-service).
+    1. Set the container name to the name of the data type that the dataset is associated with.
         - This information can be found in the **Required ingestion configuration** section of the documentation for your Data Product.
         - For example, see [Required ingestion configuration](concept-monitoring-mcc-data-product.md#required-ingestion-configuration) for the Monitoring - MCC Data Product.
-    - Ensure the folder path includes at least one directory; files copied into the root of the container won't be correctly ingested.
-    - Set the other fields as appropriate for your data.
+    1. Ensure the folder path includes at least one directory; files copied into the root of the container won't be correctly ingested.
+    1. Set the other fields as appropriate for your data.
 5. Follow the Azure Data Factory documentation (for example [Creating a pipeline with the UI](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory#creating-a-pipeline-with-ui)) to create a pipeline with this new dataset as the sink.
 
 Repeat this step for all required datasets.
