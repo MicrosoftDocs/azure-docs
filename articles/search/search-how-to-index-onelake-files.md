@@ -151,11 +151,11 @@ The minimum role assignment for your search service identity is Contributor.
 
    The following screenshot shows a Contributor role assignment using a system managed identity.
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/add_system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/add_system_managed_identity.png" :::
+   :::image type="content" source="media/search-how-to-index-onelake-files/add_system_managed_identity.png" alt-text="Screenshot showing a Contributor role assignment for a search service system identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/add_system_managed_identity.png" :::
 
    This screenshot shows a Contributor role assignment using a system managed identity:
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png" alt-text="Screenshot showing a search service user-assigned managed identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png":::
+   :::image type="content" source="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png" alt-text="Screenshot showing a Contributor role assignment for a search service user-assigned managed identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png":::
 
 ## Define the data source  
   
@@ -360,7 +360,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add a "content" field to store extracted text from each file through the file's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
-1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
+1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-file-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
 <a name="PartsOfFilesToIndex"></a> 
 
