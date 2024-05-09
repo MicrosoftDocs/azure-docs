@@ -35,9 +35,13 @@ If you send an API request to Azure Image Builder's API version 2024-02-01 and b
 
 `Unmarshalling entity encountered error: unmarshalling type *v2024_02_01.ImageTemplate: struct field Properties: unmarshalling type *v2024_02_01.ImageTemplateProperties: struct field Optimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize: unmarshalling type *v2024_02_01.ImageTemplatePropertiesOptimize, unknown field \"vmboot\". There is an issue with the syntax with the JSON template you are submitting. Please check the JSON template for syntax and grammar. For more information on the syntax and grammar of the JSON template, visit http://aka.ms/azvmimagebuildertmplref.`
 
-The error message will mention an "unknown field" and direct you to the official documentation: [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md). This documentation will guide you on the proper syntax and grammar for constructing valid API calls to the Azure Image Builder service.
+The error message will mention an "unknown field" and direct you to the official documentation: [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md).
 
-The documentation has been updated to include the proper capitalization and field names ahead of the API release. Below is a list of the documentation changes that were made to match the field names in API version 2024-02-01:
+> **Reference Azure Image Builder's Swagger for API Calls**
+> 
+> When making calls to the Azure Image Builder service, always reference the [Swagger documentation](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/imagebuilder/resource-manager/Microsoft.VirtualMachineImages/stable), which serves as the definitive source of truth for Azure Image Builder's API specifications. While the public documentation has been updated to include the proper capitalization and field names ahead of the API release, the Swagger definition contains precise details about each AIB API to ensure you are making calls to the service correctly.
+
+Below is a list of the documentation changes that were made to match the field names in API version 2024-02-01:
 
 In the [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md) documentation:
 
