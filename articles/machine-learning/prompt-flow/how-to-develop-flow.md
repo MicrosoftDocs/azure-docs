@@ -97,19 +97,26 @@ If the condition isn't met, the node will be skipped. The node status is shown a
 
 ### Test the flow
 
-You can test the flow in two ways: run single node or run the whole flow.
+You can test the flow in two ways: 
+1. Run **single node**.
+    - To run a single node, select the **Run icon** on node in flatten view. Once running is completed, you can quickly check result in **node output section**.
+1. Run **the whole flow**.
+    - To run the whole flow, select the **Run button** at the right top. 
 
-To run a single node, select the **Run** icon on node in flatten view. Once running is completed, check result in node output section.
 
-To run the whole flow, select the **Run** button at the right top. In the run banner, you can click **View trace** to view the trace of the flow run for checking the result and observing the flow execution, where you can see the input and output of the whole flow and each node, along with more detailed information for debugging.
+#### View test result and trace (Public Preview)
+
+For the whole flow run, after you execute the flow, you can see the run status in the run banner. Then you can click **View trace** to view the trace for checking the result and observing the flow execution, where you can see the input and output of the whole flow and each node, along with more detailed information for debugging. It's available during the running and after the run is completed.
 
 :::image type="content" source="./media/how-to-develop-flow/view-flow-output.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/view-flow-output.png":::
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
 
-After the flow run is completed, you can click on the **View test results** button to check all history runs and their results. By default, the runs created in the last 7 days are displayed. You can select the **Filter** to change the condition.
+After the flow run is completed, for checking the results, you can click on the **View test results** button to check all historical run records in a list. By default, the run records created in the last 7 days are displayed. You can select the **Filter** to change the condition.
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-test-result.png" alt-text="Screenshot of flow test result." lightbox ="./media/how-to-develop-flow/authoring-test-result.png":::
+
+You can also click on the **Name** of the run record to view the detailed information in trace view.
 
 
 ## Develop a chat flow
