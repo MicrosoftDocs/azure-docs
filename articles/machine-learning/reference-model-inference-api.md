@@ -57,9 +57,20 @@ The following section describes some of the capabilities the API exposes.
 The API indicates how developers can consume predictions for the following modalities:
 
 * [Text embeddings](reference-model-inference-embeddings.md): Creates an embedding vector representing the input text.
+
+    * Route: `/embeddings`
+
 * [Text completions](reference-model-inference-completions.md): Creates a completion for the provided prompt and parameters.
+
+    * Route: `/completions`
+
 * [Chat completions](reference-model-inference-chat.md): Creates a model response for the given chat conversation.
+
+    * Route: `/chat/completions`
+
 * [Image embeddings](reference-model-inference-images-embeddings.md): Creates an embedding vector representing the input text and image.
+
+    * Route: `/images/embeddings`
 
 ### Models with dispare set of capabilities
 
