@@ -12,9 +12,9 @@ ms.author: mbaldwin
 ---
 
 # Get started with Key Vault certificates
-The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
+This guideline help you get started with certificate management in Key Vault.
 
-The following are outlined:
+List of scenarios covered here:
 - Creating your first Key Vault certificate
 - Creating a certificate with a Certificate Authority that is partnered with Key Vault
 - Creating a certificate with a Certificate Authority that is not partnered with Key Vault
