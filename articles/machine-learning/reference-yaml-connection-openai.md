@@ -33,7 +33,7 @@ ms.reviewer: larryfr
 
 ## Remarks
 
-This schema is used to create a connection to the non-Microsoft OpenAI service. For information on the schema used to connect to Azure OpenAI, see the [Azure OpenAI connection schema](reference-yaml-connection-azure-open-ai.md).
+This schema is used to create a connection to the non-Microsoft OpenAI service. For information on the schema used to connect to Azure OpenAI, see the [Azure OpenAI connection schema](reference-yaml-connection-azure-openai.md).
 
 While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections, the OpenAI connection is specific to Azure AI Studio.
 
