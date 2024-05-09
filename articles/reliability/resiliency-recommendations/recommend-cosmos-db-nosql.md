@@ -45,7 +45,7 @@ Each recommendation is marked in accordance with the following impact matrix:
  
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Configure at least two regions for high availability** 
 
-It is crucial to enable a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime and it is as easy as selecting a pin on map. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain write availability in case of one region failure.
+It's crucial to enable a secondary region on your Cosmos DB to achieve higher SLA. Doing so doesn't incur any downtime and it's as easy as selecting a pin on map. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain write availability if there is one region failure.
 
 **Potential benefits:** Enhances SLA and resilience.
 
@@ -104,7 +104,7 @@ In a globally distributed database, consistency level impacts data durability du
 #### :::image type="icon" source="../media/icon-recommendation-high.svg"::: **Configure continuous backup mode** 
 
 
-Cosmos DB's backup is always on, offering protection against data mishaps. Continuous mode allows for self-serve restoration to a pre-mishap point, unlike periodic mode which requires contacting Microsoft support, leading to longer restore times.
+Cosmos DB's backup is always on, offering protection against data mishaps. Continuous mode allows for self-serve restoration to a pre-mishap point, unlike periodic mode, which requires contacting Microsoft support, leading to longer restore times.
 
 
 **Potential Benefits:** Faster self-serve data restore.
