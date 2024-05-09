@@ -12,6 +12,8 @@ ms.author: abell
 
 # Tutorial: View and configure Azure DDoS protection telemetry
 
+Azure DDoS Protection offers in-depth insights and visualizations of attack patterns through DDoS Attack Analytics. It provides customers with comprehensive visibility into attack traffic and mitigation actions via reports and flow logs. During a DDoS attack, detailed metrics are available through Azure Monitor, which also allows alert configurations based on these metrics.
+
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
@@ -91,7 +93,7 @@ You can see the policy limits within your public IP address metrics by choosing 
 
 It's important to keep an eye on the metrics for TCP SYN, UDP, and TCP detection triggers. These metrics help you know when DDoS protection starts. Make sure these triggers reflect the normal traffic levels when there's no attack. 
 
-You can make a chart for the public IP address resource. In this chart, include the Packet Count and SYN Count metrics. The Packet count includes both TCP and UDP Packets. This will show you the sum of traffic. 
+You can make a chart for the public IP address resource. In this chart, include the Packet Count and SYN Count metrics. The Packet count includes both TCP and UDP Packets. This shows you the sum of traffic. 
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing peace time telemetry." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
 
