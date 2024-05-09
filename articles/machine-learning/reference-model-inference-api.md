@@ -24,10 +24,10 @@ Foundational models, such as language models, have indeed made remarkable stride
 While foundational models excel in specific domains, they lack a uniform set of capabilities. Some models are better at specific task and even across the same task, some models may approach the problem in one way while others in another. Developers can benefit from these diversity by **using the right model for the right job** allowing them to:
 
 > [!div class="checklist"]
-> Improve the performance in an specific downstream task.
-> Use more efficient models for simpler tasks.
-> Use smaller models that can run faster on specific tasks.
-> Compose multiple models to develop intelligent experiences.
+> * Improve the performance in an specific downstream task.
+> * Use more efficient models for simpler tasks.
+> * Use smaller models that can run faster on specific tasks.
+> * Compose multiple models to develop intelligent experiences.
 
 Having a uniform way to consume foundational models allow developers to realize all those benefits without changing a single line of code on their applications.
 
