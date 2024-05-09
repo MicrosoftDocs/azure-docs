@@ -1,16 +1,16 @@
 ---
 title: Consume deployed serverless API endpoints from a different project or hub
 titleSuffix: Azure AI Studio
-description: Learn about to consume deployed serverless API endpoints from a different project or hub.
+description: Learn how to consume deployed serverless API endpoints from a different project or hub.
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/08/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.author: mopeakande 
+author: msakande
+ms.reviewer: fasantia
+reviewer: santiagxf
 ---
 
 # Consume serverless API endpoints from a different Azure AI Studio project or hub

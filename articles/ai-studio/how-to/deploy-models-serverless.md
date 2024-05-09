@@ -6,10 +6,10 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 05/08/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.author: mopeakande 
+author: msakande
+ms.reviewer: fasantia
+reviewer: santiagxf
 ---
 
 # Deploy models as serverless APIs
