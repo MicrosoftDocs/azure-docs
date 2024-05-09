@@ -112,6 +112,20 @@ For the whole flow run, after you execute the flow, you can see the run status i
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
 
+**Understand the trace view**
+
+The trace kind of a prompt flow is designated as **Flow**. Within the trace view, the clear sequence of the tools used for flow orchestration can be observed. 
+
+Each level 2 span under the flow root represents a node in the flow, executed in the form of a function call, hence the span kind is identified as **Function**. You can see the duration of each node execution in the span tree.
+
+In the span tree, LLM calls are easily identifiable as the **LLM** span. These provide information about the duration of the LLM call and the associated token cost.
+
+By clicking on a span, you can see the detailed information on the right side. This includes input & output, Raw Json, and Exception, all of which are useful for observation and debugging.
+
+
+> [!TIP]
+> More introduction of trace detail view you can refer to [here](../tracing/how-to-log-and-view-traces-of-your-app.md#view-the-traces).
+
 After the flow run is completed, for checking the results, you can click on the **View test results** button to check all historical run records in a list. By default, the run records created in the last 7 days are displayed. You can select the **Filter** to change the condition.
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-test-result.png" alt-text="Screenshot of flow test result." lightbox ="./media/how-to-develop-flow/authoring-test-result.png":::
@@ -190,10 +204,10 @@ assistant:
 
 The chat box provides an interactive way to test your chat flow by simulating a conversation with your chatbot. To test your chat flow using the chat box, follow these steps:
 
-1. Select the "Chat" button to open the chat box.
+1. Select the **Chat button** to open the chat box.
 2. Type your test inputs into the chat box and select **Enter** to send them to the chatbot.
 1. Review the chatbot's responses to ensure they're contextually appropriate and accurate.
-1. View trace for observing and debugging.
+1. **View trace** in place for quickly observing and debugging.
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-chat-trace.png" alt-text=" Screenshot of Chat flow chat box experience." lightbox ="./media/how-to-develop-flow/authoring-chat-trace.png":::
 
