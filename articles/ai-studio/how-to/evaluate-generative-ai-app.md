@@ -112,7 +112,7 @@ You can set the threshold to calculate the defect rate for the risk and safety m
 
 **Data mapping for evaluation**: You must specify which data columns in your dataset correspond with inputs needed in the evaluation. Different evaluation metrics demand distinct types of data inputs for accurate calculations.
 
-:::image type="content" source="../../../media/evaluations/evaluate/data-mapping-evaluation.png" alt-text="Screenshot of the dataset mapping to your evaluation input." lightbox="../../../media/evaluations/evaluate/data-mapping-evaluation.png":::
+:::image type="content" source="../media/evaluations/evaluate/data-mapping-evaluation.png" alt-text="Screenshot of the dataset mapping to your evaluation input." lightbox="../media/evaluations/evaluate/data-mapping-evaluation.png":::
 
 > [!NOTE]
 > If you are evaluating from data, “answer” should map to the answer column in your dataset `${data$answer}`. If you are evaluating from flow, “answer” should come from flow output `${run.outputs.answer}`.
