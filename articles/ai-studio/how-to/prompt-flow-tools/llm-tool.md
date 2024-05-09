@@ -27,7 +27,7 @@ Prompt flow provides a few different large language model APIs:
 - [Chat](https://platform.openai.com/docs/api-reference/chat): OpenAI's chat models facilitate interactive conversations with text-based inputs and responses.
 
 > [!NOTE]
-> Please don't use non-ascii characters in resource group name of Azure OpenAI resource, prompt flow didn't support this case.
+> Don't use non-ascii characters in resource group name of Azure OpenAI resource, prompt flow didn't support this case.
 
 ## Prerequisites
 
