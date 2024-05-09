@@ -19,7 +19,8 @@ In this article, you learn how to migrate your existing network security group f
 > [!NOTE]
 > Use the migration script:
 > - when you don't have flow logging enabled on all network interfaces or subnets in a virtual network and you don't want to enable virtual network flow logging on all of them.
-> - when your network security group flow logs in a virtual network have different configurations.
+> - when your network security group flow logs in a virtual network have different configurations. 
+> 
 > If you have the same network security group applied to all network interfaces or subnets in a virtual network, you can use Azure Policy to create virtual network flow logs. For more information, see [Deploy and configure virtual network flow logs using a built-in policy](vnet-flow-logs-policy.md#deploy-and-configure-virtual-network-flow-logs-using-a-built-in-policy).
 
 ## Prerequisites
@@ -133,7 +134,7 @@ In this section, you learn how to use the script file that you downloaded in the
 - **Scale set with a load balancer**: The migration script enables virtual network flow logging on the subnet that has the scale set virtual machines.
 
     > [!NOTE]
-    > When not all network interfaces in the subnet have flow logging enabled before the migration, or they don't share the same network security group flow log, then a virtual network flow log is created on the subnet with the same configurations as one of the network interfaces of the scale set.
+    > If network security group flow logging is not enabled on all network interfaces of the scale set, or they don't share the same network security group flow log, then a virtual network flow log is created on the subnet with the same configurations as one of the network interfaces of the scale set.
 
 - **PaaS**: The migration script doesn't support environments with PaaS solutions that point to resources in different subscriptions. For such environments, you should manually enable virtual network flow logging on the virtual network or subnet of the PaaS solution.
 
