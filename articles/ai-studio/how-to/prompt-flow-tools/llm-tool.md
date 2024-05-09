@@ -40,7 +40,7 @@ Create OpenAI resources, Azure OpenAI resources, or MaaS deployment with the LLM
 
 - **Azure OpenAI**:
 
-    - Create Azure OpenAI resources with [these instructions](../../../ai-services/openai/how-to/create-resource.md).
+    - [Create Azure OpenAI resources](../../../ai-services/openai/how-to/create-resource.md).
 
 - **MaaS deployment**:
 
