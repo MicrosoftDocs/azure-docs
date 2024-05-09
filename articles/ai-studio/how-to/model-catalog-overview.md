@@ -65,7 +65,7 @@ The capability to deploy models to real-time endpoints builds on platform capabi
 
 :::image type="content" source="../media/explore/llmops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle." lightbox="../media/explore/llmops-life-cycle.png":::
 
-### How are models made available for Real-time endpoints   
+### How are models made available for Real-time endpoints?  
 
 The models are made available through [Azure Machine Learning registries](../../machine-learning/concept-machine-learning-registries-mlops.md)that enable ML first approach to [hosting and distributing Machine Learning assets](../../machine-learning/how-to-share-models-pipelines-across-workspaces-with-registries.md) such as model weights, container runtimes for running the models, pipelines for evaluating and fine-tuning the models and datasets for benchmarks and samples. These ML Registries build on top of highly scalable and enterprise ready infrastructure that: 
 
@@ -87,13 +87,13 @@ Prompt flow offers a great experience for prototyping. You can use models deploy
 
 ### Content safety for models deployed as Real-time endpoints 
 
-[Azure AI Content Safety (AACS)](../../ai-services/content-safety/overview.md) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
+[Azure AI Content Safety (AACS)](../../ai-services/content-safety/overview.md) service is available for use with Real-time endpoints to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You are billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
 ### Models as a Service (Pay-as-you-go)
 
 Certain models in the Model Catalog can be deployed using Pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS). Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with token-based pricing.   
 
-### How are third-party models made available in MaaS   
+### How are third-party models made available in MaaS?
 
 :::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle." lightbox="../media/explore/model-publisher-cycle.png":::
 
@@ -113,7 +113,7 @@ For models that are available through MaaS and support fine-tuning, users can ta
 
 ### RAG with models deployed through MaaS 
 
-Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed via MaaS can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information, refer to  [How to create a vector index](index-add.md). 
+Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed via MaaS can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information, see  [How to create a vector index](index-add.md). 
 
 ### Regional availability of offers and models 
 
@@ -131,7 +131,7 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 ### Content safety for models deployed via MaaS  
 
-Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (sexual, violence, hate, and self-harm) in language models deployed with MaaS. To learn more about content filtering [click here](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. Complete this form to disable content filtering for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). Note that submitting the form will disable content filtering for all active serverless endpoints, and you will have to resubmit the form to disable content filtering for any newly created endpoints.
+Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (sexual, violence, hate, and self-harm) in language models deployed with MaaS. To learn more about content filtering, see [Harm categories](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. Complete this form to disable content filtering for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). Submitting the form disables content filtering for all active serverless endpoints, and you'll have to resubmit the form to disable content filtering for any newly created endpoints.
 
 
 ## Next steps
