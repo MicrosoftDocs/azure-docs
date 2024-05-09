@@ -47,7 +47,7 @@ ISSU is supported for deployments on a 2-node cluster, software upgrades can be 
 ### Azure Resource Health 
 
 This feature allows you to monitor the health of your control plane resource using Azure Resource Health.  Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
-For more information, see [Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview).
+For more information, see [Resource Health overview](resource-health-overview.md).
 
 ### NAS Encryption
 
@@ -67,7 +67,7 @@ The following table provides a summary of issues fixed in this release.
 <!-- All known issues need a [customer facing summary](https://eng.ms/docs/strategic-missions-and-technologies/strategic-missions-and-technologies-organization/azure-for-operators/packet-core/private-mobile-network/azure-private-5g-core/cross-team/developmentprocesses/customer-facing-bug-summary)-->
 
   |No.  |Feature  | Issue | Workaround/comments |
-  |-----|---------|==-----|---------------------|
+  |-----|---------|-------|---------------------|
   | 1 | Local distributed tracing | Local Dashboard Unavailable for 5-10 minutes after device failure | After the failure of a device in a two-node cluster, Azure Private 5G Core local dashboards won't be available for five to ten minutes. Once they recover, information for the time that they weren't available isn't shown. |
   | 2 | Local distributed tracing | When deployed on a two-node cluster, Azure Private 5G Core local dashboards can show an incorrect count for the number of PDU Sessions.   | |
   | 3 | | **TODO SAS Incomplete Trails** | |
