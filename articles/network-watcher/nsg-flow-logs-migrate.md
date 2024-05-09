@@ -134,7 +134,7 @@ In this section, you learn how to use the script file that you downloaded in the
 - **Scale set with a load balancer**: The migration script enables virtual network flow logging on the subnet that has the scale set virtual machines.
 
     > [!NOTE]
-    > If network security group flow logging is not enabled on all network interfaces of the scale set, or they don't share the same network security group flow log, then a virtual network flow log is created on the subnet with the same configurations as one of the network interfaces of the scale set.
+    > If network security group flow logging is not enabled on all network interfaces of the scale set, or the network interfaces don't share the same network security group flow log, then a virtual network flow log is created on the subnet with the same configurations as one of the network interfaces of the scale set.
 
 - **PaaS**: The migration script doesn't support environments with PaaS solutions that point to resources in different subscriptions. For such environments, you should manually enable virtual network flow logging on the virtual network or subnet of the PaaS solution.
 
