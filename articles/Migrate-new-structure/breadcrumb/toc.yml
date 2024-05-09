@@ -1,0 +1,20 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Migrate
+    tocHref: /azure/migrate/
+    topicHref: /azure/migrate/index
+    items:
+    - name: VMware
+      tocHref: /azure/migrate/vmware/
+      topicHref: /azure/migrate/vmware/start-here-vmware
+
+- name: Azure
+  tocHref: /sql/
+  topicHref: /azure/index
+  items:
+  - name: Migrate
+    tocHref: /sql/dma/
+    topicHref: /azure/migrate/index
+
