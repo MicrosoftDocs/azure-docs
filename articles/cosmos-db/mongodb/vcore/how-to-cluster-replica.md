@@ -27,10 +27,7 @@ Azure Cosmos DB for MongoDB vCore allows continuous data streaming to a replica 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Enable cross-region replication
-> [!NOTE]
-> Cross-region replication is currently in preview. You should enable preview features 
-> on Azure Cosmos DB for MongoDB vCore cluster at creation time to have access to 
-> cross-region replication and other preview features.
+To enable cross-region replication on a new cluster, follow these steps:
 
 1. Follow the steps to [create a new Azure Cosmos DB for MongoDB vCore cluster](./quickstart-portal.md#create-a-cluster).
 1. On the **Basics** tab, select **Enable global distribution (preview)** flag.

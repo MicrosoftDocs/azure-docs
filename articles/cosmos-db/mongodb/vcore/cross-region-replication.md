@@ -32,7 +32,7 @@ Cross-region replication is one of several important pillars in [the Azure busin
 
 When cross-region replication is enabled on an Azure Cosmos DB for MongoDB vCore cluster, each shard gets replicated to another region continuously. This replication maintains a replica of data in the selected region. Such a replica is ready to be used as a part of disaster recovery plan in a rare case of the primary region outage. Replication is asynchronous. It means write operations on the primary cluster's shard don't wait for replication to the corresponding replica's shard to be completed before sending confirmation of a successful write to the application. Asynchronous replication helps to avoid increased latencies for write operations on the primary cluster.  
 
-### Read operations on cluster replicas and connection strings
+## Read operations on cluster replicas and connection strings
 
 Replica clusters are also available for reads. It helps offload intensive read operations from the primary cluster or deliver reduced latency for read operations to the clients that are located closer to the replication region.
 
@@ -40,18 +40,18 @@ When you create a replica by enabling cross-region replication, it doesn't inher
 
 The replica inherits the admin account from the primary cluster. User accounts need to be managed on the primary cluster. You can connect to the primary cluster as well as its replica cluster using the same user accounts.
 
-When cross-region replication is enabled a read-only connection string is created. Applications can use this string to perform reads from the cluster replica. The primary cluster is available for read and write operations using a read-write connection string.
+When cross-region replication is enabled applications can use the replica cluster connection string to perform reads from the cluster replica. The primary cluster is available for read and write operations using a read-write connection string. The global read-write connection string is updated as a part of replica promotion process to point to the current read-write cluster.
 
-### Replica cluster promotion
+## Replica cluster promotion
 
 In the event of region outage you can perform disaster recovery operation by promoting your cluster replica in another region to become available for writes. During replica promotion operation the following is happening:
 
-- Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster. 
-- The cluster in region A is set to read-only. Because replication is asynchronous, some data from cluster in region A might not be replicated when cluster replica in region B is promoted. If this is the case, promotion would result in the un-replicated data not present on both clusters.  
-- Read-write connection string is now pointing to the promoted replica cluster in region B.
+- Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster.
+- The global read-write string now points to the promoted cluster in region B.
+- The cluster in region A is set to read-only.
 
 > [!IMPORTANT]
-> When cluster replica is promoted to become a new read-write cluster, all data that have NOT been replicated to it from the primary cluster is going to be lost.
+> Because replication is asynchronous, some data from cluster in region A might not be replicated to region B when cluster replica in region B is promoted. If this is the case, promotion would result in the un-replicated data not present on both clusters.
 
 ## Next steps
 
