@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 05/09/2024
 ms.author: cherylmc
 
 ---
@@ -14,6 +14,10 @@ ms.author: cherylmc
 This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article.
 
 ## Azure VPN Client - Windows and macOS
+
+## Version 3.3.1.0
+
+* Microsoft-registered App ID support for Microsoft Entra ID authentication.
 
 ### Version 3.2.0.0
 
@@ -32,7 +36,7 @@ New in this release:
 New in this release:
 
 * New client for Linux.
-* First-party Application ID support - Microsoft Entra ID authentication.
+* Microsoft-registered App ID support for Microsoft Entra ID authentication.
 
 ## Next steps
 
