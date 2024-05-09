@@ -290,6 +290,8 @@
               href: manage-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
+            - name: Use generation 2 VMs
+              href: generation-2-vm.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Node pool snapshot
@@ -350,6 +352,8 @@
           href: use-tags.md
         - name: Labels
           href: use-labels.md
+        - name: Node taints
+          href: use-node-taints.md
     - name: Security
       items:
         - name: Container security
@@ -536,6 +540,8 @@
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -562,6 +568,8 @@
           items:
               - name: Azure Disks
                 items:
+                    - name: Provision Azure Disk storage
+                      href: azure-csi-disk-storage-provision.md
                     - name: Azure Disks CSI driver
                       href: azure-disk-csi.md
                     - name: Use Azure Premium SSD v2 disks
@@ -668,6 +676,8 @@
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
             - name: Plug-in CA certificates for Istio
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on
@@ -766,8 +776,6 @@
           href: use-windows-hpc.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
-        - name: Use generation 2 VMs
-          href: generation-2-vm-windows.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers

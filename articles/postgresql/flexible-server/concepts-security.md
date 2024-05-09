@@ -20,13 +20,19 @@ ms.devlang: python
 
 Multiple layers of security are available to help protect the data on your Azure Database for PostgreSQL - Flexible Server instance. This article outlines those security options.
 
+As organizations increasingly rely on data stored in databases to drive critical decision-making activities that drive competitive advantage, the need for solid database security measures has never been more important.
+A security lapse  can trigger catastrophic consequences, including exposing confidential data, causing reputational damage to organization. 
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=open-source-developer-series&ep=security-offered-by-azure-database-for-postgresql-flexible-server]
+
 ## Information protection and encryption
 
 Azure Database for PostgreSQL - Flexible Server encrypts data in two ways:
 
-- **Data in transit**: Azure Database for PostgreSQL - Flexible Server encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. For more detailed information  on connection security with SSL\TLS see this [documentation](../flexible-server/concepts-networking-ssl-tls.md). For better security, you might choose to enable [SCRAM authentication in Azure Database for PostgreSQL - Flexible Server](how-to-connect-scram.md).
+- **Data in transit**: Azure Database for PostgreSQL - Flexible Server encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. For more detailed information  on connection security with SSL\TLS, see this [documentation](../flexible-server/concepts-networking-ssl-tls.md). For better security, you might choose to enable [SCRAM authentication in Azure Database for PostgreSQL - Flexible Server](how-to-connect-scram.md).
 
-   Although it's highly not recommended, if needed, due to legacy client incompatibility, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_max_protocol_version` server parameters.
+   Although **it's highly not recommended**, if needed, due to legacy client incompatibility, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_max_protocol_version` server parameters.
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL - Flexible Server uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running.
 
   The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
@@ -82,31 +88,33 @@ The Azure Database for PostgreSQL - Flexible Server instance is created with the
 ```sql
 SELECT rolname FROM pg_roles;
 ```
-- `azure_pg_admin`
+The roles are listed below: 
 
-- `azuresu`
+- azure_pg_admin
+- azuresu
 - administrator role
 
 While you're creating the Azure Database for PostgreSQL - Flexible Server instance, you provide credentials for an **administrator role**. This administrator role can be used to create more [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).  
-For example, below we can create an example user/role called `demouser`,
+
+For example, below we can create an example user/role called 'demouser'
 
 ```sql
-postgres=> CREATE USER demouser PASSWORD 'password123';
+
+ CREATE USER demouser PASSWORD password123;
+
 ```
 The **administrator role** should never be used by the application.
 
 In cloud-based PaaS environments access to an Azure Database for PostgreSQL - Flexible Server superuser account is restricted to control plane operations only by cloud operators. Therefore, the `azure_pg_admin` account exists as a pseudo-superuser account. Your administrator role is a member of the `azure_pg_admin` role.  
 However, the server admin account isn't part of the `azuresu` role, which has superuser privileges and is used to perform control plane operations. Since this service is a managed PaaS service, only Microsoft is part of the superuser role.
 
-> [!NOTE]  
-> Number of superuser only permissions, such as creation of certain [implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html), are not available with Azure Database for PostgreSQL - Flexible Server, since `azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role.
+ 
 
-You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table which lists all the roles along with privileges such as create additional roles, create databases, replication etc.
+You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table , which lists all the roles along with privileges such as create additional roles, create databases, replication etc.
 
 ```sql
-postgres=> \x
-Expanded display is on.
-postgres=> select * from pg_roles where rolname='demouser';
+
+select * from pg_roles where rolname='demouser';
 -[ RECORD 1 ]--+---------
 rolname        | demouser
 rolsuper       | f
@@ -121,9 +129,15 @@ rolvaliduntil  |
 rolbypassrls   | f
 rolconfig      |
 oid            | 24827
+
 ```
 
+Important to note that number of **superuser only permissions**, such as creation of certain [implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html), are **not available** with Azure Database for PostgreSQL - Flexible Server, since **`azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role**. 
+
+
 [Audit logging in Azure Database for PostgreSQL - Flexible Server](concepts-audit.md) is also available with Azure Database for PostgreSQL - Flexible Server to track activity in your databases.
+
+
 
 ### Control schema access
 
@@ -192,7 +206,7 @@ CREATE POLICY account_managers ON accounts TO managers
 ```
 
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role can't perform `SELECT`, `DELETE`, or `UPDATE` operations on rows that belong to other managers, and can't `INSERT` new rows belonging to another manager.
-You can drop a row security policy by using DROP POLICY command , as in his example:
+You can drop a row security policy by using DROP POLICY command, as in his example:
 ```sql
 
 
@@ -208,9 +222,9 @@ ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
 ## Bypassing Row Level Security
 
 PostgreSQL has **BYPASSRLS** and **NOBYPASSRLS** permissions, which can be assigned to a role; NOBYPASSRLS is assigned by default. 
-With **newly provisioned servers** in Azure Database for PostgreSQL - Flexible Server bypassing row level security privilege (BYPASSRLS)is implemented as follows:
-* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Non-administrative users created by **azure_pg_admin** administrator role allow you to create roles with BYPASSRLS attribute\privilege as necessary. 
-* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but cannot create non-admin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+With **newly provisioned servers** in Azure Database for PostgreSQL - Flexible Server bypassing row level security privilege (BYPASSRLS) is implemented as follows:
+* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Non-administrative users created by **azure_pg_admin** administrator role allows you to create roles with BYPASSRLS attribute\privilege as necessary. 
+* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but can't create non-admin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
 
 
 ## Update passwords
@@ -233,7 +247,7 @@ You can use client tools to update database user passwords.
 For example,
 
 ```sql
-postgres=> ALTER ROLE demouser PASSWORD 'Password123!';
+ALTER ROLE demouser PASSWORD 'Password123!';
 ALTER ROLE
 ```
 

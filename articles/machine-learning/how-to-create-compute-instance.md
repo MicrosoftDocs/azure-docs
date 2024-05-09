@@ -10,7 +10,7 @@ ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: sgilley
-ms.date: 07/05/2023
+ms.date: 05/03/2024
 ---
 
 # Create an Azure Machine Learning compute instance
@@ -95,11 +95,11 @@ Where the file *create-instance.yml* is:
 1. Select **Compute instance** at the top.
 1. If you have no compute instances, select  **Create** in the middle of the page.
 
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Screenshot shows create in the middle of the page.":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-instance.png" alt-text="Screenshot shows create in the middle of the page.":::
 
 1. If you see a list of compute resources, select **+New** above the list.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Screenshot shows selecting new above the list of compute resources.":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new-instance.png" alt-text="Screenshot shows selecting new above the list of compute resources.":::
 
 1. Fill out the form:
 
