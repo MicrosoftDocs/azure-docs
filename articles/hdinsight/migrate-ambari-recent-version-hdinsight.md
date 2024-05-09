@@ -12,14 +12,14 @@ After setting up HDInsight 5.x, it's necessary to update the user-defined config
 
 ## Script details
 
-1. This step contains two python scripts.
-    1. Script to download the local cluster service configs from Ambari.
-    1. Script to compare the service config files and generate the differences.
-1. All service configurations downloaded, but certain services and properties excluded from the comparison process. These excluded services and properties are as follows:  
+* This step contains two python scripts.
+  * Script to download the local cluster service configs from Ambari.
+  * Script to compare the service config files and generate the differences.
+* All service configurations downloaded, but certain services and properties excluded from the comparison process. These excluded services and properties are as follows:  
     ```
     dfs.namenode.shared.edits.dir','hadoop.registry.zk.quorum','ha.zookeeper.quorum','hive.llap.zk.sm.connectionString','hive.cluster.delegation.token.store.zookeeper.connectString','hive.zookeeper.quorum','hive.metastore.uris','yarn.resourcemanager.hostname','hadoop.registry.zk.quorum','yarn.resourcemanager.hostname','yarn.node-labels.fs-store.root','javax.jdo.option.ConnectionURL','javax.jdo.option.ConnectionUserName','hive_database_name','hive_existing_mssql_server_database','yarn.log.server.url','yarn.timeline-service.sqldb-store.connection-username','yarn.timeline-service.sqldb-store.connection-url','fs.defaultFS', 'address'
     ```
-    1. Excluded Services:  `AMBARI_METRICS` and `WEBHCAT`.
+* Excluded Services:  `AMBARI_METRICS` and `WEBHCAT`.
 
 ## Workflow
 
