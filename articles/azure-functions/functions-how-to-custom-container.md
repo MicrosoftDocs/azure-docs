@@ -185,7 +185,8 @@ The following steps create and deploy an existing containerized function app fro
     | **Subscription** | Your subscription | The subscription in which you create your function app. |
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
     | **Function App name** | Unique name<sup>*</sup> | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
-    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. | 
+    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
+ 
    <sup>*</sup>App name must be unique within the Azure Container Apps environment. 
 
 1. For **Azure Container Apps environment**, accept the suggested new environment in the **Consumption + Dedicated** plan. By default, the environment is created with the default workload profile and without zone redundancy, which minimizes costs. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).       
