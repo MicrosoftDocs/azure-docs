@@ -43,7 +43,7 @@ There are three scenarios where we instead recommend using a [default share-leve
 > [!NOTE]
 > Because computer accounts don't have an identity in Microsoft Entra ID, you can't configure Azure role-based access control (RBAC) for them. However, computer accounts can access a file share by using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
-## Share-level permissions and RBAC roles
+## Share-level permissions and Azure RBAC roles
 
 The following table lists the share-level permissions and how they align with the built-in Azure RBAC roles:
 
@@ -82,7 +82,7 @@ To assign an Azure role to a Microsoft Entra identity, using the [Azure portal](
 1. In the Azure portal, go to your file share, or [create a file share](storage-how-to-create-file-share.md).
 1. Select **Access Control (IAM)**.
 1. Select **Add a role assignment**
-1. In the **Add role assignment** blade, select the [appropriate built-in role](#share-level-permissions) from the **Role** list.
+1. In the **Add role assignment** blade, select the [appropriate built-in role](#share-level-permissions-and-azure-rbac-roles) from the **Role** list.
     1. Storage File Data SMB Share Reader
     1. Storage File Data SMB Share Contributor
     1. Storage File Data SMB Share Elevated Contributor
@@ -118,7 +118,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 ## Share-level permissions for all authenticated identities
 
-You can add a default share-level permission on your storage account, instead of configuring share-level permissions for Microsoft Entra users or groups. A default share-level permission assigned to your storage account applies to all file shares contained in the storage account. 
+You can add a default share-level permission on your storage account, instead of configuring share-level permissions for Microsoft Entra users or groups. A default share-level permission assigned to your storage account applies to all file shares contained in the storage account.
 
 When you set a default share-level permission, all authenticated users and groups will have the same permission. Authenticated users or groups are identified as the identity can be authenticated against the on-premises AD DS the storage account is associated with. The default share-level permission is set to **None** at initialization, implying that no access is allowed to files or directories in the Azure file share.
 
@@ -132,7 +132,7 @@ To configure default share-level permissions on your storage account using the [
 
    :::image type="content" source="media/storage-files-identity-ad-ds-assign-permissions/set-default-share-level-permission.png" alt-text="Screenshot showing how to set a default share-level permission using the Azure portal." lightbox="media/storage-files-identity-ad-ds-assign-permissions/set-default-share-level-permission.png" border="true":::
 
-1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions) from the dropdown list.
+1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions-and-azure-rbac-roles) from the dropdown list.
 1. Select **Save**.
 
 # [Azure PowerShell](#tab/azure-powershell)
