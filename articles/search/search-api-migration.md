@@ -60,7 +60,7 @@ Effective March 29, 2024 and applies to all [supported REST APIs](/rest/api/sear
 
 This section explains the migration path from 2023-07-01-preview to any newer API version. There are several breaking changes from 2023-07-01-preview to any newer version, but only minor compatibility issues between the newer API versions that follow.
 
-Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code run the same as before, but using the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
+Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
 
 ### Portal upgrade for vector indexes
 
@@ -78,19 +78,16 @@ Before selecting **Migrate**, select **Edit JSON** to review the updated schema 
 
 [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). 
 
-Upgrading from 2023-07-01-preview requires:
+Upgrading from 2023-07-01-preview to any newer stable or preview version requires:
 
 + Renaming and restructuring the vector configuration in the index
-
 + Rewriting your vector queries
 
-Use the instructions in this section to migrate vector fields, configuration, and queries.
-
-Here are the steps for migrating from 2023-07-01-preview.
+Use the instructions in this section to migrate vector fields, configuration, and queries from 2023-07-01-preview.
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.
 
-1. Modify the vector search configuration. 2023-11-01 introduces the concept of *vector profiles* that bundle vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
+1. Modify the vector search configuration. 2023-11-01 and later versions introduce the concept of *vector profiles* that bundle vector-related configurations under one name. Newer versions also rename `algorithmConfigurations` to `algorithms`.
 
    + Rename `algorithmConfigurations` to `algorithms`. This is only a renaming of the array. The contents are backwards compatible. This means your existing HNSW configuration parameters can be used.
 
