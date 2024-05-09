@@ -3,7 +3,7 @@ title: Bicep functions - objects
 description: Describes the functions to use in a Bicep file for working with objects.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/11/2024
+ms.date: 05/09/2024
 ---
 
 # Object functions for Bicep
@@ -384,6 +384,41 @@ The output from the preceding example with the default values is:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
+
+## objectKeys
+
+`objectKey(arg1)`
+
+Returns the keys from an object, where an object is a collection of key-value pairs.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |object |The object which is a collection of key-value pairs. |
+
+### Return value
+
+An array.
+
+### Example
+
+The following example shows how to use length with an array and string:
+
+```bicep
+var obj = { a: 1, b: 2 }
+var keys = objectKeys(obj) // returns 
+
+output keyArray array = keys
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| keyArray | Array | [ "a", "b" ] |
 
 ## union
 

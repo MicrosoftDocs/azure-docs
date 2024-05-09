@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/05/2023
+ms.date: 05/09/2024
 ---
 
 # Bicep functions
@@ -119,6 +119,7 @@ The following functions are available for working with objects. All of these fun
 * [items](./bicep-functions-object.md#items)
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
+* [objectKeys](./bicep-functions-object.md#objectkeys)
 * [union](./bicep-functions-object.md#union)
 
 ## Parameters file functions
