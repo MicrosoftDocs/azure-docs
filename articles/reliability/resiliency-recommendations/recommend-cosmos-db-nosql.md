@@ -4,7 +4,7 @@ description: Learn Azure resiliency recommendations for Azure Cosmos DB for NoSQ
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability, references_regions, resiliency-recommendations
 ms.service: cosmos-db
 ms.date: 5/06/2024 
 ---
