@@ -94,12 +94,12 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 
 | Action                                                              | Description                                                    |
 | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture.                          |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture.                                         |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture.                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture.                                       |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture.                                       |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture.                           | 
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture                          |
+| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture                                         |
+| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture                                          |
+| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture                                       |
+| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture                                       |
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture                           | 
 
 ## IP flow verify
 
