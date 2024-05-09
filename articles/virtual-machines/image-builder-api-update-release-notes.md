@@ -73,11 +73,7 @@ In the [Azure VM Image Builder networking options](./linux/image-builder-network
 
 If you’d like to avoid making changes to the properties in your image templates due to the new case sensitivity rules, you have the option to pin your Azure VM Image Builder API calls to a previous API version. This allows you to continue using the familiar behavior without any modifications.
 
-Follow these steps to pin your API calls to an older version:
-
-1. Review the REST API Documentation: Visit the [Azure Image Builder REST API documentation](https://learn.microsoft.com/rest/api/imagebuilder/virtual-machine-image-templates/create-or-update) for Azure Image Builder (AIB). This documentation provides detailed information on how to create or update an Azure Image Builder template using the API.
-
-2. Specify the `api-version`: To ensure compatibility with your existing templates, When creating or updating an image template, specify the desired API version (e.g., api-version=2022-07-01) by including the `api-version` parameter in your call to the service. Example:
+To ensure compatibility with your existing templates, when creating or updating an image template, specify the desired API version (e.g., api-version=2022-07-01) by including the `api-version` parameter in your call to the service. Example:
 
 # [HTTP](#tab/http)
 ```http
@@ -101,9 +97,9 @@ az resource create \
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName <resourceGroupName> -TemplateFile <templateFilePath> -TemplateParameterObject @{"api-version" = "2022-07-01"; "imageTemplateName" = <imageTemplateName>; "svclocation" = <location>}
 ```
- 
-
-3. Test Your Code: After pinning to the older API version, test your code to verify that it behaves as expected. Ensure that your existing templates continue to function correctly.
+> **Test Your Code**
+>
+> After pinning to the older API version, test your code to verify that it behaves as expected. Ensure that your existing templates continue to function correctly.
 
 ### November 2023
 Azure Image Builder is enabling Isolated Image Builds using Azure Container Instances in a phased manner. The rollout is expected to be completed by early 2024. Your existing image templates will continue to work and there is no change in the way you create or build new image templates. 
