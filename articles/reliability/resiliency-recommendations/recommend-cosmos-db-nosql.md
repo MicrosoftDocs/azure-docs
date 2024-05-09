@@ -1,5 +1,5 @@
 ---
-title: Azure resiliency recommendations for Azure Cosmos DB for NoSQL
+title: Resiliency recommendations for Azure Cosmos DB for NoSQL
 description: Learn Azure resiliency recommendations for Azure Cosmos DB for NoSQL
 author: anaharris-ms
 ms.author: anaharris
