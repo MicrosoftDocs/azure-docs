@@ -47,7 +47,7 @@ To train a custom category, you need example text data that represents the categ
     - Strive for a balance between the number of positive and negative samples. An uneven dataset can bias the model, causing it to favor one type of classification over another, which may lead to a higher rate of false positives or negatives.
 
 1. Use a text editor to format your data in a *.jsonl* file. Here is an example of _.jsonl_ file content. Category examples should set `isPositive` to `true`. Negative examples are optional but can improve performance:
-    ```jsonl
+    ```json
     {"text": "This is the 1st sample.", "isPositive": true}
     {"text": "This is the 2nd sample.", "isPositive": true}
     {"text": "This is the 3rd sample.", "isPositive": false}
@@ -88,14 +88,13 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?
 ```
 
 
-### Trigger the category build process:
+### Start the category build process:
 
 ```bash
 curl -X POST "<your_api_key>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-05-15-preview&version=1" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
-
 
 ### Analyze text with a customized category:
 
@@ -108,7 +107,6 @@ curl -X POST "<your_api_key>/contentsafety/text:analyze?api-version=2024-05-15-p
         \"customizedCategories\": [{\"categoryName\": \"<your_category_name>\", \"version\": 1}]
      }"
 ```
-
 
 
 #### [Python](#tab/python)
@@ -157,7 +155,7 @@ print(result)
 ```
 
 
-### Trigger the category build process:
+### Start the category build process:
 
 ```python
 def trigger_category_build_process(category_name, version):
@@ -174,7 +172,7 @@ print(result)
 ```
 
 
-### 6. Analyze text with a customized category:
+### Analyze text with a customized category:
 You need to specify the *category name* and the *version number* (optional, will use the latest one by default) during inference. You can specify multiple categories if you have them ready.
 ```python
 def analyze_text_with_customized_category(text, customized_categories):
@@ -225,11 +223,9 @@ curl -X DELETE "<your_api_key>/contentsafety/text/categories/<your_category_name
      -H "Content-Type: application/json"
 ```
 
-
 #### [Python](#tab/python)
 
-
-First, you need to install the required Python library:
+First, make sure you've installed the required Python library:
 
 ```bash
 pip install requests
