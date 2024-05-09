@@ -20,7 +20,7 @@ Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using Spot and pay-as-you-go pricing models together.
 - Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plan, Spot instances, and pay-as-you-go (PYG) options.
 - Expedite access to Azure capacity by rapidly provisioning instances from a customized SKU list tailored to your preferences.
-- Implement personalized Compute Fleet allocation strategies, catering to both OnDemand and Spot VMs, optimizing for cost, capacity, or a combination of both factors.
+- Implement personalized Compute Fleet allocation strategies, catering to both Standard and Spot VMs, optimizing for cost, capacity, or a combination of both factors.
 - Embrace the "Fire & Forget-it" model, automating the deployment, management, and monitoring of instances without requiring intricate code frameworks.
     - Streamline the initial setup process, saving valuable time and resources.
     - Alleviate concerns about scripting complexity associated with determining optimal virtual machine (VM) pricing, available capacity, managing Spot evictions, and SKU availability.
@@ -46,7 +46,7 @@ Not enabling this preference stops your Compute Fleet from goal seeking to repla
 
 ## Compute Fleet strategies 
 
-### OnDemand Compute Fleet allocation strategies 
+### Standard Compute Fleet allocation strategies 
 
 **Lowest price (default):** The Compute Fleet launches the lowest price pay-as-you-go VM from the list of VM types and sizes you specified. It attempts to fulfill the pay-as-you-go capacity, followed by the second and third lowest in price VMs until the desired capacity is fulfilled. 
 
@@ -115,7 +115,7 @@ The Deallocated Spot VM adds up to your Spot target capacity and billing continu
 
 #### Fleet quota 
 
-Azure Compute Fleet has applicable OnDemand and Spot VMs quotas. 
+Azure Compute Fleet has applicable Standard and Spot VMs quotas. 
 
 | Scenario | Quota |
 | ------ | ------ |

@@ -19,19 +19,19 @@ sections:
       - question: |
           How many virtual machines (VMs) can I deploy using Azure Compute fleet? 
         answer: |
-          Compute Fleet allows you to deploy up to 10,000 VMs in a singe request, as long as you have enough quota of Spot VMs and OnDemand VMs.
+          Compute Fleet allows you to deploy up to 10,000 VMs in a singe request, as long as you have enough quota of Spot VMs and Standard VMs.
       - question: |
-          Can I specify target capacity at a Compute Fleet level without specifying Spot and OnDemand capacity? 
+          Can I specify target capacity at a Compute Fleet level without specifying Spot and Standard capacity? 
         answer: |
-          No, target capacity is set individually for Spot and OnDemand, even if you're using a combination of both virtual machine (VM) types. 
+          No, target capacity is set individually for Spot and Standard, even if you're using a combination of both virtual machine (VM) types. 
       - question: |
-          Can I deploy both Spot VMs and OnDemand VMs in a single Compute Fleet request? 
+          Can I deploy both Spot VMs and Standard VMs in a single Compute Fleet request? 
         answer: |
-          Yes, you can mix both Spot and OnDemand VM types in a single fleet request. 
+          Yes, you can mix both Spot and Standard VM types in a single fleet request. 
       - question: |
-          If Spot eviction happens, is more capacity deployed for OnDemand VMs to meet total fleet capacity? 
+          If Spot eviction happens, is more capacity deployed for Standard VMs to meet total fleet capacity? 
         answer: |
-          No, capacity is managed at a VM type level for Spot VMs and OnDemand VMs. Spot eviction doesn't trigger to deploy extra capacity on OnDemand VMs, nor are Spot VMs converted to OnDemand VMs.
+          No, capacity is managed at a VM type level for Spot VMs and Standard VMs. Spot eviction doesn't trigger to deploy extra capacity on Standard VMs, nor are Spot VMs converted to Standard VMs.
       - question: |
           Which Azure regions support Compute Fleet? 
         answer: |
@@ -41,17 +41,17 @@ sections:
         answer: |
           Most SKUs are supported. However, B-series and promo versions of any VM size (example: Dv2, NV, NC, H promo sizes) aren't supported for Azure Spot VMs.
       - question: |
-          Do I have to request more quota for OnDemand VMs and Spot VMs to deploy Azure Compute Fleet? 
+          Do I have to request more quota for Standard VMs and Spot VMs to deploy Azure Compute Fleet? 
         answer: |
-          No. Before deploying, check if you have enough quota on Spot and OnDemand based on the target capacity requested. Compute Fleet rejects requests if a subscription doesn't have enough quota. 
+          No. Before deploying, check if you have enough quota on Spot and Standard based on the target capacity requested. Compute Fleet rejects requests if a subscription doesn't have enough quota. 
       - question: |
           Can I modify my target capacity on my Compute Fleet? 
         answer: |
-          Yes, you're allowed to modify target capacity for OnDemand VMs. However, for Spot VMs, your Compute Fleet has to be configured for capacity preference *maintain capacity*. 
+          Yes, you're allowed to modify target capacity for Standard VMs. However, for Spot VMs, your Compute Fleet has to be configured for capacity preference *maintain capacity*. 
       - question: |
           How many VM sizes/SKU types can I add while configuring the Compute Fleet? 
         answer: |
-          You can add a minimum  of 3 and maximum of 15 VM sizes to deploy Compute Fleet for Spot using the capacity preference *Maintain*. However, there's no minimum number for OnDemand VMs. The maximum you can add is 15. 
+          You can add a minimum  of 3 and maximum of 15 VM sizes to deploy Compute Fleet for Spot using the capacity preference *Maintain*. However, there's no minimum number for Standard VMs. The maximum you can add is 15. 
       - question: |
           How long is my Compute Fleet request active? 
         answer: |
@@ -63,7 +63,7 @@ sections:
       - question: |
           What happens if I don't delete the Compute Fleet with Spot VMs, after workload completion? 
         answer: |
-          Your Spot VMs continue to run until evicted and you incur billing charges. Your OnDemand VMs continue to run and you incur billing charges until you delete. 
+          Your Spot VMs continue to run until evicted and you incur billing charges. Your Standard VMs continue to run and you incur billing charges until you delete. 
       - question: |
           Can I specify target capacity using VM based attribute selection like vCPU or memory? 
         answer: |
