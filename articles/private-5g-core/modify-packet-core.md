@@ -40,7 +40,8 @@ The following changes will trigger components of the packet core software to res
   - Static UE IP pool prefixes
   - Network address and port translation parameters
   - DNS addresses
-- Changing the UE Maximum Transmission Unit (MTU) signaled by the packet core.
+- Changing the UE maximum transmission unit (MTU) signaled by the packet core.
+- Changing the non-access stratum (NAS) encryption type.
 
 The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
 
@@ -101,6 +102,7 @@ To modify the packet core and/or access network configuration:
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
    - If you want to enable UE usage monitoring, use the information collected in [Collect UE usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+   - If you want to change the non-access stratum (NAS) encryption type, use the **Advanced configuration** tab. You can set up to three levels of preference. For example, you could set the first preference to `NEA2/EEA2`, the second preference to `NEA1/EEA1` and the third preference to `none` to ensure that one of the two encryption algorithms is used and NEA0/EEA0 (null encryption) is not permitted.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).

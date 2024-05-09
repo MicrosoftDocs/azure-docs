@@ -50,6 +50,18 @@ Azure Private 5G Core provides write-only access to SIM credentials. SIM credent
 
 As these credentials are highly sensitive, Azure Private 5G Core won't allow users of the service read access to the credentials, except as required by law. Sufficiently privileged users may overwrite the credentials, or revoke them.
 
+## NAS encryption
+
+Non-access stratum (NAS) signaling runs between the UE and the AMF (5G) or MME (4G). It carries the information to allow mobility and session management operations that enable data plane connectivity between the UE and network.
+
+The packet core performs ciphering and integrity protection of NAS. During UE registration, the UE includes its security capabilities for NAS with 128-bit keys. By default, Azure Private 5G Core supports the following algorithms in order of preference:
+
+- NEA2: 128-bit Advanced Encryption System (AES) encryption
+- NEA1: 128-bit Snow3G
+- NEA0: 5GS null encryption algorithm
+
+This enables the highest level of encryption that the UE supports while still allowing UEs that do not support encryption. To make encryption mandatory, you can disallow NEA0. You can change these preferences after deployment by [modifying the packet core configuration](modify-packet-core.md).
+
 ## Access to local monitoring tools
 
 ### Secure connectivity using TLS/SSL certificates
