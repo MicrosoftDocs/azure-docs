@@ -1,13 +1,13 @@
 ---
 title: Configure MQ diagnostics service
 description: How to configure the Azure IoT MQ diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
-author: timlt
-ms.author: timlt
+author: kgremban
+ms.author: kgremban
 ms.subservice: mq
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 02/27/2024
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to use observability and diagnostics 
 #to monitor the health of the MQ service.
@@ -27,6 +27,7 @@ The diagnostics service processes and collates diagnostic signals from various A
 | Name | Required | Format | Default | Description |
 | --- | --- | --- | --- | --- |
 | dataExportFrequencySeconds | false | Int32 | `10` | Frequency in seconds for data export |
+| enableTls | false | Boolean | false | Enable TLS for the diagnostics service |
 | image.repository | true | String | N/A | Docker image name |
 | image.tag | true | String | N/A | Docker image tag |
 | image.pullPolicy | false | String | N/A | Image pull policy to use |
@@ -46,12 +47,13 @@ Here's an example of a diagnostics service resource with basic configuration:
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: DiagnosticService
 metadata:
-  name: "broker"
+  name: diagnostics
   namespace: azure-iot-operations
 spec:
+  enableTls: false
   image:
     repository: mcr.microsoft.com/azureiotoperations/diagnostics-service
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   logLevel: info
   logFormat: text
 ```

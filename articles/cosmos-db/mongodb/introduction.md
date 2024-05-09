@@ -72,3 +72,4 @@ Cosmos DB for MongoDB implements the wire protocol for MongoDB. This implementat
 
 - Read the [FAQ](faq.yml)
 - [Connect an existing MongoDB application to Azure Cosmos DB for MongoDB RU](connect-account.yml)
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md)

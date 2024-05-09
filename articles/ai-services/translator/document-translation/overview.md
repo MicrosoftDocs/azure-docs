@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 02/12/2024
+ms.date: 05/02/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -143,20 +143,16 @@ For detailed information regarding Azure AI Translator Service request limits, *
 
 Document Translation data residency depends on the Azure region where your Translator resource was created:
 
-* Translator resources **created** in any region in Europe (except Switzerland) are **processed** at data center in North Europe and West Europe.
-* Translator resources **created** in any region in Switzerland are **processed** at data center in Switzerland North and Switzerland West.
-* Translator resources **created** in any region in Asia Pacific or Australia are **processed** at data center in Southeast Asia and Australia East.
-* Translator resource **created** in all other regions including Global, North America, and South America are **processed** at data center in East US and West US 2.
-
 ✔️ Feature: **Document Translation**</br>
-✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
+✔️ Service endpoint:  **Custom: `<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
 
-|Resource region| Request processing data center |
+|Resource created region| Request processing data center |
 |----------------------------------|-----------------------|
-|**Any region within Europe (except Switzerland)**| Europe: North Europe &bull; West Europe|
-|**Switzerland**|Switzerland: Switzerland North &bull; Switzerland West|
-|**Any region within Asia Pacific and Australia**| Asia: Southeast Asia &bull; Australia East|
-|**All other regions including Global, North America, and South America**  | US: East US &bull; West US 2|
+|**Global**|Closest available data center.|
+|**Americas**|East US 2 &bull; West US 2|
+|**Asia Pacific**| Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland)**| France Central &bull; West Europe|
+|**Switzerland**|Switzerland North &bull; Switzerland West|
 
 ## Next steps
 
