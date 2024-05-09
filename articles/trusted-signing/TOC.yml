@@ -16,6 +16,8 @@
       href: how-to-sign-history.md
     - name: Revoke a certificate profile in Trusted Signing
       href: how-to-cert-revocation.md
+    - name: Renew Trusted Signing Identity Validation
+      href: how-to-renew-identity-validation.md
   - name: Quickstart
     items:
     - name: Quickstart onboarding

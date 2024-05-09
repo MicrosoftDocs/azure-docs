@@ -4,16 +4,16 @@ titleSuffix: Azure IoT Hub Device Provisioning Service
 description: How to manage group and individual device enrollments for your Device Provisioning Service (DPS) in the Azure portal.
 author: kgremban
 ms.author: kgremban
-ms.date: 03/09/2023
+ms.date: 04/30/2024
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
 ---
 
-# How to manage device enrollments with Azure portal
+# Manage device enrollments in the Azure portal
 
-A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service (DPS). The enrollment record contains the initial configuration for the device(s) as part of that enrollment. Included in the configuration is either the IoT hub to which a device will be assigned, or an allocation policy that configures the IoT hub from a set of IoT hubs. This article shows you how to manage device enrollments for your provisioning service.
+A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service (DPS). The enrollment record contains the initial configuration for the device(s) as part of that enrollment. Included in the configuration is either the IoT hub to which a device will be assigned, or an allocation policy that applies to a set of IoT hubs. This article shows you how to manage device enrollments for your provisioning service.
 
 The Device Provisioning Service supports two types of enrollments:
 
@@ -29,18 +29,9 @@ The Device Provisioning Service supports two types of enrollments:
 
 ## Create an enrollment group
 
-An enrollment group is an entry for a group of devices that share a common attestation mechanism. We recommend that you use an enrollment group for a large number of devices that share an initial configuration, or for devices that go to the same tenant. Enrollment groups support devices that use either [symmetric key](concepts-symmetric-key-attestation.md) or [X.509 certificates](concepts-x509-attestation.md) attestation.
+An enrollment group is an entry for a group of devices that share a common attestation mechanism. We recommend that you use an enrollment group for a large number of devices that share an initial configuration, or for devices that go to the same tenant. Enrollment groups support either [X.509 certificate](concepts-x509-attestation.md) or [symmetric key](concepts-symmetric-key-attestation.md) attestation.
 
-# [Symmetric key](#tab/key)
-
-For a walkthrough that demonstrates how to create and use enrollment groups with symmetric keys, see the [Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
-
-To create a symmetric key enrollment group:
-
-<!-- INCLUDE -->
-[!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
-
-# [X.509 certificate](#tab/x509)
+### [X.509 certificate](#tab/x509)
 
 For a walkthrough that demonstrates how to create and use enrollment groups with X.509 certificates, see the [Provision multiple X.509 devices using enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
 
@@ -49,7 +40,16 @@ To create an X.509 certificate enrollment group:
 <!-- INCLUDE -->
 [!INCLUDE [iot-dps-enrollment-group-x509.md](../../includes/iot-dps-enrollment-group-x509.md)]
 
-# [TPM](#tab/tpm)
+### [Symmetric key](#tab/key)
+
+For a walkthrough that demonstrates how to create and use enrollment groups with symmetric keys, see the [Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
+
+To create a symmetric key enrollment group:
+
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
+
+### [TPM](#tab/tpm)
 
 Enrollment groups do not support TPM attestation.
 
@@ -57,9 +57,19 @@ Enrollment groups do not support TPM attestation.
 
 ## Create an individual enrollment
 
-An individual enrollment is an entry for a single device that may be assigned to an IoT hub. Devices using [symmetric key](concepts-symmetric-key-attestation.md), [X.509 certificates](concepts-x509-attestation.md), and [TPM attestation](concepts-tpm-attestation.md) are supported.
+An individual enrollment is an entry for a single device that may be assigned to an IoT hub. Devices using [X.509 certificates](concepts-x509-attestation.md), [symmetric key](concepts-symmetric-key-attestation.md), and [TPM attestation](concepts-tpm-attestation.md) are supported.
 
-# [Symmetric key](#tab/key)
+
+### [X.509 certificate](#tab/x509)
+
+For a walkthrough of how to create and use individual enrollments with X.509 certificates, see [Quickstart:Provision an X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).
+
+To create an X.509 certificate individual enrollment:
+
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
+
+### [Symmetric key](#tab/key)
 
 For a walkthrough of how to create and use individual enrollments with symmetric keys, see [Quickstart: Provision a symmetric key device](quick-create-simulated-device-symm-key.md#create-a-device-enrollment).
 
@@ -68,16 +78,7 @@ To create a symmetric key individual enrollment:
 <!-- INCLUDE -->
 [!INCLUDE [iot-dps-individual-enrollment-key.md](../../includes/iot-dps-individual-enrollment-key.md)]
 
-# [X.509 certificate](#tab/x509)
-
-For a walkthrough of how to create and use individual enrollments with X.509 certificates, see [Quickstart:Provision an X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).
-
-To create a X.509 certificate individual enrollment:
-
-<!-- INCLUDE -->
-[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
-
-# [TPM](#tab/tpm)
+### [TPM](#tab/tpm)
 
 For a walkthrough of how to create and use individual enrollments using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) samples. If you don't have the endorsement key and registration ID for your device, use the quickstart to try these steps on a simulated device.
 

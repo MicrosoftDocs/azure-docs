@@ -37,6 +37,8 @@
     href: ingestion-agent-overview.md
   - name: Set up the Azure Operator Insights ingestion agent
     href: set-up-ingestion-agent.md
+  - name: Use Azure Data Factory for ingestion
+    href: ingestion-with-data-factory.md
 - name: Data analysis
   items:
   - name: Data visualization overview

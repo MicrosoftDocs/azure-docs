@@ -321,7 +321,7 @@
                       href: ../latest-restore-timestamp-continuous-backup.md
                     - name: Auditing restore action with continuous backup
                       href: ../audit-restore-continuous.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   items:
                     - name: Introduction
                       href: ../restore-in-account-continuous-backup-introduction.md
@@ -593,8 +593,12 @@
               href: migrate-dotnet-v2.md
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
+        - name: Azure Cosmos DB Explorer
+          items:
+            - name: Use explorer
+              href: ../data-explorer.md
+            - name: Keyboard shorcuts
+              href: ../data-explorer-shortcuts.md
         - name: SDK observability
           href: sdk-observability.md
     - name: Performance
@@ -774,7 +778,7 @@
               items:
                 - name: Restore to a different account
                   href: ../restore-account-continuous-backup.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   href: ../how-to-restore-in-account-continuous-backup.md
                 - name: Get the latest restorable timestamp
                   href: ../get-latest-restore-timestamp.md

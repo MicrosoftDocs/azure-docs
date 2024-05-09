@@ -4,7 +4,7 @@ description: Learn how to migrate to SMB Azure file shares and find your migrati
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/24/2024
+ms.date: 04/25/2024
 ms.author: kendownie
 ---
 
@@ -61,7 +61,7 @@ Learn more about [on-premises Active Directory authentication](storage-files-ide
 The following table lists supported metadata for Azure Files.
 
 > [!IMPORTANT]
-> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share.
+> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share. However, Azure Files will return the *LastAccessTime* value for a file when requested. Because the *LastAccessTime* timestamp isn't updated on read operations, it will always be equal to the *LastModifiedTime*.
 
 | **Source** | **Target** |
 |------------|------------|

@@ -413,6 +413,23 @@ For more information, see the [Telemetry processor](./java-standalone-telemetry-
 > [!NOTE]
 > If you want to drop specific (whole) spans for controlling ingestion cost, see [Sampling overrides](./java-standalone-sampling-overrides.md).
 
+## Custom instrumentation (preview)
+
+Starting from verion 3.3.1, you can capture spans for a method in your application:
+
+```json
+{
+  "preview": {
+    "customInstrumentation": [
+      {
+        "className": "my.package.MyClass",
+        "methodName": "myMethod"
+      }
+    ]
+  }
+}
+```
+
 ## Autocollected logging
 
 Log4j, Logback, JBoss Logging, and java.util.logging are autoinstrumented. Logging performed via these logging frameworks is autocollected.
@@ -674,6 +691,9 @@ Starting from version 3.0.3, specific autocollected telemetry can be suppressed 
     "kafka": {
       "enabled": false
     },
+    "logging": {
+      "enabled": false
+    },
     "micrometer": {
       "enabled": false
     },
@@ -703,6 +723,7 @@ You can also suppress these instrumentations by setting these environment variab
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
