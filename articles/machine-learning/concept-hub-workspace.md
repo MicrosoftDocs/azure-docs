@@ -31,7 +31,7 @@ Successfully building machine learning models often requires heavy prototyping a
 
 In the transition from proving feasibility of an idea, to a funded project, many organizations encounter a bottleneck in productivity because a single platform team is responsible for the setup of cloud resources. Such a team may be the only one authorized to configure security, connectivity or other resources that may incur costs. This may cause a huge backlog, resulting in development teams getting blocked to start innovating with a new idea.
 
-The goal of hubs is to take away this bottleneck, by letting IT set up a pre-configured, reusable, environment for a team to prototype, build and operate machine learning models.
+The goal of hubs is to take away this bottleneck, by letting IT set up a secure, pre-configured and reusable environment for a team to prototype, build and operate machine learning models.
 
 ## Interoperability between ML studio and AI studio
 
