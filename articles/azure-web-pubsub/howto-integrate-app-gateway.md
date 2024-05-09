@@ -22,10 +22,10 @@ As illustrated in the diagram, you need to set up a Private Endpoint for your We
 
 :::image type="content" source="media/howto-integrate-app-gateway/overview.jpg" alt-text="Achitecture overview of using Web PubSub with Azure Application Gateway":::
 
-This guide takes a step-by-step approach. First, we configure Application Gateway so that the traffic your Web PubSub resource can be succesffully proxied through. Second, we leverage the access control features of Web PubSub to only allow traffic from Application Gateway. 
+This guide takes a step-by-step approach. First, we configure Application Gateway so that the traffic to your Web PubSub resource can be succesffully proxied through. Second, we leverage the access control features of Web PubSub to allow traffic from Application Gateway only. 
 
 
-## Step 1: configure Application Gateway to proxy traffic Web PubSub resource
+## Step 1: configure Application Gateway to proxy traffic to Web PubSub resource
 The diagram illustrates what we are going to achieve in step 1.
 
 :::image type="content" source="media/howto-integrate-app-gateway/overview-step1.jpg" alt-text="Achitecture overview of step 1: configure Application Gateway to proxy traffic Web PubSub resource":::
@@ -47,7 +47,7 @@ Frontends are the IP addresses of your Azure Application Gateway. Since we use A
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step2.jpg" alt-text="Screenshot of creating an Application Gateway resource - create public IP":::
 
-Backends are the resources your Application Gateway resource can send traffic to. In our case, we have one target, our Web PubSub resource. Find the **host name** of an existing Web PubSub resource on Azure portal. It should look like this, `xxxx.webpubsub.azure.com`.
+Backends are the resources your Application Gateway resource can send traffic to. In our case, we have one target, our Web PubSub resource. Find the **host name** of an existing Web PubSub resource you intend to use to follow this guide on Azure portal. It should look like this, `xxxx.webpubsub.azure.com`.
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step3.jpg" alt-text="Screenshot of creating an Application Gateway resource - create a backend pool":::
 
@@ -73,7 +73,7 @@ When the three components are configured, you should see something like the scre
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step6.jpg" alt-text="Screenshot of creating an Application Gateway resource - finished":::
 
-One thing that is worth highlighting is that this is exactly how you configure non-WebSocket connections. You can learn more about [Application Gateway's native support for proxying WebSocket connection](https://learn.microsoft.com/azure/application-gateway/features#websocket-and-http2-traffic).
+One thing that is worth highlighting is that this is exactly how you configure non-WebSocket connections. You can learn more about [Application Gateway's native support for proxying WebSocket connections](https://learn.microsoft.com/azure/application-gateway/features#websocket-and-http2-traffic).
 
 
 ### Test and verify Application Gateway is configured properly
@@ -91,8 +91,138 @@ curl http://<public-ip-of-your-application-gateway-resource>/client
 ```
 You should see the same error message "Invalid value of 'hub'. This shows that your Application Gateway resource has successfully routed the traffic using the routing rule we configured earlier and return a response back on behalf of Web PubSub.
 
+### Test and verify Application Gateway can proxy WebSocket connections
+#### Publish messages through Web PubSub
+We create a simple program to simulate a server publishing messages through Web PubSub periodically. We run the program locally in step 1 to verify everything is working and in step 2, we will deploy the same app to Azure App Service.
+
+##### Create the folder structure
+```bash
+mdkir server && cd server
+touch package.json && touch publish.js
+```
+
+##### Copy source code
+Copy the code to the `package.json` file you just created.
+```json
+{
+  "scripts": {
+    "start": "node ./publish.js"
+  },
+  "dependencies": {
+    "@azure/web-pubsub": "^1.1.1"
+  }
+}
+```
+
+Copy the code to the `publish.js` file you just created.
+```javascript
+const http = require("http")
+// Uses the service SDK, which makes it easy to consume the capabilities of the service
+const { WebPubSubServiceClient } = require('@azure/web-pubsub');
+
+// Hardcodes the hub name 
+const hub = "myHub1";
+
+// Grabs the connection string stored as an environment variable
+let webpubsub = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+
+// Every 2 seconds, we ask Web PubSub service to send all the connected clients the messsage "hello, world"
+setInterval(() => {
+  webpubsub.sendToAll("hello, world", { contentType: "text/plain" });
+}, 2000);
+
+// Creates an HTTP server. This is needed when we deploy to app service in step 2, not necessary in step 1.
+http.createServer().listen(process.env.PORT || 3000);
+```
+
+##### Install dependencies and run the program
+On Azure portal, find the `connection string` of your Web PubSub resource.
+:::image type="content" source="media/howto-integrate-app-gateway/webpubsub-connection-string.jpg" alt-text="Screenshot of getting the connection string of a Web PubSub resource":::
+
+```bash
+
+npm install
+
+## Set environment variable
+export WebPubSubConnectionString="<replace with the connection string of your Web PubSub resource>"
+
+npm run start
+```
+It seems that nothing is happening, but actually every 2 seconds the program asks Web PubSub service to broadcast a message to all connected web clients. You can see this in action by enabling the [Live Trace Tool feature](./howto-troubleshoot-resource-logs.md##launch-the-live-trace-tool), where you can monitor important logging in real time.
+
+#### Receive messages in the browser
+It wouldn't be particularly illuminating if we don't receive the broadcasted messages. 
+
+##### Get the `Client Access URL` on Azure portal
+On Azure portal, find the `Client Access URL`. Make sure that you set the hub name to `myHub1`, the same as we hardcoded in `publish.js`. `Client Access URL` is a convenient tool to quickly connect with Web PubSub service for rapid experimentation, it's not suited for production. In production, your app service usually authenticates the client first and generates an access token using the service SDK on the fly. 
+
+This `Client Access URL` allows any client that supports WebSocket to connect with your Web PubSub resources and receive messages published to `myHub1`.
+
+:::image type="content" source="media/howto-integrate-app-gateway/webpubsub-client-access-url.jpg" alt-text="Screenshot of getting the Client Access URL of a Web PubSub resource":::
+
+##### Copy client code
+Create a `index.html` file to put the client code
+```bash
+touch index.html
+```
+Copy the code to `index.html`
+```html
+<!DOCTYPE html>
+
+<body>
+  <script>
+    // Make sure to put your own Client Access URL here
+    const CLIENT_ACCESS_URL = "<replace with the Client Access URL you found on Azure portal>"
+
+    const socket = new WebSocket(CLIENT_ACCESS_URL)
+
+    socket.addEventListener("open", () => {
+      console.log("connection opened")
+    })
+
+    // Prints out the message when it arrives
+    socket.addEventListener("message", (msg) => {
+      console.log(msg)
+    })
+  </script>
+</body>
+
+</html>
+```
+
+##### Run the client program
+You can use Live Server extension if you use VS code to follow the guide. Alternatively, you can just copy the path to `index.html` and paste it in the address bar of your preferred browser.
+
+:::image type="content" source="media/howto-integrate-app-gateway/browser-client-direct.jpg" alt-text="Screenshot of a browser client directly connecting with Web PubSub resource":::
+
+If you inspect the page, you should see that the client has succesfully connected with your Web PubSub resources and are getting the broadcasted messages. Make sure you still have `publish.js` running.
+
+Since Application Gateway has native support for WebSocket, we don't need to change any confirguration on our Application Gateway resource. All we need is to change the endpoint our client points to. 
+
+Change the endpoint the client points to and update the code accordingly in `index.html`. If your Client Access URL looks like `wss://xxx.webpubsub.azure.com/client...`, you need to change it to `ws://<the public IP of your Application Gateway resource/client...>`.
+
+Three points to note. 
+1. We use the `ws://` instead of `wss://` since your Application Gateway is configured to listen to `http` traffic only. 
+2. In production, it's probably best to set up custom domain for your Application Gateway resource and configured it to accept HTTPs only.
+3. We need to keep the access token as it is since it encodes credentails for your client to connect with your Web PubSub resource. 
+
+```html
+<!--> Update two lines of code in index.html <-->
+<script>
+    const CLIENT_ACCESS_URL_APP_GATEWAY = "<put the modified Access URL here>"
+
+    const socket = new WebSocket(CLIENT_ACCESS_URL_APP_GATEWAY)
+</script>
+```
+Now, if you run the program in the browser again, you should see that the client has established a WebSocket connection with Application Gateway and receives messages from Application Gateway roughly every 2 seconds.
+
+### Recap of step 1
+This marks the end of step 1. If you have been following step 1, you should see that your Web PubSub resource is accessilbe directly by your web clients or indirectly through Application Gateway. You also see Application Gateway native support for WebSocket in action. Enabling it does not require configuration change, you only need to specify in the client code that you wish to establish a WebSocket connection. 
+
+In step 2, we close public access to your Web PubSub resource, making it more secure.
+
 ## Step 2: disable public access to your Web PubSub resource
-The outcome of step 1 is that your Web PubSub resource are accessible through both the public internet and Application Gateway. Because your Web PubSub resource is not in the same virtual network, when Application Gatway forwards traffic to Web PubSub resource, it reaches Web PubSub's public endpoint via public internet. In step 2, we allow only traffic from Application Gateway to achieve heightened security. 
+The outcome of step 1 is that your Web PubSub resource are accessible through both the public internet and Application Gateway. Because your Web PubSub resource is not in the same virtual network, when Application Gatway forwards traffic to your Web PubSub resource, it reaches Web PubSub's public endpoint via **public internet**. This is not desirable.
 
 Web PubSub service supports configuring access controls. One such configuration is to disable access from public internet. Make sure to hit "save" when you are done.
 
@@ -108,144 +238,3 @@ Locate the virtual network resource that we created
 :::image type="content" source="media/howto-integrate-app-gateway/disable-public-access.jpg" alt-text="Screenshot of disabling public access of Web PubSub ":::
 
 
-> [!NOTE] 
-> This guide uses the client SDK provided by Web PubSub service, which is still in preview. The interface may change in later versions.
-
-# [JavaScript](#tab/javascript)
-
-```bash
-mkdir pubsub_among_clients
-cd pubsub_among_clients
-
-# The SDK is available as an NPM module.
-npm install @azure/web-pubsub-client
-```
-
-# [C#](#tab/csharp)
-
-```bash
-mkdir pubsub_among_clients
-cd pubsub_among_clients
-
-# Create a new .net console project
-dotnet new console
-
-# Install the client SDK, which is available as a NuGet package
-dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
-```
----
-
-## Connect to Web PubSub
-
-A client, be it a browser 💻, a mobile app 📱, or an IoT device 💡, uses a **Client Access URL** to connect and authenticate with your resource. This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown in the following diagram. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand. [Generate Client Access URL](./howto-generate-client-access-url.md) describes the practice in detail.
-
-![The diagram shows how to get client access url.](./media/howto-websocket-connect/generate-client-url.png)
-
-As shown in the diagram above, the client has the permissions to send messages to and join a specific group named `group1`.
-
-# [JavaScript](#tab/javascript)
-
-Create a file with name `index.js` and add following code
-
-```javascript
-const { WebPubSubClient } = require("@azure/web-pubsub-client");
-
-// Instantiate the client object. 
-// <client-access-url> is copied from Azure portal mentioned above.
-const client = new WebPubSubClient("<client-access-url>");
-```
-
-# [C#](#tab/csharp)
-
-Edit the `Program.cs` file and add following code
-
-```csharp
-using Azure.Messaging.WebPubSub.Clients;
-
-// Instantiate the client object. 
-// <client-access-uri> is copied from Azure portal mentioned above.
-var client = new WebPubSubClient(new Uri("<client-access-uri>"));
-```
----
-
-## Subscribe to a group
-
-To receive messages from groups, the client
-- must join the group it wishes to receive messages from
-- has a callback to handle `group-message` event
-  
-The following code shows a client subscribes to messages from a group named `group1`.
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-// ...code from the last step
-
-// Provide callback to the "group-message" event. 
-client.on("group-message", (e) => {
-  console.log(`Received message: ${e.message.data}`);
-});
-
-// Before joining group, you must invoke start() on the client object.
-client.start();
-
-// Join a group named "group1" to subscribe message from this group.
-// Note that this client has the permission to join "group1", 
-// which was configured on Azure portal in the step of generating "Client Access URL".
-client.joinGroup("group1");
-```
-
-# [C#](#tab/csharp)
-
-```csharp
-// ...code from the last step
-
-// Provide callback to group messages.
-client.GroupMessageReceived += eventArgs =>
-{
-    Console.WriteLine($"Receive group message from {eventArgs.Message.Group}: {eventArgs.Message.Data}");
-    return Task.CompletedTask;
-};
-
-// Before joining group, you must invoke start() on the client object.
-await client.StartAsync();
-
-// Join a group named "group1" to subscribe message from this group.
-// Note that this client has the permission to join "group1", 
-// which was configured on Azure portal in the step of generating "Client Access URL".
-await client.JoinGroupAsync("group1");
-```
----
-
-## Publish a message to a group
-In the previous step, we've set up everything needed to receive messages from `group1`, now we send messages to that group. 
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-// ...code from the last step
-
-// Send message "Hello World" in the "text" format to "group1".
-client.sendToGroup("group1", "Hello World", "text");
-```
-
-# [C#](#tab/csharp)
-
-```csharp
-// ...code from the last step
-
-// Send message "Hello World" in the "text" format to "group1".
-await client.SendToGroupAsync("group1", BinaryData.FromString("Hello World"), WebPubSubDataType.Text);
-```
----
-
-## Next steps
-By using the client SDK, you now know how to 
-> [!div class="checklist"]
-> * **connect** to your Web PubSub resource
-> * **subscribe** to group messages
-> * **publish** messages to groups
-
-Next, you learn how to **push messages in real-time** from an application server to your clients.
-> [!div class="nextstepaction"]
-> [Push message from application server](quickstarts-push-messages-from-server.md)
