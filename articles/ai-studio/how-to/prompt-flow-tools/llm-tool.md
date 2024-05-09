@@ -112,7 +112,7 @@ The following input parameters are available.
 | frequency\_penalty     | float       | The value that controls the model's behavior regarding generating rare phrases. Default is 0. | No       |
 | logit\_bias            | dictionary  | The logit bias for the language model. Default is empty dictionary.                            | No       |
 | tool\_choice           | object      | Value that controls which tool is called by the model. Default is null.                        | No       |
-| tools                  | list        | a list of tools the model may generate JSON inputs for. Default is null.                       | No       |
+| tools                  | list        | A list of tools the model may generate JSON inputs for. Default is null.                       | No       |
 | response_format        | object      | an object specifying the format that the model must output. Default is null.                   | No       |
 
 ## Outputs
