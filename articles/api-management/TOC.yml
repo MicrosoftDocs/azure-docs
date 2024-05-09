@@ -486,6 +486,10 @@
       href: authentication-certificate-policy.md
     - name: authentication-managed-identity
       href: authentication-managed-identity-policy.md
+    - name: azure-openai-sematic-cache-lookup
+      href: azure-openai-semantic-cache-lookup-policy.md
+    - name: azure-openai-semantic-cache-store
+      href: azure-openai-semantic-cache-store-policy.md
     - name: cache-lookup
       href: cache-lookup-policy.md
     - name: cache-lookup-value
