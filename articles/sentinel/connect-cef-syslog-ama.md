@@ -79,16 +79,10 @@ To get started, open the data connector in Microsoft Sentinel and create a data 
 
 1. In the **Configuration** area, select **+Create data collection rule**. 
 
-    # [Syslog via AMA](#tab/syslog)
-
     :::image type="content" source="media/connect-cef-ama/syslog-connector-page-create-dcr.png" alt-text="Screenshot showing the Syslog via AMA connector page." lightbox="media/connect-cef-ama/syslog-connector-page-create-dcr.png":::
-
-   # [CEF via AMA](#tab/cef)
 
     :::image type="content" source="media/connect-cef-ama/cef-connector-page-create-dcr.png" alt-text="Screenshot showing the CEF via AMA connector page." lightbox="media/connect-cef-ama/cef-connector-page-create-dcr.png":::
     
-    ---
-
 1. In the **Basic** tab: 
     - Type a DCR name.
     - Select your subscription.
@@ -113,63 +107,6 @@ In the **Resources** tab, select the machines on which you want to install the A
 ### Select facilities and severities
 
 Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. Learn how to [Data ingestion duplication](cef-syslog-ama-overview.md#data-ingestion-duplication).
-
-1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
-
-   :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR.":::
-
-1. Review your selections and select **Next: Review + create**. 
-
-1. In the **Review and create** tab, select **Create**.
-
-   :::image type="content" source="media/connect-cef-ama/dcr-review-create.png" alt-text="Screenshot showing how to review the configuration of the DCR and create it.":::
-
-   The connector installs the Azure Monitor Agent on the machines you selected when creating your DCR.
-
-1. Check the notifications in the Azure portal or Microsoft Defender portal to see when the DCR is created and the agent is installed.
-
-1. Select **Refresh** on the connector page to see the DCR displayed in the list.
-
-# [CEF in portal](#tab/cef)
-
-### Create data collection rule
-
-To get started, open the data connector in Microsoft Sentinel and create a data connector rule.
-
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
-
-1. Type *CEF* in the **Search** box. From the results, select the **Common Event Format (CEF) via AMA** connector.
-
-1. Select **Open connector page** on the details pane.
-
-1. In the **Configuration** area, select **+Create data collection rule**. 
-
-    :::image type="content" source="media/connect-cef-ama/cef-connector-page-create-dcr.png" alt-text="Screenshot showing the CEF via AMA connector page." lightbox="media/connect-cef-ama/cef-connector-page-create-dcr.png":::
-
-1. In the **Basic** tab: 
-    - Type a DCR name.
-    - Select your subscription.
-    - Select the resource group where you want to locate your DCR.
-
-    :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basic tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
-
-1. Select **Next: Resources >**.
-
-### Define VM resources
-
-In the **Resources** tab, select the machines on which you want to install the AMA&mdash;in this case, your log forwarder machine. (If your log forwarder doesn't appear in the list, it might not have the Azure Connected Machine agent installed.)
-
-1. Use the available filters or search box to find your log forwarder VM. You can expand a subscription in the list to see its resource groups, and a resource group to see its VMs.
-
-1. Select the log forwarder VM that you want to install the AMA on. The check box appears next to the VM name when you hover over it.
-
-   :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/connect-cef-ama/dcr-select-resources.png":::
-
-1. Review your changes and select **Next: Collect >**. 
-
-### Select facilities and severities
-
-Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. For more information, see [Data ingestion duplication](cef-syslog-ama-overview.md#data-ingestion-duplication).
 
 1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
 
