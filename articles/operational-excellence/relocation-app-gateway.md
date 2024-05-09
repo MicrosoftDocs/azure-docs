@@ -24,16 +24,18 @@ ms.custom:
 
 ## Prerequisites
 
-- Verify that your Azure subscription allows you to create Application Gateway with WAF in the target region.
+- Verify that your Azure subscription allows you to create Application Gateway SKUs in the target region.
 
-- Create a dependency map with all the Azure services used by the Application Gateway. For the services that are in scope of the relocation, you must [select the appropriate relocation strategy](overview-relocation.md).
+- Plan your relocation strategy with an understanding of all services that are required for your Application Gateway. For the services that are in scope of the relocation, you must select the appropriate relocation strategy.
+    - Ensure that the Application Gateway subnet at the target location has enough address space to accommodate the number of instances required to serve your maximum expected traffic.
 
-- Capture the below list of internal resources/settings of Application Gateway:
+- For Application Gateway's deployment, you must consider and plan the setup of the following sub-resources:
     - Frontend configuration (Public/Private IP)
-    - Alert Notifications
     - Backend Pool Resources (ex. VMs, VMSS, Azure App Services)
-    - WAF
+    - Private Link
+    - Certificates
     - Diagnostic Settings
+    - Alert Notifications
 
  - Ensure that the Application Gateway subnet at the target location has enough address space to accommodate the number of instances required to serve your maximum expected traffic.
 
@@ -52,6 +54,8 @@ If you only want to relocate in order to gain availability zones support, see [M
 1. If you use TLS termination for Key Vault, follow the [relocation procedure for Key Vault](./relocation-key-vault.md). Ensure that the Key Vault is in the same subscription as the relocated Application Gateway. You can create a new certificate or use the existing certificate for relocated Application Gateway.
 
 1. Confirm that the virtual network is relocated *before* you relocate. To learn how to relocate your virtual network, see [Relocate Azure Virtual Network](./relocation-virtual-network.md).
+
+1. Confirm that the backend pool server or service, such as VM, VMSS, PaaS, is relocated *before* you relocate.
 
 2. Create an Application Gateway and configure a new Frontend Public IP Address for the virtual network:
     - Without WAF:  [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
