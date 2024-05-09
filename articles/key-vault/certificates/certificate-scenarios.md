@@ -120,7 +120,7 @@ Azure Key Vault supports PKCS#8 encoded certificate with below headers:
 -----END CERTIFICATE-----
 
 >[!Note]
-> P7B (PKCS#7) signed certificates chain, commonly used by Certificate Authorities (CAs), is supported as long as is base64 encoded. You may use `certutil -encode` to convert to supported format.
+> P7B (PKCS#7) signed certificates chain, commonly used by Certificate Authorities (CAs), is supported as long as is base64 encoded. You may use [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode) to convert to supported format.
 
 ## Creating a certificate with a CA not partnered with Key Vault  
  This method allows working with other CAs than Key Vault's partnered providers, meaning your organization can work with a CA of its choice.  
