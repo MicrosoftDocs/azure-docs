@@ -217,11 +217,11 @@ Once you have access to the reporting tool, use the following steps to set up yo
 
 1. From *Settings*, select **General** and make sure reporting is **Enabled**.
 
-   :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png" alt-text="Screenshot that shows hoow to enable reporting for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png":::
+   :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png" alt-text="Screenshot that shows how to enable reporting for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-enable-reporting.png":::
 
 1. Create a GitHub Personal Access Token by following these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-    You need to provide `read:packages` permissions to the token. This token is refered to as `PAT_TOKEN_PACKAGE` for the rest of this article. 
+    You need to provide `read:packages` permissions to the token. This token is referred to as `PAT_TOKEN_PACKAGE` for the rest of this article. 
 
 1. Store the GitHub token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
 
