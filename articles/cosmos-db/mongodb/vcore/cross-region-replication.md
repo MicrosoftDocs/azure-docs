@@ -47,13 +47,11 @@ When cross-region replication is enabled a read-only connection string is create
 In the event of region outage you can perform disaster recovery operation by promoting your cluster replica in another region to become available for writes. During replica promotion operation the following is happening:
 
 - Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster. 
-- The former primary cluster in region A is **replaced** with a replica cluster that is synchronized with the new read-write cluster (former replica cluster). The replica cluster is located in the original Azure region A and becomes the destination for the promoted replica cluster.
+- The cluster in region A is set to read-only. Because replication is asynchronous, some data from cluster in region A might not be replicated when cluster replica in region B is promoted. If this is the case, promotion would result in the un-replicated data not present on both clusters.  
 - Read-write connection string is now pointing to the promoted replica cluster in region B.
-- Read-only connection string is now pointing to the new replica cluster in region A.
 
 > [!IMPORTANT]
-> The promotion process is irreversible. When cluster replica is promoted to become a new read-write cluster,
-> all data that have NOT been replicated to it from the primary cluster is going to be lost.
+> When cluster replica is promoted to become a new read-write cluster, all data that have NOT been replicated to it from the primary cluster is going to be lost.
 
 ## Next steps
 

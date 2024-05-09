@@ -33,7 +33,7 @@ Azure Cosmos DB for MongoDB vCore allows continuous data streaming to a replica 
 > cross-region replication and other preview features.
 
 1. Follow the steps to [create a new Azure Cosmos DB for MongoDB vCore cluster](./quickstart-portal.md#create-a-cluster).
-1. On the **Basics** tab, select **Enable preview features** flag.
+1. On the **Basics** tab, select **Enable global distribution (preview)** flag.
 1. Once cluster is created, on the cluster sidebar, under **Settings**, select **Global distribution**.
 1. Select **Add replica** and select a region for cluster replica to be created in.
 1. Verify your selection and select **Save** to confirm your selection.
@@ -66,13 +66,16 @@ To disable cross-region replication, follow these steps:
 1. On the **Delete \<replica name>** screen, read the warning text, and enter cluster's name in the **Confirm the account name** field.
 1. Select **Delete** to confirm deletion of the replica.
 
-## Connect to replica
-You can connect to the cluster replica by using read-only connection string, as you would on a regular read-write cluster. Follow these steps to get [the read-write connection string for the primary and read-only connection string for the cluster replica](./cross-region-replication.md#read-operations-on-cluster-replicas-and-connection-strings):
+If you need to delete the primary and replica clusters, you would need to delete the replica cluster first.
+
+## Use connection strings
+You can connect to the cluster replica as you would to a regular read-write cluster. When global distribution is enabled on the cluster, you can use global read-write connection string for reads and writes. This global read-write connection string would always point to the current read-write cluster.
+Follow these steps to get [the get connection strings for different cases](./cross-region-replication.md#read-operations-on-cluster-replicas-and-connection-strings):
 
 1. Select the primary cluster or its cluster replica in the portal.
 1. On the cluster sidebar, under **Settings**, select **Connection strings**.
-1. Copy the read-write connection string for connections to the primary cluster.
-1. Copy the read-only connection string for connections to the cluster replica.
+1. On the primary cluster, copy the global read-write connection string for connections to the current read-write cluster. 
+1. Copy the connection string for currently selected cluster to connet to that cluster as you would with a regular read-write cluster.
 
 Connection strings are preserved after [the cluster replica promotion](./cross-region-replication.md#replica-cluster-promotion).
 
