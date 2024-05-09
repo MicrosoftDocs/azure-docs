@@ -54,7 +54,7 @@ If you aren't a billing administrator and you change from shared to single scope
 If all subscriptions are moved out of a management group, the scope of the savings plan is automatically changed to **Shared**.
 
 ## Change the auto-renewal setting
-To learn more about modifying auto-renewal settings for a savings plan, see [change auto-renewal settings](manage-savings-plan.md#change-the-autorenewal-setting).
+To learn more about modifying auto-renewal settings for a savings plan, see [change auto-renewal settings](manage-savings-plan.md#change-the-auto-renewal-setting).
 
 ## View savings plan reporting details
 - To learn more about viewing savings plan utilization, see [view savings plan utilization](view-utilization.md).
