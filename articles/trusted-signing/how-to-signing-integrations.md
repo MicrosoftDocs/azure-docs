@@ -30,6 +30,8 @@ This section explains how to set up SignTool to use with Trusted Signing.
 
 ### Prerequisites
 
+To complete the steps in this article, you need:
+
 - A Trusted Signing account, identity validation, and certificate profile.
 - The Trusted Signing Certificate Profile Signer role is assigned to you.
 
@@ -43,7 +45,7 @@ This section explains how to set up SignTool to use with Trusted Signing.
 
 ### Download and install SignTool
 
-Trusted Signing requires the use of SignToo to sign files on Windows, specifically the version of SignTool.exe that's in the Windows 10 SDK 10.0.19041 or later. You can install the full Windows 10 SDK via the Visual Studio Installer or [download and install it separately](https://developer.microsoft.com/windows/downloads/windows-sdk/).
+Trusted Signing requires the use of SignTool to sign files on Windows, specifically the version of SignTool.exe that's in the Windows 10 SDK 10.0.19041 or later. You can install the full Windows 10 SDK via the Visual Studio Installer or [download and install it separately](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 
 To download and install SignTool:
 
@@ -74,7 +76,6 @@ The components that SignTool uses to interface with Trusted Signing require the 
 
 ### Download and install the Trusted Signing dlib package
 
-<<<<<<< HEAD
 To download and install the Trusted Signing dlib package (a .zip file):
 
 1. Download the [Trusted Signing dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client).
@@ -137,6 +138,6 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) in PowerShell Gallery to install the PowerShell module.
 
-- **Azure PowerShell - App Control for Business CI policy**: To use Trusted Signing for continuous integration (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and see [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
+- **Azure PowerShell - App Control for Business CI policy**: To use Trusted Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and see [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 
 - **Trusted Signing SDK**: To create your own signing integration, you can use our open-source [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk).

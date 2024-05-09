@@ -44,12 +44,12 @@ To address these issues, Trusted Signing provides a durable identity value in ea
 
    A  value of `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` indicates a Trusted Signing subscriber that uses Private Trust identity validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is the Trusted Signing Private Trust code signing type. The `29433.35007.34545.16815.37291.11644.53265.56135` value is unique to the subscriber's identity validation for Private Trust.
   
-   Because you can use Private Trust identity validations for Windows Defender Application Control (WDAC) continuous integration (CI) policy signing, they have a different EKU prefix: `1.3.6.1.4.1.311.97.1.4.1.`. But the suffix values match the durable identity value for the subscriber's identity validation for Private Trust.  
+   Because you can use Private Trust identity validations for Windows Defender Application Control (WDAC) code integrity (CI) policy signing, they have a different EKU prefix: `1.3.6.1.4.1.311.97.1.4.1.`. But the suffix values match the durable identity value for the subscriber's identity validation for Private Trust.  
 
 > [!NOTE]
 > You can use durable identity EKUs in WDAC CI policy settings to pin trust to an identity in Trusted Signing. For information about creating WDAC policies, see [Use signed policies to protect Windows Defender Application Control against tampering](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering) and [Windows Defender Application Control Wizard](/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-wizard).
 
-All Trusted Signing Public Trust certificates also contain the `1.3.6.1.4.1.311.97.1.0` EKU to be easily identified as a publicly trusted certificate from Trusted Signing. All EKUs are provided in addition to the code signing EKU (`1.3.6.1.5.5.7.3.3`) to identify the specific usage type for certificate consumers. The only exception is certificates from CI policy certificate profile types, in which no code signing EKU is present.
+All Trusted Signing Public Trust certificates also contain the `1.3.6.1.4.1.311.97.1.0` EKU to be easily identified as a publicly trusted certificate from Trusted Signing. All EKUs are provided in addition to the code signing EKU (`1.3.6.1.5.5.7.3.3`) to identify the specific usage type for certificate consumers. The only exception is certificates that are the Trusted Signing Private Trust CI Policy certificate profile type, in which no code signing EKU is present.
 
 ## Zero-touch certificate lifecycle management
 

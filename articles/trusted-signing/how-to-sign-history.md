@@ -1,6 +1,6 @@
 ---
 title: Access signed transactions in Trusted Signing 
-description: How to access signed transactions in Trusted Signing in the Azure portal. 
+description: Learn how to access signed transactions in Trusted Signing in the Azure portal. 
 author: mehasharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
@@ -19,7 +19,7 @@ Currently, you can choose from four options in Azure:
 
   To set up your storage account:
 
-  1. For **Select your Subscription**, select the Azure subscription you want to use.
+  1. For **Select your Subscription**, select the Azure subscription that you want to use.
   1. For **Choose a Storage Account**, specify the Azure Storage account where you want to store your data.
   1. For **Azure Storage Lifecycle Policy**, use the Azure Storage Lifecycle Policy to manage how long your logs are retained.
 
@@ -37,6 +37,8 @@ This article demonstrates the example of how to view signing transactions by usi
 
 ## Prerequisites
 
+To complete the steps in this article, you need:
+
 - An Azure subscription.
 - A Trusted Signing account.
 - The ability to create a storage account in an Azure subscription. (Note that billing for storage accounts is separate from billing for Trusted Signing resources.)  
@@ -48,7 +50,7 @@ This article demonstrates the example of how to view signing transactions by usi
 To access and send signing transactions to your storage account:  
 
 1. In the Azure portal, go to your Trusted Signing account.
-1. On the Trusted Signing account **Overview** pane, in the left menu under **Monitoring**, select **Diagnostics settings**.
+1. On the Trusted Signing account **Overview** pane, in the resource menu under **Monitoring**, select **Diagnostics settings**.
 
    :::image type="content" source="media/trusted-signing-diagnostic-settings.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/trusted-signing-diagnostic-settings.png":::
 

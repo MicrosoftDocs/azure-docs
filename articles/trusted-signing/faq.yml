@@ -89,7 +89,7 @@ sections:
       - question: My Sectigo certificate is expiring. Can I get a new one, or do I have to use Trusted Signing?
         answer: |
           We're not extending any cross-signed certificates. You must sign by using the Trusted Signing service.
-      - question: How is Trusted Signing different from the signing that customers do with Partner Center?
+      - question: How is Trusted Signing different from the signing that partners do with Partner Center?
         answer: |
           Signing with the Partner Center is kernel-mode signing (no change with the introduction of Trusted Signing). Sign your user-mode binaries by using Trusted Signing. For your apps that interact with the Windows Security Center (WSC) service, you must include the Code Integrity bit (/INTEGRITYCHECK). Without the Trusted Signing signature, you can't register with the WSC, and Windows Defender runs in parallel.
       - question: How do we get the Authenticode certificate?  
@@ -116,8 +116,8 @@ sections:
           1. Create a [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
           1. Add the user-assigned managed identity to the virtual machine (VM):
              1. Select the VM.
-             1. On the left menu, select **Identity**, and then select **User assigned**.
-             1. On the menu bar, select **Add** to add the managed identity. 
+             1. On the resource menu, select **Identity**, and then select **User assigned**.
+             1. On the command bar, select **Add** to add the managed identity. 
           1. In the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
       - question: How do I fix pop-up credentials when I use Google Cloud Platform?
         answer: |

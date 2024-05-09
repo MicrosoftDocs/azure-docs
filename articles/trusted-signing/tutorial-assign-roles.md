@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Assign roles in Trusted Signing"
-description: Complete the steps to assign roles in the Trusted Signing service.
+description: Learn how to assign roles in the Trusted Signing service.
 author: microsoftshawarma
 ms.author: rakiasegev
 ms.service: trusted-signing
@@ -31,7 +31,7 @@ The Trusted Signing Identity Verifier role is *required* to manage identity vali
 
 ## Assign roles
 
-1. In the Azure portal, go to your Trusted Signing account. On the left menu, select **Access Control (IAM)**.
+1. In the Azure portal, go to your Trusted Signing account. On the resource menu, select **Access Control (IAM)**.
 1. Select the **Roles** tab and search for **Trusted Signing**. The following figure shows the two custom roles.
 
    :::image type="content" source="media/trusted-signing-rbac-roles.png" alt-text="Screenshot that shows the Azure portal UI and the Trusted Signing custom RBAC roles.":::

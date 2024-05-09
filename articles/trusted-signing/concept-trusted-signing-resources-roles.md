@@ -29,7 +29,7 @@ In the following example structure, an Azure subscription has a resource group. 
 
 :::image type="content" source="media/trusted-signing-resource-structure.png" alt-text="Diagram that shows the Trusted Signing service resource group and certificate profile structure." border="false":::
 
-The ability to have multiple Trusted Signing accounts and certificate profiles is useful because the service supports Public Trust, Private Trust, continuous integration (CI) policy, virtualization-based security (VBS) enclaves, and test signing types. For more information about the certificate profile types and how they're used, see [Trusted Signing certificate types and management](./concept-trusted-signing-cert-management.md).
+The service supports Public Trust, Private Trust, code integrity (CI) policy, virtualization-based security (VBS) enclave, and Public Trust test signing types, so it's useful to have multiple Trusted Signing accounts and certificate profiles. For more information about the certificate profile types and how they're used, see [Trusted Signing certificate types and management](./concept-trusted-signing-cert-management.md).
 
 > [!NOTE]
 > Identity validations and certificate profiles align with either Public Trust or Private Trust. A Public Trust identity validation is used only for certificate profiles that are used for the Public Trust model. For more information, see [Trusted Signing trust models](./concept-trusted-signing-trust-models.md).
@@ -61,7 +61,7 @@ Trusted Signing provides five total certificate profile types that all subscribe
     > All certificates under the Public Trust Test certificate profile type include the lifetime EKU (`1.3.6.1.4.1.311.10.3.13`), which forces validation to respect the lifetime of the signing certificate regardless of the presence of a valid time stamp countersignature.
 - **Private Trust**
   - **Private Trust**: Used to sign internal or private artifacts such as LOB applications and containers. You also can use it to sign [catalog files in App Control for Business](/windows/security/application-security/application-control/windows-defender-application-control/deployment/deploy-catalog-files-to-support-wdac).
-  - **Private Trust CI policy**: The Private Trust CI policy certificate profile is the only type that doesn't include the code signing EKU (`1.3.6.1.5.5.7.3.3`). This certificate profile is designed for [signing App Control for Business CI policy files](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering).
+  - **Private Trust CI Policy**: The Private Trust CI Policy certificate profile is the only type that doesn't include the code signing EKU (`1.3.6.1.5.5.7.3.3`). This certificate profile is designed for [signing App Control for Business CI policy files](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering).
 
 ## Supported roles
 

@@ -1,6 +1,6 @@
 ---
 title: Trusted Signing trust models
-description: Learn what a trust model is, understand the two primary trust models in Trusted Signing (Public Trust and Private Trust), and learn about the signing scenarios and security features that each supports.
+description: Learn what a trust model is, understand the two primary trust models in Trusted Signing, and learn about the signing scenarios and security features that each supports.
 author: ianjmcm
 ms.author: ianmcm
 ms.service: trusted-signing

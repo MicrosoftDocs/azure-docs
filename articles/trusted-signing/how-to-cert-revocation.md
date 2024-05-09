@@ -38,13 +38,15 @@ This article describes how to revoke a certificate profile in a Trusted Signing 
 
 ## Prerequisites
 
+To complete the steps in this article, you need:
+
 - Ensure that you're assigned the Owner role for the subscription. To learn more about role-based access control (RBAC) access management, see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
 
 ## Revoke a certificate
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Go to your Trusted Signing account resource pane.
-1. On either the account **Overview** pane or on the **Objects** pane, select **Certificate Profile**.
+1. On the account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
 1. Select the relevant certificate profile.
 1. In the search box, enter the thumbprint of the certificate you want to revoke.
 
@@ -58,5 +60,6 @@ This article describes how to revoke a certificate profile in a Trusted Signing 
 1. For **Remarks**, enter any information you'd like to add to the certificate revocation.
 1. Select **Revoke**.
 1. When the certificate is successfully revoked:
+
    - The status of the thumbprint that was revoked is updated.
    - An email is sent to the email addresses that you provided during identity validation.

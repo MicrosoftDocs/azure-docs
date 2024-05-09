@@ -45,11 +45,11 @@ To register a Trusted Signing resource provider by using the Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In either the search box or under **All services**, select **Subscriptions**.
 1. Select the subscription where you want to create Trusted Signing resources.
-1. On the left menu under **Settings**, select **Resource providers**.
+1. On the resource menu under **Settings**, select **Resource providers**.
 
 1. In the list of resource providers, select **Microsoft.CodeSigning**.
 
-   By default, the resource provider is **NotRegistered**.
+   By default, the resource provider status is **NotRegistered**.
 
    :::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows finding the Microsoft.CodeSigning resource provider for a subscription." lightbox="media/trusted-signing-resource-provider-registration.png":::
 
@@ -216,11 +216,11 @@ To create an identity validation request:
 1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
    To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
-1. On the Trusted Signing account **Overview** pane or on the left menu under **Objects**, select **Identity validation**.
+1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 1. Select **New identity**, and then select either **Public** or **Private**.
 
-   - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS enclave.
-   - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI policy.
+   - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
+   - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI Policy.
 1. On **New identity validation**, provide the following information:
 
     | Fields       | Details     |
@@ -283,18 +283,17 @@ A certificate profile name is:
 To create a certificate profile in the Azure portal:
 
 1. In the Azure portal, go to your new Trusted Signing account.
-1. On the Trusted Signing account **Overview** pane or on the **Objects** pane, select **Certificate Profile**.
-1. On **Certificate Profiles**, select the certificate profile type in the dropdown menu.
+1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
+1. On the command bar, select **Create** and select a certificate profile type.
 
-    - Public identity validation is applicable to Public Trust and Public Trust Test.
-    - Private identity validation is applicable to Private Trust and Private Trust CI policy.
+   :::image type="content" source="media/trusted-signing-certificate-profile-types.png" alt-text="Screenshot that shows the Trusted Signing certificate profile types to choose from.":::
 1. On **Create certificate profile**, provide the following information:
 
    1. For **Certificate Profile Name**, enter a unique name.
 
-      For naming requirements, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
+      For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
-      The value for **Certificate Type** is autopopulated based on your selection.
+      The value for **Certificate Type** is autopopulated based on the certificate profile type you selected.
    1. For **Verified CN and O**, select an identity validation that must be displayed on the certificate.
 
       - If the street address must be displayed on the certificate, select the **Include street address** checkbox.
@@ -311,10 +310,10 @@ To create a certificate profile in the Azure portal:
 
 ### Prerequisites
 
-You need the identity validation ID for the entity that the certificate profile is being created for. Complete these steps get your identity validation ID in the Azure portal.
+You need the identity validation ID for the entity that the certificate profile is being created for. Complete these steps find your identity validation ID in the Azure portal.
 
 1. In the Azure portal, go to your Trusted Signing account.
-1. On the Trusted Signing account **Overview** pane or on the **Objects** pane, select **Identity Validation**.
+1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 1. Select the hyperlink for the relevant entity. In the **Identity validation** pane, you can copy the value for **Identity validation Id**.
 
 :::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for a Trusted Signing account." lightbox="media/trusted-signing-identity-validation-id.png":::
@@ -328,15 +327,15 @@ To create a certificate profile by using the Azure CL:
    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    ```
 
-   For naming requirements, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
+   For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
-1. Create a certificate profile that includes optional fields (street address or postal code) in subject name of certificate using the following command:
+1. Create a certificate profile that includes optional fields (street address or postal code) in the subject name of the certificate by using the following command:
 
    ```azurecli
    trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
    ```
 
-1. Verify that you successfully created a certificate profile by using the following command to get the Certificate Profile details:
+1. Verify that you successfully created a certificate profile by using the following command:
 
    ```azurecli
    trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
@@ -346,9 +345,9 @@ The following table lists *helpful commands* to use when you create a certificat
 
 | Command                               | Description  |
 | :----------------------------------- | :------------------- |
-| `trustedsigning certificate-profile create -–help`                            | Show help for sample commands and show detailed parameter descriptions.              |
-| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            |List all certificate profiles that are associated with a Trusted Signing account.          |
-| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Get details for a profile.              |
+| `trustedsigning certificate-profile create -–help`                            | Shows help for sample commands, and shows detailed parameter descriptions.              |
+| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with a Trusted Signing account.          |
+| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the detail for a profile.              |
 
 ---
 
@@ -361,24 +360,37 @@ To delete Trusted Signing resources by using the Azure portal:
 ### Delete a certificate profile
 
 1. In the Azure portal, go to your Trusted Signing account.
-1. On the Trusted Signing account **Overview** pane or on the **Objects** pane, select **Certificate Profile**.
-1. On **Certificate Profiles**, select the certificate profile that you want to delete.
-1. Select **Delete**.
+1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
+1. On **Certificate profiles**, select the certificate profile that you want to delete.
+1. On the command bar, select **Delete**.
 
 > [!NOTE]
-> This action stops any signing that's associated with the corresponding certificate profiles.
+> This action stops any signing that's associated with the certificate profile.
 
 ### Delete a Trusted Signing account
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the search box, enter and then select **Trusted Signing account**.
-1. In the Trusted Signing account section, select the Trusted Signing account that you want to delete.
-1. Select **Delete**.
+1. In the search box, enter and then select **Trusted Signing Accounts**.
+1. On **Trusted Signing Accounts**, select the Trusted Signing account that you want to delete.
+1. On the command bar, select **Delete**.
 
 > [!NOTE]
-> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with those certificate profiles stops.
+> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.
 
 # [Azure CLI](#tab/adeleteresources-cli)
+
+To delete Trusted Signing resources by using the Azure CLI:
+
+### Delete a certificate profile
+
+To delete a Trusted Signing certificate profile, run this command:
+
+```azurecli
+trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
+```
+
+> [!NOTE]
+> This action stops any signing that's associated with the certificate profile.
 
 ### Delete a Trusted Signing account
 
@@ -391,24 +403,13 @@ trustedsigning delete -n MyAccount -g MyResourceGroup
 ```
 
 > [!NOTE]
-> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with those certificate profiles stops.
-
-### Delete a certificate profile
-
-To delete a Trusted Signing account, run this command:
-
-```azurecli
-trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
-```
-
-> [!NOTE]
-> This action stops any signing that's associated with the corresponding certificate profiles.
+> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.
 
 ---
 
 ## Related content
 
-In this quickstart, you created a Trusted Signing account, an identity validation request, and a certificate profile. To learn more about Trusted Signing and to start your signing journey, explore the following articles:
+In this quickstart, you created a Trusted Signing account, an identity validation request, and a certificate profile. To learn more about Trusted Signing and to start your signing journey, see these articles:
 
 - Learn more about [signing integrations](how-to-signing-integrations.md).
 - Learn more about the [trust models that Trusted Signing supports](concept-trusted-signing-trust-models.md).

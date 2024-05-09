@@ -11,9 +11,11 @@ ms.custom: template-how-to-pattern
 
 # Sign a CI policy by using Trusted Signing
 
-To sign new continuous integration (CI) policies by using the Trusted Signing service, first be sure you have several prerequisites.
+To sign new code integrity (CI) policies by using the Trusted Signing service, first be sure that you have several prerequisites.
 
 ## Prerequisites
+
+To complete the steps in this article, you need:
 
 - A Trusted Signing account, identity validation, and certificate profile.
 - You are assigned the Trusted Signing Certificate Profile Signer role.

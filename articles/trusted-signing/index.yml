@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Trusted Signing
-summary: Trusted Signing is a Microsoft fully managed, end-to-end signing solution for third-party developers.
+summary: Trusted Signing is a Microsoft fully managed, end-to-end signing solution for partner developers.
 
 metadata:
   title: Trusted Signing documentation
-  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third-party developers. The service is currently in a preview state.
+  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for partner developers. The service is currently in public preview.
   ms.service: trusted-signing
   ms.topic: landing-page
   author: microsoftshawarma
