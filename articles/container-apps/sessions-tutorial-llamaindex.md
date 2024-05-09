@@ -42,7 +42,7 @@ Before you deploy the app to Azure Container Apps, you can run it locally to tes
 
 ### Run the app
 
-Before running the sample app, open *main.py* in an editor and review the code. The app uses FastAPI to create a web API that accepts a user message in the query string.
+Before running the sample app, open [*main.py*](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples/blob/main/llamaindex-python-webapi/main.py) in an editor and review the code. The app uses FastAPI to create a web API that accepts a user message in the query string.
 
 The following lines of code instantiates a *AzureCodeInterpreterToolSpec* and provides it to the LlamaIndex agent:
 
