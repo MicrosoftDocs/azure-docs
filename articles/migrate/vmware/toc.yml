@@ -12,8 +12,12 @@ items:
       href: set-discovery-scope.md
     - name: Deploy the appliance using an ARM template
       href: how-to-set-up-appliance-vmware.md
-  - name: Import using RVTools XLSX
+  - name: Import using RVTools XLSX (preview)
     href: tutorial-import-vmware-using-rvtools-xlsx.md
+- name: Decide
+  items:
+  - name: Build a business case (preview)
+    href: ../how-to-build-a-business-case.md?context=/azure/migrate/context/migrate-context
 - name: Assess
   items:
   - name: Assess servers for migration to Azure VMs

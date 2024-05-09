@@ -21,7 +21,7 @@ There are several steps to using the Azure Migration Tools to migrate a VMware d
 <br>
 
 ## Prerequisites
-Make sure you checkout the [support matrix](migrate-support-matrix-vmware.md) before getting started.
+Make sure you check out the [support matrix](migrate-support-matrix-vmware.md) before getting started.
 
 ## Discover
 You need a list of all of the servers in your environment. To get the list, you have 2 choices: 
@@ -29,6 +29,10 @@ You need a list of all of the servers in your environment. To get the list, you 
 - Deploy an appliance that continually discovers servers. For more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md).
 
 - Use RVTools XLSX to discover servers and store the information in a .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
+
+## Decide - build a business case (preview)
+
+[Build a business proposal](../how-to-build-a-business-case.md?context=/azure/migrate/context/migrate-context) using the discovery and assessment tool to help you understand how Azure can bring the most value to your business.
 
 ## Assess
 
