@@ -64,11 +64,10 @@ Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdin
     ```
 1. Download `ambari_export_cluster_configs.py`.
    
-    :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/wget-output.png" alt-text="Screenshot showing wget output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/wget-output.png":::
+   :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/wget-output.png" alt-text="Screenshot showing wget output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/wget-output.png":::
 
 1. Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdinsights_upgrade_ambari_utils/ambari_export_cluster_configs.py`
-
-        :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png" alt-text="Screenshot showing python script output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png":::
+   :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png" alt-text="Screenshot showing python script output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png":::
  
 1. Execute the script `python ambari_export_cluster_configs.py`.
 1. Make sure that the username and password is supplied within single quotes
