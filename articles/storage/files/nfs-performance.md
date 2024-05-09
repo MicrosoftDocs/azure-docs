@@ -1,18 +1,20 @@
 ---
 title: Improve NFS Azure file share performance
-description: Learn ways to improve the performance of NFS Azure file shares at scale, including the nconnect mount option for Linux clients.
+description: Learn ways to improve the performance and throughput of NFS Azure file shares at scale, including the nconnect mount option for Linux clients.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 05/09/2024
 ms.author: kendownie
 ---
 
-# Improve NFS Azure file share performance
+# Improve performance for NFS Azure file shares
+
 This article explains how you can improve performance for NFS Azure file shares.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
@@ -21,7 +23,7 @@ This article explains how you can improve performance for NFS Azure file shares.
 
 ## Increase read-ahead size to improve read throughput
 
-The `read_ahead_kb` kernel parameter in Linux represents the amount of data that should be "read ahead" or prefetched during a sequential read operation. Linux kernel versions prior to 5.4 set the read-ahead value to the equivalent of 15 times the mounted file system's `rsize` (the client-side mount option for read buffer size). This sets the read-ahead value high enough to improve client sequential read throughput in most cases.
+The `read_ahead_kb` kernel parameter in Linux represents the amount of data that should be "read ahead" or prefetched during a sequential read operation. Linux kernel versions prior to 5.4 set the read-ahead value to the equivalent of 15 times the mounted file system's `rsize`, which represents the client-side mount option for read buffer size. This sets the read-ahead value high enough to improve client sequential read throughput in most cases.
 
 However, beginning with Linux kernel version 5.4, the Linux NFS client uses a default `read_ahead_kb` value of 128 KiB. This small value might reduce the amount of read throughput for large files. Customers upgrading from Linux releases with the larger read-ahead value to those with the 128 KiB default might experience a decrease in sequential read performance.
 
@@ -46,11 +48,11 @@ To change this value, set the read-ahead size by adding a rule in udev, a Linux 
 
 ## `Nconnect`
 
-`Nconnect` is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the client and the Azure Premium Files service for NFSv4.1, while maintaining the resiliency of platform as a service (PaaS).
+`Nconnect` is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the client and the Azure Premium Files service for NFSv4.1.
 
 ### Benefits of `nconnect`
 
-With `nconnect`, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). `Nconnect` increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without `nconnect`, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB/s) offered by the largest premium Azure file share provisioning size.  With `nconnect`, you can achieve those limits using only 6-7 clients. That’s almost a 70% reduction in computing cost, while providing significant improvements to IOPS and throughput at scale (see table).
+With `nconnect`, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). `Nconnect` increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without `nconnect`, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB/s) offered by the largest premium Azure file share provisioning size.  With `nconnect`, you can achieve those limits using only 6-7 clients. That’s almost a 70% reduction in computing cost, while providing significant improvements to IOPS and throughput at scale. See the following table.
 
 | **Metric (operation)** | **I/O size**  | **Performance improvement** |
 |------------------------|---------------|-----------------------------|
@@ -77,15 +79,19 @@ We achieved the following performance results when using the `nconnect` mount op
 Follow these recommendations to get the best results from `nconnect`.
 
 #### Set `nconnect=4`
+
 While Azure Files supports setting `nconnect` up to the maximum setting of 16, we recommend configuring the mount options with the optimal setting of `nconnect=4`. Currently, there are no gains beyond four channels for the Azure Files implementation of `nconnect`. In fact, exceeding four channels to a single Azure file share from a single client might adversely affect performance due to TCP network saturation.
 
 #### Size virtual machines carefully
+
 Depending on your workload requirements, it’s important to correctly size the client machines to avoid being restricted by their [expected network bandwidth](../../virtual-network/virtual-machine-network-throughput.md#expected-network-throughput). You don't need multiple NICs in order to achieve the expected network throughput. While it's common to use [general purpose VMs](../../virtual-machines/sizes-general.md) with Azure Files, various VM types are available depending on your workload needs and region availability. For more information, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 
-#### Keep queue depth less than or equal to 64 
+#### Keep queue depth less than or equal to 64
+
 Queue depth is the number of pending I/O requests that a storage resource can service. We don't recommend exceeding the optimal queue depth of 64. If you do, you won't see any more performance gains. For more information, see [Queue depth](understand-performance.md#queue-depth).
 
-### `Nconnect` per-mount configuration 
+### `Nconnect` per-mount configuration
+
 If a workload requires mounting multiple shares with one or more storage accounts with different `nconnect` settings from a single client, we can't guarantee that those settings will persist when mounting over the public endpoint. Per-mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
 
 #### Scenario 1: (supported) `nconnect` per-mount configuration over private endpoint with multiple storage accounts
@@ -117,7 +123,7 @@ If a workload requires mounting multiple shares with one or more storage account
 
 We used the following resources and benchmarking tools to achieve and measure the results outlined in this article.
 
-- **Single client:** Azure Virtual Machine ([DSv4-Series](../../virtual-machines/dv4-dsv4-series.md#dsv4-series)) with single NIC
+- **Single client:** Azure VM ([DSv4-Series](../../virtual-machines/dv4-dsv4-series.md#dsv4-series)) with single NIC
 - **OS:** Linux (Ubuntu 20.40)
 - **NFS storage:** Azure Files premium file share (provisioned 30 TiB, set `nconnect=4`)
 
@@ -199,6 +205,7 @@ Not all workloads require high-scale IOPS or throughout performance. For smaller
 :::image type="content" source="media/nfs-performance/nconnect-latency-comparison.png" alt-text="Screenshot showing various read and write I O scenarios with corresponding latency to indicate when nconnect is advisable." border="false":::
 
 ## See also
+
 - For mounting instructions, see [Mount NFS file Share to Linux](storage-files-how-to-mount-nfs-shares.md).
 - For a comprehensive list of mount options, see [Linux NFS man page](https://linux.die.net/man/5/nfs).
 - For information on latency, IOPS, throughput, and other performance concepts, see [Understand Azure Files performance](understand-performance.md).
