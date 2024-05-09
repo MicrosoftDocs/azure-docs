@@ -195,7 +195,7 @@ You can use Live Server extension if you use VS code to follow the guide. Altern
 
 :::image type="content" source="media/howto-integrate-app-gateway/browser-client-direct.jpg" alt-text="Screenshot of a browser client directly connecting with Web PubSub resource":::
 
-If you inspect the page, you should see that the client has succesfully connected with your Web PubSub resources and are getting the broadcasted messages. Make sure you still have `publish.js` running.
+If you inspect the page, open the Network and Console panels, you should see that the client has succesfully connected with your Web PubSub resources and are getting the broadcasted messages. Make sure you still have `publish.js` running.
 
 Since Application Gateway has native support for WebSocket, we don't need to change any confirguration on our Application Gateway resource. All we need is to change the endpoint our client points to. 
 
@@ -228,13 +228,98 @@ Web PubSub service supports configuring access controls. One such configuration 
 
 :::image type="content" source="media/howto-integrate-app-gateway/disable-public-access.jpg" alt-text="Screenshot of disabling public access of Web PubSub ":::
 
-Now that public access is disabled on your Web PubSub resource. One impact is that Application Gateway as it's set up in step one cannot reach it, either. We need to bring your Web PubSub resource in the same virtual network that your Application Gateway is in. We achieve this by creating a Private Endpoint. [You can learn more about Private Endpoint here.](https://learn.microsoft.com/azure/private-link/private-endpoint-overview)
+Now if you run the same command, instead of seeing "Invalid hub name" as before, you see `403 Forbidden`. 
+```bash
+curl https://<your-web-pubsub-resource-endpoint>/client
+```
+
+Now that public access is disabled on your Web PubSub resource. One impact is that Application Gateway as it's set up in step one cannot reach it, either. If you run the same command against your Application Gateway endpoint, you see `504 Gateway Time-out`. 
+```bash
+curl http://<public-ip-of-your-application-gateway-resource>/client
+```
+
+We need to bring your Web PubSub resource in the same virtual network that your Application Gateway is in. We achieve this by creating a Private Endpoint. [You can learn more about Private Endpoint here.](https://learn.microsoft.com/azure/private-link/private-endpoint-overview)
+
 
 ### Create a seperate subnet for your Private Endpoint
 In step 1, we created a subnet that houses Application Gateway. Application Gateway requires its own subnet, so we need to create another subnet for your Private Endpoint. 
 
-Locate the virtual network resource that we created 
+Locate the virtual network resource that we created earlier.
 
-:::image type="content" source="media/howto-integrate-app-gateway/disable-public-access.jpg" alt-text="Screenshot of disabling public access of Web PubSub ":::
+:::image type="content" source="media/howto-integrate-app-gateway/create-another-subnet.jpg" alt-text="Screenshot of creating another subnet":::
+
+### Create a Private Endpoint for your Web PubSub resource
+Locate your Web PubSub resource on Azure portal and go to "Networking" blade.
+:::image type="content" source="media/howto-integrate-app-gateway/webpubsub-create-private-endpoint-step1.jpg" alt-text="Screenshot of creating another subnet":::
+
+Create the private endpoint in the same region as your Web PubSub resource. 
+:::image type="content" source="media/howto-integrate-app-gateway/webpubsub-create-private-endpoint-step2.jpg" alt-text="Screenshot of creating another subnet":::
+
+Select the seperate subnet we just created. 
+:::image type="content" source="media/howto-integrate-app-gateway/webpubsub-create-private-endpoint-step3.jpg" alt-text="Screenshot of creating another subnet":::
+
+### Refresh the backend pool of your Application Gateway resource
+Your Application Gateway resource does not know that you created a Private Endpoint for your Web PubSub resource. Locate your Application Gateway resource and refresh the backend pools. 
+:::image type="content" source="media/howto-integrate-app-gateway/refresh-backend-pools.jpg" alt-text="Screenshot of freshing backend pools":::
+
+Now if you run this command again, you should see "Invalid hub name" again, which is expected. It shows that Application Gateway proxies through virtual network instead of the public internet.
+```bash
+curl http://<public-ip-of-your-application-gateway-resource>/client
+```
+
+### Deploy the publishing program as an App Service Web App
+Because the public access to your Web PubSub resource is disabled, our local `publish.js` program cannot reach resource. We need to deploy the program as a Web App into the same virtual network that our Web PubSub resource is in. 
+
+#### Deploy a Web App as a ZIP file
+Web App provides a handy command to deploy an app as a ZIP file. [You can learn more about the `az webapp up` command](https://learn.microsoft.com/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-cli#deploy-to-azure) and the tasks it automates for you.
+
+Locate the server folder you created in step 1.
+```bash
+## Makes sure you are in the right working directory
+cd server 
+
+## Logins into your Azure account. Make sure you have Azure CLI installed. 
+az login 
+
+## Creates a ZIP file with the content in the server folder and deploys it as a Web App
+az webapp up \
+--sku B1 \
+--name <the-name-of-your-web-app> \
+--location <the-same-location-as-your-Web-PubSub-resource>
+```
+
+> [!NOTE] 
+> You may need to switch to the Azure subscription in which the resources you created so far if you have been following the guide. 
+> To switch subscription, follow the command mentioned in [this documentation article](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?tabs=bash#change-the-active-subscription).
+
+#### Set environment variable 
+When the "publish.js" program starts, App Service makes the environment variables available for your program to consume. 
+
+Find your connection string to Web PubSub service on Azure portal, and set it as an environment variable for your Web App.
+
+:::image type="content" source="media/howto-integrate-app-gateway/web-app-set-env-variable.jpg" alt-text="Screenshot of setting the environment variable of a Web App":::
+
+
+#### Enable Virtual Network integration on your Web App
+App Service requires a decided subnet in your virtual network. Go to your virtual network resource and create a new subnet like what you did for your Web PubSub resource. 
+
+Once you have created it, go to the "Networking" blade of your Web App resource and enable Virtual Network integration.
+
+:::image type="content" source="media/howto-integrate-app-gateway/web-app-enable-vnet-step1.jpg" alt-text="Screenshot of enabling Virtual Network integration - step 1":::
+
+Make sure you select the same Virtual Network your Web PubSub resource is in.
+:::image type="content" source="media/howto-integrate-app-gateway/web-app-enable-vnet-step1.jpg" alt-text="Screenshot of enabling Virtual Network integration - step 2":::
+
+### Verify that everything works
+So far in step 2, you
+1. disabled the public access to your Web PubSub resource, 
+2. created a Private Endpoint for it
+3. refreshed the backend pools of your Application Gateway resource so that it can reach your Web PubSub resource
+4. deployed `publish.js` as Web App into the same Virtual Network.
+
+Now, try running the `index.html` in the browser, again. If you inspect the page, open the Network and Console panels, you see that, indeed, we get the broadcasted messages from the app running on Azure App service.
+
+## Note about using service SDK
+When you use service SDK to generate access token for your clients, before you send an access token as it is in a response, you need to change the domain name to the public endpoint of your Application Gateway. 
 
 
