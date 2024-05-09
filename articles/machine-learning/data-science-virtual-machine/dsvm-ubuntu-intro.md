@@ -72,7 +72,7 @@ You can access the Ubuntu DSVM in one of four ways:
 If you configured your VM with SSH authentication, you can sign in with the account credentials that you created in the **Basics** section of step 4 for the text shell interface. For more information, refer to [Learn more about connecting to a Linux VM](../../virtual-machines/linux-vm-connect.md).
 
 ### xrdp
-The standard tool for accessing Linux graphical sessions is xrdp. While the distro doesn't include this tool by default, [these instructions](../../virtual-machines/linux/use-remote-desktop.md) explain how to install it.
+The standard tool for accessing Linux graphical sessions is xrdp. While the distribution doesn't include this tool by default, [these instructions](../../virtual-machines/linux/use-remote-desktop.md) explain how to install it.
 
 ### X2Go
 > [!NOTE]
@@ -112,7 +112,7 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), whi
 
       :::image type="content" source="./media/dsvm-ubuntu-intro/ubuntu-ip-address.png" alt-text="Screenshot that shows the public IP address of your VM." lightbox= "./media/dsvm-ubuntu-intro/ubuntu-ip-address.png":::
 
-   1. From your local machine, open a web browser and go to `https:\//your-vm-ip:8000`. Replace **your-vm-ip** with the IP address you noted earlier.
+   1. From your local machine, open a web browser and go to `https://your-vm-ip:8000`. Replace **your-vm-ip** with the IP address you noted earlier.
    1. Your browser will probably prevent you from opening the pane directly. It might tell you that there's a certificate error. The DSVM provides security with a self-signed certificate. Most browsers will allow you to select through after this warning. Many browsers will continue to provide some kind of visual warning about the certificate throughout your web session.
 
       If you see the `ERR_EMPTY_RESPONSE` error message in your browser, make sure you access the machine by explicit use of the *HTTPS* protocol. *HTTP* or just the web address don't work for this step. If you enter the web address without `https://` in the address line, most browsers will default to `http` and the error will appear.
@@ -130,7 +130,7 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), whi
 
    1. Browse the available sample notebooks.
 
-JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub. Then browse to the URL `https:\//your-vm-ip:8000/user/your-username/lab`. Replace **your-username** with the username you chose when you configured the VM. Again, potential certificate errors might initially block you from accessing the site.
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, sign in to JupyterHub. Then browse to the URL `https://your-vm-ip:8000/user/your-username/lab`. Replace **your-username** with the username you chose when you configured the VM. Again, potential certificate errors might initially block you from accessing the site.
 
 To set JupyterLab as the default notebook server, add this line to `/etc/jupyterhub/jupyterhub_config.py`:
 
