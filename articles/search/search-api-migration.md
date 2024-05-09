@@ -10,18 +10,24 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/04/2024
+ms.date: 05/09/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
 
-Use this article to migrate data plane calls to newer versions of the [**Search REST API**](/rest/api/searchservice/).
+Use this article to migrate data plane calls to newer versions of the [**Search REST APIs**](/rest/api/searchservice/).
 
 + [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and support for vector indexing and queries are generally available in this version.
 
-+ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Preview features include [built-in query vectorization](vector-search-how-to-configure-vectorizer.md), [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) (uses the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill). 
+  If you're upgrading from 2023-10-01-preview to 2023-11-01, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). If your 2023-10-01-preview code doesn't set `vectorFilterMode` explicitly, make sure you understand the new default behavior, or explicitly set `vectorFilterMode` to postfilter to retain the old behavior. 
 
-+ **2023-07-01-preview** was the first REST API for vector support. It's now deprecated and you should migrate to either **2023-11-01** or **2023-10-01-preview** immediately.
++ [**2024-05-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview API version. It adds a binary data type for vector fields, relevance properties for better search results, OneLake files indexer, more vectorizers, and more embedding skills. AzureOpenAIEmbedding skill is updated to include `dimensions` and `modelName` properties. The only backwards compatibility issue between this preview and the previous two previews is that `modelName` is now required.
+
++ [**2024-03-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) adds new data types and properties for compression, but is otherwise fully backward compatible with 2023-10-01-preview. There are no upgrade instructions for using this preview.
+
++ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the first preview version that added [built-in query vectorization](vector-search-how-to-configure-vectorizer.md), [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) (uses the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill). It introduces breaking changes in vector configuration in the index and vector queries.
+
++ **2023-07-01-preview** was the first REST API for vector support. It's now deprecated and you should migrate to either **2023-11-01** or any of the newer preview REST APIs immediately.
 
 > [!NOTE]
 > REST API reference docs are now versioned. To get the right content, open a reference page and then filter by version, using the selector located above the table of contents.
@@ -30,7 +36,7 @@ Use this article to migrate data plane calls to newer versions of the [**Search 
 
 Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
-+ Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include [2023-07-10-preview](/rest/api/searchservice/index-preview) for vectors and [2019-05-06](#upgrade-to-2019-05-06). 
++ Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include [2023-07-10-preview](#code-upgrade-for-vector-indexes-and-queries) for vectors, and [2019-05-06](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
@@ -46,19 +52,15 @@ Effective March 29, 2024 and applies to all [supported REST APIs](/rest/api/sear
 
 + If you need to retrieve connection strings of another Azure resource such as Azure Storage or Azure Cosmos DB, use the APIs of that resource and published guidance to obtain the information.
 
-## Upgrade to 2023-10-01-preview
+## Breaking change for semantic ranking
 
-This section explains the migration path from 2023-07-01-preview to 2023-10-01-preview. You should migrate to 2023-10-01-preview if you want to use vector features that are still in public preview. If you don't need the preview features, we recommend upgrading to the stable release, 2023-11-01.
+[Semantic ranking](semantic-search-overview.md) is generally available in 2023-11-01. In contrast with previous REST API versions, it no longer uses the `queryLanguage` property. It also requires a `semanticConfiguration` definition that replaces the `searchFields` in early previous versions. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) to transition your code to the generally available version or to a newer preview version.
 
-Preview features include:
+## Upgrade from 2023-07-01-preview
 
-+ [built-in text-to-vector indexing](search-get-started-portal-import-vectors.md)
-+ [built-in text-to-vector queries](vector-search-how-to-configure-vectorizer.md)
-+ [vector prefilter mode](vector-search-filters.md)
+This section explains the migration path from 2023-07-01-preview to any newer API version. There are several breaking changes from 2023-07-01-preview to any newer version, but only minor compatibility issues between the newer API versions that follow.
 
-Because these features didn't exist in previous API versions, there's no migration path. To learn how to add these features to your code, see [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md).
-
-In contrast, the vector field definitions, vector search algorithm configuration, and vector query syntax that were first introduced in 2023-07-01-preview have changed. The 2023-10-01-preview syntax for vector fields, algorithms, and vector queries is identical to the 2023-11-01 syntax. Migration steps for these vector constructs are explained in [upgrade to 2023-11-01](#upgrade-to-2023-11-01).
+Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code run the same as before, but using the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
 
 ### Portal upgrade for vector indexes
 
@@ -68,21 +70,23 @@ Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. T
 + Updates are limited to vector field definitions and vector search algorithm configurations.
 + Updates are one-way. You can't reverse the upgrade. Once the index is upgraded, you must use 2023-10-01-preview or later to query the index.
 
-There's no portal migration for upgrading vector query syntax. See [upgrade to 2023-11-01](#upgrade-to-2023-11-01) for query syntax changes.
+There's no portal migration for upgrading vector query syntax. See [code upgrades](#code-upgrade-for-vector-indexes-and-queries) for query syntax changes.
 
-Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in [upgrade to 2023-11-01](#upgrade-to-2023-11-01). Portal migration only handles indexes with one vector search algorithm configuration. It creates a default profile that maps to the 2023-07-01-preview vector search algorithm. Indexes with multiple vector search configurations require manual migration.
+Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in the [code upgrade](#code-upgrade-for-vector-indexes-and-queries) section. Portal migration only handles indexes with one vector search algorithm configuration. It creates a default profile that maps to the 2023-07-01-preview vector search algorithm. Indexes with multiple vector search configurations require manual migration.
 
-## Upgrade to 2023-11-01
+### Code upgrade for vector indexes and queries
 
-This version has breaking changes and behavioral differences for semantic ranking and vector search support. 
+[Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). 
 
-+ [Semantic ranking](semantic-search-overview.md) is generally available in 2023-11-01. It no longer uses the `queryLanguage` property. It also requires a `semanticConfiguration` definition. A `semanticConfiguration` replaces `searchFields` in previous versions. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) for steps.
+Upgrading from 2023-07-01-preview requires:
 
-+ [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). Upgrading from 2023-07-01-preview requires renaming and restructuring the vector configuration in the index. It also requires rewriting your vector queries. Use the instructions in this section to migrate vector fields, configuration, and queries.
++ Renaming and restructuring the vector configuration in the index
 
-   If you're upgrading from 2023-10-01-preview to 2023-11-01, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). If your 2023-10-01-preview code doesn't set `vectorFilterMode` explicitly, make sure you understand the new default behavior, or explicity set `vectorFilterMode` to postfilter to retain the old behavior. 
++ Rewriting your vector queries
 
-Here are the steps for migrating from 2023-07-01-preview to 2023-11-01:
+Use the instructions in this section to migrate vector fields, configuration, and queries.
+
+Here are the steps for migrating from 2023-07-01-preview.
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.
 
@@ -235,7 +239,7 @@ Here are the steps for migrating from 2023-07-01-preview to 2023-11-01:
     }
     ```
 
-These steps complete the migration to 2023-11-01 API version.
+These steps complete the migration to 2023-11-01 stable API version or newer preview API versions.
 
 ## Upgrade to 2020-06-30
 
