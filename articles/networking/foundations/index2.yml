@@ -16,30 +16,18 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: Choosing a load balancing solution 
-      itemType: concept
-      url: ./load-balancing/index.yml
     - title: Network Foundations
       itemType: overview
       url: ./network-foundation/index.yml
-    - title: Hybrid Connectivity
+    - title: Azure Virtual Network
       itemType: overview
       url: ./hybrid-connectivity/index.yml
-    - title: Azure network security
+    - title: Azure Private Link
       itemType: overview
       url: ./security/index.yml
-    - title: Network monitoring and management
+    - title: Azure DNS
       itemType: overview
       url: ../network-watcher/index.yml
-    - title: Hub-spoke network topology in Azure
-      itemType: architecture
-      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure Networking blogs
-      itemType: concept
-      url: https://azure.microsoft.com/blog/topics/networking/
-    - title: What's new in Azure Networking - Azure Updates
-      itemType: whats-new 
-      url: https://azure.microsoft.com/updates/?category=networking
 
 productDirectory:
   title: Getting started
