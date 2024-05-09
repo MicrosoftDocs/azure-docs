@@ -34,7 +34,7 @@ The extension NuGet package you install depends on the C# mode [in-process](func
 
 ### [Isolated process](#tab/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Functions.Worker.Extensions.OpenAI).
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI).
 
 Using the .NET CLI:
 
