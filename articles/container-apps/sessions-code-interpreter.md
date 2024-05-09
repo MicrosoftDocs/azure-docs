@@ -14,7 +14,7 @@ ms.author: antchu
 Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated and is safe to run untrusted code.
 
 > [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview.
+> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](#preview-limitations) for more information.
 
 ## Uses for code interpreter sessions
 
@@ -38,8 +38,15 @@ You can create a session pool using the Azure portal, Azure CLI, or Azure Resour
 To create a code interpreter session pool using the Azure CLI, ensure you have the latest versions of the Azure CLI and the Azure Container Apps extension with the following commands:
 
 ```bash
+# Upgrade the Azure CLI
 az upgrade
-az extension add --name containerapps --upgrade --allow-preview
+
+# Remove the existing containerapp extension (if installed) and add the preview version
+# that supports code interpreter sessions
+az extension remove --name containerapp
+az extension add \
+    --source https://acacli.blob.core.windows.net/sessionspreview/containerapp-0.3.50-py2.py3-none-any.whl \
+    --allow-preview true -y
 ```
 
 Use the `az containerapps sessionpool create` command to create the pool. The following example creates a Python code interpreter session pool named `my-session-pool`. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.
@@ -49,7 +56,7 @@ az containerapp sessionpool create \
     --name my-session-pool \
     --resource-group <RESOURCE_GROUP> \
     --location westus2 \
-    --pool-type PythonLTS \
+    --container-type PythonLTS \
     --max-concurrent-sessions 100 \
     --cooldown-period-in-seconds 300 \
     --egress-enabled false
@@ -59,7 +66,7 @@ You can define the following settings when you create a session pool:
 
 | Setting | Description |
 |---------|-------------|
-| `--pool-type` | The type of code interpreter to use. The only supported value is `PythonLTS`. |
+| `--container-type` | The type of code interpreter to use. The only supported value is `PythonLTS`. |
 | `--max-concurrent-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
 | `--cooldown-period` | The number of allowed idle seconds before termination. The idle period is reset each time the session's API is called. The allowed range is between `300` and `3600`. |
 | `--egress-enabled` | Designates whether outbound network traffic is allowed from the session. The default value is `false`. |
@@ -306,6 +313,18 @@ Authorization: Bearer <TOKEN>
     }
 }
 ```
+
+## Preview limitations
+
+Azure Container Apps dynamic sessions is currently in preview. The following limitations apply:
+
+* It's only available in the following regions:
+    * East US
+    * West US 2
+    * North Central US
+    * East Asia
+    * North Europe
+* Logging is not supported. Your application can log requests to the session pool management API and its responses.
 
 ## Next steps
 
