@@ -51,7 +51,9 @@ landingContent:
   - title: Connect to a dev box
     linkLists:
       - linkListType: tutorial
-        links:              
+        links:
+          - text: Use Dev Home to manage dev boxes
+            url: how-to-use-dev-home-customize-dev-box.md              
           - text: Configure the Remote Desktop client to connect to a dev box
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
           - text: Use multiple monitors with your dev box 
