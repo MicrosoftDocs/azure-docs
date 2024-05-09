@@ -69,4 +69,4 @@ azd up
 ## Related content
 
 > [!div class="nextstepaction"]
-> [Observability overview](observability.md)
+[.NET Aspire dashboard overview](/dotnet/aspire/fundamentals/dashboard/overview)
