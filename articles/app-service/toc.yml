@@ -431,6 +431,8 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
+    - name: Deploy an application that uses OpenAI on App Service
+      href: deploy-intelligent-apps.md
     - name: gRPC configuration
       href: configure-grpc.md
     - name: Recommended services (preview)

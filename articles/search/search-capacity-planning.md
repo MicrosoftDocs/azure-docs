@@ -40,50 +40,6 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 
 Review the [partitions and replicas table](#partition-and-replica-combinations) for possible combinations that stay under the 36 unit limit. 
 
-### Estimate with a billable tier
-
-Storage needs are determined by the size of the indexes you expect to build. There are no solid heuristics or generalities that help with estimates. The only way to determine the size of an index is [build one](search-what-is-an-index.md). Its size is based on tokenization and embeddings, and whether you enable suggesters, filtering, and sorting, or can take advantage of [vector compression](vector-search-how-to-configure-compression-storage.md).
-
-We recommend estimating on a billable tier, Basic or above. The Free tier runs on physical resources shared by multiple customers and is subject to factors beyond your control. Only the dedicated resources of a billable search service can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. 
-
-1. [Review service limits at each tier](./search-limits-quotas-capacity.md#service-limits) to determine whether lower tiers can support the number of indexes you need. Consider whether you need multiple copies of an index for active development, testing, and production. 
-
-   A search service is subject to object limits (maximum number of indexes, indexers, skillsets, etc.) and storage limits. Whichever limit is reached first is the effective limit. 
-
-1. [Create a service at a billable tier](search-create-service-portal.md). Tiers are optimized for certain workloads. For example, Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
-
-    + Start low, at Basic or S1, if you're not sure about the projected load.
-
-    + Start high, at S2 or even S3, if testing includes large-scale indexing and query loads.
-
-    + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
-
-1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size. Attributes on the field definitions affect physical storage requirements:
-
-   + For keyword search, marking fields as filterable and sortable [increases index size](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
-
-   + For vector search, you can [set parameters to reduce storage](vector-search-how-to-configure-compression-storage.md).
-
-1. [Monitor storage, service limits, query volume, and latency](monitor-azure-cognitive-search.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
-
-1. Add replicas for high availability or to mitigate slow query performance.
-
-   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result isn't strictly linear: adding three replicas doesn't guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
-
-For an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
-
-Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience.
-
-### Service-level agreement considerations
-
-The Free tier and preview features aren't covered by [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. 
-
-+ Two or more replicas satisfy query (read) SLAs. 
-
-+ Three or more replicas satisfy query and indexing (read-write) SLAs. 
-
-The number of partitions doesn't affect SLAs.
-
 ## When to add capacity
 
 Initially, a service is allocated a minimal level of resources consisting of one partition and one replica. The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might [need fewer partitions](search-performance-tips.md#service-capacity) than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
@@ -107,7 +63,9 @@ Finally, larger indexes take longer to query. As such, you might find that every
 
 <a name="adjust-capacity"></a>
 
-## Add or reduce replicas and partitions
+## How to change capacity
+
+To increase or decrease the capacity of your search service, add or remove partitions and replicas.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
 
@@ -188,6 +146,50 @@ Basic search services have lower search unit counts.
 For search services on any billable tier, regardless of creation date, you need a minimum of two replicas for high availability on queries.
 
 For billing rates per tier and currency, see the [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/).
+
+## Estimate capacity using a billable tier
+
+Storage needs are determined by the size of the indexes you expect to build. There are no solid heuristics or generalities that help with estimates. The only way to determine the size of an index is [build one](search-what-is-an-index.md). Its size is based on tokenization and embeddings, and whether you enable suggesters, filtering, and sorting, or can take advantage of [vector compression](vector-search-how-to-configure-compression-storage.md).
+
+We recommend estimating on a billable tier, Basic or above. The Free tier runs on physical resources shared by multiple customers and is subject to factors beyond your control. Only the dedicated resources of a billable search service can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. 
+
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#service-limits) to determine whether lower tiers can support the number of indexes you need. Consider whether you need multiple copies of an index for active development, testing, and production. 
+
+   A search service is subject to object limits (maximum number of indexes, indexers, skillsets, etc.) and storage limits. Whichever limit is reached first is the effective limit. 
+
+1. [Create a service at a billable tier](search-create-service-portal.md). Tiers are optimized for certain workloads. For example, Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
+
+    + Start low, at Basic or S1, if you're not sure about the projected load.
+
+    + Start high, at S2 or even S3, if testing includes large-scale indexing and query loads.
+
+    + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
+
+1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size. Attributes on the field definitions affect physical storage requirements:
+
+   + For keyword search, marking fields as filterable and sortable [increases index size](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
+
+   + For vector search, you can [set parameters to reduce storage](vector-search-how-to-configure-compression-storage.md).
+
+1. [Monitor storage, service limits, query volume, and latency](monitor-azure-cognitive-search.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
+
+1. Add replicas for high availability or to mitigate slow query performance.
+
+   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result isn't strictly linear: adding three replicas doesn't guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
+
+For an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
+
+Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience.
+
+## Service-level agreement considerations
+
+The Free tier and preview features aren't covered by [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. 
+
++ Two or more replicas satisfy query (read) SLAs. 
+
++ Three or more replicas satisfy query and indexing (read-write) SLAs. 
+
+The number of partitions doesn't affect SLAs.
 
 ## Next steps
 
