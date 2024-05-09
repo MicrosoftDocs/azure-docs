@@ -68,9 +68,9 @@ Data that is uploaded in one project workspace, is stored in isolation from data
 
 Once a hub is created, there are multiple ways to create a project workspace using it:
 
-1. [Using ML Studio](how-to-manage-workspace.md&tabs=mlstudio)
+1. [Using ML Studio](how-to-manage-workspace.md?tabs=mlstudio)
 1. [Using AI Studio](../ai-studio/how-to/create-projects.md)
-2. [Using Azure SDK](how-to-manage-workspace.md&tabs=python)
+2. [Using Azure SDK](how-to-manage-workspace.md?tabs=python)
 4. [Using automation templates](how-to-create-workspace-template.md)
 
 > [!NOTE]
