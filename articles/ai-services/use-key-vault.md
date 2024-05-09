@@ -376,18 +376,17 @@ In your project, add the following dependencies to your `pom.xml` file.
 
 ```xml
 <dependencies>
-        
-        <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-security-keyvault-secrets</artifactId>
-            <version>4.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-identity</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-    </dependencies>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-security-keyvault-secrets</artifactId>
+        <version>4.2.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.2.0</version>
+    </dependency>
+</dependencies>
 ```
 
 ## Import the example code
