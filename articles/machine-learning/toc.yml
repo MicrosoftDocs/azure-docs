@@ -121,6 +121,8 @@
         href: concept-azure-machine-learning-v2.md
       - name: Workspaces
         href: concept-workspace.md
+      - name: Hub workspaces
+        href: concept-hub-workspace.md
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
       - name: Compute
