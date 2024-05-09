@@ -38,6 +38,9 @@ After you test your flow properly, either a flex flow or a DAG flow, you can dep
 
 You can also [deploy to other platforms, such as Docker container, Kubernetes cluster, etc](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
+> [!NOTE]
+> You need to use the latest prompt flow base image to deploy the flow, so that it support the tracing and feedback collection API.
+
 ## Enable trace and collect system metrics for your deployment
 
 If you are using studio UI to deploy, then you can turn-on **Application Insights diagnostics** in Advaned settings -> Deployment step in the deploy wizard, in which way the tracing data and system metrics will be collected to workspace linked Application Insights.
