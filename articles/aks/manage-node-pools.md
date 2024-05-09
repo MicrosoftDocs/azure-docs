@@ -591,5 +591,5 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [use-tags]: use-tags.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
-[use-node-taints]: ./use-node-taints.md\
+[use-node-taints]: ./use-node-taints.md
 [az-aks-nodepool-delete-machines]: /cli/azure/aks/nodepool#az_aks_nodepool_delete_machines
