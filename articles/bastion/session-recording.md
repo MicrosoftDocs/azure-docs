@@ -5,7 +5,7 @@ description: Learn how to configure and record Bastion sessions.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 05/09/2024
 ms.author: cherylmc
 
 ---
@@ -24,6 +24,9 @@ The following sections outline considerations, limitations, and prerequisites fo
 * Session recording isn't available via native client at this time.
 * Session recording supports one container/storage account at a time.
 * When session recording is enabled on a bastion host, Bastion records ALL sessions that go through the recording-enabled bastion host.
+
+> [!NOTE]
+> The Session Recording (Preview) feature is currently rolling out.
 
 **Prerequisites**
 
