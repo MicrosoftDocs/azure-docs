@@ -32,13 +32,13 @@ Models are organized by Collections in the Model Catalog. There are three types 
 
 For information on Azure OpenAI models, refer to [Azure OpenAI Service](../ai-services/openai/overview.md). 
 
-For models **Curated by Azure AI** and **Open models from the Hugging Face hub**, some of these can be deployed as Real-time endpoints and some of these are available to be deployed using Pay-as-you-go billing (Models as a Service). These models can be discovered, compared, evaluated, finetuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
+For models **Curated by Azure AI** and **Open models from the Hugging Face hub**, some of these can be deployed as Real-time endpoints and some of these are available to be deployed using Pay-as-you-go billing (Models as a Service). These models can be discovered, compared, evaluated, fine-tuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
 
-* **Discover:** Review model cards, try sample inference and browse code samples to evaluate, finetune, or deploy the model. 
+* **Discover:** Review model cards, try sample inference and browse code samples to evaluate, fine-tune, or deploy the model. 
 * **Compare:** Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. 
 * **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario. 
-* **Finetune:** Customize finetunable models using your own training data and pick the best model by comparing metrics across all your finetuning jobs. Built-in optimizations speed up finetuning and reduce the memory and compute needed for finetuning. 
-* **Deploy:** Deploy pretrained models or finetuned models seamlessly for inference. Models that can be deployed to real-time endpoints can also be downloaded.  
+* **Fine-tune:** Customize fine-tunable models using your own training data and pick the best model by comparing metrics across all your fine-tuning jobs. Built-in optimizations speed up fine-tuning and reduce the memory and compute needed for fine-tuning. 
+* **Deploy:** Deploy pretrained models or fine-tuned models seamlessly for inference. Models that can be deployed to real-time endpoints can also be downloaded.  
 
 ## Model deployment: Real-time endpoints and Models as a Service (Pay-as-you-go)  
 
@@ -70,15 +70,15 @@ The capability to deploy models to real-time endpoints builds on platform capabi
 
 ### How are models made available for Real-time endpoints?
 
-The models are made available through [Azure Machine Learning registries](concept-machine-learning-registries-mlops.md) that enable ML first approach to [hosting and distributing Machine Learning assets](how-to-share-models-pipelines-across-workspaces-with-registries.md) such as model weights, container runtimes for running the models, pipelines for evaluating and finetuning the models and datasets for benchmarks and samples. These ML Registries build on top of highly scalable and enterprise ready infrastructure that: 
+The models are made available through [Azure Machine Learning registries](concept-machine-learning-registries-mlops.md) that enable ML first approach to [hosting and distributing Machine Learning assets](how-to-share-models-pipelines-across-workspaces-with-registries.md) such as model weights, container runtimes for running the models, pipelines for evaluating and fine-tuning the models and datasets for benchmarks and samples. These ML Registries build on top of highly scalable and enterprise ready infrastructure that: 
 
 * Delivers low latency access model artifacts to all Azure regions with built-in geo-replication. 
 
 * Supports enterprise security requirements as [limiting access to models with Azure Policy](how-to-regulate-registry-deployments.md) and [secure deployment with managed virtual networks](how-to-network-isolation-model-catalog.md). 
 
-### Evaluate and finetune models deployed as Real-time endpoints
+### Evaluate and fine-tune models deployed as Real-time endpoints
 
-You can evaluate and finetune in the “Curated by Azure AI” collection in Azure Machine Learning using Azure Machine Learning Pipelines. You can either choose to bring your own evaluation and finetuning code and just access model weights or use Azure Machine Learning components that offer built-in evaluation and finetuning capabilities. To learn more, [follow this link](how-to-use-foundation-models.md).
+You can evaluate and fine-tune in the “Curated by Azure AI” collection in Azure Machine Learning using Azure Machine Learning Pipelines. You can either choose to bring your own evaluation and fine-tuning code and just access model weights or use Azure Machine Learning components that offer built-in evaluation and fine-tuning capabilities. To learn more, [follow this link](how-to-use-foundation-models.md).
 
 ### Deploy models for inference as Real-time endpoints 
 
@@ -99,7 +99,7 @@ Prompt flow offers capabilities for prototyping, experimenting, iterating, and d
 
 ### Work with models not in the Model Catalog 
 
-For models not available in the Model Catalog, Azure Machine Learning provides an open and extensible platform for working with models of your choice. You can bring a model with any framework or runtime using Azure Machine Learning’s open and extensible platform capabilities such as [Azure Machine Learning environments](concept-environments.md) for containers that can package frameworks and runtimes and [Azure Machine Learning pipelines](concept-ml-pipelines.md) for code to evaluate or finetune the models. Refer to this notebook for sample reference to import models and work with the [built-in runtimes and pipelines](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
+For models not available in the Model Catalog, Azure Machine Learning provides an open and extensible platform for working with models of your choice. You can bring a model with any framework or runtime using Azure Machine Learning’s open and extensible platform capabilities such as [Azure Machine Learning environments](concept-environments.md) for containers that can package frameworks and runtimes and [Azure Machine Learning pipelines](concept-ml-pipelines.md) for code to evaluate or fine-tune the models. Refer to this notebook for sample reference to import models and work with the [built-in runtimes and pipelines](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
 
 
 ## Models as a Service (Pay-as-you-go)
@@ -120,9 +120,9 @@ The discovery, subscription, and consumption experience for models deployed via 
 
 Deploying a model through MaaS allows users to get access to ready to use inference APIs without the need to configure infrastructure or provision GPUs, saving engineering time and resources. These APIs can be integrated with several LLM tools and usage is billed as described in the previous section. 
 
-### Finetune models through MaaS with Pay-as-you-go 
+### Fine-tune models through MaaS with Pay-as-you-go 
 
-For models that are available through MaaS and support finetuning, users can take advantage of hosted finetuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [finetune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
+For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
 
 ### RAG with models deployed through MaaS 
 
@@ -130,7 +130,7 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 ### Regional availability of offers and models 
 
-Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see “offer availability region” in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or finetuning, as applicable (see “Workspace region” columns in the table below). 
+Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see “offer availability region” in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or fine-tuning, as applicable (see “Workspace region” columns in the table below). 
 
 Model | Offer availability region | Workspace Region for Deployment | Workspace Region for Finetuning
 --|--|--|--
@@ -147,6 +147,7 @@ Azure Machine Learning implements a default configuration of [Azure AI Content S
 
 ## Learn more
 
-* Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for finetuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
+* Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
 * Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
-* [Evaluate, finetune, and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
+* [Evaluate, fine-tune, and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
+
