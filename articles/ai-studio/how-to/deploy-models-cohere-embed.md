@@ -22,7 +22,7 @@ Cohere offers two Embed models in [Azure AI Studio](https://ai.azure.com). These
 * Cohere Embed v3 - English
 * Cohere Embed v3 - Multilingual
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
+You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
 
 ## Models 
 
