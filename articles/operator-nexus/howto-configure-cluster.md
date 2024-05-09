@@ -121,17 +121,17 @@ You can find examples of these two files here:
 Note:  To get the correct formatting, copy the raw code file.  The values within the cluster.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
-2. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services.
-3. Click on Build your own template in the editor.
-4. Click on Load file. Locate your cluster.jsonc template file and upload it.
-5. Click Save.
-6. Click Edit parameters.
-7. Click Load file.  Locate your cluster.parameters.jsonc parameters file and upload it.
-8. Click Save.
-9. Select the correct Subscription.
-10. Search for the Resource group if it already exists or create new.
-11. Make sure all Instance Details are correct.
-12. Click Review + create.
+1. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services.
+1. Click on Build your own template in the editor.
+1. Click on Load file. Locate your cluster.jsonc template file and upload it.
+1. Click Save.
+1. Click Edit parameters.
+1. Click Load file.  Locate your cluster.parameters.jsonc parameters file and upload it.
+1. Click Save.
+1. Select the correct Subscription.
+1. Search for the Resource group if it already exists or create new.
+1. Make sure all Instance Details are correct.
+1. Click Review + create.
 
 
 ### Cluster validation
