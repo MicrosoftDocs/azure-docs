@@ -242,7 +242,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_name>` (in the URL) with the name you used in the list creation step.
 1. Optionally replace the value of the `"description"` field with a custom description.
-1. Replace the value of the `"text"` field with the item or regex statement you'd like to add to your blocklist. The maximum length of a blocklistItem is 128 characters.
+1. Replace the value of the `"text"` field with the item you'd like to add to your blocklist. The maximum length of a blocklistItem is 128 characters.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_list_name>:addOrUpdateBlocklistItems?api-version=2023-10-01' \
@@ -312,7 +312,7 @@ if (addedBlocklistItems != null && addedBlocklistItems.Value != null)
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `blocklistItemText1` and `blocklistItemText2` fields with the items or regex statements you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the values of the `blocklistItemText1` and `blocklistItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `blockItems` parameter.
 1. Run the code.
 
@@ -344,7 +344,7 @@ if (addedBlockItems != null && addedBlockItems.getBlocklistItems() != null) {
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `blockItemText1` and `blockItemText2` fields with the items or regex statements you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the values of the `blockItemText1` and `blockItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `blockItems` parameter.
 1. Run the code.
 
@@ -390,7 +390,7 @@ except HttpResponseError as e:
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `blocklist_item_text_1` and `blocklist_item_text_2` fields with the items or regex statements you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the values of the `blocklist_item_text_1` and `blocklist_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `block_items` parameter.
 1. Run the script.
 
@@ -460,7 +460,7 @@ async function addBlocklistItems() {
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `block_item_text_1` and `block_item_text_2` fields with the items or regex statements you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the values of the `block_item_text_1` and `block_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `blocklistItems` parameter.
 1. Run the script.
 ---

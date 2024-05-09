@@ -16,11 +16,6 @@ ms.author: pafarley
 
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
-## May 2024
-
-### Blocklists support regex
-
-You can now use regular expressions in blocklists to match a wider range of content. [Use a blocklist](./how-to/use-blocklist.md)
 
 ## March 2024
 
