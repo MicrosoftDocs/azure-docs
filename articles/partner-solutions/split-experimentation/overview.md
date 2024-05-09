@@ -1,6 +1,6 @@
 ---
 title: Split Experimentation Workspace (preview) overview
-description: Learn about using Split Experimentation Workspace in Azure.
+description: Learn about using Split Experimentation Workspace (preview) in Azure.
 ms.topic: conceptual
 ms.date: 04/30/2024
 author: maud-lv

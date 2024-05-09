@@ -1,15 +1,15 @@
 ---
-title: Set up data access control for Split Experimentation Workspace
-description: This article provides information about setting up data access control for Split Experimentation Workspace.
+title: Set up data access control for Split Experimentation Workspace (preview)
+description: This article provides information about setting up data access control for Split Experimentation Workspace (preview).
 ms.author: malev
 author: maud-lv
 ms.topic: how-to
 ms.date: 05/01/2024
 ---
 
-# Set up data access control for Split Experimentation Workspace
+# Set up data access control for Split Experimentation Workspace (preview)
 
-Experimentation in Azure App Configuration uses Microsoft Entra to authorize requests for Split Experimentation Workspace resources. Microsoft Entra also enables the use of custom roles to grant permissions to security principals.
+Split Experimentation in Azure App Configuration (preview) uses Microsoft Entra to authorize requests for Split Experimentation Workspace resources. Microsoft Entra also enables the use of custom roles to grant permissions to security principals.
 
 ## Data access control overview
 
