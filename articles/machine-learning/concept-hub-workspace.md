@@ -74,7 +74,7 @@ Once a hub is created, there are multiple ways to create a project workspace usi
 4. [Using automation templates](how-to-create-workspace-template.md)
 
 > [!NOTE]
-> When creating a workspace using a hub, there's no need to specify security settings or [associated resources](concept-workspace.md#associated-resources) because those are inherited from the hub. Security settings including virtual networking settings as set on the hub, will be enforced on the new project workspace.
+> When creating a workspace using a hub, there's no need to specify security settings or [associated resources](concept-workspace.md#associated-resources) because those are inherited from the hub. For example, if public network access is disabled on the hub, it is also disabled on new workspace that is created.
 
 ![Create workspace using hub in ML studio](media/concept-hub-workspace/project-workspace-create.png)
 
