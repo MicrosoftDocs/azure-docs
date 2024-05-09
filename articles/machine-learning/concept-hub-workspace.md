@@ -45,7 +45,7 @@ Hubs can be used as your team's collaboration environment for both ML studio and
 
 ## Set up and secure a hub for your team
 
-Create a hub workspace in [Azure Portal](), or using [Azure Resource Manager templates](). You may customize networking, identity, encryption, monitoring or tags, to meet compliance with your organization’s requirements. 
+Create a hub workspace in [Azure Portal](how-to-manage-hub-workspace-portal.md), or using [Azure Resource Manager templates](how-to-manage-hub-workspace-template.md). You may customize networking, identity, encryption, monitoring or tags, to meet compliance with your organization’s requirements. 
 
 Project workspaces that are created using a hub, obtain the hub’s security settings and shared resource configuration. This includes the following configurations:
 
@@ -98,7 +98,7 @@ Features that are supported using hub/project workspaces differ from regular wor
 |Single private link endpoint across workspaces|-|X|X||
 |Managed virtual network|X|X|X|-|
 |BYO virtual network|X|-|-|Use alternative [managed virtual network](how-to-managed-network.md)|
-|Compute clusters|X|-|-|Use alternative [serverless compute]()|
+|Compute clusters|X|-|-|Use alternative [serverless compute](how-to-use-serverless-compute.md)|
 |Parallel run step|X|-|-|-|
 
 ## Converting a regular workspace into a hub workspace
