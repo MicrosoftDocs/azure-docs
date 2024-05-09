@@ -135,8 +135,8 @@ Android SDK supports extra events:
 - `chatThreadCreated` - when a Communication Services user creates a chat thread.	
 - `chatThreadDeleted` - when a Communication Services user deletes a chat thread.	
 - `chatThreadPropertiesUpdated` - when you update chat thread properties; currently, only updating the topic for the thread is supported.	
-- `participantsAdded` - when you adds a participant to a chat thread. 	
-- `participantsRemoved` - when a you remove an existing participant from the chat thread.
+- `participantsAdded` - when you add a participant to a chat thread. 	
+- `participantsRemoved` - when you remove an existing participant from the chat thread.
 
 For more information, see [Push Notifications](../notifications.md).
 
