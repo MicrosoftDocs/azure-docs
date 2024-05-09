@@ -269,6 +269,11 @@ environment_variables:
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [limits for online endpoints](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). |
 | Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. |
 
+> [!IMPORTANT]
+>
+> If your flow folder has a `requirements.txt` file which contains the dependencies needed to execute the flow, you need to follow [these steps](#deploy-with-a-custom-environment) to build the custom environment including the dependencies.
+
+
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:
 
 | Attribute | Description |
@@ -450,7 +455,7 @@ You can view [general metrics of online deployment (request numbers, request lat
 
 #### Collect tracing data and system metrics during inference time
 
-You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-prompt-flow-endpoints-specific-metrcis-and-tracing-data-optional).
+You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-enable-trace-feedback-for-deployment.md).
 
 Prompt flow specific metrics and trace can be specified to other Application Insights other than the workspace linked one. You can speicify an environment variable in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
 
@@ -460,6 +465,7 @@ environment_variables:
 ```
 
 > [!NOTE]
+> If you only set `app_insights_enabled: true` but your workspace does not have a linked Application Insights, your deployment will not fail but there will be no data collected.
 > If you specify both `app_insights_enabled: true` and the above environment variable at the same time, the tracing data and metrics will be sent to workspace linked Application Insights. Hence, if you want to specify a different Application Insights, you only need to keep the environment variable.
 
 

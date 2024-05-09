@@ -191,7 +191,7 @@ inference_config:
 
 #### Enable tracing by turning-on Application Insights diagnostics (preview)
 
-If you enable this, tracing data and system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace linked Application Insights. To learn more, see [prompt flow serving tracing data and metrics](#view-prompt-flow-endpoints-specific-metrcis-and-tracing-data-optional).
+If you enable this, tracing data and system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace linked Application Insights. To learn more, see [prompt flow serving tracing data and metrics](./how-to-enable-trace-feedback-for-deployment.md).
 
 If you want to specify a different Application Insights other than the workspace linked one, [you can configure by CLI](./how-to-deploy-to-code.md#collect-tracing-data-and-system-metrics-during-inference-time).
 
@@ -296,39 +296,7 @@ For more information on how to view online endpoint metrics, see [Monitor online
 
 ### View prompt flow endpoints specific metrcis and tracing data (optional)
 
-If you enable **Application Insights diagnostics** in the UI deploy wizard, or set `app_insights_enabled=true` in the deployment definition using code, there will be following prompt flow endpoints specific metrics collected in the workspace default Application Insights.
-
-| Metrics Name                         | Type      | Dimensions                                | Description                                                                     |
-|--------------------------------------|-----------|-------------------------------------------|---------------------------------------------------------------------------------|
-| token_consumption                    | counter   | - flow <br> - node<br> - llm_engine<br> - token_type:  `prompt_tokens`: LLM API input tokens;  `completion_tokens`: LLM API response tokens ; `total_tokens` = `prompt_tokens + completion tokens`          | openai token consumption metrics                                                |
-| flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
-| flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
-| node_latency                         | histogram | flow,node,run_status                      | node execution cost                                                             |
-| node_request                         | counter   | flow,node,exception,run_status            | node execution count                                                    |
-| rpc_latency                          | histogram | flow,node,api_call                        | rpc cost                                                                        |
-| rpc_request                          | counter   | flow,node,api_call,exception              | rpc count                                                                       |
-| flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
-
-You can find the workspace default Application Insights in your workspace page in Azure portal.
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/workspace-default-app-insights.png" alt-text="Screenshot of the workspace default Application Insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/workspace-default-app-insights.png":::
-
-Open the Application Insights, and select **Usage and estimated costs** from the left navigation. Select **Custom metrics (Preview)**, and select **With dimensions**, and save the change.
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png" alt-text="Screenshot of enable multidimensional metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png":::
-
-Select **Metrics** tab in the left navigation. Select **promptflow standard metrics** from the **Metric Namespace**, and you can explore the metrics from the **Metric** dropdown list with different aggregation methods.
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
-
-This setting will also enable trace during inference time. You can view the detailed tracing data within Application Insights.
-
-The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Trasaction search, and you can select each node to view its detailed trace. 
-
-The **Dependency** type events record calls from your deployments. The name of that event is the name of flow folder. Learn more about [Transaction search and diagnostics in Application Insights](../../azure-monitor/app/transaction-search-and-diagnostics.md).
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/tracing-app-insights.png" alt-text="Screenshot of tracing data in application insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/tracing-app-insights.png":::
-
+If you enable **Application Insights diagnostics** in the UI deploy wizard, tracing data and prompt flow specific metrics will be collect to workspace linked Application Insights. See details about [enabling tracing for your deployment](./how-to-enable-trace-feedback-for-deployment.md).
 
 ## Troubleshoot endpoints deployed from prompt flow
 
@@ -421,5 +389,6 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 ## Next Steps
 
 - [Iterate and optimize your flow by tuning prompts using variants](how-to-tune-prompts-using-variants.md)
+- [Enable trace and collect feedback for your deployment](./how-to-enable-trace-feedback-for-deployment.md)
 - [View costs for an Azure Machine Learning managed online endpoint](../how-to-view-online-endpoints-costs.md)
 - [Troubleshoot prompt flow deployments.](how-to-troubleshoot-prompt-flow-deployment.md)
