@@ -32,9 +32,8 @@ By default, a test run that uses reporting feature automatically generates a uni
 
 While using sharding, make sure the same `RUN_ID` is set across all the shards for the results to be reported together. 
 
-Here's an example of how you can set it in your pipeline. 
+Here's an example of how you can set it in your pipeline via GitHub Actions. 
 
-# [GitHub Actions](#tab/github)
 
 ```yml
 name: Playwright Tests
@@ -73,4 +72,3 @@ jobs:
         PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
         PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }} #This Run_ID will be unique and will remain same across all shards
     run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-```
