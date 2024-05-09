@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: Configure the network fabric"
-description: Learn commands to create, view, list, update, and delete network fabrics.
+title: "Azure Operator Nexus: Configure the Network Fabric"
+description: Learn commands to create, view, list, update, and delete Network Fabrics.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -178,7 +178,7 @@ Expected output:
 
 
 ```
-## show network fabric 
+## Show Network Fabric 
 
 ```azurecli
 az networkfarbic fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
@@ -271,7 +271,7 @@ Expected output:
 }
 ```
 
-## List all network fabrics in a resource group
+## List all Network Fabrics in a resource group
 
 ```azurecli
 az networkfabric fabric list --resource-group "NFResourceGroup"  
@@ -607,7 +607,7 @@ For example, `AggrRack` consists of:
 
 ## List or Get Network Fabric Devices
 
-Run the following command to list network fabric devices in a resource group:
+Run the following command to list Network Fabric devices in a resource group:
 
 ```azurecli
 az networkfabric device list --resource-group "NFResourceGroup"
@@ -919,7 +919,7 @@ Expected output:
 ```
 
 
-## Provision a network fabric
+## Provision a Network Fabric
 
 After you update the device serial number, provision and show the fabric by running the following commands:
 
@@ -1226,4 +1226,4 @@ Code: ResourceNotFound
 
 ## Next steps
 
-After you successfully created an Network Fabric, the next step is to create a [cluster](./howto-configure-cluster.md).
+After you successfully created an , the next step is to create a [cluster](./howto-configure-cluster.md).
