@@ -4,7 +4,7 @@ description: Learn how to create an Azure Compute Fleet in the Azure portal.
 author: rajeeshr
 ms.author: rajeeshr
 ms.topic: how-to
-ms.service: compute-fleet
+ms.service: cvirtual-machines
 ms.date: 05/07/2024
 ms.reviewer: jushiman
 ---

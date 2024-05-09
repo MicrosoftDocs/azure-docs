@@ -5,8 +5,7 @@ metadata:
   author: rajeeshr
   ms.author: rajeeshr
   ms.topic: faq
-  ms.service: compute-fleet
-  ms.subservice:
+  ms.service: virtual-machines
   ms.date: 05/07/2024
   ms.reviewer: jushiman
 

@@ -4,8 +4,7 @@ description: Learn about Azure Compute Fleet and how to accelerate your access t
 author: rajeeshr
 ms.author: rajeeshr
 ms.topic: overview
-ms.service: compute-fleet
-ms.subservice:
+ms.service: virtual-machines
 ms.date: 05/07/2024
 ms.reviewer: jushiman
 ---
