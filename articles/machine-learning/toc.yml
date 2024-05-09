@@ -618,12 +618,12 @@
           items:
             - name: Embeddings
               href: reference-model-inference-embeddings.md
-            - name: Images/Embeddings
-              href: reference-model-inference-embeddings.md
-            - name: reference
-              href: concept-model-inference-completions.md
-            - name: Chat/Completions
+            - name: Completions
+              href: reference-model-inference-completions.md
+            - name: Chat Completions
               href: reference-model-inference-chat.md
+            - name: Images Embeddings
+              href: reference-model-inference-images-embeddings.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with prompt flow

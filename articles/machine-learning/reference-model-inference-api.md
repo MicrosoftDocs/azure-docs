@@ -57,17 +57,8 @@ The following section describes some of the capabilities the API exposes. For a 
 The API indicates how developers can consume predictions for the following modalities:
 
 * [Text embeddings](reference-model-inference-embeddings.md): Creates an embedding vector representing the input text.
-
-    * Route: `/embeddings`
-
 * [Text completions](reference-model-inference-completions.md): Creates a completion for the provided prompt and parameters.
-
-    * Route: `/completions`
-
 * [Chat completions](reference-model-inference-chat.md): Creates a model response for the given chat conversation.
-
-    * Route: `/chat/completions`
-
 * [Image embeddings](reference-model-inference-images-embeddings.md): Creates an embedding vector representing the input text and image.
 
     * Route: `/images/embeddings`
@@ -170,6 +161,11 @@ The Azure AI Model Inference API is currently supported in models deployed as [S
 You can use the Azure AI Model Inference API to run evaluations or while building with *Prompt flow*. Create a [Serverless Model connection](how-to-connect-models-serverless.md) to a Serverless API endpoints and consume its predictions. The Azure AI Model Inference API is used under the hood.
 
 # [Python](#tab/python)
+
+Since the API is OpenAI-compatible, you can use any supported SDK that already supports Azure OpenAI. 
+
+```python
+```
 
 
 # [REST](#tab/rest)
