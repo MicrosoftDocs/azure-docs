@@ -131,15 +131,19 @@ This issue occurs if the network traffic for the Azure Monitor workspace is bloc
 
 ### Unable to access Data Collection Rule
 
-This error occurs when the user doesn't have permissions to view the associated Prometheus data collection rule for the cluster. To resolve this error, grant access to the Prometheus data collection rule.
+This error occurs when the user doesn't have permissions to view the associated Prometheus data collection rule for the cluster or the data collection rule may have been deleted. To resolve this error, grant access to the Prometheus data collection rule or reconfigure managed Prometheus using the `Monitoring Settings` button in the toolbar.
 
 ### Unable to access Azure Monitor workspace
 
-This error occurs when the user doesn't have permissions to view the associated Azure Monitor workspace for the cluster. To resolve this error, grant access to the Azure Monitor workspace.
+This error occurs when the user doesn't have permissions to view the associated Azure Monitor workspace for the cluster or the Azure Monitor workspace may have been deleted. To resolve this error, grant access to the Azure Monitor workspace or reconfigure managed Prometheus by deleting and [redeploying the addon](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 
 ### The data could not be retrieved
 
 This error typically occurs when querying large volumes of data and may be resolved by reducing the time range to a shorter window or filtering for fewer objects.
+
+### Data configuration error
+
+This error occurs when the recording rules may have been modified or deleted. Use the `Reconfigure` button to patch the recording rules and try again.
 
 ### Access denied
 
