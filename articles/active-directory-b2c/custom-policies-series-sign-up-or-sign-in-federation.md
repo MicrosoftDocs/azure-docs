@@ -517,7 +517,7 @@ Use the following steps to add a combined local and social account:
     ```xml
         <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localIdpAuthentication" AlwaysUseDefaultValue="true" />
     ```
-Make sure you also add the `authenticationSource` claim in the output claims collection of the `UserSignInCollector` self-asserted technical profile.
+   Make sure you also add the `authenticationSource` claim in the output claims collection of the `UserSignInCollector` self-asserted technical profile.
 
 1. In the `UserJourneys` section, add a new user journey, `LocalAndSocialSignInAndSignUp` by using the following code: 
 
