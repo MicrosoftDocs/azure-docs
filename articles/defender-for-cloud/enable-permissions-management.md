@@ -151,5 +151,4 @@ List of GCP recommendations:
 
 ## Next step
 
-> [!div class="nextstepaction"]
-> Learn more about [Microsoft Entra Permissions Management](/entra/permissions-management/).
+Learn more about [Microsoft Entra Permissions Management](/entra/permissions-management/).
