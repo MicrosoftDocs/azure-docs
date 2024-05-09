@@ -89,7 +89,7 @@ ms.author: antchu
 
         ```bash
         az role assignment create \
-            --role "/providers/Microsoft.Authorization/roleDefinitions/0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
             --assignee <CLI_USERNAME> \
             --scope <SESSION_POOL_RESOURCE_ID>
         ```

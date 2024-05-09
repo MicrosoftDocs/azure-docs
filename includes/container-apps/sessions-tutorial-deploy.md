@@ -42,17 +42,17 @@ You then need to configure managed identity for the app and assign it the proper
         --system-assigned
     ```
 
-1. Get the managed identity's principal ID and fully qualified domain name (FQDN):
+1. Retrieve the managed identity's principal ID:
 
     ```bash
     az containerapp show \
         --name $CONTAINER_APP_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
-        --query "{principalId:identity.principalId, fqdn:properties.configuration.ingress.fqdn}" \
-        --output json
+        --query identity.principalId \
+        --output tsv
     ```
 
-1. Get the session pool resource ID:
+1. Retrieve the session pool resource ID:
 
     ```bash
     az containerapp sessionpool show \
@@ -69,7 +69,7 @@ You then need to configure managed identity for the app and assign it the proper
     ```bash
     # Assign the Azure ContainerApps Session Creator role using its ID
     az role assignment create \
-        --role "/providers/Microsoft.Authorization/roleDefinitions/0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+        --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
         --assignee <PRINCIPAL_ID> \
         --scope <SESSION_POOL_RESOURCE_ID>
 
@@ -79,7 +79,7 @@ You then need to configure managed identity for the app and assign it the proper
         --scope <SESSION_POOL_RESOURCE_ID>
     ```
 
-1. Get the Azure OpenAI account resource ID:
+1. Retrieve the Azure OpenAI account resource ID:
 
     ```bash
     az cognitiveservices account show \
@@ -100,4 +100,14 @@ You then need to configure managed identity for the app and assign it the proper
         --scope <AZURE_OPENAI_RESOURCE_ID>
     ```
 
-1. Open the browser to `https://<fqdn>/docs` to test the deployed app.
+1. Retrieve the app's fully qualified domain name (FQDN):
+
+    ```bash
+    az containerapp show \
+        --name $CONTAINER_APP_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --query properties.configuration.ingress.fqdn \
+        --output tsv
+    ```
+
+1. Open the browser to `https://<FQDN>/docs` to test the deployed app.
