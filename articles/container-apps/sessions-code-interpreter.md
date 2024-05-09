@@ -58,7 +58,7 @@ az containerapp sessionpool create \
     --location westus2 \
     --container-type PythonLTS \
     --max-concurrent-sessions 100 \
-    --cooldown-period-in-seconds 300 \
+    --cooldown-period 300 \
     --egress-enabled false
 ```
 
