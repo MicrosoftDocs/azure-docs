@@ -2,7 +2,7 @@
 title: Diagnose and solve UDP packet drops in Azure Kubernetes Service (AKS)
 description: Learn how to diagnose and solve UDP packet drops in Azure Kubernetes Service (AKS).
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 05/09/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
@@ -37,6 +37,8 @@ To allow the buffer to grow to serve more traffic, you need to update the maximu
 
 ## Diagnose the issue
 
+### Check current UDP buffer settings
+
 1. Get a list of your nodes using the `kubectl get nodes` command and pick a node you want to check the buffer settings for.
 
     ```bash
@@ -52,11 +54,14 @@ To allow the buffer to grow to serve more traffic, you need to update the maximu
 3. Get the value of the `net.core.rmem_max` and `net.core.rmem_default` variables using the following `sysctl` command:
 
     ```bash
-    sysctl net.core.rmem_max net.core.rmem_default net.core.wmem_max net.core.wmem_default
+    sysctl net.core.rmem_max net.core.rmem_default
     ```
 
-4. Check if your buffer is too small for your application and dropping packets by simulating realistic network traffic on your pods.
-5. Check the UDP file using the following `cat` command:
+### Measure incoming UDP traffic
+
+To check if your buffer is too small for your application and is dropping packets, start by simulating realistic network traffic on your pods and setting up a debug pod to monitor the incoming traffic. Then, you can use the following commands to measure the incoming UDP traffic:
+
+1. Check the UDP file using the following `cat` command:
 
     ```bash
     cat /proc/net/udp
@@ -64,7 +69,7 @@ To allow the buffer to grow to serve more traffic, you need to update the maximu
 
     This file shows you the statistics of the current open connections under the `rx_queue` column. It doesn't show historical data.
 
-6. Check the snmp file using the following `cat` command:
+2. Check the snmp file using the following `cat` command:
 
     ```bash
     cat /proc/net/snmp
@@ -82,14 +87,14 @@ If you notice an increase beyond your buffer size in the `rx_queue` or an uptick
 > [!IMPORTANT]
 > Before you proceed, it's important to understand the impact of changing the buffer size. The buffer size tells the system kernel to reserve a certain amount of memory for the socket. More sockets and larger buffers can lead to increased memory reserved for the sockets and less memory available for other resources on the nodes. This can lead to resource starvation if not configured properly.
 
-You can change buffer size values on a node pool level during the node pool creation process. The steps in this section show you how to configure a Linux OS and apply the changes to all nodes in the node pool. You can't add this setting to an existing node pool.
+You can change buffer size values on a node pool level during the node pool creation process. The steps in this section show you how to configure your Linux OS and apply the changes to all nodes in the node pool. You can't add this setting to an existing node pool.
 
 1. Create a `linuxosconfig.json` file with the following content. You can modify the values based on your application's requirements and node SKU. The minimum value is *212992 bytes*, and the maximum value is *134217728 bytes*.
 
     ```json
     { 
         "sysctls": { 
-            "netCoreRmemMax": 8000000  
+            "netCoreRmemMax": 2000000  
         } 
     } 
     ```
@@ -100,7 +105,7 @@ You can change buffer size values on a node pool level during the node pool crea
     az aks nodepool add --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --name $NODE_POOL_NAME --linux-os-config ./linuxosconfig.json
     ```
 
-    This command sets the maximum UDP buffer size to `8 MB` for each socket on the node. You can adjust the value in the `linuxosconfig.json` file to meet your application's requirements.
+    This command sets the maximum UDP buffer size to `2 MB` for each socket on the node. You can adjust the value in the `linuxosconfig.json` file to meet your application's requirements.
 
 ## Validate the changes
 
@@ -118,10 +123,10 @@ Once you apply the new values, you can access your VM to ensure the new values a
     kubectl debug <node-name> -it --image=ubuntu --share-processes -- bash
     ```
 
-3. Get the value of the `net.core.rmem_max` and `net.core.wmem_max` variables using the following `sysctl` command:
+3. Get the value of the `net.core.rmem_max` variable using the following `sysctl` command:
 
     ```bash
-    sysctl net.core.rmem_max net.core.wmem_max
+    sysctl net.core.rmem_max
     ```
 
 ## Next steps
