@@ -57,9 +57,9 @@ If all subscriptions are moved out of a management group, the scope of the savin
 To learn more about modifying auto-renewal settings for a savings plan, see [change auto-renewal settings](manage-savings-plan.md#change-the-autorenewal-setting).
 
 ## View savings plan reporting details
-- To learn more about viewing savings plan utilization, see [view savings plan utilization](view-utilization).
-- To learn more about viewing savings plan cost and usage, see [view savings plan cost and usage exports](utilization-cost-reports).
-- To learn more about viewing savings plan transactions, see [view savings plan transactions](view-transactions).
+- To learn more about viewing savings plan utilization, see [view savings plan utilization](view-utilization.md).
+- To learn more about viewing savings plan cost and usage, see [view savings plan cost and usage exports](utilization-cost-reports.md).
+- To learn more about viewing savings plan transactions, see [view savings plan transactions](view-transactions.md).
 - To learn more about viewing savings plan amortized costs, see [view amortized costs](../reservations/view-amortized-costs.md).
 
 ## Delegate savings plan RBAC roles
