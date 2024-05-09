@@ -39,7 +39,7 @@ In this article, you will learn how to add and configure a time window filter fo
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new time window filter.](./media/feature-filters/feature-flag-edit-apply-timewindow-filter.png)
 
-Now, you sucessfully added a time window filter to a feature flag. Follow the instructions in the [Next Steps](#next-steps) section to learn how it works in your application for the language or platform you are using.
+Now, you successfully added a time window filter to a feature flag. Follow the instructions in the [Next Steps](#next-steps) section to learn how it works in your application for the language or platform you are using.
 
 ## Next steps
 

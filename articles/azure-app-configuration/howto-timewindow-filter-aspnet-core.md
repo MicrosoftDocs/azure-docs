@@ -37,7 +37,7 @@ Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [b
 builder.Services.AddFeatureManagement();
 ```
 
-## Time winow filter in action
+## Time window filter in action
 
 Relaunch the application. If your current time is earlier than the start time set for the time window filter, the **Beta** menu item won't appear on the toolbar. This is because the *Beta* feature flag is disabled by the time window filter.
 
