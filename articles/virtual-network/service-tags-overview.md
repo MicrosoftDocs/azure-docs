@@ -114,7 +114,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/>**Note:** does not include frontend endpoints at the moment (e.g., app.powerbi.com).<br/><br/>Access to frontend endpoints should be provided through AzureCloud tag (Outbound, HTTPS, can be regional). | Both | No | Yes |
 | **[PowerPlatformInfra](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
 | **[PowerPlatformPlex](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
-| **PowerQueryOnline** | Power Query Online. | Both | No | Yes |
+| **[PowerQueryOnline](/data-integration/gateway/service-gateway-communication)** | Power Query Online. | Both | No | Yes |
 | **Scuba** | Data connectors for Microsoft security products (Sentinel, Defender, etc.). | Inbound | No | No|
 | **[SerialConsole](/troubleshoot/azure/virtual-machines/linux/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled)** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
