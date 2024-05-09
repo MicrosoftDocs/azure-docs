@@ -131,6 +131,9 @@ If you have problems in accessing your subscription, see [Set up authentication 
 1. Provide a friendly name for displaying your workspace in Studio.
 
 1. (Preview) Optionally, select a [hub workspace](concept-hub-workspace.md), to host your workspace in a shared environment for your team, with pre-configured security, access to company resources, and shared compute. 
+
+   :::image type="content" source="media/concept-hub-workspace/project-workspace-create.png" alt-text="Create workspace using hub in ML studio.":::
+
 ---
 
 ### Networking
