@@ -11,7 +11,7 @@ ms.author: cherylmc
 
 # Deploy Bastion as private-only (Preview)
 
-This article helps you deploy Bastion as a private-only deployment. [!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)]
+This article helps you deploy Bastion as a private-only deployment. [!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)] 
 
 The following diagram shows the Bastion private-only deployment architecture. A user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via private IP address to a virtual machine that's within the same virtual network as the bastion host. In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network.
 
