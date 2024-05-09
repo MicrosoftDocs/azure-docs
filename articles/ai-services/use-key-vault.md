@@ -206,7 +206,7 @@ namespace key_vault_console_app
 
 ## Run the application
 
-Run the application by selecting the **Debug** button at the top of Visual studio. Your key and endpoint secrets will be retrieved from your key vault. 
+Run the application by selecting the **Debug** button at the top of Visual Studio. Your key and endpoint secrets will be retrieved from your key vault. 
 
 ## Send a test Language service call (optional)
 
