@@ -60,9 +60,16 @@ jobs:
         working-directory: path/to/playwright/folder # update accordingly
         run: npm ci
 
-    - name: Install Playwright browsers #Add this step if not using cloud-hosted browsers
+    - name: Install Playwright browsers # Add this step if not using cloud-hosted browsers
         working-directory: path/to/playwright/folder # update accordingly  
         run: npx playwright install --with-deps  
+    
+    - name: Install reporting package 
+      working-directory: path/to/playwright/folder # update accordingly
+      run: | # Use your GitHub PAT to install reporting package.
+        npm config set @microsoft:registry=https://npm.pkg.github.com
+        npm set //npm.pkg.github.com/:_authToken ${{secrets.PAT_TOKEN_PACKAGE}} 
+        npm install
     
     - name: Run Playwright tests
         working-directory: path/to/playwright/folder # update accordingly
