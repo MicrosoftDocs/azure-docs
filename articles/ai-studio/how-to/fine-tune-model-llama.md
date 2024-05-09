@@ -30,10 +30,10 @@ The [Meta Llama family of large language models (LLMs)](./deploy-models-llama.md
 
 The following models are available in Azure Marketplace for Llama 3 when fine-tuning as a service with pay-as-you-go:
 
-- `Llama-3-80B-chat` (coming soon)
-- `LLama-3-8b-chat` (coming soon)
+- `Llama-3-80B-chat` (preview)
+- `LLama-3-8b-chat` (preview)
 
-Fine-tuning of Llama 3 models is currently supported in projects located in East US 2 and West US 3.
+Fine-tuning of Llama 3 models is currently supported in projects located in West US 3.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -55,7 +55,7 @@ Fine-tuning of Llama 2 models is currently supported in projects located in West
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Meta Llama 3 models, the pay-as-you-go model fine-tune offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
+    > For Meta Llama 3 models, the pay-as-you-go model fine-tune offering is only available with AI hubs created in **West US 3** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
@@ -176,11 +176,9 @@ To fine-tune a LLama 3 model:
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Choose the model you want to fine-tune from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-    Alternatively, you can initiate fine-tuning by starting from your project in AI Studio. From the **Build** tab of your project, select **Fine-tuning** > **+ Fine-tune model**.
-
 1. On the model's **Details** page, select **fine-tune**.
 
-1. Select the project in which you want to fine-tune your models. To use the pay-as-you-go model fine-tune offering, your workspace must belong to the **East US 2** or **West US 3** region.
+1. Select the project in which you want to fine-tune your models. To use the pay-as-you-go model fine-tune offering, your workspace must belong to the **West US 3** region.
 1. On the fine-tune wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
 
@@ -201,8 +199,6 @@ To fine-tune a LLama 3 model:
 
 1. Review your selections and proceed to train your model.
 
-Check the status of your model in "Fine-tuning" page under the "Build" tab. In the Fine-tuning page you can find your fine-tuned models, the status and more information about your fine-tuned model.
-
 Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Llama 3 family of large language models with Azure AI Studio](./deploy-models-llama.md).
 
 
@@ -212,9 +208,12 @@ You can fine-tune a Llama 2 model in Azure AI Studio via the [model catalog](./m
 
 To fine-tune a Llama 2 model in an existing Azure AI Studio project, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+   
+1. Choose the model you want to fine-tune from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-1. From the collapsible left menu, select **Fine-tuning**.
+1. On the model's **Details** page, select **fine-tune**.
+   
 1. If this is the first time you fine-tuned the model in the project, you have to sign up your project for the particular offering from the Azure Marketplace. Each project has its own connection to the marketplace's offering, which, allows you to control and monitor spending per project. Select **Continue to fine-tune**.
 
     > [!NOTE]
@@ -237,8 +236,6 @@ To fine-tune a Llama 2 model in an existing Azure AI Studio project, follow thes
 1. Task parameters are an optional step and an advanced option- Tuning hyperparameter is essential for optimizing large language models (LLMs) in real-world applications. It allows for improved performance and efficient resource usage. The default settings can be used or advanced users can customize parameters like epochs or learning rate.
 
 1. Review your selections and proceed to train your model.
-
-Check the status of your model in "Fine-tuning" page under the "Build" tab. In the Fine-tuning page you can find your fine-tuned models, the status and more information about your fine-tuned model.
 
 Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Llama 2 family of large language models with Azure AI Studio](./deploy-models-llama.md).
 
