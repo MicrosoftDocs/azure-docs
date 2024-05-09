@@ -15,7 +15,7 @@ You can set up Azure Key Vault to manage your container app's certificates to ha
 
 ## Prerequisites
 
-- [Azure Key Vault](/azure/key-vault/): Make sure you have a certificate stored in Azure Key Vault.
+- [Azure Key Vault](/azure/key-vault/general/manage-with-cli2): Create a Key Vault resource.
 
 - [Azure CLI](/cli/azure/install-azure-cli): You need the Azure CLI updated with the Azure Container Apps extension version `0.3.49` or higher. Use the `az extension add` command to install the latest version.
 
@@ -40,13 +40,23 @@ An [Azure Key Vault](/azure/key-vault/general/manage-with-cli2) instance is requ
 1. Go to your certificate's details and copy the value for *Secret Identifier* and paste it into a text editor for use in an upcoming step.
 
     > [!NOTE]
-    > The secret identifier with a version suffix only attempts to get a certificate from the specified version. If you are using a secret identifier without a version suffix, it uses the latest version.
+    > To retrieve a specific version of the certificate, include the version suffix with the secret identifier. To get the latest version, remove the version suffix from the identifier.
 
-## Assign roles
+## Enable and configure Key Vault Certificate
 
-1. Open the [Azure portal](https://portal.azure.com) and find your instance of your Azure Container Apps environment where you want to import a certificate.
+1. Open the Azure portal and go to your Key Vault.
 
-1. Go to the *Identity* tab and set *RBAC* to **Key Vault Secrets User**.
+1. In the *Objects* section, select **Certificates**.
+
+1. Select the certificate you want to use.
+
+1. In the *Access control (IAM)* section, select **Add role assignment**.
+
+1. Add the roles: **Key Vault Certificates Officer** and **Key Vault Secrets Officer**.
+
+1. Go to your certificate's details and copy the value for **Secret Identifier**.
+
+1. Paste the identifier into a text editor for use in an upcoming step.
 
 ## Import a certificate
 
