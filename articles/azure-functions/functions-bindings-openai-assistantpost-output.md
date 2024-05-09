@@ -95,12 +95,12 @@ This example demonstrates the creation process, where the HTTP POST function tha
 ::: zone pivot="programming-language-csharp"  
 ## Attributes
 
-Aapply the `PostUserQuery` attribute to define an assistant post output binding, which supports these parameters:
+Apply the `PostUserQuery` attribute to define an assistant post output binding, which supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **Id** | Gets the ID of the assistant to update. |
-| **Model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
+| **Id** | The ID of the assistant to update. |
+| **Model** | The name of the OpenAI chat model to use. For Azure OpenAI, this value is the name of the model deployment. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -110,9 +110,9 @@ The `PostUserQuery` annotation enables you to define an assistant post output bi
 
 | Element | Description |
 | ------- | ----------- |
-| **name** | Gets or sets the name of the output binding. |
-| **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
+| **name** | The name of the output binding. |
+| **id** | The ID of the assistant to update. |
+| **model** | The name of the OpenAI chat model to use. For Azure OpenAI, this value is the name of the model deployment. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -123,8 +123,8 @@ During the preview, define the output binding as a `generic_output_binding` bind
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
+| **id** | The ID of the assistant to update. |
+| **model** | The name of the OpenAI chat model to use. For Azure OpenAI, this value is the name of the model deployment. |
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -137,8 +137,8 @@ The binding supports these configuration properties that you set in the function
 | **type** | Must be `PostUserQuery`. |
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
-| **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
+| **id** | The ID of the assistant to update. |
+| **model** | The name of the OpenAI chat model to use. For Azure OpenAI, this value is the name of the model deployment. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -148,8 +148,8 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| **id** | Gets the ID of the assistant to update. |
-| **model** | Gets or sets the OpenAI chat model to use. When using Azure OpenAI, then should be the name of the model `deployment`. |
+| **id** | The ID of the assistant to update. |
+| **model** | The name of the OpenAI chat model to use. For Azure OpenAI, this value is the name of the model deployment. |
 
 ::: zone-end  
 
