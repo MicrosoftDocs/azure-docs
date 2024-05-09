@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create, provision, verify, upd
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 04/29/2024
+ms.date: 05/09/2024
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-ui
