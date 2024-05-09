@@ -340,7 +340,7 @@ To collect ingestion agent logs, follow [the Azure Monitor documentation to inst
 - We also recommend following [the documentation to add a `Linux Syslog` Data source](../azure-monitor/agents/data-collection-syslog.md) to your data collection rule, to allow for auditing of all processes running on the VM.
 - After adding the data collection rule, you can query the ingestion agent logs through the Log Analytics workspace. Use the following query to make them easier to work with:
   ```
-  <CustomTableName>_CL
+  <CustomTableName>
   | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')  // Remove any color tags
   | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message  // Parse the log lines into the TimeGenerated, Level and Message columns for easy filtering
   | order by TimeGenerated desc
