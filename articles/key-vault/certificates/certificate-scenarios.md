@@ -113,13 +113,14 @@ When you are importing the certificate, you need to ensure that the key is inclu
 
 ### Formats of Merge CSR we support
 
-AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA).
-If you need to covert the P7B's format to the supported one, you can use [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode)
+Azure Key Vault supports PKCS#8 encoded certificate with below headers:
 
 -----BEGIN CERTIFICATE-----
 
 -----END CERTIFICATE-----
 
+>[!Note]
+> P7B (PKCS#7) signed certificates chain, commonly used by Certificate Authorities (CAs), is supported as long as is base64 encoded. You may use `certutil -encode` to convert to supported format.
 
 ## Creating a certificate with a CA not partnered with Key Vault  
  This method allows working with other CAs than Key Vault's partnered providers, meaning your organization can work with a CA of its choice.  
