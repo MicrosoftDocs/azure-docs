@@ -143,9 +143,9 @@ Currently, Bobby has a logic app that runs every 10 minutes to generate a summar
 
 Speed up and improve your investigations by adding summary data to alerts.
 
-**Scenario**: Tan's team needs to create an analytics rule for Microsoft Sentinel customers to detect suspicious sign-ins to their system from sensitive and privileged accounts.
+**Scenario**: Rami's team needs to create an analytics rule for Microsoft Sentinel customers to detect suspicious sign-ins to their system from sensitive and privileged accounts.
 
-**Challenge**: While analytics rules only look back on the last 75 minutes of user sign-in events, Tan's team needs to watch user information from the last seven days. Also, queries that run directly against the `IdentityInfo` table often time out when there are a large number of records, resulting in missing alerts.
+**Challenge**: While analytics rules only look back on the last 75 minutes of user sign-in events, Rami's team needs to watch user information from the last seven days. Also, queries that run directly against the `IdentityInfo` table often time out when there are a large number of records, resulting in missing alerts.
 
 **Solution**: Use summary rules to do the following:
 
@@ -175,6 +175,23 @@ The current detection also runs a summary query on a separate logic app for each
 
     - Reference at least 30 days worth of summary data to create a strong baseline.
     - Apply `percentile()` in your query to calculate the deviation from the baseline
+
+### Generate alerts on threat intelligence matches against network data
+
+Generate alerts on threat intelligence matches against noisy, high volume, and low-security value network data.
+
+**Scenario**: Shain needs to build an analytics rule for firewall logs to match domain names in the system that have been visted agsinst a threat intelligece domain name list. 
+
+Most of the data sources are raw logs that are noisy and have high volume, but have lower security value, including IP addresses, Azure Firewall traffic, Fortigate traffic, and so on. There's a total volume of about 1 TB per day.
+
+**Challenge**: Creating separate rules requires multiple logic apps, requiring extra setup and maintenance overhead and costs.
+
+**Solution**: We recommed that Shain use summary rules to do the following:
+
+1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. ASIM functions might be helpful in the summary query. <!--why?-->
+
+1. Create an analytics rule to trigger an alert for anytime a domain name in the summary data matches an entry on the threat intelligence list. 
+
 
 ## Related content
 
