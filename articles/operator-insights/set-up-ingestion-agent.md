@@ -36,7 +36,7 @@ When using an Azure VM:
 
 - Give the VM a private IP address.
 - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
-- Beyond this, network configuration depends on whether restricted access is set up on the data product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
+- Beyond this, network configuration depends on whether restricted access is set up on the Data Product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
  
 When using an on-premises VM:
 
@@ -55,7 +55,7 @@ Ensure Azure disk encryption is enabled (this is the default when you create the
 
 Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record sign-in attempts and actions taken by logged-in users.
 
-We recommend that you restrict the following:
+We recommend that you restrict the following types of access.
 - Admin access to the VM (for example, to stop/start/install the ingestion agent).
 - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
 - Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
@@ -69,7 +69,7 @@ When using an Azure VM, also follow all recommendations from Microsoft Defender 
 
 The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
 
-- Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
+- Service principal with certificate credential. If the ingestion agent is running outside of Azure, such as in an on-premises network, you must use this method. 
 - Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It doesn't require handling any credentials (unlike a service principal).
 
 > [!IMPORTANT]
@@ -82,9 +82,9 @@ If the ingestion agent is running in Azure, we recommend managed identities. For
 > [!NOTE]
 > Ingestion agents on Azure VMs support both system-assigned and user-assigned managed identities. For multiple agents, a user-assigned managed identity is simpler because you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
-1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, don't create a user-assigned managed identity.
+1. Create or obtain a user-assigned managed identity, by following the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, don't create a user-assigned managed identity.
 1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
-1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
+1. Note the Object ID of the managed identity. The Object ID is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
 
 You can now [grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 
@@ -208,7 +208,7 @@ The agent software package is hosted on the "Linux software repository for Micro
 To download and install a package from the software repository, follow the relevant steps for your VM's Linux distribution in [
 How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository).
 
- For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
+ For example, if you're installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
 
 - distribution:  `rhel`
 - version: `8`
@@ -217,8 +217,8 @@ How to install Microsoft software packages using the Linux Repository](/linux/pa
 ## Configure the agent software
 
 The configuration you need is specific to the type of source and your Data Product. Ensure you have access to your Data Product's documentation to see the required values. For example:
-- [Quality of Experience - Affirmed MCC Data Product - required agent configuration](concept-mcc-data-product.md#required-agent-configuration)
-- [Monitoring - Affirmed MCC Data Product - required agent configuration](concept-monitoring-mcc-data-product.md#required-agent-configuration)
+- [Quality of Experience - Affirmed MCC Data Product - ingestion configuration](concept-mcc-data-product.md#required-ingestion-configuration)
+- [Monitoring - Affirmed MCC Data Product - ingestion configuration](concept-monitoring-mcc-data-product.md#required-ingestion-configuration)
 
 1. Connect to the VM over SSH.
 1. Change to the configuration directory.
