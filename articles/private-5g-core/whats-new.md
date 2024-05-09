@@ -42,8 +42,8 @@ ISSU is supported for deployments on a 2-node cluster, software upgrades can be 
 
 ### Azure Resource Health 
 
-This feature allows you to monitor the health of your control plane resource using Azure Resource Health. This is a service that processes and displays health signals from your resource and displays the health in the Azure portal. It gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
-For more information, see [Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview).
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health. Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+For more information, see [Resource Health overview](resource-health-overview).
 
 ### NAS Encryption
 
