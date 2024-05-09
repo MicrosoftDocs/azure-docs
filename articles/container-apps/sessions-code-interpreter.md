@@ -11,7 +11,7 @@ ms.author: antchu
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)
 
-Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is safe to run untrusted code.
+Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
 
 > [!NOTE]
 > Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](#preview-limitations) for more information.
@@ -70,6 +70,9 @@ You can define the following settings when you create a session pool:
 | `--max-concurrent-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
 | `--cooldown-period` | The number of allowed idle seconds before termination. The idle period is reset each time the session's API is called. The allowed range is between `300` and `3600`. |
 | `--egress-enabled` | Designates whether outbound network traffic is allowed from the session. The default value is `false`. |
+
+> [!IMPORTANT]
+> If you enable egress, code running in the session can access the internet. Use caution when the code is untrusted as it can be used to perform malicious activities such as denial-of-service attacks.
 
 ### Get the pool management API endpoint with Azure CLI
 
@@ -225,6 +228,8 @@ To reuse a session, specify the same session identifier in subsequent requests.
 
 To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a filename.
 
+Uploaded files are stored in the session's file system under the `/mnt/data` directory.
+
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 
 ```http
@@ -242,7 +247,7 @@ Content-Type: application/octet-stream
 
 #### Download a file from a session
 
-To download a file from a session, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
+To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 
@@ -253,7 +258,7 @@ Authorization: Bearer <TOKEN>
 
 #### List the files in a session
 
-To list the files in a session, send a `GET` request to the `files` endpoint.
+To list the files in a session's `/mnt/data` directory, send a `GET` request to the `files` endpoint.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 
