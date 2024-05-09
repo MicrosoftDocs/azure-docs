@@ -28,7 +28,7 @@ You can find the Jais model in the model catalog by filtering on the Core42 coll
     > [!IMPORTANT]
     > For Jais models, the pay-as-you-go model deployment offering is only available with workspaces created in EastUS2 or Sweden Central region.
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../ai-studio/concepts/rbac-ai-studio.md).
 
 
 ### Jais 30B Chat
@@ -94,7 +94,7 @@ These models can be consumed using the chat API.
 
 1. Copy the **Target** URL and the **Key** value.
 
-For more information on using the APIs, see the [reference](#chat-api-reference-for-jais-models-deployed-as-a-service) section.
+For more information on using the APIs, see the [reference](#chat-api-reference-for-jais-deployed-as-a-service) section.
 
 ## Chat API reference for Jais deployed as a service
 
@@ -266,9 +266,9 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../ai-studio/concepts/content-filtering.md).
 
 ## Next steps
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
+- [What is Azure AI Studio?](../ai-studio/what-is-ai-studio.md)
+- [Azure AI FAQ article](../ai-studio/faq.yml)
