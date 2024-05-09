@@ -110,7 +110,7 @@ For the whole flow run, after you execute the flow, you can see the run status i
 
 :::image type="content" source="./media/how-to-develop-flow/view-flow-output.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/view-flow-output.png":::
 
-:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
+:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of trace detail." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
 
 **Understand the trace view**
 
