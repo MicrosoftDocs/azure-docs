@@ -35,7 +35,7 @@ The goal of hubs is to take away this bottleneck, by letting IT set up a secure,
 
 ## Interoperability between ML studio and AI studio
 
-Hubs can be used as your team's collaboration environment for both ML studio and [AI studio](). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications reponsibly.
+Hubs can be used as your team's collaboration environment for both ML studio and [AI studio](../ai-studio/what-is-ai-studio.md). Use ML Studio for training and operationalizing custom machine learning models. Use AI studio as experience for building and operating AI applications reponsibly.
 
 | Workspace Kind | ML Studio | AI Studio |
 | --- | --- | --- |
