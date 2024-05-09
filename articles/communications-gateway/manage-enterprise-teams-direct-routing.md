@@ -46,11 +46,13 @@ This procedure provides detailed guidance equivalent to the following steps in t
 Azure Communications Gateway has _per-region domain names_ for connecting to Microsoft Teams Direct Routing. You need to choose subdomains of these domain names for your customer. Microsoft Phone System and Azure Communications Gateway use these subdomains to match calls to tenants.
 
 1. Work out the per-region domain names for connecting to Microsoft Teams Direct Routing. These domain names use the form `1r<region-number>.<base-domain-name>`. The base domain name is the **Domain** on your Azure Communications Gateway resource in the [Azure portal](https://azure.microsoft.com/).
-
-[!INCLUDE [communications-gateway-direct-routing-subdomain-calculation](includes/communications-gateway-direct-routing-subdomain-calculation.md)]
-
+1. Choose a suitable customer-specific DNS label to form the subdomains.
+    - The label must be up to **nine** characters in length and can only contain letters, numbers, underscores, and dashes.
+    - You must not use wildcard subdomains or subdomains with multiple labels.
+    - For example, you could allocate the label `contoso`.
+    > [!IMPORTANT]
+    > The full customer subdomains (including the per-region domain names) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
 1. Use this label to create a _customer subdomain_ of each per-region domain name for your Azure Communications Gateway.
-
 1. Make a note of the label you choose and the corresponding customer subdomains.
 
 For example:
