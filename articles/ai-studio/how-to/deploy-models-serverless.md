@@ -197,7 +197,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
     1. Go to the [Azure portal](https://portal.azure.com).
 
-    1. Navigate to the resource group where the project is deployed.
+    1. Navigate to the resource group where the project belongs.
 
     1. On the **Type** filter, select **SaaS**.
 
@@ -437,7 +437,7 @@ To delete the associated model subscription:
 
 1. Go to the [Azure portal](https://portal.azure.com)
 
-1. Navigate to the resource group where the project is deployed.
+1. Navigate to the resource group where the project belongs.
 
 1. On the **Type** filter, select **SaaS**.
 
@@ -477,7 +477,7 @@ client.marketplace_subscriptions.begin_delete(subscription_name).wait()
 
 # [ARM](#tab/arm)
 
-You can use the resource management tools to manage the resources. In the following code, we use Azure CLI:
+You can use the resource management tools to manage the resources. The following code uses Azure CLI:
 
 ```azurecli
 az resource delete --name <resource-name>
