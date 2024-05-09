@@ -5,9 +5,9 @@ description: Learn about to consume deployed serverless API endpoints from a dif
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.topic: conceptual
-ms.date: 05/03/2024
-ms.reviewer: msakande 
+ms.topic: how-to
+ms.date: 05/09/2024
+ms.reviewer: mopeakande
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
@@ -31,13 +31,13 @@ In this example, you learn how to configure an existing serverless API endpoint 
 
 - You need to install the following software to work with Azure Machine Learning:
 
-    # [Portal](#tab/portal)
+    # [Studio](#tab/azure-studio)
 
     You can use any compatible web browser to navigate [Azure Machine Learning](https://ml.azure.com).
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
-    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](how-to-configure-cli.md).
+    The [Azure CLI](/cli/azure/) and the [ml extension for Azure Machine Learning](how-to-configure-cli.md).
 
     ```azurecli
     az extension add -n ml
@@ -56,7 +56,7 @@ In this example, you learn how to configure an existing serverless API endpoint 
     az configure --defaults workspace=<workspace-name> group=<resource-group> location=<location>
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
@@ -78,11 +78,11 @@ Follow these steps to create a connection:
 
 1. Connect to the workspace where the endpoint is deployed:
 
-    # [Portal](#tab/portal)
+    # [Studio](#tab/azure-studio)
 
     Go to [Azure Machine Learning Studio](https://ml.azure.com) and follow these steps and navigate to the workspace where the endpoint you want to connect to is deployed.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     Configure the CLI to point to the workspace:
 
@@ -91,7 +91,7 @@ Follow these steps to create a connection:
     az configure --defaults workspace=<workspace-name> group=<resource-group> location=<location>
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     Create a client connected to your workspace:
 
@@ -106,7 +106,7 @@ Follow these steps to create a connection:
 
 1. Get the endpoints URL and credentials for the endpoint you want to connect to. In this example, we get the details for an endpoint name **meta-llama3-8b-qwerty**.
 
-    # [Portal](#tab/portal)
+    # [Studio](#tab/azure-studio)
 
     1. Go to **Endpoints** and select **Serverless**.
 
@@ -114,13 +114,13 @@ Follow these steps to create a connection:
 
     1. On the **Details** tab, copy the URL on **Target** and the value for **Key**.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az ml serverless-endpoint get-credentials -n meta-llama3-8b-qwerty
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     endpoint_name = "meta-llama3-8b-qwerty"
@@ -133,7 +133,7 @@ Follow these steps to create a connection:
 
 1. Create the connection in the workspace:
 
-    # [Portal](#tab/portal)
+    # [Studio](#tab/azure-studio)
 
     Go to [Azure Machine Learning Studio](https://ml.azure.com) and follow these steps:
 
@@ -153,7 +153,7 @@ Follow these steps to create a connection:
 
     1. Select **Add connection**.
 
-    # [CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     Create a connection definition:
 
@@ -170,7 +170,7 @@ Follow these steps to create a connection:
     az ml connection create -f connection.yml
     ```
 
-    # [Python](#tab/sdk)
+    # [Python SDK](#tab/python)
 
     ```python
     client.connections.create(ServerlessConnection(
