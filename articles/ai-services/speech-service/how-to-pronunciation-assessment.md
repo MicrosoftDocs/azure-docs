@@ -619,7 +619,7 @@ You can get pronunciation assessment scores for:
 
 ### Supported features per locale
 
-The following table summarizes which features that locales support. For more specifies, see the following sections.
+The following table summarizes which features that locales support. For more specifies, see the following sections. If the locales you require aren't listed in the following table for the supported feature, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
 | Phoneme alphabet | IPA     | SAPI |
 |:-----------------|:--------|:-----|

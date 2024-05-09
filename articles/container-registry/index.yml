@@ -136,6 +136,8 @@ landingContent:
             url: policy-reference.md
           - text: Deprecated APIs
             url: container-registry-api-deprecation.md
+          - text: Service Tags
+            url: container-registry-service-tag.md
   # Card (optional)    
   - title: Security
     linkLists:
