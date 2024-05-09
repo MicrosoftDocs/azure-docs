@@ -31,7 +31,7 @@ You can find the Jais model in the [Model Catalog](model-catalog.md) by filterin
     > For Jais models, the pay-as-you-go model deployment offering is only available with AI hubs created in East US 2 or Sweden Central region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../ai-studio/concepts/rbac-ai-studio.md).
 
 
 ### Jais 30B Chat
@@ -50,7 +50,7 @@ In this article, you learn how to use Azure AI Studio to deploy the Jais model a
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-The previously mentioned Jais model can be deployed as a service with pay-as-you-go, and is offered by Core42 through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Jais model can be deployed as a service with pay-as-you-go, and is offered by Core42 through the Microsoft Azure Marketplace. Jais can change or update the terms of use and pricing of this model.
 
 
 ### Create a new deployment
