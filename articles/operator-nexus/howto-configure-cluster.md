@@ -110,7 +110,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 ### Create the Cluster using Azure Resource Manager template editor:
 
-An alternate way to create a Cluster is with the ARM template editor.  [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
+An alternate way to create a Cluster is with the ARM template editor.
 
 In order to create the cluster this way, you will need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
 You can find examples of these two files here:
@@ -120,7 +120,8 @@ You can find examples of these two files here:
 
 Note:  To get the correct formatting, copy the raw code file.  The values within the cluster.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
 
-
+In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in. \
+From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services. \
 Click on Build your own template in the editor. \
 Click on Load file. Locate your cluster.jsonc template file and upload it. \
 Click Save. \
