@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 
 # Get started with Key Vault certificates
-This guideline help you get started with certificate management in Key Vault.
+This guideline helps you get started with certificate management in Key Vault.
 
 List of scenarios covered here:
 - Creating your first Key Vault certificate
