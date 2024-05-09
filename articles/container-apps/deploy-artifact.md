@@ -181,7 +181,7 @@ Copy the FQDN to a web browser. From your web browser, go to the `/albums` endpo
 
 ## Deploy a WAR file
 
-You can also deploy your container app from a [WAR file](java-deploy-war-file.md).
+You can also deploy your container app from a [WAR file](java-get-started.md?tabs=war).
 
 ## Clean up resources
 
