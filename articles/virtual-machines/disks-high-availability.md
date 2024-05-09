@@ -59,6 +59,10 @@ VMs deployed across multiple availability zones may have higher network latency 
 
 To deploy resources across availability zones, you can either use [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or [deploy resources across availability zones](#deploy-vms-and-disks-across-three-availability-zones).
 
+The following diagram depicts how both zone-redundant Virtual Machine Scale Sets and availability zones work.
+
+:::image type="content" source="media/disks-high-availability/disks-availability-zones.png" alt-text="Diagram of zones." lightbox="media/disks-high-availability/disks-availability-zones.png":::
+
 #### Use zone-redundant Virtual Machine Scale Sets with flexible orchestration
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed across multiple availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
