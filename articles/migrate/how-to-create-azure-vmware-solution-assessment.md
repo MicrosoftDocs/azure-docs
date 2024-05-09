@@ -22,7 +22,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Discovery and assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
-- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format.
+- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format or [import your RVTools XLSX file](./tutorial-import-vmware-using-rvtools-xlsx.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
