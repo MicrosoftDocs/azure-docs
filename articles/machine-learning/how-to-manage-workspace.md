@@ -166,6 +166,14 @@ This class requires an existing virtual network.
 
 1. When you finish the network configuration, you can select **Review + Create**, or advance to the optional **Encryption** configuration.
 
+# [Studio](#tab/studio)
+
+1. To create a workspace with disabled internet connectivity via Studio, you should specify a hub workspace which has public network access disabled. Workspaces created without a hub in AI studio, will have public internet access enabled. A private hub can be recognized by the 'lock' icon.
+
+   :::image type="content" source="media/how-to-manage-workspace/studio-private-hub-selection.png" alt-text="A private hub can be recognized by the 'lock' icon.":::
+ 
+1. If you do not select a hub workspace at time of creation, the default network configuration uses a **Public endpoint**, which is accessible on the public internet. 
+
 ---
 
 ### Encryption
@@ -221,6 +229,12 @@ ml_client.workspaces.begin_create(ws)
 
    :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Select the key":::
 
+# [Studio](#tab/studio)
+
+1. To create a workspace with customer-managed key encryption via Studio, you should specify a hub workspace which has customer-managed key encryption enabled. Check your hub workspace in Azure portal to understand its configuration. 
+ 
+1. If you do not select a hub workspace at time of creation, your workspace will use Microsoft-managed keys by default.
+   
 ---
 
 ### Identity
