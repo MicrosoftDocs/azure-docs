@@ -15,7 +15,7 @@ ms.subservice: calling
 
 # Get started with Azure Communication Services UI library calling to Teams Voice Apps
 
-![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
+![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png=220x)
 
 This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
