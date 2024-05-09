@@ -52,7 +52,7 @@ The applicable Permissions Management (CIEM) recommendations appear on your subs
 
 List of Azure recommendations:
 
-- Azure ove-rprovisioned identities should have only the necessary permissions
+- Azure over-provisioned identities should have only the necessary permissions
 
 - Unused identities in your Azure environment should be revoked/removed
 
