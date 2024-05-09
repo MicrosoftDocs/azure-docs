@@ -1,6 +1,6 @@
 ---
-title: azure_local_ai extension
-description: An overview article describing the features and use cases of the azure_local_ai extension for Azure Database for PostgreSQL - Flexible Server.
+title: Create in-database embeddings with azure_local_ai extension
+description: An overview article describing the features and use cases of the azure_local_ai extension for Azure Database for PostgreSQL - Flexible Server. Enable RAG patterns with in-database embeddings and vectors on Azure Database for PostgreSQL
 author: jojohnso-msft
 ms.author: jojohnso
 ms.reviewer: maghan
@@ -19,7 +19,7 @@ The azure_local_ai extension for Azure Database for PostgreSQL flexible server a
 
 Local embeddings help customers:
 
-- Reduce latency during embedding creation.
+- Reduce latency of embedding creation.
 
 - Use embedding models at a predictable cost.
 
@@ -30,14 +30,11 @@ Local embeddings help customers:
 
 ## Enable the azure_local_ai extension (preview)
 
-Before you can enable azure_local_ai on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](concepts-extensions.md) and check that it was correctly added by running the following SQL statement,
+Before you can enable azure_local_ai on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](concepts-extensions.md) and check that it was correctly added by running the following SQL statement,  SHOW azure.extensions;
 
 > [!IMPORTANT]  
 > Hosting language models in the database requires a large memory footprint. To support this requirement, azure_local_ai is only supported on memory-optimized Azure SKUs.
 
-```sql
- SHOW azure.extensions;
-```
 
 Select "Server parameters" from the Settings section of the Resource Menu in the Azure Database for PostgreSQL Flexible Server Azure portal page.
 
@@ -111,6 +108,17 @@ These can be displayed via the PSQL command,
 \df azure_local_ai.*
 ```
 
+# Create Embeddings
+
+The azure_local_ai extension allows you to create and update embeddings both in scalar and batch format. 
+
+## Scalar embedding
+
+
+```sql
+SELECT azure_local_ai.create_embeddings('multilingual-e5-small:v2', 'query: Vector databases are awesome');
+```
+
 # ONNX Runtime Configuration
 
 azure_local_ai supports changing configuration parameters of ONNX Runtime thread-pool within the ONNX Runtime Service. Changes are not allowed when a model is loaded into memory. You must unload all models and then apply configuration changes. (No restart required). Currently supported list of parameters:
@@ -124,8 +132,8 @@ azure_local_ai supports changing configuration parameters of ONNX Runtime thread
 
 You can review these settings with the get_setting function. 
 
-```psql
-local_ai.get_setting()
+```sql
+SELECT azure_local_ai.get_setting()
 ```
 
 [See ONNX Runtime performance tuning.](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
