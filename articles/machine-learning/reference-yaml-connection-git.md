@@ -29,7 +29,7 @@ ms.reviewer: larryfr
 | `tags` | object | The connection tag dictionary. | | |
 | `type` | string | **Required.** The connection type. | `git` | `git` |
 | `is_shared` | boolean | `true` if the connection is shared across other projects in the hub; otherwise, `false`. | | `true` |
-| `target` | string | The URL of the github repo. | | |
+| `target` | string | The URL of the GitHub repo. | | |
 | `credentials` | object | Credential-based authentication to access the storage account. A [personal access token](https://docs.github.com/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). Do not specify `credentials` when using a public repo. | | |
 | `credentials.type` | string | The type of authentication to use. | `pat` | |
 | `credentials.pat` | string | The personal access token to authenticate with. | | |
