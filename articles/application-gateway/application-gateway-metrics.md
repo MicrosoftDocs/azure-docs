@@ -30,6 +30,12 @@ Application Gateway provides several built‑in timing metrics related to the re
 
 You can use timing metrics to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size. For more information, see [Timing metrics](monitor-application-gateway-reference.md#timing-metrics).
 
+For example, if there's a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, you can infer that the application gateway to backend latency and the time taken to establish the connection is stable. The spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, you can deduce that either the network between Application Gateway and backend server or the backend server TCP stack has saturated.
+
+If you notice a spike in *Backend last byte response time* but the *Backend first byte response time* is stable, you can deduce that the spike is because of a larger file being requested.
+
+Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that the degradation is because of the network between client and Application Gateway.
+
 ### Application Gateway metrics
 
 For Application Gateway, there are several metrics available. For a list, see [Application Gateway metrics](monitor-application-gateway-reference.md#application-gateway-metrics).
@@ -96,7 +102,7 @@ Browse to an application gateway, under **Monitoring** select **Metrics**. To vi
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric view." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Screenshot shows the Metric view of three metrics." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
