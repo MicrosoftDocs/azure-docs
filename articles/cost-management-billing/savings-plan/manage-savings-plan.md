@@ -52,27 +52,15 @@ Selectable scopes must be from Enterprise offers (MS-AZR-0017P or MS-AZR-0148P),
 If you aren't a billing administrator and you change from shared to single scope, you may only select a subscription where you're the owner. Only subscriptions within the same billing account/profile as the savings plan can be selected.
 
 If all subscriptions are moved out of a management group, the scope of the savings plan is automatically changed to **Shared**.
+
 ## Change the autorenewal setting
-To update the autorenewal setting as a billing administrator:
-1. Sign in to the Azure portal and go to **Cost Management + Billing**.
-    - If you're an Enterprise Agreement admin, on the left menu, select **Billing scopes**. Then in the list of billing scopes, select one.
-    - If you're a Microsoft Customer Agreement billing profile owner, on the left menu, select **Billing profiles**. In the list of billing profiles, select one.
-1. On the left menu, select **Products + services** > **Savings plans**. The list of savings plans for your Enterprise Agreement enrollment or billing profile appears.
-1. Select the savings plan you want.
-1. Select **Settings** > **Renewal**.
+To learn more about modifying auto-renewal settings for a savings plan, see [change auto-renewal settings](manage-savings-plan.md#change-the-autorenewal-setting).
 
-If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to update the autorenewal setting.
-1. Sign in to the Azure portal.
-1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
-1. Select the savings plan you want.
-1. Select **Settings** > **Renewal**.
-
-## View savings plan details and utilization
-If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to view savings plan details and utilization.
-1. Sign in to the Azure portal.
-1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
-1. Select the savings plan you want.
-1. To rename the savings plan, select **Rename**. To view payment history or upcoming payments, select the link to the right of **Billing frequency**.
+## View savings plan reporting details
+- To learn more about viewing savings plan utilization, see [view savings plan utilization](view-utilization).
+- To learn more about viewing savings plan cost and usage, see [view savings plan cost and usage exports](utilization-cost-reports).
+- To learn more about viewing savings plan transactions, see [view savings plan transactions](view-transactions).
+- To learn more about viewing savings plan amortized costs, see [view amortized costs](../reservations/view-amortized-costs.md).
 
 ## Delegate savings plan RBAC roles
 Users and groups who gain the ability to purchase, manage, or view savings plans via RBAC roles must do so from **Home** > **Savings plan**.
