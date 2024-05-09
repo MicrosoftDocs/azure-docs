@@ -1,14 +1,14 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 05/03/2024
+ms.date: 05/09/2024
 ms.service: vpn-gateway
 ms.topic: include
 
 ---
 Microsoft now has an authorized registered Microsoft Entra ID Enterprise app for the latest version of the Azure VPN Client. With previous versions of the Azure VPN Client, you were required to manually register (or integrate) the Azure VPN Client with your Microsoft Entra tenant. This created an App ID representing the identity of the Azure VPN Client application.
 
-When you configure a P2S VPN gateway using the new Microsoft-registered App ID and corresponding Audience Value, you skip the manual app registration process for your tenant. The App ID is already created and your tenant is automatically able to use it with no additional registration steps. To better understand the difference between the types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added). When possible, we recommend that you configure new P2S gateways using Microsoft-registered App ID and corresponding Audience values instead of manually registering the Azure VPN Client app.
+When you configure a P2S VPN gateway using the new Microsoft-registered Azure VPN Client and corresponding Audience Value, you skip the manual application registration process for the Azure VPN Client with your Entra tenant. The App ID is already created and your tenant is automatically able to use it with no extra registration steps. Additionally, this process is more secure than manually registering the Azure VPN Client because you don't need to grant Global Administrator permissions for the app. To better understand the difference between the types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added). When possible, we recommend that you configure new P2S gateways using Microsoft-registered Azure VPN client process and corresponding Audience values, instead of manually registering the Azure VPN Client app.
 
 Considerations and limitations:
 

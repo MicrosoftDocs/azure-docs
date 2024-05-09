@@ -1,24 +1,24 @@
 ---
-title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered Azure VPN Client App ID'
+title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered Azure VPN Client'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure P2S gateway settings and Microsoft Entra ID authentication using Microsoft-registered Azure VPN Client App ID.
+description: Learn how to configure P2S gateway settings and Microsoft Entra ID authentication using Microsoft-registered Azure VPN Client.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/09/2024
 ms.author: cherylmc
 
-# Customer intent: As an VPN Gateway administrator, I want to configure point-to-site to allow Microsoft Entra ID authentication using the Azure VPN client for Linux.
+# Customer intent: As an VPN Gateway administrator, I want to configure point-to-site to allow Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client APP ID.
 ---
 
-# Configure a P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered App ID (Preview)
+# Configure a P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered Azure VPN Client (Preview)
 
-This article helps you configure your point-to-site (P2S) VPN gateway to use Microsoft Entra ID authentication and the new Microsoft-registered Azure VPN Client App ID.
+This article helps you configure your point-to-site (P2S) VPN gateway to use Microsoft Entra ID authentication and the new Microsoft-registered Azure VPN Client APP ID.
 
 > [!NOTE]
-> The steps in this article apply to Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client app with associated App ID and Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For manually registered App ID steps, see [Configure P2S using manually registered App ID](openvpn-azure-ad-tenant.md).
+> The steps in this article apply to Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client app with associated App ID and Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For manually registered Azure VPN Client steps, see [Configure P2S using manually registered VPN client](openvpn-azure-ad-tenant.md).
 
-[!INCLUDE [About the Microsoft-registered App ID](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
+[!INCLUDE [About the Microsoft-registered Azure VPN Client](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
 ## Point-to-site workflow
 
@@ -38,7 +38,7 @@ The articles in the [Next steps](#next-steps) section help you:
 
 ## Prerequisites
 
-**Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. If you don't already have a functioning P2S gateway environment, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Certain gateway options are incompatible with P2S VPN gateways (the Basic SKU and policy-based VPN type). The portal steps are preferable because you won't mistakenly create an incompatible gateway. Incompatible settings for P2S aren't available in the portal. For more information about settings values, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+**Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. If you don't already have a functioning P2S gateway environment, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Certain gateway options are incompatible with P2S VPN gateways (the Basic SKU and policy-based VPN type). For more information about settings values, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 **Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant).
 
