@@ -88,14 +88,9 @@ Before you set up indexing, review your source data to determine whether any cha
 
 + Include or exclude files by file type. The [supported document formats list](#SupportedFormats) can help you determine which files to exclude. For example, you might want to exclude image or audio files that don't provide searchable text. This capability is controlled through [configuration settings](#configure-and-run-the-onelake-files-indexer) in the indexer.
 
-+ Include or exclude arbitrary files. If you want to skip a specific file for whatever reason, you can add the following metadata properties and values to files in your OneLake lakehouse. When an indexer encounters this property, it skips the file or its content in the indexing run.
++ Include or exclude arbitrary files. If you want to skip a specific file for whatever reason, you can add metadata properties and values to files in your OneLake lakehouse. When an indexer encounters this property, it skips the file or its content in the indexing run.
 
-  | Property name | Property value | Explanation |
-  | ------------- | -------------- | ----------- |
-  | "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
-  | "AzureSearch_SkipContent" |`"true"` | Skips content and extracts just the metadata. this is equivalent to the `"dataToExtract" : "allMetadata"` setting described in [configuration settings](#configure-and-run-the-adls-gen2-indexer) , just scoped to a particular blob. |
-
-If you don't set up inclusion or exclusion criteria, the indexer reports an ineligible file as an error and move on. If enough errors occur, processing might stop. You can specify error tolerance in the indexer [configuration settings](#configure-and-run-the-onelake-files-indexer).
+File inclusion and exclusion is covered in the [indexer configuration](#configure-and-run-the-onelake-files-indexer) step. If you don't set criteria, the indexer reports an ineligible file as an error and moves on. If enough errors occur, processing might stop. You can specify error tolerance in the indexer [configuration settings](#configure-and-run-the-onelake-files-indexer).
 
 An indexer typically creates one search document per file, where the text content and metadata are captured as searchable fields in an index. If files are whole files, you can potentially parse them into [multiple search documents](search-howto-index-one-to-many-blobs.md). For example, you can parse rows in a [CSV file](search-howto-index-csv-blobs.md) to create one search document per row. If you need to chunk a single document into smaller passages to vectorize data, consider using [integrated vectorization](vector-search-integrated-vectorization.md).
 
@@ -139,7 +134,7 @@ The minimum role assignment for your search service identity is Contributor.
 
    The following screenshot shows a system managed identity for a search service named "onelake-demo".
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/system_managed_identity.png" a:::
+   :::image type="content" source="media/search-how-to-index-onelake-files/system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/system_managed_identity.png":::
 
    This screenshot shows a user-managed identity for the same search service.
 
@@ -361,8 +356,6 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. Add a "content" field to store extracted text from each file through the file's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
 1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-file-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
-
-<a name="PartsOfFilesToIndex"></a> 
 
 ## Configure and run the OneLake files indexer
 
