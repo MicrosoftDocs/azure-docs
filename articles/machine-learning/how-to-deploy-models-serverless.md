@@ -13,7 +13,7 @@ ms.author: fasantia
 author: santiagxf
 ---
 
-# Deploy models as serverless APIs endpoints
+# Deploy models as serverless API endpoints
 
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token-based billing.
 
@@ -35,7 +35,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
     # [Azure CLI](#tab/cli)
 
-    The [Azure CLI](https://learn.microsoft.com/cli/azure/) and the [ml extension for Azure Machine Learning](how-to-configure-cli.md).
+    The [Azure CLI](/cli/azure/) and the [ml extension for Azure Machine Learning](how-to-configure-cli.md).
 
     ```azurecli
     az extension add -n ml
@@ -79,7 +79,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
     # [ARM](#tab/arm)
 
-    You can use any compatible web browser to [deploy ARM templates](../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](https://learn.microsoft.com/cli/azure/).
+    You can use any compatible web browser to [deploy ARM templates](../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or using any of the deployment tools. This tutorial uses the [Azure CLI](/cli/azure/).
 
 
 ## Subscribe your workspace to the model offering
