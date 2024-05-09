@@ -11,7 +11,7 @@ ms.author: antchu
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)
 
-Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated and is safe to run untrusted code.
+Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is safe to run untrusted code.
 
 > [!NOTE]
 > Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](#preview-limitations) for more information.
@@ -179,8 +179,8 @@ Instead of using the session pool management API directly, the following LLM fra
 | Framework | Package | Tutorial |
 |-----------|---------|------------|
 | LangChain | Python: [`langchain-azure-dynamic-sessions`](https://github.com/langchain-ai/langchain/blob/master/libs/partners/azure-dynamic-sessions/) | [Tutorial ](./sessions-tutorial-langchain.md) |
-| LlamaIndex | Python: [`llama-index-tools-azure-dynamic-sessions`](https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-azure-dynamic-sessions/) | [Tutorial ](./sessions-tutorial-llamaindex.md) |
-| Semantic Kernel | Python: `semantic-kernel` (0.??.? or later) | [Tutorial ](./sessions-tutorial-semantic-kernel.md) |
+| LlamaIndex | Python: [`llama-index-tools-azure-code-interpreter`](https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-azure-code-interpreter/) | [Tutorial ](./sessions-tutorial-llamaindex.md) |
+| Semantic Kernel | Python: [`semantic-kernel`](https://github.com/microsoft/semantic-kernel/python) (version 0.9.8-b1 or later) | [Tutorial ](./sessions-tutorial-semantic-kernel.md) |
 
 ### Management API endpoints
 
