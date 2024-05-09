@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions (FAQ) for Azure Files
-description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
+title: Azure Files frequently asked questions (FAQ)
+description: Get answers to frequently asked questions (FAQ) about Azure Files and Azure File Sync. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 01/26/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.topic: conceptual
 ---
 
-# Frequently asked questions (FAQ) about Azure Files
+# Frequently asked questions (FAQ) about Azure Files and Azure File Sync
 
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync for fast access close to where the data is used.
 
