@@ -16,7 +16,6 @@ ms.custom:
 
  This article covers the recommended approach, guidelines, and practices to relocate Application Gateway and WAF between Azure regions. 
 
-:::image type="content" source="media/relocation/app-gateway/application-gateway-relocation-pattern.png" alt-text="Diagram showing the relocation process of Application Gateway and WAF from one region to another.":::
 
 
 >[!IMPORTANT]
@@ -31,7 +30,7 @@ ms.custom:
 
 - For Application Gateway's deployment, you must consider and plan the setup of the following sub-resources:
     - Frontend configuration (Public/Private IP)
-    - Backend Pool Resources (ex. VMs, VMSS, Azure App Services)
+    - Backend Pool Resources (ex. VMs, Virtual Machine Scale Sets, Azure App Services)
     - Private Link
     - Certificates
     - Diagnostic Settings
@@ -55,7 +54,7 @@ If you only want to relocate in order to gain availability zones support, see [M
 
 1. Confirm that the virtual network is relocated *before* you relocate. To learn how to relocate your virtual network, see [Relocate Azure Virtual Network](./relocation-virtual-network.md).
 
-1. Confirm that the backend pool server or service, such as VM, VMSS, PaaS, is relocated *before* you relocate.
+1. Confirm that the backend pool server or service, such as VM, Virtual Machine Scale Sets, PaaS, is relocated *before* you relocate.
 
 2. Create an Application Gateway and configure a new Frontend Public IP Address for the virtual network:
     - Without WAF:  [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
@@ -85,7 +84,7 @@ The certificates for TLS termination can be supplied in two ways:
 - *Key Vault reference.* Provide a reference to an existing Key Vault certificate when you create a HTTPS/TLS-enabled listener. For more information on downloading a certificate, see [Relocate Key Vault to another region](./relocation-key-vault.md). 
 
 >[!WARNING]
- >References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal.
+ >References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal.
 
 
 Follow the documented procedure to enable [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs#configure-your-key-vault) for your relocated Application Gateway. 

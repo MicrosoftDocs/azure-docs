@@ -347,7 +347,7 @@ Deploy the template to create a new key vault in the target region.
 >[!IMPORTANT] 
 >If you plan to move a Key Vault across regions but within the same geography, it's recommended that you do  a [backup and restore for secrets, keys and certificates](/azure/key-vault/general/backup) is recommended. 
 
-1. Follow steps in the described in the [redeploy approach](#redeploy).
+1. Follow steps described in the [redeploy approach](#redeploy).
 2. For [secrets](/azure/key-vault/secrets/about-secrets):
     1. Copy and save the secret value in the source key vault.
     1. Recreate the secret in the target key vault and set the value to saved secret.
