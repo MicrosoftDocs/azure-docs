@@ -85,7 +85,7 @@ The service scans the repository to find new environment definitions. After you 
 
 ADE uses container images to define how templates for deployment environments are deployed. ADE supports ARM and Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. ADE then uses a standard ARM or Bicep container image to create the deployment environment.
 
-You can create custom ARM, Bicep, or Terraform container images for more advanced environment deployments. For example, you can run scripts before or after the deployment. 
+You can create custom ARM, Bicep, or Terraform container images for more advanced environment deployments. For example, you can run scripts before or after the deployment. ADE supports custom container images for environment deployments, which can help deploy IaC frameworks such as Pulumi and Terraform.
 
 The ADE team provides sample ARM and Bicep container images accessible through the Microsoft Artifact Registry (also known as the Microsoft Container Registry) to help you get started. 
 
