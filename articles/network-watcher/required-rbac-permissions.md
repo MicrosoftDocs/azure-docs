@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/27/2023
+ms.date: 04/24/2024
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -78,7 +78,7 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 > | Microsoft.Insights/dataCollectionEndpoints/write <sup>1</sup>       | Create or update a data collection endpoint                    |
 > | Microsoft.Insights/dataCollectionEndpoints/delete <sup>1</sup>      | Delete a data collection endpoint                              |
 
-<sup>1</sup> Only required when using traffic analytics to analyze VNet flow logs (preview). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
+<sup>1</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
 
 > [!CAUTION]
 > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.

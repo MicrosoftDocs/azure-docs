@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/21/2024
+ms.date: 04/30/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -73,7 +73,7 @@ The following table shows connectivity locations and the service providers for e
 | **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | Supported | Etisalat UAE |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | DE-CIX<br/>du datamena<br/>Equinix<br/>GBI<br/>Lightstorm<br/>Megaport<br/>Orange<br/>Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | Supported | CenturyLink Cloud Connect<br/>Colt<br/>eir<br/>Equinix<br/>GEANT<br/>euNetworks<br/>Interxion (Digital Realty)<br/>Megaport<br/>Zayo |
-| **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | InterCloud<br/>Interxion (Digital Realty)<br/>KPN<br/>Orange |
+| **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | InterCloud<br/>Interxion (Digital Realty)<br/>KPN<br/>Orange<br/>NL-IX |
 | **Frankfurt** | [Interxion FRA11](https://www.digitalrealty.com/data-centers/emea/frankfurt) | 1 | Germany West Central | Supported | AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>China Unicom Global<br/>Colt<br/>DE-CIX<br/>Equinix<br/>euNetworks<br/>GBI<br/>GEANT<br/>InterCloud<br/>Interxion (Digital Realty)<br/>Megaport<br/>NTT Global DataCenters EMEA<br/>Orange<br/>Telia Carrier<br/>T-Systems<br/>Verizon<br/>Zayo |
 | **Frankfurt2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germany West Central | Supported | DE-CIX<br/>Deutsche Telekom AG<br/>Equinix<br/>InterCloud<br/>Telefonica |
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | Supported | Colt<br/>Equinix<br/>InterCloud<br/>Megaport<br/>Swisscom |
@@ -102,7 +102,7 @@ The following table shows connectivity locations and the service providers for e
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | 1 | n/a | Supported | CenturyLink Cloud Connect<br/>Coresite<br/>Crown Castle<br/>DE-CIX<br/>Equinix<br/>InterCloud<br/>Lightpath<br/>Megaport<br/>Momentum Telecom<br/>NTT Communications<br/>Packet<br/>Zayo |
 | **Newport(Wales)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 1 | UK West | Supported | British Telecom<br/>Colt<br/>Jisc<br/>Level 3 Communications<br/>Next Generation Data |
 | **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Japan West | Supported | AT TOKYO<br/>BBIX<br/>Colt<br/>DE-CIX<br/>Equinix<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT Communications<br/>NTT SmartConnect<br/>Softbank<br/>Tokai Communications |
-| **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Norway East | Supported | GlobalConnect<br/>Megaport<br/>Telenor<br/>Telia Carrier |
+| **Oslo** | DigiPlex Ulven | 1 | Norway East | Supported | GlobalConnect<br/>Megaport<br/>Telenor<br/>Telia Carrier |
 | **Paris** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | France Central | Supported | British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>euNetworks<br/>Intercloud<br/>Interxion<br/>Jaguar Network<br/>Megaport<br/>Orange<br/>Telia Carrier<br/>Zayo<br/>Verizon |
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | Supported | Equinix<br/>InterCloud<br/>Orange |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/a | Supported | Equinix<br/>Megaport<br/>NextDC |

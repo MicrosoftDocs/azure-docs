@@ -5,7 +5,7 @@ description: This article lists Azure AI Studio feature availability across clou
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 02/26/2024
+ms.date: 04/26/2024
 ms.reviewer: deeikele
 ms.author: eur
 author: eric-urban
@@ -50,6 +50,9 @@ Azure AI Studio preview is currently not available in Azure Government regions o
 ## Azure OpenAI
 
 [!INCLUDE [OpenAI Quotas](../../ai-services/openai/includes/model-matrix/quota.md)]
+
+> [!NOTE]
+> Some models might not be available within the AI Studio model catalog.
 
 For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits).
 

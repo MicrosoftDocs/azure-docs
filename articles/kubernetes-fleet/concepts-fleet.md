@@ -1,7 +1,7 @@
 ---
 title: "Azure Kubernetes Fleet Manager and member clusters"
 description: This article provides a conceptual overview of Azure Kubernetes Fleet Manager and member clusters.
-ms.date: 04/01/2024
+ms.date: 04/23/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
@@ -25,9 +25,21 @@ A fleet consists of the following components:
 
 ## What are member clusters?
 
-The `MemberCluster` represents a cluster-scoped API established within the hub cluster, serving as a representation of a cluster within the fleet. This API offers a dependable, uniform, and automated approach for multi-cluster applications to identify registered clusters within a fleet. It also facilitates applications in querying a list of clusters managed by the fleet or in observing cluster statuses for subsequent actions. For more information, see [the upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/MemberCluster/README.md).
+The `MemberCluster` represents a cluster-scoped API established within the hub cluster, serving as a representation of a cluster within the fleet. This API offers a dependable, uniform, and automated approach for multi-cluster applications to identify registered clusters within a fleet. It also facilitates applications in querying a list of clusters managed by the fleet or in observing cluster statuses for subsequent actions.
 
 You can join Azure Kubernetes Service (AKS) clusters to a fleet as member clusters. Member clusters must reside in the same Microsoft Entra tenant as the fleet, but they can be in different regions, different resource groups, and/or different subscriptions.
+
+### Taints
+
+Member clusters support the specification of taints, which apply to the `MemberCluster` resource. Each taint object consists of the following fields:
+
+* `key`: The key of the taint.
+* `value`: The value of the taint.
+* `effect`: The effect of the taint, such as `NoSchedule`.
+
+Once a `MemberCluster` is tainted, it lets the [scheduler](./concepts-scheduler-scheduling-framework.md) know that the cluster shouldn't receive resources as part of the [resource propagation](./concepts-resource-propagation.md) from the hub cluster. The `NoSchedule` effect is a signal to the scheduler to avoid scheduling resources from a [`ClusterResourcePlacement`](./concepts-resource-propagation.md#what-is-a-clusterresourceplacement) to the `MemberCluster`.
+
+For more information, see [the upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/MemberCluster/README.md).
 
 ## What is a hub cluster (preview)?
 

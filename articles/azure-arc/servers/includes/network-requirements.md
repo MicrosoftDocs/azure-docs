@@ -30,6 +30,8 @@ Be sure to allow access to the following Service Tags:
 
 For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
+If you filter traffic to the AzureArcInfrastructure service tag, you must allow traffic to the full service tag range. The ranges advertised for individual regions, for example AzureArcInfrastructure.AustraliaEast, do not include the IP ranges used by global components of the service. The specific IP address resolved for these endpoints may change over time within the documented ranges, so just using a lookup tool to identify the current IP address for a given endpoint and allowing access to that will not be sufficient to ensure reliable access.
+
 For more information, see [Virtual network service tags](../../../virtual-network/service-tags-overview.md).
 
 ### URLs

@@ -38,6 +38,8 @@ items:
   items:
   - name: Prepare for deployment
     href: prepare-to-deploy.md
+  - name: Prepare for VNet injection preview
+    href: prepare-for-vnet-injection.md
   - name: Deploy Azure Communications Gateway
     href: deploy.md
   - name: Integrate with the Provisioning API

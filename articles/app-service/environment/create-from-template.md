@@ -163,7 +163,6 @@ However, just like apps that run on the public multitenant service, developers c
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
-[MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
 [MakeILBASE]: ./create-ilb-ase.md
 [ASENetwork]: ./network-info.md

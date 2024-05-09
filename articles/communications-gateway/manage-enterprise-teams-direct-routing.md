@@ -58,7 +58,7 @@ Provide your customer with the customer subdomains and ask them to carry out the
 
 1. Sign into the Microsoft 365 admin center as a Global Administrator.
 1. Using [Add a subdomain to the customer tenant and verify it](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-subdomain-to-the-customer-tenant-and-verify-it):
-    1. Register the first customer subdomain (for example `contoso.1-r1.<deployment-id>.commsgw.azure.com`).
+    1. Register the first customer subdomain (for example `contoso.1r1.<deployment-id>.commsgw.azure.com`).
     1. Start the verification process using TXT records.
     1. Note the TXT value that Microsoft 365 provides.
 1. Repeat the previous step for the second customer subdomain.
@@ -112,7 +112,7 @@ The customer must:
 To activate the customer subdomains in Microsoft 365, set up at least one user or resource account licensed for Microsoft Teams for each  domain name. For information on the licenses you can use and instructions, see [Activate the subdomain name](/microsoftteams/direct-routing-sbc-multiple-tenants#activate-the-subdomain-name).
 
 > [!IMPORTANT]
-> Ensure the accounts use the customer subdomains (for example, `contoso.1-r1.<deployment-id>.commsgw.azure.com`), instead of any existing domain names in the tenant.
+> Ensure the accounts use the customer subdomains (for example, `contoso.1r1.<deployment-id>.commsgw.azure.com`), instead of any existing domain names in the tenant.
 
 ### Ask the customer to configure call routing that uses Azure Communications Gateway
 
@@ -120,7 +120,7 @@ Ask the customer to [configure a call routing policy](/microsoftteams/direct-rou
 
 The customer must:
 
-- Set the PSTN gateway to the customer subdomains for Azure Communications Gateway (for example, `contoso.1-r1.<deployment-id>.commsgw.azure.com` and `contoso.1-r2.<deployment-id>.commsgw.azure.com`). This step sets up _derived trunks_ for the customer tenant, as described in the [Microsoft Teams documentation for creating trunks and provisioning users for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#create-a-trunk-and-provision-users).
+- Set the PSTN gateway to the customer subdomains for Azure Communications Gateway (for example, `contoso.1r1.<deployment-id>.commsgw.azure.com` and `contoso.1r2.<deployment-id>.commsgw.azure.com`). This step sets up _derived trunks_ for the customer tenant, as described in the [Microsoft Teams documentation for creating trunks and provisioning users for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#create-a-trunk-and-provision-users).
 - Not configure any users to use the call routing policy yet.
 
 > [!IMPORTANT]

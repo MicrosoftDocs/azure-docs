@@ -3,7 +3,7 @@ title: Use instance-level public IPs in Azure Kubernetes Service (AKS)
 description: Learn how to manage instance-level public IPs Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/23/2024
+ms.date: 04/29/2024
 ms.author: pahealy
 author: phealy
 ---
@@ -71,50 +71,13 @@ You can locate the public IPs for your nodes in various ways:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## Use public IP tags on node public IPs (PREVIEW)
+## Use public IP tags on node public IPs
 
 Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](../virtual-network/ip-services/routing-preference-overview.md) feature.
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ### Requirements
 
 * AKS version 1.24 or greater is required.
-* Version 0.5.115 of the aks-preview extension is required.
-
-### Install the aks-preview Azure CLI extension
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### Register the 'NodePublicIPTagsPreview' feature flag
-
-Register the `NodePublicIPTagsPreview` feature flag by using the [`az feature register`][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPTagsPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [`az feature show`][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPTagsPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [`az provider register`][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create a new cluster using routing preference internet
 
@@ -152,7 +115,6 @@ Examples:
 ### Requirements
 
 * AKS version 1.24 or greater is required.
-* Version 0.5.110 of the aks-preview extension is required.
 
 ### Create a new cluster with allowed ports and application security groups
 

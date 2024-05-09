@@ -55,6 +55,8 @@
         href: concept-enforcement.md
       - name: Network groups as source and destination
         href: concept-security-admin-rules-network-group.md
+    - name: User-defined routes (UDRs) management 
+    href: concept-user-defined-route.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
@@ -83,6 +85,8 @@
       href: how-to-block-network-traffic-powershell.md
     - name: Protect high-risk network ports with security admin rules and exceptions
       href: how-to-block-high-risk-ports.md
+  - name: Create user-defined routes (UDRs)
+    href: how-to-create-user-defined-route.md
   - name: Create a network topology
     items:
     - name: Hub-and-spoke
@@ -109,10 +113,10 @@
       href: how-to-configure-event-logs.md
     - name: Monitor security admin rules with Virtual Network Flow Logs
       href: concept-virtual-network-flow-logs.md
-  - name: View applied configurations
-    href: how-to-view-applied-configurations.md
-  - name: Define dynamic network group membership with Azure Policy
-    href: how-to-define-network-group-membership-azure-policy.md
+    - name: View applied configurations
+      href: how-to-view-applied-configurations.md
+    - name: Define dynamic network group membership with Azure Policy
+      href: how-to-define-network-group-membership-azure-policy.md
   - name: Common issues
     href: common-issues.md
 - name: Reference

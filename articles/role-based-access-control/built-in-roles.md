@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/13/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -311,7 +311,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='logic-app-operator'></a>[Logic App Operator](./built-in-roles/integration.md#logic-app-operator) | Lets you read, enable, and disable logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | <a name='logic-apps-standard-contributor-preview'></a>[Logic Apps Standard Contributor (Preview)](./built-in-roles/integration.md#logic-apps-standard-contributor-preview) | You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. | ad710c24-b039-4e85-a019-deb4a06e8570 |
 > | <a name='logic-apps-standard-developer-preview'></a>[Logic Apps Standard Developer (Preview)](./built-in-roles/integration.md#logic-apps-standard-developer-preview) | You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. | 523776ba-4eb2-4600-a3c8-f2dc93da4bdb |
-> | <a name='logic-apps-standard-operator-preview'></a>[Logic Apps Standard Operator (Preview)](./built-in-roles/integration.md#logic-apps-standard-operator-preview) | You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
+> | <a name='logic-apps-standard-operator-preview'></a>[Logic Apps Standard Operator (Preview)](./built-in-roles/integration.md#logic-apps-standard-operator-preview) | You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
 > | <a name='logic-apps-standard-reader-preview'></a>[Logic Apps Standard Reader (Preview)](./built-in-roles/integration.md#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. | 4accf36b-2c05-432f-91c8-5c532dff4c73 |
 > | <a name='scheduler-job-collections-contributor'></a>[Scheduler Job Collections Contributor](./built-in-roles/integration.md#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | <a name='services-hub-operator'></a>[Services Hub Operator](./built-in-roles/integration.md#services-hub-operator) | Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors. | 82200a5b-e217-47a5-b665-6d8765ee745b |

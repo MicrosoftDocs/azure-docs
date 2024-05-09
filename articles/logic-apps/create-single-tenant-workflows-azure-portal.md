@@ -63,6 +63,18 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
 * Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v4 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
 
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
+
+More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
+
 <a name="create-logic-app-resource"></a>
 
 ## Create a Standard logic app resource
@@ -350,16 +362,6 @@ In this example, the workflow runs when the Request trigger receives an inbound 
       When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
-
-## Best practices and recommendations
-
-For optimal designer responsiveness and performance, review and follow these guidelines:
-
-- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
-
-- Consider splitting business logic into multiple workflows where necessary.
-
-- Have no more than 10-15 workflows per logic app resource.
 
 <a name="review-run-history"></a>
 
