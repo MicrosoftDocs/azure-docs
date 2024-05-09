@@ -42,13 +42,13 @@ sections:
           - A link to verify whether identity validation was successful is sent to the primary email address that you provide when you request identity validation. We recommend that you use the link to check to see if you failed identity validation and why. You must use the link within seven days of receiving the link.  
 
           Steps to take if your identity validation request fails:  
-          - If the validation team is unable to make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+          - If the Microsoft validation team can't make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: What is the cost of using Trusted Signing?
         answer: | 
           Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
-          You can create a support ticket with the service in the Azure portal. You're assisted by Azure customer support. Otherwise, we recommend that you go to Microsoft Q&A or StackOverflow under the tag `Trusted-Signing` to ask questions.  
+          You can create a support ticket with the service in the Azure portal. You're assisted by Azure customer support. Otherwise, we recommend that you go to Microsoft Q&A or Stack Overflow and use the tag `Trusted-Signing` to ask questions.  
   - name: Certificate profiles and identity validation
     questions:
       - question: What if my Trusted Signing subject name is different from my earlier certificate and my MSIX package name is different now? 
@@ -60,7 +60,7 @@ sections:
       - question: Can I use a custom CN with Trusted Signing? 
         answer: |
           For CN:
-          - Per Certification Authority/Browser Forum (CA/Browser Forum) Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must be the legal entity's validated name (for example, Microsoft Corporation), so there's no flexibility in CN values.  
+          - Per Certification Authority/Browser Forum (CA/Browser Forum) Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must be the legal entity's validated name (for example, `Microsoft Corporation`), so there's no flexibility in CN values.  
 
           For O:
           - At, this time the service doesn't support customization.
@@ -97,11 +97,11 @@ sections:
           The Authenticode certificate that's used for signing with the profile is never given to you. All certificates are securely stored within the service and are accessible only at the time of signing. The public certificate is always included in any binary that the service signs. 
       - question: What are the common steps I should complete if I get a SignTool error (for example, an unexpected internal error occurs)?  
         answer: |
-          - Confirm that the dlib and DLL files are in the correct path.
-          - Confirm that the version of SignTool that's installed and the dlib are both 64-bit.
-          - Download and install [C++ Redistributables](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170).
-          - Search for the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool).
-          - We recommend that you use [a specific version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
+          1. Confirm that the dlib and DLL files are in the correct path.
+          2. Confirm that the version of SignTool that's installed and the dlib are both 64-bit.
+          3. Download and install [C++ Redistributables](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170).
+          4. Search for the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool).
+          5. We recommend that you use [a specific version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
       - question: How do I check whether the time stamp service is healthy? 
         answer: |
           Run the following command: `curl http://timestamp.acs.microsoft.com`. If status code 200 is returned, the time stamp service is healthy and running. 

@@ -347,7 +347,7 @@ The following table lists *helpful commands* to use when you create a certificat
 | :----------------------------------- | :------------------- |
 | `trustedsigning certificate-profile create -–help`                            | Shows help for sample commands, and shows detailed parameter descriptions.              |
 | `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with a Trusted Signing account.          |
-| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the detail for a profile.              |
+| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the details for a certificate profile.              |
 
 ---
 

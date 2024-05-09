@@ -1,6 +1,6 @@
 ---
 title: Renew a Trusted Signing identity validation
-description: Learn how to rerenew a Trusted Signing identity validation. 
+description: Learn how to renew a Trusted Signing identity validation. 
 author: mehasharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
@@ -10,7 +10,7 @@ ms.date: 04/12/2024
 
 # Renew a Trusted Signing identity validation
 
-On the **Identity Validation** pane, you can check the expiration date of your identity validation. You can renew your Trusted Signing identity validation 60 days before the expiration date. A reminder notification to renew your identity validation is sent to the primary and secondary email addresses for the Trusted Signing account.
+On the **Identity validation** pane, you can check the expiration date of your identity validation. You can renew your Trusted Signing identity validation 60 days before the expiration date. A reminder notification to renew your identity validation is sent to the primary and secondary email addresses for the Trusted Signing account.
 
 You can complete identity validation *only* in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
@@ -20,7 +20,7 @@ You can complete identity validation *only* in the Azure portal. You can't compl
 1. In the [Azure portal](https://portal.azure.com/), go to your Trusted Signing account.
 1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
-   - To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
+   To learn about managing access by using role-based access control (RBAC), see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
 1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 1. Select the identity validation request that you want to renew. On the menu bar, select **Renew**.
 
@@ -31,8 +31,8 @@ You can complete identity validation *only* in the Azure portal. You can't compl
 1. To ensure that you can continue to use your existing *metadata.json* file:
 
    1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
-   1. On the **Certificate profiles** pane, delete the existing certificate profile that's associated with the identity validation that is expiring.
+   1. On the **Certificate profiles** pane, delete the existing certificate profile that's associated with the expiring identity validation.
    1. Create a new certificate profile that has the same name.
    1. Select the identity validation.
 
-      When the certificate profile is successfully created, signing resumes with no required configuration changes.
+      When the certificate profile is successfully created, signing resumes without any other configuration changes.

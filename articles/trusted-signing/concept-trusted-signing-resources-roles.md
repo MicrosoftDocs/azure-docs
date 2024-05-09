@@ -21,7 +21,7 @@ Trusted Signing has the following resource types:
 
 - **Trusted Signing account**: An account is a logical container of all the resources you need to complete signing and manage access controls to sensitive resources.
 
-- **Identity validations**: Identity validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is the source of the attributes for your certificate profile Subject Distinguished Name (subject DN) values (for example, "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"). Identity validation roles are assigned to tenant identities to create these resources.
+- **Identity validations**: Identity validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is the source of the attributes for your certificate profile Subject Distinguished Name (subject DN) values (for example, `CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US`). Identity validation roles are assigned to tenant identities to create these resources.
 
 - **Certificate profiles**: A certificate profile is the configuration attributes that generate the certificates you use to sign code. It also defines the trust model and scenario that signed content is consumed under by relying parties. Signing roles are assigned to this resource to authorize tenant identities to request signing. A prerequisite for creating any certificate profile is to have at least one identity validation request completed.
 
@@ -36,7 +36,7 @@ The service supports Public Trust, Private Trust, code integrity (CI) policy, vi
 
 ### Trusted Signing account
 
-A Trusted Signing account is a logical container of the resources that are used to complete certificate signing. Trusted Signing accounts can be used to define boundaries of a project or organization. For most, a single Trusted Signing account can satisfy all the signing needs for an individual or organization. You might want to sign many artifacts that are distributed by the same identity (for example, "Contoso News, LLC"), but operationally, there might be boundaries that you want to draw in terms of access to signing. You might choose to have a Trusted Signing account per product or per team to isolate how an account is used or to track signing. However, you can also achieve this isolation pattern at the certificate profile level.
+A Trusted Signing account is a logical container of the resources that are used to complete certificate signing. Trusted Signing accounts can be used to define boundaries of a project or organization. For most, a single Trusted Signing account can satisfy all the signing needs for an individual or organization. You might want to sign many artifacts that are distributed by the same identity (for example, `Contoso News, LLC`), but operationally, there might be boundaries that you want to draw in terms of access to signing. You might choose to have a Trusted Signing account per product or per team to isolate how an account is used or to track signing. However, you can also achieve this isolation pattern at the certificate profile level.
 
 ### Identity validations
 

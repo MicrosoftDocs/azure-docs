@@ -69,10 +69,12 @@ Another option is to use the latest *nuget.exe* file to download and extract the
 
 ### Download and install .NET 8.0 Runtime
 
-The components that SignTool uses to interface with Trusted Signing require the installation of [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) You need only the core .NET 8.0 Runtime. Make sure that you install the correct platform runtime depending on the version of SignTool you intend to run. Or, you can simply install both. For example:
+The components that SignTool uses to interface with Trusted Signing require the installation of [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) You need only the core .NET 8.0 Runtime. Make sure that you install the correct platform runtime depending on the version of SignTool you intend to run. Or, you can simply install both
 
-- For x64 SignTool.exe: [Download .NET 8.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
-- For x86 SignTool.exe: [Download .NET 8.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
+For example:
+
+- For x64 SignTool.exe: [Download .NET 8.0 Runtime - Windows x64 installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
+- For x86 SignTool.exe: [Download .NET 8.0 Runtime - Windows x86 installer](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
 
 ### Download and install the Trusted Signing dlib package
 
@@ -91,10 +93,10 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 
    ```json
    {
-     "Endpoint": "<Trusted Signing Account Endpoint>",
-     "TrustedSigningAccountName": "<Trusted Signing Account Name>",
-     "CertificateProfileName": "<Certificate Profile Name>",
-     "CorrelationId": "<Optional CorrelationId*>"
+     "Endpoint": "<Trusted Signing account endpoint>",
+     "TrustedSigningAccountName": "<Trusted Signing account name>",
+     "CertificateProfileName": "<certificate profile name>",
+     "CorrelationId": "<Optional CorrelationId value>"
    }
    ```
 
@@ -123,7 +125,7 @@ To invoke SignTool to sign a file:
    & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
    ```
 
-- Both the x86 and x64 versions of SignTool are included in the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of SignTool.
+- Both the x86 and the x64 version of SignTool are included in the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of SignTool.
 - Make sure that you use the recommended Windows SDK version in the dependencies that are listed at the beginning of this article or the dlib file won't work.
 
 Trusted Signing certificates have a three-day validity, so time stamping is critical for continued successful validation of a signature beyond that three-day validity period. Trusted Signing recommends the use of Trusted Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
@@ -134,7 +136,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **GitHub Actions**: To learn how to use a GitHub action for Trusted Signing, see [Trusted Signing - Actions](https://github.com/azure/trusted-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
 
-- **Azure DevOps task**: To use the Trusted Signing Azure DevOps task, visit [Trusted Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
+- **Azure DevOps task**: To use the Trusted Signing Azure DevOps task, see [Trusted Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
 
 - **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) in PowerShell Gallery to install the PowerShell module.
 
