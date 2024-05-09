@@ -12,7 +12,7 @@ ms.date: 04/04/2024
 
 # Quickstart: Create and run a load test by using a Locust script and Azure Load Testing
 
-In this quickstart, you learn how to create and run a load test by using a Locust test script and Azure Load Testing. Azure Load Testing is a managed service that lets you run a load test at cloud scale. [Locust](https://locust.io/) is an open source load testing tool that enables you to describe all your test in Python code.
+Learn how to create and run a load test with a Locust test script and Azure Load Testing from the Azure portal. Azure Load Testing is a managed service that lets you run a load test at cloud scale. [Locust](https://locust.io/) is an open source load testing tool that enables you to describe all your test in Python code.
 
 ## Prerequisites
 
@@ -20,9 +20,12 @@ In this quickstart, you learn how to create and run a load test by using a Locus
 
 - A Locust test script. If you don't have a test script, get started from the [Locust quickstart](https://docs.locust.io/en/stable/quickstart.html) in the Locust documentation.
 
-## What problem will we solve?
 
-Before you deploy an application, you want to make sure that the application can support the expected load. You can use load testing to simulate user traffic to your application and ensure that your application meets your requirements. Simulating load might require a complex infrastructure setup. Also, as a developer, you might not be familiar with load testing tools and test script syntax.
+Use cases for creating a load test with an existing Locust test script: 
+
+* You want to reuse existing Locust scripts to test your application.
+* You want to simulate user traffic to your application and ensure that your application meets your requirements.
+* You don't want to set up complex infrastructure for load testing. And, as a developer, you might not be familiar with load testing tools and test script syntax.
 
 In this quickstart, you create a load test for your application endpoint by using Azure Load Testing and the Locust testing framework. You create a load testing resource in the Azure portal, and then create a load test by uploading the Locust test script and configuring the load parameters.
 
@@ -32,7 +35,7 @@ In this quickstart, you create a load test for your application endpoint by usin
 
 ## Create an Azure Load Testing resource
 
-First, you create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
+You first need to create the top-level resource for Azure Load Testing. Azure portal provides a centralized place to view and manage test plans, test results, and related artifacts.
 
 If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
 
@@ -42,7 +45,7 @@ To create a load testing resource:
 
 ## Create a load test
 
-Now that you have a load testing resource, you can create a load test by uploading the Locust test script. Azure Load Testing manages the infrastructure to run your test script at scale and simulate traffic to your application endpoints.
+Now that you have a load testing resource, you can create a load test by uploading the Locust test script. Azure Load Testing will manage the infrastructure to run your test script at scale and simulate traffic to your application endpoints.
 
 To create a load test for a Locust-based test in the Azure portal:
 
@@ -88,7 +91,6 @@ You can update the test configuration at any time, for example to upload a diffe
 
 ## Run the load test
 
-When Azure Load Testing starts your load test, it first copies the Locust test script and any other files onto the test engine instances, and then starts the load test.
 
 If you selected **Run test after creation**, your load test will start automatically. To manually start the load test you created earlier, perform the following steps:
 
@@ -110,7 +112,7 @@ If you selected **Run test after creation**, your load test will start automatic
 
     Use the run statistics and error information to identify performance and stability issues for your application under load.
 
-## How did we solve the problem?
+## Summary
 
 In this quickstart, you created and ran a load test with Azure Load Testing by using a Locust test script. Azure Load Testing abstracts the complexity of setting up the infrastructure for simulating high-scale user load for your application.
 

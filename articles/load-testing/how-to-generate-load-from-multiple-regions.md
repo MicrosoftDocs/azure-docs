@@ -29,7 +29,7 @@ To specify the load distribution for a load test in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your load testing resource.
 
-1. On the left pane, select **Tests** to view a list of tests, select your test and then select **Edit**.
+1. On the left pane, select **Tests** to view a list of tests. Select your test and then select **Edit**.
 
     :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource.":::  
 
@@ -41,7 +41,7 @@ To specify the load distribution for a load test in the Azure portal:
 
 1. In the **Add regions** window, select, or unselect one or more regions, and then select **Apply**.
 
-    You can select upto 5 regions from any of the Azure regions where Azure Load Testing is available.
+    You can select up to 5 regions from any of the Azure regions where Azure Load Testing is available.
    
     :::image type="content" source="media/how-to-generate-load-from-multiple-regions/select-add-edit-regions.png" alt-text="Screenshot that shows the selection of regions to distribute load.":::   
 
@@ -52,7 +52,7 @@ To specify the load distribution for a load test in the Azure portal:
     :::image type="content" source="media/how-to-generate-load-from-multiple-regions/distribute-load.png" alt-text="Screenshot that shows the option update the number of engines to update load distribution."::: 
 
 > [!IMPORTANT]
-> Load distribution is only enabled for tests against public endpoints. Test traffic mode is set to Public when you select the **Distribute load across regions** checkbox. 
+> Load distribution is only enabled for tests against public endpoints. Test traffic mode is set to **Public** when you select the **Distribute load across regions** checkbox. 
 
 ## Related content
 

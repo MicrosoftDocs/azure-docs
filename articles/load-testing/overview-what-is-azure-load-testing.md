@@ -1,6 +1,6 @@
 ---
 title: What is Azure Load Testing?
-description: 'Azure Load Testing is a fully managed, cloud-based load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a URL-based load test or upload a JMeter or Locust test script.'
+description: 'Azure Load Testing is a fully managed, cloud-based load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a URL-based load test, or upload a JMeter or Locust test script.'
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
@@ -72,7 +72,7 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 ## How does Azure Load Testing work?
 
-Azure Load Testing uses Apache JMeter or Locust for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue. Learn more about the [supported Apache JMeter functionality](./resource-jmeter-support.md).
+Azure Load Testing uses Apache JMeter or Locust for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, use Azure Load Testing to load test a database connection or message queue. Learn more about the [supported Apache JMeter functionality](./resource-jmeter-support.md).
 
 The Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). Each test engine instance runs your test script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL (*quick test*), Azure Load Testing automatically generates a test script for you. To scale out the load test, you can configure the number of test engines.
 
