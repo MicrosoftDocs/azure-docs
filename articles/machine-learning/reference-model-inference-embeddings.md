@@ -1,6 +1,6 @@
 ---
 title: Azure AI Model Inference Embeddings API
-titleSuffix: Azure Machine Learning
+titleSuffix: Reference
 description: Reference for Azure AI Model Inference Embeddings API
 manager: scottpolly
 ms.service: machine-learning
