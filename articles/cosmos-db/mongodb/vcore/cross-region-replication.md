@@ -47,9 +47,9 @@ When cross-region replication is enabled, applications can use the replica clust
 
 If a region outage occurs, you can perform disaster recovery operation by promoting your cluster replica in another region to become available for writes. During replica promotion operation, these steps are happening:
 
-- Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster.
-- The global read-write string now points to the promoted cluster in region B.
-- The cluster in region A is set to read-only.
+1. Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster.
+1. The global read-write string now points to the promoted cluster in region B.
+1. The cluster in region A is set to read-only.
 
 > [!IMPORTANT]
 > Because replication is asynchronous, some data from cluster in region A might not be replicated to region B when cluster replica in region B is promoted. If this is the case, promotion would result in the un-replicated data not present on both clusters.
