@@ -41,7 +41,7 @@ Azure Arc-enabled servers VM extension support provides the following key benefi
 
 VM extension functionality is available only in the list of [supported regions](overview.md#supported-regions). Ensure you onboard your machine in one of these regions.
 
-Additionally, you can configure lists of the extensions you wish to allow and block on servers. See [Extension allowlists and blocklists](/azure/azure-arc/servers/security-overview) for more information.
+Additionally, you can configure lists of the extensions you wish to allow and block on servers. See [Extension allowlists and blocklists](/azure/azure-arc/servers/security-overview#extension-allowlists-and-blocklists) for more information.
 
 ## Extensions
 
