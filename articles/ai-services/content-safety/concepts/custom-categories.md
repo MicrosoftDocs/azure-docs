@@ -14,25 +14,18 @@ ms.author: pafarley
 
 # Custom categories 
 
-## CC
 The Azure AI Content Safety Custom Category feature empowers users to create and manage their own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and utilize it to classify new content according to the predefined categories.
 
 The Azure AI Content Safety Custom Category feature is designed to provide a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
-
-## AR
-
-With their extensive capabilities of natural language understanding, GPT-4 models have reached human parity in understanding harmful content policies/community guidelines and performing harmful content annotation tasks that are adapted to each customer's use case. The adaptive annotation API in Azure AI Content Safety allows you to create customized categories based on your community guidelines and then annotate text according to those categories.
 
 ## Types of analysis
 
 | API      | Functionality   |
 | :--------- | :------------ |
-| Customized Categories | Create, get, and delete a customized category or list all customized categories for further annotation task |
-| Adaptive Annotate | Annotate input text with specified customized category |
+| Customized categories | Create, get, and delete a customized category or list all customized categories for further annotation task |
 
 ## How it works
 
-### CC 
 The Azure AI Content Safety Custom Category feature is designed to provide a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
 
 #### Step 1: Definition and Setup
@@ -48,16 +41,6 @@ Once you have your dataset ready, the Azure AI Content Safety service uses it to
 #### Step 3: Model Inferencing
  
 After training, you need to evaluate the model to ensure it meets your accuracy requirements. This is done by testing the model with new content that it hasn't seen before. The evaluation phase helps you identify any potential adjustments needed before deploying the model into a production environment.
-
-### auto reviewer
-
-Community guideline
-
-Community guidelines refer to a set of rules or standards that are established by an online community or social media platform to govern the behavior of its users. These guidelines are designed to ensure that all users are treated with respect, and that harmful or offensive content is not posted or shared. They may include rules around hate speech, harassment, nudity, violence, or other types of content that may be deemed inappropriate. Users who violate community guidelines may face consequences such as having their account suspended or banned.
-
-Category
-
-A category refers to a specific type of prohibited content or behavior that is outlined in the guidelines. Categories may include things like hate speech, harassment, threats, nudity or sexually explicit content, violence, spam, or other forms of prohibited content. These categories are typically defined in broad terms to encompass a range of different behaviors and types of content that are considered to be problematic. By outlining specific categories of prohibited content, community guidelines provide users with a clear understanding of what is and is not allowed on the platform and help to create a safer and more positive online community.
 
 ## Limitations - CC
 
