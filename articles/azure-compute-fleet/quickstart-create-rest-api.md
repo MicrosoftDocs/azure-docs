@@ -4,7 +4,7 @@ description: Learn how to create an Azure Compute Fleet using an ARM template.
 author: rajeeshr
 ms.author: rajeeshr
 ms.topic: how-to
-ms.service: cvirtual-machines
+ms.service: virtual-machines
 ms.date: 05/07/2024
 ms.reviewer: jushiman
 ms.custom: devx-track-arm-template
