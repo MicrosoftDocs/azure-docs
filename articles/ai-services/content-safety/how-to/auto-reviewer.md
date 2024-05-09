@@ -40,6 +40,9 @@ However, with their extensive capabilities of natural language understanding, GP
    * [Python 3.x](https://www.python.org/) installed
 
 
+tbd env vars?
+
+
 ## Use your own Azure OpenAI resource
 
 You need to use your own Azure OpenAI resource to perform the adaptive annotation task. 
