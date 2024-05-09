@@ -44,7 +44,7 @@ items:
       displayName: maas, paygo, models-as-a-service
     - name: Deploy Azure OpenAI models
       href: how-to/deploy-models-openai.md
-    - name: Cohere models
+    - name: Deploy Cohere models
       items:
       - name: Deploy Cohere Command models
         href: how-to/deploy-models-cohere-command.md
