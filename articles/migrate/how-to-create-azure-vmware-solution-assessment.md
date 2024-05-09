@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 05/09/2024
 ---
 
 
@@ -27,7 +27,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 ## Azure VMware Solution (AVS) Assessment overview
 
-There are three types of assessments you can create using Azure Migrate: Discovery and assessment.
+There are four types of assessments you can create using Azure Migrate: Discovery and assessment.
 
 ***Assessment Type** | **Details**
 --- | --- 
@@ -44,7 +44,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 **Assessment** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on collected performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
+**Performance-based** | For RVTools & CSV file-based assessments and performance-based assessment will consider the "In Use MiB" & "Storage In Use" respectively for storage configuration of each VM. For appliance-based assessments and performance-based assessments will consider the collected CPU & memory performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
 **As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and FTT setting that you select for the assessment.
 
 
