@@ -19,7 +19,7 @@ But, timeouts become increasingly frequent, especially when traffic spikes. The 
 
 You chose MongoDB for its flexibility. Now, when you face demanding requirements on scalability, availability, continuity, and cost, Azure Cosmos DB for MongoDB comes to the rescue.
 
-You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from choosing either of the two available architectures:
+You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its underlying service to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. When you use its API [for MongoDB](introduction.md), you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, while reaping the following benefits from choosing either of the two available architectures:
 
 ## Dynamically scale your MongoDB app
 
@@ -67,4 +67,4 @@ You point your app to the connection string of this fully managed database, whic
 ## How to connect a MongoDB application
 
 - [Connect to vCore-based model](vcore/migration-options.md) and [FAQ](vcore/faq.yml)
-- [Connect to RU-based model](connect-account.md) and [FAQ](faq.yml)
+- [Get answers to frequently asked questions about Azure Cosmos DB for MongoDB RU](faq.yml)

@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-templ
 
 # Programmatically create Azure subscriptions for a Microsoft Customer Agreement with the latest APIs
 
-This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md).
+This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you're still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md).
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
@@ -77,7 +77,7 @@ Use the `displayName` property to identify the billing account for which you wan
 ```azurepowershell
 Get-AzBillingAccount
 ```
-You will get back a list of all billing accounts that you have access to
+You'll get back a list of all billing accounts that you have access to
 
 ```json
 Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
@@ -95,7 +95,7 @@ Use the `displayName` property to identify the billing account for which you wan
 ```azurecli
 az billing account list
 ```
-You will get back a list of all billing accounts that you have access to
+You'll get back a list of all billing accounts that you have access to.
 
 ```json
 [
@@ -120,7 +120,7 @@ You will get back a list of all billing accounts that you have access to
 ]
 ```
 
-Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account. For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
 ---
 
@@ -218,7 +218,7 @@ Use the `id` property to identify the invoice section for which you want to crea
 Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
-You will get the list of billing profiles under this account as part of the response.
+You'll get the list of billing profiles under this account as part of the response.
 
 ```json
 Name              : AW4F-xxxx-xxx-xxx
@@ -240,20 +240,20 @@ Country           : US
 PostalCode        : 98052
 ```
 
-Note the `name` of the billing profile from the above response. The next step is to get the invoice section that you have access to underneath this billing profile. You will need the `name` of the billing account and billing profile
+Note the `name` of the billing profile from the above response. The next step is to get the invoice section that you have access to underneath this billing profile. You'll need the `name` of the billing account and billing profile.
 
 ```azurepowershell
 Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
 ```
 
-You will get the invoice section returned
+You'll get the invoice section returned.
 
 ```json
 Name        : SH3V-xxxx-xxx-xxx
 DisplayName : Development
 ```
 
-The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format `/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>`. In this example, this value will equate to `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
+The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format `/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>`. In this example, this value equates to `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -261,7 +261,7 @@ The `name` above is the Invoice section name you need to create a subscription u
 az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
 
-This API will return the list of billing profiles and invoice sections under the provided billing account.
+This API returns the list of billing profiles and invoice sections under the provided billing account.
 
 ```json
 [
@@ -336,7 +336,7 @@ The following example creates a subscription named *Dev Team subscription* for t
 ### [REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01
 ```
 
 ### Request body

@@ -33,7 +33,7 @@
             href: flexible-server/release-notes/february-2024.md
           - name: April 2024
             href: flexible-server/release-notes/april-2024.md            
-      - name: Compute and storage
+      - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
     expanded: true

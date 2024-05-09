@@ -93,7 +93,7 @@
       href: ../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
     - name: Update to latest version
       href: ../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
-  - name: View network topology
+  - name: View topology
     href: network-insights-topology.md
   - name: Create a connection monitor
     items:
@@ -197,10 +197,12 @@
         href: vnet-flow-logs-powershell.md
       - name: Azure CLI
         href: vnet-flow-logs-cli.md
+      - name: Built-in Policy
+        href: vnet-flow-logs-policy.md
     - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
-    - name: Read NSG flow logs
-      href: network-watcher-read-nsg-flow-logs.md
+    - name: Read flow logs
+      href: flow-logs-read.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI

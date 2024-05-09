@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 05/01/2024
 ms.author: normesta
 ---
 
@@ -60,7 +60,7 @@ You can also delete one or more active snapshots without deleting the base blob.
 
 If a directory is deleted in an account that has the hierarchical namespace feature enabled on it, the directory and all its contents are marked as soft-deleted. Only the soft-deleted directory can be accessed. In order to access the contents of the soft-deleted directory, the soft-deleted directory needs to be undeleted first.
 
-Soft-deleted objects are invisible unless they're explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md).
+Soft-deleted objects are invisible unless they're explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml).
 
 ### How overwrites are handled when soft delete is enabled
 
@@ -69,7 +69,7 @@ Soft-deleted objects are invisible unless they're explicitly displayed or listed
 
 Calling an operation such as [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) overwrites the data in a blob. When blob soft delete is enabled, overwriting a blob automatically creates a soft-deleted snapshot of the blob's state prior to the write operation. When the retention period expires, the soft-deleted snapshot is permanently deleted. The operation performed by the system to create the snapshot doesn't appear in Azure Monitor resource logs or Storage Analytics logs.
 
-Soft-deleted snapshots are invisible unless soft-deleted objects are explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md).
+Soft-deleted snapshots are invisible unless soft-deleted objects are explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml).
 
 To protect a copy operation, blob soft delete must be enabled for the destination storage account.
 
@@ -91,7 +91,10 @@ To promote a soft-deleted snapshot to the base blob, first call **Undelete Blob*
 
 Data in a soft-deleted blob or snapshot can't be read until the object has been restored.
 
-For more information on how to restore soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md).
+For more information on how to restore soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml).
+
+> [!TIP]
+> You can use a _storage task_ to restore blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 ## Blob soft delete and versioning
 
@@ -167,5 +170,5 @@ Data that is overwritten by a call to [Put Page](/rest/api/storageservices/put-p
 ## Next steps
 
 - [Enable soft delete for blobs](./soft-delete-blob-enable.md)
-- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md)
+- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml)
 - [Blob versioning](versioning-overview.md)

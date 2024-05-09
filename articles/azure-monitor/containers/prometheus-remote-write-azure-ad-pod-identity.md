@@ -4,7 +4,7 @@ description: Learn how to set up remote write for Azure Monitor managed service 
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 4/18/2024
 ms.reviewer: rapadman
 ---
 
@@ -17,7 +17,17 @@ This article describes how to set up remote write for Azure Monitor managed serv
 
 ## Prerequisites
 
-The prerequisites that are described in [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites) apply to the processes that are described in this article.
+### Supported versions
+
+Prometheus versions greater than v2.45 are required for managed identity authentication.
+
+### Azure Monitor workspace
+
+This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#create-an-azure-monitor-workspace).
+
+## Permissions
+
+Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 ## Set up an application for Microsoft Entra pod-managed identity
 
@@ -100,9 +110,9 @@ The `aadpodidbinding` label must be added to the Prometheus pod for the pod-mana
 
 ## Verification and troubleshooting
 
-For verification and troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+For verification and troubleshooting information, see [Troubleshooting remote write](/azure/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
-## Related content
+## Next steps
 
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)

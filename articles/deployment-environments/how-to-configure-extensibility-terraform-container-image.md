@@ -17,7 +17,7 @@ In this article, you learn how to build and utilize a custom image within your e
 
 ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
 
-The ADE team provides a selection of images to get you started, which you can see in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
+The ADE team provides a selection of images to get you started, which you can see in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
@@ -43,13 +43,18 @@ This statement pulls the most recently published core image, and makes it a basi
 
 ### Install Terraform in a Dockerfile
 
-You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. Here's an example of that process, installing version 1.5.5 of the Terraform CLI:
+You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+
+Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
 
 ```azure cli
-RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.4/terraform_1.5.5_linux_amd64.zip
+RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_amd64.zip
 RUN unzip terraform.zip && rm terraform.zip
 RUN mv terraform /usr/bin/terraform
 ```
+
+> [!Tip]
+> You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 
 The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
 
@@ -92,7 +97,7 @@ export ARM_TENANT_ID=$ADE_TENANT_ID
 export ARM_SUBSCRIPTION_ID=$ADE_SUBSCRIPTION_ID
 ```
 
-If you have other variables to reference within your template that aren't specified in your environment's parameters, set environment variables using the prefix *TF_VAR*. A list of provided ADE environment variables is provided [here](insert link). An example of those commands could be;
+If you have other variables to reference within your template that aren't specified in your environment's parameters, set environment variables using the prefix *TF_VAR*. A list of provided ADE environment variables is provided [Azure Deployment Environment CLI variables reference](reference-deployment-environment-variables.md). An example of those commands could be;
 ```bash
 export TF_VAR_resource_group_name=$ADE_RESOURCE_GROUP_NAME
 export TF_VAR_ade_env_name=$ADE_ENVIRONMENT_NAME

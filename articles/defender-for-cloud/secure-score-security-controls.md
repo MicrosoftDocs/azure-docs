@@ -86,7 +86,7 @@ The equation for determining the secure score for a single subscription or conne
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of the equation for calculating a subscription's secure score." lightbox="media/secure-score-security-controls/secure-score-equation-single-sub.png":::
 
 In the following example, there's a single subscription or connector with all security controls available (a potential maximum score of 60 points).
-The score shows 28 points out of a possible 60. The remaining 32 points are reflected in the **Potential score increase** figures of the security controls.
+The score shows 29 points out of a possible 60. The remaining 31 points are reflected in the **Potential score increase** figures of the security controls.
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of a single-subscription secure score with all controls enabled." lightbox="media/secure-score-security-controls/secure-score-example-single-sub.png":::
 

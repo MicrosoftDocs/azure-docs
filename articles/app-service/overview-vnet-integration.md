@@ -28,7 +28,7 @@ The virtual network integration feature:
 
 * Requires a [supported Basic or Standard](./overview-vnet-integration.md#limitations), Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
 * Supports TCP and UDP.
-* Works with App Service apps, function apps and Logic apps.
+* Works with App Service apps, function apps, and Logic apps.
 
 There are some things that virtual network integration doesn't support, like:
 
@@ -72,17 +72,17 @@ When you scale up/down in instance size, the amount of IP addresses used by the 
 
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
 
-With multi plan subnet join (MPSJ) you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
+With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
 >[!NOTE]
 > Multi plan subnet join is currently in public preview. During preview the following known limitations should be observed:
 > 
-> * The minimum requirement for subnet size of `/26` is currently not enforced, but will be enforced at GA.
+> * The minimum requirement for subnet size of `/26` is currently not enforced, but will be enforced at GA. If you have joined multiple plans to a smaller subnet during preview they will still work, but you cannot connect additional plans and if you disconnect you will not be able to connect again.
 > * There is currently no validation if the subnet has available IPs, so you might be able to join N+1 plan, but the instances will not get an IP. You can view available IPs in the Virtual network integration page in Azure portal in apps that are already connected to the subnet.
 
 ### Windows Containers specific limits
 
-Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (in/out) scale.
+Windows Containers uses an extra IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have, for example, 10 Windows Container App Service plan instances with four apps running, you need 50 IP addresses and extra addresses to support horizontal (in/out) scale.
 
 Sample calculation:
 
@@ -96,13 +96,13 @@ For 10 instances:
 
 Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
 
-You are in addition limited by the number of cores available in the worker SKU used. Each core adds three "networking units". The worker itself uses one unit and each virtual network connection uses one unit. The remaining units can be used for apps.
+You are in addition limited by the number of cores available in the worker tier used. Each core adds three networking units. The worker itself uses one unit and each virtual network connection uses one unit. The remaining units can be used for apps.
 
 Sample calculation:
 
-App Service plan instance with 4 apps running and using virtual network integration. The Apps are connected to two different subnets (virtual network connections). This will require 7 networking units (1 worker + 2 connections + 4 apps). The minimum size for running this configuration would be I2v2 (4 cores x 3 units = 12 units).
+App Service plan instance with four apps running and using virtual network integration. The Apps are connected to two different subnets (virtual network connections). This configuration requires seven networking units (1 worker + 2 connections + 4 apps). The minimum size for running this configuration would be I2v2 (four cores x 3 units = 12 units).
 
-With I1v2 you can run a maximum of 4 apps using the same (1) connection or 3 apps using 2 connections.
+With I1v2, you can run a maximum of four apps using the same (1) connection or 3 apps using 2 connections.
 
 ## Permissions
 

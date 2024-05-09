@@ -19,9 +19,7 @@ With the integrated load testing experience in Azure App Service, you can:
 - Create a [URL-based load test](./quickstart-create-and-run-load-test.md) for the app service endpoint or a deployment slot
 - View the test runs associated with the app service
 - Create a load testing resource
-
-> [!IMPORTANT]
-> This feature is currently supported through Microsoft Developer Community. If you are facing any issues, please report it [here](https://developercommunity.microsoft.com/loadtesting/report).
+  
 
 ## Prerequisites
 
