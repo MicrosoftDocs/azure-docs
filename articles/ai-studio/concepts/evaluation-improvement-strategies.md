@@ -23,9 +23,9 @@ Mitigating content risks and poor quality generations presented by large languag
 
 ## Model layer
 
-At the model level, it's important to understand the models you'll be use and what fine-tuning steps might have been taken by the model developers to align the model towards its intended uses and to reduce the risk of potentially risky uses and outcomes. For example, we have collaborated with OpenAI on using techniques such as Reinforcement learning from human feedback (RLHF) and fine-tuning in the base models to build safety into the model itself, and you see safety built into the model to mitigate unwanted behaviors.
+At the model level, it's important to understand the models you'll use and what fine-tuning steps might have been taken by the model developers to align the model towards its intended uses and to reduce the risk of potentially risky uses and outcomes. For example, we have collaborated with OpenAI on using techniques such as Reinforcement learning from human feedback (RLHF) and fine-tuning in the base models to build safety into the model itself, and you see safety built into the model to mitigate unwanted behaviors.
 
-Besides these enhancements, Azure AI Studio also offers model catalog that enables you to better understand each models capabilities before you even start building your AI applications. You can explore models from Azure OpenAI Service, Meta, etc., organized by collection and task. In the [model catalog](../how-to/model-catalog-overview.md), you can explore model cards to understand model capabilities and limitations, and any safety fine-tuning performed. You can further run sample inferences to see how a model's responds to typical prompts for a specific use case and experiment with sample inferences.
+Besides these enhancements, Azure AI Studio also offers a model catalog that enables you to better understand  the capabilities of each model before you even start building your AI applications. You can explore models from Azure OpenAI Service, Meta, etc., organized by collection and task. In the [model catalog](../how-to/model-catalog-overview.md), you can explore model cards to understand model capabilities and limitations and any safety fine-tuning performed. You can further run sample inferences to see how a model responds to typical prompts for a specific use case and experiment with sample inferences.
 
 The model catalog also provides model benchmarks to help users compare each model's accuracy using public datasets.
 
@@ -60,17 +60,17 @@ Here's what a system message should look like. You must:
 Recommended System Message Framework:
 
 - Define the model's profile, capabilities, and limitations for your scenario.
-    - **Define the specific task(s)** you would like the model to complete. Describe who the end users will be, what inputs will be provided to the model, and what you expect the model to output.
-    - **Define how the model should complete the task**, including any additional tools (like APIs, code, plug-ins) the model can use.
+    - **Define the specific task(s)** you would like the model to complete. Describe who the end users are, what inputs are provided to the model, and what you expect the model to output.
+    - **Define how the model should complete the task**, including any extra tools (like APIs, code, plug-ins) the model can use.
     - **Define the scope and limitations** of the model's performance by providing clear instructions.
     - **Define the posture and tone** the model should exhibit in its responses.
 - Define the model's output format.
     - **Define the language and syntax** of the output format. For example, if you want the output to be machine parse-able, you may want tot structure the output to be in JSON, XSON orXML.
     - **Define any styling or formatting** preferences for better user readability like bulleting or bolding certain parts of the response
 - Provide examples to demonstrate the intended behavior of the model
-    - **Describe difficult use cases** where the prompt is ambiguous or complicated, to give the model additional visibility into how to approach such cases.
+    - **Describe difficult use cases** where the prompt is ambiguous or complicated, to give the model more visibility into how to approach such cases.
     - **Show chain-of-thought** reasoning to better inform the model on the steps it should take to achieve the desired outcomes.
-- Provide additional behavioral guardrails
+- Provide more behavioral guardrails
     - **Define specific behaviors and safety mitigations** to mitigate risks that have been identified and prioritized for the scenario.
 
 Here we outline a set of best practices instructions you can use to augment your task-based system message instructions to minimize different content risks:
