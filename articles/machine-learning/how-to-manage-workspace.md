@@ -124,6 +124,13 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 1. To start using the workspace, select the **Studio web URL** link on the top right. You can also select the workspace from the [Azure Machine Learning studio](https://ml.azure.com) home page.
 
+# [Studio](#tab/studio)
+
+1. Provide a name for the Azure Machine Learning workspace resource.
+
+1. Provide a friendly name for displaying your workspace in Studio.
+
+1. (Preview) Optionally, select a [hub workspace](concept-hub-workspace.md), to host your workspace in a shared environment for your team, with pre-configured security, access to company resources, and shared compute. 
 ---
 
 ### Networking
