@@ -138,6 +138,8 @@
       href: observability.md
     - name: Application logging 
       href: logging.md
+    - name: Real time data
+      href: aspire-dashboard.md
     - name: Logging options
       href: log-options.md
     - name: Log streaming
