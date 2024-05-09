@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Fine-tune Llama models in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Azure AI Studio preview](../includes/feature-preview.md)]
 
 Azure AI Studio lets you tailor large language models to your personal datasets by using a process known as *fine-tuning*. 
 
