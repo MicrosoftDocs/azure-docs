@@ -32,6 +32,8 @@ Metrics are reported in a simple human-friendly form.
 
 To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-aoi-ingestion-gather-diags`. This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
+If you have configued collection of logs through the Azure Monitor agent, you can view ingestion agent logs in the portal view of your Log Analytics workspace, and may not need to collect a diagnostics package to debug your issues.
+
 > [!NOTE]
 > Microsoft Support might request diagnostics packages when investigating an issue. Diagnostics packages don't contain any customer data or the value of any credentials.
 
@@ -118,6 +120,7 @@ Symptoms: No data appears in Azure Data Explorer. Logs of category `Ingestion` d
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
 - Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
+- Ensure that the configured SFTP user can read all directories under the `base_path` which aren't being excluded by file source config.
 
 ### Files are missing
 

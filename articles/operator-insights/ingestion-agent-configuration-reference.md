@@ -153,9 +153,10 @@ source:
       # The path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
       base_path: /path/to/sftp/folder
       # Optional. A regular expression to specify which files in the base_path folder should be ingested. If not specified, the agent will attempt to ingest all files in the base_path folder (subject to exclude_pattern, settling_time and exclude_before_time).
-      include_pattern: "*\.csv$"
+      include_pattern: ".*\.csv$"
       # Optional. A regular expression to specify any files in the base_path folder which should not be ingested. Takes priority over include_pattern, so files which match both regular expressions will not be ingested.
-      exclude_pattern: '\.backup$'
+      # The exclude_pattern can also be used to ignore whole directories, but the pattern must still match all files under that directory. e.g. `^excluded-dir/.*$` or `^excluded-dir/` but *not* `^excluded-dir$`
+      exclude_pattern: "\.backup$|^\.staging/"
       # A duration, such as "10s", "5m", "1h".. During an upload run, any files last modified within the settling time are not selected for upload, as they may still be being modified.
       settling_time: 1m
       # Optional. A datetime that adheres to the RFC 3339 format. Any files last modified before this datetime will be ignored.

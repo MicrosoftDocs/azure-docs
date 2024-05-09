@@ -139,6 +139,9 @@ On the SFTP server:
 
 1. Ensure port 22/TCP to the VM is open.
 1. Create a new user, or determine an existing user on the SFTP server that the ingestion agent should use to connect to the SFTP server.
+    - The ingestion agent searches every directory under the base path which is not excluded. Ensure this user has read permission on all files in the directories which are not excluded. 
+    > [!Note]
+    > Implicitly excluding directories by not specifying them in the included pattern is not sufficient to stop the agent searching those directories. See [the configuration reference](ingestion-agent-configuration-reference.md) for more detail on excluding directories.
 1. Determine the authentication method that the ingestion agent should use to connect to the SFTP server. The agent supports:
     - Password authentication
     - SSH key authentication
@@ -277,7 +280,12 @@ The configuration you need is specific to the type of source and your Data Produ
         - `user`: the name of the user on the SFTP server that the agent should use to connect.
         - Depending on the method of authentication you chose in [Prepare the VMs](#prepare-the-vms), set either `password` or `private_key`.
             - For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. 
-            - For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the private key is protected with a passphrase, set `passphrase_secret_name` to the name of the file containing the passphrase in the `secrets_directory` folder.
+            - For SSH key authentication, set `key_secret_name` to the name of the file containing the SSH key in the `secrets_directory` folder. If the private key is protected with a passphrase, set `passphrase_secret_name` to the name of the file containing the passphrase in the `secrets_directory` folder.
+            - All secret files should have permissions of `600` (`rw-------`), and an owner of `az-aoi-ingestion` so only the ingestion agent and privileged users can read them.
+            ```
+            sudo chmod 600 <secrets_directory>/*
+            sudo chown az-aoi-ingestion <secrets_directory>/*
+            ```
         
         For required or recommended values for other fields, refer to the documentation for your Data Product.
 
@@ -327,11 +335,12 @@ If you're running the ingestion agent on an Azure VM or on an on-premises VM con
 To collect ingestion agent logs, follow [the Azure Monitor documentation to install the Azure Monitor Agent and configure log collection](../azure-monitor/agents/data-collection-text-log.md).
 
 - These docs use the Az PowerShell module to create a logs table. Follow the [Az PowerShell module install documentation](/powershell/azure/install-azure-powershell) first.
-  - The `YourOptionalColumn` section from the sample `$tableParams` JSON is unnecessary for the ingestion agent, and can be removed.
+    - The `YourOptionalColumn` section from the sample `$tableParams` JSON is unnecessary for the ingestion agent, and can be removed.
 - When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
-- After adding the data collection rule, you can query these logs through the Log Analytics workspace. Use the following query to make them easier to work with:
+- We also recommend following [the documentation to add a `Linux Syslog` Data source](../azure-monitor/agents/data-collection-syslog.md) to your data collection rule, to allow for auditing of all processes running on the VM.
+- After adding the data collection rule, you can query the ingestion agent logs through the Log Analytics workspace. Use the following query to make them easier to work with:
   ```
-  RawAgentLogs_CL
+  <CustomTableName>_CL
   | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')  // Remove any color tags
   | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message  // Parse the log lines into the TimeGenerated, Level and Message columns for easy filtering
   | order by TimeGenerated desc
