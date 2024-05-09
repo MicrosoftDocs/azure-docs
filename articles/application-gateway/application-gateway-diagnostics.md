@@ -28,36 +28,7 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 > [!NOTE]
 > Logs are available only for resources deployed in the Azure Resource Manager deployment model. You can't use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) article.
 
-## Storage locations
-
-You have the following options to store the logs in your preferred location.
-
-- **Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. For more information, see [Send to Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
-
-- **Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics).
-
-- **Resource-specific (recommended)**: Data is written to dedicated tables for each category of the resource. For more information, see [Resource-specific](../azure-monitor/essentials/resource-logs.md#resource-specific).
-
-  For Application Gateway, resource-specific mode creates three tables:
-
-  - [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
-  - [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs)
-  - [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
-
-  > [!NOTE]
-  > The resource specific option is currently available in all **public regions**.
-  >
-  > Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination.Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time.
-
-  - **Selecting the destination table in Log analytics**: All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
-
-    [![Screenshot of the resource ID for application gateway in the portal.](./media/application-gateway-diagnostics/resource-specific.png)](./media/application-gateway-diagnostics/resource-specific.png#lightbox)
-
-  - **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it's ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
-
-    For detailed instructions on setting up workspace transformations, see [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
-
-### Examples of optimizing access logs using Workspace Transformations
+## Examples of optimizing access logs using Workspace Transformations
 
 **Example 1: Selective Projection of Columns**: Imagine you have application gateway access logs with 20 columns, but you’re interested in analyzing data from only 6 specific columns. By using workspace transformation, you can project these 6 columns into your workspace, effectively excluding the other 14 columns. Even though the original data from those excluded columns won’t be stored, empty placeholders for them still appear in the Logs blade. This approach optimizes storage and ensures that only relevant data is retained for analysis.
 
@@ -68,10 +39,10 @@ You have the following options to store the logs in your preferred location.
 
 **Recommended transition strategy to move from Azure diagnostic to resource specific table:**
 
-1. Assess current data retention: Determine the duration for which data is presently retained in the Azure diagnostics table (for example: assume the diagnostics table retains data for 15 days). 
+1. Assess current data retention: Determine the duration for which data is presently retained in the Azure diagnostics table (for example: assume the diagnostics table retains data for 15 days).
 2. Establish resource-specific retention: Implement a new Diagnostic setting with resource specific table.
-3. Parallel data collection: For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings. 
-4. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings. 
+3. Parallel data collection: For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings.
+4. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings.
 5. Remove Azure diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicate data collection.
 
 Other storage locations:

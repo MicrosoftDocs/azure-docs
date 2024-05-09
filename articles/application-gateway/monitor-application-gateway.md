@@ -101,6 +101,8 @@ AzureDiagnostics
 
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
+To configure alerts using ARM templates, see [Configure Azure Monitor alerts](configure-alerts-with-templates.md).
+
 ### Application Gateway alert rules
 
 The following table lists some suggested alert rules for Application Gateway. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Application Gateway monitoring data reference](monitor-application-gateway-reference.md).

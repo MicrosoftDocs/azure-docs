@@ -62,6 +62,30 @@ The following metrics are available. For details, see the [metrics table](#suppo
 - **Unhealthy host count**. The number of hosts that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
 - **Requests per minute per Healthy Host**. The average number of requests received by each healthy member in a backend pool in a minute. Specify the backend pool using the *BackendPool HttpSettings* dimension.
 
+### Application Gateway metrics for Application Gateway V1 SKU
+
+For Application Gateway, the following metrics are available:
+
+- **CPU Utilization**. Displays the utilization of the CPUs allocated to the Application Gateway.  Under normal conditions, CPU usage should not regularly exceed 90%, as this may cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU utilization by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.
+
+- **Current connections**. Count of current connections established with Application Gateway
+
+- **Failed Requests**. Number of requests that failed due to connection issues. This count includes requests that failed due to exceeding the "Request time-out" HTTP setting and requests that failed due to connection issues between Application gateway and backend. This count doesn't include failures due to no healthy backend being available. 4xx and 5xx responses from the backend are also not considered as part of this metric.
+
+- **Response Status**. HTTP response status returned by Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
+
+- **Throughput**. Number of bytes per second the Application Gateway has served
+
+- **Total Requests**. Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+
+### Backend metrics for Application Gateway V1 SKU
+
+For Application Gateway, the following metrics are available:
+
+- **Healthy host count**. The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
+
+- **Unhealthy host count**. The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
+
 ### Backend health API
 
 See [Application Gateways - Backend Health](/rest/api/application-gateway/application-gateways/backend-health?tabs=HTTP) for details of the API call to retrieve the backend health of an application gateway.
@@ -472,6 +496,35 @@ Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/refe
 | host_s | Host header of the client request|
 | requestQuery_s | Query string as part of the client request|
 | sslEnabled_s | Does the client request have SSL enabled|
+
+## Storage locations
+
+You have the following options to store the logs in your preferred location.
+
+- **Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. For more information, see [Send to Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+
+- **Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics).
+
+- **Resource-specific (recommended)**: Data is written to dedicated tables for each category of the resource. For more information, see [Resource-specific](../azure-monitor/essentials/resource-logs.md#resource-specific).
+
+  For Application Gateway, resource-specific mode creates three tables:
+
+  - [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
+  - [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs)
+  - [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
+
+  > [!NOTE]
+  > The resource specific option is currently available in all **public regions**.
+  >
+  > Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination.Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time.
+
+  - **Selecting the destination table in Log analytics**: All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
+
+    [![Screenshot of the resource ID for application gateway in the portal.](./media/application-gateway-diagnostics/resource-specific.png)](./media/application-gateway-diagnostics/resource-specific.png#lightbox)
+
+  - **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it's ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
+
+    For detailed instructions on setting up workspace transformations, see [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

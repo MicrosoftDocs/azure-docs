@@ -48,50 +48,6 @@ For Application Gateway, There are several backend metrics available. For a list
 
 For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics).
 
-## Metrics supported by Application Gateway V1 SKU
-
-The Application Gateway V1 SKU supports the following metrics.
-
-### Application Gateway metrics for Application Gateway V1 SKU
-
-For Application Gateway, the following metrics are available:
-
-- **CPU Utilization**
-
-  Displays the utilization of the CPUs allocated to the Application Gateway.  Under normal conditions, CPU usage should not regularly exceed 90%, as this may cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU utilization by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.
-
-- **Current connections**
-
-  Count of current connections established with Application Gateway
-
-- **Failed Requests**
-
-  Number of requests that failed due to connection issues. This count includes requests that failed due to exceeding the "Request time-out" HTTP setting and requests that failed due to connection issues between Application gateway and backend. This count doesn't include failures due to no healthy backend being available. 4xx and 5xx responses from the backend are also not considered as part of this metric.
-
-- **Response Status**
-
-  HTTP response status returned by Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
-
-- **Throughput**
-
-  Number of bytes per second the Application Gateway has served
-
-- **Total Requests**
-
-  Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
-
-### Backend metrics for Application Gateway V1 SKU
-
-For Application Gateway, the following metrics are available:
-
-- **Healthy host count**
-
-  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
-
-- **Unhealthy host count**
-
-  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
-
 ### Web Application Firewall (WAF) metrics
 
 For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v1-metrics).
