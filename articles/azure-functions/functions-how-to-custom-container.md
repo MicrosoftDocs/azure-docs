@@ -125,7 +125,7 @@ In this example, `<IMAGE_NAME>` is the full name of the new image with version. 
 :::zone pivot="azure-functions"  
 You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
 ::: zone-end  
-:::zone pivot="azure-functions,container-apps"  
+:::zone pivot="azure-functions"  
 ## Azure portal create using containers
 
 When you create a function app in the [Azure portal](https://portal.azure.com), you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
@@ -136,6 +136,10 @@ The following steps create and deploy an existing containerized function app fro
 
 1. In the **New** page, select **Compute** > **Function App**.
 
+1. Under **Select a hosting option**, choose **Premium plan** > **Select**. 
+
+    This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md).
+
 1. On the **Basics** page, use the function app settings as specified in the following table:
 
     | Setting      | Suggested value  | Description |
@@ -144,49 +148,59 @@ The following steps create and deploy an existing containerized function app fro
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
     | **Function App name** | Unique name<sup>*</sup> | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     | **Do you want to deploy code or container image?**| Container image | Deploy a containerized function app from a registry. To create a function app in registry, see [Create a function app in a local container](functions-create-container-registry.md). |
-    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |  
+    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. | 
+    | **Linux plan** | New plan (default) | Creates a new Premium plan to host your app. You can also choose an existing premium plan. |
+    | **Pricing plan** | Elastic Premium EP1 | `EP1` is the most affordable plan. You can choose a larger plan if you need to. |
+    | **Zone Redundancy** | Disabled | You don't need this feature in a nonproduction app. | 
+  
+    <sup>*</sup>App name must be globally unique among all Azure Functions hosted apps.
 
-::: zone-end  
-:::zone pivot="azure-functions"  
-   <sup>*</sup>App name must be globally unique among all Azure Functions hosted apps.
+1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
 
-4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
+1. Select **Review + create** to review the app configuration selections.
 
-    :::image type="content" source="media/functions-how-to-custom-container/function-app-create-container-functions-premium.png" alt-text="Screenshot of the Basics tab in the Azure portal when creating a function app for hosting a container in a Functions Premium plan.":::
-   
-    This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md).  
+1. On the **Review + create** page, review your settings, and then select **Create** to provision the function app using a default base image.
+
+1. After your function app resource is created, select **Go to resource** and in the function app page select **Deployment center**.
+
+1. In the **Deployment center**, you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry. 
 ::: zone-end   
 :::zone pivot="container-apps"  
+## Azure portal create using containers
+
+When you create a function app in the [Azure portal](https://portal.azure.com), you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
+
+The following steps create and deploy an existing containerized function app from a container registry.
+
+1. From the Azure portal menu or the **Home** page, select **Create a resource**.
+
+1. In the **New** page, select **Compute** > **Function App**.
+
+1. Under **Select a hosting option**, choose **Container Apps environment** > **Select**.  
+
+1. On the **Basics** page, use the function app settings as specified in the following table:
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Subscription** | Your subscription | The subscription in which you create your function app. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
+    | **Function App name** | Unique name<sup>*</sup> | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. | 
    <sup>*</sup>App name must be unique within the Azure Container Apps environment. 
 
-4. In **[Hosting options and plans](functions-scale.md)**, choose **Azure Container Apps Environment plan**. 
+1. For **Azure Container Apps environment**, accept the suggested new environment in the **Consumption + Dedicated** plan. By default, the environment is created with the default workload profile and without zone redundancy, which minimizes costs. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).       
 
-    :::image type="content" source="media/functions-how-to-custom-container/function-app-create-container-apps-hosting.png" alt-text="Portal create Basics tab for a containerized function app hosted in Azure Container Apps.":::
+    You can also choose to use an existing Container Apps environment. To create a custom environment, instead select **Create new**. In the **Create Container Apps Environment** page, you can add nondefault workload profiles or enable zone redundancy. To learn about environments, see [Azure Container Apps environments](../container-apps/environment.md).
 
-    This creates a new **Azure Container Apps Environment** resource to host your function app container. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+1. Select the **Deployment** tab and unselect **Use quickstart image**. Otherwise, the function app is deployed from the base image for your function app language.
 
-    By default, the environment is created in a Consumption plan without zone redundancy, to minimize costs. You can also choose an existing Container Apps environment. To learn about environments, see [Azure Container Apps environments](../container-apps/environment.md).
-::: zone-end
-:::zone pivot="azure-functions,container-apps"
-5. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
-::: zone-end
-:::zone pivot="container-apps"
-6. Select the **Deployment** tab and unselect **Use quickstart image**. If you don't do this, the function app is deployed from the base image for your function app language.
+1. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
 
-7. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
+1. Under **Container resource allocation**, select your desired number of CPU cores and available memory. If your environment has other workload profiles added, you can select a nondefault **Workload profile**. Choices on this page affect the cost of hosting your app. See the [Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/) to estimate your potential costs. 
    
-8. Select **Review + create** to review the app configuration selections.
+1. Select **Review + create** to review the app configuration selections.
 
-9. On the **Review + create** page, review your settings, and then select **Create** to provision the function app and deploy your container image from the registry.
-::: zone-end  
-:::zone pivot="azure-functions"  
-6. Select **Review + create** to review the app configuration selections.
-
-7. On the **Review + create** page, review your settings, and then select **Create** to provision the function app using a default base image.
-
-8. After your function app resource is created, select **Go to resource** and in the function app page select **Deployment center**.
-
-9. In the **Deployment center**, you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry.  
+1. On the **Review + create** page, review your settings, and then select **Create** to provision the function app and deploy your container image from the registry.
 ::: zone-end  
 
 ## Work with images in Azure Functions
