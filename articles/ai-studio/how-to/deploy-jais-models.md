@@ -50,7 +50,7 @@ In this article, you learn how to use Azure AI Studio to deploy the Jais model a
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-The previously mentioned Jais model can be deployed as a service with pay-as-you-go, and is offered by Core42 through the Microsoft Azure Marketplace. Jais can change or update the terms of use and pricing of this model.
+The previously mentioned Jais model can be deployed as a service with pay-as-you-go, and is offered by Core42 through the Microsoft Azure Marketplace. Core42 can change or update the terms of use and pricing of this model.
 
 
 ### Create a new deployment
