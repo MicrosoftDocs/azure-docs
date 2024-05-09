@@ -21,7 +21,7 @@ A hub is a kind of workspace that can be used by IT security to centrally manage
 
 Workspaces that are created using a hub, referred to as 'project workspaces', obtain the same security settings and shared resource access. They don't require their own security settings or Azure dependent resources. Create as many project workspaces as you need to organize your work, isolate data, or restrict access. 
 
-Create a hub workspace if you or your team are planning for multiple machine learning projects. Use a hub to organize projects in the same data or business domain.
+Create a hub workspace if you or your team are planning for multiple machine learning projects. Use a hub to organize your work in the same data or business domain.
 
 ![Diagram showing hub and project workspace relation](media/concept-hub-workspace/hub-workspace-relation.png)
 
