@@ -31,9 +31,9 @@ An **endpoint** is a stable and durable URL that can be used to request or invok
 - an authentication mechanism, and
 - an authorization mechanism.
 
-A **deployment** is a set of resources and computes required for hosting the model or component that does the actual inferencing. A single endpoint can contain one or multiple deployments (except from serverless API endpoints). These deployments can host independent assets and consume different resources based on the needs of the assets. Endpoints have a routing mechanism that can direct requests to specific deployments in the endpoint.
+A **deployment** is a set of resources and computes required for hosting the model or component that does the actual inferencing. A single endpoint can contain one or several deployments (except for [serverless API](#endpoints-serverless-api-online-and-batch) endpoints). The deployments can host independent assets and consume different resources based on the needs of the assets. Furthermore, endpoints have a routing mechanism that can direct requests to specific deployments in the endpoint.
 
-Some types of endpoints in Azure Machine Learning consume dedicated resources on their deployments which means they require compute quota on your subscription to run. However, specific models support a serverless deployments where no quota is consumed from you, but instead, billed per usage.
+Some types of endpoints in Azure Machine Learning consume dedicated resources on their deployments. For these endpoints to run, you must have compute quota on your subscription. However, certain models support a serverless deployment—consuming no quota from your subscription—instead, you're billed based on usage.
 
 ### Intuition
 
@@ -49,20 +49,24 @@ Let's imagine that after a couple of months, the organization discovers that the
 
 :::image type="content" source="media/concept-endpoints/concept-deployment-routing.png" alt-text="A diagram showing the concept of an endpoint with multiple deployments.":::
 
-## Serverless API, online, and batch endpoints
+## Endpoints: serverless API, online, and batch
 
-Azure Machine Learning allows you to implement [serverless API endpoints](how-to-deploy-models-serverless.md), [online endpoints](concept-endpoints-online.md), and [batch endpoints](concept-endpoints-batch.md). Serverless API endpoints and online endpoints are designed for real-time inference—when you invoke the endpoint, the results are returned in the endpoint's response. Serverless API endpoints don't consume quota from your subscription and, instead, they are billed with pay-as-you-go.
+Azure Machine Learning allows you to implement [serverless API endpoints](how-to-deploy-models-serverless.md), [online endpoints](concept-endpoints-online.md), and [batch endpoints](concept-endpoints-batch.md). Serverless API endpoints and online endpoints are designed for real-time inference—when you invoke the endpoint, the results are returned in the endpoint's response. Serverless API endpoints don't consume quota from your subscription; rather they're billed with pay-as-you-go billing.
 
 Batch endpoints, on the other hand, are designed for long-running batch inference. Each time you invoke a batch endpoint you generate a batch job that performs the actual work.
 
-### When to serverless API, online, and batch endpoint for your use-case
+### When to use serverless API, online, and batch endpoints
 
-Use [serverless API endpoints](how-to-deploy-models-serverless.md) to consume large foundational models for real-time inference off-the-shelf or by fine-tuning it. Notice that not all the models are available for deployment in this mode. We recommend using them when:
+__Serverless API endpoints__:
+
+Use [serverless API endpoints](how-to-deploy-models-serverless.md) to consume large foundational models for real-time inferencing off-the-shelf or for fine-tuning it such models. Not all models are available for deployment to serverless API endpoints. We recommend using this deployment mode when:
 
 > [!div class="checklist"]
-> * Your model is a foundational model or a fine-tuned version of it available for serverless API deployments.
+> * Your model is a foundational model, or a fine-tuned version of it is available for serverless API deployments.
 > * You can benefit from a quota-less deployment.
 > * You don't need to customize the inferencing stack used to run the model.
+
+__Online endpoints__:
 
 Use [online endpoints](concept-endpoints-online.md) to operationalize models for real-time inference in synchronous low-latency requests. We recommend using them when:
 
@@ -72,6 +76,8 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 > * Your model can answer the request in a relatively short amount of time.
 > * Your model's inputs fit on the HTTP payload of the request.
 > * You need to scale up in terms of number of requests.
+
+__Batch endpoints__:
 
 Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend using them when:
 
@@ -104,12 +110,12 @@ The following table shows a summary of the different features available to serve
 | Customer-managed keys                 | NA                                               | Yes                                             | Yes                                           |
 | Cost basis                            | Per endpoint, per minute<sup>1</sup>             | None                                            | None                                          |
 
-<sup>1</sup>An small fraction is charged for serverless API endpoints per minute. See deployments section for the charges related to consumption, which are billed per token.
+<sup>1</sup>An small fraction is charged for serverless API endpoints per minute. See the [deployments](#deployments) section for the charges related to consumption, which are billed per token.
 
 
 #### Deployments
 
-The following table shows a summary of the different features available to serverless API, online, and batch endpoints at the deployment level. These concepts apply to each deployment under the endpoint except for serverless API endpoints where the concept of deployment is built in on the endpoint.
+The following table shows a summary of the different features available to serverless API, online, and batch endpoints at the deployment level. These concepts apply to each deployment under the endpoint (for online and batch endpoints), and apply to serverless API endpoints (where the concept of deployment is built into the endpoint).
 
 | Feature                       | [Serverless API endpoints](how-to-deploy-models-serverless.md) | [Online endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |-------------------------------|-------------------------------------------------|-------------------------------------------------|-----------------------------------------------|
@@ -133,7 +139,7 @@ The following table shows a summary of the different features available to serve
 
 <sup>3</sup> *Autoscaling* is the ability to dynamically scale up or scale down the deployment's allocated resources based on its load. Online and batch deployments use different strategies for autoscaling. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc.), batch endpoints scale up or down based on the number of jobs created.
 
-<sup>4</sup> Both online and batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time but when the job runs. Hence, there is no cost associated with the deployment itself. Notice that queued jobs do not consume resources either.
+<sup>4</sup> Both online and batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time but when the job runs. Hence, there's no cost associated with the deployment itself. Notice that queued jobs don't consume resources either.
 
 ## Developer interfaces
 
