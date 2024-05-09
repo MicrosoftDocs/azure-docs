@@ -3431,6 +3431,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/ai-studio/how-to/model-catalog.md",
+            "redirect_url": "/azure/ai-studio/how-to/model-catalog-overview",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/service-fabric/upgrade-managed-disks.md",
             "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
             "redirect_document_id": false
