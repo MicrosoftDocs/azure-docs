@@ -5,7 +5,7 @@ description: Learn how to consume deployed serverless API endpoints from a diffe
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: mopeakande 
 author: msakande

@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Learn to deploy models as serverless APIs, using Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: mopeakande 
 author: msakande
