@@ -57,10 +57,10 @@ Project workspaces that are created using a hub, obtain the hub’s security set
 | Connections | Project workspaces can consume shared connections created on the hub. This feature is currently only supported in [AI studio]()  |
 | Compute instance | Reuse a compute instance across all project workspaces associated to the same hub. |
 | Compute quota | Any compute quota consumed by project workspaces are deducted from the hub workspace quota balance. |
-| Storage | Project workspaces have designated containers starting with a prefix {workspaceGUID}, and conditioned [Azure Attribute Based Access] for the workspace identity. |
-| Key vault | Project workspaces identities can only access their own secrets. |
-| Container registry | Project workspaces images are isolated by naming convention, and can only access their own containers. |
-| Application insights | One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
+| Storage | Associated resource for storing workspace data. Project workspaces have designated containers starting with a prefix {workspaceGUID}, and have a conditional [Azure Attribute Based Access](../role-based-access-control/conditions-overview.md) role assignment for the workspace identity for accessing these containers only. |
+| Key vault | Associated resource for storing secrets created in the service e.g. when creating a connection. Project workspaces identities can only access their own secrets. |
+| Container registry | Associated resource for storing built container images when creating environments. Project workspaces images are isolated by naming convention, and can only access their own containers. |
+| Application insights | Associated resource when enabling application logging for endpoints. One application insights may be configured as default for all project workspaces. Can be overridden on project workspace-level. |
 
 Data that is uploaded in one project workspace, is stored in isolation from data that is uploaded to another project workspace. While project workspaces reuse hub security settings, they are still top-level Azure resources, which enable you to restrict access to only project members.
 
