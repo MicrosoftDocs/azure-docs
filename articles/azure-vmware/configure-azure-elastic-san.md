@@ -97,7 +97,7 @@ To delete the Elastic SAN-based datastore, use the following steps from the Azur
 1. From the left navigation in your Azure VMware Solution private cloud, select Storage, then **Datastore list**.
 1. On the far right you is an **ellipsis**, select **Delete** to disconnect the datastore from the Cluster(s).
    
-   :::image type="content" source="media/configure-azure-elastic-san/esan-datastorelist-ellipsis-removal.png" alt-text="Screenshot showing ESAN volume removal." border="false"lightbox="media/configure-azure-elastic-san/esan-datastorelist-ellipsis-removal.png":::
+:::image type="content" source="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png" alt-text="Screenshot showing ESAN volume removal." border="false"lightbox="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png":::
    
 1. Optionally you can delete the volume you previously created in your Elastic SAN.
 	> [!NOTE]
