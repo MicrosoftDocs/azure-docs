@@ -1,5 +1,5 @@
 ---
-title: Azure API Management policy reference - azure-openai-emit-token metric | Microsoft Docs
+title: Azure API Management policy reference - azure-openai-emit-token-metric | Microsoft Docs
 description: Reference for the azure-openai-emit-token-metric policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
@@ -15,7 +15,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-The `azure-openai-emit-token-metric` policy sends metrics to Application Insights for consumption of language model tokens through Azure OpenAI service APIs. Token count metrics include: total tokens, prompt tokens, and completion tokens. 
+The `azure-openai-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model tokens through Azure OpenAI Service APIs. Token count metrics include: total tokens, prompt tokens, and completion tokens. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
