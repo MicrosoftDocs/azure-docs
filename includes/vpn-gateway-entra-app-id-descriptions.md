@@ -6,9 +6,13 @@ ms.service: vpn-gateway
 ms.topic: include
 
 ---
-Microsoft now has an authorized registered Microsoft Entra ID Enterprise app for the latest version of the Azure VPN Client. With previous versions of the Azure VPN Client, you were required to manually register (or integrate) the Azure VPN Client with your Microsoft Entra tenant. This created an App ID representing the identity of the Azure VPN Client application.
+VPN Gateway now supports a new Microsoft-registered App ID and corresponding Audience values for the latest versions of the Azure VPN Client. When you configure a P2S VPN gateway using the new Microsoft-registered App ID and corresponding Audience values, you skip the Azure VPN Client app manual registration process for your tenant. The App ID is already created and your tenant is automatically able to use it with no extra registration steps. This process is more secure than manually registering the Azure VPN Client because you don't need to authorize the app or assign permissions via the Global administrator role.
 
-When you configure a P2S VPN gateway using the new Microsoft-registered Azure VPN Client and corresponding Audience Value, you skip the manual application registration process for the Azure VPN Client with your Entra tenant. The App ID is already created and your tenant is automatically able to use it with no extra registration steps. Additionally, this process is more secure than manually registering the Azure VPN Client because you don't need to grant Global Administrator permissions for the app. To better understand the difference between the types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added). When possible, we recommend that you configure new P2S gateways using Microsoft-registered Azure VPN client process and corresponding Audience values, instead of manually registering the Azure VPN Client app.
+Previously, you were required to manually register (or integrate) the Azure VPN Client app with your Microsoft Entra tenant. Registering the client app creates an App ID representing the identity of the Azure VPN Client application and requires authorization using the Global Administrator role. To better understand the difference between the types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added).
+
+When possible, we recommend that you configure new P2S gateways using the Microsoft-registered Azure VPN client process and corresponding Audience values, instead of manually registering the Azure VPN Client app with your tenant.
+
+If you have a previously configured Azure VPN gateway that uses Microsoft Entra ID authentication, you can update the gateway and clients to take advantage of the new Microsoft-registered App ID. If you want to use the new Azure VPN Client for Linux, your gateway must be configured to use the new Audience values that align with the Microsoft-registered App ID.
 
 Considerations and limitations:
 
@@ -18,7 +22,7 @@ Considerations and limitations:
 
 * The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Linux client does support Custom.
 
-* The latest version of the Azure VPN Client for both Windows and macOS are backward compatible.
+* The latest version of the Azure VPN Client for both Windows and macOS are backward compatible if you're using a previously configured P2S gateway for Microsoft Entra ID authentication.
 
 The following table shows the versions of the Azure VPN Client that are supported for each App ID and the corresponding available Audience values.
 

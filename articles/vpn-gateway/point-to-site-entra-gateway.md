@@ -77,7 +77,7 @@ The articles in the [Next steps](#next-steps) section help you:
 
      * `https://sts.windows.net/{MicrosoftEntra TenantID}/`
 
-1. You don't need to click **Grant administrator consent for Azure VPN client application**. This setting is only for manually registered VPN clients that use the older Audience values.
+1. You don't need to click **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
 1. Once you finish configuring settings, click **Save** at the top of the page.
 
 ## Download the VPN client profile configuration package
