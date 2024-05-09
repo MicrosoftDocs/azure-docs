@@ -40,7 +40,7 @@ To update a savings plan scope as a billing administrator:
 1. Select **Settings** > **Configuration**.
 1. Change the scope.
 
-If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to update a savings plan scope.
+If you purchased/were added to a savings plan, or were assigned savings plan RBAC roles, follow these steps to update a savings plan scope.
 1. Sign in to the Azure portal.
 1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
 1. Select the savings plan you want.
@@ -52,27 +52,15 @@ Selectable scopes must be from Enterprise offers (MS-AZR-0017P or MS-AZR-0148P),
 If you aren't a billing administrator and you change from shared to single scope, you may only select a subscription where you're the owner. Only subscriptions within the same billing account/profile as the savings plan can be selected.
 
 If all subscriptions are moved out of a management group, the scope of the savings plan is automatically changed to **Shared**.
-## Change the autorenewal setting
-To update the autorenewal setting as a billing administrator:
-1. Sign in to the Azure portal and go to **Cost Management + Billing**.
-    - If you're an Enterprise Agreement admin, on the left menu, select **Billing scopes**. Then in the list of billing scopes, select one.
-    - If you're a Microsoft Customer Agreement billing profile owner, on the left menu, select **Billing profiles**. In the list of billing profiles, select one.
-1. On the left menu, select **Products + services** > **Savings plans**. The list of savings plans for your Enterprise Agreement enrollment or billing profile appears.
-1. Select the savings plan you want.
-1. Select **Settings** > **Renewal**.
 
-If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to update the autorenewal setting.
-1. Sign in to the Azure portal.
-1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
-1. Select the savings plan you want.
-1. Select **Settings** > **Renewal**.
+## Change the auto-renewal setting
+To learn more about modifying auto-renewal settings for a savings plan, see [change auto-renewal settings](manage-savings-plan.md#change-the-auto-renewal-setting).
 
-## View savings plan details and utilization
-If you purchased a savings plan, were added to a savings plan, or were assigned one or more savings plan RBAC roles, follow these steps to view savings plan details and utilization.
-1. Sign in to the Azure portal.
-1. Select **All Services** > **Savings plans** to list savings plans to which you have access.
-1. Select the savings plan you want.
-1. To rename the savings plan, select **Rename**. To view payment history or upcoming payments, select the link to the right of **Billing frequency**.
+## View savings plan reporting details
+- To learn more about viewing savings plan utilization, see [view savings plan utilization](view-utilization.md).
+- To learn more about viewing savings plan cost and usage, see [view savings plan cost and usage exports](utilization-cost-reports.md).
+- To learn more about viewing savings plan transactions, see [view savings plan transactions](view-transactions.md).
+- To learn more about viewing savings plan amortized costs, see [view amortized costs](../reservations/view-amortized-costs.md).
 
 ## Delegate savings plan RBAC roles
 Users and groups who gain the ability to purchase, manage, or view savings plans via RBAC roles must do so from **Home** > **Savings plan**.
@@ -96,11 +84,31 @@ To delegate the administrator, contributor, or reader roles to a specific saving
 1. Go to **Home** > **Savings plans**.
 1. Select **Role assignment** from the top navigation bar.
 
-## Cancel, exchange, or refund
-You can't cancel, exchange, or refund savings plans.
+## Cancellations, exchanges and trade-ins
+Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).
+
+## Savings plan notifications
+Depending on how you pay for your Azure subscription, savings plan-related email notifications are sent to the following users in your organization. Savings plan notifications are sent for the following events:
+- Purchase
+- Scope change
+- Upcoming expiration: 30 days before
+- Expiration
+- Renewal
+- Cancellation
+
+For customers with Enterprise Agreement subscriptions:
+- Notifications are sent to Enterprise Agreement administrators and Enterprise Agreement notification contacts.
+- The Azure RBAC owner of the savings plan receives all notifications.
+
+For customers with Microsoft Customer Agreement subscriptions:
+- The purchaser receives a purchase notification.
+- The Azure RBAC owner of the savings plan receives all notifications.
+
+For Microsoft Partner Agreement partners:
+- Notifications are sent to the partner.
 
 ## Need help?
 If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide answers to expert support requests in English for questions about Azure savings plan for compute.
