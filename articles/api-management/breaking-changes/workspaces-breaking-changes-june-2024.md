@@ -74,11 +74,11 @@ The Developer tier was designed for single-user or single-team use cases. It's u
 
 * **Aggregate in a Premium tier instance**
 
-    Aggregate multiple nonproduction environments in a single Premium tier instance. Use workspaces in the Premium tier to isolate the different environments.
+    While upgrading each Developer tier instance to Premium tier is an option, consider aggregating multiple nonproduction environments in a single Premium tier instance. Use workspaces in the Premium tier to isolate the different environments.
 
-* **Use Developer tier instances for development, migrate to workspaces in Premium tier**
+* **Use Developer tier instances for development, migrate to workspaces in Premium tier for production**
 
-    You might use Developer tier instances for development environments. For higher environments, you can migrate the configuration of these Developer-tier services into workspaces of a Premium tier service. With this approach you may run into issues or conflicts when managing the configurations across environments. 
+    You might use Developer tier instances for development environments. For higher environments, you can migrate the configuration of each Developer-tier service into a workspace of a Premium tier service, for example, using CI/CD pipelines. With this approach you may run into issues or conflicts when managing the configurations across environments. 
 
     If you're currently using workspaces in a Developer tier instance, you can migrate the workspace configurations to a Developer tier instance without workspaces:
 
@@ -96,7 +96,6 @@ If you assigned workspace-level entities to service-level entities in the worksp
 |---------|---------|
 |Assign workspace APIs to service-level products    | Use workspace-level products        |
 |Assign workspace APIs or products to service-level tags     | Use workspace-level tags        |
-|Assign service-level groups to workspace products for visibility controls     |         |
 
 ## Help and support
 
