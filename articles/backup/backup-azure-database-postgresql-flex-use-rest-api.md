@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL - Flexible servers using in Azure Backup
 description: Learn how to back up Azure Database for PostgreSQL - Flexible servers using REST API.
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/13/2024
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -39,7 +39,7 @@ Once the vault and policy are created, there're three critical points to conside
 
    Backup vault has to connect and access the PostgreSQL flexible server. Access is granted to the Backup vault's Managed Service Identity (MSI).
 
-   You need to grant permissions to back up vault's MSI on the PostgreSQL. Learn more.
+   You need to grant permissions to back up vault's MSI on the PostgreSQL. [Learn more](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
 
 ### Prepare the request to configure backup
 
@@ -80,10 +80,9 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
 
 To validate if the backup configuration request will be successful, use the *validate for backup* API. You can use the response to perform the required prerequisites, and then submit the configuration for the backup request.
 
-**Validate for backup request is a POST operation and the Uniform Resource Identifier (URI)**
+*Validate for backup request* is a *POST* operation and the Uniform Resource Identifier (URI) contains `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
 
 ```HTTP
-contains {subscriptionId}, {vaultName}, {vaultresourceGroupName} parameters.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.DataProtection/backupVaults/{backupVaultName}/validateForBackup?api-version=2021-01-01
 
 ```
@@ -145,7 +144,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 
 *Error response*
 
-If the given server is already protected, it returns the response as HTTP 400 (Bad request) and states that the given server is already protected in a backup vault along with details.
+If the given server is already protected, it returns the response as HTTP 400 (Bad request) and states that the given server is already protected in a backup vault along with the details.
 
 ```HTTP
 HTTP/1.1 400 BadRequest
@@ -233,7 +232,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ```
 
-It returns 200 (OK) once it completes and the response body lists further requirements to be fulfilled, such as permissions.
+It returns 200 (OK) once it completes and the response body lists more requirements to be fulfilled, such as permissions.
 
 ```HTTP
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
@@ -276,7 +275,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ```
 
-If you grant all permissions, then resubmit the validation request, track the resulting operation. It'll return the success response as 200 (OK) if all the conditions are met.
+If you grant all permissions, then resubmit the validation request, and track the resulting operation. It'll return the success response as 200 (OK) if all the conditions are met.
 
 ```HTTP
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
@@ -295,7 +294,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 Once the request is validated, you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services protects the Backup instance within the Backup vault. Here, the Azure PostgreSQL flexible server is the backup instance. Use the above-validated request body with minor additions.
 
-Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. For example, in the following operation, we'll use *pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149* and mark it as the backup instance name.
+Use a unique name for the backup instance. We recommend you to use a combination of the resource name and a unique identifier. For example, in the following operation, we'll use *pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149* and mark it as the backup instance name.
 
 To create or update the backup instance, use the following *PUT* operation:
 
@@ -358,7 +357,7 @@ We'll use the [same request body that we used to validate the backup request](ba
 ### Responses to configure backup request
 
 Create backup instance request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
-It returns two responses: 201 (Created) when backup instance is created and the protection is configured. 200 (OK) when that configuration completes.
+It returns two responses: *201* (Created) when the backup instance is created and the protection is configured. 200 (OK) when that configuration completes.
 
 | Name | Type | Description |
 | --- | --- | --- |

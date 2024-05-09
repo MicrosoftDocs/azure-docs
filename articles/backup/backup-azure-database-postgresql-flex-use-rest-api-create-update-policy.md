@@ -2,7 +2,7 @@
 title: Create backup policies for Azure database for PostgreSQL - Flexible server using data protection REST API in Azure Backup
 description: Learn how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/13/2024
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -14,7 +14,7 @@ This article describes how to create the backup policy to protect Azure PostgreS
 
 A backup policy governs the retention and schedule of your backups. Azure PostgreSQL flexible servers Backup offers long-term retention and supports a backup per day. 
 
-You can reuse an existing backup policy to configure backup for PostgreSQL flexible servers to a vault, or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update)
+You can reuse an existing backup policy to configure backup for PostgreSQL flexible servers to a vault, or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
 
 ## Understanding PostgreSQL backup policy
 
@@ -30,7 +30,7 @@ Before you start creating the backup policy, learn about the backup policy objec
     - Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
   - Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
 
-This object defines the type of backups that are triggered, the way they are triggered (via a schedule), the tags marked for the backup operation, the path where the backups are stored (a datastore), and the lifecycle of the backup data in a datastore. The default PowerShell object for PostgreSQL - Flexible servers trigger a full backup every week, and stores the backups in the vault, and retains them for three months.
+This object defines the type of backups that are triggered, the way they are triggered (via a schedule), the tags marked for the backup operation, the path where the backups are stored (a datastore), and the lifecycle of the backup data in a datastore. The default PowerShell object for PostgreSQL - Flexible servers triggers a full backup every week, and stores the backups in the vault, and retains them for three months.
 
 ## Create a backup policy
 
@@ -47,7 +47,7 @@ The `{policyName}` and `{vaultName}` are provided in the URI. Additional informa
 
 ## Create the request body
 
-For example, to create a policy for PostgreSQL - Flexible servers backup, the request body needs the following components:
+For example, to create a policy for Azure Database for PostgreSQL - Flexible servers backup, the request body needs the following components:
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -57,9 +57,9 @@ For the complete list of definitions in the request body, see the [backup policy
 
 ### Example request body
 
-The policy explains:
+The policy says that:
 
-- Scheduled trigger for a weekly backup and choose the starting time (Time + P1W).
+- It's scheduled to triggrr weekly backup and choose the start time (Time + P1W).
 - Datastore is vault store, as the backups are directly transferred to the vault.
 - The backups are retained in the vault for three months (P3M).
 
@@ -131,7 +131,7 @@ The policy explains:
 
 Let's update the above JSON template with one change - Backups on multiple days of the week.
 
-The following example modifies the weekly backup to back up occurring on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and dates of the week are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
+The following example modifies the weekly backup to back up on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the dates of the week are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
 
 **Scheduled trigger**:
 
@@ -151,7 +151,7 @@ The following example modifies the weekly backup to back up occurring on every S
 
 If you want to add another retention rule, then modify the *policy JSON* as follows:
 
-The above JSON has a lifecycle for the initial datastore under the default retention rule. In this scenario, the rule mentions deleting the backup data after three months. You can add a new retention rule that defines a longer retention duration of 6 months for first backups taken at start of every month - let's name this new rule as *Monthly*.
+The above JSON has a lifecycle for the initial datastore under the default retention rule. In this scenario, the rule mentions deleting the backup data after three months. You can add a new retention rule that defines a longer retention duration of 6 months for the first backups taken at the start of every month. Let's name this new rule as *Monthly*.
 
 **Retention lifecycle**:
 
@@ -195,7 +195,7 @@ The above JSON has a lifecycle for the initial datastore under the default reten
 
 ```
 
-Every time you add a retention rule, you need to add a corresponding tag in *Trigger* property of the policy. The following example creates a new tag along with the criteria (the first successful backup of the month) with the exact same name as the corresponding retention rule to be applied.
+Every time you add a retention rule, you need to add a corresponding tag in the *Trigger* property of the policy. The following example creates a new tag along with the criteria (the first successful backup of the month) with the exact same name as the corresponding retention rule to be applied.
 
 In this example, the tag criteria should be named *Monthly*.
 
@@ -324,7 +324,7 @@ For more details about policy creation, see the [PostGreSQL database Backup poli
 
 ### Responses
 
-The backup policy creation or update is a synchronous operation and returns &OK* once the operation is successful.
+The backup policy creation or update is a synchronous operation and returns *OK* once the operation is successful.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -440,7 +440,7 @@ Once the operation completes, it returns 200 (OK) with the policy content in the
 
 [Enable protection for Azure Database for PostgreSQL - Flexible server](backup-azure-database-postgresql-flex-use-rest-api.md).
 
-For more information on the Azure Backup REST APIs, see the following articles:
+For more information on Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection REST API](/rest/api/dataprotection)
 - [Get started with Azure REST API](/rest/api/azure)

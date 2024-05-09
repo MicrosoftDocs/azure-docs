@@ -2,7 +2,7 @@
 title: Restore Azure Database for PostgreSQL - Flexible servers using in Azure Backup
 description: Learn how to restore Azure Database for PostgreSQL - Flexible servers using REST API.
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/13/2024
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # Restore Azure Database for PostgreSQL - Flexible servers using REST API (preview)
 
-This article describes how to restore an Azure PostgreSQL flexible server backed-up by Azure Backup.
+This article describes how to restore an Azure Database for PostgreSQL - Flexible server backed up by Azure Backup.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Let's use an existing Backup vault `TestBkpVault`, under the resource group `tes
 ### Set up permissions
 
 Backup vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the target to be restored to.
-To restore the recovery point as files to a storage account, Backup vault's system assigned managed identity needs access on the target storage account as [mentioned here](restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, Backup vault's system assigned managed identity needs access on the target storage account as mentioned [here](restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
 ### Fetch the relevant recovery point
 
@@ -43,7 +43,7 @@ For example, this API translates to:
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149/recoveryPoints?api-version=2021-07-01
 ```
 
-**Responses for list of recovery points**:
+**Responses for the list of recovery points**:
 
 Once you submit the *GET* request, it returns response as *200* (OK), and the list of all discrete recovery points with all the relevant details.
 
@@ -106,7 +106,7 @@ Select the relevant recovery points from the above list and proceed to prepare t
 
 ### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as [detailed above](#set-up-permissions). For example, a container named `testcontainerrestore` under a storage account `testossstorageaccount` with a different subscription.
+Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named `testcontainerrestore` under a storage account `testossstorageaccount` with a different subscription.
 
 ```HTTP
 "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
@@ -254,7 +254,7 @@ It returns two responses: 202 (Accepted) when another operation is created. Then
 
 Example response to trigger restore request:
 
-Once the *POST* operation is submitted, it will return the initial response as *202* (Accepted) with an *Azure-asyncOperation* header.
+Once the *POST* operation is submitted, it will return the initial response as *202* (Accepted) with an `Azure-asyncOperation` header.
 
 ```HTTP
 HTTP/1.1 202 Accepted
@@ -276,7 +276,7 @@ X-Powered-By: ASP.NET
 
 ```
 
-Track the `Azure-AsyncOperation` header with a simple *GET* request. When the request is successful, it will return 200 (OK) with a job ID that should be further tracked for completion of restore request.
+Track the `Azure-AsyncOperation` header with a simple *GET* request. When the request is successful, it will return 200 (OK) with a job ID that should be further tracked for completion of the restore request.
 
 ```HTTP
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExO2Q1NDIzY2VjLTczYjYtNDY5ZC1hYmRjLTc1N2Q0ZTJmOGM5OQ==?api-version=2021-07-01
