@@ -13,6 +13,8 @@ ms.date: 04/26/2024
 
 Virtual WAN hubs can be integrated with third-party networking software solutions that enable connectivity (SD-WAN or VPN) and next-generation firewall (NGFW) functionalities. The three main deployment models of integrated networking software solutions in Virtual WAN are Integrated Network Virtual Appliances (Integrated NVAs),  networking and security software-as-a-service (SaaS) solutions and Azure Firewall Manager security providers.
 
+This article focuses on third-party integrations with the Virtual Hub. To facilitate connecting from on-premises to Azure Virtual WAN, certain devices that connect to Azure Virtual WAN have built-in automation to program Site-to-site VPN Gateways in both Virtual WAN and on-premises. This is typically set up in the device-management UI (or equivalent). For more information on IPsec connectivity automation, see [IPsec automation documentation](virtual-wan-locations-partners.md)
+
 ## Integrated Network Virtual Appliances
 
 Integrated Network Virtual Appliances (NVAs) are Microsoft-managed infrastructure-as-a-service solutions that Microsoft and select NVA providers jointly develop and offer. Integrated Network Virtual Appliances are typically deployed through Azure Marketplace Managed Applications or directly from  NVA orchestration software.  The backing infrastructure of Network Virtual Appliances are deployed as Virtual Machine scale-sets with Azure Load Balancers directly into the Virtual WAN hub. A subset of Azure infrastructure configurations are available for you to manage, scale and troubleshoot your NVA deployments in the Virtual WAN hub.
@@ -21,7 +23,7 @@ As an Integrated NVA user, you can select an NVA infrastructure scale unit up-fr
 
 Integrated NVAs typically fall into 3 categories based on their capabilities:
 
-* **Connectivity**: NVAs in the hub serve as a connectivity gateway in the Virtual WAN hub allowing you to connect on-premises datacenters or site to Azure using NVA connectivity protocols like SD-WAN or IPSEC.
+* **Connectivity**: NVAs in the hub serve as a connectivity gateway in the Virtual WAN hub allowing you to connect on-premises data centers or site to Azure using NVA-specific connectivity protocols like SD-WAN or IPSEC.
 * **Next-generation Firewall**: NVAs in the hub serve as a security appliance in the Virtual WAN hub, allowing you to inspect traffic between on-premises, Azure Virtual Networks and the Internet.
 * **Dual-role connectivty and Firewall**: NVAs in the hub that provide both connectivity and next-generation firewall security capabiliites on the same device.  
 
