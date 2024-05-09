@@ -61,6 +61,8 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
+    - name: Fine-tune models
+      href: concepts/fine-tuning-overview.md
   - name: AI Services
     items:
     - name: What are AI services?
