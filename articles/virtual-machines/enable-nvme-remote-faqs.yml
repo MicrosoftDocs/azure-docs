@@ -82,7 +82,7 @@ sections:
             
             CLI Example:
             ```
-            az sig image-definition create --resource-group \<resourceGroupName\> --gallery-name \<galleryName\> --gallery-image-definition \<imageName\> --publisher \<publisher\> --offer \<offerName\> --sku \<skuName\> --os-type \<osType\> --os-state \<osState\> --feature DiskControllerTypes=SCSI,NVMe
+            `az sig image-definition create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --publisher <publisher> --offer <offerName> --sku <skuName> --os-type <osType> --os-state <osState> --feature DiskControllerTypes=SCSI,NVMe`
             ```
 
           4. Create the image version under the NVMe-tagged gallery with the NVMe-supported vhd: 
