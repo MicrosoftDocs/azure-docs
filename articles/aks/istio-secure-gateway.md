@@ -77,7 +77,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Key Vault][ak
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
     CLIENT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.clientId')
-    TENANT_ID=$(az keyvault show -g ddama-test -n $AKV_NAME --query 'properties.tenantId')
+    TENANT_ID=$(az keyvault show --resource-group $RESOURCE_GROUP --name $AKV_NAME --query 'properties.tenantId')
     
     az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
     ```
