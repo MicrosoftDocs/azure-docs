@@ -224,7 +224,7 @@ items:
           href: app/availability-overview.md
         - name: Standard tests
           href: app/availability-standard-tests.md
-        - name: Private testing
+        - name: Testing behind a firewall
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md

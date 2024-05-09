@@ -24,7 +24,7 @@ This article is to help you understand the support lifecycle for the Azure OpenA
 Azure OpenAI API version [2024-04-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json)
 is currently the latest preview release.
 
-This version contains support for all the latest Azure OpenAI features including:
+This version contains support for the latest Azure OpenAI features including:
 
 - [Embeddings `encoding_format` and `dimensions` parameters] [**Added in 2024-03-01-preview**]
 - [Assistants API](./assistants-reference.md). [**Added in 2024-02-15-preview**]
@@ -34,6 +34,14 @@ This version contains support for all the latest Azure OpenAI features including
 - [Whisper](./whisper-quickstart.md). [**Added in 2023-09-01-preview**]
 - [Function calling](./how-to/function-calling.md)  [**Added in 2023-07-01-preview**]
 - [Retrieval augmented generation with the on your data feature](./use-your-data-quickstart.md).  [**Added in 2023-06-01-preview**]
+
+## Changes between 2024-03-01-preview and 2024-04-01-preview API specification
+
+- **Breaking Change**: Enhancements parameters removed. This impacts the `gpt-4` **Version:** `vision-preview` model.
+- [timestamp_granularities](https://github.com/Azure/azure-rest-api-specs/blob/fbc90d63f236986f7eddfffe3dca6d9d734da0b2/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json#L5217) parameter added.
+- [`audioWord`](https://github.com/Azure/azure-rest-api-specs/blob/fbc90d63f236986f7eddfffe3dca6d9d734da0b2/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json#L5286) object added.
+- Additional TTS [`response_formats`: wav & pcm](https://github.com/Azure/azure-rest-api-specs/blob/fbc90d63f236986f7eddfffe3dca6d9d734da0b2/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-04-01-preview/inference.json#L5333).
+
 
 ## Latest GA API release
 
