@@ -62,7 +62,7 @@ The [Integrated Vector Database in vCore-based Azure Cosmos DB for MongoDB](/azu
 
 For some data sources such as uploading files from your local machine (preview) or data contained in a blob storage account (preview), Azure AI Search is used. When you choose the following data sources, your data is ingested into an Azure AI Search index.
 
-|Data source  | Description  |
+|Data ingested through Azure AI Search  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
@@ -136,10 +136,7 @@ If you want to implement additional value-based criteria for query execution, yo
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
 
-# [Azure Cosmos DB for MongoDB](#tab/mongo-db)
-
->[!TIP]
->If you use Azure Cosmos DB (except for its vCore-based API for MongoDB), you may be eligible for the [Azure AI Advantage offer](/azure/cosmos-db/ai-advantage), which provides the equivalent of up to $6,000 in Azure Cosmos DB throughput credits.
+# [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
 
 ### Prerequisites
 * [vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/introduction) account
