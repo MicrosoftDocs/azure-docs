@@ -1,7 +1,7 @@
 ---
 title: Enabling Network Security Group flow logs for Azure Red Hat OpenShift
 description: In this article, learn how to enable flow logs to analyze traffic for Network Security Groups.
-author: johnmarc
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
