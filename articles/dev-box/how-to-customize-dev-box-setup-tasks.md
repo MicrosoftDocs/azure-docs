@@ -14,9 +14,9 @@ ms.date: 05/07/2024
 
 # Create reusable dev box customizations
 
-In this article, you learn how to customize dev boxes by using a catalog of tasks and a configuration file to install software, add extensions, clone repositories, and more. These tasks are applied to the new dev box in the final stage of the creation process. Microsoft Dev Box customization is a config-as-code approach to customizing dev boxes. You can add other settings and software without having to create a custom virtual machine (VM) image. 
+Microsoft Dev Box customization is a config-as-code approach to customizing dev boxes. In this article, you learn how to customize dev boxes by using a catalog of tasks and a configuration file to install software, add extensions, clone repositories, and more. These tasks are applied to the new dev box in the final stage of the creation process. You can add settings and software without having to create a custom virtual machine (VM) image. 
 
-Customizations are useful for development teams. Developer team leads can use customizations to preconfigure the software required for their specific development team, and author configuration files that apply only the tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image. 
+Customizations are useful for development teams. Developer team leads can use customizations to preconfigure the software required for their specific development team, and author configuration files that apply only the tasks relevant for their teams. This method lets developers create dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image. 
 
 By using customizations, you can automate common setup steps, save time, and reduce the chance of configuration errors. Some example tasks include: 
 
