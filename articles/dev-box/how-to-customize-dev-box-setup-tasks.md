@@ -20,11 +20,11 @@ Customizations are useful for development teams. Developer team leads can use cu
 
 By using customizations, you can automate common setup steps, save time, and reduce the chance of configuration errors. Some example tasks include: 
 
-- Installing software with the WinGet or Chocolatey package managers. 
+- Installing software with the WinGet package manager. 
 - Setting OS settings like enabling Windows Features. 
 - Configuring applications like installing Visual Studio extensions.
 
-You can implement customizations in stages, building from a simple but functional configuration to an automated process. The stages are as follows:
+You can adopt customizations in stages, building from a simple but functional configuration to an automated process. The stages are as follows:
 
 1. [Create a customized dev box by using an example configuration file](#create-a-customized-dev-box-by-using-an-example-configuration-file)
 1. [Write a configuration file](#write-a-configuration-file) 
@@ -126,14 +126,24 @@ A task performs a specific action, like installing software. Each task consists 
 
 Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common tasks: 
 
-- Installing software with the WinGet or Chocolatey package managers
-- Cloning a repository by using git-clone 
-- Configuring applications like installing Visual Studio extensions 
-- Running PowerShell scripts 
+- Installing software with the WinGet package manager.
+- Deploy desired state configuration (DSC) by using WinGet Configuration.
+- Cloning a repository by using git-clone. 
+- Configuring applications like installing Visual Studio extensions. 
+- Running PowerShell scripts. 
 
-The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
+#### Customize your dev box by using existing WinGet Configuration files
 
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png":::
+WinGet Configuration takes a config-as-code approach to defining the unique sets of software and configuration settings required to get your Windows environment in a ready-to-code state. These configuration files can also be used to set up a Dev Box, by using a WinGet task included in the Microsoft provided quickstart catalog mentioned earlier.
+
+The following example shows a dev box customization file that calls an existing WinGet DSC file. 
+
+```yaml
+tasks:
+    - name: winget
+      parameters:
+          configure: "projectConfiguration.dsc.yaml"
+```
 
 ### Permissions required to configure Microsoft Dev Box for customizations
 
@@ -166,6 +176,9 @@ Before you can create and test your own configuration file, there must be a cata
 1. The configuration file runs immediately, applying the specified tasks to your test dev box. Inspect the changes and check the Visual Studio Code terminal for any errors or warnings generated during the task execution.
 
 1. When the configuration file runs successfully, share it with developers to upload when they create a new dev box.
+
+> [!Tip]
+> As an alternative to Visual Studio Code, you can use Dev Home to create and validate a configuration file in a graphical user interface. Learn more about Dev Home at [Create reusable dev box customizations with Dev Home](https://aka.ms/dev-box/dev-home-app).
  
 > [!NOTE]
 > The ability to create and upload a file isn’t a security risk; the file uploaded can only apply settings defined in the catalog attached to the dev center. If the task isn't defined there, the developer will get an error saying the task isn't defined.
@@ -214,7 +227,11 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 
 1.	[Attach your repository to your dev center as a catalog](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI).
 
-1.	Create a configuration file for those tasks by following the steps in [Write a configuration file](#write-a-configuration-file). 
+1.	Create a configuration file for those tasks by following the steps in [Write a configuration file](#write-a-configuration-file).
+
+The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
+
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png"::: 
 
 ## Related content
 
