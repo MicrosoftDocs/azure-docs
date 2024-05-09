@@ -52,15 +52,15 @@ analyze new call data.
 
 
 Since Call Diagnostics is an application layer on top of data for your
-Azure Communications Service Resource you can query these call data and
-[build workbook reports on top of your data](../../../azure-monitor/logs/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+Azure Communications Service Resource, you can query these call data and
+[build workbook reports on top of your data.](../../../azure-monitor/logs/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
 
 You can access Call Diagnostics from any Azure Communication Services
 Resource in your Azure portal. When you open your Azure Communications
 Services Resource, just look for the “Monitoring” section on the left
 side of the screen and select "Call Diagnostics."
 
-Once you have setup Call Diagnostics for your Azure Communication Services Resource you can search for calls using valid callIDs that took place in that resource. Data can take several hours after call completion to appear in your resource and populate in Call Diagnostics. 
+Once you have setup Call Diagnostics for your Azure Communication Services Resource, you can search for calls using valid callIDs that took place in that resource. Data can take several hours after call completion to appear in your resource and populate in Call Diagnostics. 
 
 **Call Diagnostics has four main sections:**
 
@@ -80,7 +80,7 @@ selected call.
 
 The search field allows you to search by callID. See our documentation to [access your client call ID.](../troubleshooting-info.md#access-your-client-call-id)
 
-![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/call-diagnostics-all-calls2.png)
+![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/call-diagnostics-all-calls-2.png)
 
 
 > [!NOTE]
@@ -88,13 +88,12 @@ The search field allows you to search by callID. See our documentation to [acces
 
 ## Call Overview
 
-Once you select a call from the Call Search page, your call details will
-display in the Call Overview tab. You’ll see a call summary highlighting
+Once you select a call from the Call Search page, your call details display in the Call Overview tab. You see a call summary highlighting
 the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
 directly or navigate to the Call Issues tab for further analysis.
 
-![Screenshot of the Call Diagnostics Call Overview tab which which shows you an overview of the call you selected in the previous Call Search view.](media/call-diagnostics-call-overview2.png)
+![Screenshot of the Call Diagnostics Call Overview tab which which shows you an overview of the call you selected in the previous Call Search view.](media/call-diagnostics-call-overview-2.png)
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -107,10 +106,10 @@ and reliability issues that were detected during the call.
 Call Issues highlights detected issues commonly known to affect user’s call
 quality such as poor network conditions, speaking while muted, or device
 failures during a call. If you want to explore a detected issue, select
-the highlighted item and you'll see a pre-populated view of the
+the highlighted item and you see a prepopulated view of the
 related events in the Timeline tab.
 
-![Screenshot of the Call Diagnostics Call Issues tab showing you the top issues detected in the call you selected.](media/call-diagnostics-call-issues2.png)
+![Screenshot of the Call Diagnostics Call Issues tab showing you the top issues detected in the call you selected.](media/call-diagnostics-call-issues-2.png)
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -121,15 +120,14 @@ When call issues are difficult to troubleshoot, you can explore the
 timeline tab to see a detailed sequence of events that occurred during
 the call.
 
-The timeline view is complex and designed for developers who need
-explore details of a call and interpret detailed debugging data. In
+The timeline view is complex and designed for developers who need to explore details of a call and interpret detailed debugging data. In
 large calls the timeline view can present an overwhelming amount of
 information, we recommend relying on filtering to narrow your search
 results and reduce complexity.
 
-You can view detailed call logs for each participant within a call. Call information may not be present, this can be due to various reasons such as privacy constraints between different calling resources. See frequently asked questions to learn more.
+You can view detailed call logs for each participant within a call. Call information may not be present due to various reasons such as privacy constraints between different calling resources. See frequently asked questions to learn more.
 
-![Screenshot of the Call Diagnostics Call Timeline tab showing you the detailed events in a timeline view for the call you selected.](media/call-diagnostics-call-timeline2.png)
+![Screenshot of the Call Diagnostics Call Timeline tab showing you the detailed events in a timeline view for the call you selected.](media/call-diagnostics-call-timeline-2.png)
 
 <!-- > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
@@ -189,13 +187,32 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 -  How do I set up Call Diagnostics?
 
-    - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) We recommend you initially collect all logs and then determine which logs you want to retain and for how long after you have an understanding of the capabilities in Azure Monitor. When adding your diagnostic setting you will be prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting), select "**allLogs**" to collect all logs. 
+    - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) We recommend you initially collect all logs and then determine which logs you want to retain and for how long after you have an understanding of the capabilities in Azure Monitor. When adding your diagnostic setting you are prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting), select "**allLogs**" to collect all logs. 
     - Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
     - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. 
 
-- If Azure Communication Services participants join from different Azure Communication Services Resources, how will they display in Call Diagnostics?
+- If Azure Communication Services participants join from different Azure Communication Services Resources, how do they display in Call Diagnostics?
 
-    -  If all the participants are from the same Azure subscription, they'll appear as "remote participants". However, Call Diagnostics won’t show any participant details for Azure Communication Services participants from another resource. You need to review that same call ID from the specific Azure Communication Services Resource the participant belongs to.
+    -  If all the participants are from the same Azure subscription, they appear as "remote participant." However, Call Diagnostics doesn't show as many details for Azure Communication Services participants from another resource. Only the owning Azure Communications Services resource of the participant belongs to can see those details so you need to review that same call ID from within the owning Azure Communication Services Resource.
+
+- What are the common call issues I might see and how can I fix them?
+
+  - Here are resources for common call issues. For an overview of troubleshooting strategies for more information on isolating call issues. Please see: [Overview of general troubleshooting strategies](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md)
+
+  - If you see common error messages or descriptions. See: 
+[Understanding error messages and codes](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md)
+
+  - If users are unable to join calls. See:
+[Overview of call setup issues](../../resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md)
+
+  - If users have camera or microphone issues. For example, they can’t hear someone. See: [Overview of device and permission issues](../../resources/troubleshooting/voice-video-calling/device-issues/overview.md)
+
+  - If call participants have audio issues. For example, they sound like a robot or hear an echo. See: [Overview of audio issues](../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md)
+
+  - If call participants have video issues. For example, their video looks fuzzy, or cuts in and out. See: [Overview of video issues](../../resources/troubleshooting/voice-video-calling/video-issues/overview.md)
+
+
+
 
     <!-- 2.  If that ACS resource isn't part of **<u>your Azure subscription
         and / or hasn't enabled Diagnostics Settings to store call logs,
@@ -284,31 +301,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 - Explore known call issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
 
 
-<!-- 
 
-
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this, we have a dedicated support and help options page which lists your options for support.
-
-Support and help options for Azure Communication Services | Microsoft Learn
-You can review our documentation on troubleshooting strategies for more information on isolating call issues.
-
-[Overview of general troubleshooting strategies](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md)
-
-Here are resources for common call issues.
-
-- If you see common error messages or descriptions. Please see: 
-[Understanding error messages and codes](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md)
-
-- If users are unable to join calls. Please see:
-[Overview of call setup issues](../../resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md)
-
-- If users have camera or microphone issues. For example, they can’t hear someone. Please see: [Overview of device and permission issues](../../resources/troubleshooting/voice-video-calling/device-issues/overview.md)
-
-- If call participants have audio issues. For example, they sound like a robot or hear an echo. Please see: [Overview of audio issues](../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md)
-
-- If call participants have video issues. For example, their video looks fuzzy, or cuts in and out. Please see: [Overview of video issues](../../resources/troubleshooting/voice-video-calling/video-issues/overview.md)
-
- -->
 
 <!-- added to the toc.yml file at row 583.
 
