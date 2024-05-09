@@ -276,7 +276,7 @@ Assume that `Client1` goes first with a request of `SET LockName Client1 NEX PX 
 
 When `Client1` successfully does a `SET` ("AquireLock") on `LockName`, the state store returns the version of `LockName` as a Hybrid Logical Clock (HLC) in the MQTT5 user property `__ts`.
 
-When a client performs a `SET` request, it can optionally include the MQTT5 user property `__ft` to represent a "fencing token". The __ft` is represented as an HLC. The fencing token associated with a given key-value pair provides lock ownership checking. The fencing token can come from anywhere. For this scenario, it should come from the version of `LockName`.
+When a client performs a `SET` request, it can optionally include the MQTT5 user property `__ft` to represent a "fencing token". The `__ft` is represented as an HLC. The fencing token associated with a given key-value pair provides lock ownership checking. The fencing token can come from anywhere. For this scenario, it should come from the version of `LockName`.
 
 The following diagram shows the process of `Client1` doing a `SET` request on `LockName`:
 
