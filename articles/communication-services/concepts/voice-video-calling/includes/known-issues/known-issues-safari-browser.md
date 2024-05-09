@@ -96,6 +96,12 @@ Bug was fixed with iOS 16.2.<br>
 **Known issue reference:** Related WebKit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=243982) and [here](https://bugs.webkit.org/show_bug.cgi?id=244505).<br>
 **Recommended workaround:** Consider updating to the latest iOS version.<br>
   
+### Video and audio issues on iPhone X, occurring to the user being in a call for more than 30 minutes with the camera turned on
+**Devices affected:** iPhone X (iOS 16.7.x).<br>
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** During Azure Communication Service calls on iPhone X with iOS 16.7.x, users experience the disappearance of both their local video preview and incoming video after more than 30 minutes of being in a call with video enabled, which may appear blank or empty to the user. For other users, the video from the iPhone X user appears frozen at the moment it is lost on the iPhone X device. Along with the disappearance of the video, a pronounced echo can occur. The video restores when the iPhone X user turns the camera off and then on again.
+- This issue has been observed only on the iPhone X device with iOS versions 16.7.5 and 16.7.7.<br>
 
 ### Bluetooth headset microphone isn't detected or audible during the call on Safari on iOS
 **iOS version:** All<br>
