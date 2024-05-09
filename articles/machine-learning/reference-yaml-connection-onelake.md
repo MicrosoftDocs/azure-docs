@@ -57,16 +57,16 @@ Visit [this GitHub resource]() for examples. Several are shown here. These examp
 name: myonelake_sp
 type: one_lake
 one_lake_artifact:
-  type: lake_house
-  name: "XXXXXXXXXX"
-  workspace_id: "XXXXXXXXXX"
-  endpoint: contoso-onelake.dfs.fabric.microsoft.com
+    type: lake_house
+    name: "XXXXXXXXXX"
+    workspace_id: "XXXXXXXXXX"
+    endpoint: contoso-onelake.dfs.fabric.microsoft.com
 
 credentials:
-  type: service_principal
-  tenant_id: "XXXXXXXXXX"
-  client_id: "XXXXXXXXXX"
-  client_secret: "XXXXXXXXXX"
+    type: service_principal
+    tenant_id: "XXXXXXXXXX"
+    client_id: "XXXXXXXXXX"
+    client_secret: "XXXXXXXXXX"
 ```
 
 ### YAML: credential-less
@@ -77,10 +77,10 @@ credentials:
 name: myonelake_cl
 type: one_lake
 one_lake_artifact:
-  type: lake_house
-  name: "XXXXXXXXXX"
-  workspace_id: "XXXXXXXXXX"
-  endpoint: contoso-onelake.dfs.fabric.microsoft.com
+    type: lake_house
+    name: "XXXXXXXXXX"
+    workspace_id: "XXXXXXXXXX"
+    endpoint: contoso-onelake.dfs.fabric.microsoft.com
 ```
 
 ## Next steps

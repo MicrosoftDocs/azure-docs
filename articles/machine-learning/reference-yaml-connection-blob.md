@@ -31,10 +31,10 @@ ms.reviewer: larryfr
 | `account_name` | string | **Required.** The Azure Storage Account name. | | |
 | `container_name` | string | **Required.** The blob container name. | | |
 | `is_shared` | boolean | `true` if the connection is shared across other projects in the hub; otherwise, `false`. | | `true` |
-| `url` | string | The URL to the blob container. | | |
+| `url` | string | **Required.** The URL to the blob container. | | |
 | `credentials` | object | Credential-based authentication to access the storage account. An account key, or shared access signature (SAS) token will work. Do not specify `credentials` when using credential-less authentication. | | |
-| `credentials.account_key` | string | The account key used to access the storage account. | | |
-| `credentials.sas_token` | string | The SAS token to access the storage account. | | |
+| `credentials.account_key` | string | The account key used to access the storage account. Don't use `credentials.sas_token` if you are using an account key for authentication. | | |
+| `credentials.sas_token` | string | The SAS token to access the storage account. Don't use `credentials.account_key` if you are using a SAS token for authentication.| | |
 
 ## Remarks
 
@@ -51,6 +51,7 @@ Visit [this GitHub resource]() for examples. Several are shown here. These examp
 
 name: my_blobstore_ak
 type: azure_blob
+url: "myendpoint"
 container_name: dummycont
 account_name: mystroageacct
 
@@ -65,7 +66,7 @@ credentials:
 
 name: my_blobstore_sas
 type: azure_blob
-
+url: "myendpoint"
 container_name: dummycont
 account_name: mystroageacct
 credentials:
@@ -78,7 +79,8 @@ credentials:
 #AzureBlobStoreConnection.yaml
 
 name: my_blobstore_cl
-
+type: azure_blob
+url: "myendpoint"
 container_name: dummycont
 account_name: mystroageacct
 ```
