@@ -16,7 +16,7 @@ Application Gateway logs provide detailed information for events related to a re
 
 Logs are available for all resources of Application Gateway; however, to consume them, you must enable their collection in a storage location of your choice. Logging in Azure Application Gateway is enabled by the Azure Monitor service. We recommend using the Log Analytics workspace as you can readily use its predefined queries and set alerts based on specific log conditions.
 
-## <a name="diagnostic-logging"></a>Types of Resource logs
+## <a name="firewall-log"></a><a name="diagnostic-logging"></a>Types of Resource logs
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways.
 
@@ -34,7 +34,7 @@ You have the following options to store the logs in your preferred location.
 
 - **Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. For more information, see [Send to Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
-- **Azure diagnostics**: Data is written to the [Azure Diagnostics table](../azure-monitor/reference/tables/azurediagnostics.md).
+- **Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 - **Resource-specific (recommended)**: Data is written to dedicated tables for each category of the resource. For more information, see [Resource-specific](../azure-monitor/essentials/resource-logs.md#resource-specific).
 

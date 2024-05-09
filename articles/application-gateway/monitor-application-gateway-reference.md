@@ -240,7 +240,7 @@ For Application Gateway and WAF v2 SKU:
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
 |originalHost| This field contains the original request host name|
-|error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in [Error code information.](./application-gateway-diagnostics.md#error-code-information) |
+|error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in the error code tables in this article. |
 |contentType|The type of content or data that is being processed or delivered by the application gateway
 
 ```json
@@ -339,7 +339,7 @@ For Application Gateway Standard and WAF SKU (v1):
 }
 ```
 
-If the application gateway can't complete the request, it stores one of the following reason codes in the error_info field of the access log. 
+If the application gateway can't complete the request, it stores one of the following reason codes in the error_info field of the access log.
 
 |4XX Errors  | (The 4xx error codes indicate that there was an issue with the client's request, and the Application Gateway can't fulfill it.) |
 |---------|---------|
