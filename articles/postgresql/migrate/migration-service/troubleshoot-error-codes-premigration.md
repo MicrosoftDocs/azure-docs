@@ -13,6 +13,8 @@ ms.custom: troubleshooting
 
 # Premigration validation error codes in the migration service for Azure Database for PostgreSQL
 
+This article contains error message numbers and their description for premigration validation.
+
 The following tables provide a comprehensive list of error codes for the migration service feature in Azure Database for PostgreSQL. These error codes help you troubleshoot and resolve issues during the migration process. Each error code has an error message and other details that provide further context and guidance for resolving the issue.
 
 | Error Code | Error message | Details | Resolution |
