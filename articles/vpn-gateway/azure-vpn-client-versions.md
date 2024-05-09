@@ -15,9 +15,10 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 ## Azure VPN Client - Windows and macOS
 
-## Version 3.3.1.0
+### Version 3.3.1.0
 
-* Microsoft-registered App ID support for Microsoft Entra ID authentication.
+* Microsoft-registered App ID support for Microsoft Entra ID authentication Audience.
+* Backward compatibility for manually registered Microsoft Entra ID authentication Audience.
 
 ### Version 3.2.0.0
 
@@ -36,7 +37,7 @@ New in this release:
 New in this release:
 
 * New client for Linux.
-* Microsoft-registered App ID support for Microsoft Entra ID authentication.
+* Microsoft-registered App ID support for Microsoft Entra ID authentication Audience.
 
 ## Next steps
 

@@ -149,9 +149,9 @@
             href: vpn-gateway-certificates-point-to-site-linux.md
       - name: Microsoft Entra ID authentication
         items:
-        - name: Configure P2S - Microsoft-registered VPN client app
+        - name: Configure P2S - Microsoft-registered VPN client
           href: point-to-site-entra-gateway.md
-        - name: Configure P2S - manually registered VPN client app
+        - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
         - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
