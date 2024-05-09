@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Private 5G Core?
-description: Discover what's new in Azure Private 5G Core
+description: Discover what's new in Azure Private 5G Core.
 author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
@@ -27,23 +27,29 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Type:** New release
 
-**Date available:** May 9, 2024
+**Date available:** May 13, 2024
 
 The 2404 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2404 release notes](azure-private-5g-core-release-notes-2404.md).
 
 ### High Availability
 
-***TBC***.
+We're excited to announce that AP5GC is now resilient to system failures when run on a two-node ASE cluster. Userplane traffic, sessions, and registrations are unaffected on failure of any single pod, physical interface, or ASE device.
 
 ### In Service Software Upgrade 
 
-In our commitment to continuous improvement and minimizing service impact, we’re excited to announce that future release updates of
-either of both AP5GC and ASE will include the capability for In-Service Software Upgrades (ISSU). This means that during a designated maintenance window, software upgrades can be performed seamlessly, ensuring minimal disruption to your services.
+In our commitment to continuous improvement and minimizing service impact we’re excited to announce that when upgrading from this version to a future release, updates will include the capability for In-Service Software Upgrades (ISSU).
+ISSU is supported for deployments on a 2-node cluster, software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software will automatically roll back to the previous version, also with minimal service disruption.
 
 ### Azure Resource Health 
 
-This feature allows you to monitor the health of your control plane resource using Azure Resource Health, a service which processes and displays health signals from your resource and displays the health in the Azure portal. This gives you a personalised dashboard showing all the times your resource has been unavailable or in a degraded state, along with recommended actions to take to restore health.
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health. This is a service that processes and displays health signals from your resource and displays the health in the Azure portal. It gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
 For more information, see [Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview).
+
+### NAS Encryption
+
+NAS (Non-Access-Stratum) encryption configuration determines the encryption algorithm applied to the management traffic between the UEs and the AMF(5G) or MME(4G). By default, for security reasons, Packet Core deployments will be configured to preferentially use NEA2/EEA2 encryption.
+
+You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
 
 ## April 2024
 ### Packet core 2403

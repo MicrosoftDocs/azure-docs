@@ -12,11 +12,13 @@ ms.date: 05/09/2023
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2404 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2404 release (2404.0-2). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2404 release (2404.0-2). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2024-04-01, 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
 For more information about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
 For more information about new features in Azure Private 5G Core, see [What's New Guide](whats-new.md).
+
+This release has been produced in accordance with Microsoft’s Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ## Support lifetime
 
@@ -35,17 +37,23 @@ The following table shows the support status for different Packet Core releases 
 
 ### High Availability
 
-***TBC***.
+We are excited to announced that AP5GC is now resilient to system failures when run on a two-node ASE cluster.  Userplane traffic, sessions and registrations are unaffected on failure of any single pod, physical interface, or ASE device.
 
 ### In Service Software Upgrade 
 
-In our commitment to continuous improvement and minimizing service impact, we’re excited to announce that future release updates of
-either of both AP5GC and ASE will include the capability for In-Service Software Upgrades (ISSU). This means that during a designated maintenance window, software upgrades can be performed seamlessly, ensuring minimal disruption to your services.
+In our commitment to continuous improvement and minimizing service impact we’re excited to announce that, upgrading from this version to a future release, updates will include the capability for In-Service Software Upgrades (ISSU).
+Supported for deployments on a 2-node cluster, software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade will be performed with no loss of sessions or registrations and minimal packet loss and packet re-ordering. Should the upgrade fail, the software will automatically be rolled back to the previous version, also with minimal service disruption.
 
 ### Azure Resource Health 
 
 This feature allows you to monitor the health of your control plane resource using Azure Resource Health, a service which processes and displays health signals from your resource and displays the health in the Azure portal. This gives you a personalised dashboard showing all the times your resource has been unavailable or in a degraded state, along with recommended actions to take to restore health.
 For more information, see [Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview).
+
+### NAS Encryption
+
+NAS (Non-Access-Stratum) encryption configuration determines the encryption algorithm applied to the management traffic between the UEs and the AMF(5G) or MME(4G). By default, for security reasons, Packet Core deployments will be configured to preferentially use NEA2/EEA2 encryption.
+
+You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
 
 ## Issues fixed in the AP5GC 2404 release
 
@@ -56,11 +64,13 @@ The following table provides a summary of issues fixed in this release.
   | 1   |         |       |               | 
   
 ## Known issues in the AP5GC 2404 release
-<!--**TO BE UPDATED**>
+<!-- All known issues need a [customer facing summary](https://eng.ms/docs/strategic-missions-and-technologies/strategic-missions-and-technologies-organization/azure-for-operators/packet-core/private-mobile-network/azure-private-5g-core/cross-team/developmentprocesses/customer-facing-bug-summary)-->
+
   |No.  |Feature  | Issue | Workaround/comments |
-  |-----|-----|-----|
-  | 1 |  |  |  |
-<-->
+  |-----|---------|==-----|---------------------|
+  | 1 | Local distributed tracing | Local Dashboard Unavailable for 5-10 minutes after device failure | After the failure of a device in a two-node cluster, Azure Private 5G Core local dashboards will not be available for five to ten minutes,   Once they have recovered, information for the time that they were not available is not shown. |
+  | 2 | Local distributed tracing | When deployed on a two-node cluster, Azure Private 5G Core local dashboards may show an incorrect count for the number of PDU Sessions.   | |
+  | 3 | | **TODO SAS Incomplete Trails** | |
 
 The following table provides a summary of known issues carried over from the previous releases.
 
