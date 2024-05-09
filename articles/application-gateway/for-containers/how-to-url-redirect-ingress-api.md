@@ -358,7 +358,7 @@ Via the response we should see:
 < HTTP/1.1 301 Moved Permanently
 < location: https://contoso.com/
 < date: Mon, 26 Feb 2024 22:56:23 GMT
-< server: Microsoft-Azure-Application-LB/Application Gateway for Containers
+< server: Microsoft-Azure-Application-LB/AGC
 < content-length: 0
 <
 * Connection #0 to host contoso.com left intact
@@ -389,7 +389,7 @@ Via the response we should see:
 < HTTP/2 302
 < location: https://contoso.com/shop/category/5
 < date: Mon, 26 Feb 2024 22:58:43 GMT
-< server: Microsoft-Azure-Application-LB/Application Gateway for Containers
+< server: Microsoft-Azure-Application-LB/AGC
 <
 * Connection #0 to host contoso.com left intact
 ```
