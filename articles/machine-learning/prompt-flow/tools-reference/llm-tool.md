@@ -115,7 +115,7 @@ The following sections show various inputs.
 
 ## How to write a chat prompt?
 
-_To grasp the fundamentals of creating a chat prompt, begin with [this section](prompt-tool.md#write-a-prompt) for an introductory understanding of Jinja._
+_To grasp the fundamentals of creating a chat prompt, begin with the [Write a prompt section](prompt-tool.md#write-a-prompt) for an introductory understanding of Jinja._
 
 We offer a method to distinguish between different roles in a chat prompt, such as "system," "user," "assistant." Each role can have "name" and "content" properties.
 
