@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: msangapu
   ms.service: app-spaces
-  ms.date: 06/07/2023
+  ms.date: 05/22/2024
   ms.custom: UpdateFrequency3
 
 landingContent:
@@ -21,9 +21,11 @@ landingContent:
             url: overview.md
       - linkListType: quickstart
         links:
-          - text: Deploy a web app
-            url: quickstart-deploy-web-app.md
+          - text: Deploy a sample app
+            url: quickstart-deploy-sample-app.md
+          - text: Deploy a custom app
+            url: quickstart-deploy-custom-app.md            
       - linkListType: how-to-guide
         links:
-          - text: Deploy a sample web app
-            url: deploy-app-spaces-template.md
+          - text: Manage an App Space app
+            url: how-to-manage-app-space-app.md

@@ -3236,3 +3236,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: msangapu
+- id: app-spaces-sample
+  title: App Spaces sample apps
+  prompt: Choose a sample app
+  pivots:
+  - id: react
+    title: React
+  - id: vue
+    title: Vue
+  - id: express
+    title: Express.JS
