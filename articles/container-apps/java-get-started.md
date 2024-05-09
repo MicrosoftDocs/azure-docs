@@ -8,13 +8,16 @@ ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 05/07/2024
 ms.author: cshoe
+zone_pivot_groups: container-apps-java-artifacts
 ---
 
 # Quickstart: Launch your first Java application in Azure Container Apps
 
-This article explains how to deploy a Spring PetClinic sample application to run on Azure Container Apps. By the end of this tutorial you will get an application accessible online, and you can manage it through the Azure portal.
+This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps. Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java application directly from a Java Archive (JAR) file or a web application archive (WAR) file.
 
-Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java application directly from a Java Archive(JAR) file or a web application archive (WAR) file.
+By the end of this tutorial you deploy a web application, which you can manage through the Azure portal.
+
+The following image is a screenshot of how your application looks once deployed to Azure.
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic app.":::
 
@@ -22,7 +25,7 @@ Rather than manually creating a Dockerfile and directly using a container regist
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).<br<br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).<br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | GitHub Account | Get one for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
@@ -31,35 +34,36 @@ Rather than manually creating a Dockerfile and directly using a container regist
 
 ## Prepare the project
 
-Get the sample application.
-
 Clone the Spring PetClinic sample application to your machine.
 
-### [JAR](#tab/jar)
+::: zone pivot="jar"
+
 ```bash
 git clone https://github.com/spring-projects/spring-petclinic.git
 ```
 
-### [WAR](#tab/war)
+::: zone-end
+
+::: zone pivot="war"
+
 ```bash
 git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
 ```
 
----
+::: zone-end
 
 ## Build the project
 
-### [JAR](#tab/jar)
-> [!NOTE]
-> If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
+::: zone pivot="jar"
 
-First, change into the *spring-petclinic* folder.
+
+Change into the *spring-petclinic* folder.
 
 ```bash
 cd spring-petclinic
 ```
 
-Then, clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
+Clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
 
 ```bash
 mvn clean package -DskipTests
@@ -67,18 +71,20 @@ mvn clean package -DskipTests
 
 After you execute the build command, a file named *petclinic.jar* is generated in the */target* folder.
 
-### [WAR](#tab/war)
+::: zone-end
+
+::: zone pivot="war"
 
 > [!NOTE]
 > If necessary, you can specify the Tomcat version in the [Java build environment variables](java-build-environment-variables.md).
 
-First, change into the *spring-framework-petclinic* folder.
+Change into the *spring-framework-petclinic* folder.
 
 ```bash
 cd spring-framework-petclinic
 ```
 
-Then, clean the Maven build area, compile the project's code, and create a WAR file, all while skipping any tests.
+Clean the Maven build area, compile the project's code, and create a WAR file, all while skipping any tests.
 
 ```bash
 mvn clean package -DskipTests
@@ -86,62 +92,69 @@ mvn clean package -DskipTests
 
 After you execute the build command, a file named *petclinic.war* is generated in the */target* folder.
 
----
+::: zone-end
 
 ## Deploy the project
 
-### [JAR](#tab/jar)
+::: zone pivot="jar"
+
 Deploy the JAR package to Azure Container Apps.
+
+> [!NOTE]
+> If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
 
 Now you can deploy your WAR file with the `az containerapp up` CLI command.
 
 ```azurecli
 az containerapp up \
-  --name <YOUR_CONTAINER_APP_NAME> \
-  --resource-group <YOUR_RESOURCE_GROUP> \
-  --subscription <YOUR_SUBSCRIPTION>\
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --subscription <SUBSCRIPTION_ID>\
   --location <LOCATION> \
-  --environment <YOUR_ENVIRONMENT_NAME> \
-  --artifact <YOUR_JAR_FILE_PATH> \
+  --environment <ENVIRONMENT_NAME> \
+  --artifact <JAR_FILE_PATH_AND_NAME> \
   --ingress external \
   --target-port 8080 \
   --query properties.configuration.ingress.fqdn
 ```
 
 > [!NOTE]
-> The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-var BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
+> The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
 
-You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
+You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
 
-### [WAR](#tab/war)
+::: zone-end
+
+::: zone pivot="war"
+
 Deploy the WAR package to Azure Container Apps.
 
 Now you can deploy your WAR file with the `az containerapp up` CLI command.
 
 ```azurecli
 az containerapp up \
-  --name <YOUR_CONTAINER_APP_NAME> \
-  --resource-group <YOUR_RESOURCE_GROUP> \
-  --subscription <YOUR_SUBSCRIPTION>\
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --subscription <SUBSCRIPTION>\
   --location <LOCATION> \
-  --environment <YOUR_ENVIRONMENT_NAME> \
-  --artifact <YOUR_WAR_FILE_PATH> \
-  --build-env-var BP_TOMCAT_VERSION=10.* \
+  --environment <ENVIRONMENT_NAME> \
+  --artifact <WAR_FILE_PATH_AND_NAME> \
+  --build-env-vars BP_TOMCAT_VERSION=10.* \
   --ingress external \
   --target-port 8080 \
   --query properties.configuration.ingress.fqdn
 ```
 
 > [!NOTE]
-> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-var BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
+> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
 
 In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
 
-You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
+You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
 
----
+::: zone-end
 
-## Verify the app status.
+## Verify app status
 
 In this example, `containerapp up` command includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL.
 
