@@ -517,7 +517,7 @@ Use the following steps to add a combined local and social account:
     ```xml
         <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localIdpAuthentication" AlwaysUseDefaultValue="true" />
     ```
-    The same code should be added to the `UserSignInCollector` self-asserted technical profile. Otherwise, a user encounters the `AADB2C90037` error during local sign-in at orchestration step #6, since the `authenticationSource` claim is not assigned any value and the `alternativeSecurityId` claim is not found.
+Make sure you also add the `authenticationSource` claim in the output claims collection of the `UserSignInCollector` self-asserted technical profile.
 
 1. In the `UserJourneys` section, add a new user journey, `LocalAndSocialSignInAndSignUp` by using the following code: 
 
