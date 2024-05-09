@@ -17,7 +17,7 @@ author: PatrickFarley
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Azure AI Studio includes a content filtering system that works alongside core models, including GPT-4 Turbo with Vision models and DALL-E image generation models.
+Azure AI Studio includes a content filtering system that works alongside core models, including DALL-E image generation models.
 
 > [!IMPORTANT]
 > The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](../../ai-services/openai/concepts/models.md).
