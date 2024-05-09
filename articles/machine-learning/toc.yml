@@ -895,9 +895,9 @@
       href: concept-endpoints.md
     - name: Serverless API endpoints
       items:
-        - name: How to deploy serverless API endpoints
+        - name: Deploy serverless API endpoints
           href: how-to-deploy-models-serverless.md
-        - name: Consume deployed serverless API endpoints from a different workspace
+        - name: Consume serverless API endpoints from a different workspace
           href: how-to-connect-models-serverless.md
     - name: Online endpoints (real-time)
       items:
