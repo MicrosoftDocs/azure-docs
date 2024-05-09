@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 05/06/2024
 ---
 # Use Web PubSub service with Azure Application Gateway
-Azure Application Gateway is a web traffic load balancer that works at the application level. It can be used as the single point of contact for your web clients and can be configured to route web traffic to your various backends based on HTTP attributes, like the URI path among others. Application Gateway has native support for WebSocket - users do not need to configure anything special to have WebSocket enabled. 
+Azure Application Gateway is a web traffic load balancer that works at the application level. It can be used as the single point of contact for your web clients and can be configured to route web traffic to your various backends based on HTTP attributes, like the URI path among others. Application Gateway has native support for WebSocket - users don't need to configure anything special to have WebSocket enabled. 
 
 Web PubSub service can be used with Azure Application Gateway to realize a host of benefits: 
 - Protect your Web PubSub instance from common web vulnerabilities.
@@ -22,7 +22,7 @@ As illustrated in the diagram, you need to set up a Private Endpoint for your We
 
 :::image type="content" source="media/howto-integrate-app-gateway/overview.jpg" alt-text="Achitecture overview of using Web PubSub with Azure Application Gateway":::
 
-This guide takes a step-by-step approach. First, we configure Application Gateway so that the traffic to your Web PubSub resource can be succesffully proxied through. Second, we leverage the access control features of Web PubSub to allow traffic from Application Gateway only. 
+This guide takes a step-by-step approach. First, we configure Application Gateway so that the traffic to your Web PubSub resource can be successfully proxied through. Second, we apply the access control features of Web PubSub to allow traffic from Application Gateway only. 
 
 
 ## Step 1: configure Application Gateway to proxy traffic to Web PubSub resource
@@ -35,7 +35,7 @@ On Azure portal, search for Azure Application Gateway and follow the steps to cr
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step1.jpg" alt-text="Screenshot of creating an Application Gateway resource - basics":::
 
-A virtual network is needed for Azure resources to securely communicate with each other. Azure Application Gateway requires a dedicated subnet, which is what we created. For the sake of this guide, in step one, your Azure Application Gateway resource forwards traffic to your Web PubSub resource via the **public internet**. In step two, we create another subnet that houses a Web PubSub resource. This allows your Azure Application Gateway to forward traffic to your Web PubSub resource securely through the virtual network.  
+A virtual network is needed for Azure resources to securely communicate with each other. Azure Application Gateway requires a dedicated subnet, which is what we created. For the sake of this guide, in step 1, your Azure Application Gateway resource forwards traffic to your Web PubSub resource via the **public internet**. In step 2, we create another subnet that houses a Web PubSub resource so that your Azure Application Gateway to forward traffic to your Web PubSub resource securely through Virtual Network.  
 
 ### Configure Azure Application Gateway 
 Configuring Azure Application Gateway entails three components. 
@@ -57,12 +57,12 @@ First, we set up a listener. This configuration tells Application Gateway to lis
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step4.jpg" alt-text="Screenshot of creating an Application Gateway resource - create a routing rule, listener":::
 
-Second, we set up the backend targets. We configure backend target to the backend pool we created earlier, which is our Web PubSub resource. Additionally, we need to specify how Application Gateway should forward the traffic. This is accomplished through **backend settings**.
+Second, we set up the backend targets. We configure backend target to the backend pool we created earlier, which is our Web PubSub resource. Additionally, we need to specify how Application Gateway should forward the traffic. You accomplish it through **backend settings**.
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step5.jpg" alt-text="Screenshot of creating an Application Gateway resource - create a routing rule, backend targets":::
 
 
-Web PubSub service only accepts HTTPs traffic. So we instruct Application Gateway to communicate with Web PubSub using HTTPs. To keep this guide focused, we let Application Gateway to pick host. It's recommended to set up a Custom Domain in production.  
+Web PubSub service only accepts HTTPs traffic. So we instruct Application Gateway to communicate with Web PubSub using HTTPs. To keep this guide focused, we let Application Gateway to pick host. The practice is recommended to set up a Custom Domain in production.  
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step6.jpg" alt-text="Screenshot of creating an Application Gateway resource - create a routing rule, backend settings":::
 
@@ -73,7 +73,7 @@ When the three components are configured, you should see something like the scre
 
 :::image type="content" source="media/howto-integrate-app-gateway/create-resource-step6.jpg" alt-text="Screenshot of creating an Application Gateway resource - finished":::
 
-One thing that is worth highlighting is that this is exactly how you configure non-WebSocket connections. You can learn more about [Application Gateway's native support for proxying WebSocket connections](https://learn.microsoft.com/azure/application-gateway/features#websocket-and-http2-traffic).
+One thing that is worth highlighting is that you configure **non-WebSocket** connections the same way. You can learn more about [Application Gateway's native support for proxying WebSocket connections](https://learn.microsoft.com/azure/application-gateway/features#websocket-and-http2-traffic).
 
 
 ### Test and verify Application Gateway is configured properly
@@ -82,18 +82,18 @@ Send a request to an invalid endpoint of your Web PubSub resource and expect an 
 ```bash
 curl https://<your-web-pubsub-resource-endpoint>/client
 ```
-You should see the error message "Invalid value of 'hub'. This shows that Web PubSub service successfully received your request and responded accordingly.
+You should see the error message "Invalid value of 'hub'." This error shows that Web PubSub service successfully received your request and responded accordingly.
 
 #### Verify that Application Gateway proxies traffic to your Web PubSub resource
 Repeat a similar step and expect the same error message. 
 ```bash
 curl http://<public-ip-of-your-application-gateway-resource>/client
 ```
-You should see the same error message "Invalid value of 'hub'. This shows that your Application Gateway resource has successfully routed the traffic using the routing rule we configured earlier and return a response back on behalf of Web PubSub.
+You should see the same error message "Invalid value of 'hub'." This error shows that your Application Gateway resource successfully routed the traffic using the routing rule we configured earlier and return a response back on behalf of Web PubSub.
 
 ### Test and verify Application Gateway can proxy WebSocket connections
 #### Publish messages through Web PubSub
-We create a simple program to simulate a server publishing messages through Web PubSub periodically. We run the program locally in step 1 to verify everything is working and in step 2, we will deploy the same app to Azure App Service.
+We create a simple program to simulate a server publishing messages through Web PubSub periodically. We run the program locally in step 1 to verify everything is working and in step 2, we deploy the same app to Azure App Service.
 
 ##### Create the folder structure
 ```bash
@@ -102,7 +102,7 @@ touch package.json && touch publish.js
 ```
 
 ##### Copy source code
-Copy the code to the `package.json` file you just created.
+Copy the code to the `package.json` file you created.
 ```json
 {
   "scripts": {
@@ -114,7 +114,7 @@ Copy the code to the `package.json` file you just created.
 }
 ```
 
-Copy the code to the `publish.js` file you just created.
+Copy the code to the `publish.js` file you created.
 ```javascript
 const http = require("http")
 // Uses the service SDK, which makes it easy to consume the capabilities of the service
@@ -148,20 +148,20 @@ export WebPubSubConnectionString="<replace with the connection string of your We
 
 npm run start
 ```
-It seems that nothing is happening, but actually every 2 seconds the program asks Web PubSub service to broadcast a message to all connected web clients. You can see this in action by enabling the [Live Trace Tool feature](./howto-troubleshoot-resource-logs.md##launch-the-live-trace-tool), where you can monitor important logging in real time.
+It seems that nothing is happening, but actually every 2 seconds the program asks Web PubSub service to broadcast a message to all connected web clients. You can see this flow in action by enabling the [Live Trace Tool feature](./howto-troubleshoot-resource-logs.md##launch-the-live-trace-tool), where you can monitor important logging in real time.
 
 #### Receive messages in the browser
 It wouldn't be particularly illuminating if we don't receive the broadcasted messages. 
 
 ##### Get the `Client Access URL` on Azure portal
-On Azure portal, find the `Client Access URL`. Make sure that you set the hub name to `myHub1`, the same as we hardcoded in `publish.js`. `Client Access URL` is a convenient tool to quickly connect with Web PubSub service for rapid experimentation, it's not suited for production. In production, your app service usually authenticates the client first and generates an access token using the service SDK on the fly. 
+On Azure portal, find the `Client Access URL`. Make sure that you set the hub name to `myHub1`, the same as we hardcoded in `publish.js`. `Client Access URL` is a convenient tool to quickly connect with Web PubSub service for rapid experimentation, it is not suited for production. In production, your app service usually authenticates the client first and generates an access token using the service SDK on the fly. 
 
 This `Client Access URL` allows any client that supports WebSocket to connect with your Web PubSub resources and receive messages published to `myHub1`.
 
 :::image type="content" source="media/howto-integrate-app-gateway/webpubsub-client-access-url.jpg" alt-text="Screenshot of getting the Client Access URL of a Web PubSub resource":::
 
 ##### Copy client code
-Create a `index.html` file to put the client code
+Put the client code in a file named `index.html`.
 ```bash
 touch index.html
 ```
@@ -191,20 +191,20 @@ Copy the code to `index.html`
 ```
 
 ##### Run the client program
-You can use Live Server extension if you use VS code to follow the guide. Alternatively, you can just copy the path to `index.html` and paste it in the address bar of your preferred browser.
+You can use Live Server extension if you use Visual Studio Code to follow the guide. Alternatively, you can just copy the path to `index.html` and paste it in the address bar of your preferred browser.
 
 :::image type="content" source="media/howto-integrate-app-gateway/browser-client-direct.jpg" alt-text="Screenshot of a browser client directly connecting with Web PubSub resource":::
 
-If you inspect the page, open the Network and Console panels, you should see that the client has succesfully connected with your Web PubSub resources and are getting the broadcasted messages. Make sure you still have `publish.js` running.
+If you inspect the page, open the Network and Console panels, you should see that the client is successfully connected with your Web PubSub resources and are getting the broadcasted messages. Make sure you still have `publish.js` running.
 
-Since Application Gateway has native support for WebSocket, we don't need to change any confirguration on our Application Gateway resource. All we need is to change the endpoint our client points to. 
+Since Application Gateway has native support for WebSocket, we don't need to change any configuration on our Application Gateway resource. All we need is to change the endpoint our client points to. 
 
 Change the endpoint the client points to and update the code accordingly in `index.html`. If your Client Access URL looks like `wss://xxx.webpubsub.azure.com/client...`, you need to change it to `ws://<the public IP of your Application Gateway resource/client...>`.
 
 Three points to note. 
 1. We use the `ws://` instead of `wss://` since your Application Gateway is configured to listen to `http` traffic only. 
 2. In production, it's probably best to set up custom domain for your Application Gateway resource and configured it to accept HTTPs only.
-3. We need to keep the access token as it is since it encodes credentails for your client to connect with your Web PubSub resource. 
+3. We need to keep the access token as it is since it encodes credentials for your client to connect with your Web PubSub resource. 
 
 ```html
 <!--> Update two lines of code in index.html <-->
@@ -214,17 +214,17 @@ Three points to note.
     const socket = new WebSocket(CLIENT_ACCESS_URL_APP_GATEWAY)
 </script>
 ```
-Now, if you run the program in the browser again, you should see that the client has established a WebSocket connection with Application Gateway and receives messages from Application Gateway roughly every 2 seconds.
+Now, if you run the program in the browser again, you should see that the client established a WebSocket connection with Application Gateway and receives messages from Application Gateway roughly every 2 seconds.
 
 ### Recap of step 1
-This marks the end of step 1. If you have been following step 1, you should see that your Web PubSub resource is accessilbe directly by your web clients or indirectly through Application Gateway. You also see Application Gateway native support for WebSocket in action. Enabling it does not require configuration change, you only need to specify in the client code that you wish to establish a WebSocket connection. 
+We reached the end of step 1. If you have been following step 1, you should see that your Web PubSub resource is accessilbe directly by your web clients or indirectly through Application Gateway. You also see Application Gateway native support for WebSocket in action. Enabling it doesn't require configuration change, you only need to specify in the client code that you wish to establish a WebSocket connection. 
 
 In step 2, we close public access to your Web PubSub resource, making it more secure.
 
 ## Step 2: disable public access to your Web PubSub resource
-The outcome of step 1 is that your Web PubSub resource are accessible through both the public internet and Application Gateway. Because your Web PubSub resource is not in the same virtual network, when Application Gatway forwards traffic to your Web PubSub resource, it reaches Web PubSub's public endpoint via **public internet**. This is not desirable.
+The outcome of step 1 is that your Web PubSub resource is accessible through both the public internet and Application Gateway. Because your Web PubSub resource isn't in the same virtual network, when Application Gateway forwards traffic to your Web PubSub resource, it reaches Web PubSub's public endpoint via **public internet**. This situation isn't desirable.
 
-Web PubSub service supports configuring access controls. One such configuration is to disable access from public internet. Make sure to hit "save" when you are done.
+Web PubSub service supports configuring access controls. One such configuration is to disable access from public internet. Make sure to hit "save" when you're done.
 
 :::image type="content" source="media/howto-integrate-app-gateway/disable-public-access.jpg" alt-text="Screenshot of disabling public access of Web PubSub ":::
 
@@ -233,15 +233,15 @@ Now if you run the same command, instead of seeing "Invalid hub name" as before,
 curl https://<your-web-pubsub-resource-endpoint>/client
 ```
 
-Now that public access is disabled on your Web PubSub resource. One impact is that Application Gateway as it's set up in step one cannot reach it, either. If you run the same command against your Application Gateway endpoint, you see `504 Gateway Time-out`. 
+Now that public access is disabled on your Web PubSub resource. One impact is that Application Gateway as it is set up in step 1 can't reach it, either. If you run the same command against your Application Gateway endpoint, you see `504 Gateway Time-out`. 
 ```bash
 curl http://<public-ip-of-your-application-gateway-resource>/client
 ```
 
-We need to bring your Web PubSub resource in the same virtual network that your Application Gateway is in. We achieve this by creating a Private Endpoint. [You can learn more about Private Endpoint here.](https://learn.microsoft.com/azure/private-link/private-endpoint-overview)
+We need to bring your Web PubSub resource in the same virtual network that your Application Gateway is in. We achieve it by creating a Private Endpoint. [You can learn more about Private Endpoint here.](https://learn.microsoft.com/azure/private-link/private-endpoint-overview)
 
 
-### Create a seperate subnet for your Private Endpoint
+### Create a separate subnet for your Private Endpoint
 In step 1, we created a subnet that houses Application Gateway. Application Gateway requires its own subnet, so we need to create another subnet for your Private Endpoint. 
 
 Locate the virtual network resource that we created earlier.
@@ -255,11 +255,11 @@ Locate your Web PubSub resource on Azure portal and go to "Networking" blade.
 Create the private endpoint in the same region as your Web PubSub resource. 
 :::image type="content" source="media/howto-integrate-app-gateway/webpubsub-create-private-endpoint-step2.jpg" alt-text="Screenshot of creating another subnet":::
 
-Select the seperate subnet we just created. 
+Select the separate subnet we just created. 
 :::image type="content" source="media/howto-integrate-app-gateway/webpubsub-create-private-endpoint-step3.jpg" alt-text="Screenshot of creating another subnet":::
 
 ### Refresh the backend pool of your Application Gateway resource
-Your Application Gateway resource does not know that you created a Private Endpoint for your Web PubSub resource. Locate your Application Gateway resource and refresh the backend pools. 
+Your Application Gateway resource doesn't know that you created a Private Endpoint for your Web PubSub resource. Locate your Application Gateway resource and refresh the backend pools. 
 :::image type="content" source="media/howto-integrate-app-gateway/refresh-backend-pools.jpg" alt-text="Screenshot of freshing backend pools":::
 
 Now if you run this command again, you should see "Invalid hub name" again, which is expected. It shows that Application Gateway proxies through virtual network instead of the public internet.
@@ -303,12 +303,12 @@ Find your connection string to Web PubSub service on Azure portal, and set it as
 #### Enable Virtual Network integration on your Web App
 App Service requires a decided subnet in your virtual network. Go to your virtual network resource and create a new subnet like what you did for your Web PubSub resource. 
 
-Once you have created it, go to the "Networking" blade of your Web App resource and enable Virtual Network integration.
+Once a new subnet is created, go to the "Networking" blade of your Web App resource and enable Virtual Network integration.
 
 :::image type="content" source="media/howto-integrate-app-gateway/web-app-enable-vnet-step1.jpg" alt-text="Screenshot of enabling Virtual Network integration - step 1":::
 
 Make sure you select the same Virtual Network your Web PubSub resource is in.
-:::image type="content" source="media/howto-integrate-app-gateway/web-app-enable-vnet-step1.jpg" alt-text="Screenshot of enabling Virtual Network integration - step 2":::
+:::image type="content" source="media/howto-integrate-app-gateway/web-app-enable-vnet-step2.jpg" alt-text="Screenshot of enabling Virtual Network integration - step 2":::
 
 ### Verify that everything works
 So far in step 2, you
