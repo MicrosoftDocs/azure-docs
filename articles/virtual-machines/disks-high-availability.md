@@ -92,6 +92,8 @@ Regional Virtual Machine Scale Sets don't protect against large-scale outages li
 
 [Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time. Availability sets also have better VM to VM latencies compared to availability zones.
 
+:::image type="content" source="media/disks-high-availability/disks-availability-set.png" alt-text="Diagram of availability set." lightbox="media/disks-high-availability/disks-availability-set.png":::
+
 Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't protect against data center or region-wide outages, and don't currently support Ultra Disks or Premium SSD v2 disks.
 
 ### Use ZRS disks when sharing disks between VMs
