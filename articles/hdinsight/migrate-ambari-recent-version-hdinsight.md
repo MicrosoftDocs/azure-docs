@@ -70,8 +70,8 @@ Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdin
 
         :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png" alt-text="Screenshot showing python script output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png":::
  
-1. Execute the script.
-    `python ambari_export_cluster_configs.py  'admin' 'password@123' (Make sure that the username and password is supplied within single quotes)`
+1. Execute the script `python ambari_export_cluster_configs.py`.
+1. Make sure that the username and password is supplied within single quotes
 1. Check for the configs files `ls –ltr`.
 
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/ambari-python-script.png" alt-text="Screenshot showing Ambari python script." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/ambari-python-script.png":::
@@ -88,7 +88,7 @@ Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdin
 1. Run the `compare_ambari_cluster_configs.py` script.
 1. Run `sshuser@hn0-sugar:~/hdinsights_ambari_utils$ python,
  compare_ambari_cluster_configs.py plutos out sugar.out`
-    :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-compare-command.png" python-compare-commandlt-text="Screenshot showing python compare command." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-compare-command.png":::
+    :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-compare-command.png" alt-text="Screenshot showing python compare command." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-compare-command.png":::
 1. Difference printed in the console.
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-code-sample.png" alt-text="Screenshot showing python code sample." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-code-sample.png":::
 1. Adding to this difference between the cluster configs saved in local.
