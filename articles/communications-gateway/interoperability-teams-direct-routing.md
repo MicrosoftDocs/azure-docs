@@ -57,14 +57,11 @@ Each of your customers needs _customer subdomains_ of these per-region domains. 
 
 For each customer, you must:
 
-1. Choose a suitable subdomain. The label for the subdomain must:
-    - Contain only letters, numbers, underscores, and dashes.
-    - Be up to **nine** characters in length.
-    - Not contain a wildcard or multiple labels separated by `.`.
-    > [!IMPORTANT]
-    > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso12.1r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
-2. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
-3. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
+[!INCLUDE [communications-gateway-direct-routing-subdomain-calculation](includes/communications-gateway-direct-routing-subdomain-calculation.md)]
+
+1. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
+
+1. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
 As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it to Azure Communications Gateway with the Number Management Portal (preview) or the Provisioning API (preview). This step allows Azure Communications Gateway to generate the DNS TXT records that verify the domain.
 
