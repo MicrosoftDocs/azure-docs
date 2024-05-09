@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 12/07/2022
+ms.date: 05/08/2024
 ms.author: danlep
 ---
 The following example ...
