@@ -56,8 +56,6 @@ git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
 
 ::: zone pivot="jar"
 
-> [!NOTE]
-> If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
 
 Change into the *spring-petclinic* folder.
 
@@ -102,6 +100,9 @@ After you execute the build command, a file named *petclinic.war* is generated i
 
 Deploy the JAR package to Azure Container Apps.
 
+> [!NOTE]
+> If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
+
 Now you can deploy your WAR file with the `az containerapp up` CLI command.
 
 ```azurecli
@@ -118,7 +119,7 @@ az containerapp up \
 ```
 
 > [!NOTE]
-> The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-var BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
+> The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
 
 You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
 
@@ -138,14 +139,14 @@ az containerapp up \
   --location <LOCATION> \
   --environment <ENVIRONMENT_NAME> \
   --artifact <WAR_FILE_PATH_AND_NAME> \
-  --build-env-var BP_TOMCAT_VERSION=10.* \
+  --build-env-vars BP_TOMCAT_VERSION=10.* \
   --ingress external \
   --target-port 8080 \
   --query properties.configuration.ingress.fqdn
 ```
 
 > [!NOTE]
-> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-var BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
+> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
 
 In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
 

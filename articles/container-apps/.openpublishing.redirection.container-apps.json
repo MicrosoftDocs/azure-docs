@@ -6,7 +6,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-apps/ava-deploy-war-file.md",
+            "source_path_from_root": "/articles/container-apps/java-deploy-war-file.md",
             "redirect_url": "/azure/container-apps/java-get-started",
             "redirect_document_id": false
         },
