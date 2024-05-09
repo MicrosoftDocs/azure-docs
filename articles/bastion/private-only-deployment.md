@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion for a private-only scenario.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 05/09/2024
 ms.author: cherylmc
 
 ---
@@ -20,6 +20,9 @@ The following diagram shows the Bastion private-only deployment architecture. A 
 Items to consider:
 
 [!INCLUDE [private-only bastion considerations](../../includes/bastion-private-only-considerations.md)]
+
+> [!NOTE]
+> The Private-only Deployment (Preview) feature is currently rolling out.
 
 ## Prerequisites
 
