@@ -4024,6 +4024,11 @@
             "source_path_from_root":"/articles/aks/generation-2-vm-windows.md",
             "redirect_url":"/azure/aks/generation-2-vm",
             "redirect_document_id":false
+        },
+        {
+            "source_path_from_root":"/articles/cosmos-db/high-availability.md",
+            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
+            "redirect_document_id":false
         }
     ]
 }
