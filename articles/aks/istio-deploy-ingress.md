@@ -237,5 +237,10 @@ If you want to clean up all the resources created from the Istio how-to guidance
 az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ```
 
+## Next steps
+
+* [Secure ingress gateway for Istio service mesh add-on][istio-secure-gateway]
+
 [istio-deploy-addon]: istio-deploy-addon.md
+[istio-secure-gateway]: istio-secure-gateway.md
 
