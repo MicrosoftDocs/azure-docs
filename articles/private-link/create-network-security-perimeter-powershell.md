@@ -166,7 +166,7 @@ In this step, you create and update network security perimeter access rules.
 
 To delete a network security perimeter, use the following commands:
 
-    ```azurepowershell-interactive
+```azurepowershell-interactive
 
     # Retrieve the network security perimeter and place it in a variable
     $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.ResourceGroupName
@@ -178,7 +178,7 @@ To delete a network security perimeter, use the following commands:
     
     # Remove the resource group
     Remove-AzResourceGroup -Name "test-rg" -Force
-    ```
+```
  
 ## Next steps
 
