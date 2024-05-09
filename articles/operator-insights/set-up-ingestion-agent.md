@@ -36,7 +36,7 @@ When using an Azure VM:
 
 - Give the VM a private IP address.
 - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
-- Beyond this, network configuration depends on whether restricted access is set up on the data product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
+- Beyond this, network configuration depends on whether restricted access is set up on the Data Product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
  
 When using an on-premises VM:
 
@@ -55,7 +55,7 @@ Ensure Azure disk encryption is enabled (this is the default when you create the
 
 Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record sign-in attempts and actions taken by logged-in users.
 
-We recommend that you restrict the following:
+We recommend that you restrict the following types of access.
 - Admin access to the VM (for example, to stop/start/install the ingestion agent).
 - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
 - Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
@@ -69,7 +69,7 @@ When using an Azure VM, also follow all recommendations from Microsoft Defender 
 
 The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
 
-- Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
+- Service principal with certificate credential. If the ingestion agent is running outside of Azure, such as in an on-premises network, you must use this method. 
 - Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It doesn't require handling any credentials (unlike a service principal).
 
 > [!IMPORTANT]
@@ -82,9 +82,9 @@ If the ingestion agent is running in Azure, we recommend managed identities. For
 > [!NOTE]
 > Ingestion agents on Azure VMs support both system-assigned and user-assigned managed identities. For multiple agents, a user-assigned managed identity is simpler because you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
-1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, don't create a user-assigned managed identity.
+1. Create or obtain a user-assigned managed identity, by following the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, don't create a user-assigned managed identity.
 1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
-1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
+1. Note the Object ID of the managed identity. The Object ID is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
 
 You can now [grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 
@@ -208,7 +208,7 @@ The agent software package is hosted on the "Linux software repository for Micro
 To download and install a package from the software repository, follow the relevant steps for your VM's Linux distribution in [
 How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository).
 
- For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
+ For example, if you're installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
 
 - distribution:  `rhel`
 - version: `8`
@@ -217,8 +217,8 @@ How to install Microsoft software packages using the Linux Repository](/linux/pa
 ## Configure the agent software
 
 The configuration you need is specific to the type of source and your Data Product. Ensure you have access to your Data Product's documentation to see the required values. For example:
-- [Quality of Experience - Affirmed MCC Data Product - required agent configuration](concept-mcc-data-product.md#required-agent-configuration)
-- [Monitoring - Affirmed MCC Data Product - required agent configuration](concept-monitoring-mcc-data-product.md#required-agent-configuration)
+- [Quality of Experience - Affirmed MCC Data Product - ingestion configuration](concept-mcc-data-product.md#required-ingestion-configuration)
+- [Monitoring - Affirmed MCC Data Product - ingestion configuration](concept-monitoring-mcc-data-product.md#required-ingestion-configuration)
 
 1. Connect to the VM over SSH.
 1. Change to the configuration directory.
@@ -319,6 +319,41 @@ The configuration you need is specific to the type of source and your Data Produ
     ```    
     sudo systemctl enable az-aoi-ingestion.service
     ```
+
+## [Optional] Configure log collection for access through Azure Monitor
+
+If you're running the ingestion agent on an Azure VM or on an on-premises VM connected by Azure Arc, you can send ingestion agent logs to Azure Monitor using the Azure Monitor Agent. Using Azure Monitor to access logs can be simpler than accessing logs directly on the VM.
+
+To collect ingestion agent logs, follow [the Azure Monitor documentation to install the Azure Monitor Agent and configure log collection](../azure-monitor/agents/data-collection-text-log.md).
+
+- These docs use the Az PowerShell module to create a logs table. Follow the [Az PowerShell module install documentation](/powershell/azure/install-azure-powershell) first.
+  - The `YourOptionalColumn` section from the sample `$tableParams` JSON is unnecessary for the ingestion agent, and can be removed.
+- When adding a data source to your data collection rule, add a `Custom Text Logs` source type, with file pattern `/var/log/az-aoi-ingestion/stdout.log`.
+- After adding the data collection rule, you can query these logs through the Log Analytics workspace. Use the following query to make them easier to work with:
+  ```
+  RawAgentLogs_CL
+  | extend RawData = replace_regex(RawData, '\\x1b\\[\\d{1,4}m', '')  // Remove any color tags
+  | parse RawData with TimeGenerated: datetime '  ' Level ' ' Message  // Parse the log lines into the TimeGenerated, Level and Message columns for easy filtering
+  | order by TimeGenerated desc
+  ```
+  > [!NOTE]
+  > This query can't be used as a data source transform, because `replace_regex` isn't available in data source transforms.
+
+### Sample logs
+```
+[2m2024-04-30T17:16:00.000544Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Starting run with 'last checkpoint' timestamp: None
+[2m2024-04-30T17:16:00.000689Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Starting Completion Handler task
+[2m2024-04-30T17:16:00.073495Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::sftp_file_tree_explorer[0m[2m:[0m Start traversing files with base path "/"
+[2m2024-04-30T17:16:00.086427Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::sftp_file_tree_explorer[0m[2m:[0m Finished traversing files
+[2m2024-04-30T17:16:00.086698Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m File explorer task is complete, with result Ok(())
+[2m2024-04-30T17:16:00.086874Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Send files to sink task is complete
+[2m2024-04-30T17:16:00.087041Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Processed all completion notifications for run
+[2m2024-04-30T17:16:00.087221Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Run complete with no retryable errors - updating last checkpoint timestamp
+[2m2024-04-30T17:16:00.087351Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::source[0m[2m:[0m Run lasted 0 minutes and 0 seconds with result: RunStats { successful_uploads: 0, retryable_errors: 0, non_retryable_errors: 0, blob_already_exists: 0 }
+[2m2024-04-30T17:16:00.087421Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_sftp_pull_source::sftp::file[0m[2m:[0m Closing 1 active SFTP connections
+[2m2024-04-30T17:16:00.087966Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m[1mexecute_run[0m[1m{[0m[3mstart_time[0m[2m=[0m"2024-04-30 17:16:00.000524 UTC"[1m}[0m[2m:[0m [2maz_ingestion_common::scheduler[0m[2m:[0m Run completed successfully. Update the 'last checkpoint' time to 2024-04-30T17:15:30.000543200Z
+[2m2024-04-30T17:16:00.088122Z[0m [32m INFO[0m [1msftp_pull[0m[1m{[0m[3mpipeline_id[0m[2m=[0m"test-files"[1m}[0m[2m:[0m [2maz_ingestion_common::scheduler[0m[2m:[0m Schedule next run at 2024-04-30T17:17:00Z
+```
 
 ## Related content
 

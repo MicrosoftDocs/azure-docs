@@ -52,7 +52,7 @@ A resource provider is a service that supplies Azure resources. Use the Azure po
 
 2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
-3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
+3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview). Additional information for Trusted Signing CLI extension is available at [Trusted Signing Service](https://learn.microsoft.com/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest)
 
 4. To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command.
 •   To upgrade to the latest version, use the following command:
@@ -103,16 +103,16 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From either the Azure portal menu or the Home page, select **Create a resource**.
-3. In the Search box, enter **Trusted Signing account**.
-4. From the results list, select **Trusted Signing account**.
-5. On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays.
-6. In the **Subscription** pull-down menu, select a subscription.
-7. In the **Resource group** field, select **Create new** and enter a resource group name.
-8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
-9. In the **Region** pull-down menu, select a region.
-10. In the **Pricing** tier pull-down menu, select a pricing tier.
-11. Select the **Review + Create** button.
+2. In the Search box, enter **Trusted Signing Accounts** or click "More services" to find **Trust Signing Accounts**.
+:::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot of trusted-signing-search-service." lightbox="media/trusted-signing-search-service.png":::
+3. From the results list, select **Trusted Signing Accounts**.
+4. On the Trusted Signing Accounts page, select **Create**. The Create Trusted Signing account section displays.
+5. In the **Subscription** pull-down menu, select a subscription.
+6. In the **Resource group** field, select **Create new** and enter a resource group name.
+7. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
+8. In the **Region** pull-down menu, select a region.
+9. In the **Pricing** tier pull-down menu, select a pricing tier.
+10. Select the **Review + Create** button.
 
     :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
 
@@ -122,8 +122,8 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 
 - Between 3-24 alphanumeric characters.
 - Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Globally unique.
 - Case insensitive (“Abc” is the same as “abc”).
+- Account names beginning with "one" are rejected by ARM.
 
 # [Azure CLI](#tab/account-cli)
 
@@ -167,8 +167,8 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 - Between 3-24 alphanumeric characters.
 - Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
-- Globally unique.
 - Case insensitive (“Abc” is the same as “abc”).
+- Account names beginning with "one" are rejected by ARM.
 
 **Helpful commands**:
 
@@ -185,6 +185,9 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ## Create an Identity Validation request
 
 You can complete your own Identity Validation by filing out the request form with the information that should be included in the certificate.  Identity Validation can only be completed in the Azure portal – it can't be completed with Azure CLI.
+
+> [!NOTE]
+> You will not be able to create an identity validation if you do not have the appropriate role assigned. If the "New identity" button is greyed out on the Azure portal ensure you have the "Trusted Signing Identity Verifier role" in order to proceed with identity validation. 
 
 Here are the steps to create an Identity Validation request:
 
@@ -211,6 +214,11 @@ Here are the steps to create an Identity Validation request:
 6. **Certificate subject preview**:  The preview provides a snapshot of the information displayed in the certificate.
 7. **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
 8. Select the **Create** button.
+9. Upon successful creation of the request, the Identity Validation request status changes to "In Progress".
+10. If Additional documents are required, an email is sent and the request status changes to "Action Required".
+11. Once the identity validation process is complete, the request status will change, and an email is sent with the updated status of the request.
+    1. "Completed": When process is completed successfully.
+    1. "Failed": When the process is not completed successfully. 
 
 :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot of trusted-signing-identityvalidation-public." lightbox="media/trusted-signing-identity-validation-public.png":::
 
@@ -220,10 +228,10 @@ Here are the steps to create an Identity Validation request:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. |
+| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. For a quicker onboarding process ensure public records for the Legal Entity being validated are upto date. |
 | Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
 | Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
-| Failed email verification            | You are required to initiate a new Identity Validation request if email verification fails.|
+| Failure to perform email verification            | You are required to initiate a new Identity Validation request if you missed verifying your email address within 7 days of receiving the verification link.|
 | Identity Validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need extra documentation from you) to process your Identity Validation request.|
 
@@ -261,6 +269,17 @@ A certificate profile resource is the logical container of the certificates that
 - Case insensitive (“Abc” is the same as “abc”).
 
 # [Azure CLI](#tab/certificateprofile-cli)
+
+**Prerequisites**
+You need the Identity Validation ID for the entity that the certificate profile is being created for. The below steps will guide you to obtain your Identity Validation ID from Azure portal. 
+
+1. Navigate to your Trusted Signing account in the Azure portal.
+2. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
+3. Select the hyperlink for the relevant entity, from the panel on the right you can copy the **Identity validation Id**.
+
+:::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot of trusted-signing-identity-validation-id." lightbox="media/trusted-signing-identity-validation-id.png":::
+
+
 
 To create a certificate profile with Azure CLI, follow these steps:
 
