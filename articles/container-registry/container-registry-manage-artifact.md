@@ -51,7 +51,14 @@ IMAGE=$REGISTRY/${REPO}:$TAG
 
 ### Sign in to a registry
 
-Authenticate with your[individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
+Authenticate with the ACR, for allowing you to pull and push container images.
+
+```azurecli
+az login  
+az acr login -n $REGISTRY  
+``` 
+
+If Docker isn't available, you can utilize the token provided below for authentication. Authenticate with your[individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
 # Login to Azure
@@ -85,7 +92,7 @@ To demonstrate this capability, this section shows how to use the [OCI Registry 
 
 ### Push an artifact
 
-An artifact that has no `subject` parent can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts can be anything from a signature, software bill of materials, scan reports, or other evolving types. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact.
+A single file artifact that has no `subject` parent can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts can be anything from a signature, software bill of materials, scan reports, or other evolving types. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact.
 
 #### Push a Single-File Artifact
 
@@ -131,7 +138,7 @@ Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1
 aec5d9dcf7748dd702682d53
 ```
 
-#### Push a multi-file root artifact
+#### Push a multi-file artifact
 
 When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
 For more information how to push a collection of files, see [Pushing artifacts with multiple files.][oras-push-multifiles]
@@ -205,7 +212,7 @@ The output is similar to:
 }
 ```
 
-### Pull a root artifact
+### Pull an artifact
 
 Create a clean directory for downloading.
 
@@ -370,7 +377,7 @@ myregistry.azurecr.io/net-monitor:v1
 ### Promoting the Artifact Graph
 
 A typical DevOps workflow promotes artifacts from dev through staging, to the production environment. Secure supply chain workflows promote public content to privately secured environments.
-In either case you want to promote the signatures, SBOMs, scan results, and other related artifact with the root artifact to have a complete graph of dependencies.
+In either case you want to promote the signatures, SBOMs, scan results, and other related artifact with the subject artifact to have a complete graph of dependencies.
 
 Using the [`oras copy`][oras-cli] command, you can promote a filtered graph of artifacts across registries.
 
@@ -499,7 +506,7 @@ In the output, the signature is untagged, but tracked as a `oci.artifact.manifes
 
 ### Deleting all artifacts in the graph
 
-Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the root artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
 
 ```azurecli
 oras manifest delete -f $REGISTRY/$REPO:$TAG
@@ -507,7 +514,7 @@ oras manifest delete -f $REGISTRY/$REPO:$TAG
 oras manifest delete -f $REGISTRY/sample-staging/$REPO:$TAG
 ```
 
-You can view the list of manifests to confirm the deletion of the root artifact, and all related artifacts leaving a clean environment.
+You can view the list of manifests to confirm the deletion of the subject artifact, and all related artifacts leaving a clean environment.
 
 ```azurecli
 az acr manifest list-metadata \
