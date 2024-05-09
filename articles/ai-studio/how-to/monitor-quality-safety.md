@@ -38,8 +38,6 @@ Capabilities and integrations for monitoring a prompt flow deployment include:
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-
 * An Azure AI Studio hub and project. If you don't have these resources, use the steps in the [Azure AI Studio hubs for projects](./ai-resources.md) and [Create a project in Azure AI Studio](./create-projects.md) articles to create them.
   
 # [Python SDK](#tab/python)
@@ -159,7 +157,6 @@ from azure.ai.ml.entities import (
     LlmData,
 )
 from azure.ai.ml.entities._inputs_outputs import Input
-
 from azure.ai.ml.constants import MonitorTargetTasks, MonitorDatasetContext
 
 # Authentication package
@@ -171,7 +168,7 @@ credential = DefaultAzureCredential()
 subscription_id = "INSERT YOUR SUBSCRIPTION ID"
 resource_group = "INSERT YOUR RESOURCE GROUP NAME"
 workspace_name = "INSERT YOUR WORKSPACE NAME" # This is the same as your AI Studio project name
-endpoint_name = "INSERT YOUR ENDPOINT NAME" This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
+endpoint_name = "INSERT YOUR ENDPOINT NAME" # This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
 deployment_name = "INSERT YOUR DEPLOYMENT NAME"
 aoai_deployment_name ="INSERT YOUR AOAI DEPLOYMENT NAME"
 aoai_connection_name = "INSERT YOUR AOAI CONNECTION NAME"
@@ -200,70 +197,54 @@ monitoring_target = MonitoringTarget(
     endpoint_deployment_id=f"azureml:{endpoint_name}:{deployment_name}",
 )
 
-# Create an instance of token statistic signal
-def get_token_statistic_signal(token_count_threshold, token_count_per_group_threshold) -> GenerationTokenStatisticsSignal:
-    totaltoken = {"total_token_count": token_count_threshold, "total_token_count_per_group": token_count_per_group_threshold}
-    threshold = GenerationTokenStatisticsMonitorMetricThreshold(totaltoken = totaltoken)
-    input_data = Input(
-        type="uri_folder",
-        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
-    )
-    data_window = BaselineDataRange(lookback_window_size="P2D", lookback_window_offset="P0D")
-    production_data = LlmData(
-        data_column_names={"prompt_column": "question", "completion_column": "answer"},
-        input_data=input_data,
-        data_window=data_window,
-    )
-    
-    return GenerationTokenStatisticsSignal(
-        metric_thresholds = threshold,
-        production_data = production_data)
-    
+# Set thresholds for passing rate (0.7 = 70%)
+aggregated_groundedness_pass_rate = 0.7
+aggregated_relevance_pass_rate = 0.7
+aggregated_coherence_pass_rate = 0.7
+aggregated_fluency_pass_rate = 0.7
 
 # Create an instance of gsq signal
-def get_gsq_signal(
-        acceptable_fluency_score_per_instance : int,
-        aggregated_fluency_pass_rate : float,
-        acceptable_coherence_score_per_instance : int,
-        aggregated_coherence_pass_rate : float) -> GenerationSafetyQualitySignal :
-    generation_quality_thresholds = GenerationSafetyQualityMonitoringMetricThreshold(
-        fluency={"acceptable_fluency_score_per_instance": acceptable_fluency_score_per_instance,
-                 "aggregated_fluency_pass_rate": aggregated_fluency_pass_rate},
-        coherence={"acceptable_coherence_score_per_instance": acceptable_coherence_score_per_instance,
-                   "aggregated_coherence_pass_rate": aggregated_coherence_pass_rate},
-    )
-    input_data = Input(
-        type="uri_folder",
-        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
-    )
-    data_window = BaselineDataRange(lookback_window_size="P7D", lookback_window_offset="P0D")
-    production_data = LlmData(
-        data_column_names={"prompt_column": "question", "completion_column": "answer"},
-        input_data=input_data,
-        data_window=data_window,
-    )
+generation_quality_thresholds = GenerationSafetyQualityMonitoringMetricThreshold(
+    groundedness = {"aggregated_groundedness_pass_rate": aggregated_groundedness_pass_rate},
+    relevance={"aggregated_relevance_pass_rate": aggregated_relevance_pass_rate},
+    coherence={"aggregated_coherence_pass_rate": aggregated_coherence_pass_rate},
+    fluency={"aggregated_fluency_pass_rate": aggregated_fluency_pass_rate},
+)
+input_data = Input(
+    type="uri_folder",
+    path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
+)
+data_window = BaselineDataRange(lookback_window_size="P7D", lookback_window_offset="P0D")
+production_data = LlmData(
+    data_column_names={"prompt_column": "question", "completion_column": "answer", "context_column": "context"},
+    input_data=input_data,
+    data_window=data_window,
+)
 
-    return GenerationSafetyQualitySignal(
-        connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
-        metric_thresholds=generation_quality_thresholds,
-        production_data=[production_data],
-        sampling_rate=1.0,
-        properties={
-            "aoai_deployment_name": aoai_deployment_name,
-            "enable_action_analyzer": "false",
-            "azureml.modelmonitor.gsq_thresholds": '[{"metricName":"average_fluency","threshold":{"value":4}},{"metricName":"average_coherence","threshold":{"value":4}}]',
-        },
-    )
+gsq_signal = GenerationSafetyQualitySignal(
+    connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
+    metric_thresholds=generation_quality_thresholds,
+    production_data=[production_data],
+    sampling_rate=1.0,
+    properties={
+        "aoai_deployment_name": aoai_deployment_name,
+        "enable_action_analyzer": "false",
+        "azureml.modelmonitor.gsq_thresholds": '[{"metricName":"average_fluency","threshold":{"value":4}},{"metricName":"average_coherence","threshold":{"value":4}}]',
+    },
+)
 
-# Select the thresholds to pass to the functions creating the signals
+# Create an instance of token statistic signal
+token_statistic_signal = GenerationTokenStatisticsSignal()
+
 monitoring_signals = {
-    defaultgsqsignalname: get_gsq_signal(4, 0.7, 4, 0.7),
-    defaulttokenstatisticssignalname: get_token_statistic_signal(20, 10),
-    }
+    defaultgsqsignalname: gsq_signal,
+    defaulttokenstatisticssignalname: token_statistic_signal,
+}
 
 monitor_settings = MonitorDefinition(
 compute=spark_compute,
 monitoring_target=monitoring_target,
+monitoring_signals = monitoring_signals,
 alert_notification=AlertNotification(emails=notification_emails_list),
 )
 
@@ -272,6 +253,7 @@ model_monitor = MonitorSchedule(
     trigger=trigger_schedule,
     create_monitor=monitor_settings
 )
+
 ml_client.schedules.begin_create_or_update(model_monitor)
 ```
 ---
@@ -336,13 +318,9 @@ from azure.ai.ml.entities import (
     ServerlessSparkCompute,
     MonitoringTarget,
     AlertNotification,
-    GenerationTokenStatisticsMonitorMetricThreshold,
     GenerationTokenStatisticsSignal,
-    BaselineDataRange,
-    LlmData,
 )
 from azure.ai.ml.entities._inputs_outputs import Input
-
 from azure.ai.ml.constants import MonitorTargetTasks, MonitorDatasetContext
 
 # Authentication package
@@ -358,11 +336,8 @@ endpoint_name = "INSERT YOUR ENDPOINT NAME" This is your deployment name without
 deployment_name = "INSERT YOUR DEPLOYMENT NAME"
 
 # These variables can be renamed but it is not necessary
-app_trace_name = "app_traces"
-app_trace_Version = "1"
-monitor_name ="gen_ai_monitor_both_signals" 
+monitor_name ="gen_ai_monitor_tokens" 
 defaulttokenstatisticssignalname ="token-usage-signal" 
-defaultgsqsignalname ="gsq-signal"
 
 # Determine the frequency to run the monitor, and the emails to recieve email alerts
 trigger_schedule = CronTrigger(expression="15 10 * * *")
@@ -382,31 +357,16 @@ monitoring_target = MonitoringTarget(
 )
 
 # Create an instance of token statistic signal
-def get_token_statistic_signal(token_count_threshold, token_count_per_group_threshold) -> GenerationTokenStatisticsSignal:
-    totaltoken = {"total_token_count": token_count_threshold, "total_token_count_per_group": token_count_per_group_threshold}
-    threshold = GenerationTokenStatisticsMonitorMetricThreshold(totaltoken = totaltoken)
-    input_data = Input(
-        type="uri_folder",
-        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
-    )
-    data_window = BaselineDataRange(lookback_window_size="P2D", lookback_window_offset="P0D")
-    production_data = LlmData(
-        data_column_names={"prompt_column": "question", "completion_column": "answer"},
-        input_data=input_data,
-        data_window=data_window,
-    )
-    
-    return GenerationTokenStatisticsSignal(
-        metric_thresholds = threshold,
-        production_data = production_data)
+token_statistic_signal = GenerationTokenStatisticsSignal()
 
 monitoring_signals = {
-    defaulttokenstatisticssignalname: get_token_statistic_signal(20,10),
-    }
+    defaulttokenstatisticssignalname: token_statistic_signal,
+}
 
 monitor_settings = MonitorDefinition(
 compute=spark_compute,
 monitoring_target=monitoring_target,
+monitoring_signals = monitoring_signals,
 alert_notification=AlertNotification(emails=notification_emails_list),
 )
 
@@ -438,7 +398,6 @@ from azure.ai.ml.entities import (
     LlmData,
 )
 from azure.ai.ml.entities._inputs_outputs import Input
-
 from azure.ai.ml.constants import MonitorTargetTasks, MonitorDatasetContext
 
 # Authentication package
@@ -450,7 +409,7 @@ credential = DefaultAzureCredential()
 subscription_id = "INSERT YOUR SUBSCRIPTION ID"
 resource_group = "INSERT YOUR RESOURCE GROUP NAME"
 workspace_name = "INSERT YOUR WORKSPACE NAME" # This is the same as your AI Studio project name
-endpoint_name = "INSERT YOUR ENDPOINT NAME" This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
+endpoint_name = "INSERT YOUR ENDPOINT NAME" # This is your deployment name without the suffix (e.g., deployment is "contoso-chatbot-1", endpoint is "contoso-chatbot")
 deployment_name = "INSERT YOUR DEPLOYMENT NAME"
 aoai_deployment_name ="INSERT YOUR AOAI DEPLOYMENT NAME"
 aoai_connection_name = "INSERT YOUR AOAI CONNECTION NAME"
@@ -458,8 +417,7 @@ aoai_connection_name = "INSERT YOUR AOAI CONNECTION NAME"
 # These variables can be renamed but it is not necessary
 app_trace_name = "app_traces"
 app_trace_Version = "1"
-monitor_name ="gen_ai_monitor_both_signals" 
-defaulttokenstatisticssignalname ="token-usage-signal" 
+monitor_name ="gen_ai_monitor_generation_quality" 
 defaultgsqsignalname ="gsq-signal"
 
 # Determine the frequency to run the monitor, and the emails to recieve email alerts
@@ -479,49 +437,50 @@ monitoring_target = MonitoringTarget(
     endpoint_deployment_id=f"azureml:{endpoint_name}:{deployment_name}",
 )
 
+# Set thresholds for passing rate (0.7 = 70%)
+aggregated_groundedness_pass_rate = 0.7
+aggregated_relevance_pass_rate = 0.7
+aggregated_coherence_pass_rate = 0.7
+aggregated_fluency_pass_rate = 0.7
+
 # Create an instance of gsq signal
-def get_gsq_signal(
-        acceptable_fluency_score_per_instance : int,
-        aggregated_fluency_pass_rate : float,
-        acceptable_coherence_score_per_instance : int,
-        aggregated_coherence_pass_rate : float) -> GenerationSafetyQualitySignal :
-    generation_quality_thresholds = GenerationSafetyQualityMonitoringMetricThreshold(
-        fluency={"acceptable_fluency_score_per_instance": acceptable_fluency_score_per_instance,
-                 "aggregated_fluency_pass_rate": aggregated_fluency_pass_rate},
-        coherence={"acceptable_coherence_score_per_instance": acceptable_coherence_score_per_instance,
-                   "aggregated_coherence_pass_rate": aggregated_coherence_pass_rate},
-    )
-    input_data = Input(
-        type="uri_folder",
-        path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
-    )
-    data_window = BaselineDataRange(lookback_window_size="P7D", lookback_window_offset="P0D")
-    production_data = LlmData(
-        data_column_names={"prompt_column": "question", "completion_column": "answer"},
-        input_data=input_data,
-        data_window=data_window,
-    )
+generation_quality_thresholds = GenerationSafetyQualityMonitoringMetricThreshold(
+    groundedness = {"aggregated_groundedness_pass_rate": aggregated_groundedness_pass_rate},
+    relevance={"aggregated_relevance_pass_rate": aggregated_relevance_pass_rate},
+    coherence={"aggregated_coherence_pass_rate": aggregated_coherence_pass_rate},
+    fluency={"aggregated_fluency_pass_rate": aggregated_fluency_pass_rate},
+)
+input_data = Input(
+    type="uri_folder",
+    path=f"{endpoint_name}-{deployment_name}-{app_trace_name}:{app_trace_Version}",
+)
+data_window = BaselineDataRange(lookback_window_size="P7D", lookback_window_offset="P0D")
+production_data = LlmData(
+    data_column_names={"prompt_column": "question", "completion_column": "answer", "context_column": "context"},
+    input_data=input_data,
+    data_window=data_window,
+)
 
-    return GenerationSafetyQualitySignal(
-        connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
-        metric_thresholds=generation_quality_thresholds,
-        production_data=[production_data],
-        sampling_rate=1.0,
-        properties={
-            "aoai_deployment_name": aoai_deployment_name,
-            "enable_action_analyzer": "false",
-            "azureml.modelmonitor.gsq_thresholds": '[{"metricName":"average_fluency","threshold":{"value":4}},{"metricName":"average_coherence","threshold":{"value":4}}]',
-        },
-    )
-
+gsq_signal = GenerationSafetyQualitySignal(
+    connection_id=f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/connections/{aoai_connection_name}",
+    metric_thresholds=generation_quality_thresholds,
+    production_data=[production_data],
+    sampling_rate=1.0,
+    properties={
+        "aoai_deployment_name": aoai_deployment_name,
+        "enable_action_analyzer": "false",
+        "azureml.modelmonitor.gsq_thresholds": '[{"metricName":"average_fluency","threshold":{"value":4}},{"metricName":"average_coherence","threshold":{"value":4}}]',
+    },
+)
 
 monitoring_signals = {
-    defaultgsqsignalname: get_gsq_signal(4, 0.7, 4, 0.7),
-    }
+    defaultgsqsignalname: gsq_signal,
+}
 
 monitor_settings = MonitorDefinition(
 compute=spark_compute,
 monitoring_target=monitoring_target,
+monitoring_signals = monitoring_signals,
 alert_notification=AlertNotification(emails=notification_emails_list),
 )
 
@@ -530,6 +489,7 @@ model_monitor = MonitorSchedule(
     trigger=trigger_schedule,
     create_monitor=monitor_settings
 )
+
 ml_client.schedules.begin_create_or_update(model_monitor)
 ```
 
