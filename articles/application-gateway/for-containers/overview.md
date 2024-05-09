@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 5/1/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
@@ -72,7 +72,7 @@ Application Gateway for Containers supports the following features for traffic m
   - Methods
   - Ports (80/443)
 - Mutual authentication (mTLS) to backend target
-- Server-sent event support
+- Server-sent event (SSE) support
 - Traffic splitting / weighted round robin
 - TLS policies
 - URL redirect

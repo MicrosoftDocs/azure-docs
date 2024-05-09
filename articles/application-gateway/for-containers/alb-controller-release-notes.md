@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 5/1/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
@@ -27,7 +27,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.0.2| v1 | v1.27, v1.28, v1.29 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |
+| 1.0.2| v1 | v1.26, v1.27, v1.28, v1.29 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |
 
 ## Release history
 

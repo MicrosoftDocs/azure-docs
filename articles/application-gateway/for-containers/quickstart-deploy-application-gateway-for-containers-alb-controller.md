@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 5/1/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
