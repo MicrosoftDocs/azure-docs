@@ -39,7 +39,7 @@ Get started with Email by provisioning your first Email Communication Service re
 
 5. Click **Next: Review + create**.
 5. Wait for the validation to pass, then click **Create**.
-6. Wait for the Deployment to complete, then click **Go to Resource** to opens the Email Communication Service overview.
+6. Wait for the Deployment to complete, then click **Go to Resource** to open the Email Communication Service overview.
 
    :::image type="content" source="./media/email-communication-overview.png" alt-text="Screenshot that shows the overview of Email Communication Service resource.":::
 
