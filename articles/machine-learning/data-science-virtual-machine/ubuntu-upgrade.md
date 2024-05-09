@@ -86,7 +86,7 @@ You can upgrade the operating system parts of the filesystem, and leave the user
 
 ### Migration at a glance
 
-1. Create a snapshot of your existing VM as described [previously](#snapshot-your-VM-in-case-you-need-to-roll-back)
+1. Create a snapshot of your existing VM as described [previously](#snapshot-your-vm-in-case-you-need-to-roll-back)
 1. Create a disk from that snapshot
 1. Create a new Ubuntu DSVM
 1. Recreate user account(s) on the new virtual machine
