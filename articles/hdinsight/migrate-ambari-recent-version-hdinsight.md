@@ -34,11 +34,11 @@ To execute the migration process,
 ## Execution
 
 On HDInsight 4 Cluster (Old Cluster)
-1. `ssh to headnode`.
+1. ssh to headnode.
 1. `mkdir hdinsights_ambari_utils`.
 1. `cd hdinsights_ambari_utils`.
-1. Download `ambari_export_cluster_configs.py`
-Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdinsights_upgrade_ambari_utils/ambari_export_cluster_configs.py`
+1. Download `ambari_export_cluster_configs.py`.
+1. Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdinsights_upgrade_ambari_utils/ambari_export_cluster_configs.py`.
 
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/wget-command.png" alt-text="Screenshot showing wget command." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/wget-command.png":::
 1. Execute the script.
@@ -57,7 +57,7 @@ Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdin
 
 ## On HDInsight 5.x Cluster (New Cluster)
 
-1. `ssh` to `headnode`.
+1. ssh to headnode.
     ```
     mkdir hdinsights_ambari_utils
     cd hdinsights_ambari_util
