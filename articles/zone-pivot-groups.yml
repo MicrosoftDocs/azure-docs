@@ -467,7 +467,7 @@ groups:
   - id: azure-functions
     title: Azure Functions
   - id: container-apps
-    title: Azure Container Apps (preview)
+    title: Azure Container Apps
   - id: azure-arc
     title: Azure Arc (preview)
 - id: df-languages
