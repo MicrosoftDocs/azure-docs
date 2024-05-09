@@ -802,20 +802,20 @@
             - name: Overview
               href: functions-bindings-openai.md
               displayName: OpenAPI    
-            - name: Assistant 
+            - name: Assistants 
               items: 
                 - name: Trigger
                   href: functions-bindings-openai-assistant-trigger.md  
-                  displayName: Assistant     
+                  displayName: Assistants     
                 - name: Query input binding
                   href: functions-bindings-openai-assistantquery-input.md 
-                  displayName: Assistant
+                  displayName: Assistants
                 - name: Create output binding
                   href: functions-bindings-openai-assistantcreate-output.md
-                  displayName: Assistant   
+                  displayName: Assistants   
                 - name: Post output binding
                   href: functions-bindings-openai-assistantpost-output.md 
-                  displayName: Assistant
+                  displayName: Assistants
             - name: Embeddings input binding
               href: functions-bindings-openai-embeddings-input.md 
             - name: Semantic search 
