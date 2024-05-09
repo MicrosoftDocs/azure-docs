@@ -37,11 +37,10 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
 
 1. Update the code that connects to App Configuration and add the data refreshing conditions.
 
-    ### [In-process](#tab/in-process)
-    
     Open *Startup.cs*, and update the `ConfigureAppConfiguration` method. 
 
-
+    ### [Isolated process](#tab/isolated-process)
+    
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
     {
@@ -57,7 +56,7 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
     }
     ```
 
-    ### [Isolated process](#tab/isolated-process)
+    ### [In-process](#tab/in-process)
     
     Open *Program.cs*, and update the `Main` method.
 
@@ -99,8 +98,7 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
     > * Carry default configuration in your application and use it when configuration validation fails
     > * Choose a configuration update strategy that minimizes the impact to your application, for example, a low traffic timing.
 
-
-### [In-process](#tab/in-process)
+### [Isolated process](#tab/isolated-process)
 
 2. Update the `Configure` method to make Azure App Configuration services available through dependency injection.
 
@@ -150,7 +148,8 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
     }
     ```
 
-### [Isolated process](#tab/isolated-process)
+### [In-process](#tab/in-process)
+
 2. Add a `ConfigureServices` call to the `HostBuilder` to make Azure App Configuration services available through dependency injection. Then update the `ConfigureFunctionsWorkerDefaults` to use App Configuration middleware for configuration data refresh.
     
     ```csharp
