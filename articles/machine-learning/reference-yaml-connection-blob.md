@@ -9,15 +9,13 @@ ms.topic: reference
 
 author: AmarBadal
 ms.author: ambadal
-ms.date: 04/15/2024
+ms.date: 05/09/2024
 ms.reviewer: larryfr
 ---
 
 # CLI (v2) blob store connection YAML schema
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
-
-You can find the source JSON schema at TBD.
 
 [!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
