@@ -39,7 +39,7 @@ items:
     - name: Deploy models as serverless API endpoints
       href: how-to/deploy-models-serverless.md
       displayName: maas, paygo, models-as-a-service
-    - name: Connect serverless API models from a different project or hub
+    - name: Consume serverless API models from a different project or hub
       href: how-to/deploy-models-serverless-connect.md
       displayName: maas, paygo, models-as-a-service
     - name: Deploy Azure OpenAI models
