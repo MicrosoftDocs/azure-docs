@@ -138,7 +138,7 @@ Note these essential points for the command response:
 
 ### Setup replication
 
-If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it isn't turned on, the migration service automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration using the command below. Either approach of turning on logical replication restarts the source Single server.
+If the **Online** migration is selected, Logical replication must be turned on in the source Single server. If it isn't turned on, the migration service automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration using the command below. Either approach of turning on logical replication restarts the source Single server.
 
 For example:
 
@@ -214,7 +214,7 @@ The following tables describe the migration states and substates.
 | `CompletingMigration` | Migration cutover is in progress. |
 | `Completed` | cutover was successful, and migration is complete. |
 
-#### [Online (preview)](#tab/online)
+#### [Online](#tab/online)
 
 [!INCLUDE [prerequisites-migration-service-postgresql-online-single-server](../prerequisites/prerequisites-migration-service-postgresql-online-single-server.md)]
 
@@ -343,7 +343,7 @@ Note these essential points for the command response:
 
 ### Setup replication
 
-If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it isn't turned on, the migration service automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration using the command below. Either approach of turning on logical replication restarts the source Single server.
+If the **Online** migration is selected, Logical replication must be turned on in the source Single server. If it isn't turned on, the migration service automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration using the command below. Either approach of turning on logical replication restarts the source Single server.
 
 For example:
 
