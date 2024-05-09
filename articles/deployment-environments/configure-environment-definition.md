@@ -101,7 +101,7 @@ In the environment.yaml file, the runner property specifies the location of the 
 |---------------|--------------|
 | ARM           | ARM |
 | Bicep         | Bicep |
-| Terraform     | Not supported |
+| Terraform     | No sample image. Use a custom container image instead. |
 
 The following example shows a runner that references the sample Bicep container image:
 ```yaml
@@ -113,14 +113,13 @@ The following example shows a runner that references the sample Bicep container 
     templatePath: azuredeploy.json
 ```
 
-### Specify an ARM, Bicep, or Terraform custom container image
+### Specify a custom container image
 
 To use a custom container image stored in a repository, use the following runner format in the environment.yaml file:
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}”`
 ```
 
-You should use this runner format whether you're using ARM, Bicep, or Terraform for your custom container image.
 Edit the runner value to reference your repository and custom image, as shown in the following example:
 
 ```yaml
