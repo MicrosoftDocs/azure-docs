@@ -20,6 +20,7 @@ Before you begin, you must have the resources configured and the appropriate per
 ### Microsoft Sentinel prerequisites
 
 For Microsoft Sentinel, install the appropriate solution and make sure you have the permissions to complete the steps in this article.
+
 - Install the appropriate solution&mdash;**Syslog** and/or **Common Event Format** from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 - Your Azure account must have the following Azure role-based access control (Azure RBAC) roles:
@@ -57,10 +58,21 @@ If your devices are sending Syslog and CEF logs over TLS because, for example, y
 - [Encrypt Syslog traffic with TLS – rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
 - [Encrypt log messages with TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)
 
-## Set up the data connector
+## Configure the data connector
+
+The setup process for the Syslog via AMA  or Common Event Format (CEF) via AMA data connectors includes the following steps that you can do in the Azure or Microsoft Defender portal or by using the Azure Monitor logs ingestion API. 
+
+- From the data connector in Microsoft Sentinel, create a data collection rule. As part 
+1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR).
+    - [Using the Azure portal](?tabs=syslog%2Cportal#install-the-ama-and-create-a-data-collection-rule-dcr)
+    - [Using the Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-ama-and-create-a-data-collection-rule-dcr)
+
+1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports.
+
 
 Set up the appropriate data connector in one of two ways:
-- Deploy and configure the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in the Azure or Microsoft Defender portal for Microsoft Sentinel. With this setup, you can create, manage, and delete DCRs per workspace. The AMA is installed automatically on the VMs you select in the connector configuration.  
+
+- Configure the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in the Azure or Microsoft Defender portal for Microsoft Sentinel. With this setup, you can create, manage, and delete DCRs per workspace. The AMA is installed automatically on the VMs that you select in the connector configuration.  
     **&mdash;OR&mdash;**
 - Send HTTP requests to the Logs Ingestion API. With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
@@ -202,7 +214,7 @@ Now you need to create a DCR Association (DCRA) that ties the DCR to the VM reso
 
 ## Run the "installation" script
 
-The "installation" script doesn't actually install anything. It configures the Syslog daemon on your log forwarder to collect the logs.
+If you're using a log forwarder, configure the Syslog daemon to listen for messages from other machines, and open the necessary local ports.
 
 1. From the connector page, copy the command line that appears under **Run the following command to install and apply the CEF collector:**
 
