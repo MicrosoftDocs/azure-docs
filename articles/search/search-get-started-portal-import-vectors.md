@@ -42,7 +42,7 @@ For more configuration and data source options, try Python or the REST APIs. See
 
 + Blobs or files providing text content, unstructured docs only, and metadata. 
 
-+ Read permissions on the data source. For connections to Azure Storage, you can use keys or a **Stroage Blob Data Reader** role assignment. For connections to OneLake, you must connect using the **Contributor** role (there is no key authentication support).
++ Read permissions on the data source. For connections to Azure Storage, you can use keys or a **Storage Blob Data Reader** role assignment. For connections to OneLake, you must connect using the **Contributor** role (there is no key authentication support).
   
 + All components (data source and embedding endpoint) must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled in the different integration components for security. If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here is a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
 
