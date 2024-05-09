@@ -12,7 +12,7 @@ ms.date: 05/21/2024
 
 # Index data from OneLake files and shortcuts
   
-In this article, learn how to configure a OneLake files indexer for extracting searchable data and metadata data from a [lakehouse](../fabric/onelake/create-lakehouse-onelake.md) on top of [OneLake](../fabric/onelake/onelake-overview.md). 
+In this article, learn how to configure a OneLake files indexer for extracting searchable data and metadata data from a [lakehouse](/fabric/onelake/create-lakehouse-onelake) on top of [OneLake](/fabric/onelake/onelake-overview). 
 
 Use this indexer for the following tasks:
   
@@ -30,17 +30,17 @@ This article uses the REST APIs to illustrate each step.
   
 Before you begin, you need to have:  
   
-+ A Fabric workspace. Follow this tutorial to [create a Fabric workspace](../lakehouse/tutorial-create-workspace.md). 
++ A Fabric workspace. Follow this tutorial to [create a Fabric workspace](/fabric/data-engineering/tutorial-lakehouse-get-started). 
 
-+ A Lakehouse in a Fabric workspace. Follow this tutorial to [create a lakehouse](https://learn.microsoft.com/lakehouse/tutorial-create-lakehouse).
++ A lakehouse in a Fabric workspace. Follow this tutorial to [create a lakehouse](/fabric/data-engineering/tutorial-build-lakehouse).
 
 + Textual data. If you have binary data, you can use [AI enrichment](cognitive-search-concept-intro.md) image analysis to extract text or generate descriptions of images. File content can't exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 + Content in the **Files** location of your lakehouse. You can add data by:
 
-  + [Upload into a lakehouse directly](../onelake/create-lakehouse-onelake.md#load-data-into-a-lakehouse)
-  + [Use data pipelines](../fabric/data-engineering/tutorial-lakehouse-data-ingestion.md) from [Microsoft Fabric](https://fabric.microsoft.com/)
-  + [Add shortcuts](../fabric/onelake/onelake-shortcuts) from external data sources like [Amazon S3](../fabric/onelake/create-s3-shortcut.md) or [Google Cloud Storage](../fabric/onelake/create-gcs-shortcut.md).  
+  + [Upload into a lakehouse directly](/fabric/onelake/create-lakehouse-onelake#load-data-into-a-lakehouse)
+  + [Use data pipelines](/fabric/data-engineering/tutorial-lakehouse-data-ingestion) from [Microsoft Fabric](https://fabric.microsoft.com/)
+  + [Add shortcuts](/fabric/onelake/create-onelake-shortcut) from external data sources like [Amazon S3](/fabric/onelake/create-s3-shortcut) or [Google Cloud Storage](/fabric/onelake/create-gcs-shortcut).  
 
 + A search service configured for either a [system managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) or [user-assigned assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-user-assigned-managed-identity-preview). 
 
@@ -60,13 +60,13 @@ The OneLake files indexer can extract text from the following document formats:
 
 The following OneLake shortcuts are supported by the OneLake files indexer:
 
-+ [ADLS Gen2 shortcut](..fabric/onelake/create-adls-shortcut.md)
++ [ADLS Gen2 shortcut](/fabric/onelake/create-adls-shortcut)
 
-+ [OneLake shortcut](../fabric/onelake/create-onelake-shortcut.md) (a shortcut to another OneLake instance)
++ [OneLake shortcut](/fabric/onelake/create-onelake-shortcut) (a shortcut to another OneLake instance)
 
-+ [Amazon S3 shortcut](../fabric/onelake/create-s3-shortcut).md
++ [Amazon S3 shortcut](/fabric/onelake/create-s3-shortcut)
 
-+ [Google Cloud Storage shortcut](../fabric/onelake/create-gcs-shortcut.md)
++ [Google Cloud Storage shortcut](/fabric/onelake/create-gcs-shortcut)
 
 ## Limitations in this preview
  
@@ -142,23 +142,23 @@ The minimum role assignment for your search service identity is Contributor.
 
    The following screenshot shows a system managed identity for a search service named "onelake-demo".
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal.":::
+   :::image type="content" source="media/search-how-to-index-onelake-files/system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/system_managed_identity.png" a:::
 
    This screenshot shows a user-managed identity for the same search service.
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/user_assigned_managed_identity.png" alt-text="Screenshot showing a search service user-assigned managed identity in the Azure portal.":::
+   :::image type="content" source="media/search-how-to-index-onelake-files/user_assigned_managed_identity.png" alt-text="Screenshot showing a search service user-assigned managed identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/user_assigned_managed_identity.png" :::
 
-1. [Grant permission for search service access](../fabric/get-started/give-access-workspaces.md) to the Fabric workspace. The search service makes the connection on behalf of the indexer.
+1. [Grant permission for search service access](/fabric/get-started/give-access-workspaces) to the Fabric workspace. The search service makes the connection on behalf of the indexer.
 
    If you use a system-assigned managed identity, search for the name of the AI Search service. For a user-assigned managed identity, search for the name of the identity resource.
 
    The following screenshot shows a Contributor role assignment using a system managed identity.
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/add_system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal.":::
+   :::image type="content" source="media/search-how-to-index-onelake-files/add_system_managed_identity.png" alt-text="Screenshot showing a search service system identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/add_system_managed_identity.png" :::
 
    This screenshot shows a Contributor role assignment using a system managed identity:
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png" alt-text="Screenshot showing a search service user-assigned managed identity in the Azure portal.":::
+   :::image type="content" source="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png" alt-text="Screenshot showing a search service user-assigned managed identity in the Azure portal." lightbox="media/search-how-to-index-onelake-files/add_user_assigned_managed_identity.png":::
 
 ## Define the data source  
   
@@ -175,11 +175,11 @@ A data source is defined as an independent resource so that it can be used by mu
    + Copy the workspace GUID, that we'll call `{FabricWorkspaceGuid}`, which is listed right after "groups" in the URL. In this example, it would be 00000000-0000-0000-0000-000000000000.
    [reference Fabric_GUID.png]
 
-     :::image type="content" source="media/search-how-to-index-onelake-files/fabric_guid.png" alt-text="Screenshot of the Fabric workspace GUID in the Azure portal.":::
+     :::image type="content" source="media/search-how-to-index-onelake-files/fabric_guid.png" alt-text="Screenshot of the Fabric workspace GUID in the Azure portal." lightbox="media/search-how-to-index-onelake-files/fabric_guid.png" :::
 
    + Copy the lakehouse GUID that we'll call `{lakehouseGuid}`, which is listed right after "lakehouses" in the URL. In this example, it would be 11111111-1111-1111-1111-111111111111.
 
-     :::image type="content" source="media/search-how-to-index-onelake-files/lakehouse_guid.png" alt-text="Screenshot of the lakehouse GUID in the Azure portal.":::
+     :::image type="content" source="media/search-how-to-index-onelake-files/lakehouse_guid.png" alt-text="Screenshot of the lakehouse GUID in the Azure portal." lightbox="media/search-how-to-index-onelake-files/lakehouse_guid.png" :::
 
 1. Set `"credentials"` to the Microsoft Fabric workspace GUID by replacing `{FabricWorkspaceGuid}` with the value you copied in the previous step. This is the OneLake to access with the managed identity you'll set up later in this guide.
 
@@ -221,7 +221,7 @@ A data source is defined as an independent resource so that it can be used by mu
 
     The `userAssignedIdentity` value can be found by accessing the `{userAssignedManagedIdentity}` resource, under Properties and it's called `Id`.
 
-    :::image type="content" source="media/search-how-to-index-onelake-files/user_assigned_managed_identity_id_property.png" alt-text="Screenshot of the user assigned identity ID property.":::
+    :::image type="content" source="media/search-how-to-index-onelake-files/user_assigned_managed_identity_id_property.png" alt-text="Screenshot of the user assigned identity ID property." lightbox="media/search-how-to-index-onelake-files/user_assigned_managed_identity_id_property.png" :::
 
     Example:
     
@@ -298,7 +298,7 @@ There are steps to follow in both OneLake and Azure AI Search, but there are no 
 
 1. In the lakehouse file, add a custom metadata key-value pair to the file to indicate the file is flagged for deletion. For example, you could name the property "IsDeleted", set to false. When you want to delete the file, change it to true.
 
-   :::image type="content" source="media/search-how-to-index-onelake-files/deleted_file.png" alt-text="Screenshot of a file with custom metadata for IsDeleted.":::
+   :::image type="content" source="media/search-how-to-index-onelake-files/deleted_file.png" alt-text="Screenshot of a file with custom metadata for IsDeleted." lightbox="media/search-how-to-index-onelake-files/deleted_file.png" :::
 
 1. In Azure AI Search, edit the data source definition to include a "dataDeletionDetectionPolicy" property. For example, the following policy considers a file to be deleted if it has a metadata property "IsDeleted" with the value true:
 
