@@ -36,8 +36,8 @@ Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For m
 To use summary rules in Microsoft Sentinel:
 
 - Microsoft Sentinel must be enabled in at least one workspace, and actively consume logs.
+
 - You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
-- **SummaryLogs** diagnostic settings must be enabled on your workspace. If diuagnostic settings aren't configured ahead of time, you're prompted to enable SummaryLogs diagnostic settings when creating your first rule. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
 
 - To use summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
@@ -57,11 +57,13 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
         - If you select **Existing custom log table**, select the table you want to use.
         - If you select **New custom log table**, enter a meaningful name for your table. Your full table name uses the following syntax: *<tableName>_CL*.
 
-1. If **SummaryLogs** diagnostic settings aren't yet enabled, in the **Diagnostic settings** area, select **Enable**.
+1. We recommend that you enable **SummaryLogs** diagnostic settings on your workspace to get visibility for historical runes and failures. If **SummaryLogs** diagnostic settings aren't enabled, you're prompted to enable them in the **Diagnostic settings** area.
 
-    If they're already enabled, but you want to modify the settings, select **Configure advanced diagnostic settings**. When you come back to the **Summary rule wizard** page, make sure to select **Refresh** to refresh your setting details. 
+    If **SummaryLogs** diagnostic settings are already enabled, but you want to modify the settings, select **Configure advanced diagnostic settings**. When you come back to the **Summary rule wizard** page, make sure to select **Refresh** to refresh your setting details. 
 
-    For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
+    > [!IMPORTANT]
+    > The **SummaryLogs** diagnostic settings has additional costs. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
+    >
 
 1. Select **Next: Set summary logic >** to continue.
 
@@ -82,6 +84,8 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     - How often you want the rule to run
     - Whether you want the rule to run with any sort of delay, in minutes
     - When you want the rule to start running
+
+    The time you defined is `timegenerated`. <!--what does this mean?-->
 
 1. Select **Next: Review + create >** > **Save** to complete the summary rule.
 
