@@ -60,7 +60,7 @@ To learn about included products, visit [included compute products](download-sav
 The savings plan is charged to the payment method tied to the subscription. The savings plan cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the savings plan, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have in your account is billed immediately for up-front and for monthly purchases. Monthly payments that you've made appear on your invoice. When get billed by invoice, you see the charges on your next invoice.
 
 ## Who can buy a savings plan?
-To determine what roles are permitted to purchase savings plans, see [Who can buy a savings plan](buy-savings-plan.md#who-can-buy-a-savings-plan).
+To determine what roles are permitted to purchase savings plans, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
 
 ## Who can manage a savings plan by default?
 To determine which roles are permitted to manage a savings plan, see [Manage savings plan resources](manage-savings-plan.md).
