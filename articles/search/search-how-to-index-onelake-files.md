@@ -90,13 +90,10 @@ Before you set up indexing, review your source data to determine whether any cha
 
 + Include or exclude arbitrary files. If you want to skip a specific file for whatever reason, you can add the following metadata properties and values to files in your OneLake lakehouse. When an indexer encounters this property, it skips the file or its content in the indexing run.
 
-| Parameter | Valid values | Description |
-|-----------|--------------|-------------|
-| "maxFailedItems" | -1, null or 0, positive integer | Continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. Set these properties to the number of acceptable failures. A value of `-1` allows processing no matter how many errors occur. Otherwise, the value is a positive integer. |
-| "maxFailedItemsPerBatch" | -1, null or 0, positive integer | Same as above, but used for batch indexing. |
-| "failOnUnsupportedContentType" | true or false |  If the indexer is unable to determine the content type, specify whether to continue or fail the job. |
-|"failOnUnprocessableDocument" |  true or false | If the indexer is unable to process a document of an otherwise supported content type, specify whether to continue or fail the job. |
-| "indexStorageMetadataOnlyForOversizedDocuments"  | true or false |  Oversized blobs are treated as errors by default. If you set this parameter to true, the indexer tries to index its metadata even if the content can't be indexed. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md). |
+  | Property name | Property value | Explanation |
+  | ------------- | -------------- | ----------- |
+  | "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+  | "AzureSearch_SkipContent" |`"true"` | Skips content and extracts just the metadata. this is equivalent to the `"dataToExtract" : "allMetadata"` setting described in [configuration settings](#configure-and-run-the-adls-gen2-indexer) , just scoped to a particular blob. |
 
 If you don't set up inclusion or exclusion criteria, the indexer reports an ineligible file as an error and move on. If enough errors occur, processing might stop. You can specify error tolerance in the indexer [configuration settings](#configure-and-run-the-onelake-files-indexer).
 
@@ -324,7 +321,7 @@ There are steps to follow in both OneLake and Azure AI Search, but there are no 
 
 After the indexer runs and deletes the document from the search index, you can then delete the physical file in the data lake.
 
-Some other points include:
+Some key points include:
 
 + [Scheduling an indexer run](search-howto-schedule-indexers.md) helps automate this process. We recommend schedules for all incremental indexing scenarios.
 
@@ -429,10 +426,32 @@ Errors that commonly occur during indexing include unsupported content types, mi
 
 Transient errors are common for solutions involving multiple platforms and products. However, if you keep the [indexer on a schedule](search-indexer-overview.md) (for example every 5 minutes), the indexer should be able to recover from those errors in the following run. 
 
-Review [this indexer error handling guide](cognitive-search-common-errors-warnings.md) for more information.
+There are five indexer properties that control the indexer's response when errors occur. 
+
+```json
+{
+  "parameters" : { 
+    "maxFailedItems" : 10, 
+    "maxFailedItemsPerBatch" : 10,
+    "configuration" : { 
+        "failOnUnsupportedContentType" : false, 
+        "failOnUnprocessableDocument" : false,
+        "indexStorageMetadataOnlyForOversizedDocuments": false
+    }
+  }
+}
+```
+
+| Parameter | Valid values | Description |
+|-----------|--------------|-------------|
+| "maxFailedItems" | -1, null or 0, positive integer | Continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. Set these properties to the number of acceptable failures. A value of `-1` allows processing no matter how many errors occur. Otherwise, the value is a positive integer. |
+| "maxFailedItemsPerBatch" | -1, null or 0, positive integer | Same as above, but used for batch indexing. |
+| "failOnUnsupportedContentType" | true or false |  If the indexer is unable to determine the content type, specify whether to continue or fail the job. |
+|"failOnUnprocessableDocument" |  true or false | If the indexer is unable to process a document of an otherwise supported content type, specify whether to continue or fail the job. |
+| "indexStorageMetadataOnlyForOversizedDocuments"  | true or false |  Oversized blobs are treated as errors by default. If you set this parameter to true, the indexer tries to index its metadata even if the content can't be indexed. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md). |
 
 ## Next steps
 
-+ Review how [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) works to automatically set the end to end required configurations for this indexer and uses [integrated vectorization](vector-search-integrated-vectorization.md) to chunk and create embeddings to use vector or hybrid search.
+Review how the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) works and try it out for this indexer. You can use [integrated vectorization](vector-search-integrated-vectorization.md) to chunk and create embeddings for vector or hybrid search using a default schema.
 
 <!-- + Check out [this Python demo](add a link to demo location) that shows how to set this up using code. -->
