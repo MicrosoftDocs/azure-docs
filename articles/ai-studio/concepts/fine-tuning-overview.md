@@ -23,8 +23,8 @@ In this article, you learn whether or not fine-tuning is the right solution for 
 
 When deciding whether or not fine-tuning is the right solution to explore for a given use case, there are some key terms that it's helpful to be familiar with:
 
-- [Prompt Engineering](/azure/ai-services/openai/concepts/prompt-engineering) is a technique that involves designing prompts for natural language processing models. This process improves accuracy and relevancy in responses, optimizing the performance of the model.
-- [Retrieval Augmented Generation (RAG)](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/retrieval-augmented-generation) improves Large Language Model (LLM) performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
+- [Prompt Engineering](../../ai-services/openai/concepts/prompt-engineering.md) is a technique that involves designing prompts for natural language processing models. This process improves accuracy and relevancy in responses, optimizing the performance of the model.
+- [Retrieval Augmented Generation (RAG)](../concepts/retrieval-augmented-generation.md) improves Large Language Model (LLM) performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
 - [Fine-tuning](#why-do-you-want-to-fine-tune-a-model) retrains an existing Large Language Model using example data, resulting in a new "custom" Large Language Model that's optimized using the provided examples.
 
 Fine-tuning is an advanced technique that requires expertise to use appropriately. The questions below can help you evaluate whether you're ready for fine-tuning, and how well you thought through the process. You can use these to guide your next steps or identify other approaches that might be more appropriate.
@@ -44,7 +44,7 @@ You might not be ready for fine-tuning if:
 - Inability to find the right data to serve the model.
 - No clear use case for fine-tuning, or an inability to articulate more than "I want to make a model better".
 - If you identify cost as your primary motivator, proceed with caution. Fine-tuning might reduce costs for certain use cases by shortening prompts or allowing you to use a smaller model but there's a higher upfront cost to training and you have to pay for hosting your own custom model. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information on Azure OpenAI fine-tuning costs.
-- If you want to add out of domain knowledge to the model, you should start with retrieval augmented generation (RAG) with features like Azure OpenAI's [on your data](./use-your-data.md) or [embeddings](../tutorials/embeddings.md). Often, this is a cheaper, more adaptable, and potentially more effective option depending on the use case and data.
+- If you want to add out of domain knowledge to the model, you should start with retrieval augmented generation (RAG) with features like Azure OpenAI's [on your data](../../ai-services/openai/concepts/use-your-data.md) or [embeddings](../../ai-services/openai/tutorials/embeddings.md). Often, this is a cheaper, more adaptable, and potentially more effective option depending on the use case and data.
 
 ## What isn't working with alternate approaches?
 
@@ -130,6 +130,6 @@ The following Llama 2 family models are supported in Azure AI Studio for fine-tu
 
 Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
 
-## Next steps
-- Learn how to fine-tune an Azure OpenAI model in Azure AI studio 
-- Learn how to fine-tune a Llama 2 model in Azure AI studio 
+## Related content
+
+- [Learn how to fine-tune a Llama 2 model in Azure AI Studio](../how-to/fine-tune-model-llama.md)
