@@ -10,7 +10,7 @@ ms.date: 5/06/2024
 ---
 
 
-# Azure resiliency recommendations for Azure Cosmos DB for NoSQL
+# Resiliency recommendations for Azure Cosmos DB for NoSQL
 
 This article contains recommendations for achieving resiliency for Azure Cosmos DB for NoSQL.  Many of the recommendations contain supporting Azure Resource Graph (ARG) queries to help identify non-compliant resources.
 
