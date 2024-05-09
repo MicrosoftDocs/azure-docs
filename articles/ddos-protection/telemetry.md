@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: View and configure DDoS protection telemetry for Azure DDoS Protection'
-description: Learn how to view and configure DDoS protection telemetry for Azure DDoS Protection.
+title: 'Tutorial: View and configure DDoS protection telemetry'
+description: Learn how to view and configure the DDoS protection telemetry and metrics for Azure DDoS Protection.
+#customer intent: I want to learn how to view and configure DDoS protection telemetry for Azure DDoS Protection.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
@@ -8,9 +9,8 @@ ms.topic: tutorial
 ms.date: 05/09/2024
 ms.author: abell
 ---
-# Tutorial: View and configure Azure DDoS protection telemetry
 
-Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+# Tutorial: View and configure Azure DDoS protection telemetry
 
 In this tutorial, you'll learn how to:
 
@@ -20,6 +20,8 @@ In this tutorial, you'll learn how to:
 > * Validate and test Azure DDoS Protection telemetry
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
 
 ## Prerequisites
 
@@ -32,7 +34,10 @@ Telemetry for an attack is provided through Azure Monitor in real time. While [m
 
 You can view DDoS telemetry for a protected public IP address through three different resource types: DDoS protection plan, virtual network, and public IP address.
 
+Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+
 For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md) for details on DDoS Protection monitoring logs.
+
 ### View metrics from DDoS protection plan
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select your DDoS protection plan.
@@ -73,31 +78,30 @@ For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-
 >[!NOTE]
 >When changing DDoS IP protection from **enabled** to **disabled**, telemetry for the public IP resource will not be available.
 
-## View DDoS mitigation policies
+### View DDoS mitigation policies
 
-Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP & UDP) for each public IP address of the protected resource, in the virtual network that has DDoS protection enabled. You can view the policy thresholds by selecting the  **Inbound TCP packets to trigger DDoS mitigation** and **Inbound UDP packets to trigger DDoS mitigation** metrics with **aggregation** type as 'Max', as shown in the following picture:
+Azure DDoS Protection uses three automatically adjusted mitigation policies (TCP SYN, TCP, and UDP) for each public IP address of the resource being protected. This applies to any virtual network with DDoS protection enabled. 
+
+
+You can see the policy limits within your public IP address metrics by choosing the *Inbound SYN packets to trigger DDoS mitigation*, *Inbound TCP packets to trigger DDoS mitigation*, and *Inbound UDP packets to trigger DDoS mitigation* metrics. Make sure to set the aggregation type to *Max*.
 
 :::image type="content" source="./media/manage-ddos-protection/view-mitigation-policies.png" alt-text="Screenshot of viewing mitigation policies." lightbox="./media/manage-ddos-protection/view-mitigation-policies.png":::
+
+### View peace time traffic telemetry
+
+It's important to keep an eye on the metrics for TCP SYN, UDP, and TCP detection triggers. These metrics help you know when DDoS protection starts. Make sure these triggers reflect the normal traffic levels when there's no attack. 
+
+You can make a chart for the public IP address resource. In this chart, include the Packet Count (number of packets) and SYN Count (number of synchronization packets) metrics. This shows you the sum of traffic. 
+
+:::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing mitigation policies." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
+
+>[!NOTE]
+> To make a fair comparison, you need to convert the data to packets-per-second. You can do this by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
+
 ## Validate and test
 
 To simulate a DDoS attack to validate DDoS protection telemetry, see [Validate DDoS detection](test-through-simulations.md).
 
-
-## View peace time traffic telemetry
-
-It's important to keep an eye on the metrics for TCP SYN, UDP, and TCP detection triggers. These metrics help you know when DDoS protection starts. Make sure these triggers reflect the normal traffic levels when there's no attack. 
-
-You can make a chart for the public IP address resource. In this chart, include the Packet Count (number of packets), Byte Count (amount of data), and Syn Count (number of synchronization packets) metrics. This will show you the sum of traffic. 
-
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your public IP address.
-1. On the Azure portal menu, select or search for and select **Public IP addresses** then select your public IP address.
-1. Under **Monitoring**, select **Metrics**.
-1. Select your metrics and scope as described in the previous sections. 
-1. Create a chart with the metrics you want to monitor. In this example we chose *Byte Count*, *Packet Count*, and *Syn Count* set to *Sum*.
-
->[!NOTE]
-> To make a fair comparison, you need to convert the data to packets-per-second. You can do this by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
 
 ## Next steps
 
