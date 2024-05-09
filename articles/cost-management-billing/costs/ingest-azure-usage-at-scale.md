@@ -89,7 +89,7 @@ Application settings used:
 - _ServicePointManager.DefaultConnectionLimit = int.MaxValue_. Setting it to a maximum value effectively passes full control of transfer parallelism to the _ParallelOperations_ setting above.
 - _TransferManager.Configurations.BlockSize = 4,194,304_. It had some effect on transfer rates with 4 MB, proving to be best for testing.
 
-For more information and sample code, see links in the [Next steps](#next-steps) section.
+For more information and sample code, see links in the [Related content](#related-content) section.
 
 ### Test results
 
