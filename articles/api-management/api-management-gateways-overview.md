@@ -129,8 +129,8 @@ Managed and self-hosted gateways support all available [policies](api-management
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The quota by key policy isn't available in the v2 tiers.<br/>
-<sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
-<sup>3</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+<sup>3</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
+<sup>4</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 
 
 ### Monitoring
