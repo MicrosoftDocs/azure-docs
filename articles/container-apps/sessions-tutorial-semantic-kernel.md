@@ -44,7 +44,7 @@ Before you deploy the app to Azure Container Apps, you can run it locally to tes
 
 Before running the sample app, open [*main.py*](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples/blob/main/semantic-kernel-python-webapi/main.py) in an editor and review the code. The app uses FastAPI to create a web API that accepts a user message in the query string.
 
-The following lines of code instantiates a *SessionsPythonTool* and provides it to the Semantic Kernel agent:
+The following lines of code instantiate a *SessionsPythonTool* and provide it to the Semantic Kernel agent:
 
 ```python
 sessions_tool = SessionsPythonTool(
