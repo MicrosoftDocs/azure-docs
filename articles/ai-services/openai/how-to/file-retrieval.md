@@ -57,7 +57,7 @@ We recommend using assistants with the latest models to take advantage of the ne
 | .sh | application/x-sh |
 | .ts | application/typescript |
 
-## Enable Code Interpreter
+## Enable file retrieval
 
 # [Python 1.x](#tab/python)
 
