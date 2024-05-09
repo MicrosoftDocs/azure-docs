@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 05/01/2024
+ms.date: 05/08/2024
 ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 ---
 
@@ -95,18 +95,6 @@ In this step, you deploy the template using Azure PowerShell with the `[New-AzRe
     - **adminUsername**: virtual machine administrator username.
     - **adminPassword**: virtual machine administrator password.
 
-It takes about 10 minutes to deploy the Bicep file.
-
-Wait until you see the prompt from the console.
-
-2. Select **Copy** from the previous code block to copy the PowerShell script.
-
-3. Right-click the shell console pane and then select **Paste**.
-
-4. Enter the values.
-
-   The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
-
 It takes about 10 minutes to deploy the template. When completed, the output is similar to:
 
 ![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-internal-template/deployment-commands-output.png)
@@ -115,34 +103,24 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+Use Azure CLI or Azure PowerShell to list the deployed resources in the resource group with the following commands:
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
 az resource list --resource-group $resourceGroupName
 ```
-
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName $resourceGroupName
 ```
-# [Azure portal](#tab/portal)
-1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Resource groups** from the left pane.
-
-1. Select the resource group that you created in the previous section. The default resource group name is **myResourceGroupLB**
-
-1. Verify the following resources were created in the resource group:
-
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="User Azure portal to verify creation of resources." border="true":::
 ---
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+When no longer needed, use Azure CLI or Azure PowerShell to delete the resource group and its resources with the following commands:
 
 # [CLI](#tab/CLI)
 
