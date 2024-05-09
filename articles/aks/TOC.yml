@@ -540,6 +540,8 @@
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -674,6 +676,8 @@
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
             - name: Plug-in CA certificates for Istio
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on
