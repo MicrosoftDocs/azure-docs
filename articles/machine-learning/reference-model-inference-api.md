@@ -50,7 +50,7 @@ The API is compatible with Azure OpenAI model deployments.
 
 ## Capabilities
 
-The following section describes some of the capabilities the API exposes.
+The following section describes some of the capabilities the API exposes. For a full specification of the API, view the [OpenAPI definition](https://github.com/Azure/azureai-model-inference-api).
 
 ### Modalities
 
@@ -81,7 +81,7 @@ The following example shows the response for a chat completions request indicati
 __Request__
 
 ```HTTP/1.1
-PUT /chat/completions?api-version=2024-04-01
+POST /chat/completions?api-version=2024-04-01
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 ```
@@ -132,7 +132,7 @@ The following example shows a request passing the parameter `safe_prompt` suppor
 __Request__
 
 ```HTTP/1.1
-PUT /chat/completions?api-version=2024-04-01
+POST /chat/completions?api-version=2024-04-01
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 extra-parameters: allow
@@ -159,3 +159,73 @@ extra-parameters: allow
 
 > [!TIP]
 > Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
+
+
+## Getting started
+
+The Azure AI Model Inference API is currently supported in models deployed as [Serverless API endpoints](how-to-deploy-models-serverless.md). Deploy any of the [supported models](#availability) to a new [Serverless API endpoints](how-to-deploy-models-serverless.md) to get started. Then you can consume the API in the following ways: 
+
+# [Studio](#tab/azure-studio)
+
+You can use the Azure AI Model Inference API to run evaluations or while building with *Prompt flow*. Create a [Serverless Model connection](how-to-connect-models-serverless.md) to a Serverless API endpoints and consume its predictions. The Azure AI Model Inference API is used under the hood.
+
+# [Python](#tab/python)
+
+
+# [REST](#tab/rest)
+
+Models deployed in Azure Machine Learning and Azure AI studio in Serverless API endpoints support the Azure AI Model Inference API. Each endpoint exposes the OpenAPI specification for the modalities the model support. Use the **Endpoint URI** and the **Key** to download the OpenAPI definition for the model. In the following example, we download it from a bash console. Replace `<TOKEN>` by the **Key** and `<ENDPOINT_URI>` for the **Endpoint URI**.
+
+```bash
+wget -d --header="Authorization: Bearer <TOKEN>" <ENDPOINT_URI>/swagger.json
+```
+
+Use the **Endpoint URI** and the **Key** to submit requests. The following example sends a request to a Cohere embedding model:
+
+```HTTP/1.1
+POST /embeddings?api-version=2024-04-01
+Authorization: Bearer <bearer-token>
+Content-Type: application/json
+```
+
+```JSON
+{
+      "input": [
+        "Explain the theory of strings"
+      ],
+      "input_type": "query",
+      "encoding_format": "float",
+      "dimensions": 1024
+}
+```
+
+__Response__
+
+```json
+{
+    "id": "ab1c2d34-5678-9efg-hi01-0123456789ea",
+    "object": "list",
+    "data": [
+        {
+            "index": 0,
+            "object": "embedding",
+            "embedding": [
+                0.001912117,
+                0.048706055,
+                -0.06359863,
+                //...
+                -0.00044369698
+            ]
+        }
+    ],
+    "model": "",
+    "usage": {
+        "prompt_tokens": 7,
+        "completion_tokens": 0,
+        "total_tokens": 7
+    }
+}
+```
+
+
+---
