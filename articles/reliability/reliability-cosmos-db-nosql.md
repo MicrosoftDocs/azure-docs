@@ -25,7 +25,7 @@ For general resiliency recommendations for Azure Cosmos DB for NoSQL, see [Azure
 
 Azure Cosmos DB is a multitenant service that manages all details of individual compute nodes transparently. You don't have to worry about any kind of patching or planned maintenance. Azure Cosmos DB guarantees [SLAs for availability](#sla-improvements) and P99 latency through all automatic maintenance operations that the system performs.
 
-Azure CosmosDB offers:
+Azure Cosmos DB offers:
 
 **Individual node outage resiliency.** Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. 
 
@@ -43,7 +43,7 @@ With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redu
 ### Impact of using availability zones
 
 
-The impact of availability zones on the high availability of your CosmosDB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. In many cases, availability zones don’t add value or add minimal value if the account is multi-region (unless configured with strong consistency). 
+The impact of availability zones on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. In many cases, availability zones don’t add value or add minimal value if the account is multi-region (unless configured with strong consistency). 
 
 Consult the table below to estimate the impact of using availability zones in your current account configuration:
 
@@ -98,7 +98,7 @@ To enable availability zone support you can use:
 
 ### Migrate to availability zone support
 
-To learn how to migrate your CosmosDB account to availability zone support, see [Migrate Azure CosmosDB for NoSQL to availability zone support](./migrate-cosmos-nosql.md)).
+To learn how to migrate your Cosmos DB account to availability zone support, see [Migrate Azure Cosmos DB for NoSQL to availability zone support](./migrate-cosmos-nosql.md)).
 
 
 ## Cross-region disaster recovery and business continuity

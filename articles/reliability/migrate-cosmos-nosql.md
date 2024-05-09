@@ -1,6 +1,6 @@
 ---
-title: Migrate Azure CosmosDB for NoSQL to availability zone support 
-description: Learn how to migrate your Azure CosmosDB for NoSQL to availability zone support.
+title: Migrate Azure Cosmos DB for NoSQL to availability zone support 
+description: Learn how to migrate your Azure Cosmos DB for NoSQL to availability zone support.
 author: anaharris-ms
 ms.service: sql
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
 
-# Migrate Azure CosmosDB for NoSQL to availability zone support
+# Migrate Azure Cosmos DB for NoSQL to availability zone support
  
-This guide describes how to migrate Azure CosmosDB for NoSQL from non-availability zone support to availability support.
+This guide describes how to migrate Azure Cosmos DB for NoSQL from non-availability zone support to availability support.
 
 Using availability zones in Azure Cosmos DB has no discernible impact on performance or latency. It doesn't require any adjustments to the selected consistency mode, and also doesn't require any modification to application code.
 
@@ -24,7 +24,7 @@ Enabling availability zones is a great way to increase resilience of your Cosmos
 
 - Serverless accounts can use availability zones, but this choice is only available during account creation. Existing accounts without availability zones cannot be converted to an availability zone configuration. For mission critical workloads, provisioned throughput is the recommended choice.
  
-- Understand that enabling availability zones is not an account-wide choice. A single Cosmos DB account can span an arbitrary number of Azure regions, each of which can independently be configured to leverage availability zones and some regional pairs may not have availability zone support. This is important, as some regions do not yet support availability zones, but adding them to a Cosmos DB account will not prevent enabling availability zones in other regions configured for that account.  The billing model also reflects this possibility. For more information on SLA for Cosmos DB, see [Reliability in CosmosDB for NoSQL](./reliability-cosmos-db-nosql.md#sla-improvements). To see which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-service-support.md#azure-regions-with-availability-zone-support)
+- Understand that enabling availability zones is not an account-wide choice. A single Cosmos DB account can span an arbitrary number of Azure regions, each of which can independently be configured to leverage availability zones and some regional pairs may not have availability zone support. This is important, as some regions do not yet support availability zones, but adding them to a Cosmos DB account will not prevent enabling availability zones in other regions configured for that account.  The billing model also reflects this possibility. For more information on SLA for Cosmos DB, see [Reliability in Cosmos DB for NoSQL](./reliability-cosmos-db-nosql.md#sla-improvements). To see which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-service-support.md#azure-regions-with-availability-zone-support)
 
 ## Downtime requirements
 
@@ -58,50 +58,50 @@ Follow the steps below to enable availability zones for your account in select r
 
 1. Add a temporary region to your database account. The following example shows how to add West US as a secondary region to an account configured with East US region only. You must include all existing regions and any new ones in the command.
 
-```azurecli
-
-az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=eastus failoverPriority=0 isZoneRedundant=False --locations regionName=westus failoverPriority=1 isZoneRedundant=False
-
-```
+    ```azurecli
+    
+    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=eastus failoverPriority=0 isZoneRedundant=False --locations regionName=westus failoverPriority=1 isZoneRedundant=False
+    
+    ```
 
 1. If your Azure Cosmos DB account is configured with multi-region writes, skip to the next step. Otherwise, perform manual failover to the newly added temporary region. The following example shows how to perform a failover from East US region (current write region) to West US region (current read-only region). You must include both regions in the command. 
 
-```azurecli
-
-az cosmosdb failover-priority-change --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --failover-policies westus=0 eastus=1
-
-```
+    ```azurecli
+    
+    az cosmosdb failover-priority-change --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --failover-policies westus=0 eastus=1
+    
+    ```
 
 1. Remove the region for which you would like to enable availability zones. The following example shows how to remove East US region from an account configured with West US (write region) and East US (read-only) regions. You must include all regions that shouldn't be removed in the command. 
 
-```azurecli
-
-az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=westus failoverPriority=0 isZoneRedundant=False
-
-```
+    ```azurecli
+    
+    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=westus failoverPriority=0 isZoneRedundant=False
+    
+    ```
  
 1. Add back the region to be enabled with availability zones. The following example shows how to add East US as an AZ-enabled secondary region to an account configured with West US region only. You must include any existing regions and all new ones in the command. 
 
-
-```azurecli
-az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=eastus failoverPriority=1 isZoneRedundant=True
-```
+    
+    ```azurecli
+    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=eastus failoverPriority=1 isZoneRedundant=True
+    ```
 
 1. Perform failback to the availability zone-enabled region. The following example shows how to perform a failover from West US region (current write region) to East US region (current read-only region). You must include both regions in the command. 
  
-```azurecli
-
-    az cosmosdb failover-priority-change --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --failover-policies eastus=0 westus=1
-```
+    ```azurecli
+    
+        az cosmosdb failover-priority-change --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --failover-policies eastus=0 westus=1
+    ```
 
 1. Remove temporary region. The following example shows how to remove West US region from an account configured with East US (write region) and West US (read-only) regions. You must include all accounts that should not be removed in the command. 
 
  
-```azurecli
-
-az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=eastus failoverPriority=0 isZoneRedundant=True
-
-```
+    ```azurecli
+    
+    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --locations regionName=eastus failoverPriority=0 isZoneRedundant=True
+    
+    ```
 
 
 ## Related content
