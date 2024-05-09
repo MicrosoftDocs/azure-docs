@@ -6,19 +6,19 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/08/2024
+ms.date: 05/09/2024
 ms.author: danlep
 ---
 
-# Cache responses to Azure OpenAI requests
+# Cache responses to Azure OpenAI API requests
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI API requests according to the specified Azure OpenAI cache configuration. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI chat completion API and completion API requests according to the specified cache configuration. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 
 > [!NOTE]
-> * This policy must have a corresponding [Get cached responses to Azure OpenAI requests](azure-openai-semantic-cache-lookup-policy.md) policy. 
-> * For prerequisites and configuration steps, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
+> * This policy must have a corresponding [Get cached responses to Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) policy. 
+> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -45,7 +45,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 ### Usage notes
 
 - This policy can only be used once in a policy section.
-
+- If the cache lookup fails, the API call that uses the cache related operation doesn't raise an error, and the cache operation completes successfully. 
 
 ## Examples
 

@@ -12,35 +12,127 @@ ms.author: danlep
 
 [INTRO]
 
-Set up and perform semantic caching of responses to Azure OpenAI APIs managed in your Azure API Management instance. With semantic caching, you can return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
+Set up and perform semantic caching of responses to requests for Azure OpenAI APIs managed in your Azure API Management instance. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same.
 [Learn more about using Azure Cache for Redis as a semantic cache](../azure-cache-for-redis/cache-tutorial-semantic-cache.md).
 
 
 ## Prerequisites
 
 * One or more Azure OpenAI Service APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI Service API to Azure API Management](azure-openai-api-from-specification.md).
-* The Azure OpenAI service must have deployments for:
-    * Chat completion (or completion) - Deployment that API consumer calls will use
-    * Embedding - Used for semantic caching
-* The API Management instance must be configured to use managed identity authentication to the Azure OpenAI API. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
-* [Azure Cache for Redis Enterprise](../azure-cache-for-redis/quickstart-create-redis-enterprise.md). The **Redisearch** module must be enabled on the Redis Enterprise cache.
+* The Azure OpenAI service must have separate deployments for the following:
+    * Chat Completion API (or Completion API) - Deployment used for API consumer calls 
+    * Embeddings API - Deployment used for semantic caching
+* The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
+* [Azure Cache for Redis Enterprise](../azure-cache-for-redis/quickstart-create-redis-enterprise.md). The **RediSearch** module must be enabled on the Redis Enterprise cache.
 * Configure the external cache for Azure API Management. For steps, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
 
-## Create API operation corresponding to Azure OpenAI chat completion deployment
+## Test Chat API deployment
 
-[STEPS to create and test]
+First, test the Azure OpenAI deployment to ensure that the Chat Completion API or Chat API is working as expected. For steps, see [Import an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md#test-the-new-api-in-the-portal).
 
-## Create an embeddings backend
+For example, test the Azure OpenAI Chat API by sending a POST request to the API endpoint with a prompt in the request body. The response should include the completion of the prompt. Example request:
 
-[STEPS to create and test]
+```rest
+POST https://my-api-management.azure-api.net/my-api/openai/deployments/chat-deployment/chat/completions?api-version=2024-02-01
+```
 
+with request body:
+
+```json
+{"messages":[{"role":"user","content":"Hello"}]}
+```
+
+If the request is successful, the response includes a completion for the chat message.
+
+## Create a backend for Embeddings API
+
+Configure a [backend](backends.md) resource for the Embeddings API deployment with the following settings:
+
+* **Name** - A name of your choice, such as `embeddings-backend`. You will use this name to reference the backend in policies.
+* **Type** - Select **Custom URL**.
+* **Runtime URL** - The URL of the Embeddings API deployment in the Azure OpenAI Service, similar to:
+        ```
+        https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
+        ```
+
+### Test backend 
+
+To test the backend, create an API operation for your Azure OpenAI Service API:
+
+1. On the **Design** tab of your API, select **+ Add operation**.
+1. Enter a **Display name** and optionally a **Name** for the operation.
+1. In the **Frontend** section, in **URL**, select **POST** and enter the path `/`.
+1. on the **Query** tab, add a required query parameter with the name `api-version`.
+1. On the **Headers** tab, add a required header with the name `Content-Type` and value `application/json`.
+1. Select **Save**
+
+Configure the following policies in the **Inbound processing** section of the API operation. In the [set-backend-service](set-backend-service-policy.md) policy, substitute the name of the backend you created.
+
+```xml
+<policies>
+    <inbound>
+        <set-backend-service backend-id="embeddings-backend" />
+        <authentication-managed-identity resource="https://cognitiveservices.azure.com/" />
+        [...]
+    </inbound>
+    [...]
+</policies>
+ 
+On the **Test** tab, test the operation by entering a valid `api-version` value such as `2024-02-01` and a valid request body. For example:
+
+```json
+{"input":"Hello"}
+```        
+
+If the request is successful, the response includes a vector representation of the input text:
+
+```json
+{
+    "object": "list",
+    "data": [{
+        "object": "embedding",
+        "index": 0,
+        "embedding": [
+            -0.021829502,
+            -0.007157768,
+            -0.028619017,
+            [...]
+        ]
+    }]
+}
+
+```
 
 ## Configure semantic caching policies
 
-[STEPS to configure in Inbound]
+Configure the following policies to enable semantic caching for Azure OpenAI APIs in Azure API Management:
+* In the **Inbound processing** section, add the [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policy. In the `embeddings-backend-id` attribute, specify the Embeddings API backend you created.
+
+    Example:
+
+    ```xml
+    <azure-openai-semantic-cache-lookup
+        score-threshold="0.8"
+        embeddings-backend-id="embeddings-deployment"
+        embeddings-backend-auth="system-assigned"
+        ignore-system-messages="true"
+        max-message-count="10">
+        <vary-by>@(context.Subscription.Id)</vary-by>
+    </azure-openai-semantic-cache-lookup>
+    
+* In the **Outbound processing** section, add the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) policy.
+
+    Example:
+
+    ```xml
+    <azure-openai-semantic-cache-store duration="60" />
+    ```
 
 ## Confirm caching
 
+To confirm that semantic caching is working as expected, run a trace of a test Completion or Chat Completion operation using the test console in the portal. Confirm that the cache was used on subsequent tries by inspecting the trace. [Learn more about tracing API calls in Azure API Management](api-management-howto-api-inspector.md).
 
 ## Related content
 
+* [Caching policies](api-management-policies.md#caching)
+* [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md)

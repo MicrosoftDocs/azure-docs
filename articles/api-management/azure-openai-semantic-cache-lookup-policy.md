@@ -6,31 +6,31 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/08/2024
+ms.date: 05/09/2024
 ms.author: danlep
 ---
 
-# Get cached responses of Azure OpenAI requests
+# Get cached responses of Azure OpenAI API requests
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of responses to Azure OpenAI API requests, based on vector proximity of the prompt to previous requests, and a given score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of responses to Azure OpenAI API requests, based on vector proximity of the prompt to previous requests and a given similarity score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 
 > [!NOTE]
-> * This policy must have a corresponding [Store responses to Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) policy. 
-> * For prerequisites and configuration steps, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
+> * This policy must have a corresponding [Cache responses to Azure OpenAI API requests](azure-openai-semantic-cache-store-policy.md) policy. 
+> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
 
-[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-form-alert.md)]
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ## Policy statement
 
 ```xml
 <azure-openai-semantic-cache-lookup
-    score-threshold="vector distance threshold"
-    embeddings-backend-id ="backend entity ID for embeddings"
+    score-threshold="similarity score threshold"
+    embeddings-backend-id ="backend entity ID for embeddings API"
     embeddings-backend-auth ="system-assigned"             
     ignore-system-messages="true | false"      
-    max-message-count="count" 
+    max-message-count="count" >
     <vary-by>"expression to partition caching"</vary-by>
 </azure-openai-semantic-cache-lookup>
 ```
@@ -39,11 +39,11 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| score-threshold	| Vector distance threshold by which we will cache responses. Value is between 0.0 to 1.0. | Yes |	N/A |
-| embeddings-backend-id | Backend ID for Open AI embeddings call |	Yes |	N/A |
-| embeddings-backend-auth | Authentication used for Open AI embeddings backend. | Required and always has to be `system-assigned` |	Yes | N/A |
-| ignore-system-messages | If set to `true`, removes system messages from a ChatGPT Chat Completion prompt before assessing cache similarity. | No | false |
-| max-message-count | If number of remaining dialog messages exceeds this number, caching is skipped. | No | N/A |
+| score-threshold	| Similarity score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. [Learn more](../azure-cache-for-redis/cache-tutorial-semantic-cache#change-the-similarity-threshold.md) | Yes |	N/A |
+| embeddings-backend-id | Backend ID for OpenAI embeddings API call. |	Yes |	N/A |
+| embeddings-backend-auth | Authentication used for Azure OpenAI embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
+| ignore-system-messages | Boolean. If set to `true`, removes system messages from a ChatGPT chat completion prompt before assessing cache similarity. | No | false |
+| max-message-count | If specified, number of remaining dialog messages after which caching is skipped. | No | N/A |
                                              
 ## Elements
 
