@@ -2113,6 +2113,17 @@ groups:
     title: Scheduled
   - id: webjob-type-manual
     title: Manual
+# Owner: jefmarti
+- id: app-service-openai
+  title: App Service Open AI
+  prompt: Choose a language
+  pivots:
+  - id: openai-dotnet
+    title: .NET
+  - id: openai-python
+    title: Python
+  - id: openai-java
+    title: Java
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages
