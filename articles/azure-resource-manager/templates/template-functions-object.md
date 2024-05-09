@@ -421,7 +421,7 @@ In Bicep, use the [objectKeys](../templates/template-functions-object.md#objectk
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |object |The object which is a collection of key-value pairs. |
+| arg1 |Yes |object |The object, which is a collection of key-value pairs. |
 
 ### Return value
 
