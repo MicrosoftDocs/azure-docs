@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) AI Services connection YAML schema'
+title: 'CLI (v2) Azure OpenAI connection YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) Azure AI Services connections YAML schema.
+description: Reference documentation for the CLI (v2) Azure OpenAI connections YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 05/09/2024
 ms.reviewer: larryfr
 ---
 
-# CLI (v2) Azure AI Services connection YAML schema
+# CLI (v2) Azure OpenAI connection YAML schema
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
@@ -27,21 +27,16 @@ ms.reviewer: larryfr
 | `name` | string | **Required.** The connection name. | | |
 | `description` | string | The connection description. | | |
 | `tags` | object | The connection tag dictionary. | | |
-| `type` | string | **Required.** The connection type. | `azure_ai_services` | `azure_ai_services` |
+| `type` | string | **Required.** The connection type. | `azure_open_ai` | `azure_open_ai` |
 | `is_shared` | boolean | `true` if the connection is shared across other projects in the hub; otherwise, `false`. | | `true` |
 | `endpoint` | string | **Required.** The URL of the endpoint. | | |
 | `api_key` | string | **Required.** The API key used to authenticate the connection. If not provided, a Microsoft Entra ID (credential-less authentication) connection is created. | | |
-| `ai_services_resource_id` | string | **Required.** The fully qualified Azure resource ID of the Azure AI Services resource. | | |
+| `open_ai_resource_id` | string | **Required.** The fully qualified Azure resource ID of the Azure OpenAI resource. | | |
 
 
 ## Remarks
 
-There are two ways to create connections to Azure AI Services:
-
-- One connection for all Azure AI Services except Azure AI Search.
-- One connection for each individual Azure AI Service.
-
-The schema described in this article is for **one connection for all Azure AI Services except Azure AI Search**.
+The schema described in this article is used to create a connection to Azure OpenAI only. If you would rather create a single connection for Azure AI Services, see the [Azure AI Services connection schema](reference-yaml-connection-ai-services.md). If you need to create a connection to the non-Microsoft OpenAI service, see the [OpenAI connection schema](reference-yaml-connection-openai.md).
 
 While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections, the Azure AI Services connection is specific to Azure AI Studio.
 
@@ -52,11 +47,11 @@ Visit [this GitHub resource]() for examples. Several are shown here. These examp
 ### YAML: API key
 
 ```yml
-#AzureAIServiceConnection.yml
+#AzureOpenAIConnection.yml
 
-name: myazai_ei
-type: azure_ai_services
-endpoint: https://contoso.cognitiveservices.azure.com/
+name: myazopenai_apk
+type: azure_open_ai
+azure_endpoint: https://contoso.openai.azure.com/
 api_key: XXXXXXXXXXXXXXX
 ```
 
@@ -64,12 +59,11 @@ api_key: XXXXXXXXXXXXXXX
 ### YAML: credential-less
 
 ```yml
-#AzureAIServiceConnection.yml
+#AzureOpenAIConnection.yml
 
-name: myazai_apk
-type: azure_ai_services
-endpoint: https://contoso.cognitiveservices.azure.com/
-
+name: myazopenai_apk
+type: azure_open_ai
+azure_endpoint: https://contoso.openai.azure.com/
 ```
 
 ## Next steps
