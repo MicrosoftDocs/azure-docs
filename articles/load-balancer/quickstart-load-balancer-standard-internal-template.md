@@ -22,7 +22,7 @@ Using an ARM template takes fewer steps comparing to other deployment methods.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Finternal-loadbalancer-create%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Finternal-loadbalancer-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -97,11 +97,7 @@ In this step, you deploy the template using Azure PowerShell with the `[New-AzRe
 
 It takes about 10 minutes to deploy the Bicep file.
 
-   ```azurepowershell-interactive
-
-   ```
-
-   Wait until you see the prompt from the console.
+Wait until you see the prompt from the console.
 
 2. Select **Copy** from the previous code block to copy the PowerShell script.
 
@@ -119,6 +115,20 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 ## Review deployed resources
 
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group $resourceGroupName
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName $resourceGroupName
+```
+# [Azure portal](#tab/portal)
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** from the left pane.
@@ -128,14 +138,24 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 1. Verify the following resources were created in the resource group:
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="User Azure portal to verify creation of resources." border="true":::
+---
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
-```azurepowershell-interactive
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
 Remove-AzResourceGroup -Name "${projectName}rg"
 ```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name CreateIntLBQS-rg
+```
+---
 
 ## Next steps
 
