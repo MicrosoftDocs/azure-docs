@@ -30,6 +30,10 @@ You need a list of all of the servers in your environment. To get the list, you 
 
 - Use RVTools XLSX to discover servers and store the information in a .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
 
+## Decide - build a business case (preview)
+
+[Build a business proposal](../how-to-build-a-business-case.md?context=/azure/migrate/context/migrate-context) using the discovery and assessment tool to help you understand how Azure can bring the most value to your business.
+
 ## Assess
 
 Assess your VMware environment for moving to [Azure Virtual Machines](tutorial-assess-vmware-azure-vm.md) or to the managed [Azure VMware Services](tutorial-assess-vmware-azure-vmware-solution.md) offering.
