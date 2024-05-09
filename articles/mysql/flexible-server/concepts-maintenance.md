@@ -22,14 +22,14 @@ Azure Database for MySQL flexible server performs periodic maintenance to keep y
 ### Routine Maintenance
 Our standard maintenance cycle is scheduled no less frequently than every 30 days. This period allows us to ensure system stability and performance while minimizing disruption to your services.
 
-### Exceptional Maintenance
+### Critical Maintenance
 In certain scenarios, such as the need to deploy urgent security fixes or updates critical to maintaining availability and data integrity, maintenance may be conducted more frequently. These exceptions are made to safeguard your data and ensure the continuous operation of your services.
 
 ### Locating Maintenance Details
 For specific details about what each maintenance update entails, please refer to our release notes. These notes provide comprehensive information about the updates applied during maintenance, allowing you to understand and prepare for any changes impacting your environment.
 
 >[!NOTE]
-> Not all servers will necessarily undergo maintenance during scheduled updates, whether routine or exceptional. The Azure MySQL team employs specific criteria to determine which servers require maintenance. This selective approach ensures that maintenance is both efficient and essential, tailored to the unique needs of each server environment. 
+> Not all servers will necessarily undergo maintenance during scheduled updates, whether routine or Critical. The Azure MySQL team employs specific criteria to determine which servers require maintenance. This selective approach ensures that maintenance is both efficient and essential, tailored to the unique needs of each server environment, and minimize the downtime of your production. 
 
 ## Select a maintenance window
 
