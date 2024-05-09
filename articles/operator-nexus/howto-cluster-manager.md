@@ -87,7 +87,7 @@ az networkcloud clustermanager create \
 
 ### Create the Cluster Manager using Azure Resource Manager template editor:
 
-An alternate way to create a Cluster Manager is with the ARM template editor.  [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
+An alternate way to create a Cluster Manager is with the ARM template editor.
 
 In order to create the cluster this way, you will need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
 
@@ -98,7 +98,8 @@ You can find examples of these two files here:
 
 Note:  To get the correct formatting, copy the raw code file.  The values within the clusterManager.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
 
-
+In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in. \
+From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services. \
 Click on Build your own template in the editor. \
 Click on Load file. Locate your clusterManager.jsonc template file and upload it. \
 Click Save. \
