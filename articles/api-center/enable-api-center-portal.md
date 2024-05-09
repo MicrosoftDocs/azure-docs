@@ -52,7 +52,7 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
     * Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
     * In **Redirect URI**, select **Single-page application (SPA)** and set the URI.
 
-        * For local testing, set the URI to `http://localhost:5173`. 
+        * For local testing, set the URI to `https://localhost:5173`. 
         * For production, set the URI to the URI of your API Center portal deployment.
     * Select **Register**.
 1. On the **Overview** page, copy the **Application (client) ID** and the **Directory (tenant) ID**. You set these values when you build the portal.
