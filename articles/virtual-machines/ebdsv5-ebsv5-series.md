@@ -1,12 +1,9 @@
 ---
 title: Ebdsv5 and Ebsv5 series 
 description: Specifications for the Ebdsv5-series and Ebsv5-series Azure virtual machines.
-author: priyashan-19
-ms.author: priyashan
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/05/2022
 ms.custom: references_regions
 ---
 
@@ -113,6 +110,62 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Cascade Lake). The
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+## Ebsv5 NVMe FAQ
+
+### How is the NVMe enabled Ebsv5 different from the L series VM that Azure offers?
+The NVMe enabled Ebsv5 series is designed to offer the highest Azure managed disk storage performance. The L series VMs are designed to offer higher IOPS and throughout on the local NVMe disks, which are ephemeral. Refer to the [VM sizes documentation](/azure/virtual-machines/sizes) for details on the performance offered by the Ebsv5 and L series. 
+
+### What I/O size is recommended to achieve the published performance? 
+To achieve the maximum IOPS, we recommend using a 4 KiB or 8 KiB block size. For maximum performance throughput, you can choose to use one of the following block sizes: 64 KiB, 128 KiB, 256 KiB, 512 KiB or 1024 KiB. However, it's important to optimize the I/O size based on the specific requirements of your application and to use the recommended block sizes only as a guideline. 
+
+### What workloads benefit with NVMe on Ebsv5 family? 
+The Ebsv5 VM families are suitable for various workloads that require high I/O and improved remote storage performance. Some examples of such workloads include: 
+- Online transaction processing (OLTP) workloads: These workloads involve frequent, small, and fast database transactions, such as online banking, e-commerce, and point-of-sale systems. 
+- Online analytical processing (OLAP) workloads: These workloads involve complex queries and large-scale data processing, such as data mining, business intelligence, and decision support systems. 
+- Data warehousing workloads: These workloads involve collecting, storing, and analyzing large volumes of data from multiple sources, such as customer data, sales data, and financial data. 
+- Replication and disaster recovery workloads: These workloads involve replicating data between multiple databases or sites for backup and disaster recovery purposes. 
+- Database development and testing workloads: These workloads involve creating, modifying, and testing database schemas, queries, and applications. 
+
+### What platforms and generations support NVMe VMs? 
+NVMe VMs are only accessible on the platform with the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor. However, support for more platforms and generations is coming soon. Stay informed by following our product launch announcements in Azure updates.
+
+### What are the consequences of selecting an Azure region where NVMe isn't currently enabled?    
+NVMe is currently available only in the following 13 Azure regions: US North Southeast Asia, West Europe, Australia East, North Europe, West US 3, UK South, Sweden Central, East US, Central US, West US 2, East US 2, and South central US. If you choose a nonsupported region, E96bsv5 or E112i are disabled in the size selection drop-down.  Even though you may see the smaller sizes E2-64bsv5 or E2-64bdsv5, NVMe deployment won't be successful due to missing configurations. 
+
+### The Azure region I need doesn't support NVMe, when will NVMe be available?     
+Watch out for our product launch announcements in the Azure updates. 
+
+### What sizes in the Ebsv5 and Ebdsv5 family support NVMe?  
+The sizes E2-E112i support NVMe on Ebsv5 and Ebdsv5 families.   
+
+### What sizes in the Ebsv5 and Ebdsv5 family support SCSI? 
+All sizes (E2-E96) on the Ebsv5 and Ebsdv5 families support SCSI except E112i. 
+
+### I have a SCSI Ebsv5 VM. How do I switch to NVMe of the same VM size?   
+The steps to switch from SCSI to NVMe are the same as explained [here](/azure/virtual-machines/enable-nvme-remote-faqs#how-do-i-enable-a-remote-nvme-disk-on-a-vm-family--)
+
+### How can I switch back to SCSI interface from NVMe VM?   
+To switch back to SCSI from NVMe, follow the same steps as explained [here](/azure/virtual-machines/enable-nvme-remote-faqs#how-do-i-enable-a-remote-nvme-disk-on-a-vm-family--) 
+
+### What is the price for NVMe Ebsv5 prices?  
+The NVMe enabled Ebsv5 and Ebdsv5 VMs are the same price as SCSI VMs. Refer to the pricing pages for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). With NVMe, you get higher performance at no extra cost. 
+
+### How can I try before purchasing this VM series? Is preview still available?  
+The preview period for this offer is over, and it is now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes.
+
+### Reporting Issues
+#### My VMs don't reach the published performance limits. Where do I report this issue? 
+If you see performance issues, you can submit a [support ticket](https://azure.microsoft.com/support/create-ticket). Provide all relevant information on the ticket, such as the subscription, VM size used, region, logs, and screenshot. 
+
+   :::image type="content" source="./media/enable-nvme/nvme-faq-10.png" alt-text="Screenshot of example of guest output for data disks.":::
+
+#### How can I get more help if I run into issues while setting up the VMs with the NVMe interface?  
+If you run into issues while creating or resizing Ebsv5 or Ebdsv5 to NVMe, and need assistance, you can submit a [support ticket](https://azure.microsoft.com/support/create-ticket).
+
+   :::image type="content" source="./media/enable-nvme/nvme-faq-11.png" alt-text="Screenshot of example for reporting issues for feature by submitting support ticket.":::
+
+   :::image type="content" source="./media/enable-nvme/nvme-faq-12.png" alt-text="Screenshot of support ticket selection details.":::
+
 ## Other sizes and information
 
 - [General purpose](sizes-general.md)
@@ -121,8 +174,6 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Cascade Lake). The
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
-
-
 
 ## Next steps
 
