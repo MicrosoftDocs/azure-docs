@@ -185,15 +185,17 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 ## Frequently asked questions:
 
--  How do I set up Call Diagnostics?
+- How do I set up Call Diagnostics?
 
-    - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) We recommend you initially collect all logs and then determine which logs you want to retain and for how long after you have an understanding of the capabilities in Azure Monitor. When adding your diagnostic setting you are prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting), select "**allLogs**" to collect all logs. 
-    - Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
-    - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. 
+  - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) We recommend you initially collect all logs and then determine which logs you want to retain and for how long after you have an understanding of the capabilities in Azure Monitor. When adding your diagnostic setting you are prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting), select "**allLogs**" to collect all logs. 
 
-- If Azure Communication Services participants join from different Azure Communication Services Resources, how do they display in Call Diagnostics?
+  - Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
 
-    -  If all the participants are from the same Azure subscription, they appear as "remote participant." However, Call Diagnostics doesn't show as many details for Azure Communication Services participants from another resource. Only the owning Azure Communications Services resource of the participant belongs to can see those details so you need to review that same call ID from within the owning Azure Communication Services Resource.
+  - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. 
+ 
+  - If Azure Communication Services participants join from different Azure Communication Services Resources, how do they display in Call Diagnostics
+ 
+  - Participants from other Azure Communication Services resources will have limited information in Call Diagnostics. The participants that belong to the resource you open Call Diagnostics will have all available insights shown. 
 
 - What are the common call issues I might see and how can I fix them?
 
