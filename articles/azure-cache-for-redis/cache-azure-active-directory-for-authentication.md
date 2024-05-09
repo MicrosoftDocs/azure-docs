@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/07/2024
+ms.date: 05/09/2024
 ms.author: franlanglois
 
 ---
@@ -71,7 +71,7 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies.":::
 
-1. Choose either the **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal**,and you want to add a _user_, you must first [enable Microsoft Entra Authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
+1. Choose either the **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal**, and you want to add a _user_, you must first [enable Microsoft Entra Authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
 
 1. Then, select **Select members** and select  **Select**. Then, select **Next : Review + Assign**.
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-select-members.png" alt-text="Screenshot showing members to add as New Redis Users.":::
@@ -84,7 +84,6 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 ## Configure your Redis client to use Microsoft Entra ID
 
 Because most Azure Cache for Redis clients assume that a password and access key are used for authentication, you likely need to update your client workflow to support authentication using Microsoft Entra ID. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using a Microsoft Entra token.
-
 
 ### Microsoft Entra Client Workflow
 
@@ -130,4 +129,3 @@ The following table includes links to code samples, which demonstrate how to con
 
 - [Configure role-based access control with Data Access Policy](cache-configure-role-based-access-control.md)
 - [Reference pages for identity](/cli/azure/redis/identity)
-
