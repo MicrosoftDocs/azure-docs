@@ -54,9 +54,6 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 #### Event Name: `incomingCall`
 The `incomingCall` event fires when a call is coming.
 
-<details>
-<summary>View event details</summary>
-
 **How should your application react to the event?**
 
 Your application should notify the user of the incoming call. The notification prompt should propose the user to accept or refuse the call.
@@ -75,26 +72,17 @@ callClient.on('incomingCall', (async (incomimgCallEvent) => {
         }
       });
 ```
-</details>
 
 #### Event Name: `callsUpdated`
 
 The `callsUpdated` updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
 
-<details>
-<summary>View event details</summary>
-
 **How should your application react to the event?**
 Your application should update its UI based on the number of active calls for the CallAgent instance.
-
-</details>
 
 #### Event Name: `connectionStateChanged`
 
 The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
-
-<details>
-<summary>View event details</summary>
 
 **How should your application react to the event?**
 
@@ -115,7 +103,6 @@ callClient.on('connectionStateChanged', (async (connectionStateChangedEvent) => 
     }
 });
 ```
-</details>
 
 <!---------- Call object ---------->
 ### Events on the `Call` object
@@ -123,9 +110,6 @@ callClient.on('connectionStateChanged', (async (connectionStateChangedEvent) => 
 #### Event Name: `stateChanged`
 
 The `stateChanged`  event is fired when the call state changes. For example, when a call goes from `connected` to `disconnected`.
-
-<details>
-<summary>View event details</summary>
 
 **How should your application react to the event?**
 
@@ -149,14 +133,9 @@ call.on('stateChanged', (async (connectionStateChangedEvent) => {
 });
 ```
 
-</details>
-
 #### Event: `idChanged`
 
 The `idChanged`  event is fired when the ID of a call changes. The ID of a call changes when the call moves from `connecting` state to `connected`. Once the call is connected, the ID of the call remains identical.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -171,14 +150,10 @@ call.on('idChanged', (async (callIdChangedEvent) => {
 });
 ```
 
-</details>
-
 #### Event: `isMutedChanged`
 
 The `isMutedChanged` event is fired when the call is muted or unmuted.
 
-<details>
-<summary>View event details</summary>
 **How might your application react to the event?**
 
 Your application should update the mute / unmute button to the proper state.
@@ -191,14 +166,9 @@ call.on('isMutedChanged', (async (isMutedChangedEvent) => {
 });
 ```
 
-</details>
-
 #### Event: `isScreenSharingOnChanged`
 
 The `isScreenSharingOnChanged` event is fired when screen sharing for the local user is enabled or disabled.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -220,15 +190,10 @@ call.on('isScreenSharingOnChanged', () => {
   }
 });
 ```
-</details>
 
 #### Event: `isLocalVideoStartedChanged`
 
 The `isLocalVideoStartedChanged` event is fired when the user enabled our disabled its local video.
-
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -241,15 +206,10 @@ call.on('isLocalVideoStartedChanged', () => {
     showdDisableCameraButton(call.isLocalVideoStarted);
 });
 ```
-</details>
-
 
 #### Event: `remoteParticipantsUpdated`
 
 Your application should subscribe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 Your application should show a preview of the local video and enable or disable the camera activation button.
@@ -274,14 +234,9 @@ call.on('remoteParticipantsUpdated', (remoteParticipantsUpdatedEvent) => {
 });
 ```
 
-</details>
-
 #### Event: `localVideoStreamsUpdated`
 
 The `localVideoStreamsUpdated` event is fired when the list of local video stream changes. These changes happen when the user starts or remove a video stream.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -303,27 +258,18 @@ call.on('localVideoStreamsUpdated', (localVideoStreamUpdatedEvent) => {
 });
 ```
 
-</details>
-
 #### Event: `remoteAudioStreamsUpdated`
 
 The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote participants add or remove audio streams to the call.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
 If a stream was being processed and is now removed, the processing should be stopped. On the other hand, if a stream is added then the event reception is a good place to start the processing of the new audio stream.
 
-</details>
 
 #### Event: `totalParticipantCountChanged`
 
 The `totalParticipantCountChanged` fires when the number of totalParticipant changed in a call.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -343,9 +289,6 @@ call.on('totalParticipantCountChanged', () => {
 
 The `roleChanged` participant fires when the localParticipant roles changes in the call. An example would be when the local participant become presenter `ACSCallParticipantRolePresenter` in a call.
 
-<details>
-<summary>View event details</summary>
-
 **How might your application react to the event?**
 Your application should enable or disabled button base on the user new role.
 
@@ -357,13 +300,10 @@ call.on('roleChanged', () => {
 });
 ```
 
-</details>
-
 ### Event: `mutedByOthers`
 
 The `mutedByOthers` event happens when other participants in the call muted the local participant.
 
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 Your application should display a message to the user notifying it was muted.
@@ -376,17 +316,12 @@ call.on('mutedByOthers', () => {
 });
 ```
 
-</details>
-
 <!---- RemoteParticipant  ---->
 ### Events on the `RemoteParticipant` object
 
 #### Event: `roleChanged`
 
 The `roleChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 Your application should update its UI based on the `RemoteParticipant` new role.
@@ -399,15 +334,9 @@ remoteParticipant.on('roleChanged', () => {
 });
 ```
 
-</details>
-
 #### Event: `isMutedChanged`
 
 The `isMutedChanged` event fires when one of the `RemoteParticipant` mutes or unmute its microphone.
-
-<details>
-
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -421,14 +350,9 @@ remoteParticipant.on('isMutedChanged', () => {
 });
 ```
 
-</details>
-
 #### Event: `displayNameChanged`
 
 The `displayNameChanged` when the name of the `RemoteParticipant` is updated.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -442,14 +366,9 @@ remoteParticipant.on('displayNameChanged', () => {
 });
 ```
 
-</details>
-
 #### Event: `isSpeakingChanged`
 
 The `isSpeakingChanged` when the dominant speaker in a call changes.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -463,14 +382,9 @@ remoteParticipant.on('isSpeakingChanged', () => {
 });
 ```
 
-</details>
-
 #### Event: `videoStreamsUpdated`
 
 The `videoStreamsUpdated` when a remote participant adds or removes a VideoStream to/from the call.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -492,7 +406,6 @@ remoteParticipant.on('videoStreamsUpdated', (videoStreamsUpdatedEvent) => {
     });
 });
 ```
-</details>
 
 <!-- AudioEffectsFeature -->
 
@@ -501,9 +414,6 @@ remoteParticipant.on('videoStreamsUpdated', (videoStreamsUpdatedEvent) => {
 #### Event: `effectsStarted`
 
 This event occurs when the audio effect selected is applied to the audio stream.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -517,14 +427,9 @@ audioEffectsFeature.on('effectsStarted', (effects) => {
 });
 ```
 
-</details>
-
 #### Event: `effectsStopped`
 
 This event occurs when the audio effect selected is applied to the audio stream.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -538,14 +443,9 @@ audioEffectsFeature.on('effectsStopped', (effects) => {
 });
 ```
 
-</details>
-
 #### Event: `effectsError`
 
 This event occurs when an error happens while an audio effect is started or applied.
-
-<details>
-<summary>View event details</summary>
 
 **How might your application react to the event?**
 
@@ -559,5 +459,3 @@ audioEffectsFeature.on('effectsError', (error) => {
     alert(`Error with the audio effect`);
 });
 ```
-
-</details>
