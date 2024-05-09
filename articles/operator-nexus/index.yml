@@ -6,9 +6,9 @@ summary: Operator Nexus runs network-intensive workloads under stringent securit
 metadata:
   title: Operator Nexus  
   description: Azure Operator Nexus, the next-generation hybrid cloud platform for operators, 
-   proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
+   is proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
    resiliency, observability, manageability, and performance required by telecommunication' operators. 
-   Learn how to deploy, manage and use Operator Nexus with these concepts and quickstarts.
+   Learn how to deploy, manage, and use Operator Nexus with these concepts and quickstarts.
   ms.service: azure-operator-nexus
   ms.topic: landing-page
   author: jashobhit
