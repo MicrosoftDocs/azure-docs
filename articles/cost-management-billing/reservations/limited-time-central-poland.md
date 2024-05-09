@@ -308,7 +308,7 @@ If you have purchased the one or three-year Azure Reserved Virtual Machine Insta
 
 By participating in the offer, customers agree to be bound by these terms and the decisions of Microsoft. Microsoft reserves the right to disqualify any customer who violates these terms or engages in any fraudulent or harmful activities related to the offer.
 
-## Next steps
+## Related content
 
 - [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md)
 - [Purchase Azure Reserved VM Instances in the Azure portal](https://aka.ms/azure/pricing/PolandCentral/VM/Purchase)
