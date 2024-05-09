@@ -55,7 +55,7 @@ agent = ReActAgent.from_tools(code_interpreter_tool.to_tool_list(), llm=llm, ver
 
 When it needs to perform calculations, the agent uses the code interpreter in *AzureCodeInterpreterToolSpec* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent runs multiple Python code snippets, it uses the same session.
 
-*AzureCodeInterpreterToolSpec* is available in the `llama-index-tools-azure-code-interpreter` package.
+*AzureCodeInterpreterToolSpec* is available in the [`llama-index-tools-azure-code-interpreter`](https://pypi.org/project/llama-index-tools-azure-code-interpreter/) package.
 
 [!INCLUDE [container-apps/sessions-tutorial-run-local](../../includes/container-apps/sessions-tutorial-run-local.md)]
 

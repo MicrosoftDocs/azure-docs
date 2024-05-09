@@ -181,9 +181,9 @@ Instead of using the session pool management API directly, the following LLM fra
 
 | Framework | Package | Tutorial |
 |-----------|---------|------------|
-| LangChain | Python: [`langchain-azure-dynamic-sessions`](https://github.com/langchain-ai/langchain/blob/master/libs/partners/azure-dynamic-sessions/) | [Tutorial ](./sessions-tutorial-langchain.md) |
-| LlamaIndex | Python: [`llama-index-tools-azure-code-interpreter`](https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-azure-code-interpreter/) | [Tutorial ](./sessions-tutorial-llamaindex.md) |
-| Semantic Kernel | Python: [`semantic-kernel`](https://github.com/microsoft/semantic-kernel/python) (version 0.9.8-b1 or later) | [Tutorial ](./sessions-tutorial-semantic-kernel.md) |
+| LangChain | Python: [`langchain-azure-dynamic-sessions`](https://pypi.org/project/langchain-azure-dynamic-sessions/) | [Tutorial ](./sessions-tutorial-langchain.md) |
+| LlamaIndex | Python: [`llama-index-tools-azure-code-interpreter`](https://pypi.org/project/llama-index-tools-azure-code-interpreter/) | [Tutorial ](./sessions-tutorial-llamaindex.md) |
+| Semantic Kernel | Python: [`semantic-kernel`](https://pypi.org/project/semantic-kernel/) (version 0.9.8-b1 or later) | [Tutorial ](./sessions-tutorial-semantic-kernel.md) |
 
 ### Management API endpoints
 
