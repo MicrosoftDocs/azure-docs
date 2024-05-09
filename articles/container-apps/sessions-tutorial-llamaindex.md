@@ -44,18 +44,18 @@ Before you deploy the app to Azure Container Apps, you can run it locally to tes
 
 Before running the sample app, open *main.py* in an editor and review the code. The app uses FastAPI to create a web API that accepts a user message in the query string.
 
-The following lines of code instantiates a *AzureDynamicSessionsToolSpec* and provides it to the LlamaIndex agent:
+The following lines of code instantiates a *AzureCodeInterpreterToolSpec* and provides it to the LlamaIndex agent:
 
 ```python
-dynamic_session_tool = AzureDynamicSessionsToolSpec(
+code_interpreter_tool = AzureCodeInterpreterToolSpec(
     pool_managment_endpoint=pool_management_endpoint,
 )
-agent = ReActAgent.from_tools(dynamic_session_tool.to_tool_list(), llm=llm, verbose=True)
+agent = ReActAgent.from_tools(code_interpreter_tool.to_tool_list(), llm=llm, verbose=True)
 ```
 
-When it needs to perform calculations, the agent uses the code interpreter in *AzureDynamicSessionsToolSpec* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent runs multiple Python code snippets, it uses the same session.
+When it needs to perform calculations, the agent uses the code interpreter in *AzureCodeInterpreterToolSpec* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent runs multiple Python code snippets, it uses the same session.
 
-*AzureDynamicSessionsToolSpec* is available in the `llama-index-tools-azure-dynamic-sessions` package.
+*AzureCodeInterpreterToolSpec* is available in the `llama-index-tools-azure-code-interpreter` package.
 
 [!INCLUDE [container-apps/sessions-tutorial-run-local](../../includes/container-apps/sessions-tutorial-run-local.md)]
 
