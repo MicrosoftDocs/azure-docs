@@ -21,7 +21,7 @@ You'll need:
 - **Azure Subscription ID** - The Azure subscription ID where Cluster Manager needs to be created (should be the same subscription ID of the Network Fabric Controller).
 - **Network Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager.
 - **Log Analytics Workspace ID** - The resource ID of the Log Analytics Workspace used for the logs collection.
-- **Azure Region** - The Cluster Manager should be created in the same Azure region as the  Controller.
+- **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
 
@@ -43,7 +43,7 @@ Some arguments that are available for every Azure CLI command
 | Name, ID, location, tags, type    | Name: User friendly name <br> ID: < Resource ID > <br> Location: Azure region where the Cluster Manager is created. Values from: `az account list -locations`.<br> Tags: Resource tags <br> Type: Microsoft.NetworkCloud/clusterManagers |
 | managerExtendedLocation           | The ExtendedLocation associated with the Cluster Manager                                                                                                                                                                                 |
 | managedResourceGroupConfiguration | Information about the Managed Resource Group                                                                                                                                                                                             |
-| fabricControllerId                | A reference to the  Controller that is 1:1 with this Cluster Manager                                                                                                                                                               |
+| fabricControllerId                | A reference to the Network Fabric Controller that is 1:1 with this Cluster Manager                                                                                                                                                               |
 | analyticsWorkspaceId              | This workspace will be where any logs that 's relevant to the customer will be relayed.                                                                                                                                                  |
 | clusterVersions[]                 | List of ClusterAvailableVersions objects. <br> Cluster versions that the manager supports. Will be used as an input in the cluster clusterVersion property.                                                                              |
 | provisioningState                 | Succeeded, Failed, Canceled, Provisioning, Accepted, Updating                                                                                                                                                                            |
@@ -70,7 +70,7 @@ az networkcloud clustermanager create \
 
 - **Arguments**
   - **--name -n [Required]** - The name of the Cluster Manager.
-  - **--fabric-controller-id [Required]** - The resource ID of the  Controller that is associated with the Cluster Manager.
+  - **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
   - **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
   - **--analytics-workspace-id** - The resource ID of the Log Analytics Workspace that is used for the logs collection
   - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location=<location>`.
@@ -98,18 +98,18 @@ You can find examples of these two files here:
 
 Note:  To get the correct formatting, copy the raw code file.  The values within the clusterManager.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
 
-In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in. \
-From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services. \
-Click on Build your own template in the editor. \
-Click on Load file. Locate your clusterManager.jsonc template file and upload it. \
-Click Save. \
-Click Edit parameters. \
-Click Load file.  Locate your clusterManager.parameters.jsonc parameters file and upload it. \
-Click Save. \
-Select the correct Subscription. \
-Search for the Resource group if it already exists or create new. \
-Make sure all Instance Details are correct. \
-Click Review + create.
+1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in. \
+2. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services. \
+3. Click on Build your own template in the editor. \
+4. Click on Load file. Locate your clusterManager.jsonc template file and upload it. \
+5. Click Save. \
+6. Click Edit parameters. \
+7. Click Load file.  Locate your clusterManager.parameters.jsonc parameters file and upload it. \
+8. Click Save. \
+9. Select the correct Subscription. \
+10. Search for the Resource group if it already exists or create new. \
+11. Make sure all Instance Details are correct. \
+12. Click Review + create.
 
 
 ## List/show Cluster Manager(s)
@@ -174,7 +174,7 @@ az networkcloud clustermanager update \
 This command is used to Delete the provided Cluster Manager.
 
 > [!Warning]
-> A Cluster Manager that has an existing associated  Controller, or any Clusters that reference this Cluster Manager may not be deleted.
+> A Cluster Manager that has an existing associated Network Fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted.
 
 ```azurecli
 az networkcloud clustermanager delete \
