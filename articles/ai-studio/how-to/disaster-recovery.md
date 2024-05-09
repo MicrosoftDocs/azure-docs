@@ -27,7 +27,7 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 ## Understand Azure services for Azure AI Studio
 
-Azure AI Studio depends on multiple Azure services. Some of these services are provisioned in your subscription. You're responsible for the high-availability configuration of these services. Other services are created in a Microsoft subscription and are managed by Microsoft. 
+Azure AI Studio depends on multiple Azure services. Some of these services are provisioned in your subscription. You're responsible for the high-availability configuration of these services. Microsoft manages some services, which are created in a Microsoft subscription. 
 
 Azure services include:
 
@@ -45,7 +45,7 @@ Azure services include:
 
 * **Connections**: Azure AI Studio can connect to various other services. You're responsible for cofiguring their high-availability settings.
 
-The following table shows the Azure services are managed by Microsoft and which are managed by you. It also indicates the services that are highly available by default.
+The following table shows the Azure services that Microsoft manages and the ones you manage. It also indicates the services that are highly available by default.
 
 | Service | Managed by | High availability by default |
 | ----- | ----- | ----- |
@@ -89,7 +89,7 @@ Azure AI Studio builds on top of other services. Some services can be configured
 
 To enable fast recovery and restart in the secondary region, we recommend the following development practices:
 
-* Use Azure Resource Manager templates. Templates are 'infrastructure-as-code', and allow you to quickly deploy services in both regions.
+* Use Azure Resource Manager templates. Templates are 'infrastructure-as-code,' and allow you to quickly deploy services in both regions.
 * To avoid drift between the two regions, update your continuous integration and deployment pipelines to deploy to both regions.
 * Create role assignments for users in both regions.
 * Create network resources such as Azure Virtual Networks and private endpoints for both regions. Make sure that users have access to both network environments. For example, VPN and DNS configurations for both virtual networks.
@@ -106,17 +106,17 @@ For more information, see [Availability zone service and regional support](/azur
 
 Determine the level of business continuity that you're aiming for. The level might differ between the components of your solution. For example, you might want to have a hot/hot configuration for production pipelines or model deployments, and hot/cold for development.
 
-Azure AI studio is a regional service and stores data both service-side and on a storage account in your subscription. In case of a regional disaster, service data can't be recovered, but you can recover the data stored by the service on the storage account in your subscription given storage redundancy is enforced. Service-side stored data is mostly metadata (tags, asset names, descriptions). Stored on your storage account is typically non-metadata, e.g., uploaded data. 
+Azure AI studio is a regional service and stores data both service-side and on a storage account in your subscription. If a regional disaster occurs, service data can't be recovered. But you can recover the data stored by the service on the storage account in your subscription given storage redundancy is enforced. Service-side stored data is mostly metadata (tags, asset names, descriptions). Stored on your storage account is typically non-metadata, for example, uploaded data. 
 
-For connections, it's recommended to create two separate resources in two distinct regions and then create two connections for the hub. For example, if AI Services is a critical resource for business continuity, creating two AI Services resources and two connections for the hub, would be a good strategy for business continuity. This is in case one region goes down, there is still have one region operational. 
+For connections, we recommend creating two separate resources in two distinct regions and then create two connections for the hub. For example, if AI Services is a critical resource for business continuity, creating two AI Services resources and two connections for the hub, would be a good strategy for business continuity. With this configuration, if one region goes down there's still one region operational. 
 
 For any hubs that are essential to business continuity, deploy resources in two regions.
 
 ### Isolated storage
 
-In the scenario in which you're connecting with data to customize your AI application, typically your datasets could be used in Azure AI but also outside of Azure AI. Dataset volume could be quite large, so for this it may be good practice to keep this data in a separate storage account. Evaluate what data replication strategy makes most sense for your use case.
+In the scenario in which you're connecting with data to customize your AI application, typically your datasets could be used in Azure AI but also outside of Azure AI. Dataset volume could be quite large, so for it might be good practice to keep this data in a separate storage account. Evaluate what data replication strategy makes most sense for your use case.
 
-In AI Studio, make a connection to your data. If you have multiple AI Studio instances in different regions, you may still point to the same storage account because connections work across regions. 
+In AI Studio, make a connection to your data. If you have multiple AI Studio instances in different regions, you might still point to the same storage account because connections work across regions. 
 
 ## Initiate a failover
 
@@ -124,7 +124,7 @@ In AI Studio, make a connection to your data. If you have multiple AI Studio ins
 
 When your primary hub becomes unavailable, you can switch over to the secondary hub to continue development. Azure AI Studio doesn't automatically submit jobs to the secondary hub if there's an outage. Update your code configuration to point to the new hub or project resources. We recommend to avoiding hardcoding hub or project references.
 
-Azure AI Studio can't sync or recover artifacts or metadata between hubs. Dependent on your application deployment strategy, you might have to move or recreate artifacts in the failover hub in order to continue. In case you have configured your primary hub and secondary hub to share associated resources with geo-replication enabled, some objects might be directly available to the failover hub. For example, if both hubs share the same docker images, configured datastores, and Azure Key Vault resources.
+Azure AI Studio can't sync or recover artifacts or metadata between hubs. Dependent on your application deployment strategy, you might have to move or recreate artifacts in the failover hub in order to continue. In case you configure your primary hub and secondary hub to share associated resources with geo-replication enabled, some objects might be directly available to the failover hub. For example, if both hubs share the same docker images, configured datastores, and Azure Key Vault resources.
 
 > [!NOTE]
 > Any jobs that are running when a service outage occurs will not automatically transition to the secondary hub. It is also unlikely that the jobs will resume and finish successfully in the primary hub once the outage is resolved. Instead, these jobs must be resubmitted, either in the secondary hub or in the primary (once the outage is resolved).
@@ -133,7 +133,7 @@ Azure AI Studio can't sync or recover artifacts or metadata between hubs. Depend
 
 ### Resource deletion
 
-If a hub and its existing resources are accidentally deleted, there are some resources that have soft delete enabled, allowing for resource recovery. Note that hubs and projects don't support soft delete. A hub or project that is deleted can't be recovered. The underlying resources may or may not have soft delete so they could potentially be recovered. See table for which services have a soft delete option.
+If a hub and its existing resources are accidentally deleted, there are some resources that have soft delete enabled, allowing for resource recovery. Hubs and projects don't support soft delete. A hub or project that is deleted can't be recovered. Some underlying resources might support soft delete, so they could potentially be recovered. See table for which services have a soft delete option.
 
 | Service | soft delete enabled |
 | ------- | ------------------- |
@@ -145,5 +145,5 @@ If a hub and its existing resources are accidentally deleted, there are some res
 
 ## Next steps
 
-* To learn about secure infrastructure deployments with Azure AI Studio, use the tutorial( {tutorial about setting up a secure hub} ).
-* For information about the SLA, see the [Azure service-level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) page
+* To learn about secure infrastructure deployments with Azure AI Studio, see [Create a secure hub](create-secure-ai-hub.md).
+* For information about the SLA, see the [Azure service-level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
