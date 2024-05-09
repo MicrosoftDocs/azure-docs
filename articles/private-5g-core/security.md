@@ -54,13 +54,13 @@ As these credentials are highly sensitive, Azure Private 5G Core won't allow use
 
 Non-access stratum (NAS) signaling runs between the UE and the AMF (5G) or MME (4G). It carries the information to allow mobility and session management operations that enable data plane connectivity between the UE and network.
 
-The packet core performs ciphering and integrity protection of NAS. During UE registration, the UE includes its security capabilities for NAS with 128-bit keys. By default, Azure Private 5G Core supports the following algorithms in order of preference:
+The packet core performs ciphering and integrity protection of NAS. During UE registration, the UE includes its security capabilities for NAS with 128-bit keys. For ciphering, by default, Azure Private 5G Core supports the following algorithms in order of preference:
 
-- NEA2: 128-bit Advanced Encryption System (AES) encryption
-- NEA1: 128-bit Snow3G
-- NEA0: 5GS null encryption algorithm
+- NEA2/EEA2: 128-bit Advanced Encryption System (AES) encryption
+- NEA1/EEA1: 128-bit Snow3G
+- NEA0/EEA0: 5GS null encryption algorithm
 
-This enables the highest level of encryption that the UE supports while still allowing UEs that do not support encryption. To make encryption mandatory, you can disallow NEA0. You can change these preferences after deployment by [modifying the packet core configuration](modify-packet-core.md).
+This enables the highest level of encryption that the UE supports while still allowing UEs that do not support encryption. To make encryption mandatory, you can disallow NEA0/EEA0. You can change these preferences after deployment by [modifying the packet core configuration](modify-packet-core.md).
 
 ## Access to local monitoring tools
 
