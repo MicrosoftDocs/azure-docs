@@ -42,7 +42,7 @@ Currently, that information can be read using the Azure portal page build for th
 
      :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-access-full-list-via-summarization-card.png" alt-text="Screenshot that shows the aspect of 'Index tuning (preview)' page when there are recommendations, and the way to get to the full list." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-access-full-list-via-summarization-card.png":::
 
-1. The list shows all available recommendations with some details for each recommendation. By default, the list is sorted by **Last recommended** in descending order, showing the most recent recommendations at the top. However, you can sort by any other column and can use the filtering box to reduce the list of items shown to those items whose database, schema, or table names contain the text that is provided:
+1. The list shows all available recommendations with some details for each of them. By default, the list is sorted by **Last recommended** in descending order, showing the most recent recommendations at the top. However, you can sort by any other column and can use the filtering box to reduce the list of items shown to those items whose database, schema, or table names contain the text that is provided:
 
      :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-index-recommendations-page.png" alt-text="Screenshot that shows the aspect of 'Index recommendations' page with several recommendations." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-index-recommendations-page.png":::
 
@@ -100,6 +100,32 @@ The `createindexrecommendations' view exposes all the details for all CREATE IND
 | reason | text | Reason justifying why this recommendation was produced. Typically, for duplicate indexes it reports a message like "Duplicate of "{indexName}". The equivalent index "{IndexName}" {is a Primary Key, while / is a unique index, while / is a constraint, while / is a valid index, while / has been chosen as replica identity, while / was used to cluster the table, while / has a smaller estimated size compared to / has more tuples compared to / has more index scans compared to / has been fetched more times compared to / has been read more times compared to} {duplicateIndexName}". Optionally if the index isn't only identified as a duplicate, but also is determined that it wasn't used for more than `index_tuning.unused_min_period` days, the message "Also, the index is unused in the past {days} days." is appended to either of the previous ones. |
 
 For unused indexes, the message would be like "The index is unused in the past {days} days."
+
+### Apply index recommendations
+
+Index recommendations contain the SQL statement that you can execute to implement the recommendation.
+
+The following sections will demonstrate how this statement can be obtained for a particular recommendation.
+
+Once you have the statement, you can use any PostgreSQL client of your preference to connect to your server and apply the recommendation. 
+
+#### Obtain SQL statement through **Index tuning (preview)** page in Azure portal
+
+1. Sign in to the Azure portal and select your Azure Database for PostgreSQL flexible server instance.
+1. Select **Index tuning (preview)** in the **Intelligent Performance** section of the menu.
+1. Assuming index tuning has already produced recommendations, select the **View index recommendations** summarization to access the list of available recommendations.
+
+     :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-access-full-list-via-summarization-card.png" alt-text="Screenshot that shows the aspect of 'Index tuning (preview)' page when there are recommendations, and the way to get to the full list." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-access-full-list-via-summarization-card.png":::
+
+1. From the list of recommendations, either:
+
+    - Select the ellipsis to the right of the recommendation for which you want to obtain the SQL statement, and select **Copy SQL script**. 
+
+       :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-index-recommendations-copy-sql-script.png" alt-text="Screenshot that shows how to copy SQL statement from 'Index recomendations' page." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-index-recommendations-page.png":::
+
+    - Or select the name of the recommendation to show its **Index recommendation details**, and select the  copy to clipboard icon in the **SQL script** text box to copy the SQL statement.
+
+       :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-index-recommendation-details-copy-sql-script.png" alt-text="Screenshot that shows how to copy SQL statement from 'Index recomendation details' page." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-index-recommendation-details-copy-sql-script.png":::
 
 ## Related content
 
