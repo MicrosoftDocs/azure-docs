@@ -12,7 +12,7 @@ ms.author: antchu
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Git.
-- Python 3.8 or later.
+- Python 3.10 or later.
 
 ## Create Azure resources
 

@@ -15,7 +15,7 @@ ms.author: antchu
     source .venv/bin/activate
     ```
 
-    Change the Python version in the command if you're using a different version. It's recommended to use Python 3.8 or later.
+    Change the Python version in the command if you're using a different version. It's recommended to use Python 3.10 or later.
 
     > [!NOTE]
     > If you're using Windows, replace `.venv/bin/activate` with `.venv\Scripts\activate`.
