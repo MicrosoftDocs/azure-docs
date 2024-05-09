@@ -1226,4 +1226,4 @@ Code: ResourceNotFound
 
 ## Next steps
 
-After you successfully created an , the next step is to create a [cluster](./howto-configure-cluster.md).
+After you successfully created a Network Fabric, the next step is to create a [cluster](./howto-configure-cluster.md).
