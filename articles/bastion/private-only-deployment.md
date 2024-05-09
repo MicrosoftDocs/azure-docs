@@ -101,6 +101,8 @@ This section helps you deploy Bastion as private-only to your virtual network.
 
    :::image type="content" source="./media/private-only-deployment/private-ip-address.png" alt-text="Screenshot of Azure Bastion IP address configuration settings." lightbox="./media/private-only-deployment/private-ip-address.png":::
 
+1. If you plan to use ExpressRoute or VPN with Private-only Bastion, go to the **Advanced** tab. Select **IP-based connection**.
+
 1. When you finish specifying the settings, select **Review + Create**. This step validates the values.
 
 1. After the values pass validation, you can deploy Bastion. Select **Create**.
