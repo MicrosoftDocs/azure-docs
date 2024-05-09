@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 
 1. [Create](../automation/manage-runbooks.md#create-a-runbook) and [Publish](../automation/manage-runbooks.md#publish-a-runbook) an Automation runbook.
  
-1. If you were using Runbooks that were being used for [pre or post tasks](../automation/update-management/pre-post-scripts.md) in Azure Automation and Update Management, it's critical that you follow the below steps to avoid an unexpected impact to your machines and failed maintenance runs.
+1. If you were using Runbooks that were being used for [pre or post tasks](../automation/update-management/pre-post-scripts.md) in Azure Automation Update Management, it's critical that you follow the below steps to avoid an unexpected impact to your machines and failed maintenance runs.
 
-    1. For your runbooks, parse the webhook payload to ensure that it's triggering on **Microsoft.Maintenance.PreMaintenanceEvent** or **Microsoft.    Maintenance.PostMaintenanceEvent** events only. By design webhooks are triggered on other subscription events if any other event is added with the same endpoint. 
+    1. For your runbooks, parse the webhook payload to ensure that it's triggering on **Microsoft.Maintenance.PreMaintenanceEvent** or **Microsoft.Maintenance.PostMaintenanceEvent** events only. By design webhooks are triggered on other subscription events if any other event is added with the same endpoint. 
         - See the [Azure Event Grid event schema](../event-grid/event-schema.md).
         - See the [Event Grid schema specific to Maintenance configurations](../event-grid/event-schema-maintenance-configuration.md)
         - See the code listed below:
@@ -55,12 +55,11 @@ In this tutorial, you learn how to:
       
         if ($eventType -ne “Microsoft.Maintenance.PreMaintenanceEvent” -or $eventType –ne “Microsoft.Maintenance.PostMaintenanceEvent” ) {  
           Write-Output "Webhook not triggered as part of pre or post patching for maintenance run"  
-    
         return  
         } 
         ```
 
-    1. **SoftwareUpdateConfigurationRunContext** parameter, which contains information about list of machines in the update deployment won't be passed to the pre or post scripts when you use them for pre or post events while using automation webhook. You can either query the list of machines from Azure Resource Graph or have the list of machines coded in the scripts.
+    1. [**SoftwareUpdateConfigurationRunContext**](../automation/update-management/pre-post-scripts.md#softwareupdateconfigurationruncontext-properties) parameter, which contains information about list of machines in the update deployment won't be passed to the pre or post scripts when you use them for pre or post events while using automation webhook. You can either query the list of machines from Azure Resource Graph or have the list of machines coded in the scripts.
         
         - Ensure that proper roles and permissions are granted to the managed identities that you're using in the script, to execute Resource Graph queries and to start or stop machines.
         - See the permissions related to [resource graph queries](../governance/resource-graph/overview.md#permissions-in-azure-resource-graph)
@@ -108,7 +107,8 @@ In this tutorial, you learn how to:
         if ($allMachines.Count -eq 0) {    
         Write-Output "No Machines were found."    
         break    
-        }   
+        }
+        }
         ```
 
    1. To customize you can use either your existing scripts with the above modifications done or use the following scripts.
