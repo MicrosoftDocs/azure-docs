@@ -8,11 +8,11 @@ ms.date: 03/07/2024
 #customer intent: As a user, I want to understand how to manage permissions effectively so that I can enhance the security of my cloud infrastructure.
 ---
 
-# Permissions management
+# Permissions management (CIEM)
 
 Microsoft Defender for Cloud's integration with Microsoft [Microsoft Entra Permissions Management (CIEM)](/entra/permissions-management/overview) provides a Cloud Infrastructure Entitlement Management (CIEM) security model that helps organizations manage and control user access and entitlements in their cloud infrastructure. CIEM is a critical component of the Cloud Native Application Protection Platform (CNAPP) solution that provides visibility into who or what has access to specific resources. It ensures that access rights adhere to the principle of least privilege (PoLP), where users or workload identities, such as apps and services, receive only the minimum levels of access necessary to perform their tasks. CIEM also helps organizations to monitor and manage permissions across multiple cloud environments, including Azure, AWS, and GCP.
 
-Integrating Entra Permissions Management (CIEM) with Defender for Cloud (CNAPP) strengthens cloud security by preventing security breaches caused by excessive permissions or misconfigurations. Permissions management continuously monitors and manages cloud entitlements, helping to discover attack surfaces, detect threats, right-size access permissions, and maintain compliance. This integration enhances the capabilities of Defender for Cloud in securing cloud-native applications and protecting sensitive data.
+Integrating Entra Permissions Management (CIEM) with Defender for Cloud (CNAPP) strengthens cloud security by preventing security breaches caused by excessive permissions or misconfigurations. Permissions management (CIEM) continuously monitors and manages cloud entitlements, helping to discover attack surfaces, detect threats, right-size access permissions, and maintain compliance. This integration enhances the capabilities of Defender for Cloud in securing cloud-native applications and protecting sensitive data.
 
 This integration brings the following insights derived from the Microsoft Entra Permissions Management suite into the Microsoft Defender for Cloud portal. For more information, see the [feature matrix](#feature-matrix).
 
