@@ -1,7 +1,7 @@
 ---
 title: Enable and work with cross-region replication
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Enable and disable cross-region replication, promote cluster replica in another region for disaster recovery (DR), and use the same connection strings in your application after promotion on Azure Cosmos DB for MongoDB vCore cluster.
+description: Enable and disable cross-region replication and promote cluster replica in another region for disaster recovery (DR) in Azure Cosmos DB for MongoDB vCore.
 author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
@@ -67,12 +67,12 @@ If you need to delete the primary and replica clusters, you would need to delete
 
 ## Use connection strings
 You can connect to the cluster replica as you would to a regular read-write cluster. When global distribution is enabled on the cluster, you can use global read-write connection string for reads and writes. This global read-write connection string would always point to the current read-write cluster.
-Follow these steps to get [the get connection strings for different cases](./cross-region-replication.md#read-operations-on-cluster-replicas-and-connection-strings):
+Follow these steps to [get the connection strings for different cases](./cross-region-replication.md#read-operations-on-cluster-replicas-and-connection-strings):
 
 1. Select the primary cluster or its cluster replica in the portal.
 1. On the cluster sidebar, under **Settings**, select **Connection strings**.
 1. On the primary cluster, copy the global read-write connection string for connections to the current read-write cluster. 
-1. Copy the connection string for currently selected cluster to connet to that cluster as you would with a regular read-write cluster.
+1. Copy the connection string for currently selected cluster to connect to that cluster as you would with a regular read-write cluster.
 
 Connection strings are preserved after [the cluster replica promotion](./cross-region-replication.md#replica-cluster-promotion).
 
