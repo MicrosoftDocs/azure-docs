@@ -397,6 +397,12 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Delete workspace":::
 
+# [Studio](#tab/studio)
+
+1. In [ML Studio](https//ml.azure.com/), browse to the global view by clicking "All workspaces" in the left side navigation.
+
+1. List all workspaces you have Azure RBAC permissions for. If your workspace is associated with a hub, you'll be able to find a reference to it and and view other workspaces associated to the same hub.
+
 ---
 
 ## Clean up resources
