@@ -60,7 +60,9 @@ The packet core performs ciphering and integrity protection of NAS. During UE re
 - NEA1/EEA1: 128-bit Snow3G
 - NEA0/EEA0: 5GS null encryption algorithm
 
-This enables the highest level of encryption that the UE supports while still allowing UEs that do not support encryption. To make encryption mandatory, you can disallow NEA0/EEA0. You can change these preferences after deployment by [modifying the packet core configuration](modify-packet-core.md).
+This enables the highest level of encryption that the UE supports while still allowing UEs that do not support encryption. To make encryption mandatory, you can disallow NEA0/EEA0. This will prevent UEs that do not support NAS encryption from registering with the network.
+
+You can change these preferences after deployment by [modifying the packet core configuration](modify-packet-core.md).
 
 ## Access to local monitoring tools
 
