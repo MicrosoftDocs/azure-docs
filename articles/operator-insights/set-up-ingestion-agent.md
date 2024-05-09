@@ -139,7 +139,7 @@ On the SFTP server:
 
 1. Ensure port 22/TCP to the VM is open.
 1. Create a new user, or determine an existing user on the SFTP server that the ingestion agent should use to connect to the SFTP server.
-    - The ingestion agent searches every directory under the base path which is not excluded. Ensure this user has read permission on all files in the directories which are not excluded. 
+    - The ingestion agent searches every directory under the base path, which isn't excluded, so this user must be able to read all of them.
     > [!Note]
     > Implicitly excluding directories by not specifying them in the included pattern is not sufficient to stop the agent searching those directories. See [the configuration reference](ingestion-agent-configuration-reference.md) for more detail on excluding directories.
 1. Determine the authentication method that the ingestion agent should use to connect to the SFTP server. The agent supports:
