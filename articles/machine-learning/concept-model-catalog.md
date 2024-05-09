@@ -150,4 +150,3 @@ Azure Machine Learning implements a default configuration of [Azure AI Content S
 * Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for finetuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
 * Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
 * [Evaluate, finetune, and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
-
