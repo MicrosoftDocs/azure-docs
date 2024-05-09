@@ -18,7 +18,7 @@ ms.date: 11/02/2023
 
 The large language model (LLM) tool in prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/), [Azure OpenAI Service](../../../ai-services/openai/overview.md), and models in [Azure Machine Learning studio model catalog](../../concept-model-catalog.md) for natural language processing.
 > [!NOTE]
-> The previous version of the LLM tool is now being deprecated. Please upgrade to latest [promptflow-tools](https://pypi.org/project/promptflow-tools/) package to consume new llm tools.
+> The previous version of the LLM tool is now being deprecated. Upgrade to latest [promptflow-tools](https://pypi.org/project/promptflow-tools/) package to consume new LLM tools.
 
 Prompt flow provides a few different large language model APIs:
 
