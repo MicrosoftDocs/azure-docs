@@ -1,6 +1,6 @@
 ---
 title: Aggregate Microsoft Sentinel data with summary rules | Microsoft Sentinel
-description: Learn how to aggregate large sets of Microsoft Sentinel data across log tiers with dynamic summary rules.
+description: Learn how to aggregate large sets of Microsoft Sentinel data across log tiers with summary rules.
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Don't change
@@ -18,9 +18,9 @@ ms.collection: usx-security
 
 This article describes summary rules in Microsoft Sentinel, which you can use to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled to provide a fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
 
-- **Access dynamic summary data via Kusto Query Language (KQL)** across detection, investigation, hunting, and reporting activities.
+- **Access summary rule results via Kusto Query Language (KQL)** across detection, investigation, hunting, and reporting activities.
 - **Run high performance KQL queries** on summarized data.
-- **Use dynamic summary data for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
+- **Use summary rule results for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
 
 
 Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](https://aka.ms/summary-rules-azmon) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).

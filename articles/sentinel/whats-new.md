@@ -28,9 +28,9 @@ The listed features were released in the last three months. For information abou
 
 Microsoft Sentinel now provides the ability to create dynamic summaries, which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
 
-- Access dynamic summary data via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
+- Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use dynamic summary data for longer in investigations, hunting, and compliance activities.
+- Use summary rule results for longer in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
 
