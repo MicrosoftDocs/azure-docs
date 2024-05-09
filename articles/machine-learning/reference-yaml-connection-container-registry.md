@@ -13,7 +13,7 @@ ms.date: 05/09/2024
 ms.reviewer: larryfr
 ---
 
-# CLI (v2) Python feed connection YAML schema
+# CLI (v2) Azure Container Registry connection YAML schema
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
