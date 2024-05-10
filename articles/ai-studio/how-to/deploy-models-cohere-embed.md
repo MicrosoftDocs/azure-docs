@@ -27,6 +27,8 @@ In this section, you learn about the two Cohere Embed models that are available 
 * Cohere Embed v3 - English
 * Cohere Embed v3 - Multilingual
 
+You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
+
 ### Cohere Embed v3 - English
 Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 

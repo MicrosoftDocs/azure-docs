@@ -83,11 +83,7 @@ With the same API key, you can access all of the following Azure AI services:
 | ![Speech icon](../../ai-services/media/service-icons/speech.svg) [Speech](../../ai-services/speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition |
 | ![Vision icon](../../ai-services/media/service-icons/vision.svg) [Vision](../../ai-services/computer-vision/index.yml) | Analyze content in images and videos |
 
-The hub hosts large language models that can be used to generate text, speech, images, and more. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.
-
-To view the keys and endpoints used to connect to Azure AI Services from Azure AI Studio, select **Resources and keys**. You can use the **Filter** to limit the results to the resources you're interested in. For more information, see [Azure AI services API access keys](#azure-ai-services-api-access-keys).
-
-:::image type="content" source="../media/concepts/azureai-resources-keys.png" alt-text="Screenshot of the resources and keys section in the Azure AI Studio." lightbox="../media/concepts/azureai-resources-keys.png":::
+Large language models that can be used to generate text, speech, images, and more, are hosted by the Azure AI hub resource. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog-overview.md) are always created in the project context for isolation.
 
 ### Virtual networking
 
