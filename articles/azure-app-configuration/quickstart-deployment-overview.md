@@ -51,6 +51,9 @@ To configure the Azure Resource Manager authentication mode of an Azure App Conf
 ---
 
 > [!NOTE]
+> **2023-08-01-preview** api version is required to set **Azure Resource Manager Authentication Mode** using [ARM template](./quickstart-resource-manager.md) or [Bicep](./quickstart-bicep.md).
+
+> [!NOTE]
 > Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode.
 
 ### Azure App Configuration Authorization
