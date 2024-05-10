@@ -2,7 +2,7 @@
 title: Dapr Input Bindings trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr input binding data changes.
 ms.topic: reference
-ms.date: 03/20/2024
+ms.date: 05/10/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
