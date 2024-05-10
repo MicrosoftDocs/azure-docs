@@ -52,6 +52,9 @@ az containerapp java logger update \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME>
+```
+
+It may take up to two minutes for the logger level change to take effect. Once complete, you can check the application logs from [log streams](log-streaming.md) or other [log options](log-options.md).
 
 ## Supported Java logging frameworks
 
