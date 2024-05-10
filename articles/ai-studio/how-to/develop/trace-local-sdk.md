@@ -147,7 +147,7 @@ In the top right corner of the trace view, you'll find:
 
 On the left side, you will see a **hierarchical tree structure**. This structure shows the sequence of function calls. Each function call's metadata is organized into [spans](https://opentelemetry.io/docs/concepts/signals/traces/#spans). These spans are linked together in a tree-like structure, illustrating the sequence of execution.
 
-In prompt flow SDK, we defined serval span types, including LLM, Function, Embedding, Retrieval, and Flow. And the system automatically creates spans with execution information in designated attributes and events. More details about span types, please refer to [this prompt flow documentation](https://microsoft.github.io/promptflow/how-to-guides/tracing/trace-span.html).
+In prompt flow SDK, we defined serval span types, including LLM, Function, Embedding, Retrieval, and Flow. And the system automatically creates spans with execution information in designated attributes and events. 
 
 Each span allows you to view:
 * Function name: By default, this is the name of the function as defined in your code. However, it can also be a customized span name defined via [Open Telemetry](https://opentelemetry.io/docs/what-is-opentelemetry/).

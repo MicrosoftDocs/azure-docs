@@ -148,8 +148,6 @@ items:
         href: how-to/develop/sdk-overview.md
       - name: Work with Azure AI projects in VS Code
         href: how-to/develop/vscode.md
-      - name: Start with an AI template
-        href: how-to/develop/ai-template-get-started.md
       - name: Trace your application with prompt flow
         href: how-to/develop/trace-local-sdk.md
   - name: Evaluate generative AI apps

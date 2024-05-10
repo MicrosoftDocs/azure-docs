@@ -80,7 +80,7 @@ AI app templates are linked from the right side of the **Code** tab of your proj
 * Run evaluations
 * Deploy your code
 
-To provision an entirely new set of resources, including a new hub and project, and deploy these sample applications, you can use the [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment. For more information about the templates, see [Start with an AI template](ai-template-get-started.md).
+To provision an entirely new set of resources, including a new hub and project, and deploy these sample applications, you can use the [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment. 
 
 ## Remarks
 
