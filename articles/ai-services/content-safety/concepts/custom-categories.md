@@ -65,6 +65,6 @@ After training, you need to evaluate the model to ensure it meets your accuracy 
 
 Follow the how-to guide to create custom categories in Azure AI Content Safety.
 
-* [Use custom category API](../how-to/custom-category.md)
+* [Use custom category API](../how-to/custom-categories.md)
 
 
