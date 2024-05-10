@@ -111,5 +111,6 @@ If you want to cancel your external service order, delete the resource in the [A
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - [Start analyzing costs](../costs/quick-acm-cost-analysis.md)
