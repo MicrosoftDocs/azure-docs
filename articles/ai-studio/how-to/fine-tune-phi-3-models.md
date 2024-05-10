@@ -25,8 +25,6 @@ The Phi-3 family of SLMs is a collection of instruction-tuned generative text mo
 
 ## Phi-3 family of models
 
-### [Phi-3-mini](#tab/phi-3-mini)
-
 Phi-3 Mini is a lightweight, state-of-the-art, 3.8B parameter, open model built upon datasets used for Phi-2 synthetic data and filtered websites. Phi-3 Mini focuses on high-quality, reasoning dense data. The model belongs to the Phi-3 model family, and the Mini version comes in the 4K and 128-K variants. The 128-K variant is the context length (in tokens) it can support.
 
 - [Phi-3-mini-4k-Instruct](https://ai.azure.com/explore/models/Phi-3-mini-4k-instruct/version/4/registry/azureml)
@@ -34,11 +32,7 @@ Phi-3 Mini is a lightweight, state-of-the-art, 3.8B parameter, open model built 
 
 The model underwent a rigorous enhancement process that incorporated both supervised fine-tuning and direct preference optimization. This process ensures precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, both the Phi-3 Mini-4K-Instruct and Phi-3 Mini-128K-Instruct show robust, state-of-the-art performance among models with less than 13 billion parameters.
 
----
-
 ## Models
-
-### [Phi-3-mini](#tab/phi-3-mini)
 
 These models are available in Azure AI studio for Phi 3, when fine-tuning as a service with pay-as-you-go:
 
@@ -46,8 +40,6 @@ These models are available in Azure AI studio for Phi 3, when fine-tuning as a s
 - `Phi-3-mini-128k-instruct` (preview)
 
 Phi-3 model fine-tuning is currently supported in projects located in the East US 2 region.
-
----
 
 ## Prerequisites
 
@@ -77,11 +69,9 @@ To fine-tune your model, prepare your training and validation data. Your trainin
 
 Verify that all of your training examples follow the expected format for inference. To effectively fine-tune models, ensure that you have an available balanced, diverse dataset. This involves data balance maintenance, which includes various scenarios, and periodic refinement of training data, to align with real-world expectations. This preparation ultimately leads to more accurate and balanced model responses. Different model types require different training data formats.
 
-### [Chat Completion](#tab/chatcompletion)
-
 The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Phi-3-mini-128k-instruct`, the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
 
-#### Example file format
+### Example file format
 
 ```json
     {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "Is Xbox better than PlayStation?"}, {"role": "assistant", "content": "I apologize, but I cannot provide personal opinions. My primary job is to assist you with any issues related to your Xbox device. Do you have any Xbox-related issues that need addressing?"}]}
@@ -90,11 +80,7 @@ The training and validation data you use **must** be formatted as a JSON Lines (
 ```
 The supported file type is JSON Lines. Files are uploaded to the default datastore, and made available in your project.
 
----
-
 ## Fine-tune a Phi-3 model
-
-### [Phi-3](#tab/phi-3-mini)
 
 To fine-tune a Phi-3 model:
 
@@ -105,8 +91,8 @@ To fine-tune a Phi-3 model:
 1. On the fine-tune wizard, select the link to **Azure AI studio Terms** for more information about the terms of use. You can also select the **Azure AI studio offer details** tab for more information about pricing for the selected model.
 1. If this is your first time fine-tuning the model in the project, you must subscribe your project for the particular offering (for example, Phi-3-mini-128k-instruct) from Azure AI studio. For this step, your account must have the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure AI studio offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
 
-> [!NOTE]
-> Subscribing a project to a particular Azure AI studio offering (in this case, Phi-3-mini-128k-instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. As an alternative, you can assign a custom role to your user account that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
+   > [!NOTE]
+   > Subscribing a project to a particular Azure AI studio offering (in this case, Phi-3-mini-128k-instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. As an alternative, you can assign a custom role to your user account that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
 1. Once you sign up the project for the particular Azure AI studio offering, subsequent fine-tuning of the _same_ offering in the _same_ project doesn't require you to go through the subscription process again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
 
@@ -123,8 +109,6 @@ To fine-tune a Phi-3 model:
 Once you fine-tune your model, you can deploy the model and then use it in your own application, in the playground, or in prompt flow.
 
 <!--- For more information, visit [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md). --->
-
----
 
 ## Cleaning up your fine-tuned models
 
