@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/05/2023
+ms.date: 05/10/2024
 ---
 
 # Bicep functions
@@ -94,6 +94,7 @@ The following functions are available for working with lambda expressions. All o
 * [map](bicep-functions-lambda.md#map)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)
+* [toObject](bicep-functions-lambda.md#toobject)
 
 ## Logical functions
 
@@ -124,9 +125,10 @@ The following functions are available for working with objects. All of these fun
 
 ## Parameters file functions
 
-The [getSecret function](./bicep-functions-parameters-file.md) is available in Bicep to get secure value from a KeyVault. This function is in the `az` namespace.
+The following functions are available to be used in Bicep parameter files. All of these functions are in the `sys` namespace.
 
-The [readEnvironmentVariable function](./bicep-functions-parameters-file.md) is available in Bicep to read environment variable values. This function is in the `sys` namespace.
+* [getSecret](./bicep-functions-parameters-file.md)
+* [readEnvironmentVariable](./bicep-functions-parameters-file.md)
 
 ## Resource functions
 
@@ -138,6 +140,7 @@ The following functions are available for getting resource values. Most of these
 * [listKeys](./bicep-functions-resource.md#listkeys)
 * [listSecrets](./bicep-functions-resource.md#list)
 * [list*](./bicep-functions-resource.md#list)
+* [managementGroupResourceId](./bicep-functions-resource.md#managementgroupresourceid)
 * [pickZones](./bicep-functions-resource.md#pickzones)
 * [providers (deprecated)](./bicep-functions-resource.md#providers)
 * [reference](./bicep-functions-resource.md#reference)

@@ -413,7 +413,7 @@ The output from the preceding example is:
 
 `shallowMerge(inputArray)`
 
-Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object are not deeply merged; instead, they are replaced entirely by the corresponding property from the merging object.
+Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged; instead, they're replaced entirely by the corresponding property from the merging object.
 
 In Bicep, use the [shallowMerge](../bicep/bicep-functions-object.md#shallowmerge) function.
 
@@ -488,7 +488,7 @@ The output from the preceding example with the default values is:
 
 **firstOutput** shows the properties from the merging objects are combined into a new object. If there are conflicting properties (i.e., properties with the same name), the property from the last object being merged usually takes precedence.
 
-**secondOutput** shows the shallow merge does not recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
+**secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
 
 ## union
 
