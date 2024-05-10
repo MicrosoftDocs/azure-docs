@@ -260,7 +260,7 @@ Let's deploy the Chat application into the same VNet with **_ASRS1_** so that th
 
 Now let's deploy our chat application to Azure. Below 
 
-We use Azure CLI to deploy our chat application to Azure. Check [Quickstart: Deploy an ASP.NET web app](/app-service/quickstart-dotnetcore) for other deployment environments deploying to Azure.
+We use Azure CLI to deploy our chat application to Azure. Check [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore) for other deployment environments deploying to Azure.
 
 Under folder samples/Chatroom, run the below commands:
 
