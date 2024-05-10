@@ -87,6 +87,9 @@ To delegate the administrator, contributor, or reader roles to a specific saving
 ## Cancellations, exchanges and trade-ins
 Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
+## Change Billing subscription
+Currently, the billing subscription used for monthly payments of a savings plan cannot be changed.
+
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).
 
