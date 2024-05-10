@@ -551,6 +551,9 @@
     href: vmware-physical-azure-monitor-process-server.md
   - name: Monitor using Backup center
     href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+- name: Reporting
+  - name: Configure reports
+    href: report-site-recovery.md    
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
