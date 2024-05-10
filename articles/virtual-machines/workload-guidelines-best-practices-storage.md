@@ -10,7 +10,7 @@ ms.topic: conceptual
 ---
 # High-performance computing (HPC) workload best practices for storage
 
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+<!-- [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)] -->
 
 This article provides storage best practices and guidelines to optimize performance for your HPC workloads Azure Virtual Machines (VM). This is a starting point to help you choose the storage service that is best suited to your workload.
 
@@ -18,7 +18,7 @@ There's typically a trade-off between optimizing for costs and optimizing for pe
 
 ## Initial Considerations
 
-If you’re beginning from the ground up, consider reviewing [Understand data store models](https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview) to choose a data store and [Choose an Azure storage service](https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options) or [Cloud storage on Azure](https://learn.microsoft.com/azure/storage/common/storage-introduction) to evaluate storage service available.
+If you’re beginning from the ground up, consider reviewing [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview) to choose a data store and [Choose an Azure storage service](/azure/architecture/guide/technology-choices/storage-options) or [Cloud storage on Azure](/azure/storage/common/storage-introduction) to evaluate storage service available.
 
 ## Overview
 
@@ -32,13 +32,13 @@ An accelerator enhances core storage by providing higher performance for data ac
 
 Start with the amount of data that you plan to store, and narrow down your choice of core storage (and, if applicable, the accelerator) based on CPU cores and file sizes:
 
-- Under 50 TiB: Consider [**Azure Files**](https://learn.microsoft.com/azure/storage/files/)** or** [**Azure NetApp Files**](https://learn.microsoft.com/azure/azure-netapp-files/). With smaller scale workloads, it’s best to keep the solution simple. See [Azure Files and Azure NetApp Files comparison | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison)
+- Under 50 TiB: Consider [**Azure Files**](/azure/storage/files/) or [**Azure NetApp Files**](/azure/azure-netapp-files/). With smaller scale workloads, it’s best to keep the solution simple. See [Azure Files and Azure NetApp Files comparison](/azure/storage/files/storage-files-netapp-comparison)
 - Over 50 TiB, less than 5,000 TiB: 
-  - If <= 500 CPU cores, consider core-only [**Azure Files**](https://learn.microsoft.com/azure/storage/files/)** or** [**Azure NetApp Files**](https://learn.microsoft.com/azure/azure-netapp-files/). See [Azure Files and Azure NetApp Files comparison | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison)
+  - If <= 500 CPU cores, consider core-only [**Azure Files**](/azure/storage/files/) or [**Azure NetApp Files**](/azure/azure-netapp-files/). See [Azure Files and Azure NetApp Files comparison](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison)
   - If > 500 CPU cores, and file sizes are:
-    - Mostly 1 MiB or larger, consider [**Azure Standard Blob**](https://learn.microsoft.com/azure/storage/blobs/). It is supported by all accelerators, supports many protocols, and is cost effective. For the accelerator, consider [**Azure Managed Lustre**](https://learn.microsoft.com/azure/azure-managed-lustre/).
-    - Mostly smaller than 1 MiB, consider [**Azure Premium Blob**](https://learn.microsoft.com/azure/storage/blobs/storage-blob-block-blob-premium)** or** [**Azure Standard Blob**](https://learn.microsoft.com/azure/storage/blobs/)**.** For the accelerator, consider [**Azure Managed Lustre**](https://learn.microsoft.com/azure/azure-managed-lustre/).
-    - Mostly smaller than 512 KiB, consider [**Azure NetApp Files**](https://learn.microsoft.com/azure/azure-netapp-files/)**.**
+    - Mostly 1 MiB or larger, consider [**Azure Standard Blob**](/azure/storage/blobs/). It is supported by all accelerators, supports many protocols, and is cost effective. For the accelerator, consider [**Azure Managed Lustre**](/azure/azure-managed-lustre/).
+    - Mostly smaller than 1 MiB, consider [**Azure Premium Blob**](/azure/storage/blobs/storage-blob-block-blob-premium)** or** [**Azure Standard Blob**](/azure/storage/blobs/). For the accelerator, consider [**Azure Managed Lustre**](/azure/azure-managed-lustre/).
+    - Mostly smaller than 512 KiB, consider [**Azure NetApp Files**](/azure/azure-netapp-files/).
 - Over 5,000 TiB: Talk to your field or account team.
 
 ### Solution details
