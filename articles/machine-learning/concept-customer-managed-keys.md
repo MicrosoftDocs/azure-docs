@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/12/2023
+ms.date: 05/21/2024
 ms.custom: engagement-fy23
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -118,19 +118,23 @@ Extra networking controls are configured when you create a private link endpoint
 
 ## (Preview) Service-side encryption of metadata
 
-A new architecture for the CMK workspace is available in preview, reducing cost compared to the current architecture and mitigating likelihood of Azure policy conflicts. In this new model, encrypted data is stored service-side on Microsoft-managed resources instead of in your subscription.
+A new architecture for the customer-managed key encryption workspace is available in preview, reducing cost compared to the current architecture and mitigating likelihood of Azure policy conflicts. In this new model, encrypted data is stored service-side on Microsoft-managed resources instead of in your subscription.
 
-Data that previously was stored in Cosmos DB in your subscription, will be stored in multitenant Microsoft-managed resources using document-level encryption with your encryption key. Search indices that were previously stored in Azure AI Search in your subscription, are stored on Microsoft-managed resources that are provisioned dedicated for you per workspace. The cost of the Azure AI search instance is charged under your Azure Machine Learning workspace in Microsoft Cost Management. The provisioning approach differs per [workspace kind](concept-workspace.md):
+Data that previously was stored in CosmosDB in your subscription, is stored in multi-tenant Microsoft-managed resources using document-level encryption using your encryption key. Search indices that were previously stored in Azure AI Search in your subscription, are stored on Microsoft-managed resources that are provisioned dedicated for you per workspace. The cost of the Azure AI search instance is charged under your Azure ML workspace in Azure Cost Management.
 
-| Kind | Note |
+Pipelines metadata that previously was stored in a storage account in a managed resource group, is now stored on the storage account in your subscription that is associated to the Azure Machine Learning workspace. Since this Azure Storage resource is managed separately in your subscription, you are responsible to configure encryption settings on it.
+
+Set the `enableServiceSideCMKEncryption` when you create a workspace to opt-in for this preview. Preview availability varies by [workspace kind](concept-workspace.md):
+
+| Kind | Supported |
 | ----- | ----- |
-| Default | Dedicated Azure search instance |
-| Hub | Dedicated Azure search instance. Recommended for cost efficiency. |
-| Project | Reuses Azure Search from the associated hub workspace. |
+| Default | Yes |
+| Hub | No |
+| Project | No |
 
-Pipelines metadata that previously was stored in a storage account in a managed resource group, is moving to the storage account in your subscription associated to the Azure Machine Learning workspace. Since these resources are managed in your subscription, you're responsible to configure CMK-encryption.
 
-During this preview key rotation and data labeling capabilities aren't supported.
+> [!NOTE]
+> During this preview key rotation and data labeling capabilities are not supported.
   
 ## hbi_workspace flag
 

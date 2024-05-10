@@ -44,8 +44,14 @@ items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
-    - name: Deploy Azure OpenAI models
-      href: how-to/deploy-models-openai.md
+    - name: Fine-tune models
+      href: concepts/fine-tuning-overview.md
+    - name: Azure OpenAI models
+      items:
+      - name: Deploy Azure OpenAI models
+        href: how-to/deploy-models-openai.md
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models

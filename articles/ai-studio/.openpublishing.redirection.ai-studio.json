@@ -79,6 +79,11 @@
             "source_path_from_root": "/articles/ai-studio/how-to/prompt-flow-tools/faiss-index-lookup-tool.md",
             "redirect_url": "/azure/ai-studio/how-to/prompt-flow-tools/index-lookup-tool",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/model-catalog.md",
+            "redirect_url": "/azure/ai-studio/how-to/model-catalog-overview",
+            "redirect_document_id": false
         }
     ]
 }
