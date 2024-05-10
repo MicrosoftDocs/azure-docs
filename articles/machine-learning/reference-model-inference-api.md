@@ -56,12 +56,11 @@ The following section describes some of the capabilities the API exposes. For a 
 
 The API indicates how developers can consume predictions for the following modalities:
 
+* [Get info](reference-model-inference-info.md): Returns the information about the model deployed under the endpoint.
 * [Text embeddings](reference-model-inference-embeddings.md): Creates an embedding vector representing the input text.
 * [Text completions](reference-model-inference-completions.md): Creates a completion for the provided prompt and parameters.
-* [Chat completions](reference-model-inference-chat.md): Creates a model response for the given chat conversation.
+* [Chat completions](reference-model-inference-chat-completions.md): Creates a model response for the given chat conversation.
 * [Image embeddings](reference-model-inference-images-embeddings.md): Creates an embedding vector representing the input text and image.
-
-    * Route: `/images/embeddings`
 
 ### Models with dispare set of capabilities
 
@@ -151,7 +150,6 @@ extra-parameters: allow
 > [!TIP]
 > Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
 
-
 ## Getting started
 
 The Azure AI Model Inference API is currently supported in models deployed as [Serverless API endpoints](how-to-deploy-models-serverless.md). Deploy any of the [supported models](#availability) to a new [Serverless API endpoints](how-to-deploy-models-serverless.md) to get started. Then you can consume the API in the following ways: 
@@ -162,11 +160,29 @@ You can use the Azure AI Model Inference API to run evaluations or while buildin
 
 # [Python](#tab/python)
 
-Since the API is OpenAI-compatible, you can use any supported SDK that already supports Azure OpenAI. 
+Since the API is OpenAI-compatible, you can use any supported SDK that already supports Azure OpenAI. In the following example, we show how you can use LiteLLM with the common API:
 
 ```python
-```
+import litellm
 
+client = litellm.LiteLLM(
+    base_url="https://<endpoint-name>.<region>.inference.ai.azure.com",
+    api_key="<key>",
+)
+
+response = client.chat.completions.create(
+    messages=[
+        {
+            "content": "Who is the most renowned French painter?", 
+            "role": "user"
+        }
+    ],
+    model="azureai",
+    custom_llm_provider="custom_openai",
+)
+
+print(response.choices[0].message.content)
+```
 
 # [REST](#tab/rest)
 

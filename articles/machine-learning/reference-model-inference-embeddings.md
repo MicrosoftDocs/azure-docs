@@ -13,7 +13,7 @@ ms.author: fasantia
 author: santiagxf
 ---
 
-# Reference: Azure AI Model Inference Embeddings API
+# Reference: Embeddings
 
 Creates an embedding vector representing the input text.
 
@@ -23,9 +23,9 @@ POST /embeddings?api-version=2024-05-01-preview
 
 ## URI Parameters
 
-| Name        | In    | Required | Type   | Description                                                                |
-| ----------- | ----- | -------- | ------ | -------------------------------------------------------------------------- |
-| api-version | query | True     | string | The version of the API in the format "YYYY-MM-DD" or "YYYY-MM-DD-preview". |
+| Name          | In    | Required | Type   | Description                                                                |
+| ------------- | ----- | -------- | ------ | -------------------------------------------------------------------------- |
+| `api-version` | query | True     | string | The version of the API in the format "YYYY-MM-DD" or "YYYY-MM-DD-preview". |
 
 ## Request Body
 
@@ -124,10 +124,10 @@ Status code: 200
 | Name                                                    | Description                                                                                                                                                             |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ContentFilterError](#contentfiltererror)               | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.                                                            |
-| [CreateEmbeddingRequest](#createembeddingrequest)       |                                                                                                                                                                         |
-| [CreateEmbeddingResponse](#createembeddingresponse)     |                                                                                                                                                                         |
-| [Detail](#detail)                                       |                                                                                                                                                                         |
-| [Embedding](#embedding)                                 | Represents an image generated.                                                                                                                                          |
+| [CreateEmbeddingRequest](#createembeddingrequest)       | Request for creating embeddings |
+| [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request |
+| [Detail](#detail)                                       | Deatils of the errors |
+| [Embedding](#embedding)                                 | Represents the embedding object generated.                                                                                                                                          |
 | [EmbeddingEncodingFormat](#embeddingencodingformat)     | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
 | [EmbeddingInputType](#embeddinginputtype)               | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.                                  |
 | [EmbeddingObject](#embeddingobject)                     | The object type, which is always "embedding".                                                                                                                           |
@@ -138,6 +138,15 @@ Status code: 200
 | [UnprocessableContentError](#unprocessablecontenterror) |                                                                                                                                                                         |
 | [Usage](#usage)                                         | The usage information for the request.                                                                                                                                  |
 
+### ContentFilterError
+
+| Name | Type | Description |
+| --- | --- | --- |
+| code | string | The error code. |
+| error | string | The error description. |
+| message | string | The error message. |
+| param | string | The parameter that triggered the content filter. |
+| status | integer | The HTTP status code. |
 
 ### CreateEmbeddingRequest
 
@@ -148,6 +157,23 @@ Status code: 200
 | input            |                                                     |               | Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays.           |
 | input\_type      | [EmbeddingInputType](#embeddinginputtype)           | text          | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.                                  |
 | model            | string                                              |               | Kept for compatibility reasons. This parameter is ignored.                                                                                                              |
+
+### CreateEmbeddingResponse
+
+| Name | Type | Description |
+| --- | --- | --- |
+| data | [Embedding](#embedding)\[\] | The list of embeddings generated by the model. |
+| model | string | The name of the model used to generate the embedding. |
+| object | [ListObject](#listobject) | The object type, which is always "list". |
+| usage | [Usage](#usage) | The usage information for the request. |
+
+### Detail
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| loc | string\[\] | The parameter causing the issue |
+| value | string | The value passed to the parameter causing issues. |
 
 ### Embedding
 
