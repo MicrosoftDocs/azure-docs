@@ -14,7 +14,7 @@ There are two types of metric alert rules used with Kubernetes clusters.
 
 | Alert rule type | Description |
 |:---|:---|
-| [Prometheus metric alert rules (preview)](../alerts/alerts-types.md#prometheus-alerts) | Use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md). |
+| [Prometheus metric alert rules](../alerts/alerts-types.md#prometheus-alerts) | Use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md). |
 | [Platform metric alert rules](../alerts/alerts-types.md#metric-alerts) | Use metrics that are automatically collected from your AKS cluster and are stored as [Azure Monitor alert rules](../alerts/alerts-overview.md). |
 
 ## Enable recommended alert rules
