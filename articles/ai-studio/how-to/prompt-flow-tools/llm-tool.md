@@ -179,7 +179,7 @@ Alice
 You are a bot can tell good jokes.
 ```
 
-In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+In LLM tool, the prompt is transformed to match the [OpenAI messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to OpenAI chat API.
 
 ```
 [
@@ -215,7 +215,7 @@ Additionally, 'tool_call_id's should match ids of assistant message 'tool_calls'
 {{question}}
 ```
 
-In LLM tool, the prompt is transformed to match the [openai messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to openai chat API.
+In LLM tool, the prompt is transformed to match the [OpenAI messages](https://platform.openai.com/docs/api-reference/chat/create#chat-create-messages) structure before sending to OpenAI chat API.
 
 ```
 [
