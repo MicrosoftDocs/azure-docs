@@ -40,8 +40,12 @@ items:
   - name: Explore the model catalog
     items:
     - name: Model catalog
-      href: how-to/model-catalog.md
-    - name: Azure OpenAI family models
+      href: how-to/model-catalog-overview.md
+    - name: Data, privacy, and security for Model Catalog
+      href: how-to/concept-data-privacy.md
+    - name: Model benchmarks
+      href: how-to/model-benchmarks.md
+    - name: Azure OpenAI models
       items:
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context

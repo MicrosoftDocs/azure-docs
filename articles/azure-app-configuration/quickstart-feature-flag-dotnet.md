@@ -152,7 +152,7 @@ You can use Visual Studio to create a new console app project.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
-1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
+1. Select **Feature manager** and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. Run the application again. You should see the Beta message in the console.
 
