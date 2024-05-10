@@ -13,7 +13,6 @@ ms.subservice: calling
 ---
 
 ## Azure Communication Services Calling Server error codes and subcodes
-This table provides a list of codes, subcodes that are issued during calling scenarios. This article also guides you on how to best mitigate these errors.
 
 [!INCLUDE [Public Preview](../../../../../includes/public-preview-include-document.md)]
 

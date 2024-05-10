@@ -14,7 +14,6 @@ ms.subservice: calling
 
 
 ## Azure Communication Services Calling SDK client error codes and subcodes
-This table provides a list of codes, subcodes that the Calling SDK API throws. This article also guides you on how to best mitigate these errors.
 
 [!INCLUDE [Public Preview](../../../../../includes/public-preview-include-document.md)]
 

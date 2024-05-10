@@ -13,19 +13,16 @@ ms.subservice: calling
 zone_pivot_groups: acs-errorcodes-client-server
 ---
 
-# Understanding error messages and codes
+# Understanding SDk codes and subcodes
 
-The ACS Calling SDK uses a unified framework to represent errors.
-Through error codes, subcodes, and result categories, you can more easily handle errors and find corresponding explanations.
+The Calling SDK and respective server infrastructure use a unified framework to represent errors. Through error codes, subcodes, and result categories, you can more easily handle errors and find corresponding explanations. The results, errors and exceptions that Azure Communication Services return are attributed with 3 properties:
+ 
+**Code** - aka status codes, are modeled as 3 digit integers that indicate the response status of a client or server response, They are grouped into success (**200-299**), client error (**400-499**), and server error (**500-599**)
+**Subcode** - Defined as an integer, where each number indicates an unique reason, specific to a group of scenarios or specific scenario outcome.
+**Message** - Message that describes the outcome, and provides hints how to mitigate the issue problem if an outcome is a failure.
+**ResultCategory** - The resultCategories property indicates the type of the error. Depending on the context, the value can be `Success`, `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`
 
-## resultCategories
-
-The `resultCategories` property indicates the type of the error. Depending on the context, the value can be `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`.
-
-For client errors, if the `resultCategories` property is `ExpectedError`, it typically means that the error is expected from the SDK's perspective.
-Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app,
-or when the current system state doesn't allow the API call.
-The application should check the error reason and the logic for invoking API.
+- For client errors, if the resultCategories property is `ExpectedError`, this typically means that the error is expected from the SDK's perspective. Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app, or when the current system state doesn't allow the API call. The application should check the error reason and the logic for invoking API.
 
 ::: zone pivot="platform-javascript"
 [!INCLUDE [Client generated codes](./includes/webjs-client-code-subcode.md)]
