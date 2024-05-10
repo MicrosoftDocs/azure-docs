@@ -118,7 +118,7 @@ Extra networking controls are configured when you create a private link endpoint
 
 ## (Preview) Service-side encryption of metadata
 
-A new architecture for the CMK workspace is available in preview, reducing cost compared to the current architecture and mitigating likelihood of Azure policy conflicts. In this new model, encrypted data is stored service-side on Microsoft-managed resources instead of in your subscription.
+A new architecture for the customer-managed key encryption workspace is available in preview, reducing cost compared to the current architecture and mitigating likelihood of Azure policy conflicts. In this new model, encrypted data is stored service-side on Microsoft-managed resources instead of in your subscription.
 
 Data that previously was stored in CosmosDB in your subscription, is stored in multi-tenant Microsoft-managed resources using document-level encryption using your encryption key. Search indices that were previously stored in Azure AI Search in your subscription, are stored on Microsoft-managed resources that are provisioned dedicated for you per workspace. The cost of the Azure AI search instance is charged under your Azure ML workspace in Azure Cost Management.
 
