@@ -15,7 +15,7 @@ ms.custom:
 
 MySQL Consistent Snapshot is a new feature that allows users to take a Consistent Snapshot of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature. Moreover, there are multiple data consistency options presented to the user - enable consistent snapshot with read lock (GA), enable consistent snapshot without locks (Preview), Make Source Server Read only and None. Selecting the 'None' option entails no extra measures are taken to ensure data consistency. We highly recommend selecting option 'Enable Consistent Snapshot without locks' to maintain transactional consistency.
 
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Enable Transactional Consistency" lightbox="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png":::
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Enable Transactional Consistency." lightbox="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png":::
 
 ## Enable Consistent Snapshot without locks (Preview)
 
@@ -23,9 +23,9 @@ When you enable this option, a reconciliation phase will occur after the initial
 
 With this feature, we don't take a read lock on the server. We instead read tables at different point in time, while keeping track of the different binlog positions of each table. This aids to reconcile the tables towards the end of the initial load by performing replication in catchup mode to get a consistent snapshot.
 
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/top-pane.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - migration progress" lightbox="media/migrate-azure-mysql-consistent-backup/top-pane.png":::
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/top-pane.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - migration progress." lightbox="media/migrate-azure-mysql-consistent-backup/top-pane.png":::
 
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Reconciliation progress" lightbox="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png":::
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Reconciliation progress." lightbox="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png":::
 
 Key features of Consistent Snapshot without locks:
     *Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
@@ -54,7 +54,7 @@ To complete the migration successfully with Consistent Snapshot with read lock e
 > [!NOTE]
 > With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a read replica for the source server and then delete read replica, the parameter is set to ON.
 
-- Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files are'nt purged before the replica commits the changes. Post successful cutover, the value can be reset.
+- Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files aren't purged before the replica commits the changes. Post successful cutover, the value can be reset.
 
 ## Known issues and limitations for Enable Consistent Snapshot without locks
 
