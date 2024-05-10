@@ -12,7 +12,7 @@ The spread operator is used to expand an iterable array or object into individua
 
 ## Spread
 
-`...variableName`
+`...<variableName or parameterName>`
 
 The object *objB* in the following example is equivalent to { foo: 'foo', bar: 'bar' }:
 
