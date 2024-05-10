@@ -2,7 +2,7 @@
 title: "Customize cluster scoped resources in Azure Kubernetes Fleet Manager with cluster resource overrides"
 description: This article provides an overview of how to use the Fleet ClusterResourceOverride API to override cluster scoped resources in Azure Kubernetes Fleet Manager.
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 05/10/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
@@ -18,7 +18,7 @@ This article provides an overview of how to use the Fleet `ClusterResourceOverri
 
 ## Cluster resource override overview
 
-The cluster resource override feature allows you to modify or override specific attributes across cluster-wide resources. With `ClusterResourceOverride`, you can define rules based on cluster labels or other criteria, specifying changes to be applied to various cluster-wide resources such as namespaces, roles, role bindings, or custom resource definitions (CRDs). These modifications might include updates to permissions, configurations, or other parameters, ensuring consistent management and enforcement of configurations across your Fleet-managed Kubernetes clusters.
+The cluster resource override feature allows you to modify or override specific attributes across cluster-wide resources. With `ClusterResourceOverride`, you can define rules based on cluster labels, specifying changes to be applied to various cluster-wide resources such as namespaces, cluster roles, cluster role bindings, or custom resource definitions (CRDs). These modifications might include updates to permissions, configurations, or other parameters, ensuring consistent management and enforcement of configurations across your Fleet-managed Kubernetes clusters.
 
 ## API components
 
@@ -30,6 +30,9 @@ The `ClusterResourceOverride` API consists of the following components:
 ### Cluster resource selectors
 
 A `ClusterResourceOverride` object can include one or more cluster resource selectors to specify which resources to override. The `ClusterResourceSelector` object supports the following fields:
+
+> [!NOTE]
+> If you select a namespace in the `ClusterResourceSelector`, the override will apply to all resources in the namespace.
 
 * `group`: The API group of the resource.
 * `version`: The API version of the resource.
@@ -93,6 +96,9 @@ You can use the `clusterSelector` field in the `overrideRule` object to specify 
 
 * `clusterSelectorTerms`: A list of terms that specify the criteria for selecting clusters. Each term includes a `labelSelector` field that defines a set of labels to match.
 
+> [!IMPORTANT]
+> Only `labelSelector` is supported in the `clusterSelectorTerms` field.
+
 ### JSON patch overrides
 
 You can use `jsonPatchOverrides` in the `overrideRule` object to specify the changes to apply to the selected resources. The `JsonPatch` object supports the following fields:
@@ -148,6 +154,8 @@ spec:
 
 This example removes the verbs "list" and "watch" in the `ClusterRole` named `secret-reader` on clusters with the label `env: prod`.
 
+`jsonPatchOverrides` apply a JSON patch on the selected resources following [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902).
+
 ## Apply the cluster resource override
 
 1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource.
@@ -182,10 +190,10 @@ This example removes the verbs "list" and "watch" in the `ClusterRole` named `se
     kubectl apply -f cluster-resource-placement.yaml
     ```
 
-3. Verify the `ClusterResourceOverride` object applied to the selected resources by checking the status of the `ClusterResourcePlacement` resource using the `kubectl get` command.
+3. Verify the `ClusterResourceOverride` object applied to the selected resources by checking the status of the `ClusterResourcePlacement` resource using the `kubectl describe` command.
 
     ```bash
-    kubectl get clusterresourceplacement crp
+    kubectl describe clusterresourceplacement crp
     ```
 
     Your output should resemble the following example output:
