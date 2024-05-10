@@ -53,7 +53,7 @@ Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade 
 
 Multiple VMs have the highest uptime service level agreement (SLA) when deployed across multiple availability zones, and they have the second highest uptime SLA when deployed across multiple storage and compute fault domains.
 
-### Deploy VMs and disks across multiple availability zones
+### Distribute VMs and disks across availability zones
 
 Availability zones are separated groups of data centers within a region that have independent power, cooling, and networking infrastructure. They're close enough to have low-latency connections to other availability zones but far enough to reduce the possibility that more than one is affected by local outages or weather. See [What are availability zones?](../reliability/availability-zones-overview.md) for details.
 
