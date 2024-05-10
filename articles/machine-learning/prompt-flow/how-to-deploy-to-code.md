@@ -22,7 +22,7 @@ In this article, you'll learn to deploy your flow to a [managed online endpoint]
 Before beginning make sure that you have tested your flow properly, and feel confident that it's ready to be deployed to production. To learn more about testing your flow, see [test your flow](how-to-bulk-test-evaluate-flow.md). After testing your flow you'll learn how to create managed online endpoint and deployment, and how to use the endpoint for real-time inferencing.
 
 - This article will cover how to use the CLI experience.
-- The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
+- The Python SDK isn't covered in this article. See the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
@@ -33,7 +33,7 @@ Before beginning make sure that you have tested your flow properly, and feel con
 
 - The Azure CLI and the Azure Machine Learning extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](../how-to-configure-cli.md).
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources article](../quickstart-create-resources.md) to create one.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you'll need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
 
 > [!NOTE]
 > Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
