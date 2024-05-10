@@ -259,7 +259,7 @@ There could be several reasons that you don't see an invoice:
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about your invoice and charges, see:
 
