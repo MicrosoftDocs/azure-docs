@@ -22,7 +22,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Discovery and assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
-- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format.
+- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format or [import your RVTools XLSX file](./tutorial-import-vmware-using-rvtools-xlsx.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
@@ -59,7 +59,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Discovery source**:
 
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported CSV file, select **Imported servers**. 
+    - If you discovered servers using an imported CSV or RVTools file, select **Imported servers**. 
     
 1. Click **Edit** to review the assessment properties.
 
@@ -153,7 +153,7 @@ You can click on  **Sizing assumptions** to understand the assumptions that went
 
 3. Review the Suggested tool:
     - **VMware HCX Advanced or Enterprise**: For VMware vSphere VMs, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/configure-vmware-hcx.md).
-    - **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware vSphere VMs, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
+    - **Unknown**: For servers imported via a CSV or RVTools file, the default migration tool is unknown. Though for VMware vSphere VMs, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
 4. Click on an **AVS readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
 

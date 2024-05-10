@@ -23,7 +23,7 @@ Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure
 * __Premium models__: Mistral Large and Mistral Small. These models are available as serverless APIs with pay-as-you-go token-based billing in the AI Studio model catalog. 
 * __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with managed online endpoints.
 
-You can browse the Mistral family of models in the [Model Catalog](model-catalog.md) by filtering on the Mistral collection.
+You can browse the Mistral family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Mistral collection.
 
 ## Mistral family of models
 

@@ -27,7 +27,7 @@ In this section, you learn about the two Cohere Command models that are availabl
 * Cohere Command R 
 * Cohere Command R+
 
-The Cohere Command models are highly performant generative large language models, optimized for various use cases, including reasoning, summarization, and question answering. The models have the following attributes:
+You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
 
 - **Model Architecture:** Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
 

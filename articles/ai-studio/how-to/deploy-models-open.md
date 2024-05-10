@@ -19,7 +19,7 @@ Deployment of a large language model (LLM) makes it available for use in a websi
 
 ## Deploy open models
 
-Use the following steps to deploy an open model such as *distilbert-base-cased* to a real-time endpoint in Azure AI Studio.
+Follow the steps below to deploy an open model such as `distilbert-base-cased` to a real-time endpoint in Azure AI Studio.
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Model catalog** from the left sidebar.
