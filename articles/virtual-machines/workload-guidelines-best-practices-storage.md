@@ -1,16 +1,26 @@
 ---
-author: Robert McMurray
-ms.date: 05/07/2024
+title: "Storage: Workload guidelines & best practices"
+description: Provides storage best practices and guidelines to optimize the performance of your HPC workloads on Azure VMs.
+author: padmalathas
+ms.author: padmalathas
+ms.date: 05/09/2024
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.topic: conceptual
 ---
-# High-performance computing (HPC) workload best practices guide
+# High-performance computing (HPC) workload best practices for storage
+
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+This article provides storage best practices and guidelines to optimize performance for your HPC workloads Azure Virtual Machines (VM). This is a starting point to help you choose the storage service that is best suited to your workload.
+
+There's typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for HPC workloads on Azure VMs. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
 ## Initial Considerations
 
-If you are starting from scratch, see [Understand data store models - Azure Application Architecture Guide | Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/data-store-overview) to choose a data store and [Choose an Azure storage service - Azure Architecture Center | Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/storage-options)  or [Introduction to Azure Storage - Cloud storage on Azure | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) to get an idea of your storage service options.
+If you’re beginning from the ground up, consider reviewing [Understand data store models](https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview) to choose a data store and [Choose an Azure storage service](https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options) or [Cloud storage on Azure](https://learn.microsoft.com/azure/storage/common/storage-introduction) to evaluate storage service available.
 
-## Heading suggestion
-
-This guide is a starting point to help you choose the storage service that is best suited to your workload.
+## Overview
 
 Storage for HPC workloads consists of core storage and in some cases, an accelerator. 
 
