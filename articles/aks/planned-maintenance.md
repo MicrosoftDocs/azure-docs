@@ -19,7 +19,7 @@ Regular maintenance is performed on your AKS cluster automatically. There are tw
 * *AKS-initiated maintenance* involves the weekly releases that AKS performs to keep your cluster up to date with the latest features and fixes.
 * *User-initiated maintenance* includes [cluster auto-upgrades][aks-upgrade] and [node operating system (OS) automatic security updates][node-image-auto-upgrade].
 
-When you use the feature of planned maintenance in AKS, you can run both types of maintenance in a cadence of your choice to minimize workload impact.
+When you use the feature of planned maintenance in AKS, you can run both types of maintenance in a cadence of your choice to minimize workload impact. You can use planned maintenance to schedule the timing of automatic upgrades, but enabling or disabling planned maintenance won't enable or disable automatic upgrades.
 
 ## Before you begin
 

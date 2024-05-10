@@ -119,8 +119,6 @@
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises VMware
       href: vmware-azure-tutorial-prepare-on-premises.md
-    - name: Set up replication
-      href: vmware-azure-set-up-replication-tutorial-modernized.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Run VMware VMs failover to Azure
