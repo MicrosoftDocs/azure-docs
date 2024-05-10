@@ -10,6 +10,8 @@ ms.date: 05/20/2024
 
 # Add Azure App Space components
 
+[Azure App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This guide shows you how to add components to an existing App Space app.
+
 To add a component to your App Space, select **+ Add component** on the _App Space_ page.
 
 #### [Custom app](#tab/custom-app/)
@@ -75,7 +77,7 @@ Follow these steps to add a custom app component.
 
 #### [Sample app](#tab/sample-web-app/)
 
-Follow these steps to add an app component from a template.
+Follow these steps to add a sample template app.
 
 ### Add tab
 

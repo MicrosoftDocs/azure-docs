@@ -6,8 +6,8 @@ ms.date: 05/22/2024
 ---
 
 > [!NOTE]
-> Azure App Spaces automatically creates the following resources for you during deployment:
+> For a frontend app, Azure App Spaces creates the following resources for you during deployment:
 > - Workspace
 > - App insights 
-> - Static site
+> - Static web app
 >

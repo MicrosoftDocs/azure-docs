@@ -83,6 +83,8 @@ The sample web application code deploys to App Spaces. The deployment can take a
 1. Select **Deploy** button at the bottom of the *Deploy App Space* page.
 
 The sample web application code deploys to App Spaces. The deployment can take a few minutes to complete.
+
+[!include [deployment note](./includes/provisioning-note-swa.md)]
 ::: zone-end  
 ::: zone pivot="express"  
 1. Under *Use a starter app*, select **Express.JS App**.
