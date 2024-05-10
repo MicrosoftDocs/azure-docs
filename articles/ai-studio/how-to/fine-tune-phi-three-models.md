@@ -24,6 +24,7 @@ In this article, you learn how to fine-tune the Phi-3 family of small language m
 The Phi-3 family of SLMs is a collection of instruction-tuned generative text models. Phi-3 models are the most capable and cost-effective small language models (SLMs) available. They outperform models of the same size and the next bigger size, across various language, reasoning, coding, and math benchmarks.
 
 ## Phi-3 family of models
+
 ### [Phi-3-mini](#tab/phi-3-mini)
 
 Phi-3 Mini is a lightweight, state-of-the-art, 3.8B parameter, open model built upon datasets used for Phi-2 synthetic data and filtered websites. Phi-3 Mini focuses on high-quality, reasoning dense data. The model belongs to the Phi-3 model family, and the Mini version comes in the 4K and 128-K variants. The 128-K variant is the context length (in tokens) it can support.
@@ -36,6 +37,7 @@ The model underwent a rigorous enhancement process that incorporated both superv
 ---
 
 ## Models
+
 ### [Phi-3-mini](#tab/phi-3-mini)
 
 These models are available in Azure AI studio for Phi 3, when fine-tuning as a service with pay-as-you-go:
@@ -47,7 +49,7 @@ Phi-3 model fine-tuning is currently supported in projects located in the East U
 
 ---
 
-### Prerequisites
+## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md).
@@ -60,7 +62,7 @@ Phi-3 model fine-tuning is currently supported in projects located in the East U
 
 For more information about permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
-### Subscription provider registration
+## Subscription provider registration
 
 Verify that the subscription is registered to the `Microsoft.Network` resource provider.
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -69,7 +71,7 @@ Verify that the subscription is registered to the `Microsoft.Network` resource p
 1. Select **AI project settings** > **Resource providers** from the left menu.
 1. Confirm that **Microsoft.Network** is in the list of resource providers. Otherwise, add it.
 
-### Data preparation
+## Data preparation
 
 To fine-tune your model, prepare your training and validation data. Your training data and validation data sets consist of input and output examples of how you'd like the model to perform.
 
