@@ -67,7 +67,7 @@ If the connection failed, try these solutions:
 - if you've configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
 
 ## Run multiple queries using interactive mode
-You can run multiple queries using the **interactive** mode. To enable interactive mode, run the following command
+You can run multiple queries using the **interactive** mode. To enable interactive mode, run the following command.
 
 ```azurecli-interactive
 az postgres flexible-server connect \
@@ -85,47 +85,47 @@ az postgres flexible-server connect \
 You'll see the **psql** shell experience as shown below:
 
 ```bash
-Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Password for earthyTurtle7:
-Server: PostgreSQL 12.5
-Version: 3.0.0
-Chat: https://gitter.im/dbcli/pgcli
+Password for starchylapwing9:
+Server: PostgreSQL 13.14
+Version: 4.0.1
 Home: http://pgcli.com
-postgres> create database pollsdb;
-CREATE DATABASE
-Time: 0.308s
-postgres> exit
-Goodbye!
-Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
+postgres> SELECT 1;
++----------+
+| ?column? |
+|----------|
+| 1        |
++----------+
+SELECT 1
+Time: 0.167s
+postgres>
+```
+
+## Execute single queries
+You can run single queries against Postgres database using [az postgres flexible-server execute](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az-postgres-flexible-server-execute).
+
+```azurecli-interactive
+az postgres flexible-server execute \
+    -n <servername> -u <username> -p "<password>" -d <databasename> \
+    -q <querytext> --output table
 ```
 
 **Example:** 
 ```azurecli-interactive
 az postgres flexible-server execute \
     -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb \
-    -q "select * from table1;" --output table
+    -q "SELECT 1" --output table
 ```
 
 You'll see an output as shown below:
 
 ```output
-Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Successfully connected to postgresdemoserver.
-Ran Database Query: 'select * from table1;'
+Successfully connected to server372060240.
+Ran Database Query: 'SELECT 1'
 Retrieving first 30 rows of query output, if applicable.
-Closed the connection postgresdemoserver.
-Local context is turned on. Its information is saved in working directory C:\mydir. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-Txt    Val
------  -----
-test   200
-test   200
-test   200
-test   200
-test   200
-test   200
-test   200
+Closed the connection to server372060240
+?column?
+----------
+1
 ```
 
 ## Run SQL File
