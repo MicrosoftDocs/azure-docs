@@ -118,4 +118,4 @@ Additionally, the V1 schema for sending diagnostics data to a storage account or
 
 ## Next steps
 
-- 
+- [Diagnostics in BAckup and Site Recovery](../backup/backup-azure-diagnostic-events.md)
