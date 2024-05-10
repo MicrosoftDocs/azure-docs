@@ -54,6 +54,7 @@ Configure a [backend](backends.md) resource for the Embeddings API deployment wi
         ```
         https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
         ```
+* Under **Authorization credentials**, select **Query**. Enter *api-version* and enter a valid Azure OpenAI API version such as `2024-02-01`.
 
 ### Test backend 
 
@@ -62,7 +63,6 @@ To test the backend, create an API operation for your Azure OpenAI Service API:
 1. On the **Design** tab of your API, select **+ Add operation**.
 1. Enter a **Display name** and optionally a **Name** for the operation.
 1. In the **Frontend** section, in **URL**, select **POST** and enter the path `/`.
-1. on the **Query** tab, add a required query parameter with the name `api-version`.
 1. On the **Headers** tab, add a required header with the name `Content-Type` and value `application/json`.
 1. Select **Save**
 
