@@ -47,7 +47,7 @@ sections:
       - question: |
           Is prompt flow Microsoft's equivalent to LangChain? 
         answer: |
-          Prompt flow is complementary to LangChain and Semantic Kernel - and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
+          Prompt flow is complementary to LangChain and Semantic Kernel and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
       - question: |
           How is prompt injection handled, and how do we ensure no malicious code is running from prompt injection? 
         answer: |

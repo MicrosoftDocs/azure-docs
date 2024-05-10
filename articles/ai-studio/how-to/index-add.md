@@ -9,20 +9,20 @@ ms.custom:
 ms.topic: how-to
 ms.date: 4/5/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: ssalgado
+author: ssalgadodev
 ---
 
 # How to create a vector index
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In this article, you learn how to create and use a vector index for performing [Retrieval Augmented Generation (RAG)](../concepts/retrieval-augmented-generation.md).
 
 ## Prerequisites
 
 You must have:
-- An Azure AI project
+- An Azure AI Studio project
 - An Azure AI Search resource
 
 ## Create an index from the Indexes tab

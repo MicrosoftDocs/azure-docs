@@ -14,6 +14,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2024
+
+* [Azure NetApp Files backup](backup-introduction.md) is now generally available (GA).
+
+    Azure NetApp Files online snapshots are enhanced with backup of snapshots. With this backup capability, you can offload (vault) your Azure NetApp Files snapshots to a Backup vault in a fast and cost-effective way, further protecting your data from accidental deletion. 
+     
+    Backup further extends Azure NetApp Files’ built-in snapshot technology; when snapshots are vaulted to a Backup vault only changed data blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots however are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative full-incremental recovery process.   
+
+    This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
+
 ## April 2024 
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
@@ -74,7 +84,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## January 2024
 
-* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#supported-regions) (Preview)
+* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md) (Preview)
 
     Azure NetApp Files now supports the capability to edit network features of existing volumes in US Gov Arizona, US Gov Texas, and US Gov Texas. This capability provides an enhanced, more standard, Microsoft Azure Virtual Network experience through various security and connectivity features that are available on Virtual Networks to Azure services. This feature is in preview in commercial and US Gov regions. 
     
@@ -92,7 +102,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports a "throughput limit reached" metric for volumes. The metric is a Boolean value that denotes the volume is hitting its QoS limit. With this metric, you know whether or not to adjust volumes so they meet the specific needs of your workloads.
 
-* [Standard network features in US Gov regions](azure-netapp-files-network-topologies.md#supported-regions) is now generally available (GA)
+* [Standard network features in US Gov regions](azure-netapp-files-network-topologies.md) is now generally available (GA)
 
     Azure NetApp Files now supports Standard network features for new volumes in US Gov Arizona, US Gov Texas, and US Gov Virginia. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files.
 
@@ -189,7 +199,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Connectivity over Active/Active VPN gateway setup
     * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
 
-    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#supported-regions). It will roll out to other regions. Stay tuned for further information as more regions become available.
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md). It will roll out to other regions. Stay tuned for further information as more regions become available.
 
 * [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
 
@@ -210,7 +220,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## April 2023
 
-* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#) that support standard network features
 
 ## March 2023
 
@@ -266,7 +276,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.
 
-    You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using [standard network features](configure-network-features.md#options-for-network-features). This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md#supported-regions).
+    You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using [standard network features](configure-network-features.md#options-for-network-features). This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md).
 
 ## December 2022
 
@@ -323,7 +333,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2022
 
-* [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
+* [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md).
 
     Standard network features now includes Global virtual network peering.
 

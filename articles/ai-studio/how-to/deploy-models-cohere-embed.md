@@ -5,7 +5,7 @@ description: Learn how to deploy Cohere Embed models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 05/06/2024
 ms.reviewer: shubhiraj
 ms.author: mopeakande
 author: msakande
@@ -14,37 +14,38 @@ ms.custom: [references_regions]
 
 # How to deploy Cohere Embed models with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as serverless APIs with pay-as-you-go token-based billing.
 
-Cohere offers two Embed models in [Azure AI Studio](https://ai.azure.com). These models are available with pay-as-you-go token based billing with Models as a Service. 
+Cohere offers two Embed models in [Azure AI Studio](https://ai.azure.com). These models are available as serverless APIs with pay-as-you-go token-based billing. You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
+
+## Cohere Embed models 
+
+In this section, you learn about the two Cohere Embed models that are available in the model catalog:
+
 * Cohere Embed v3 - English
 * Cohere Embed v3 - Multilingual
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
-
-## Models 
-
-In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as a service with pay-as-you-go billing.
+You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
 
 ### Cohere Embed v3 - English
-Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on various industries such as Finance, Legal, and General-Purpose Corpora.
+Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
 
 ### Cohere Embed v3 - Multilingual
-Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has SOTA performance on multilingual benchmarks such as Miracl.
+Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
 * Embed Multilingual has 1,024 dimensions.
 * Context window of the model is 512 tokens
 
-## Deploy with pay-as-you-go
+## Deploy as a serverless API
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Cohere models can be deployed as a service with pay-as-you-go billing and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of these models.
 
 ### Prerequisites
 
@@ -52,7 +53,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Cohere family models, the pay-as-you-go model deployment offering is only available with AI hubs created in EastUS, EastUS2 or Sweden Central regions.
+    > For Cohere family models, the serverless API model deployment offering is only available with AI hubs created in **EastUS2** or **Sweden Central** region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -60,25 +61,35 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 
 ### Create a new deployment
 
+The following steps demonstrate the deployment of Cohere Embed v3 - English, but you can use the same steps to deploy Cohere Embed v3 - Multilingual by replacing the model name.
+
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the **Explore** tab and search for *Cohere*. 
+1. Select **Model catalog** from the left sidebar.
+1. Search for *Cohere*.
+1. Select **Cohere-embed-v3-english** to open the Model Details page.
 
-    Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
+    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png":::
 
-1. In the model catalog, on the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
+1. Select **Deploy** to open a serverless API deployment window for the model.
+1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
+
+    1. From the left sidebar of your project, select **Components** > **Deployments**.
+    1. Select **+ Create deployment**.
+    1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
+
+        :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png"::: 
+
+    1. Select **Confirm** to open a serverless API deployment window for the model.
 
     :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the model, your project must be in the EastUS, EastUS2 or Sweden Central regions.
+1. Select the project in which you want to deploy your model. To deploy the model your project must be in the *EastUS2* or *Sweden Central* region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If it is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/cohere-embed/embed-english-marketplace-terms.png":::
-
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
+1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
+1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
     :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/cohere-embed/embed-english-existing-subscription.png":::
 
@@ -88,16 +99,16 @@ To create a deployment:
 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Select **Open in playground** to start interacting with the model.
-1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the Cohere models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
+To learn about billing for the Cohere models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
 ### Consume the Cohere Embed models as a service
 
 These models can be consumed using the embed API.
 
-1. On the **Build** page, select **Deployments**.
+1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
@@ -119,7 +130,7 @@ These models can be consumed using the embed API.
     Content-type: application/json
 ```
 
-#### v1/emebeddings request schema
+#### v1/embeddings request schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
 
@@ -127,7 +138,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 | --- | --- | --- | --- |
 |`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
 
-#### v1/emebeddings response schema
+#### v1/embeddings response schema
 
 The response payload is a dictionary with the following fields:
 
@@ -324,12 +335,22 @@ Response:
 
 #### More inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
+| **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
 | CLI using CURL and Python web requests  | [cohere-embed.ipynb](https://aka.ms/samples/embed-v3/webrequests)|
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-embed/openaisdk)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere-embed/langchain)                                |
 | Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-embed/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
+##### Retrieval Augmented Generation (RAG) and tool-use samples
+**Description** | **Package** | **Sample Notebook**
+--|--|--
+Create a local Facebook AI Similarity Search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
+Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
+Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
 
 ## Cost and quotas
 
@@ -345,9 +366,9 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
-## Next steps
+## Related content
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)

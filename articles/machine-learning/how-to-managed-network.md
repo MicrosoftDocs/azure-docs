@@ -1074,9 +1074,10 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Redis Cache
 * Azure Databricks
 * Azure Database for MariaDB
-* Azure Database for PostgreSQL
+* Azure Database for PostgreSQL Single Server
 * Azure Database for MySQL
 * Azure SQL Managed Instance
+* Azure API Management
 
 When you create a private endpoint, you provide the _resource type_ and _subresource_ that the endpoint connects to. Some resources have multiple types and subresources. For more information, see [what is a private endpoint](/azure/private-link/private-endpoint-overview).
 

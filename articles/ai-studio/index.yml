@@ -10,7 +10,7 @@ metadata:
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
-  ms.date: 2/6/2024
+  ms.date: 5/21/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,8 +24,8 @@ landingContent:
         links:
           - text: What is Azure AI Studio?
             url: what-is-ai-studio.md
-          - text: What is prompt flow?
-            url: how-to/prompt-flow.md
+          - text: Select and deploy models from the catalog
+            url: how-to/model-catalog.md
           - text: Retrieval Augmented Generation (RAG)
             url: concepts/retrieval-augmented-generation.md
           - text: Evaluation and monitoring metrics for generative AI
@@ -36,13 +36,15 @@ landingContent:
             url: how-to/create-projects.md
           - text: Get started with prompt flow
             url: how-to/flow-develop.md
+          - text: Connect to AI services
+            url: ai-services/connect-ai-services.md
   # Card
   - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
           - text: Use Azure OpenAI Assistants in the playground
-            url: quickstarts/assistants.md
+            url: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images
@@ -51,12 +53,10 @@ landingContent:
             url: quickstarts/multimodal-vision.md
       - linkListType: tutorial
         links:
-          - text: Deploy a web app for chat on your data
+          - text: Deploy an enterprise chat web app
             url: tutorials/deploy-chat-web-app.md
           - text: Build your own copilot using prompt flow
             url: tutorials/deploy-copilot-ai-studio.md
-          - text: Build your own copilot using Azure AI CLI and SDK
-            url: tutorials/deploy-copilot-sdk.md
 
   # Card
   - title: Develop apps
@@ -64,9 +64,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Get started with the Azure AI SDK
-            url: how-to/sdk-install.md
+            url: how-to/develop/sdk-overview.md
           - text: Work with Azure AI projects in VS Code
             url: how-to/develop-in-vscode.md
+          - text: Try speech analytics with post-call transcriptions
+            url: ../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context
       - linkListType: concept
         links:
           - text: Connections for flows and indexing

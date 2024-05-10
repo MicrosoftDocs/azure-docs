@@ -15,7 +15,7 @@ author: lgayhardt
 
 # Prompt flow in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
@@ -108,5 +108,4 @@ If the prompt flow tools in Azure AI Studio don't meet your requirements, you ca
 ## Next steps
 
 - [Build with prompt flow in Azure AI Studio](flow-develop.md)
-- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Get started with prompt flow in VS Code](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html)

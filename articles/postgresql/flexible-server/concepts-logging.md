@@ -3,10 +3,11 @@ title: Logs
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 04/23/2024
 ---
 
 # Logs in Azure Database for PostgreSQL - Flexible Server

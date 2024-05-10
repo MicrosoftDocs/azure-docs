@@ -15,7 +15,7 @@ author: msakande
 
 # Overview: Deploy models, flows, and web apps with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio supports deploying large language models (LLMs), flows, and web apps. Deploying an LLM or flow makes it available for use in a website, an application, or other production environments. This typically involves hosting the model on a server or in the cloud, and creating an API or other interface for users to interact with the model. 
 
@@ -25,7 +25,7 @@ You often hear this interaction with a model referred to as "inferencing". Infer
 
 First you might ask:
 - "What models can I deploy?" Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta.
-- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
+- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog-overview.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
 - "From where in Azure AI Studio can I deploy a model?" You can deploy a model from the model catalog or from your project's deployment page.
 
 Azure AI Studio simplifies deployments. A simple select or a line of code deploys a model and generate an API endpoint for your applications to consume. 
@@ -71,7 +71,7 @@ Whichever way you choose to create a flow in Azure AI Studio, you can deploy it 
 
 ## Deploying web apps
 
-The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [chat with your data tutorial](../tutorials/deploy-chat-web-app.md).
+The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI Enterprise Chat tutorial](../tutorials/deploy-chat-web-app.md).
 
 
 ## Planning AI safety for a deployed model

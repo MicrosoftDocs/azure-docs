@@ -15,7 +15,7 @@ author: lgayhardt
 
 # Evaluation and monitoring metrics for generative AI
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio allows you to evaluate single-turn or complex, multi-turn conversations where you ground the generative AI model in your specific data (also known as Retrieval Augmented Generation or RAG). You can also evaluate general single-turn question answering scenarios, where no context is used to ground your generative AI model (non-RAG). Currently, we support built-in metrics for the following task types:
 
@@ -100,7 +100,7 @@ The risk and safety metrics draw on insights gained from our previous Large Lang
 
 Besides the above types of contents, we also support “Jailbreak defect rate” in a comparative view across evaluations, a metric that measures the prevalence of jailbreaks in model responses. Jailbreaks are when a model response bypasses the restrictions placed on it. Jailbreak also happens where an LLM deviates from the intended task or topic.  
 
-Users can measure these risk and safety metrics on their own data or use the Azure AI SDK to [simulate different attack interactions with their generative AI application to output a test ](../how-to/simulator-interaction-data.md) (we refer to it as content risk dataset). Then you can evaluate on this simulated test dataset to output an annotated test dataset with content risk severity levels (very low, low, medium, or high) and [view your results in Azure AI ](../how-to/evaluate-flow-results.md), which provides you with overall defect rate across whole test dataset and instance view of each content risk label and reasoning.
+You can measure these risk and safety metrics on your own data or test dataset. Then you can evaluate on this simulated test dataset to output an annotated test dataset with content risk severity levels (very low, low, medium, or high) and [view your results in Azure AI ](../how-to/evaluate-flow-results.md), which provides you with overall defect rate across whole test dataset and instance view of each content risk label and reasoning.
 
 Unlike other metrics in the table, jailbreak vulnerability can't be reliably measured with annotation by an LLM. However, jailbreak vulnerability can be measured by the comparison of two different automated datasets (1) content risk dataset vs. (2) content risk dataset with jailbreak injections in the first turn. Then the user evaluates jailbreak vulnerability by comparing the two datasets’ content risk defect rates.
 
@@ -503,6 +503,6 @@ This rating value should always be an integer between 1 and 5. So the rating pro
 ## Next steps
 
 - [Evaluate your generative AI apps via the playground](../how-to/evaluate-prompts-playground.md)
-- [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
+- [Evaluate your generative AI apps with the Azure AI Studio](../how-to/evaluate-generative-ai-app.md)
 - [View the evaluation results](../how-to/evaluate-flow-results.md)
 - [Transparency Note for Azure AI Studio safety evaluations](safety-evaluations-transparency-note.md)

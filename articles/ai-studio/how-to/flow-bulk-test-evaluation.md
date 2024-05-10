@@ -15,7 +15,7 @@ author: lgayhardt
 
 # Submit a batch run and evaluate a flow
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 To evaluate how well your flow performs with a large dataset, you can submit batch run and use an evaluation method in prompt flow.
 
@@ -33,7 +33,7 @@ In this article you learn to:
 For a batch run and to use an evaluation method, you need to have the following ready:
 
 - A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. If your flow inputs include a complex structure like a list or dictionary, use `jsonl` format to represent your data. 
-- An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./create-manage-runtime.md).
+- An available compute session to run your batch run. A compute session is a cloud-based resource that executes your flow and generates outputs. To learn more about compute sessions, see [compute session](./create-manage-compute-session.md).
 
 ## Submit a batch run and use an evaluation method
 
@@ -47,7 +47,7 @@ First, you're asked to give your batch run a descriptive and recognizable name. 
 
 :::image type="content" source="../media/prompt-flow/batch-run-evaluate/basic-setting.png" alt-text="This screenshot shows the basic setting of custom evaluation" lightbox="../media/prompt-flow/batch-run-evaluate/basic-setting.png":::
 
-Second, you need to select or upload a dataset that you want to test your flow with. You also need to select an available runtime to execute this batch run. 
+Second, you need to select or upload a dataset that you want to test your flow with. You also need to select an available compute session to execute this batch run. 
 
 Prompt flow also supports mapping your flow input to a specific data column in your dataset. This means that you can assign a column to a certain input. You can assign a column to an input by referencing with `${data.XXX}` format. If you want to assign a constant value to an input, you can directly type in that value.
 

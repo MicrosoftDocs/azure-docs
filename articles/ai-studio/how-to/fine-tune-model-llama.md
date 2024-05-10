@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Fine-tune a Llama 2 model in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio lets you tailor large language models to your personal datasets by using a process known as *fine-tuning*. 
 
@@ -43,7 +43,7 @@ Verify the subscription is registered to the `Microsoft.Network` resource provid
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Subscriptions** from the left menu.
 1. Select the subscription you want to use.
-1. Select **AI project settings** > **Resource providers** from the left menu.
+1. Select **Project settings** > **Resource providers** from the left menu.
 1. Confirm that **Microsoft.Network** is in the list of resource providers. Otherwise add it.
 
     :::image type="content" source="../media/how-to/fine-tune/llama/subscription-resource-providers.png" alt-text="Screenshot of subscription resource providers in Azure portal." lightbox="../media/how-to/fine-tune/llama/subscription-resource-providers.png":::
@@ -72,7 +72,7 @@ The supported file types are csv, tsv, and JSON Lines. Files are uploaded to the
 
 ## Fine-tune a Llama 2 model
 
-You can fine-tune a Llama 2 model in Azure AI Studio via the [model catalog](./model-catalog.md) or from your existing project. 
+You can fine-tune a Llama 2 model in Azure AI Studio via the [model catalog](./model-catalog-overview.md) or from your existing project. 
 
 To fine-tune a Llama 2 model in an existing Azure AI Studio project, follow these steps:
 

@@ -15,9 +15,9 @@ author: lgayhardt
 
 # How to view evaluation results in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-The Azure AI Studio evaluation page is a versatile hub that not only allows you to visualize and assess your results but also serves as a control center for optimizing, troubleshooting, and selecting the ideal AI model for your deployment needs. It's a one-stop solution for data-driven decision-making and performance enhancement in your AI projects. You can seamlessly access and interpret the results from various sources, including your flow, the playground quick test session, evaluation submission UI, generative SDK, and CLI. This flexibility ensures that you can interact with your results in a way that best suits your workflow and preferences.  
+The Azure AI Studio evaluation page is a versatile hub that not only allows you to visualize and assess your results but also serves as a control center for optimizing, troubleshooting, and selecting the ideal AI model for your deployment needs. It's a one-stop solution for data-driven decision-making and performance enhancement in your Azure AI Studio projects. You can seamlessly access and interpret the results from various sources, including your flow, the playground quick test session, evaluation submission UI, generative SDK, and CLI. This flexibility ensures that you can interact with your results in a way that best suits your workflow and preferences.  
 
 Once you've visualized your evaluation results, you can dive into a thorough examination. This includes the ability to not only view individual results but also to compare these results across multiple evaluation runs. By doing so, you can identify trends, patterns, and discrepancies, gaining invaluable insights into the performance of your AI system under various conditions.
 

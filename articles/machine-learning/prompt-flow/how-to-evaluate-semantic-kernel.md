@@ -44,12 +44,12 @@ Similar to the integration of Langchain with prompt flow, Semantic Kernel, which
 
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png" alt-text="Screenshot of prompt flow with Semantic kernel." lightbox = "./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png":::
 
-#### Prerequisites: Setup runtime and connection
+#### Prerequisites: Set up compute session and connection
 
 > [!IMPORTANT]
-> Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your runtime environment for executor. 
+> Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your requirements.txt for executor. 
 
-To learn more, see [Customize environment for runtime](./how-to-customize-environment-runtime.md) for guidance.
+To learn more, see [How to manage compute session](./how-to-manage-compute-session.md) for guidance.
 
 > [!IMPORTANT]
 > The approach to consume OpenAI or Azure OpenAI in Semantic Kernel is to obtain the keys you have specified in environment variables or stored in a `.env` file.
@@ -64,7 +64,6 @@ You can then utilize this custom connection to invoke your OpenAI or Azure OpenA
 #### Create and develop a flow
 Once the setup is complete, you can conveniently convert your existing Semantic Kernel planner to a prompt flow by following the steps below:
 1. Create a standard flow.
-1. Select a runtime with Semantic Kernel installed.
 1. Select the *+ Python* icon to create a new Python node.
 1. Name it as your planner name (e.g., *math_planner*).
 1. Select **+** button in *Files* tab to upload any other reference files (for example, *plugins*).
