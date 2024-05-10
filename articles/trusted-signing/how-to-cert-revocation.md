@@ -38,7 +38,7 @@ This article describes how to revoke a certificate profile in a Trusted Signing 
 
 ## Prerequisites
 
-To complete the steps in this article, you need:
+To complete the steps in this article:
 
 - Ensure that you're assigned the Owner role for the subscription. To learn more about role-based access control (RBAC) access management, see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
 
