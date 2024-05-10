@@ -120,9 +120,9 @@ Verify the subscription is registered to the `Microsoft.Network` resource provid
 
 ### Data preparation
 
-Prepare your training and validation data to finetune your model. Your training data and validation data sets consist of input and output examples for how you would like the model to perform.
+Prepare your training and validation data to fine-tune your model. Your training data and validation data sets consist of input and output examples for how you would like the model to perform.
 
-Make sure all your training examples follow the expected format for inference. To finetune models effectively, ensure a balanced and diverse dataset.
+Make sure all your training examples follow the expected format for inference. To fine-tune models effectively, ensure a balanced and diverse dataset.
 
 This involves maintaining data balance, including various scenarios, and periodically refining training data to align with real-world expectations, ultimately leading to more accurate and balanced model responses.
 
@@ -252,7 +252,7 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ### Cost and quota considerations for Llama models fine-tuned as a service
 
-Llama models fine-tuned as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when [deploying](./deploy-models-llama.md) or fine-tuning the models
+Llama models fine-tuned as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when [deploying](./deploy-models-llama.md) or fine-tuning the models.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
