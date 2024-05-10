@@ -1,7 +1,7 @@
 ---
 title: 'How to use Azure OpenAI Assistants file search'
 titleSuffix: Azure OpenAI
-description: Learn how to use Assistants file search
+description: Learn how to use Assistants file search.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -16,7 +16,7 @@ recommendations: false
 
 File Search augments the Assistant with knowledge from outside its model, such as proprietary product information or documents provided by your users. OpenAI automatically parses and chunks your documents, creates and stores the embeddings, and use both vector and keyword search to retrieve relevant content to answer user queries.
 
-## file search support
+## File search support
 
 ### Supported models
 
@@ -128,7 +128,7 @@ print(file_batch.status)
 print(file_batch.file_counts)
 ```
 
-## Update the assistant to to use the new vector store
+## Update the assistant to use the new vector store
 
 To make the files accessible to your assistant, update the assistant’s `tool_resources` with the new `vector_store` ID.
 
@@ -167,7 +167,7 @@ thread = client.beta.threads.create(
 print(thread.tool_resources.file_search)
 ```
 
-Vector stores are created using message attachments that have a default expiration policy of 7 days after they were last active (defined as the last time the vector store was part of a run). This default exists to help you manage your vector storage costs. You can override these expiration policies at any time. 
+Vector stores are created using message attachments that have a default expiration policy of seven days after they were last active (defined as the last time the vector store was part of a run). This default exists to help you manage your vector storage costs. You can override these expiration policies at any time. 
 
 ## Create a run and check the output
 
@@ -248,7 +248,7 @@ vector_store = client.beta.vector_stores.create(
 )
 ```
 
-Adding files to vector stores is an async operation. To ensure the operation is complete, we recommend that you use the 'create and poll' helpers in our official SDKs. If you're not using the SDKs, you can retrieve the `vector_store` object and monitor it's `file_counts` property to see the result of the file ingestion operation.
+Adding files to vector stores is an async operation. To ensure the operation is complete, we recommend that you use the 'create and poll' helpers in our official SDKs. If you're not using the SDKs, you can retrieve the `vector_store` object and monitor its `file_counts` property to see the result of the file ingestion operation.
 
 Files can also be added to a vector store after it's created by creating vector store files.
 
@@ -307,7 +307,7 @@ You can also attach a vector store to Threads or Assistants after they're create
 
 We highly recommend that you ensure all files in a vector_store are fully processed before you create a run. This will ensure that all the data in your vector store is searchable. You can check for vector store readiness by using the polling helpers in the SDKs, or by manually polling the `vector_store` object to ensure the status is completed.
 
-As a fallback, there is a 60 second maximum wait in the Run object when the thread's vector store contains files that are still being processed. This is to ensure that any files your users upload in a thread a fully searchable before the run proceeds. This fallback wait does not apply to the assistant's vector store.
+As a fallback, there is a 60-second maximum wait in the Run object when the thread's vector store contains files that are still being processed. This is to ensure that any files your users upload in a thread a fully searchable before the run proceeds. This fallback wait does not apply to the assistant's vector store.
 
 ## Managing costs with expiration policies
 
@@ -328,9 +328,9 @@ vector_store = client.beta.vector_stores.create_and_poll(
 
 ### Thread vector stores have default expiration policies
 
-Vector stores created using thread helpers (like `tool_resources.file_search.vector_stores` in Threads or `message.attachments` in Messages) have a default expiration policy of 7 days after they were last active (defined as the last time the vector store was part of a run).
+Vector stores created using thread helpers (like `tool_resources.file_search.vector_stores` in Threads or `message.attachments` in Messages) have a default expiration policy of seven days after they were last active (defined as the last time the vector store was part of a run).
 
-When a vector store expires, runs on that thread will fail. To fix this, you can simply recreate a new vector_store with the same files and reattach it to the thread.
+When a vector store expires, runs on that thread will fail. To fix this, you can recreate a new vector_store with the same files and reattach it to the thread.
 
 ```python
 all_files = list(client.beta.vector_stores.files.list("vs_expired"))
