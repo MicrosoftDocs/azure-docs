@@ -150,11 +150,11 @@ Once you've created a VM with hibernation enabled, you need to configure the gue
 
 ## Enabling hibernation on an existing Linux VM 
 
-To enable hibernation on an existing VM, you can use Azure CLI, PowerShell and API. Before proceeding, ensure that the guest OS version supports hibernation on Azure. Refer to the list of [supported OS versions ](../hibernate-resume-linux.md#supported-linux-distros).
+To enable hibernation on an existing VM, you can use Azure CLI, PowerShell and API. Before proceeding, ensure that the guest OS version supports hibernation on Azure. Refer to the list of [supported OS versions ](hibernate-resume-linux.md#supported-linux-distros).
 
 
 
-### [CLI](#tab/enableWithCLI)
+### [CLI](#tab/enableWithCLIExisting)
 
 To enable hibernation on an existing VM using Azure CLI, first deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM.
 
@@ -180,7 +180,7 @@ To enable hibernation on an existing VM using Azure CLI, first deallocate your V
       --name myVM \      
    ```
 
-### [PowerShell](#tab/enableWithPS)
+### [PowerShell](#tab/enableWithPSExisting)
 
 1. To enable hibernation on an existing VM using Azure PowerShell, first stop your VM with [Stop-Az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM. 
 
