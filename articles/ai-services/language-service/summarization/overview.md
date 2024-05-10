@@ -72,6 +72,8 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=conversation-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/conversation-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
+# [Document summarization](#tab/document-summarization)
+
 # [Text summarization](#tab/text-summarization)
 
 A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-extractive-summarization) capabilities.
