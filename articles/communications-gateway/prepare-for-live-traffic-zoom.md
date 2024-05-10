@@ -51,16 +51,11 @@ We recommend using the Number Management Portal (preview) to provision the test 
 
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
-You can configure numbers directly in the Number Management Portal, or by uploading a CSV file containing number configuration.
-
 1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
 1. Select **Create account**. Enter an **Account name** and select the **Enable Zoom Phone Cloud Peering** checkbox. Select **Create**.
 1. Select the checkbox next to the new **Account name** and select **View numbers**.
 1. Select **Create numbers**.
 1. Fill in the fields as required under **Manual Input**, and then select **Create**.
-
-> [!TIP]
-> You can provide configuration for multiple numbers in a CSV file and upload the file. For instructions, see [Manage Zoom Phone Cloud Peering customers and numbers with Azure Communications Gateway](manage-enterprise-zoom.md).
 
 # [Provisioning API (preview)](#tab/provisioning-api)
 

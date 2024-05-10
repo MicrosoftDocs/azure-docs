@@ -40,7 +40,6 @@ If you don't have these permissions, ask your administrator to set them up by fo
 If you're uploading new numbers for an enterprise customer:
 
 * You must complete any internal procedures for assigning numbers.
-* You must know whether you want to configure the numbers directly in the Number Management Portal, or by uploading a CSV file to the Number Management Portal.
 * You must know the numbers you need to upload (as E.164 numbers). Each number must:
   * Contain only digits (0-9), and have `+` at the start.
   * Include the country code.
@@ -92,59 +91,12 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
 1. Select the checkbox next to the enterprise **Account name**.
 1. Select **View numbers**.
 1. To add new numbers for an enterprise:
-    
-    # [Configure numbers directly in the portal](#tab/manual-configuration)
-    
     1. Select **Create numbers**.
     1. Select **Manual input**.
     1. Select the service.
     1. Optionally, enter a value for **Custom SIP header**.
     1. Add the numbers in **Telephone Numbers**.
     1. Select **Create**.
-    
-    # [Upload a CSV](#tab/csv-upload)
-
-    1. Prepare a `.csv` file containing the numbers. It should use the headings shown in the following tables, and contain one number per line (up to 10,000 numbers).
-        * For Operator Connect:
-
-            | Heading | Description  | Valid values |
-            |---------|---------|---------|
-            | `telephoneNumber`|The number to upload | E.164 numbers, including `+` and the country code |
-            | `accountName` | The account to upload the number to | The name of an existing account |
-            | `serviceDetails_teamsOperatorConnect_enabled`| Whether Operator Connect is enabled | `true` or `false`|
-            | `serviceDetails_teamsOperatorConnect_assignmentStatus` | Whether the number is assigned to a user | `assigned` or `unassigned` |
-            | `serviceDetails_teamsOperatorConnect_configuration_usage` | The usage of the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
-            | `serviceDetails_teamsOperatorConnect_configuration_choosableCapabilities` | The capabilities of the number | `InboundCalling`, `OutboundCalling`, or `Mobile` |
-            | `serviceDetails_teamsOperatorConnect_configuration_additionalUsages` | Additional usages for the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
-            | `serviceDetails_teamsOperatorConnect_configuration_civicAddressId` | The ID of the civic address used as the emergency address | An existing ID |
-            | `serviceDetails_teamsOperatorConnect_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
-            | `serviceDetails_teamsOperatorConnect_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
-            | `serviceDetails_teamsOperatorConnect_configuration_displayedCountryCode` | The country code to display for the number. Required if you're uploading a North American Toll-Free number, otherwise optional. | A valid country code |
-            | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
-
-        * For Teams Phone Mobile:
-
-            | Heading | Description  | Valid values |
-            |---------|---------|---------|
-            | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
-            | `accountName` | The account to upload the number to | The name of an existing account |
-            | `serviceDetails_teamsPhoneMobile_enabled`| Whether Teams Phone Mobile is enabled | `true` or `false`|
-            | `serviceDetails_teamsPhoneMobile_assignmentStatus` | Whether the number is assigned to a user | `assigned` or `unassigned` |
-            | `serviceDetails_teamsPhoneMobile_configuration_usage` | The usage of the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
-            | `serviceDetails_teamsPhoneMobile_configuration_choosableCapabilities` | The capabilities of the number | `InboundCalling`, `OutboundCalling`, or `Mobile` |
-            | `serviceDetails_teamsPhoneMobile_configuration_additionalUsages` | Additional usages for the number | `CallingUserAssignment`, `FirstPartyAppAssignment`, or `ConferenceAssignment` |
-            | `serviceDetails_teamsPhoneMobile_configuration_civicAddressId` | The ID of the civic address used as the emergency address | An existing ID |
-            | `serviceDetails_teamsPhoneMobile_configuration_locationId` | The ID of a location associated with the civic address | An existing ID |
-            | `serviceDetails_teamsPhoneMobile_configuration_allowTenantAddressUpdate` | Whether the enterprise can update the civic address | `true` or `false` |
-            | `serviceDetails_teamsPhoneMobile_configuration_displayedCountryCode` | The country code to display for the number. Required if you're uploading a North American Toll-Free number, otherwise optional. | A valid country code |
-
-    1. Select **Create numbers**.
-    1. Select **File Upload**.
-    1. Select the `.csv` file that you prepared.
-    1. Select **Upload**.
-
-    ---
-
 1. To change or remove existing numbers:
     1. Select the checkbox next to the number you want to change or remove.
     1. Select **Edit number** or **Delete numbers** as appropriate.
