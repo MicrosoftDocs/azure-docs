@@ -221,9 +221,6 @@
       href: network-watcher-nsg-auditing-powershell.md
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
-  - name: Monitor network performance
-    href: /previous-versions/azure/azure-monitor/insights/network-performance-monitor
-    maintainContext: true
 - name: Reference
   items:
   - name: Azure CLI
