@@ -150,16 +150,8 @@ items:
         href: how-to/develop/vscode.md
       - name: Start with an AI template
         href: how-to/develop/ai-template-get-started.md
-      - name: What is prompt flow?
-        href: how-to/develop/prompt-flow-sdk.md
-      - name: Defining a flow
-        href: how-to/develop/flow-define-sdk.md
       - name: Trace your application with prompt flow
         href: how-to/develop/trace-local-sdk.md
-      - name: Test your app with the prompt flow test bed
-        href: how-to/develop/prompt-flow-test-bed.md
-      - name: Develop and test prompts with Prompty
-        href: how-to/develop/prompty-get-started.md
   - name: Evaluate generative AI apps
     items:
     - name: Evaluations concepts
@@ -190,9 +182,6 @@ items:
     items:
     - name: Deploy a flow for real-time inference
       href: how-to/flow-deploy.md
-      displayName: endpoint
-    - name: Deploy a flow with the AzureML SDK
-      href: how-to/develop/flow-deploy-sdk.md
       displayName: endpoint
     - name: Enable tracing and collect feedback for a flow deployment
       href: how-to/develop/trace-production-sdk.md
