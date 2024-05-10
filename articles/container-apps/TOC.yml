@@ -164,14 +164,15 @@
   items:
   - name: Overview
     href: certificates-overview.md
-  - name: Set up custom domain with a free certificate
+  - name: Custom domain with a free certificate
     href: custom-domains-managed-certificates.md
     displayName: Set up custom domain with a managed certificate
   - name: Set up custom domain with existing certificate
     href: custom-domains-certificates.md
   - name: Set up environment custom DNS suffix
     href: environment-custom-dns-suffix.md
-
+  - name: Certificates from Key Vault
+    href: key-vault-certificates-manage.md
 - name: Authentication
   items:
     - name: Overview
@@ -322,10 +323,16 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Metrics
+        href: java-metrics.md
+        displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
+        displayName: java
+      - name: Set dynamic logger level
+        href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
@@ -333,6 +340,9 @@
             href: java-eureka-server.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
+            displayName: java
+          - name: Query managed component logs
+            href: java-component-logs.md
             displayName: java
 - name: Billing & quotas
   items:
