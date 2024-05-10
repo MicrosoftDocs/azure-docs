@@ -21,62 +21,6 @@ Pronunciation assessment uses the speech to text capability to provide subjectiv
 
 This article describes how to use the pronunciation assessment tool without writing any code through the [AI Studio](https://ai.azure.com/explore/aiservices/speech/pronunciationassessment). For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
-In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation assessment feature in the AI Studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
-
-:::image type="content" source="media/pronunciation-assessment/speaking-score.png" alt-text="Screenshot of overall pronunciation score and overall content score in AI Studio.":::
-
-At the bottom of the Assessment result, two overall scores are displayed: Pronunciation score and Content score. In the Reading tab, you find the Pronunciation score displayed. In the Speaking tab, both the Pronunciation score and the Content score are displayed.
-
-**Pronunciation score**: This score represents an aggregated assessment of the pronunciation quality and includes four subaspects. These scores are available in both the reading and speaking tabs for both scripted and unscripted assessments.
-- **Accuracy score**: Evaluates the correctness of pronunciation.
-- **Fluency score**: Measures the level of smoothness and naturalness in speech.
-- **Completeness score**: Reflects the number of words pronounced correctly.
-- **Prosody score**: Assesses the use of appropriate intonation, rhythm, and stress. Several more error types related to prosody assessment are introduced, such as Unexpected break, Missing break, and Monotone. These error types provide more detailed information about pronunciation errors compared to the previous engine.
-
-**Content score**: This score provides an aggregated assessment of the content of the speech and includes three subaspects. This score is only available in the speaking tab for an unscripted assessment.
-
-- **Vocabulary score**: Evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, and the level of lexical complexity.
-- **Grammar score**: Evaluates the correctness of grammar usage and variety of sentence patterns. It considers lexical accuracy, grammatical accuracy, and diversity of sentence structures, providing a more comprehensive evaluation of language proficiency.
-- **Topic score**: Assesses the level of understanding and engagement with the topic discussed in the speech. It evaluates the speaker's ability to effectively express thoughts and ideas related to the given topic.
-
-These overall scores offer a comprehensive assessment of both pronunciation and content, providing learners with valuable feedback on various aspects of their speech performance and understanding. With these enhanced features, language learners can gain deeper insights into their advantages and areas for improvement in both pronunciation and content expression.
-
-> [!NOTE]
-> Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
-
-## Pricing
-
-As a baseline, usage of pronunciation assessment costs the same as speech to text for pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
-
-The pronunciation assessment feature also offers other scores that aren't included in the baseline speech to text price: prosody, grammar, topic, and vocabulary. These scores are available as an add-on charge above the baseline speech to text price. For information about pricing, see [speech to text pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
-
-Here's a table of available pronunciation assessment scores, whether it's available in the [scripted](#conduct-a-scripted-assessment) or [unscripted](#conduct-an-unscripted-assessment) assessments, and whether it's included in the baseline speech to text price or the add-on price.
-
-| Score | Scripted or unscripted | Included in baseline speech to text price? |
-| --- | --- | --- |
-| Accuracy | Scripted and unscripted | Yes |
-| Fluency | Scripted and unscripted | Yes |
-| Completeness | Scripted | Yes |
-| Miscue | Scripted and unscripted | Yes |
-| Prosody | Scripted and unscripted | No |
-| Grammar | Unscripted only | No |
-| Topic | Unscripted only | No |
-| Vocabulary | Unscripted only | No |
-
-## Try out pronunciation assessment
-
-You can explore and try out pronunciation assessment even without signing in. 
-
-> [!TIP]
-> To assess more than 5 seconds of speech with your own script, sign in with an [Azure account](https://azure.microsoft.com/free/cognitive-services) and use your <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech resource</a>.
-
-## Granularity of pronunciation assessment
-
-Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
-- At the full-text level, pronunciation assessment offers additional Fluency, Completeness, and Prosody scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words; Completeness indicates how many words are pronounced in the speech to the reference text input; Prosody indicates how well a speaker conveys elements of naturalness, expressiveness, and overall prosody in their speech. An overall score aggregated from Accuracy, Fluency, Completeness, and Prosody is then given to indicate the overall pronunciation quality of the given speech. Pronunciation assessment also offers content score (Vocabulary, Grammar, and Topic) at the full-text level.
-- At the word level, pronunciation assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
-- Syllable-level accuracy scores are currently available via the [JSON file](?tabs=json#pronunciation-assessment-results) or [Speech SDK](how-to-pronunciation-assessment.md).
-- At the phoneme level, pronunciation assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
 
 ## Reading and speaking scenarios
 
@@ -288,6 +232,37 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 
 ---
 
+## Granularity of pronunciation assessment
+
+Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
+- At the full-text level, pronunciation assessment offers additional Fluency, Completeness, and Prosody scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words; Completeness indicates how many words are pronounced in the speech to the reference text input; Prosody indicates how well a speaker conveys elements of naturalness, expressiveness, and overall prosody in their speech. An overall score aggregated from Accuracy, Fluency, Completeness, and Prosody is then given to indicate the overall pronunciation quality of the given speech. Pronunciation assessment also offers content score (Vocabulary, Grammar, and Topic) at the full-text level.
+- At the word level, pronunciation assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
+- Syllable-level accuracy scores are currently available via the [JSON file](?tabs=json#pronunciation-assessment-results) or [Speech SDK](how-to-pronunciation-assessment.md).
+- At the phoneme level, pronunciation assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
+
+In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation assessment feature in the AI Studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
+
+:::image type="content" source="media/pronunciation-assessment/speaking-score.png" alt-text="Screenshot of overall pronunciation score and overall content score in AI Studio.":::
+
+At the bottom of the Assessment result, two overall scores are displayed: Pronunciation score and Content score. In the Reading tab, you find the Pronunciation score displayed. In the Speaking tab, both the Pronunciation score and the Content score are displayed.
+
+**Pronunciation score**: This score represents an aggregated assessment of the pronunciation quality and includes four subaspects. These scores are available in both the reading and speaking tabs for both scripted and unscripted assessments.
+- **Accuracy score**: Evaluates the correctness of pronunciation.
+- **Fluency score**: Measures the level of smoothness and naturalness in speech.
+- **Completeness score**: Reflects the number of words pronounced correctly.
+- **Prosody score**: Assesses the use of appropriate intonation, rhythm, and stress. Several more error types related to prosody assessment are introduced, such as Unexpected break, Missing break, and Monotone. These error types provide more detailed information about pronunciation errors compared to the previous engine.
+
+**Content score**: This score provides an aggregated assessment of the content of the speech and includes three subaspects. This score is only available in the speaking tab for an unscripted assessment.
+
+- **Vocabulary score**: Evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, and the level of lexical complexity.
+- **Grammar score**: Evaluates the correctness of grammar usage and variety of sentence patterns. It considers lexical accuracy, grammatical accuracy, and diversity of sentence structures, providing a more comprehensive evaluation of language proficiency.
+- **Topic score**: Assesses the level of understanding and engagement with the topic discussed in the speech. It evaluates the speaker's ability to effectively express thoughts and ideas related to the given topic.
+
+These overall scores offer a comprehensive assessment of both pronunciation and content, providing learners with valuable feedback on various aspects of their speech performance and understanding. With these enhanced features, language learners can gain deeper insights into their advantages and areas for improvement in both pronunciation and content expression.
+
+> [!NOTE]
+> Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
+
 ## Assessment scores in streaming mode
 
 Pronunciation assessment supports uninterrupted streaming mode. The AI Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you don't press the stop recording button, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
@@ -313,6 +288,25 @@ During recording a long paragraph, you can pause recording at any time. You can 
 After you press the stop button, you can see **Pronunciation score**, **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score** at the bottom.
 
 :::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording." lightbox="media/pronunciation-assessment/pa-after-recording-display-score.png":::
+
+## Pricing
+
+As a baseline, usage of pronunciation assessment costs the same as speech to text for pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
+
+The pronunciation assessment feature also offers other scores that aren't included in the baseline speech to text price: prosody, grammar, topic, and vocabulary. These scores are available as an add-on charge above the baseline speech to text price. For information about pricing, see [speech to text pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+
+Here's a table of available pronunciation assessment scores, whether it's available in the [scripted](#conduct-a-scripted-assessment) or [unscripted](#conduct-an-unscripted-assessment) assessments, and whether it's included in the baseline speech to text price or the add-on price.
+
+| Score | Scripted or unscripted | Included in baseline speech to text price? |
+| --- | --- | --- |
+| Accuracy | Scripted and unscripted | Yes |
+| Fluency | Scripted and unscripted | Yes |
+| Completeness | Scripted | Yes |
+| Miscue | Scripted and unscripted | Yes |
+| Prosody | Scripted and unscripted | No |
+| Grammar | Unscripted only | No |
+| Topic | Unscripted only | No |
+| Vocabulary | Unscripted only | No |
 
 ## Responsible AI 
 
