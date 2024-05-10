@@ -3,7 +3,6 @@ title: Log Analytics data model for Azure Site Recovery
 description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Backup data.
 ms.topic: how-to
 ms.service: site-recovery
-ms.topic: conceptual
 ms.date: 05/10/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFTk
