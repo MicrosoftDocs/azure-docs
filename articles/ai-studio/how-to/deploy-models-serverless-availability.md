@@ -30,8 +30,8 @@ Serverless API endpoints are available in the following regions for the indicate
 | Cohere Command R  | **&check;** |                | **&check;**    |                |
 | Cohere Command R+ | **&check;** |                | **&check;**    |                |
 | Cohere Embed v3   | **&check;** |                | **&check;**    |                |
-| Llama2            | **&check;** | **&check;**    | **&check;**    |                |
-| Llama3            | **&check;** |                |                |                |
+| Meta Llama 2      | **&check;** | **&check;**    | **&check;**    |                |
+| Meta Llama 3      | **&check;** |                |                |                |
 | Phi-3             | **&check;** |                | **&check;**    |                |
 
 ## Alternatives to region availability
