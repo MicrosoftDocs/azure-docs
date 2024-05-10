@@ -32,7 +32,9 @@ items:
   - name: Select and deploy AI models
     items:
     - name: Model catalog
-      href: how-to/model-catalog.md
+      href: how-to/model-catalog-overview.md
+    - name: Data, privacy, and security for Model Catalog
+      href: how-to/concept-data-privacy.md
     - name: Model benchmarks
       href: how-to/model-benchmarks.md
     - name: Deployments overview

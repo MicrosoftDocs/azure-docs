@@ -65,7 +65,7 @@ Azure AI resource is renamed hub. For additional information about the hub, chec
 
 ### Benchmarks
 
-New models, datasets, and metrics are released for benchmarks. For additional information about the benchmarks experience, check out [the model catalog documentation](./how-to/model-catalog.md).
+New models, datasets, and metrics are released for benchmarks. For additional information about the benchmarks experience, check out [the model catalog documentation](./how-to/model-catalog-overview.md).
 
 Added models:
 - `microsoft-phi-2`
@@ -94,7 +94,7 @@ Added metrics:
 
 ### Benchmarks
 
-Benchmarks are released as public preview in Azure AI Studio. For additional information about the Benchmarks experience, check out [the model catalog documentation](./how-to/model-catalog.md).
+Benchmarks are released as public preview in Azure AI Studio. For additional information about the Benchmarks experience, check out  [Model benchmarks](how-to/model-benchmarks.md).
 
 Added models:
 - `gpt-35-turbo-0301`
