@@ -70,7 +70,7 @@ To change or remove existing numbers:
 
 1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
 1. Select the checkbox next to the customer's **Account name** and select **View numbers**.
-1. Select the checkbox next to the number you want to change or remove and select **Edit number** or **Delete numbers**.
+1. Select the checkbox next to the number you want to change or remove and select **Manage number** or **Delete numbers**.
 
 # [Provisioning API (preview)](#tab/provisioning-api)
 

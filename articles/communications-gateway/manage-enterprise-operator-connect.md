@@ -99,7 +99,7 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
     1. Select **Create**.
 1. To change or remove existing numbers:
     1. Select the checkbox next to the number you want to change or remove.
-    1. Select **Edit number** or **Delete numbers** as appropriate.
+    1. Select **Manage number** or **Delete numbers** as appropriate.
 
 ## View civic addresses for an enterprise
 
