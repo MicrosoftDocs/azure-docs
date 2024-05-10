@@ -44,6 +44,8 @@ items:
     - name: Consume serverless API models from a different project or hub
       href: how-to/deploy-models-serverless-connect.md
       displayName: maas, paygo, models-as-a-service
+    - name: Region availability for models in Serverless API endpoints
+      href: how-to/deploy-models-serverless-availability.md
     - name: Deploy Azure OpenAI models
       href: how-to/deploy-models-openai.md
     - name: Deploy Cohere models
