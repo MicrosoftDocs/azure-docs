@@ -32,9 +32,9 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D96pds_v6 | 96 | 384 |
 
 #### VM Basics resources
-- [What are vCPUs (Qty.)](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview)
-- [Check vCPU quotas](https://learn.microsoft.com/azure/virtual-machines/quotas)
-- [Introduction to Azure compute units (ACUs)](https://learn.microsoft.com/azure/virtual-machines/acu)
+- [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview)
+- [Check vCPU quotas](../../../virtual-machines/quotas.md)
+- [Introduction to Azure compute units (ACUs)](../../../virtual-machines/acu.md)
 
 ### [Local Storage](#tab/sizestoragelocal)
 
@@ -52,15 +52,15 @@ Local (temp) storage info for each size
 | Standard_D96pds_v6 | 6 | 880 | 720000 | 4320 | 1800000 | 8640 |
 
 #### Storage resources
-- [Introduction to Azure managed disks](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
-- [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
-- [Share an Azure managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared)
+- [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
+- [Azure managed disk types](../../../virtual-machines/disks-types.md)
+- [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly (R-O) or ReadWrite (R-W). For uncached data disk operation, the host cache mode is set to None.
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance).
+- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance).
 
 ### [Remote Storage](#tab/sizestorageremote)
 
@@ -82,15 +82,15 @@ Special storage = Ultra Disk or Premium SSD v2.
 
 
 #### Storage resources
-- [Introduction to Azure managed disks](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
-- [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
-- [Share an Azure managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared)
+- [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
+- [Azure managed disk types](../../../virtual-machines/disks-types.md)
+- [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance).
+- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance).
 
 ### [Network](#tab/sizenetwork)
 
@@ -108,13 +108,13 @@ Network interface info for each size
 | Standard_D96pds_v6 | 8 | 60000 |
 
 #### Networking resources
-- [Virtual networks and virtual machines in Azure](https://learn.microsoft.com/azure/virtual-network/network-overview)
-- [Virtual machine network bandwidth](https://learn.microsoft.com/azure/virtual-network/virtual-machine-network-throughput)
+- [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)
+- [Virtual machine network bandwidth](../../../virtual-network/virtual-machine-network-throughput.md)
 
 #### Table definitions
-- Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](https://learn.microsoft.com/azure/virtual-network/virtual-machine-network-throughput)
-- Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](https://learn.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth). 
--  To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](https://learn.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+- Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../../../virtual-network/virtual-machine-network-throughput.md)
+- Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](../../../virtual-network/virtual-network-optimize-network-bandwidth.md). 
+-  To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](../../../virtual-network/virtual-network-bandwidth-testing.md).
 
 ### [Accelerators](#tab/sizeaccelerators)
 
@@ -139,6 +139,6 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 - Nested Virtualization: Not Supported
 
 ## Next Steps
-- Learn more about how [Azure compute units (ACU)](https://learn.microsoft.com/azure/virtual-machines/acu) can help you compare compute performance across Azure SKUs.
-- Check out [Azure Dedicated Hosts](https://learn.microsoft.com/azure/virtual-machines/dedicated-hosts) for physical servers able to host one or more virtual machines assigned to one Azure subscription.
-- Learn how to [Monitor Azure virtual machines](https://learn.microsoft.comazure/virtual-machines/monitor-vm)
+- Learn more about how [Azure compute units (ACU)](../../../virtual-machines/acu.md) can help you compare compute performance across Azure SKUs.
+- Check out [Azure Dedicated Hosts](../../../virtual-machines/dedicated-hosts.md) for physical servers able to host one or more virtual machines assigned to one Azure subscription.
+- Learn how to [Monitor Azure virtual machines](../../../virtual-machines/monitor-vm.md)
