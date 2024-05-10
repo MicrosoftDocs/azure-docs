@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: antchu
+ms.custom: references_regions
 ---
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)
