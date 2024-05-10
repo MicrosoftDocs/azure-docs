@@ -7,7 +7,7 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 05/09/2024
 ms.author: tomcassidy
-ms.reviewer: tomcassidy
+ms.reviewer: mattmcinnes
 ---
 
 # Dpsv6 sizes series

@@ -7,7 +7,7 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 05/09/2024
 ms.author: tomcassidy
-ms.reviewer: tomcassidy
+ms.reviewer: mattmcinnes
 ---
 
 # Dpdsv6 sizes series
@@ -24,7 +24,7 @@ vCPUs (Qty.) and Memory for each size
 | --- | --- | --- |
 | Standard_D2pds_v6 | 2 | 8 |
 | Standard_D4pds_v6 | 4 | 16 |
-| Standard_D8pds_v6 | 8 | 332 |
+| Standard_D8pds_v6 | 8 | 32 |
 | Standard_D16pds_v6 | 16 | 64 |
 | Standard_D32pds_v6 | 32 | 128 |
 | Standard_D48pds_v6 | 48 | 192 |
@@ -36,20 +36,50 @@ vCPUs (Qty.) and Memory for each size
 - [Check vCPU quotas](https://learn.microsoft.com/azure/virtual-machines/quotas)
 - [Introduction to Azure compute units (ACUs)](https://learn.microsoft.com/azure/virtual-machines/acu)
 
-### [Storage](#tab/sizestorage)
+### [Local Storage](#tab/sizestoragelocal)
 
-Data disks and Temp storage info for each size
+Local (temp) storage info for each size
 
-| Size Name | Temp-Read-Only-Storage-IOPS | Temp-Read-Only-Storage-Speed-MBps | Temp-Read-Write-Storage-IOPS | Temp-Read-Write-Storage-Speed-MBps | Uncached-Max IOPS | Uncached-Disk Speed (MBps) | Temp Storage Size (GB) | Uncached-Burst-Max IOPS | Uncached-Burst-Disk Speed (MBps) | Uncached-Ultra-Disk-and-Premium-SSD-V2-Storage-IOPS | Uncached-Ultra-Disk-and-Premium-SSD-V2-Storage-Speed-MBps | Uncached-Burst-Ultra-Disk-and-Premium-SSD-V2-Storage-IOPS | Uncached-Burst-Ultra-Disk-and-Premium-SSD-V2-Storage-Speed-MBps |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D2pds_v6 | 37500 | 180 | 15000 | 90 | 3750 | 106 | 1 x 110 | 10000 | 1250 | 4163 | 124 | 11110 | 1463 |
-| Standard_D4pds_v6 | 75000 | 360 | 30000 | 180 | 3400 | 212 | 1 x 220 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
-| Standard_D8pds_v6 | 150000 | 720 | 60000 | 360 | 12800 | 424 | 1 x 440 | 20000 | 1250 | 16666 | 496 | 26040 | 1463 |
-| Standard_D16pds_v6 | 300000 | 1440 | 120000 | 720 | 25600 | 848 | 2 x 440 | 40000 | 1250 | 33331 | 992 | 52080 | 1463 |
-| Standard_D32pds_v6 | 600000 | 2880 | 240000 | 1440 | 51200 | 1696 | 4 x 440 | 80000 | 2000 | 66662 | 1984 | 104160 | 2340 |
-| Standard_D48pds_v6 | 900000 | 4320 | 360000 | 2160 | 76800 | 2544 | 6 x 440 | 80000 | 3000 | 99994 | 2976 | 104160 | 3510 |
-| Standard_D64pds_v6 | 1200000 | 5760 | 480000 | 2880 | 102400 | 3392 | 4 x 880 | 102400 | 3392 | 133325 | 3969 | 133325 | 4680 |
-| Standard_D96pds_v6 | 1800000 | 8640 | 720000 | 4320 | 153600 | 5000 | 6 x 880 | 153600 | 5000 | 199987 | 5850 | 199987 | 5953 |
+| Size Name | Max Temp Storage (Qty.) | Temp Storage Size (GiB) | Temp ReadWrite Storage IOPS | Temp ReadWrite Storage Speed (MBps) | Temp ReadOnly Storage IOPS | Temp ReadOnly Storage Speed (MBps) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D2pds_v6 | 1 | 110 | 15000 | 90 | 37500 | 180 |
+| Standard_D4pds_v6 | 1 | 220 | 30000 | 180 | 75000 | 360 |
+| Standard_D8pds_v6 | 1 | 440 | 60000 | 360 | 150000 | 720 |
+| Standard_D16pds_v6 | 2 | 440 | 120000 | 720 | 300000 | 1440 |
+| Standard_D32pds_v6 | 4 | 440 | 240000 | 1440 | 600000 | 2880 |
+| Standard_D48pds_v6 | 6 | 440 | 360000 | 2160 | 900000 | 4320 |
+| Standard_D64pds_v6 | 4 | 880 | 480000 | 2880 | 1200000 | 5760 |
+| Standard_D96pds_v6 | 6 | 880 | 720000 | 4320 | 1800000 | 8640 |
+
+#### Storage resources
+- [Introduction to Azure managed disks](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
+- [Share an Azure managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared)
+
+#### Table definitions
+- Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
+- Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+- Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly (R-O) or ReadWrite (R-W). For uncached data disk operation, the host cache mode is set to None.
+- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance).
+
+### [Remote Storage](#tab/sizestorageremote)
+
+Remote (uncached) storage info for each size
+
+Table definitions:
+Special storage = Ultra Disk or Premium SSD v2.
+
+| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst IOPS | Uncached Storage Burst Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_D2pds_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11110 | 1463 |
+| Standard_D4pds_v6 | 12 | 3400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
+| Standard_D8pds_v6 | 24 | 12800 | 424 | 20000 | 1250 | 16666 | 496 | 26040 | 1463 |
+| Standard_D16pds_v6 | 48 | 25600 | 848 | 40000 | 1250 | 33331 | 992 | 52080 | 1463 |
+| Standard_D32pds_v6 | 64 | 51200 | 1696 | 80000 | 2000 | 66662 | 1984 | 104160 | 2340 |
+| Standard_D48pds_v6 | 64 | 76800 | 2544 | 80000 | 3000 | 99994 | 2976 | 104160 | 3510 |
+| Standard_D64pds_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133325 | 3969 | 133325 | 4680 |
+| Standard_D96pds_v6 | 64 | 153600 | 5000 | 153600 | 5000 | 199987 | 5850 | 199987 | 5953 |
+
 
 #### Storage resources
 - [Introduction to Azure managed disks](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
@@ -90,16 +120,8 @@ Network interface info for each size
 
 Accelerator (GPUs, FPGAs, etc.) info for each size
 
-| Size Name | vCPUs (Qty.) | Memory (GB) |
-| --- | --- | --- |
-| Standard_D2pds_v6 | 2 | 8 |
-| Standard_D4pds_v6 | 4 | 16 |
-| Standard_D8pds_v6 | 8 | 332 |
-| Standard_D16pds_v6 | 16 | 64 |
-| Standard_D32pds_v6 | 32 | 128 |
-| Standard_D48pds_v6 | 48 | 192 |
-| Standard_D64pds_v6 | 64 | 256 |
-| Standard_D96pds_v6 | 96 | 384 |
+> [!NOTE]
+> No accelerators are present in this series.
 
 ---
 
