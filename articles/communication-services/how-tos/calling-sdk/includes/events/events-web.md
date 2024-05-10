@@ -1,23 +1,25 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 05/09/2024
+ms.author: micahvivion
 ---
-## Events on the Azure Communication Calling SDK
+# Events on the Azure Communication Calling SDK
 
 This guide describes the various events or properties changes your app can subscribe to. Subscribing to those events allows your app to be informed about state change in the calling SDK and react accordingly.
+
+Tracking events is crucial because it enables your application's state to stay synchronized with the ACSCalling framework's state, all without requiring you to implement a pull mechanism on the SDK objects.
 
 This guide assumes you went through the QuickStart or that you implemented an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 Each object in the JavaScript calling SDK has `properties` and `collections`. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
 
-### Properties
+## Properties
 You can subscribe to the `'<property>Changed'` event to listen to value changes on the property.
 
-#### Example of subscription on a property
+### Example of subscription on a property
 In this example, we subscribe to changes in the value of the `isLocalVideoStarted` property.
 
 ```javascript
@@ -27,13 +29,13 @@ call.on('isLocalVideoStartedChanged', () => {
 });
 ```
 
-### Collections
+## Collections
 You can subscribe to the '\<collection>Updated' event to receive notifications about changes in an object collection. The '\<collection>Updated' event is triggered whenever elements are added to or removed from the collection you're monitoring.
 
 - The `'<collection>Updated'` event's payload, has an `added` array that contains values that were added to the collection.
 - The `'<collection>Updated'` event's payload also has a `removed` array that contains values that were removed from the collection.
 
-#### Example subscription on a collection
+### Example subscription on a collection
 
 In this example, we subscribe to changes in values of the Call object `LocalVideoStream`.
 
@@ -49,9 +51,10 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 ```
 
 <!---------- CallAgent  object ---------->
-### Events on the `CallAgent` object
+## Events on the `CallAgent` object
 
-#### Event Name: `incomingCall`
+### Event Name: `incomingCall`
+
 The `incomingCall` event fires when a call is coming.
 
 **How should your application react to the event?**
@@ -73,14 +76,14 @@ callClient.on('incomingCall', (async (incomimgCallEvent) => {
 });
 ```
 
-#### Event Name: `callsUpdated`
+### Event Name: `callsUpdated`
 
 The `callsUpdated` updated event is fired when a call is removed or added to the call agent. This event happens when the user makes, receives, or terminate call.
 
 **How should your application react to the event?**
 Your application should update its UI based on the number of active calls for the CallAgent instance.
 
-#### Event Name: `connectionStateChanged`
+### Event Name: `connectionStateChanged`
 
 The `connectionStateChanged` event fired when the state of the `CallAgent` is updated.
 
@@ -105,9 +108,9 @@ callClient.on('connectionStateChanged', (async (connectionStateChangedEvent) => 
 ```
 
 <!---------- Call object ---------->
-### Events on the `Call` object
+## Events on the `Call` object
 
-#### Event Name: `stateChanged`
+### Event Name: `stateChanged`
 
 The `stateChanged`  event is fired when the call state changes. For example, when a call goes from `connected` to `disconnected`.
 
@@ -133,7 +136,7 @@ call.on('stateChanged', (async (connectionStateChangedEvent) => {
 });
 ```
 
-#### Event: `idChanged`
+### Event: `idChanged`
 
 The `idChanged`  event is fired when the ID of a call changes. The ID of a call changes when the call moves from `connecting` state to `connected`. Once the call is connected, the ID of the call remains identical.
 
@@ -150,7 +153,7 @@ call.on('idChanged', (async (callIdChangedEvent) => {
 });
 ```
 
-#### Event: `isMutedChanged`
+### Event: `isMutedChanged`
 
 The `isMutedChanged` event is fired when the call is muted or unmuted.
 
@@ -166,7 +169,7 @@ call.on('isMutedChanged', (async (isMutedChangedEvent) => {
 });
 ```
 
-#### Event: `isScreenSharingOnChanged`
+### Event: `isScreenSharingOnChanged`
 
 The `isScreenSharingOnChanged` event is fired when screen sharing for the local user is enabled or disabled.
 
@@ -191,7 +194,7 @@ call.on('isScreenSharingOnChanged', () => {
 });
 ```
 
-#### Event: `isLocalVideoStartedChanged`
+### Event: `isLocalVideoStartedChanged`
 
 The `isLocalVideoStartedChanged` event is fired when the user enabled our disabled its local video.
 
@@ -207,7 +210,7 @@ call.on('isLocalVideoStartedChanged', () => {
 });
 ```
 
-#### Event: `remoteParticipantsUpdated`
+### Event: `remoteParticipantsUpdated`
 
 Your application should subscribe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
 
@@ -234,7 +237,7 @@ call.on('remoteParticipantsUpdated', (remoteParticipantsUpdatedEvent) => {
 });
 ```
 
-#### Event: `localVideoStreamsUpdated`
+### Event: `localVideoStreamsUpdated`
 
 The `localVideoStreamsUpdated` event is fired when the list of local video stream changes. These changes happen when the user starts or remove a video stream.
 
@@ -258,7 +261,7 @@ call.on('localVideoStreamsUpdated', (localVideoStreamUpdatedEvent) => {
 });
 ```
 
-#### Event: `remoteAudioStreamsUpdated`
+### Event: `remoteAudioStreamsUpdated`
 
 The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote participants add or remove audio streams to the call.
 
@@ -267,7 +270,7 @@ The `remoteAudioStreamsUpdated` event is fired when the list of remote audio str
 If a stream was being processed and is now removed, the processing should be stopped. On the other hand, if a stream is added then the event reception is a good place to start the processing of the new audio stream.
 
 
-#### Event: `totalParticipantCountChanged`
+### Event: `totalParticipantCountChanged`
 
 The `totalParticipantCountChanged` fires when the number of totalParticipant changed in a call.
 
@@ -285,7 +288,7 @@ call.on('totalParticipantCountChanged', () => {
 
 </details>
 
-#### Event: `roleChanged`
+### Event: `roleChanged`
 
 The `roleChanged` participant fires when the localParticipant roles changes in the call. An example would be when the local participant become presenter `ACSCallParticipantRolePresenter` in a call.
 
@@ -317,9 +320,9 @@ call.on('mutedByOthers', () => {
 ```
 
 <!---- RemoteParticipant  ---->
-### Events on the `RemoteParticipant` object
+## Events on the `RemoteParticipant` object
 
-#### Event: `roleChanged`
+### Event: `roleChanged`
 
 The `roleChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
 
@@ -334,7 +337,7 @@ remoteParticipant.on('roleChanged', () => {
 });
 ```
 
-#### Event: `isMutedChanged`
+### Event: `isMutedChanged`
 
 The `isMutedChanged` event fires when one of the `RemoteParticipant` mutes or unmute its microphone.
 
@@ -350,7 +353,7 @@ remoteParticipant.on('isMutedChanged', () => {
 });
 ```
 
-#### Event: `displayNameChanged`
+### Event: `displayNameChanged`
 
 The `displayNameChanged` when the name of the `RemoteParticipant` is updated.
 
@@ -366,7 +369,7 @@ remoteParticipant.on('displayNameChanged', () => {
 });
 ```
 
-#### Event: `isSpeakingChanged`
+### Event: `isSpeakingChanged`
 
 The `isSpeakingChanged` when the dominant speaker in a call changes.
 
@@ -382,7 +385,7 @@ remoteParticipant.on('isSpeakingChanged', () => {
 });
 ```
 
-#### Event: `videoStreamsUpdated`
+### Event: `videoStreamsUpdated`
 
 The `videoStreamsUpdated` when a remote participant adds or removes a VideoStream to/from the call.
 
@@ -409,9 +412,9 @@ remoteParticipant.on('videoStreamsUpdated', (videoStreamsUpdatedEvent) => {
 
 <!-- AudioEffectsFeature -->
 
-### Event on the `AudioEffectsFeature` object
+## Event on the `AudioEffectsFeature` object
 
-#### Event: `effectsStarted`
+### Event: `effectsStarted`
 
 This event occurs when the audio effect selected is applied to the audio stream.
 
@@ -427,7 +430,7 @@ audioEffectsFeature.on('effectsStarted', (effects) => {
 });
 ```
 
-#### Event: `effectsStopped`
+### Event: `effectsStopped`
 
 This event occurs when the audio effect selected is applied to the audio stream.
 
@@ -443,7 +446,7 @@ audioEffectsFeature.on('effectsStopped', (effects) => {
 });
 ```
 
-#### Event: `effectsError`
+### Event: `effectsError`
 
 This event occurs when an error happens while an audio effect is started or applied.
 
