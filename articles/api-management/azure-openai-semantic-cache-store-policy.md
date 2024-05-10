@@ -6,15 +6,15 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/09/2024
+ms.date: 05/10/2024
 ms.author: danlep
 ---
 
 # Cache responses to Azure OpenAI API requests
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2](../../includes/api-management-availability-basicv2-standardv2.md)]
 
-The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI chat completion API and completion API requests according to the specified cache configuration. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI chat completion API and completion API requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > * This policy must have a corresponding [Get cached responses to Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) policy. 
@@ -40,19 +40,18 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) v2
 
 ### Usage notes
 
 - This policy can only be used once in a policy section.
-- If the cache lookup fails, the API call that uses the cache related operation doesn't raise an error, and the cache operation completes successfully. 
+- If the cache lookup fails, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. 
 
 ## Examples
 
 ### Example with corresponding azure-openai-semantic-cache-lookup policy
 
 [!INCLUDE [api-management-semantic-cache-example](../../includes/api-management-semantic-cache-example.md)]
-
 
 ## Related policies
 
