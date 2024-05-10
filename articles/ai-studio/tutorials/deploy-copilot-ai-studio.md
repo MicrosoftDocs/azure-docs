@@ -101,6 +101,9 @@ To facilitate node configuration and fine-tuning, a visual representation of the
 
    :::image type="content" source="../media/tutorials/chat/prompt-flow-overview-graph.png" alt-text="Screenshot of the default graph exported from the playground to prompt flow." lightbox="../media/tutorials/chat/prompt-flow-overview-graph.png":::
 
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
+
 Nodes can be added, updated, rearranged, or removed. The nodes in your flow at this point include:
 - **DetermineIntent**: This node determines the intent of the user's query. It uses the system prompt to determine the intent. You can edit the system prompt to provide scenario-specific few-shot examples.
 - **ExtractIntent**: This node formats the output of the **DetermineIntent** node and sends it to the **RetrieveDocuments** node.
@@ -175,6 +178,9 @@ For more information on how to create an index, see [Create an index](../how-to/
 
 ### Add customer information to the flow
 
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
+
 After you're done creating your index, return to your prompt flow and follow these steps to add the customer info to the flow:
 
 1. Select the **RetrieveDocuments** node from the graph and rename it **RetrieveProductInfo**. Now the retrieve product info node can be distinguished from the retrieve customer info node that you add to the flow.
@@ -214,6 +220,9 @@ After you're done creating your index, return to your prompt flow and follow the
 1. Select **Save** from the top menu to save your changes.
 
 ### Format the retrieved documents to output
+
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
 
 Now that you have both the product and customer info in your prompt flow, you format the retrieved documents so that the large language model can use them.
 
