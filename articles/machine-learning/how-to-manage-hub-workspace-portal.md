@@ -108,7 +108,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
    | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
    | Container Registry | The Azure Container Registry for the workspace. By default, a new one isn't initially created for the workspace. Instead, creation of a Docker image during training or deployment additionally creates that Azure Container Registry for the workspace once you need it. |
 
-   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Screenshot shows where you configure your workspace.":::
 
 1. When you finish the workspace configuration, select **Review + Create**. Optionally, use the [Networking](#networking), [Encryption](#encryption), [Identity](#identity), and  [Tags](#tags) sections to configure more workspace settings.
 
