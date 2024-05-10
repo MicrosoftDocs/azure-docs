@@ -52,7 +52,7 @@ On this scenario, it's common to see errors like:
 
 *The requested partition key is out of key range, possibly because of loss of precision of partition key value*
 
-A response with this error is likely to be caused by an operation on a document with a numeric partition key whose value is outside what is supported by Azure Cosmos DB. Refer [Per-item limits](/azure/cosmos-db/concepts-limits#per-item-limits) for the maximum length of numeric property value.
+A response with this error is likely to be caused by an operation on a document with a numeric partition key whose value is outside what is supported by Azure Cosmos DB. See [Per-item limits](/azure/cosmos-db/concepts-limits#per-item-limits) for the maximum length of numeric property value.
 
 ### Solution
 Consider using type `string` for partition key if requiring precise numeric values.
