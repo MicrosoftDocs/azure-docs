@@ -652,7 +652,7 @@ items:
       - name: Manage disk space
         href: ./hadoop/troubleshoot-disk-space.md
       - name: Ambari user configs migration
-        href: ./hadoop/migrate-ambari-recent-version-hdinsight.md  
+        href: ./migrate-ambari-recent-version-hdinsight.md  
 - name: Apache Kafka
   items:
   - name: Overview
