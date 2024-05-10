@@ -38,8 +38,8 @@ When you set up Direct Routing for a customer, you need to configure Azure Commu
 
 This procedure provides detailed guidance equivalent to the following steps in the [Microsoft Teams documentation for configuring an SBC for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants).
 
-- Registering a subdomain name in the customer tenant.
-- Configuring derived trunks in the customer tenant (including failover).
+1. Registering a subdomain name in the customer tenant.
+1. Configuring derived trunks in the customer tenant (including failover).
 
 ### Choose a DNS subdomain label to use to identify the customer
 

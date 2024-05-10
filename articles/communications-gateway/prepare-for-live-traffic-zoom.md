@@ -66,8 +66,8 @@ The API allows you to indicate to Azure Communications Gateway which service you
 
 Use the Provisioning API for Azure Communications Gateway to:
 
-1. Provision an account to group the test numbers. Enable Zoom service for the account.
-1. Provision the details of the numbers you chose under the account. Enable each number for Zoom service.
+- Provision an account to group the test numbers. Enable Zoom service for the account.
+- Provision the details of the numbers you chose under the account. Enable each number for Zoom service.
 
 For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
 
