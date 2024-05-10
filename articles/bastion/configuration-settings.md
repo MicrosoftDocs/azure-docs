@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 04/30/2024
 ms.custom: references_regions
 ---
 
@@ -19,7 +19,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-### Developer SKU (Preview)
+### Developer SKU
 
 The Bastion Developer SKU is a new, lower-cost, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs and that don't need additional features or scaling. You can connect to one Azure VM at a time directly through the Virtual Machine connect page.
 
