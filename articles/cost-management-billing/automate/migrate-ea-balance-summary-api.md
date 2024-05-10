@@ -117,6 +117,6 @@ The same data is now available in the properties field of the new API response. 
 }
 ```
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs – Overview](migrate-ea-reporting-arm-apis-overview.md) article.
