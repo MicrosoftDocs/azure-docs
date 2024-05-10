@@ -1,7 +1,7 @@
 ---
-title: How to use pronunciation assessment in Speech Studio
+title: How to use pronunciation assessment in the studio
 titleSuffix: Azure AI services
-description: The pronunciation assessment tool in Speech Studio gives you feedback on the accuracy and fluency of your speech, no coding required.
+description: The pronunciation assessment tool in the studio gives you feedback on the accuracy and fluency of your speech, no coding required.
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
@@ -10,28 +10,28 @@ ms.date: 1/21/2024
 ms.author: v-baolianzou
 ---
 
-# Pronunciation assessment in Speech Studio
+# Pronunciation assessment in the studio
 
 Pronunciation assessment uses the Speech to text capability to provide subjective and objective feedback for language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take much time and effort and makes a high-quality assessment expensive for learners. Pronunciation assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
 
 > [!NOTE]
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
-This article describes how to use the pronunciation assessment tool without writing any code through the [Speech Studio](https://speech.microsoft.com). For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
+This article describes how to use the pronunciation assessment tool without writing any code through the [studio](https://ai.azure.com/explore/aiservices/speech/pronunciationassessment). For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
-In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation assessment feature in Speech Studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
+In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation assessment feature in the studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
 
- :::image type="content" source="media/pronunciation-assessment/speaking-score.png" alt-text="Screenshot of overall pronunciation score and overall content score on Speech Studio.":::
+:::image type="content" source="media/pronunciation-assessment/speaking-score.png" alt-text="Screenshot of overall pronunciation score and overall content score on the studio.":::
 
-At the bottom of the Assessment result, two overall scores are displayed: Pronunciation score and Content score. In the Reading tab, you find the Pronunciation Score displayed. In the Speaking tab, both the Pronunciation Score and the Content Score are displayed.
+At the bottom of the Assessment result, two overall scores are displayed: Pronunciation score and Content score. In the Reading tab, you find the Pronunciation score displayed. In the Speaking tab, both the Pronunciation score and the Content score are displayed.
 
-**Pronunciation Score**: This score represents an aggregated assessment of the pronunciation quality and includes four subaspects. These scores are available in both the reading and speaking tabs for both scripted and unscripted assessments.
+**Pronunciation score**: This score represents an aggregated assessment of the pronunciation quality and includes four subaspects. These scores are available in both the reading and speaking tabs for both scripted and unscripted assessments.
 - **Accuracy score**: Evaluates the correctness of pronunciation.
 - **Fluency score**: Measures the level of smoothness and naturalness in speech.
 - **Completeness score**: Reflects the number of words pronounced correctly.
 - **Prosody score**: Assesses the use of appropriate intonation, rhythm, and stress. Several more error types related to prosody assessment are introduced, such as Unexpected break, Missing break, and Monotone. These error types provide more detailed information about pronunciation errors compared to the previous engine.
 
-**Content Score**: This score provides an aggregated assessment of the content of the speech and includes three subaspects. This score is only available in the speaking tab for an unscripted assessment.
+**Content score**: This score provides an aggregated assessment of the content of the speech and includes three subaspects. This score is only available in the speaking tab for an unscripted assessment.
 
 - **Vocabulary score**: Evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, and the level of lexical complexity.
 - **Grammar score**: Evaluates the correctness of grammar usage and variety of sentence patterns. It considers lexical accuracy, grammatical accuracy, and diversity of sentence structures, providing a more comprehensive evaluation of language proficiency.
@@ -61,7 +61,6 @@ Here's a table of available pronunciation assessment scores, whether it's availa
 | Topic | Unscripted only | No |
 | Vocabulary | Unscripted only | No |
 
-
 ## Try out pronunciation assessment
 
 You can explore and try out pronunciation assessment even without signing in. 
@@ -69,12 +68,11 @@ You can explore and try out pronunciation assessment even without signing in.
 > [!TIP]
 > To assess more than 5 seconds of speech with your own script, sign in with an [Azure account](https://azure.microsoft.com/free/cognitive-services) and use your <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech resource</a>.
 
-
 ## Granularity of pronunciation assessment
 
 Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
 - At the full-text level, pronunciation assessment offers additional Fluency, Completeness, and Prosody scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words; Completeness indicates how many words are pronounced in the speech to the reference text input; Prosody indicates how well a speaker conveys elements of naturalness, expressiveness, and overall prosody in their speech. An overall score aggregated from Accuracy, Fluency, Completeness and Prosody is then given to indicate the overall pronunciation quality of the given speech. Pronunciation assessment also offers content score (Vocabulary, Grammar, and Topic) at the full-text level.
-- At the word-level, pronunciation assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
+- At the word level, pronunciation assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
 - Syllable-level accuracy scores are currently available via the [JSON file](?tabs=json#pronunciation-assessment-results) or [Speech SDK](how-to-pronunciation-assessment.md).
 - At the phoneme level, pronunciation assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
 
@@ -88,9 +86,9 @@ For pronunciation assessment, there are two scenarios: Reading and Speaking.
 
 Follow these steps to assess your pronunciation of the reference text:
 
-1. Go to **Pronunciation Assessment** in the [Speech Studio](https://aka.ms/speechstudio/pronunciationassessment).
+1. Go to **Pronunciation assessment** in the [studio](https://ai.azure.com/explore/aiservices/speech).
 
-   :::image type="content" source="media/pronunciation-assessment/pa.png" alt-text="Screenshot of how to go to Pronunciation Assessment on Speech Studio.":::
+   :::image type="content" source="media/pronunciation-assessment/pa-select.png" alt-text="Screenshot of how to go to Pronunciation assessment on the studio.":::
 
 1. On the Reading tab, choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
 
@@ -110,7 +108,7 @@ Follow these steps to assess your pronunciation of the reference text:
 
 If you want to conduct an unscripted assessment, select the Speaking tab. This feature allows you to conduct unscripted assessment without providing reference text in advance. Here's how to proceed:
 
-1. Go to **Pronunciation Assessment** in the [Speech Studio](https://aka.ms/speechstudio/pronunciationassessment).
+1. Go to **Pronunciation assessment** in the [studio](https://ai.azure.com/explore/aiservices/speech).
 
 1. On the Speaking tab, choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
    
@@ -134,7 +132,7 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 :::image type="content" source="media/pronunciation-assessment/assessment-result.png" alt-text="Screenshot of showing the assessment result on the display window, which includes transcript and feedback on your speech.":::
 
-The complete transcription is shown in the **Display** window. The word is highlighted according to the error type. The error types in the pronunciation assessment are represented using different colors. This visual distinction makes it easier to identify and analyze specific errors. It provides a clear overview of the error types and frequencies in the spoken audio, helping you focus on areas that need improvement. You can toggle on/off each error type to focus on specific types of errors or exclude certain types from the display. This feature provides flexibility in how you review and analyze the errors in your spoken audio. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
+The word is highlighted according to the error type. The error types in the pronunciation assessment are represented using different colors. This visual distinction makes it easier to identify and analyze specific errors. It provides a clear overview of the error types and frequencies in the spoken audio, helping you focus on areas that need improvement. You can toggle on/off each error type to focus on specific types of errors or exclude certain types from the display. This feature provides flexibility in how you review and analyze the errors in your spoken audio. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
 At the bottom of the Assessment result, scoring results are displayed. For scripted pronunciation assessment, only the pronunciation score (including accuracy score, fluency score, completeness score, and prosody score) is provided. For unscripted pronunciation assessment, both pronunciation score (including accuracy score, fluency score, and prosody score) and content score (including vocabulary score, grammar score, and topic score) are displayed.
 
@@ -290,9 +288,9 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 
 ## Assessment scores in streaming mode
 
-Pronunciation Assessment supports uninterrupted streaming mode. The Speech Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you don't press the stop recording button, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
+Pronunciation assessment supports uninterrupted streaming mode. The studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you don't press the stop recording button, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
 
-Pronunciation Assessment evaluates several aspects of pronunciation. At the bottom of **Assessment result**, you can see **Pronunciation score** as aggregated overall score, which includes 4 sub aspects: **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score**. In streaming mode, since the **Accuracy score**, **Fluency score**, and **Prosody score** will vary over time throughout the recording process, we demonstrate an approach on Speech Studio to display approximate overall score incrementally before the end of the evaluation, which weighted only with Accuracy score, Fluency score, and Prosody score. The **Completeness score** is only calculated at the end of the evaluation after you press the stop button, so the final pronunciation overall score is aggregated from **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score** with weight.
+Pronunciation assessment evaluates several aspects of pronunciation. At the bottom of **Assessment result**, you can see **Pronunciation score** as aggregated overall score, which includes 4 sub aspects: **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score**. In streaming mode, since the **Accuracy score**, **Fluency score**, and **Prosody score** will vary over time throughout the recording process, we demonstrate an approach on the studio to display approximate overall score incrementally before the end of the evaluation, which weighted only with Accuracy score, Fluency score, and Prosody score. The **Completeness score** is only calculated at the end of the evaluation after you press the stop button, so the final pronunciation overall score is aggregated from **Accuracy score**, **Fluency score**, **Completeness score**, and **Prosody score** with weight.
 
 Refer to the demo examples below for the whole process of evaluating pronunciation in streaming mode.
 
