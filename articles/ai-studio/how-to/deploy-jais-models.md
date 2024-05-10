@@ -48,9 +48,9 @@ Jais 30B Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**.
 
 In this article, you learn how to use Azure AI Studio to deploy the Jais model as a service with pay-as-you-go billing.
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-The previously mentioned Jais model can be deployed as a service with pay-as-you-go, and is offered by Core42 through the Microsoft Azure Marketplace. Core42 can change or update the terms of use and pricing of this model.
+The previously mentioned Jais model can be deployed as a service with pay-as-you-go billing and is offered by Core42 through the Microsoft Azure Marketplace. Core42 can change or update the terms of use and pricing of this model.
 
 
 ### Create a new deployment
@@ -58,11 +58,8 @@ The previously mentioned Jais model can be deployed as a service with pay-as-you
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the **Explore** tab and search for *Jais*. 
-
-    Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
-
-1. In the model catalog, on the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
+1. Select **Model catalog** from the left sidebar.
+1. Search for *Jais*.
 
     :::image type="content" source="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png":::
 
