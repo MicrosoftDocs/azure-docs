@@ -53,7 +53,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses: public and private.
 
-* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. If configured in the *internal* VNet configuration, public IP addresses are only used for Azure internal management operations and don't expose your instance to the internet. 
+* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. 
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
@@ -139,8 +139,7 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * (Premium tier) [Availability zones](../reliability/migrate-api-mgt.md) are enabled, added, or removed.
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
 
-    > [!IMPORTANT]
-    > When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you may configure a different [public IP address](api-management-using-with-vnet.md?tabs=stv2#prerequisites) resource than the one configured previously, or you may choose not to configure a public IP address. You may swap back to the original IP address if needed.
+    [!INCLUDE [api-management-publicip-change](../../includes/api-management-publicip-change.md)]
 
 ## Related content
 

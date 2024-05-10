@@ -46,12 +46,9 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
-* (Optional) A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+* A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
-
-   > [!IMPORTANT]
-   > If provided for the VNet configuration in the internal mode, the public IP address is used only for Azure internal management operations and doesn't expose your gateway to the internet. Public backends may see the instance's public VIP as the caller IP.
 
 * (Optional) Contact Azure support to request that the original service infrastructure is maintained in parallel for up to 48 hours after successful migration. This option extends the period when the old infrastructure is available after migration beyond the default of 15 minutes before it is purged. This option is available only for VNet-injected services to allow service owners to update network settings and test applications to use the new infrastructure. This extension request applies to all API Management instances in a subscription. 
 
@@ -79,7 +76,7 @@ For example, to use the portal:
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **Network** > **Virtual network**.
 1. Select the network connection in the location you want to update.
-1. Select the virtual network, subnet, and (optional) IP address resource you want to configure, and select **Apply**.
+1. Select the virtual network, subnet, and IP address resource you want to configure, and select **Apply**. In the internal VNet mode, providing an IP address is optional.
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
@@ -103,7 +100,7 @@ The following image shows a high level overview of what happens during migration
 
 * The unlocked original subnet, in each region where the API Management instance is deployed. A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
-* (Optional) A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
+* A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
@@ -112,7 +109,7 @@ The following image shows a high level overview of what happens during migration
 1. In the [portal](https://portal.azure.com), navigate to your original VNet.
 1. In the left menu, select **Subnets**, and then the original subnet. 
 1. Verify that the original IP addresses were released by API Management. Under **Available IPs**, note the number of IP addresses available in the subnet. All addresses (except for Azure reserved addresses) should be available. If necessary, wait for IP addresses to be released. 
-1. Repeat the migration steps in the [preceding section](#trigger-migration-of-a-network-injected-api-management-instance). In each region, specify the original VNet and subnet, and a new IP address resource.
+1. Repeat the migration steps in the [preceding section](#trigger-migration-of-a-network-injected-api-management-instance). In each region, specify the original VNet and subnet, and a new IP address resource. In the internal VNet mode, providing an IP address is optional.
 1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
@@ -140,7 +137,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **What are the prerequisites for the migration?**
 
-   For VNet-injected instances, you'll need a new subnet and public IP address to migrate in each VNet (either external or internal mode). The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
+   For VNet-injected instances, you'll need a new subnet to migrate in each VNet (either external or internal mode). In external mode, you also need a public IP address resource. The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
   
 - **Will the migration cause a downtime?**
 
@@ -167,7 +164,7 @@ After you update the VNet configuration, the status of your API Management insta
 
    Yes, VNet-injected instances can be migrated by changing the subnet configuration(s) in the **Network** blade.
 
-- **Can I preserve the IP address of the instance?**
+- **Can I preserve the public IP address of the instance?**
 
    There's no way currently to preserve the IP address if your instance is injected into a VNet.
    
@@ -190,7 +187,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Is there a way to validate the VNet configuration before attempting migration?**
 
-   You can optionally deploy a new API Management instance with the new VNet, subnet, and IP address resources that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1`-hosted service.
+   You can optionally deploy a new API Management instance with the new VNet, subnet, and IP address resource (if required) that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1`-hosted service.
 
 - **Can I roll back the migration if required?**
 
@@ -204,12 +201,12 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **My stv1 instance is deployed to multiple Azure regions (multi-region). How do I upgrade to stv2?**
 
-   Multi-region deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP.  Navigate to the **Locations** blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. All regional gateways continue to operate normally throughout the migration process.
+   Multi-region deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP (if required).  Navigate to the **Locations** blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. All regional gateways continue to operate normally throughout the migration process.
 
 
 - **Do we need a public IP even if the API Management instance is VNet injected in internal mode only?**
 
-   API Management `stv1` uses an Azure managed public IP even in an internal mode for management traffic. However, `stv2` requires a user-managed public IP for the same purpose. This public IP is only used for Azure internal management operations and doesn't expose your instance to the internet. Public(internet-facing) backends may see the instance's public IP as the origin of the request. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+   API Management uses an Azure managed public IP even in an internal mode for management traffic. This public IP is only used for Azure internal management operations and doesn't expose your instance to the internet. Public (internet-facing) backends may see the instance's public IP as the origin of the request. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 

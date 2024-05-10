@@ -64,7 +64,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 Use this option to migrate an existing location of your API Management instance to availability zones when it is currently injected (deployed) in a virtual network. The following steps are needed when the API Management instance is currently hosted on the stv1 platform. Migrating to availability zones will also migrate the instance to the stv2 platform.
 
-1.	Create a new subnet and public IP address in location to migrate to availability zones. Detailed requirements are in [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
+1.	Create a new subnet and public IP address (if required) in the location to migrate to availability zones. Detailed requirements are in [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
 
 1.	In the Azure portal, navigate to your API Management service.
 
@@ -74,7 +74,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
 
-1.	Select the new subnet and new public IP address in the location. 
+1.	Select the new subnet and new public IP address (if required) in the location. 
 
 1.	Select **Apply**, and then select **Save**.
 
@@ -85,7 +85,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 Use this option to migrate an existing location of your API Management instance to availability zones when it is currently injected (deployed) in a virtual network. The following steps are used when the API Management instance is already hosted on the stv2 platform.
 
-1.	Create a new subnet and public IP address in location to migrate to availability zones. Detailed requirements are in [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
+1.	Create a new subnet and public IP address (if required) in tje location to migrate to availability zones. Detailed requirements are in [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
 
 1.	In the Azure portal, navigate to your API Management service.
 
@@ -95,7 +95,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
 
-1.	Select the new public IP address in the location. 
+1.	Select the new public IP address (if required) in the location. 
 
 1.	Select **Apply**, and then select **Save**.
 
@@ -105,7 +105,7 @@ Use this option to migrate an existing location of your API Management instance 
 
 Use this option to add a new location to your API Management instance and enable availability zones in that location. 
 
-If your API Management instance is deployed in a virtual network in the primary location, ensure that you set up a [virtual network](../api-management/api-management-using-with-vnet.md?tabs=stv2), subnet, and public IP address in any new location where you plan to enable zone redundancy.
+If your API Management instance is deployed in a virtual network in the primary location, ensure that you set up a [virtual network](../api-management/api-management-using-with-vnet.md?tabs=stv2), subnet, and public IP address (if required) in any new location where you plan to enable zone redundancy.
 
 1.	In the Azure portal, navigate to your API Management service.
 
@@ -115,7 +115,7 @@ If your API Management instance is deployed in a virtual network in the primary 
 
 1.	In **Availability zones**, select one or more zones. The number of units selected must be distributed evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
 
-1. If your API Management instance is deployed in a [virtual network](../api-management/api-management-using-with-vnet.md?tabs=stv2), select the virtual network, subnet, and public IP address that are available in the location. 
+1. If your API Management instance is deployed in a [virtual network](../api-management/api-management-using-with-vnet.md?tabs=stv2), select the virtual network, subnet, and public IP address (if required) that are available in the location. 
 
 1. Select **Add**, and then select **Save**.
 

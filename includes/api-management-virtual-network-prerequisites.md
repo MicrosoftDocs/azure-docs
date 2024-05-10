@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 04/29/2024
+ms.date: 05/10/2024
 ms.author: danlep
 ---
 
@@ -27,7 +27,9 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 * For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article.
 
-* **(Optional) A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**. If provided when setting up the virtual network in internal mode, the public IP address is used only for management operations. Learn more about [IP addresses of API Management](../articles/api-management/api-management-howto-ip-addresses.md). When provided, the following considerations apply:
+* **A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**.
+
+  [!INCLUDE [api-management-publicip-internal-vnet](api-management-publicip-internal-vnet.md)]
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
@@ -39,7 +41,8 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
-  * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you may configure a different public IP address or choose not to provide a public IP address.   
+  * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you may need to configure a new public IP address.
+.   
 
 ### [stv1](#tab/stv1)
 
