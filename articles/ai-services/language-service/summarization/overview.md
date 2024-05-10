@@ -135,6 +135,8 @@ Conversation summarization feature would simplify the text as follows:
 | Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
 | Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
+# [Conversation summarization](#tab/conversation-summarization)
+
 # [Document summarization](#tab/document-summarization)
 
 ---
