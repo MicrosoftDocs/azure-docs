@@ -10,6 +10,7 @@ ms.date: 05/10/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
+zone_pivot_groups: acs-errorcodes-client-server
 ---
 
 # Understanding error messages and codes
