@@ -23,12 +23,13 @@ Monitoring applications that are deployed to production is an essential part of 
 
 Azure AI monitoring for generative AI applications enables you to monitor your applications in production for token usage, generation quality, and operational metrics.
 
-Capabilities and integrations for monitoring a prompt flow deployment include: 
+Integrations for monitoring a prompt flow deployment allow you to:
+ 
 - Collect production inference data from your deployed prompt flow application.
 - Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, and relevance, which are interoperable with prompt flow evaluation metrics.
-- Monitor prompt, completion, and total token usage across each model deployment in your prompt flow.
+- Monitor prompts, completion, and total token usage across each model deployment in your prompt flow.
 - Monitor operational metrics, such as request count, latency, and error rate.
-- Preconfigured alerts and defaults to run monitoring on a recurring basis.
+- Use preconfigured alerts and defaults to run monitoring on a recurring basis.
 - Consume data visualizations and configure advanced behavior in Azure AI Studio.
 
 ## Prerequisites
@@ -42,6 +43,8 @@ Before following the steps in this article, make sure you have the following pre
 # [Python SDK](#tab/python)
 
 Install the [AzureML Python SDK]([https://learn.microsoft.com/en-us/azure/ai-studio/how-to/sdk-install?tabs=windows](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-ml-readme?view=azure-python)).
+
+---
 
 ## Monitoring metrics and requirements 
 
