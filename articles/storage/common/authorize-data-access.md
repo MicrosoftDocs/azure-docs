@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 05/10/2024
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ---

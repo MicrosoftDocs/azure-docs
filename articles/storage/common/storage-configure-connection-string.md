@@ -8,7 +8,7 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 05/10/2024
 ms.reviewer: nachakra
 ---
 
