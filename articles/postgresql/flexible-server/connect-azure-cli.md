@@ -4,7 +4,7 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/10/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -53,7 +53,7 @@ az postgres flexible-server connect \
 **Example:** 
 ```azurecli-interactive
 az postgres flexible-server connect \
-    -n server372060240 -u dbuser -p "dbpassword" -d postgres
+    -n server372060240 -u starchylapwing9 -p "dbpassword" -d postgres
 ```
 You see similar output if the connection was successful.
 
@@ -129,7 +129,7 @@ Closed the connection to server372060240
 ```
 
 ## Run SQL File
-You can execute a sql file with the command using `--file-path` argument, `-f`.
+You can execute a sql file with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command using `--file-path` argument, `-f`.
 
 ```azurecli-interactive
 az postgres flexible-server execute \
@@ -138,19 +138,29 @@ az postgres flexible-server execute \
 ```
 
 **Example:** 
+Prepare a `test.sql` file. You can use the following test script with simple `SELECT` queries:
+
+```sql
+SELECT 1;
+SELECT 2;
+SELECT 3;
+```
+
+Save the content to the `test.sql` file in the current directory and execute using following command.
+
+
 ```azurecli-interactive
 az postgres flexible-server execute \
-    -n server372060240 -u dbuser -p "dbpassword" -d postgres \
-    -f "./test.sql"
+    -n server372060240 -u starchylapwing9 -p "dbpassword" -d postgres \
+    -f "test.sql"
 ```
 
 You see an output as shown here:
 
 ```output
-Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Running sql file '.\test.sql'...
+Running sql file 'test.sql'...
 Successfully executed the file.
-Closed the connection to server372060240.
+Closed the connection to server372060240
 ```
 
 ## Next Steps
