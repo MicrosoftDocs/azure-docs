@@ -215,6 +215,15 @@ The type of the input. Either `text`, `query`, or `document`. Returns a 422 erro
 | --------- | ------ | ----------- |
 | embedding | string |             |
 
+### ListObject
+
+The object type, which is always "list".
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| list | string |     |
+
 ### NotFoundError
 
 
