@@ -39,7 +39,9 @@ az containerapp update --enable-java-agent \
 
 ## Change runtime logger levels
 
-After enabling JVM diagnostics, you can change runtime log levels for specific loggers in your running Java app without the need to restart it.
+After enabling JVM diagnostics, you can change runtime log levels for specific loggers in your running Java app without the need to restart your application.
+
+The following sample uses the logger name `org.springframework.boot` with the log level `info`. Make sure to change these values to match your own logger name and level.
  
 Use the following command to adjust log levels for a specific logger:
  
@@ -50,11 +52,6 @@ az containerapp java logger update \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME>
-```
- 
-In this sample logger name is `"org.springframework.boot"` and desired log level is `"info"`. Change these to your own logger name and log level to help troubleshoot your Java app.
-
-It may take up to two minutes for the logger level change to take effect. Once complete, you can check the application logs from [log streams](log-streaming.md) or other [log options](log-options.md).
 
 ## Supported Java logging frameworks
 
