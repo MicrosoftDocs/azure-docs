@@ -18,7 +18,7 @@ Yes, Azure Virtual WAN is Generally Available (GA). However, Virtual WAN consist
 
 ### Which locations and regions are available?
 
-For information, see [Available locations and regions](virtual-wan-locations-partners.md#locations).
+To view the available regions for Virtual WAN, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-wan). Specify **Virtual WAN** as the product name.
 
 ### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
 
