@@ -44,6 +44,9 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
   
 - Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
+> [!NOTE]
+> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you need to try other deployment options, such as deploy to [Kubernetes online endpoint using CLI/SDK](./how-to-deploy-to-code.md), or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
+
 ## Build the flow and get it ready for deployment
 
 If you already completed the [get started tutorial](get-started-prompt-flow.md), you've already tested the flow properly by submitting batch run and evaluating the results.

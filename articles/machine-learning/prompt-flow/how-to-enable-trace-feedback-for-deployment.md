@@ -180,3 +180,8 @@ You can view the trace of the request along with feedback in Application Insight
 ## Advaned usage: export trace to custom OpenTelemetry collector service
 
 In some cases, you may want to export the trace data to your deployed OTel collector service, enabled by setting "OTEL_EXPORTER_OTLP_ENDPOINT". Use this exporter when you want to customized our own span processing logic and your own trace persistent target.
+
+## Next steps
+
+- [Troubleshoot errors of managed online endpoints](./how-to-troubleshoot-prompt-flow-deployment.md).
+- [Deploy a flow to other platforms, such as Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).

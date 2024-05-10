@@ -24,11 +24,19 @@ Before beginning make sure that you have tested your flow properly, and feel con
 - This article will cover how to use the CLI experience.
 - The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 - The Azure CLI and the Azure Machine Learning extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](../how-to-configure-cli.md).
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources article](../quickstart-create-resources.md) to create one.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
+
+> [!NOTE]
+> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
 ### Virtual machine quota allocation for deployment
 
@@ -414,6 +422,15 @@ This section will show you how to use a docker build context to specify the envi
           path: /score
           port: 8080
     ```
+
+### Use FastAPI serving engine (preview)
+
+By default prompt flow serving uses FLASK serving engine. Starting from prompt flow SDK version 1.10.0, FastAPI based serving engine is supported. You can use `fastapi` serving engine by specifying an environment variable `PROMPTFLOW_SERVING_ENGINE`.
+
+```yaml
+environment_variables:
+  PROMPTFLOW_SERVING_ENGINE=fastapi
+```
 
 ### Configure concurrency for deployment
 
