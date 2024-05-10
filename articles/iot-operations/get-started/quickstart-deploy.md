@@ -85,10 +85,10 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
 
 Run the following CLI commands in your Codespaces terminal.
 
-1. Create a key vault. For this scenario, use the same name and resource group as your cluster.
+1. Create a key vault. For this scenario, we'll use the same name and resource group as your cluster. Keyvault names have a maximum length of 24 characters, so the following command truncates the `CLUSTER_NAME`environment variable if necessary.
 
    ```azurecli
-   az keyvault create --enable-rbac-authorization false --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+   az keyvault create --enable-rbac-authorization false --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP
    ```
 
    >[!TIP]
@@ -97,7 +97,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations.
 
    ```azurecli
-   az iot ops init --simulate-plc --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --kv-id $(az keyvault show --name $CLUSTER_NAME -o tsv --query id)
+   az iot ops init --simulate-plc --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --kv-id $(az keyvault show --name ${CLUSTER_NAME:0:24} -o tsv --query id)
    ```
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
