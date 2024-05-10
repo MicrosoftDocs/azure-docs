@@ -35,6 +35,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires Azure Resource Manager role and Azure App Configuration [data plane role](concept-enable-rbac.md) under [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
 
+> [!IMPORTANT]
+> Configuring ARM authentication mode requires App Configuration resource provider version `2023-08-01-preview` or later.
+
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/). It creates a new App Configuration store with two key-values inside. It then uses the `reference` function to output the values of the two key-value resources. Reading the key's value in this way allows it to be used in other places in the template.
