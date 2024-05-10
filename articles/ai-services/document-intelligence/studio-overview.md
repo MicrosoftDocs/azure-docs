@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 05/07/2024
+ms.date: 05/10/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -46,13 +46,16 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
       * Select an existing resource group within your subscription or create a new one.
       * Select your existing Document Intelligence or Azure AI services resource.
 
+      :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of the configure service resource form from the Document Intelligence Studio.":::
+
     **b. Access by API endpoint and key**.
 
       * Retrieve your endpoint and key from the Azure portal.
       * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
       * Enter the values in the appropriate fields.
 
-    :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of the configure service resource form from the Document Intelligence Studio.":::
+      :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
+
 
 1. Once the resource is configured, you're able to try the different models offered by Document Intelligence Studio. From the front page, select any Document Intelligence model to try using with a no-code approach.
 

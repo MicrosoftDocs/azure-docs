@@ -8,13 +8,15 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 05/10/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
 # Document Intelligence Studio
+
+:::image type="content" source="media/studio/welcome-to-studio.png" alt-text="Screenshot of the Document Intelligence Studio logo on the studio homepage.":::
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
@@ -40,10 +42,6 @@ monikerRange: '>=doc-intel-3.0.0'
 * Get sample code for the language-specific SDKs to integrate into your applications.
 
 Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with document analysis or prebuilt models. Build custom models and reference the models in your applications using one of the [language specific SDKs](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
-
-The following image shows the landing page for Document Intelligence Studio.
-
-:::image border="true" type="content" source="media/studio/welcome-to-studio.png" alt-text="Document Intelligence Studio Homepage":::
 
 ## Getting started
 
