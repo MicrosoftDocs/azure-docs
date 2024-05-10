@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/02/2024
+ms.date: 05/09/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -241,7 +241,7 @@ Following is the list of supported images and no other marketplace images releas
 
 ### Custom images
 
-We support VMs created from customized images (including images) uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
+We support VMs created from customized images (including images uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview)) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
 
    |**Windows operating system**|
