@@ -14,7 +14,7 @@ ms.custom:
 
 [Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as Microsoft Monitor Agent (MMA) and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The agent introduces a simplified, flexible method of configuring data collection using [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). This article provides guidance on how to implement a successful migration from the Log Analytics agent to Azure Monitor Agent.
 
-If you're currently using the Log Analytics agent with Azure Monitor or [other supported features and services](#migrate-additional-services-and-features), start planning your migration to Azure Monitor Agent by using the information in this article. If you are using the Log Analytics Agent for SCOM, you need to [migrate to the SCOM Agent](../vm/scom-managed-instance-overview.md).
+If you're currently using the Log Analytics agent with Azure Monitor or [other supported features and services](#migrate-additional-services-and-features), start planning your migration to Azure Monitor Agent by using the information in this article. If you are using the Log Analytics Agent for SCOM, you need to [migrate to the SCOM Agent](/system-center/scom/manage-deploy-windows-agent-manually?view=sc-om-2022).
 
 The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
 > - **Data upload**: You can still upload data. At some point when major customers have finished migrating and data volumes significantly drop, upload will be suspended. You can expect this to take at least 6 to 9 months.  You will not receive a breaking change notification of the suspension. 
@@ -118,8 +118,8 @@ When you migrate the following services, which currently use Log Analytics agent
 |	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Automation Hybrid Worker Extension (no dependency on Log Analytics agents or Azure Monitor Agent)	|	GA	|	[Migrate to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 
 ## Known parity gaps for solutions that may impact your migration
+- ***IIS Logs***: When IIS log collection is enabled, AMA might not populate the `sSiteName` column of the `W3CIISLog` table. This field gets collected by default when IIS log collection is enabled for the legacy agent. If you need to collect the `sSiteName` field using AMA, enable the `Service Name (s-sitename)` field in W3C logging of IIS. For steps to enable this field, see [Select W3C Fields to Log](/iis/manage/provisioning-and-managing-iis/configure-logging-in-iis#select-w3c-fields-to-log).
 - ***Sentinel***: Windows firewall logs are not yet GA
-
 - ***SQL Assessment Solution***: This is now part of SQL best practice assessment. The deployment policies require one Log Analytics Workspace per subscription, which is not the best practice recommended by the AMA team. 
 - ***Microsoft Defender for cloud***: Some features for the new agentless solution are in development. Your migration maybe impacted if you use File Integraty Monitoring (FIM), Endpoint protection discovery recommendations, OS Misconfigurations (Azure Security Benchmark (ASB) recommendations) and Adaptive Application controls.
 - ***Container Insights***: The Windows version is in public preview.

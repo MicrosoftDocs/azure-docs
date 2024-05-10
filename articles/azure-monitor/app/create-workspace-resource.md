@@ -69,13 +69,9 @@ For information on how to set up an Application Insights SDK for code-based moni
 - [Node.js](./nodejs.md)
 - [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
-### Codeless monitoring and Visual Studio resource creation
+### Codeless monitoring
 
-For codeless monitoring of services like Azure Functions and Azure App Services, you first create your workspace-based Application Insights resource. Then you point to that resource when you configure monitoring.
-
-These services offer the option to create a new Application Insights resource within their own resource creation process. But resources created via these UI options are currently restricted to the classic Application Insights experience.
-
-The same restriction applies to the Application Insights resource creation experience in Visual Studio for ASP.NET and ASP.NET Core. You must select an existing workspace-based resource in the Visual Studio UI where you enable monitoring. Selecting **Create new resource** in Visual Studio limits you to creating a classic Application Insights resource.
+For codeless monitoring of services like Azure Functions and Azure App Services, you can first create your workspace-based Application Insights resource. Then you point to that resource when you configure monitoring. Alternatively, you can create an new Application Insights resource as part of Application Insights enablement.
 
 ## Create a resource automatically
 

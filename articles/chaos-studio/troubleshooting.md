@@ -132,6 +132,10 @@ This error might happen if you added the agent by using the Azure portal, which 
 
 To resolve this problem, go to the VM or virtual machine scale set in the Azure portal and go to **Identity**. Open the **User assigned** tab and add your user-assigned identity to the VM. After you're finished, you might need to reboot the VM for the agent to connect.
 
+### My agent-based fault failed with the error "Agent is already performing another task"
+
+This error will happen if you try to run multiple agent faults at the same time. Today the agent only supports running a single agent-fault at a time, and will fail if you define an experiment that runs multiple agent faults at the same time.
+
 ## Problems when setting up a managed identity
 
 ### When I try to add a system-assigned/user-assigned managed identity to my existing experiment, it fails to save. 

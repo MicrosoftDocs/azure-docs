@@ -4,11 +4,11 @@ description: Real-time scoring with online inference endpoints on Azure Machine 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan
-ms.date: 03/19/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-#customer intent: As a developer, I want to learn how to invoke Azure Machine Learning models from Azure Database for PostgreSQL, so that I can perform real-time scoring with online inference endpoints.
+# customer intent: As a developer, I want to learn how to invoke Azure Machine Learning models from Azure Database for PostgreSQL, so that I can perform real-time scoring with online inference endpoints.
 ---
 
 # Integrate Azure Database for PostgreSQL with Azure Machine Learning Services (Preview)
@@ -29,7 +29,7 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 
 In the Azure Machine Learning studio, under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
 
-```postgresql
+```sql
 select azure_ai.set_setting('azure_ml.scoring_endpoint','<URI>');
 select azure_ai.set_setting('azure_ml.endpoint_key', '<Key>');
 ```
@@ -38,7 +38,7 @@ select azure_ai.set_setting('azure_ml.endpoint_key', '<Key>');
 
 Scores the input data invoking an Azure Machine Learning model deployment on an [online endpoint](../../machine-learning/how-to-authenticate-online-endpoint.md).
 
-```postgresql
+```sql
 azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_error boolean DEFAULT true, deployment_name text DEFAULT NULL)
 ```
 
@@ -70,7 +70,7 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 
 This calls the model with the input_data and returns a jsonb payload.
 
-```postgresql
+```sql
 -- Invoke model, input data depends on the model.
   SELECT * FROM azure_ml.inference('
   {

@@ -7,7 +7,7 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
@@ -58,7 +58,7 @@ metadata:
 spec:
   image: 
     repository: mcr.microsoft.com/azureiotoperations/mqttbridge 
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1

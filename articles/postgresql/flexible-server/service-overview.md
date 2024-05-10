@@ -1,14 +1,15 @@
 ---
 title: Service overview
 description: Provides an overview of the Azure Database for PostgreSQL - Flexible Server relational database service.
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.author: sunila
-author: sunilagarwal
-ms.custom: mvc
-ms.date: 04/07/2024
-adobe-target: true
+ms.custom:
+  - mvc
 ---
 
 # What is Azure Database for PostgreSQL - Flexible Server?
