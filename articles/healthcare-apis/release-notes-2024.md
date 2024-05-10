@@ -19,9 +19,9 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 ### Azure Health Data Services
 
-#### Stand-alone FHIR converter
+#### Stand-alone FHIR converter (preview)
 
-The stand-alone FHIR converter API is decoupled from the FHIR service and packaged as a container (Docker) image. The containerized FHIR converter enables:
+The stand-alone FHIR converter API available for preview is decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers:
 
 - **Bidirectional data conversion** between two formats in both directions. For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
 - **Improved experience for customization** of default [Liquid](https://shopify.github.io/liquid/) templates.
