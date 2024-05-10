@@ -233,7 +233,7 @@ The output from the preceding example is:
 
 Creates an object from an input object, using a lambda expression to map values.
 
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+In Bicep, use the [mapValue](../bicep/bicep-functions-lambda.md#mapvalue) function.
 
 ### Parameters
 
@@ -250,18 +250,21 @@ An object.
 
 The following example shows how to use the `mapValue` function.
 
-```bicep
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "variables": {
-    "newObject": "[mapValues(createObject('foo', 'foo', 'bar', 'bar'), lambda('val', toUpper(lambdaVariables('val'))))]"
+    "inputObject": {
+      "foo": "foo",
+      "bar": "bar"
+    }
   },
   "resources": [],
   "outputs": {
     "mapObject": {
       "type": "object",
-      "value": "[variables('newObject')]"
+      "value": "[mapValues(variables('inputObject'), lambda('val', toUpper(lambdaVariables('val'))))]"
     }
   }
 }

@@ -187,9 +187,9 @@ An object.
 The following example shows how to use the `mapValue` function.
 
 ```bicep
-var newObject = mapValues({ foo: 'foo', bar: 'bar' }, val => toUpper(val)) 
+var inputObject = { foo: 'foo', bar: 'bar' }
 
-output mapObject object = newObject
+output mapObject object = mapValues(inputObject, val => toUpper(val)) 
 ```
 
 The output from the preceding example is:
