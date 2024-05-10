@@ -98,7 +98,7 @@ The following section lists common alert rules for virtual machines in Azure Mon
 ### Machine availability
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method is to create a metric alert rule in Azure Monitor by using the VM availability metric, which is currently in public preview. For a walk-through on this metric, see [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md).
 
-Take note that an alert rule is limited to one activity log signal. So for every condition, one alert rule must be created e.g. "starts or stops the virtual machine" requires two alert rules. However, to be alerted when VM is restarted, only one alert rule is needed. 
+An alert rule is limited to one activity log signal. So for every condition, one alert rule must be created. For example, "starts or stops the virtual machine" requires two alert rules. However, to be alerted when VM is restarted, only one alert rule is needed. 
 
 As described in [Scaling alert rules](#scaling-alert-rules), create an availability alert rule by using a subscription or resource group as the target resource. The rule applies to multiple virtual machines, including new machines that you create after the alert rule.
 
