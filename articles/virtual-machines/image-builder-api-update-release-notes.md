@@ -84,7 +84,7 @@ To ensure compatibility with your existing templates, when creating or updating 
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}?api-version=2022-07-01
 ```
 
-# [Azure CLI](#tab/azurecli-interactive)
+# [Azure CLI](#tab/-interactive)
 
 ```azurecli-interactive
 az resource create \
@@ -96,7 +96,7 @@ az resource create \
     -n <imageTemplateName>
 ```
 
-# [Azure PowerShell](#tab/azurecli-interactive)
+# [Azure PowerShell](#tab/azurepowershell-interactive)
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName <resourceGroupName> -TemplateFile <templateFilePath> -TemplateParameterObject @{"api-version" = "2022-07-01"; "imageTemplateName" = <imageTemplateName>; "svclocation" = <location>}
