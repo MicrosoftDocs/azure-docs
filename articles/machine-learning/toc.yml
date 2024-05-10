@@ -903,6 +903,8 @@
           href: how-to-deploy-models-serverless.md
         - name: Consume serverless API endpoints from a different workspace
           href: how-to-connect-models-serverless.md
+        - name: Region availability for models in Serverless API endpoints
+          href: concept-endpoint-serverless-availability.md
     - name: Online endpoints (real-time)
       items:
         - name: Online endpoints

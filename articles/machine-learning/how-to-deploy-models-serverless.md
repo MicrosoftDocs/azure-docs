@@ -86,6 +86,9 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 For models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
 
+> [!NOTE]
+> Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Region availability for models in Serverless API endpoints](concept-endpoint-serverless-availability.md) to verify which regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](how-to-connect-models-serverless.md).
+
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 
 1. Ensure your account has the **Azure AI Developer** role permissions on the resource group, or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
