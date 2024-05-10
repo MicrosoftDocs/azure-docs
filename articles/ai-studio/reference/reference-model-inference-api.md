@@ -10,6 +10,8 @@ ms.reviewer: msakande
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
+ms.custom: 
+ - build-2024
 ---
 
 # Azure AI Model Inference API

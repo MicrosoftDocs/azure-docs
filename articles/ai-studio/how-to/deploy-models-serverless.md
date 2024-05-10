@@ -10,6 +10,9 @@ ms.author: mopeakande
 author: msakande
 ms.reviewer: fasantia
 reviewer: santiagxf
+ms.custom: 
+ - build-2024
+ - serverless
 ---
 
 # Deploy models as serverless APIs

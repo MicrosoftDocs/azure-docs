@@ -10,6 +10,9 @@ ms.author: mopeakande
 author: msakande
 ms.reviewer: fasantia
 reviewer: santiagxf
+ms.custom: 
+ - build-2024
+ - serverless
 ---
 
 # Consume serverless API endpoints from a different Azure AI Studio project or hub

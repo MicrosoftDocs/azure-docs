@@ -10,6 +10,8 @@ ms.reviewer: msakande
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
+ms.custom: 
+ - build-2024
 ---
 
 # Reference: Embeddings
@@ -125,7 +127,7 @@ Status code: 200
 | [ContentFilterError](#contentfiltererror)               | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.                                                            |
 | [CreateEmbeddingRequest](#createembeddingrequest)       | Request for creating embeddings |
 | [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request |
-| [Detail](#detail)                                       | Deatils of the errors |
+| [Detail](#detail)                                       | Details of the errors |
 | [Embedding](#embedding)                                 | Represents the embedding object generated.                                                                                                                                          |
 | [EmbeddingEncodingFormat](#embeddingencodingformat)     | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
 | [EmbeddingInputType](#embeddinginputtype)               | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.                                  |
