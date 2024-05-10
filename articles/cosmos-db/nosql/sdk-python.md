@@ -25,7 +25,7 @@ ms.custom: devx-track-python
 |**Current supported platform**|[Python 3.6+](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> * Versions 4.3.0b2 and higher support Async IO operations and only support Python 3.6+. Python 2 is not supported.
+> * Versions 4.3.0b2 and higher support Async IO operations and version 4.5.2b4 and higher only support Python 3.8+. Python 2 is not supported.
 
 ## Release history
 Release history is maintained in the azure-sdk-for-python repo, for detailed list of releases, see the [changelog file](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md).

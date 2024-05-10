@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is AKS?
-      href: intro-kubernetes.md
+      href: what-is-aks.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
@@ -136,6 +136,8 @@
           href: concepts-network.md
         - name: CNI networking
           href: azure-cni-overview.md
+        - name: Services
+          href: concepts-network-services.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -238,12 +240,14 @@
       items:
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
-        - name: Cluster configuration options
-          href: cluster-configuration.md 
-        - name: Manually scale nodes in an AKS cluster
+        - name: Deploy a cluster with a fully managed resource group
+          href: node-resource-group-lockdown.md
+        - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
+        - name: Delete an AKS cluster
+          href: delete-cluster.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -286,6 +290,8 @@
               href: manage-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
+            - name: Use generation 2 VMs
+              href: generation-2-vm.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Node pool snapshot
@@ -294,6 +300,8 @@
               href: use-system-pools.md
             - name: Resize node pools
               href: resize-node-pool.md
+            - name: Delete node pools
+              href: delete-node-pool.md
         - name: Virtual nodes
           items:
             - name: Use virtual nodes
@@ -331,7 +339,11 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
-          href: availability-zones.md
+          items:
+            - name: Availability zones overview
+              href: availability-zones-overview.md
+            - name: Create a cluster with availability zones
+              href: availability-zones.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
@@ -342,6 +354,8 @@
           href: use-tags.md
         - name: Labels
           href: use-labels.md
+        - name: Node taints
+          href: use-node-taints.md
     - name: Security
       items:
         - name: Container security
@@ -528,6 +542,8 @@
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -542,29 +558,44 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
+        - name: Diagnose and solve UDP packet drops
+          href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
         - name: Block storage
           items:
-              - name: Provision Azure Disks storage
-                href: azure-csi-disk-storage-provision.md
-              - name: Azure Disks CSI driver
-                href: azure-disk-csi.md
-              - name: Use Azure Premium SSD v2 disks
-                href: use-premium-v2-disks.md
-              - name: Use Azure ultra disks
-                href: use-ultra-disks.md
-              - name: Bring your own keys for disks
-                href: azure-disk-customer-managed-keys.md
-              - name: Azure Container Storage 
-                href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Azure Disks
+                items:
+                    - name: Provision Azure Disk storage
+                      href: azure-csi-disk-storage-provision.md
+                    - name: Azure Disks CSI driver
+                      href: azure-disk-csi.md
+                    - name: Use Azure Premium SSD v2 disks
+                      href: use-premium-v2-disks.md
+                    - name: Use Azure ultra disks
+                      href: use-ultra-disks.md
+                    - name: Bring your own keys for disks
+                      href: azure-disk-customer-managed-keys.md
+                    - name: Move a persistent volume between clusters
+                      href: csi-disk-move-subscriptions.md
+                    - name: Use Azure Container Storage with Azure Disks
+                      href: ../storage/container-storage/use-container-storage-with-managed-disks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Azure Elastic SAN
+                items:
+                    - name: Use Azure Container Storage with Elastic SAN
+                      href: ../storage/container-storage/use-container-storage-with-elastic-san.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+                    - name: Use Kubernetes iSCSI CSI driver
+                      href: ../storage/elastic-san/elastic-san-connect-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Ephemeral Disk
+                items:
+                    - name: Use Azure Container Storage with Ephemeral Disk
+                      href: ../storage/container-storage/use-container-storage-with-local-disk.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
           items:
             - name: Azure Files storage
@@ -649,6 +680,8 @@
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
             - name: Plug-in CA certificates for Istio
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on

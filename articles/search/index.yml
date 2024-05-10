@@ -36,7 +36,7 @@ landingContent:
             url: search-get-started-portal.md
 
   # Card
-  - title: Vector stores
+  - title: Vector support
     linkLists:
       - linkListType: concept
         links:
@@ -50,11 +50,11 @@ landingContent:
             url: retrieval-augmented-generation-overview.md
       - linkListType: quickstart
         links:
-          - text: Create a vector store
+          - text: Create a vector index
             url: search-get-started-vector.md
           - text: Chat with your data
             url: search-get-started-retrieval-augmented-generation.md
-          - text: Query a vector store
+          - text: Query a vector index
             url: vector-search-how-to-query.md
       - linkListType: sample
         links:
@@ -66,7 +66,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create a vector store in AI Studio
+          - text: Create a vector index in AI Studio
             url: /azure/ai-studio/how-to/index-add
           - text: Build a question and answer copilot
             url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio

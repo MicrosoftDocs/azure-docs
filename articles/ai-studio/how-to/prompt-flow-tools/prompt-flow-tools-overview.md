@@ -19,7 +19,7 @@ The following table provides an index of tools in prompt flow.
 
 | Tool name | Description | Package name |
 |------|-----------|-------------|--------------|
-| [LLM](./llm-tool.md) | Use large language models (LLM) with the Azure OpenAI Service for tasks such as text completion or chat. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [LLM](./llm-tool.md) | Use large language models (LLM) for tasks such as text completion or chat. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Craft a prompt by using Jinja as the templating language. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Python](./python-tool.md) | Run Python code. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Azure OpenAI GPT-4 Turbo with Vision](./azure-open-ai-gpt-4v-tool.md) | Use an Azure OpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
@@ -29,9 +29,9 @@ The following table provides an index of tools in prompt flow.
 | [Index Lookup](./index-lookup-tool.md) | Search a vector-based query for relevant results using one or more text queries. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Vector Index Lookup](./vector-index-lookup-tool.md)<sup>1</sup> | Search text or a vector-based query from a vector index. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Faiss Index Lookup](./faiss-index-lookup-tool.md)<sup>1</sup> | Search a vector-based query from the Faiss index file. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
-| [Vector DB Lookup](./vector-db-lookup-tool.md)<sup>1</sup> For | Search a vector-based query from an existing vector database. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
+| [Vector DB Lookup](./vector-db-lookup-tool.md)<sup>1</sup> | Search a vector-based query from an existing vector database. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 
-<sup>1</sup> The Index Lookup tool replaces the three deprecated legacy index tools: Vector Index Lookup, Vector DB Lookup, and Faiss Index Lookup. If you have a flow that contains one of those tools, follow the [migration steps](./index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool) to upgrade your flow.
+<sup>1</sup> The Index Lookup tool replaces the three deprecated legacy index tools: Vector Index Lookup, Vector DB Lookup, and Faiss Index Lookup. If you have a flow that contains one of those tools, follow the [migration steps](./index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool) to upgrade your flow.
 
 ## Custom tools
 

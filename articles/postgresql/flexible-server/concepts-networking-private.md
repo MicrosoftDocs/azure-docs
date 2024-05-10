@@ -1,12 +1,13 @@
 ---
 title: Networking overview with private access (VNET)
 description: Learn about connectivity and networking options for Azure Database for PostgreSQL - Flexible Server with private access (VNET).
+author: GennadNY
+ms.author: gennadyk
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: gennadyk
-author: GennadNY
-ms.date: 01/19/2024
 ---
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server with private access (VNET Integration)
@@ -158,7 +159,7 @@ Here are some limitations for working with virtual networks created via VNET int
 
 * After an Azure Database for PostgreSQL flexible server instance is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet. You can't move the virtual network into another resource group or subscription.
 * Subnet size (address spaces) can't be increased after resources exist in the subnet.
-* VNET injected resources can't interact with Private Link by default. If you want to use **[Private Link](../../private-link/private-link-overview.md) for private networking, see [Azure Database for PostgreSQL flexible server networking with Private Link - Preview](./concepts-networking-private-link.md)**
+* VNET injected resources can't interact with Private Link by default. If you want to use **[Private Link](../../private-link/private-link-overview.md) for private networking, see [Azure Database for PostgreSQL flexible server networking with Private Link](./concepts-networking-private-link.md)**
 
 > [!IMPORTANT]
 > Azure Resource Manager supports the ability to **lock** resources, as a security control. Resource locks are applied to the resource, and are effective across all users and roles. There are two types of resource lock: **CanNotDelete** and **ReadOnly**. These lock types can be applied either to a Private DNS zone, or to an individual record set. **Applying a lock of either type against Private DNS Zone or individual record set may interfere with the ability of Azure Database for PostgreSQL flexible server to update DNS records** and cause issues during important operations on DNS, such as High Availability failover from primary to secondary. For these reasons,  please make sure you are **not** utilizing DNS private zone or record locks when utilizing High Availability features with Azure Database for PostgreSQL flexible server.

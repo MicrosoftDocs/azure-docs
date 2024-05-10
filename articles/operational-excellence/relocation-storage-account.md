@@ -28,6 +28,11 @@ This article shows you how to relocate an Azure Storage Account to a new region 
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link Service](./relocation-private-link.md)
 
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+
 ## Prepare
 
 To prepare, you must export and then modify a Resource Manager template.

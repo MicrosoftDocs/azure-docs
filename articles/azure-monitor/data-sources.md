@@ -18,7 +18,7 @@ Azure Monitor is based on a [common monitoring data platform](data-platform.md) 
 > [!IMPORTANT]
 > There is a cost for collecting and retaining most types of data in Azure Monitor. To minimize your cost, ensure that you don't collect any more data than you require and that your environment is configured to optimize your costs. See [Cost optimization in Azure Monitor](best-practices-cost.md) for a summary of recommendations.
 
-## Azure resource data
+## Azure resources
 Most resources in Azure generate the monitoring data described in the following table. Some services will also have other data that can be collected by enabling other features of Azure Monitor (described in other sections in this article). Regardless of the services that you're monitoring though, you should start by understanding and configuring collection of this data.
 
 Create diagnostic settings for each of the following data types can be sent to a Log Analytics workspace, archived to a storage account, or streamed to an event hub to send it to services outside of Azure. See [Create diagnostic settings in Azure Monitor](essentials/create-diagnostic-settings.md).
@@ -37,7 +37,7 @@ Audit logs and sign in logs in Microsoft Entra ID are similar to the activity lo
 |:---|:---|:---|
 | Audit logs</br>Signin logs | Enable you to assess many aspects of your Microsoft Entra ID environment, including history of sign-in activity, audit trail of changes made within a particular tenant, and activities performed by the provisioning service. | Collected automatically. View in the Azure portal or create a diagnostic setting to send it to other destinations.  |
 
-## App and workload data
+## Apps and workloads
 
 ### Application data
 Application monitoring in Azure Monitor is done with [Application Insights](/azure/azure-monitor/app/app-insights-overview/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
@@ -50,7 +50,7 @@ See [Application Insights overview](./app/app-insights-overview.md) for further 
 | Metrics | Numeric data measuring the performance of your application and user requests measured over intervals of time. | Metric data is stored in both Azure Monitor Metrics and the Log Analytics workspace. |
 | Traces | Traces are a series of related events tracking end-to-end requests through the components of your application. | Traces are stored in the Log Analytics workspace for the app. |
 
-## Infrastructure data sources
+## Infrastructure
 
 ### Virtual machine data
 Azure virtual machines create the same activity logs and platform metrics as other Azure resources. In addition to this host data though, you need to monitor the guest operating system and the workloads running on it, which requires the [Azure Monitor agent](./agents/agents-overview.md) or [SCOM Managed Instance](./vm/scom-managed-instance-overview.md). The following table includes the most common data to collect from VMs. See [Monitor virtual machines with Azure Monitor: Collect data](./vm/monitor-virtual-machine-data-collection.md) for a more complete description of the different kinds of data you can collect from virtual machines.

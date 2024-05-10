@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: ninpan
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java
 ---
 
@@ -37,7 +37,7 @@ You'll configure the properties in Microsoft Entra ID in the following steps.
 First, you must get the assigned public endpoint for Spring Cloud Gateway and API portal by following these steps:
 
 1. Open your Enterprise plan service instance in the [Azure portal](https://portal.azure.com).
-1. Select **Spring Cloud Gateway** or **API portal** under *VMware Tanzu components* in the left menu. 
+1. Select **Spring Cloud Gateway** or **API portal** under *VMware Tanzu components* in the left menu.
 1. Select **Yes** next to *Assign endpoint*.
 1. Copy the URL for use in the next section of this article.
 

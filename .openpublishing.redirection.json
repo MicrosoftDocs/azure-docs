@@ -1,5 +1,40 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/network-watcher/network-watcher-security-group-view-powershell.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-security-group-view-cli.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/blob-v11-samples-dotnet.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/blob-v11-samples-javascript.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/blob-v2-samples-python.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/blob-v2-samples-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/geo-redundant-design-legacy.md",
+      "redirect_url": "/previous-versions/azure/storage/common/geo-redundant-design-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/index.yml",
+      "redirect_url": "/previous-versions/azure/germany/index",
+      "redirect_document_id": false
+    },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
@@ -1071,6 +1106,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-instances/tutorial-docker-compose.md",
+            "redirect_url": "/azure/container-instances/container-instances-multi-container-group",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
             "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
             "redirect_document_id": false
@@ -1707,12 +1747,22 @@
         },
         {
             "source_path_from_root": "/articles/guides/developer/index.md",
-            "redirect_url": "/azure/guides/developer/azure-developer-guide",
+            "redirect_url": "/azure/developer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/developer/azure-developer-guide.md",
+            "redirect_url": "/azure/developer/",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/guides/operations/index.md",
-            "redirect_url": "/azure/guides/operations/azure-operations-guide",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/operations/azure-operations-guide.md",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
             "redirect_document_id": false
         },
         {
@@ -3835,8 +3885,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/cluster-configuration.md",
+            "redirect_url": "/azure/aks/concepts-clusters-workloads",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/aks/intro-kubernetes.md",
+            "redirect_url": "/azure/aks/what-is-aks",
             "redirect_document_id": false
         },
         {
@@ -3915,11 +3975,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-registry/container-registry-auth-aci.md",
-            "redirect_url": "/azure/container-registry/container-registry-authentication",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
             "redirect_document_id": false
@@ -3964,6 +4019,26 @@
             "source_path_from_root":"/articles/virtual-network-manager/concept-security-admin-rules-network-groups.md",
             "redirect_url":"/azure/virtual-network-manager/overview",
             "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/trusted-signing/concept.md",
+            "redirect_url":"/azure/trusted-signing/concept-trusted-signing-resources-roles",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/container-instances/availability-zones.md",
+            "redirect_url":"/azure/reliability/reliability-containers",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/aks/generation-2-vm-windows.md",
+            "redirect_url":"/azure/aks/generation-2-vm",
+            "redirect_document_id":false
+        },
+        {
+            "source_path_from_root":"/articles/cosmos-db/high-availability.md",
+            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
+            "redirect_document_id":false
         }
     ]
 }

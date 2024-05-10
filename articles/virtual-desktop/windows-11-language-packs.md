@@ -174,7 +174,7 @@ To run sysprep:
 
 2. If you run into any issues, check the **SetupErr.log** file in your C drive at **Windows** > **System32** > **Sysprep** > **Panther**. After that, follow the instructions in [Sysprep fails with Microsoft Store apps](/troubleshoot/windows-client/deployment/sysprep-fails-remove-or-update-store-apps) to troubleshoot your setup.
 
-3. If setup is successful, stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+3. If setup is successful, stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
 
 4. You can now use the customized image to deploy an Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 

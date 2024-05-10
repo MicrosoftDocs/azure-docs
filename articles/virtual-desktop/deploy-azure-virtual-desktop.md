@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/28/2024
+ms.date: 04/11/2024
 ---
 
 # Deploy Azure Virtual Desktop
@@ -26,7 +26,7 @@ You can do all these tasks in a single process when using the Azure portal, but 
 For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
 > [!TIP]
-> The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want to try Azure Virtual Desktop with a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
+> The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want to try Azure Virtual Desktop with a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [quickstart](quickstart.md).
 
 ## Prerequisites
 
@@ -61,6 +61,8 @@ In addition, you need:
    - A stable connection to Azure from your on-premises network.
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+   
+   - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -133,9 +135,10 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
-   1. To add session hosts on Azure:
+   <details>
+       <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -146,7 +149,7 @@ Here's how to create a host pool using the Azure portal.
       | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. |
       | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
       | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
-      | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
+      | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.yml). |
       | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
       | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).|   
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
@@ -167,8 +170,10 @@ Here's how to create a host pool using the Azure portal.
       | Confirm password | Reenter the password. |
       | **Custom configuration** |  |
       | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
+   </details>
 
-   1. To add session hosts on Azure Stack HCI:
+   <details>
+       <summary>To add session hosts on <b>Azure Stack HCI</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -195,6 +200,7 @@ Here's how to create a host pool using the Azure portal.
       | Username | Enter a name to use as the local administrator account for the new session hosts. |
       | Password | Enter a password for the local administrator account. |
       | Confirm password | Reenter the password. |
+   </details>
 
    Once you've completed this tab, select **Next: Workspace**.
 
