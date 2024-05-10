@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL - Single Server to Flexible Server portal migration
+title: Azure Database for PostgreSQL - Single Server to Flexible Server CLI migration - Single Server to Flexible Server portal migration
 author: markingmyname
 ms.author: maghan
 ms.date: 03/15/2024
