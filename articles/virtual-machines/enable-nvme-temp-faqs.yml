@@ -63,18 +63,31 @@ sections:
           >[!TIP]
           > Note: The GUI example below is meant for illustrative purposes. It is recommended that scripts be created to automate this workflow for production deployments.
           1. Press the **Windows key + R** to open the Run dialog box. Type **diskmgmt.msc** and press **Enter**.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-1.png" alt-text="Screenshot of the Run dialog box opening diskmgmt.msc.":::
+          
           2. Select partition style (MBR or GPT) and the disks to be initialized and click on **OK** button.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-2.png" alt-text="Screenshot of the Disk Management Initialize Disk dialog box.":::          
+          
           3. Right click on the disk to be partitioned and select **New Simple Volume** menu item.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-3.png" alt-text="Screenshot of the menu for selecting new volume types.":::
+          
           4. Follow the **New Simple Volume Wizard** in the next few steps to specify items such as Volume size, Drive letter, File system, Volume label, etc. by clicking on the **Next** button to advance through the wizard. 
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-4.png" alt-text="Screenshot of specifying the volume size in the New Simple Volume Wizard.":::
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-5.png" alt-text="Screenshot of specifying the drive letter in the New Simple Volume Wizard.":::
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-6.png" alt-text="Screenshot of specifying how to format the partition in the New Simple Volume Wizard.":::
+          
           5. Review your settings and click the **Finish** button to complete the partition and format.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-7.png" alt-text="Screenshot of completing the New Simple Volume Wizard.":::
+          
           6. The formatted and initialized NVMe disks will show in the Windows Disk Management utility similar to how the “New Volume (E:)” does in this example.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-8.png" alt-text="Screenshot of Disk Management utility showing the New Volume (E:).":::
           
           ### PowerShell Script – Initialize, format, and assign drive letters
@@ -288,13 +301,21 @@ sections:
           ### GUI
           >[!TIP]
           > Note: The GUI example below is meant for illustrative purposes. It is recommended that scripts be created to automate this workflow for production deployments.be created to automate this workflow for production deployments.
+          
           1. Press the **Windows key + R** to open the Run dialog box. Type **sysdm.cpl** and press **Enter**.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-1.png" alt-text="Screenshot of the Run dialog box opening sysdm.cpl.":::
+          
           2. Click on the **Advanced** tab and then click on the **Settings** button under the **Performance** section.
+
           :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-2.png" alt-text="Screenshot of the Performance Settings button highlighted on the Advanced tab of System Properties.":::
+
           3. In the Performance Options window, click on the **Advanced** tab and then click on the **Change** button under the **Virtual memory** section.
+
           :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-3.png" alt-text="Screenshot of the Advanced tab of the Performance Options.":::
+
           4. Uncheck the option that says **“Automatically manage paging file size for all drives”**. If there’s a paging file set to your OS disk, select your OS disk and click on the **No paging file** radio button, and then click on the **Set** button. Select your local temp NVMe drive and click on the **System managed size** radio button, and then click on the **Set** button. Click on **OK** to close all windows.
+          
           :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-4.png" alt-text="Screenshot of Virtual Memory dialog box.":::
           
           >[!TIP]
