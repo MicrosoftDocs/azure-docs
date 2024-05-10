@@ -37,16 +37,13 @@ To select the VMs you want to move from Regional to Zonal configuration within s
 
 To select the VMs for the move, follow these steps: 
 
-1.	On the [Azure portal](https://ms.portal.azure.com/#home), select the VM. In this tutorial, we're using **DemoTestVM1** as an example.
-    
-    :::image type="content" source="./media/tutorial-move-regional-zonal/demo-test-machine.png" alt-text="Screenshot of demo virtual machine."::: 
- 
-2.	In the DemoTestVM1 resource pane, select **Availability + scaling** > **edit**. 
-    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling.png" alt-text="Screenshot of Availability + scaling option."::: 
+1.	On the [Azure portal](https://ms.portal.azure.com/#home), select the VM. 
+2.	In the virtual machine resource pane, select **Availability + scaling** > **edit**. 
+    :::image type="content" source="./media/tutorial-move-regional-zonal/scaling-pane.png" alt-text="Screenshot of Availability + scaling pane.":::  
 
     Alternatively, in the **DemoTestVM1** overview plane, you can select **Availability + scale** > **Availability + scaling**.
-        :::image type="content" source="./media/tutorial-move-regional-zonal/scaling-pane.png" alt-text="Screenshot of Availability + scaling pane."::: 
-    
+        
+
  
 ### Select the target availability zones
 
