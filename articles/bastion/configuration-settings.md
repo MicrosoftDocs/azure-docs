@@ -19,7 +19,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-### <a name="developer"></a>Developer SKU
+### Developer SKU
 
 [!INCLUDE [Developer SKU description](../../includes/bastion-developer-sku-description.md)]
 
@@ -73,7 +73,7 @@ You can configure this setting using the following methods:
 
 ## <a name="public-ip"></a>Public IP address
 
-Azure Bastion deployments, except [Developer SKU](#developer) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
+Azure Bastion deployments, except [Developer SKU](#developer-sku) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
 
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
