@@ -23,14 +23,10 @@ items:
     href: quickstarts/assistants.md
   - name: Hear and speak with chat in the playground
     href: quickstarts/hear-speak-playground.md
-  - name: Analyze images and video with GPT-4 for Vision in the playground
-    href: quickstarts/multimodal-vision.md
   - name: Moderate text and images with Content Safety
     href: quickstarts/content-safety.md
-  - name: Prevent input attacts with Prompt Shields
-    href: quickstarts/prompt-shields.md
-  - name: Detect groundedness in chat responses
-    href: quickstarts/groundedness.md
+  - name: Analyze images and video with GPT-4 for Vision in the playground
+    href: quickstarts/multimodal-vision.md
 - name: Tutorials
   items:
   - name: Deploy a chat web app
