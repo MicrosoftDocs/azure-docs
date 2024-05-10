@@ -11,8 +11,6 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Binding output binding for Azure Functions
 
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
-
 The Dapr output binding allows you to send a value to a Dapr output binding during a function execution.
 
 For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).

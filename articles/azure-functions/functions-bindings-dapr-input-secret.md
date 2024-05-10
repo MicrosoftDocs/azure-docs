@@ -11,8 +11,6 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Secret input binding for Azure Functions
 
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
-
 The Dapr secret input binding allows you to read secrets data as input during function execution.
 
 For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
