@@ -59,10 +59,10 @@ For each customer, you must:
 
 1. Choose a suitable subdomain. The label for the subdomain must:
     - Contain only letters, numbers, underscores, and dashes.
-    - Be up to **eight** characters in length.
+    - Be up to **nine** characters in length.
     - Not contain a wildcard or multiple labels separated by `.`.
     > [!IMPORTANT]
-    > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1-r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
+    > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso12.1r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
 2. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
 3. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
