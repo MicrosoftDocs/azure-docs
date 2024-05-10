@@ -140,6 +140,10 @@ Azure Backup and Azure Site Recovery events are sent from the same Recovery Serv
 
 ![Site Recovery events](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
+> [!NOTE]
+> When you create a Log Analytics workspace, it does not matter if the Recovery Services vault is located in a different region.
+
+
 To summarize:
 
 * If you already have Log Analytics diagnostics set up with Azure Diagnostics and have written custom queries on top of it, keep that setting *intact* until you migrate your queries to use data from the new events.
