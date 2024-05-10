@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/28/2024
+ms.date: 05/03/2024
 ms.author: danlep
 ---
 
@@ -34,6 +34,7 @@ More information about policies:
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes
 | [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | 
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes |
+| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting language model tokens per calculated key. | Yes | Yes | No | No |
 
 ## Authentication and authorization
 
@@ -127,6 +128,8 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|
 |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs. | Yes | Yes<sup>1</sup> | Yes | Yes |
 |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution. | Yes | Yes | Yes | Yes |
+|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | No |
+
 
 <sup>1</sup> In the V2 gateway, the `trace` policy currently does not add tracing output in the test console.
 

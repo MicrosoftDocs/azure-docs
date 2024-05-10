@@ -19,6 +19,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 > [!NOTE]
 > * This policy must have a corresponding [Cache responses to Azure OpenAI API requests](azure-openai-semantic-cache-store-policy.md) policy. 
 > * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
+> * Currently, this policy is in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
