@@ -13,9 +13,9 @@ author: fbsolo-ms1
 ms.custom: references_regions
 ---
 
-[!INCLUDE [Azure AI Studio preview](../includes/feature-preview.md)]
-
 # Fine-tune Phi-3 models in Azure AI Studio
+
+[!INCLUDE [Azure AI Studio preview](../includes/feature-preview.md)]
 
 Azure AI Studio lets you tailor large language models to your personal datasets by using a process known as **fine-tuning**. Fine-tuning enables customization and optimization for specific tasks and applications. It leads to improved performance, cost efficiency, reduced latency, and tailored outputs.
 
@@ -23,8 +23,8 @@ In this article, you learn how to fine-tune the Phi-3 family of small language m
 
 The Phi-3 family of SLMs is a collection of instruction-tuned generative text models. Phi-3 models are the most capable and cost-effective small language models (SLMs) available. They outperform models of the same size and the next bigger size, across various language, reasoning, coding, and math benchmarks.
 
-# Phi-3 family of models
-## [Phi-3-mini](#tab/phi-3-mini)
+## Phi-3 family of models
+### [Phi-3-mini](#tab/phi-3-mini)
 
 Phi-3 Mini is a lightweight, state-of-the-art, 3.8B parameter, open model built upon datasets used for Phi-2 synthetic data and filtered websites. Phi-3 Mini focuses on high-quality, reasoning dense data. The model belongs to the Phi-3 model family, and the Mini version comes in the 4K and 128-K variants. The 128-K variant is the context length (in tokens) it can support.
 
@@ -36,7 +36,7 @@ The model underwent a rigorous enhancement process that incorporated both superv
 ---
 
 ## Models
-# [Phi-3-mini](#tab/phi-3-mini)
+### [Phi-3-mini](#tab/phi-3-mini)
 
 These models are available in Azure AI studio for Phi 3, when fine-tuning as a service with pay-as-you-go:
 
@@ -75,11 +75,11 @@ To fine-tune your model, prepare your training and validation data. Your trainin
 
 Verify that all of your training examples follow the expected format for inference. To effectively fine-tune models, ensure that you have an available balanced, diverse dataset. This involves data balance maintenance, which includes various scenarios, and periodic refinement of training data, to align with real-world expectations. This preparation ultimately leads to more accurate and balanced model responses. Different model types require different training data formats.
 
-# [Chat Completion](#tab/chatcompletion)
+### [Chat Completion](#tab/chatcompletion)
 
 The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Phi-3-mini-128k-instruct`, the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
 
-### Example file format
+#### Example file format
 
 ```json
     {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "Is Xbox better than PlayStation?"}, {"role": "assistant", "content": "I apologize, but I cannot provide personal opinions. My primary job is to assist you with any issues related to your Xbox device. Do you have any Xbox-related issues that need addressing?"}]}
@@ -90,7 +90,7 @@ The supported file type is JSON Lines. Files are uploaded to the default datasto
 
 ## Fine-tune a Phi-3 model
 
-# [Phi-3](#tab/phi-3-mini)
+### [Phi-3](#tab/phi-3-mini)
 
 To fine-tune a Phi-3 model:
 
@@ -116,7 +116,7 @@ To fine-tune a Phi-3 model:
 1. Task parameters are an optional step and an advanced option. Tuning the hyperparameter is essential for optimization of large language models (LLMs) in real-world applications. It allows for performance improvements and efficient resource usage. You can use the default settings, but advanced users can customize the epoch or learning rate parameters.
 1. Review your selections, and proceed to train your model.
 
-Once you fine-tune your model, you can deploy the model and then use it in your own application, in the playground, or in prompt flow. For more information, visit [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md).
+Once you fine-tune your model, you can deploy the model and then use it in your own application, in the playground, or in prompt flow. <!--- For more information, visit [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md). --->
 
 ---
 
@@ -131,7 +131,7 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ### Cost and quota considerations for Phi-3 models fine-tuned as a service
 
-Microsoft offers Phi models, fine-tuned as a service and integrated with Azure AI Studio for use. Learn more about the pricing when [deploying](./deploy-models-phi3.md) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
+Microsoft offers Phi models, fine-tuned as a service and integrated with Azure AI Studio for use. Learn more about the pricing when <!--- [deploying](./deploy-models-phi3.md) or ---> fine-tuning the models under the Pricing and terms tab on deployment wizard.
 
 ## Content filtering
 
@@ -139,5 +139,5 @@ Models deployed as a service with pay-as-you-go are protected by Azure AI Conten
 
 ## Next steps
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Learn more about deploying Phi-3 models](./deploy-models-phi3.md)
+<!--- - [Learn more about deploying Phi-3 models](./deploy-models-phi3.md) --->
 - [Azure AI FAQ article](../faq.yml)
