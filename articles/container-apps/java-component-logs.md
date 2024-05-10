@@ -45,7 +45,7 @@ Log Analytics is a tool that helps you view and analyze log data. Using Log Anal
     | take 100
     ```
 
-    :::image type="content" source="media/java-components-logs/java-component-logs.png" alt-text="Screenshot of the Log Analytics Java component logs." lightbox="media/java-components-logs/java-component-logs.png"::
+    :::image type="content" source="media/java-components-logs/java-component-logs.png" alt-text="Screenshot of the Log Analytics Java component logs."  lightbox="media/java-components-logs/java-component-logs.png":::
 
 1. Select the **Run** button to run the query.
 
