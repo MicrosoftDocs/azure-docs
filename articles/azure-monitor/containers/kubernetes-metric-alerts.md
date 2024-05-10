@@ -14,7 +14,7 @@ There are two types of metric alert rules used with Kubernetes clusters.
 
 | Alert rule type | Description |
 |:---|:---|
-| [Prometheus metric alert rules (preview)](../alerts/alerts-types.md#prometheus-alerts) | Use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md). |
+| [Prometheus metric alert rules](../alerts/alerts-types.md#prometheus-alerts) | Use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md). |
 | [Platform metric alert rules](../alerts/alerts-types.md#metric-alerts) | Use metrics that are automatically collected from your AKS cluster and are stored as [Azure Monitor alert rules](../alerts/alerts-overview.md). |
 
 ## Enable recommended alert rules
@@ -96,7 +96,7 @@ Once the rule group has been created, you can't use the same page in the portal 
 
 4. For platform metrics:
 
-   1. click **Edit** to open the details for the alert rule. Use the guidance in [Create an alert rule](../alerts/alerts-create-metric-alert-rule.md#configure-the-alert-rule-conditions) to modify the rule. 
+   1. click **Edit** to open the details for the alert rule. Use the guidance in [Create an alert rule](../alerts/alerts-create-metric-alert-rule.yml) to modify the rule.
 
         :::image type="content" source="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" lightbox="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" alt-text="Screenshot of option to edit platform metric rule.":::
 

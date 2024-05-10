@@ -80,8 +80,10 @@
       href: flexible-server/concepts-servers.md
     - name: Supported versions
       href: flexible-server/concepts-supported-versions.md
-    - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
+    - name: Compute  
+      href: flexible-server/concepts-compute.md
+    - name: Storage
+      href: flexible-server/concepts-storage.md
     - name: Scaling resources
       href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
@@ -430,7 +432,6 @@
       - name: Partitioning using pg_partman
         href: flexible-server/how-to-use-pg-partman.md
         displayName: pg_partman
-- name: Migration
 - name: Migration Service
   items:
   - name: Overview
@@ -457,6 +458,10 @@
     items:
     - name: Network setup
       href: migrate/migration-service/how-to-network-setup-migration-service.md
+  - name: Troubleshoot
+    items:
+    - name: Premigration error codes
+      href: migrate/migration-service/troubleshoot-error-codes-premigration.md
 - name: Migrate data with pg_dump
   href: migrate/how-to-migrate-using-dump-and-restore.md
 - name: Minimal-downtime migration with DMS

@@ -224,7 +224,7 @@ items:
           href: app/availability-overview.md
         - name: Standard tests
           href: app/availability-standard-tests.md
-        - name: Private testing
+        - name: Testing behind a firewall
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
@@ -431,8 +431,6 @@ items:
         href: azure-monitor-operations-manager.md
       - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
     - name: Tutorials
@@ -623,25 +621,30 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Data collection rules
+    - name: Azure Monitor pipeline
       items:
       - name: Overview
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-overview.md
-      - name: Best practices
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-best-practices.md
-      - name: Create and edit
+        displayName: Pipeline
+        href: essentials/pipeline-overview.md
+      - name: Data collection rules
         items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+        - name: Overview
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-overview.md
+        - name: Best practices
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-best-practices.md
+        - name: Create and edit
+          items:
+          - name: Create
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-create-edit.md
+          - name: Edit tutorial
+            displayName: data collection rules
+            href: essentials/data-collection-rule-edit.md
+          - name: Structure
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -671,6 +674,8 @@ items:
         href: essentials/data-collection-rule-samples.md      
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
+      - name: Edge pipeline configuration
+        href: essentials/edge-pipeline-configure.md
     - name: Diagnostic Settings
       items:
       - name: Overview
@@ -721,6 +726,8 @@ items:
           href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Log Analytics gateway
           href: agents/gateway.md
+        - name: Send data to Event Hubs and Storage
+          href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
       - name: Define network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Configure Private Link for Azure Monitor Agent
@@ -789,8 +796,6 @@ items:
           items:
           - name: Overview
             href: agents/diagnostics-extension-overview.md
-          - name: Send data to Event Hubs and Storage
-            href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
           - name: Windows
             displayName: diagnostics extension
             items:
@@ -1292,7 +1297,7 @@ items:
         - name: Set up alert rules
           items:
           - name: Metric alert rules
-            href: alerts/alerts-create-metric-alert-rule.md
+            href: alerts/alerts-create-metric-alert-rule.yml
           - name: Log search alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules

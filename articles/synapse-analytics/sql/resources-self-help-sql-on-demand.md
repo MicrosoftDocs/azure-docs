@@ -753,7 +753,7 @@ This exceeds the maximum allowable table row size of 8060 bytes.
 
 This error also might happen in the Lake database if you create a Spark table with the column sizes that exceed 8060 bytes, and the serverless SQL pool cannot create a table that references the Spark table data.
 
-As a mitigation, avoid using the fixed size types like `CHAR(N)` and replace them with variable size `VARCHAR(N)` types, or decrease the size in `CHAR(N)`. See [8KB rows group limitation in SQL Server](https://learn.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)).
+As a mitigation, avoid using the fixed size types like `CHAR(N)` and replace them with variable size `VARCHAR(N)` types, or decrease the size in `CHAR(N)`. See [8KB rows group limitation in SQL Server](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)).
 
 ### Create a master key in the database or open the master key in the session before performing this operation
 

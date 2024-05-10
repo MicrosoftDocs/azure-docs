@@ -13,13 +13,11 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'NG' family of VM size series are one of Azure's GPU-optimized VM instances, specifically designed for cloud gaming and remote desktop applications. They harness powerful AMD Radeon™ PRO GPUs to deliver high-quality, interactive gaming experiences in the cloud, optimized for rendering complex graphics and streaming high-definition video. This ensures gamers enjoy a seamless, responsive gaming environment accessible from any device. Additionally, NG-series VMs provide a high-quality, responsive remote desktop experience, making them ideal for users needing reliable, high-performance access to desktop applications from anywhere in the world.
+[!INCLUDE [NG-family-summary](./includes/ng-family-summary.md)]
 
 ## Workloads and use cases
 
-**Cloud Gaming:** NG-family VMs harness powerful AMD Radeon™ PRO GPUs to deliver high-quality, interactive gaming experiences in the cloud.
-
-**Remote Destkop:** NG-family VMs can be used for remote desktop applications, providing users with a high-quality, responsive user experience.
+[!INCLUDE [NG-family-workloads](./includes/ng-family-workloads.md)]
 
 ## Series in family
 

@@ -1,0 +1,177 @@
+### YamlMime:HowTo
+
+metadata:
+  title: Configure the Microsoft Security DevOps Azure DevOps extension
+  description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
+  ms.date: 12/21/2023
+  ms.topic: how-to
+  ms.custom:
+    - ge-structured-content-pilot
+title: |
+  Configure the Microsoft Security DevOps Azure DevOps extension
+introduction: |
+  Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
+
+  The Microsoft Security DevOps uses the following Open Source tools:
+
+  | Name | Language | License |
+  |--|--|--|
+  | [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
+  | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
+  | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+  | [Checkov](https://github.com/bridgecrewio/checkov) | Terraform, Terraform plan, CloudFormation, AWS SAM, Kubernetes, Helm charts, Kustomize, Dockerfile, Serverless, Bicep, OpenAPI, ARM | [Apache License 2.0](https://github.com/bridgecrewio/checkov/blob/main/LICENSE) |
+  | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
+  | [IaCFileScanner](iac-template-mapping.md) | Template mapping tool for Terraform, CloudFormation, ARM Template, Bicep | Not Open Source |
+  | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM Template, Bicep | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
+  | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, CloudFormation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
+  | [Trivy](https://github.com/aquasecurity/trivy) | container images, Infrastructure as Code (IaC) | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
+
+  > [!NOTE]
+  > Effective September 20, 2023, the secrets scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secrets scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+
+prerequisites:
+  summary: |
+    - Project Collection Administrator privileges to the Azure DevOps organization are required to install the extension.
+
+    If you don't have access to install the extension, you must request access from your Azure DevOps organization's administrator during the installation process.
+procedureSection:
+  - title: |
+      Configure the Microsoft Security DevOps Azure DevOps extension
+    summary: |
+      **To configure the Microsoft Security DevOps Azure DevOps extension**:
+    steps: 
+      - |
+        Sign in to [Azure DevOps](https://dev.azure.com/).
+      - |
+        Navigate to **Shopping Bag** > **Manage extensions**.
+
+          :::image type="content" source="media/msdo-azure-devops-extension/manage-extensions.png" alt-text="Screenshot that shows how to navigate to the manage extensions screen.":::
+      - |
+        Select **Shared**.
+
+          > [!Note]
+          > If you've already [installed the Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops), it will be listed in the Installed tab.
+      - |
+        Select **Microsoft Security DevOps**.
+
+          :::image type="content" source="media/msdo-azure-devops-extension/marketplace-shared.png" alt-text="Screenshot that shows where to select Microsoft Security DevOps.":::
+      - |
+        Select **Install**.
+      - |
+        Select the appropriate organization from the dropdown menu.
+      - |
+        Select **Install**.
+      - |
+        Select **Proceed to organization**.
+  - title: |
+      Configure your pipelines using YAML
+    summary: |
+      **To configure your pipeline using YAML**:
+    steps: 
+      - |
+        Sign into [Azure DevOps](https://dev.azure.com/)
+      - |
+        Select your project.
+      - |
+        Navigate to **Pipelines**
+      - |
+        Select **New pipeline**.
+
+          :::image type="content" source="media/msdo-azure-devops-extension/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in DevOps." lightbox="media/msdo-azure-devops-extension/create-pipeline.png":::
+      - |
+        Select **Azure Repos Git**.
+
+          :::image type="content" source="media/msdo-azure-devops-extension/repo-git.png" alt-text="Screenshot that shows you where to navigate to, to select Azure repo git.":::
+      - |
+        Select the relevant repository.
+
+          :::image type="content" source="media/msdo-azure-devops-extension/repository.png" alt-text="Screenshot showing where to select your repository.":::
+      - |
+        Select **Starter pipeline**.
+
+          :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter pipeline.":::
+      - |
+        Paste the following YAML into the pipeline:
+
+          ```yml
+          # Starter pipeline
+          # Start with a minimal pipeline that you can customize to build and deploy your code.
+          # Add steps that build, run tests, deploy, and more:
+          # https://aka.ms/yaml
+          trigger: none
+          pool:
+            # ubuntu-latest also supported.
+            vmImage: 'windows-latest'
+          steps:
+          - task: MicrosoftSecurityDevOps@1
+            displayName: 'Microsoft Security DevOps'
+            # inputs:    
+              # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig'). Vist the MSDO GitHub wiki linked below for additional configuration instructions
+              # policy: 'azuredevops' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy to determine the tools/checks to run. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: azuredevops.
+              # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'code', 'artifacts', 'IaC', 'containers'. Example: 'IaC, containers'. Defaults to all.
+              # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
+              # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'checkov', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
+              # break: boolean. Optional. If true, will fail this build step if any high severity level results are found. Default: false.
+              # publish: boolean. Optional. If true, will publish the output SARIF results file to the chosen pipeline artifact. Default: true.
+              # artifactName: string. Optional. The name of the pipeline artifact to publish the SARIF result file to. Default: CodeAnalysisLogs*.
+            
+          ```
+
+        > [!NOTE]  
+        > The artifactName 'CodeAnalysisLogs' is required for integration with
+        > Defender for Cloud. **For additional tool configuration options and environment variables, see
+        > [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)**
+
+      - |
+        To commit the pipeline, select **Save and run**.
+
+        The pipeline will run for a few minutes and save the results.
+
+        > [!NOTE]
+        > Install the SARIF SAST Scans Tab extension on the Azure DevOps
+        > organization in order to ensure that the generated analysis results
+        > will be displayed automatically under the Scans tab.
+
+  - title: |
+      Uploading findings from third-party security tooling into Defender for Cloud
+    summary: |
+      While Defender for Cloud provides the MSDO CLI for standardized
+      functionality and policy controls across a set of open source security
+      analyzers, you have the flexibility to upload results from other
+      third-party security tooling that you might have configured in CI/CD
+      pipelines to Defender for Cloud for comprehensive code-to-cloud
+      contextualization. All results uploaded to Defender for Cloud must be in
+      standard SARIF format.
+
+      First, ensure your Azure DevOps repositories are
+      [onboarded to Defender for Cloud](quickstart-onboard-devops.md). After
+      you successfully onboard Defender for Cloud, it continuously monitors the
+      'CodeAnalysisLogs' artifact for SARIF output.
+
+      You can use the 'PublishBuildArtifacts@1' task to ensure SARIF output is
+      published to the correct artifact. For example, if a security analyzer
+      outputs `results.sarif`, you can configure the following task in your job
+      to ensure results are uploaded to Defender for Cloud:
+    code: |
+        ```yml
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'results.sarif'
+            ArtifactName: 'CodeAnalysisLogs'
+        ```
+
+        Findings from third-party security tools will appear as 'Azure DevOps
+        repositories should have code scanning findings resolved' assessments
+        associated with the repository the security finding was identified in.
+
+relatedContent:
+  - text: Create your first pipeline
+    url: /azure/devops/pipelines/create-first-pipeline
+  - text: DevOps Security in Defender for Cloud
+    url: defender-for-devops-introduction.md
+  - text: Connect your Azure DevOps Environment to Defender for Cloud
+    url: quickstart-onboard-devops.md
+
+    
+# Learn more about [DevOps Security in Defender for Cloud](defender-for-devops-introduction.md).
+# Learn how to [connect your Azure DevOps Organizations](quickstart-onboard-devops.md) to Defender for Cloud.

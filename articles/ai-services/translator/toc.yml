@@ -9,7 +9,7 @@ items:
     href: translator-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.md  
+    href: create-translator-resource.yml  
   - name: Language Support
     displayName: iso,language code,translation,transliteration,detection,detect,pdf,document
     href: language-support.md
@@ -32,7 +32,7 @@ items:
     href: text-translation-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.md
+    href: create-translator-resource.yml
   - name: 🆕 Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md

@@ -67,7 +67,7 @@ If both cluster ID scope and `clusterName` aren't specified  for a rule group, t
 
 You can also limit your rule group to a cluster scope using the [portal UI](#configure-the-rule-group-scope).
 
-### Create or edit Prometheus rule group in the Azure portal (preview)
+### Create or edit Prometheus rule group in the Azure portal
 
 To create a new rule group from the portal home page:
 
@@ -227,7 +227,7 @@ The rule group contains the following properties.
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
 | `apiVersion` | True | string | `2023-03-01` |
-| `location` | True | string | Resource location from regions supported in the preview. |
+| `location` | True | string | Resource location out of supported regions. |
 | `properties.description` | False | string | Rule group description. |
 | `properties.scopes` | True | string[] | Must include the target Azure Monitor workspace ID. Can optionally include one more cluster ID, as well. |
 | `properties.enabled` | False | boolean | Enable/disable group. Default is true. |

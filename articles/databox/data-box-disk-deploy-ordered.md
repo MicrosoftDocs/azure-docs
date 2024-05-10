@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 04/22/2024
 ms.author: shaas
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
@@ -116,6 +116,11 @@ Take the following steps to order Data Box Disk.
     :::image type="content" alt-text="Screenshot of Data Box Disk data destination." source="media/data-box-disk-deploy-ordered/data-box-disk-order-destination-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-disk-order-destination.png":::
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts them into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
+
+    > [!NOTE]
+    > Data Box supports copying only 1 MiB aligned, fixed-size `.vhd` files for creating managed disks. Dynamic VHDs, differencing VHDs, `.vmdk` or `.vhdx` files are not supported.
+    >
+    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
 1. Select **Next: Security>** to continue.
 
@@ -274,7 +279,7 @@ After the order is created, the device is prepared for shipment.
 
 ## Track the order
 
-After you placing the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
+After you place the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
 :::image type="content" alt-text="Data Box Disk status ordered." source="media/data-box-disk-deploy-ordered/data-box-portal-ordered-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-portal-ordered.png":::
 

@@ -257,15 +257,15 @@ Then, to implement this solution using CLI, use the following command:
 az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor
 ```
 
-To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
+To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-portal.yml).
 
-For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.md#step-1-identify-the-needed-scope): The needed scope is your resource group.
+For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.yml#step-1-identify-the-needed-scope): The needed scope is your resource group.
 
-For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.md#step-3-select-the-appropriate-role): The role is Contributor.
+For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.yml#step-3-select-the-appropriate-role): The role is Contributor.
 
-For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.md#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder”
+For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.yml#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder”
 
-Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.md#step-6-assign-role) to assign the role.
+Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.yml#step-6-assign-role) to assign the role.
 
 ## Troubleshoot build failures
 

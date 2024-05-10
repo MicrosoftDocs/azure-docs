@@ -1,7 +1,7 @@
 ---
-title: SDKs and REST APIs for Azure Communication Services
+title: SDK's and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn more about Azure Communication Services SDKs and REST APIs.
+description: Learn more about Azure Communication Services SDK's and REST APIs.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -33,7 +33,6 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
 | Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service | Build customized calling workflows for PSTN and VoIP calls |
 | Job Router | [REST](/rest/api/communication/jobrouter/job-router-operations) | Service | Optimize the management of customer interactions across various applications |
-| Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | Rooms | [REST](/rest/api/communication/rooms/operation-groups)| Service| Create and manage structured communication rooms  |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 | Advanced Messaging | [REST](/rest/api/communication/advancedmessaging/operation-groups) | Service | Send and receive WhatsApp Business messages |
@@ -49,12 +48,11 @@ Publishing locations for individual SDK packages:
 | Identity | [npm](https://www.npmjs.com/package/@azure/communication-identity) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Identity)| [PyPi](https://pypi.org/project/azure-communication-identity/)| [Maven](https://search.maven.org/search?q=a:azure-communication-identity) | -| -| -|
 | Phone Numbers | [npm](https://www.npmjs.com/package/@azure/communication-phone-numbers) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.PhoneNumbers)| [PyPi](https://pypi.org/project/azure-communication-phonenumbers/)| [Maven](https://search.maven.org/search?q=a:azure-communication-phonenumbers) | -| -| -|
 | Chat | [npm](https://www.npmjs.com/package/@azure/communication-chat)| [NuGet](https://www.NuGet.org/packages/Azure.Communication.Chat) | [PyPi](https://pypi.org/project/azure-communication-chat/) | [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)| [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | -|
-| SMS  [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
+| SMS | [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
 | Email | [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
 | Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-windowsclient-sdk-release-notes.md) | -| - | [CocoaPods](https://github.com/Azure/Communication/releases) | [Maven](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-android-sdk-release-notes.md)| -|
 | Call Automation |[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 | Job Router |[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
-| Network Traversal | [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
 | Rooms          | [npm](https://www.npmjs.com/package/@azure/communication-rooms)     | [NuGet](https://www.nuget.org/packages/Azure.Communication.Rooms)     | [PyPi](https://pypi.org/project/azure-communication-rooms/)    | [Maven](https://search.maven.org/search?q=a:azure-communication-rooms) | - | - | - |
 | UI Library | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 | Advanced Messaging | [npm](https://www.npmjs.com/package/@azure-rest/communication-messages) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Messages) | [PyPi](https://pypi.org/project/azure-communication-messages/) | [Maven](https://central.sonatype.com/artifact/com.azure/azure-communication-messages) | - | - | - |
@@ -102,6 +100,18 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
 
+#### SDK package size
+
+| SDK                   |      Compressed size (MB)     |    Uncompressed size (MB)     |
+|-----------------------| ------------------------------|-------------------------------|
+|iOS SDK                |  ARM64 - 17.1 MB              | ARM64 - 61.1 MB               |
+|Android SDK            |  x86 – 13.3 MB                | x86 – 33.75 MB                |
+|                       |  x86_64 – 13.3 MB             | x86_64 – 35.75 MB             |
+|                       |  ARM64-v8a – 13.1 MB          | ARM64-v8a – 37.02 MB          |
+|                       |  armeabi-v7a – 11.4 MB        | armeabi-v7a – 23.97 MB        |
+
+If you want to improve your app, we suggest read [the Best Practices article](./best-practices.md). It provides recommendations and a checklist to review before releasing your app.
+
 ## REST APIs
 
 Communication Services APIs are documented alongside other [Azure REST APIs](/rest/api/azure/). This documentation tells you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs on [service limits page](./service-limits.md).
@@ -124,7 +134,7 @@ You'll get three years warning before these APIs stop working and are forced to 
 
 **You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 
-You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
+You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
 ## Next steps
 

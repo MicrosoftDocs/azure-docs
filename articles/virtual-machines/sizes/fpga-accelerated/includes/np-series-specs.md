@@ -16,4 +16,4 @@ ms.custom: include file
 | Memory           | 168 - 672<sup>GiB    |                                                |
 | Data Disks       | 8 - 32<sup>Disks     |                                                |
 | Network          | 1 - 4<sup>NICs       | 7500 - 30000<sup>Mbps                          |
-| Accelerators     | 1 - 4 [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) | 64<sup>GiB </sup>/ FPGA |
+| Accelerators     | 1 - 4<sup>FPGAs</sup>  | [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) 64<sup>GiB </sup> <br> 64 - 256<sup>GiB</sup> per VM |
