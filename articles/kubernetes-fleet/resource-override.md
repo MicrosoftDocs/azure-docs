@@ -2,7 +2,7 @@
 title: "Customize namespace scoped resources in Azure Kubernetes Fleet Manager with resource overrides"
 description: This article provides an overview of how to use the Fleet ResourceOverride API to override namespace scoped resources in Azure Kubernetes Fleet Manager.
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 05/10/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
@@ -18,7 +18,7 @@ This article provides an overview of how to use the Fleet `ResourceOverride` API
 
 ## Resource override overview
 
-The resource override feature allows you to modify or override specific attributes of existing resources within a namespace. With `ResourceOverride`, you can define rules based on cluster labels or other criteria, specifying changes to be applied to resources such as Deployments, StatefulSets, ConfigMaps, or Secrets. These changes can include updates to container images, environment variables, resource limits, or any other configurable parameters, ensuring consistent management and enforcement of configurations across your Fleet-managed Kubernetes clusters.
+The resource override feature allows you to modify or override specific attributes of existing resources within a namespace. With `ResourceOverride`, you can define rules based on cluster labels, specifying changes to be applied to resources such as Deployments, StatefulSets, ConfigMaps, or Secrets. These changes can include updates to container images, environment variables, resource limits, or any other configurable parameters, ensuring consistent management and enforcement of configurations across your Fleet-managed Kubernetes clusters.
 
 ## API components
 
@@ -30,6 +30,9 @@ The `ResourceOverride` API consists of the following components:
 ### Resource selectors
 
 A `ResourceOverride` object can include one or more resource selectors to specify which resources to override. The `ResourceSelector` object includes the following fields:
+
+> [!NOTE]
+> If you select a namespace in the `ResourceSelector`, the override will apply to all resources in the namespace.
 
 * `group`: The API group of the resource.
 * `version`: The API version of the resource.
@@ -123,6 +126,8 @@ You can use `jsonPatchOverrides` in the `overrideRule` object to specify the cha
 * `value`: The value to add, remove, or replace.
   * If the `op` is `remove`, you can't specify a `value`.
 
+`jsonPatchOverrides` apply a JSON patch on the selected resources following [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902).
+
 ### Use multiple override rules
 
 You can add multiple `overrideRules` to a `policy` to apply multiple changes to the selected resources, as shown in the following example:
@@ -200,10 +205,10 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
     kubectl apply -f cluster-resource-placement.yaml
     ```
 
-3. Verify the `ResourceOverride` object applied to the selected resources by checking the status of the `ClusterResourcePlacement` resource using the `kubectl get` command.
+3. Verify the `ResourceOverride` object applied to the selected resources by checking the status of the `ClusterResourcePlacement` resource using the `kubectl describe` command.
 
     ```bash
-    kubectl get clusterresourceplacement crp-example
+    kubectl describe clusterresourceplacement crp-example
     ```
 
     Your output should resemble the following example output:
