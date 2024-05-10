@@ -328,6 +328,9 @@
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
         displayName: java
+      - name: Set dynamic logger level
+        href: java-dynamic-log-level.md
+        displayName: java
       - name: Tutorials
         items:
           - name: Connect to Eureka Server for Spring
