@@ -78,7 +78,7 @@ Azure Load Testing lets you [use managed identities](./how-to-use-a-managed-iden
 
 A test describes the load test configuration for your application. You add a test to an existing Azure load testing resource.
 
-A test contains a test plan, which describes the steps to invoke the application endpoint. You can define the test plan in either of two ways:
+A test contains a test plan, which describes the steps to invoke the application endpoint. You can define the test plan in one of three ways:
 
 - [Upload a JMeter test script](./how-to-create-and-run-load-test-with-jmeter-script.md).
 - [Upload a Locust test script](./quickstart-create-run-load-test-with-locust.md).

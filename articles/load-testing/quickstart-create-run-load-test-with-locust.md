@@ -67,7 +67,7 @@ To create a load test for a Locust-based test in the Azure portal:
 
 1. On the **Test plan** tab, select **Locust** as the **Load testing framework**.
 
-    :::image type="content" source="./media/quickstart-create-and-run-load-test-with-locust/select-framework.png" alt-text="Screenshot that shows the option to select Locust framework" lightbox="./media/quickstart-create-and-run-load-test-with-locust/select-framework.png":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test-with-locust/select-framework.png" alt-text="Screenshot that shows the option to select Locust framework." lightbox="./media/quickstart-create-and-run-load-test-with-locust/select-framework.png":::
 
 1. Next, select the Locust test script from your computer, and then select **Upload** to upload the file to Azure.
 

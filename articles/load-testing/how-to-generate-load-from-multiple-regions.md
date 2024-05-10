@@ -32,7 +32,7 @@ To specify the load distribution for a load test in the Azure portal:
 
 1. On the left pane, select **Tests** to view a list of tests. Select your test and then select **Edit**.
 
-    :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource.":::  
+    :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource." lightbox="media/how-to-export-test-results/test-list.png":::  
 
     Alternately, create a new load test by selecting **Create** > **Create a URL-based test** or **Create** > **Upload a JMeter script**.
 
