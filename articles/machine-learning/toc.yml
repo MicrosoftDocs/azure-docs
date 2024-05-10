@@ -1584,6 +1584,40 @@
               href: reference-yaml-component-command.md
             - name: Pipeline
               href: reference-yaml-component-pipeline.md
+        - name: Connection
+          items:
+            - name: Azure AI Services
+              href: reference-yaml-connection-ai-services.md
+            - name: Azure OpenAI
+              href: reference-yaml-connection-azure-openai.md
+            - name: Azure AI Content Safety
+              href: reference-yaml-connection-ai-content-safety.md
+            - name: Azure AI Speech
+              href: reference-yaml-connection-speech.md
+            - name: Azure AI Search
+              href: reference-yaml-connection-ai-search.md
+            - name: Blob store
+              href: reference-yaml-connection-blob.md
+            - name: Azure Data Lake Store Gen2
+              href: reference-yaml-connection-data-lake.md
+            - name: Microsoft OneLake
+              href: reference-yaml-connection-onelake.md
+            - name: Serverless
+              href: reference-yaml-connection-serverless.md
+            - name: Git
+              href: reference-yaml-connection-git.md
+            - name: Serp
+              href: reference-yaml-connection-serp.md
+            - name: OpenAI
+              href: reference-yaml-connection-openai.md
+            - name: Python feed
+              href: reference-yaml-connection-python-feed.md
+            - name: Azure Container Registry
+              href: reference-yaml-connection-container-registry.md
+            - name: API key
+              href: reference-yaml-connection-api-key.md
+            - name: Custom
+              href: reference-yaml-connection-custom-key.md
         - name: Registry
           items:
             - name: Registry
