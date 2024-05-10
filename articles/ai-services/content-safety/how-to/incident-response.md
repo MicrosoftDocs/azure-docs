@@ -43,8 +43,9 @@ tbd env vars?
 
 #### [cURL](#tab/curl)
 
-In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values:
+In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values.
 
+The following command creates an incident with a name and definition.
 
 ```shell
 curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>?api-version=2024-02-15-preview ' \
@@ -57,6 +58,29 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents
 ```
 
 #### [Python](#tab/python)
+
+First, you need to install the required Python library:
+
+```bash
+pip install requests
+```
+
+Then, define the necessary variables with your own Azure resource details:
+
+```python
+import requests
+
+API_KEY = '<your_api_key>'
+ENDPOINT = '<your_endpoint>'
+
+headers = {
+    'Ocp-Apim-Subscription-Key': API_KEY,
+    'Content-Type': 'application/json'
+}
+```
+
+The following command creates an incident with a name and definition.
+
 
 ```python
 import requests
@@ -80,6 +104,8 @@ print(response.text)
 ---
 
 ### Add samples to the incident
+
+Use the following command to add text examples to the incident.
 
 #### [cURL](#tab/curl)
 
@@ -128,6 +154,8 @@ print(response.text)
 
 ### Detect text incidents
 
+Run the following command to analyze sample text content for the incident you just defined.
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -173,6 +201,11 @@ print(response.text)
 
 #### [cURL](#tab/curl)
 
+In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values.
+
+The following command creates an image incident:
+
+
 ```shell
 curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
@@ -183,6 +216,28 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incident
 ```
 
 #### [Python](#tab/python)
+
+Make sure you've installed required Python libraries:
+
+```bash
+pip install requests
+```
+
+Define the necessary variables with your own Azure resource details:
+
+```python
+import requests
+
+API_KEY = '<your_api_key>'
+ENDPOINT = '<your_endpoint>'
+
+headers = {
+    'Ocp-Apim-Subscription-Key': API_KEY,
+    'Content-Type': 'application/json'
+}
+```
+
+The following command creates an image incident:
 
 ```python
 import requests
@@ -206,6 +261,10 @@ print(response.text)
 ---
 
 ### Add samples to the incident
+
+Use the following command to add examples images to your incident. The image samples can be URLs pointing to images in an Azure blob storage container, or they can be Base64 strings.
+
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -256,6 +315,8 @@ print(response.text)
 
 ### Analyze image with incident response
 
+Use the following command to upload a sample image and test it against the incient you created.
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -305,9 +366,12 @@ print(response.text)
 
 ## Other incident operations
 
+The following operations are useful for managing incidents and incident samples.
+
 ### Text incident API
 
 #### List all incidents
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -334,6 +398,7 @@ print(response.text)
 ---
 
 #### Get the incident details
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -388,6 +453,8 @@ print(response.text)
 
 #### List all samples under an incident
 
+This command retrieves the unique IDs of all the samples associated with a given incident object.
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -414,7 +481,7 @@ print(response.text)
 
 #### Get an incident sample's details
 
-Use the incident sample ID from the previous response.
+Use an incident sample ID to look up details about the sample.
 
 #### [cURL](#tab/curl)
 
@@ -441,6 +508,8 @@ print(response.text)
 ---
 
 #### Delete an incident sample
+
+Use an incident sample ID to retrieve and delete that sample.
 
 #### [cURL](#tab/curl)
 
@@ -562,6 +631,9 @@ print(response.text)
 
 #### List all samples under an incident
 
+This command retrieves the unique IDs of all the samples associated with a given incident object.
+
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -588,6 +660,9 @@ print(response.text)
 
 #### Get the incident sample details
 
+Use an incident sample ID to look up details about the sample.
+
+
 #### [cURL](#tab/curl)
 
 ```shell
@@ -613,6 +688,9 @@ print(response.text)
 ---
 
 #### Delete the incident sample
+
+Use an incident sample ID to retrieve and delete that sample.
+
 
 #### [cURL](#tab/curl)
 
@@ -650,6 +728,7 @@ print(response.text)
 ```
 ---
 
-## Next steps
+## Related content
 
+- [Incident response concepts](../concepts/incident-response.md)
 - [What is Azure AI Content Safety?](../overview.md)
