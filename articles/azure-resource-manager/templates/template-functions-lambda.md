@@ -14,7 +14,6 @@ This article describes the lambda functions to use in ARM templates. [Lambda fun
 lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
 ```
 
-
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
 
@@ -138,6 +137,54 @@ The output from the preceding example:
 | isEven | Array | [0, 2, 4, 6, 8] |
 
 **filterdLoop** shows the numbers in an array that are greater than 5; and **isEven** shows the even numbers in the array.
+
+## groupBy
+
+`groupBy(inputArray, lambda expression)`
+
+Creates an object with array values from an array, using a grouping condition:
+
+In Bicep, use the [groupBy](../bicep/bicep-functions-lambda.md#groupby) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |The array for grouping.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element, and group the elements using the grouping condition.|
+
+### Return value
+
+An object.
+
+### Examples
+
+The following example show how to use the `groupBy` function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "groupObject": "[groupBy(createArray('foo', 'bar', 'baz'), lambda('x', substring(lambdaVariables('x'), 0, 1)))]"
+  },
+  "resources": [],
+  "outputs": {
+    "outObject": {
+      "type": "object",
+      "value": "[variables('groupObject')]"
+    }
+  }
+}
+```
+
+The output from the preceding example shows the dogs that are five or older:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outObject | Object | {"f":["foo"],"b":["bar","baz"]} |
+
+**outObject** shows an object that groups the array elements by their first letters.
 
 ## map
 

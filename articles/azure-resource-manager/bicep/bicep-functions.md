@@ -91,6 +91,7 @@ The following functions are available for loading the content from external file
 The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace.
 
 * [filter](bicep-functions-lambda.md#filter)
+* [groupBy](bicep-functions-lambda.md#groupby)
 * [map](bicep-functions-lambda.md#map)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)

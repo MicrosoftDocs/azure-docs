@@ -97,6 +97,43 @@ The output from the preceding example:
 
 **filterdLoop** shows the numbers in an array that are greater than 5; and **isEven** shows the even numbers in the array.
 
+## groupBy
+
+`groupBy(inputArray, lambda expression)`
+
+Creates an object with array values from an array, using a grouping condition:
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |The array for grouping.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element, and group the elements using the grouping condition.|
+
+### Return value
+
+An object.
+
+### Examples
+
+The following examples show how to use the `groupBy` function.
+
+```bicep
+var groupObject = groupBy(['foo', 'bar', 'baz'], x => substring(x, 0, 1)) 
+
+output outObject object = groupObject
+```
+
+The output from the preceding example shows the dogs that are five or older:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outObject | Object | {"f":["foo"],"b":["bar","baz"]} |
+
+**outObject** shows an object that groups the array elements by their first letters.
+
 ## map
 
 `map(inputArray, lambda expression)`
