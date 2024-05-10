@@ -21,6 +21,19 @@ ms.reviewer: mattmcinnes
 
 [!INCLUDE [epsv6-summary](./includes/epsv6-series-summary.md)]
 
+## Host specifications
+[!INCLUDE [epsv6-series-specs](./includes/epsv6-series-specs.md)]
+
+## Feature Support
+- [Premium Storage](../../premium-storage-performance.md): Supported 
+- [Premium Storage caching](../../premium-storage-performance.md): Supported 
+- [Live Migration](../../maintenance-and-updates.md): Supported 
+- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
+- [VM Generation Support](../../generation-2.md): Generation 2 
+- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
+- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
+
 ## Sizes in series
 
 ### [Basics](#tab/sizebasic)
@@ -38,15 +51,6 @@ vCPUs (Qty.) and Memory for each size:
 | Standard_E64ps_v6 | 64 | 512 |
 | Standard_E96ps_v6 | 96 | 672 |
 
-- [Premium Storage](../../premium-storage-performance.md): Supported 
-- [Premium Storage caching](../../premium-storage-performance.md): Supported 
-- [Live Migration](../../maintenance-and-updates.md): Supported 
-- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
-- [VM Generation Support](../../generation-2.md): Generation 2 
-- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
-- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
-
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
@@ -60,17 +64,6 @@ Local (temp) storage info for each size:
 > No local storage present in this series. For similar sizes with local storage, see the [Epdsv6-series](./epdsv6-series.md).
 >
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](../../azure-vms-no-temp-disk.yml).
-
-#### Storage resources
-- [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
-- [Azure managed disk types](../../../virtual-machines/disks-types.md)
-- [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
-
-#### Table definitions
-- Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
-- Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
-- Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly (R-O) or ReadWrite (R-W). For uncached data disk operation, the host cache mode is set to None.
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
 ### [Remote Storage](#tab/sizestorageremote)
 
@@ -87,17 +80,16 @@ Remote (uncached) storage info for each size:
 | Standard_E64ps_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133325 | 3969 | 133325 | 4680 |
 | Standard_E96ps_v6 | 64 | 153600 | 5000 | 153600 | 5000 | 199987 | 5850 | 199987 | 5953 |
 
-<sup>1</sup>Epsv6-series VMs can [burst](../../disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
-
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
 - [Azure managed disk types](../../../virtual-machines/disks-types.md)
 - [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
+- <sup>1</sup>These sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
+- Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
-- Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
 - To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
 ### [Network](#tab/sizenetwork)
