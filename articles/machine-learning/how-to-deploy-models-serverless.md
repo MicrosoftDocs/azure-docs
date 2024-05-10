@@ -88,7 +88,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. Ensure your account has the **Azure AI Developer** role permissions on the resource group.
+1. Ensure your account has the **Azure AI Developer** role permissions on the resource group or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
 
 1. Go to your workspace.
 
@@ -507,6 +507,27 @@ For more information on how to track costs, see [Monitor costs for models offere
 :::image type="content" source="media/how-to-deploy-models-serverless/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-serverless/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+
+## Permissions required to subscribe to model offerings
+
+Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Owner__, __Contributor__, or __Azure AI Developer__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
+
+- On the Azure subscription—to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering:
+  - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
+  - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
+  - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
+  - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
+  - `Microsoft.SaaS/register/action`
+
+- On the resource group—to create and use the SaaS resource:
+  - `Microsoft.SaaS/resources/read`
+  - `Microsoft.SaaS/resources/write`
+
+- On the workspace—to deploy endpoints (the Azure Machine Learning data scientist role contains these permissions already):
+  - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
+  - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
+
+For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 ## Related content
 
