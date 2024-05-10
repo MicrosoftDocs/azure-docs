@@ -71,7 +71,7 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
    For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-   For more information about the Trusted Signing Azure CLI extension, see [Trusted Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest).
+   For more information about the Trusted Signing Azure CLI extension, see [Trusted Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest&preserve-view=true).
 
 1. To see the versions of the Azure CLI and the dependent libraries that are installed, use the `az version` command.
 
@@ -235,7 +235,7 @@ To create an identity validation request:
     | **Street, City, Country, State, Postal code**           | Enter the business address of the legal business entity. |
 
 1. Select **Certificate subject preview** to see the preview of the information that appears in the certificate.
-1. Select **Review and accept Trusted Signing Terms of Use**. You can download the Terms of Use to review or save them.  
+1. Select **I accept Microsoft terms of use for trusted signing services**. You can download the Terms of Use to review or save them.  
 1. Select the **Create** button.
 1. When the request is successfully created, the identity validation request status changes to **In Progress**.
 1. If more documents are required, an email is sent and the request status changes to **Action Required**.
@@ -304,7 +304,7 @@ To create a certificate profile in the Azure portal:
       A generated **Certificate Subject Preview** shows the preview of the certificate that will be issued.
    1. Select **Create**.
 
-:::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/trusted-signing-certificate-profile-creation.png":::
+   :::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/trusted-signing-certificate-profile-creation.png":::
 
 # [Azure CLI](#tab/certificateprofile-cli)
 
@@ -314,11 +314,11 @@ You need the identity validation ID for the entity that the certificate profile 
 
 1. In the Azure portal, go to your Trusted Signing account.
 1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
-1. Select the hyperlink for the relevant entity. In the **Identity validation** pane, you can copy the value for **Identity validation Id**.
+1. Select the hyperlink for the relevant entity. On the **Identity validation** pane, you can copy the value for **Identity validation Id**.
 
-:::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for a Trusted Signing account." lightbox="media/trusted-signing-identity-validation-id.png":::
+   :::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for a Trusted Signing account." lightbox="media/trusted-signing-identity-validation-id.png":::
 
-To create a certificate profile by using the Azure CL:
+To create a certificate profile by using the Azure CLI:
 
 1. Create a certificate profile by using the following command:
 
