@@ -119,8 +119,8 @@ Symptoms: No data appears in Azure Data Explorer. Logs of category `Ingestion` d
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
-- Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
 - Ensure that the configured SFTP user can read all directories under the `base_path`, which file source config doesn't exclude.
+- Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
 
 ### Files are missing
 
