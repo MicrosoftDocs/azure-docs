@@ -25,6 +25,8 @@
     items:
     - name: Create an index
       href: search-get-started-portal.md
+    - name: Data chunking and vectorization in Azure portal (preview)
+      href: search-get-started-portal-import-vectors.md
     - name: Create a demo app
       href: search-create-app-portal.md
     - name: Create a skillset
@@ -286,6 +288,8 @@
             href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
           - name: Azure SQL Server VMs
             href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: OneLake files
+          href: search-how-to-index-onelake-files.md
         - name: SharePoint in Microsoft 365
           href: search-howto-index-sharepoint-online.md
     - name: Skillsets
@@ -336,8 +340,6 @@
       href: vector-search-how-to-chunk-documents.md
     - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
-    - name: Chunk and embed in Azure portal (preview)
-      href: search-get-started-portal-import-vectors.md
     - name: Integrated vectorization with Azure AI Studio models
       href: vector-search-integrated-vectorization-ai-studio.md
   - name: Keyword search

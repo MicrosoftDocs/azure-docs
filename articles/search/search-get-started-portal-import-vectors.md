@@ -6,22 +6,20 @@ description: Use the Import and vectorize data wizard to automate data chunking 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: quickstart
-ms.date: 05/05/2024
+ms.date: 05/09/2024
 ---
 
 # Quickstart: Integrated vectorization (preview)
 
 > [!IMPORTANT]
-> **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true).
+> **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 Get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal. This wizard calls an Azure OpenAI text embedding model to vectorize content during indexing and for queries.
 
 In this preview version of the wizard:
 
-+ Source data is blob only, using the default parsing mode (one search document per blob).
++ Source data is either blobs in Azure Storage or files in OneLake, using the default parsing mode (one search document per blob or file).
 + Index schema is nonconfigurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key, represented as `parent_id` in the Index.
 + Vectorization is Azure OpenAI only (text-embedding-ada-002), using the [Hierarchical Navigable Small Worlds (HNSW)](vector-search-ranking.md) algorithm with defaults.
 + Chunking is nonconfigurable. The effective settings are:
@@ -34,18 +32,17 @@ In this preview version of the wizard:
 
 For more configuration and data source options, try Python or the REST APIs. See [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb) for details.
 
-
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
 + Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created before January 2019, an index containing vector fields fails on creation. In this situation, a new service must be created.
 
 + [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002** and an API key or [**Cognitive Services OpenAI User**](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to upload data. You can only choose one vectorizer in this preview, and the vectorizer must be Azure OpenAI.
 
-+ [Azure Storage account](/azure/storage/common/storage-account-overview), standard performance (general-purpose v2), hot, cool, and cold access tiers.
++ [Azure Storage account](/azure/storage/common/storage-account-overview), standard performance (general-purpose v2), hot, cool, and cold access tiers or [OneLake](search-how-to-index-onelake-files.md).
 
-+ Blobs providing text content, unstructured docs only, and metadata. In this preview, your data source must be Azure blobs.
++ Blobs or files providing text content, unstructured docs only, and metadata. 
 
-+ Read permissions in Azure Storage. A storage connection string that includes an access key gives you read access to storage content. If instead you're using Microsoft Entra logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has [**Storage Blob Data Reader**](/azure/storage/blobs/assign-azure-role-data-access) permissions.
++ Read permissions on the data source. For connections to Azure Storage, you can use keys or a **Storage Blob Data Reader** role assignment. For connections to OneLake, you must connect using the **Contributor** role (there is no key authentication support).
   
 + All components (data source and embedding endpoint) must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled in the different integration components for security. If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here is a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
 
