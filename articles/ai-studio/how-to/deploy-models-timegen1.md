@@ -60,7 +60,7 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the **Target** URL of the endpoint, and the Secret **Key**.
 1. To find the details, URL, and access keys of the endpoint, navigate to the **Build** tab  and select **Deployments** from the Components section.
 
-For more information about billing for TimeGEN-1 deployed with pay-as-you-go, visit [Cost and quota considerations for TimeGEN-1 deployed as a service](#cost-and-quota-considerations-for-timegen1-deployed-as-a-service).
+For more information about billing for TimeGEN-1 deployed with pay-as-you-go, visit [Cost and quota considerations for TimeGEN-1 deployed as a service](#cost-and-quota-considerations-for-timegen-1-deployed-as-a-service).
 
 ### Consume the TimeGEN-1 model as a service
 
@@ -82,7 +82,7 @@ TimeGEN-1 can be consumed using the chat API.
 |Exogenous Variables|Calendar variables and special dates are some of the most common types of extra variables used in forecasting applications. They provide more context about the current state of the time series, especially for window-based models, such as TimeGEN1. These variables often include adding information about the month, week, day, or hour of each observation. For example, to improve the forecasts, with high-frequency hourly data, the current month of the year provides more context than the limited history available in the input window.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
 |Demand Forecasting|Demand forecasting involves application of historical data and other analytical information, to build models that help predict future estimates of customer demand, for specific products, over a specific time period. It helps shape product road map, inventory production, and inventory allocation, among other things.|[Demand Forecasting](https://aka.ms/demand-forecasting-with-TimeGEN1)|
 
-For more information about use of the APIs, visit the [reference](#reference-for-timegen1-deployed-as-a-service) section.
+For more information about use of the APIs, visit the [reference](#reference-for-timegen-1-deployed-as-a-service) section.
 
 ### Reference for TimeGEN-1 deployed as a service
 
