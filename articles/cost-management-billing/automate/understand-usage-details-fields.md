@@ -216,7 +216,7 @@ UsageDate | Date
 UsageEnd | Date
 UsageStart | Date
 
-## Next steps
+## Related content
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
