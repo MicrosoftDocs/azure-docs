@@ -59,7 +59,7 @@ landingContent:
             url: how-to-configure-managed-identity.md
 
   # Card
-  - title: Customize deployments with the Extensibility model
+  - title: Customize deployments with the extensibility model
     linkLists:
       - linkListType: how-to-guide
         links:
