@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 05/09/2024
 ms.author: micahvivion
 ---
-# Events on the Azure Communication Calling SDK
+## Events on the Azure Communication Calling SDK
 
 This guide describes the various events or properties changes your app can subscribe to. Subscribing to those events allows your app to be informed about state change in the calling SDK and react accordingly.
 
@@ -16,7 +16,7 @@ This guide assumes you went through the QuickStart or that you implemented an ap
 Each object in the JavaScript calling SDK has `properties` and `collections`. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
 
-## Properties
+### Properties
 You can subscribe to the `'<property>Changed'` event to listen to value changes on the property.
 
 ### Example of subscription on a property
