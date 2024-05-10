@@ -452,6 +452,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/copilot/limited-access.md",
+            "redirect_url": "/azure/copilot/manage-access",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/command-invoke.md",
             "redirect_url": "/azure/aks/access-private-cluster",
             "redirect_document_id": false

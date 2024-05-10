@@ -74,8 +74,8 @@
   - name: Learn about Azure
     href: mobile-app/learn-training.md
     displayName: mobile, app, training
-  - name: Microsoft Copilot for Azure
-    href: mobile-app/microsoft-copilot-for-azure.md
+  - name: Microsoft Copilot in Azure
+    href: mobile-app/microsoft-copilot-in-azure.md
 - name: Reference
   items:
   - name: Keyboard shortcuts
