@@ -74,7 +74,7 @@ sections:
     questions:
       - question: What types of files can be signed with Trusted Signing?
         answer: |
-          You can sign file types supported by SignTool. [Find the list here.](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools)
+          You can sign [file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
       - question: What is the Trusted Signing compliance level?
         answer: |
           FIPS 140-2 Level 3 (mHSMs).
