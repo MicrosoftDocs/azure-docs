@@ -76,12 +76,7 @@ Having a baseline for performance without fine-tuning is essential for knowing w
 
 Even with a great use case, fine-tuning is only as good as the quality of the data that you're able to provide. You need to be willing to invest the time and effort to make fine-tuning work. Different models will require different data volumes but you often need to be able to provide fairly large quantities of high-quality curated data.
 
-Another important point is even with high quality data if your data isn't in the necessary format for fine-tuning you'll need to commit engineering resources in order to properly format the data.
-
-| Data  | Babbage-002 & Davinci-002 | GPT-3.5-Turbo |
-|---|---|---|
-| Volume | Thousands of Examples | Thousands of Examples |
-| Format | Prompt/Completion | Conversational Chat |
+Another important point is even with high quality data if your data isn't in the necessary format for fine-tuning you'll need to commit engineering resources in order to properly format the data. For more information on how to prepare your data for fine-tuning, refer to the [fine-tuning documentation](../../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context).
 
 **If you are ready for fine-tuning you:**
 
@@ -132,4 +127,5 @@ Fine-tuning of Llama 2 models is currently supported in projects located in West
 
 ## Related content
 
+- [Learn how to fine-tune an Azure OpenAI model in Azure AI Studio](../../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context)
 - [Learn how to fine-tune a Llama 2 model in Azure AI Studio](../how-to/fine-tune-model-llama.md)
