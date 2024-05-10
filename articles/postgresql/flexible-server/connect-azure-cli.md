@@ -22,16 +22,16 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 
 
 ## Prerequisites
-- An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
-- Log in using Azure CLI with `az login` command 
-- Turn on parameter persistence with `az config param-persist on`. Parameter persistence will help you use local context without having to repeat numerous arguments like resource group or location.
+- An Azure account with an active subscription. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
+- Install [Azure CLI](/cli/azure/install-azure-cli) latest version.
+- Log in using Azure CLI with `az login` command.
+- (optional) Turn on an experimental parameter persistence with `az config param-persist on`. Parameter persistence will help you use local context without having to repeat numerous arguments like resource group or location.
 
 ## Create Azure Database for PostgreSQL flexible server instance
 
 The first thing to create is a managed Azure Database for PostgreSQL flexible server instance. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
-```azurecli
+```azurecli-interactive
 az postgres flexible-server create --public-access <your-ip-address>
 ```
 You can provide more arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
@@ -39,26 +39,25 @@ You can provide more arguments for this command to customize it. See all argumen
 ## View all the arguments
 You can view all the arguments for this command with `--help` argument. 
 
-```azurecli
+```azurecli-interactive
 az postgres flexible-server connect --help
 ```
 
 ## Test database server connection
 You can test and validate the connection to the database from your development environment using the command.
 
-```azurecli
-az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
+```azurecli-interactive
+az postgres flexible-server connect \
+    -n <servername> -u <username> -p "<password>" -d <databasename>
 ```
 **Example:** 
-```azurecli
-az postgres flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d postgres
+```azurecli-interactive
+az postgres flexible-server connect \
+    -n postgresdemoserver -u dbuser -p "dbpassword" -d postgres
 ```
 You'll see the output if the connection was successful.
 ```output
-Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Successfully connected to postgresdemoserver.
-Local context is turned on. Its information is saved in working directory C:\mydir. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
+Successfully connected to <servername>.
 ```
 
 If the connection failed, try these solutions:
@@ -70,14 +69,17 @@ If the connection failed, try these solutions:
 ## Run multiple queries using interactive mode
 You can run multiple queries using the **interactive** mode. To enable interactive mode, run the following command
 
-```azurecli
-az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
+```azurecli-interactive
+az postgres flexible-server connect \
+    -n <servername> -u <username> -p "<password>" -d <databasename> \
+    --interactive
 ```
 
 **Example:**
 
-```azurecli
-az postgres flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
+```azurecli-interactive
+az postgres flexible-server connect \
+    -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
 ```
 
 You'll see the **psql** shell experience as shown below:
@@ -99,8 +101,10 @@ Your preference of  are now saved to local context. To learn more, type in `az l
 ```
 
 **Example:** 
-```azurecli
-az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "select * from table1;" --output table
+```azurecli-interactive
+az postgres flexible-server execute \
+    -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb \
+    -q "select * from table1;" --output table
 ```
 
 You'll see an output as shown below:
@@ -127,13 +131,17 @@ test   200
 ## Run SQL File
 You can execute a sql file with the command using `--file-path` argument, `-f`.
 
-```azurecli
-az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
+```azurecli-interactive
+az postgres flexible-server execute \
+    -n <server-name> -u <username> -p "<password>" -d <database-name> \
+    --file-path "<file-path>"
 ```
 
 **Example:** 
-```azurecli
-az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
+```azureazurecli-interactivecli
+az postgres flexible-server execute \
+    -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb \
+    -f "./test.sql"
 ```
 
 You'll see an output as shown below:
