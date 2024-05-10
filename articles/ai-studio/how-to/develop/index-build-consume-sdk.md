@@ -15,7 +15,7 @@ author: eric-urban
 
 [!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 
-In this article, you'll learn how to create an index and consume it from code. To create an index locally, we will use the `promptflow-rag` package. To create a remote index on the cloud, we will use the `azure-ai-ml` package. We will consume the indexes using `langchain`.
+In this article, you learn how to create an index and consume it from code. To create an index locally, we use the `promptflow-rag` package. To create a remote index on the cloud, we use the `azure-ai-ml` package. We consume the indexes using `langchain`.
 
 ## Prerequisites
 
@@ -24,12 +24,12 @@ You must have:
 - An Azure AI project - go to [aka.ms/azureaistudio](https://aka.ms/azureaistudio) to create a project
 - An Azure AI Search resource -  you can create it from instructions [here](../../../search/search-create-service-portal.md)
 - Models for embedding
-    - You can use an ada-002 embedding model from Azure Open AI - instructions to deploy can be found [here](../deploy-models-openai.md)
-    - OR any another embedding model deployed in your AI studio project - in this example we will use Cohere multi-lingual embedding - instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md) 
+    - You can use an ada-002 embedding model from Azure OpenAI - instructions to deploy can be found [here](../deploy-models-openai.md)
+    - OR any another embedding model deployed in your AI studio project - in this example we use Cohere multi-lingual embedding - instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md) 
 
 ## Build and consume an index locally
 
-We will build and consume an index locally. 
+We can build and consume an index locally. 
 
 ### Required packages for local index operations
 
@@ -40,7 +40,7 @@ pip install promptflow-rag langchain langchain-openai
 ```
 ### Configure AI Search for local use
 
-We will use Azure AI Search as the index store. To get started we can setup the AI Search using the following code
+We use Azure AI Search as the index store. To get started, we can set up the Azure AI Search service using the following code:
 
 ```python
 import os
@@ -49,9 +49,9 @@ os.environ["AZURE_AI_SEARCH_KEY"] = "<your-ai-search-key>"
 os.environ["AZURE_AI_SEARCH_ENDPOINT"] = "https://<your-ai-search-service>.search.windows.net"
 ```
 
-### Build an index locally using Azure Open AI embeddings
+### Build an index locally using Azure OpenAI embeddings
 
-To create an index which uses Azure Open AI embeddings, we will configure environment variables to connect to the model.
+To create an index that uses Azure OpenAI embeddings, we configure environment variables to connect to the model.
 
 ```python
 import os
@@ -83,11 +83,11 @@ local_index_aoai=build_index(
 )
 ```
 
-The above code will build an index locally. It will use environment variables to get the AI Search service and also to connect to the Azure Open AI embedding model. 
+The above code builds an index locally. It uses environment variables to get the AI Search service and also to connect to the Azure OpenAI embedding model. 
 
 ### Build an index locally using other embedding models deployed in your AI studio project
 
-To create an index which uses an embedding model deployed in your AI studio project, we will configure the connection to the model using a `ConnectionConfig` as shown below. The `subscription`, `resource_group` and `workspace` refers to the project where the embedding model is installed. the `connection_name` refers to the connection name for the model which can be found in the Project settings in the AI Studio project.
+To create an index that uses an embedding model deployed in your AI studio project, we configure the connection to the model using a `ConnectionConfig` as shown below. The `subscription`, `resource_group` and `workspace` refers to the project where the embedding model is installed. The `connection_name` refers to the connection name for the model, which can be found in the AI Studio project settings page.
 
 ```python
 from promptflow.rag.config import ConnectionConfig
@@ -122,7 +122,7 @@ local_index_cohere=build_index(
 )
 ```
 
-The above code will build an index locally. It will use environment variables to get the AI Search service and the connection config to connect to the embedding model. 
+The above code builds an index locally. It uses environment variables to get the AI Search service and the connection config to connect to the embedding model. 
 
 ### Consuming a local index
 
@@ -131,7 +131,7 @@ The local index created can be used as a langchain retriever to consume it for s
 ```python
 from promptflow.rag import get_langchain_retriever_from_index
 
-# Get the Open AI embedded Index
+# Get the OpenAI embedded Index
 retriever=get_langchain_retriever_from_index(local_index_aoai)
 retriever.get_relevant_documents("<your search query>")
 
@@ -181,7 +181,7 @@ client.indexes.create_or_update(
 
 ## Build an index (remotely) in your AI project
 
-We will build an index in the cloud in your AI project. 
+We build an index in the cloud in your AI project. 
 
 ### Required packages for remote index operations
 
@@ -193,7 +193,7 @@ pip install azure-ai-ml promptflow-rag langchain langchain-openai
 
 ### Connect to the AI project
 
-To get started we will connect to the project. The `subscription`, `resource_group` and `workspace` in the code below refers to the project you want to connect to.
+To get started, we connect to the project. The `subscription`, `resource_group` and `workspace` in the code below refers to the project you want to connect to.
 
 ```python
 # connect to the AI project
@@ -210,7 +210,7 @@ client=MLClient(
 
 ### Get the AI Search service connection
 
-This project should have a connection to the AI Search service. We will retrieve the details from the project.
+This project should have a connection to the AI Search service. We retrieve the details from the project.
 
 ```python
 ai_search_connection = client.connections.get("<ai_search_connection>")
@@ -218,7 +218,7 @@ ai_search_connection = client.connections.get("<ai_search_connection>")
 
 ### Connect to the embedding models
 
-You can connect to Azure Open AI using Entra-ID connections or API key based connections.
+You can connect to Azure OpenAI using Microsoft Entra ID connections or API key based connections.
 
 ```python
 from azure.ai.ml.entities import IndexModelConfiguration
@@ -239,7 +239,7 @@ embeddings_model_config = IndexModelConfiguration.from_connection(
     deployment_name="text-embedding-ada-002")
 ```
 
-You can connect to embedding model deployed in your AI studio project (non Azure Open AI models) using the serverless connection. 
+You can connect to embedding model deployed in your AI studio project (non Azure OpenAI models) using the serverless connection. 
 
 ```python
 from azure.ai.ml.entities import IndexModelConfiguration
@@ -251,7 +251,7 @@ embeddings_model_config = IndexModelConfiguration.from_connection(cohere_serverl
 
 You can build index from the following types of inputs:
 1. Local files/folders
-1. Github repo
+1. GitHub repo
 1. Azure Storages
 
 We can use the following code sample to use any of these sources and configure our `input_source`:
@@ -281,7 +281,7 @@ input_source = f"azureml://subscriptions/{input_source_subscription}/resourcegro
 ```
 ### Build the index on cloud
 
-Now we can build the index using the `ai_search_connection`, `embeddings_model_config` and `input_source`. We will use the `build_index` function. If you are using an Azure Storage URL as your input source, you also need to provide a `UserIdentityConfiguration`.
+Now we can build the index using the `ai_search_connection`, `embeddings_model_config` and `input_source`. We use the `build_index` function. If you're using an Azure Storage URL as your input source, you also need to provide a `UserIdentityConfiguration`.
 
 ```python
 # from azure.ai.ml.entities.credentials import UserIdentityConfiguration # user specified identity used to access the data. Required when using an azure storage URL
@@ -309,7 +309,7 @@ my_index=client.indexes.get(name="<index_name>", label="latest")
 
 ### Consuming a registered index from your project
 
-To consume a registered index from your project, you will need to connect to the project and retrieve the index. The retrieved index can be used as a langhcain retriever to consume it. You can connect to the project with a `client` as shown [here](#connect-to-the-project)
+To consume a registered index from your project, you need to connect to the project and retrieve the index. The retrieved index can be used as a langhcain retriever to consume it. You can connect to the project with a `client` as shown here.
 
 ```python
 from promptflow.rag import get_langchain_retriever_from_index
@@ -324,7 +324,7 @@ index_langchain_retriever.get_relevant_documents("<your search query>")
 
 ## A Question and Answer function to use the index
 
-We have seen how build an index locally or in the cloud. Using this index, we will build a QnA function which accepts a user question and provides an answer from the index data. First let us get the index as a langchain_retriever as shown [here](#consuming-a-registered-index-from-your-project). We will now use this `retriever` in our function. This function uses the LLM as defined in the `AzureChatOpenAI` constructor. It uses the index as a langchain_retriever to query the data. We build a prompt Template which accepts a context and a question. We use langchain's `RetrievalQA.from_chain_type` to put all these together and get us the answers.
+We have seen how to build an index locally or in the cloud. Using this index, we build a QnA function that accepts a user question and provides an answer from the index data. First let us get the index as a langchain_retriever as shown [here](#consuming-a-registered-index-from-your-project). We now use this `retriever` in our function. This function uses the LLM as defined in the `AzureChatOpenAI` constructor. It uses the index as a langchain_retriever to query the data. We build a prompt template that accepts a context and a question. We use langchain's `RetrievalQA.from_chain_type` to put all these together and get us the answers.
 
 ```python
 def qna(question: str, temperature: float = 0.0, prompt_template: object = None) -> str:

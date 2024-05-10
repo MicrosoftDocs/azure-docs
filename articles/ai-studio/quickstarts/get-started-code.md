@@ -15,7 +15,7 @@ author: eric-urban
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this quickstart, we'll walk you through setting up your local development environment with the prompt flow SDK. We'll show how to write a prompt, run it as part of your app code, trace the LLM calls being made, and run a basic evaluation on the outputs of the LLM.
+In this quickstart, we walk you through setting up your local development environment with the prompt flow SDK. We write a prompt, run it as part of your app code, trace the LLM calls being made, and run a basic evaluation on the outputs of the LLM.
 
 ## Prerequisites
 
@@ -31,41 +31,41 @@ Also, you must have the necessary permissions to add role assignments for storag
 
 ## Grant access to call Azure OpenAI Service using your identity
 
-To use security best practices, instead of API keys we will be using [Microsoft Entra ID](/entra/fundamentals/whatis) to authenticate with Azure OpenAI using your user identity. 
+To use security best practices, instead of API keys we use [Microsoft Entra ID](/entra/fundamentals/whatis) to authenticate with Azure OpenAI using your user identity. 
 
-You or your administrator will need to grant your user identity the **Cognitive Services OpenAI User** role on the Azure AI Services resource that you're using. This role grants you the ability to call the Azure OpenAI service using your user identity.
+You or your administrator needs to grant your user identity the **Cognitive Services OpenAI User** role on the Azure AI Services resource that you're using. This role grants you the ability to call the Azure OpenAI service using your user identity.
 
 To grant yourself access to the Azure AI Services resource that you're using:
 
 1. In [AI Studio](https://ai.azure.com), go to your project and select **Settings** from the left pane.
 1. In the **Connected resources** section, select the connection name with type **AIServices**.
 
-    :::image type="content" source="../media/quickstarts/promptflow-sdk/project-settings-pick-resource.png" alt-text="Screenshot of the project settings page, highlighting how to select the connected AIServices resource to open it." lightbox="../media/quickstarts/promptflow-sdk/project-settings-pick-resource.png":::
+    :::image type="content" source="../media/quickstarts/promptflow-sdk/project-settings-pick-resource.png" alt-text="Screenshot of the project settings page, highlighting how to select the connected AI services resource to open it." lightbox="../media/quickstarts/promptflow-sdk/project-settings-pick-resource.png":::
 
     > [!NOTE]
     > If you don't see the **AIServices** connection, use the **Azure OpenAI** connection instead.
 
 1. On the resource details page, select the link under the **Resource** heading to open the AI services resource in the Azure portal.
 
-    :::image type="content" source="../media/quickstarts/promptflow-sdk/project-aiservices-openinportal.png" alt-text="Screenshot of the AI Services connection details showing how to open the resource in the Azure Portal." lightbox="../media/quickstarts/promptflow-sdk/project-aiservices-openinportal.png":::
+    :::image type="content" source="../media/quickstarts/promptflow-sdk/project-ai-services-open-in-portal.png" alt-text="Screenshot of the AI Services connection details showing how to open the resource in the Azure portal." lightbox="../media/quickstarts/promptflow-sdk/project-ai-services-open-in-portal.png":::
 
 1. From the left page in the Azure portal, select **Access control (IAM)** > **+ Add** > **Add role assignment**.
 
 1. Search for the **Cognitive Services OpenAI User** role and then select it. Then select **Next**.
 
-    :::image type="content" source="../media/quickstarts/promptflow-sdk/aiservices-add-role-assignment.png" alt-text="Screenshot of the page to select the cognitive services openai user role." lightbox="../media/quickstarts/promptflow-sdk/aiservices-add-role-assignment.png":::
+    :::image type="content" source="../media/quickstarts/promptflow-sdk/ai-services-add-role-assignment.png" alt-text="Screenshot of the page to select the Cognitive Services OpenAI User role." lightbox="../media/quickstarts/promptflow-sdk/ai-services-add-role-assignment.png":::
 
 1. Select **User, group, or service principal**. Then select **Select members**.
 
 1. In the **Select members** pane that opens, search for the name of the user that you want to add the role assignment for. Select the user and then select **Select**.
 
-    :::image type="content" source="../media/quickstarts/promptflow-sdk/aiservices-resource-role-assignment.png" alt-text="Screenshot of the page with the user being assigned the new role." lightbox="../media/quickstarts/promptflow-sdk/aiservices-resource-role-assignment.png":::
+    :::image type="content" source="../media/quickstarts/promptflow-sdk/ai-services-resource-role-assignment.png" alt-text="Screenshot of the page with the user being assigned the new role." lightbox="../media/quickstarts/promptflow-sdk/ai-services-resource-role-assignment.png":::
 
 1. Continue through the wizard and select **Review + assign** to add the role assignment. 
 
 ## Install the Azure CLI and login 
 
-Now we will install the Azure CLI and login from your local development environment, so that you can use your user credentials to call the Azure OpenAI service.
+Now we install the Azure CLI and login from your local development environment, so that you can use your user credentials to call the Azure OpenAI service.
 
 In most cases you can install the Azure CLI from your terminal using the following command: 
 # [Windows](#tab/windows)
@@ -99,11 +99,11 @@ Now we'll create our app and call the Azure OpenAI Service from code.
 
 ## Create a new Python environment
 
-First we will need to create a new Python environment we can use to install the prompt flow SDK packages. DO NOT install packages into your global python installation. You should always use a virtual or conda environment when installing python packages, otherwise you can break your global install of Python.
+First we need to create a new Python environment we can use to install the prompt flow SDK packages. DO NOT install packages into your global python installation. You should always use a virtual or conda environment when installing python packages, otherwise you can break your global install of Python.
 
 ### If needed, install Python
 
-We recommend using Python 3.10 or later, but having at least Python 3.8 is required. If you do not have a suitable version of Python installed, you can follow the instructions in the [VS Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter) for the easiest way of installing Python on your operating system.
+We recommend using Python 3.10 or later, but having at least Python 3.8 is required. If you don't have a suitable version of Python installed, you can follow the instructions in the [VS Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter) for the easiest way of installing Python on your operating system.
 
 ### Create a virtual environment
 
@@ -138,7 +138,7 @@ NOTE: you can use the ```deactivate``` command to exit the python virtual enviro
 
 ## Install the prompt flow SDK
 
-In this article we'll be using prompt flow to build our application. [https://microsoft.github.io/promptflow/](Prompt flow) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
+In this section, we use prompt flow to build our application. [https://microsoft.github.io/promptflow/](Prompt flow) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
 
 Use pip to install the prompt flow SDK into the virtual environment that you created
 ```
@@ -146,7 +146,7 @@ pip install promptflow
 pip install azure-identity
 ```
 
-The prompt flow SDK takes a dependency on a number of individual packages, that you can choose to separately install if you don't want all of them:
+The prompt flow SDK takes a dependency on multiple packages, that you can choose to separately install if you don't want all of them:
  * ```promptflow-core```: contains the core promptflow runtime used for executing LLM code
  * ```promptflow-tracing```: lightweight library used for emitting OpenTelemetry traces in standards
  * ```promptflow-devkit```: contains the prompt flow test bed and trace viewer tools for local development environments
@@ -167,7 +167,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
 1. Navigate to the [chat playground inside of your AI Studio project](../tutorials/deploy-chat-web-app.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
 1. Find the Azure OpenAI deployment name in the chat playground. Select the deployment in the dropdown and hover over the deployment name to view it. In this example, the deployment name is **gpt-35-turbo-16k**.
 
-    :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-deployment-viewcode.png" alt-text="Screenshot of the AI Studio chat playground opened, highlighting the deployment name and the view code button." lightbox="../media/quickstarts/promptflow-sdk/playground-deployment-viewcode.png":::
+    :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png" alt-text="Screenshot of the AI Studio chat playground opened, highlighting the deployment name and the view code button." lightbox="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png":::
 
 1. In the ```.env``` file, replace ```deployment_name``` with the name of the deployment from the previous step. In this example, we're using the deployment name ```gpt-35-turbo-16k```. 
 1. Select the **<\> View Code** button and copy the endpoint value.
@@ -342,7 +342,7 @@ You should see an output that looks like this:
 {'gpt_coherence': 5.0, 'gpt_fluency': 5.0, 'evaluation_per_turn': {'gpt_coherence': {'score': [5.0, 5.0]}, 'gpt_fluency': {'score': [5.0, 5.0]}}}
 ```
 
-Looks like we scored 5 for coherence and fluency of the LLM responses on on this conversation! 
+Looks like we scored 5 for coherence and fluency of the LLM responses on this conversation! 
 
 For more information on how to use prompt flow evaluators, including how to make your own custom evaluators and log evaluation results to AI Studio, be sure to check out [Evaluate your app using the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md)
 

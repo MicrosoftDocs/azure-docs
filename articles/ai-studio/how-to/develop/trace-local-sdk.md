@@ -17,7 +17,7 @@ author: eric-urban
 
 Tracing is a powerful tool that offers developers an in-depth understanding of the execution process of their generative AI applications such as agents, [AutoGen](https://microsoft.github.io/autogen/docs/Use-Cases/agent_chat), and retrieval augmented generation (RAG) use cases. It provides a detailed view of the execution flow, including the inputs and outputs of each node within the application. This essential information proves critical while debugging complex applications or optimizing performance.
 
-While more developers are using a variety of frameworks such as Langchain, Semantic Kernel, OpenAI, and various types of agents to create LLM-based applications. Tracing with the prompt flow SDK offers enhanced visibility and simplified troubleshooting for LLM-based applications, effectively supporting development, iteration, and production monitoring. Tracing in AI Studio follows the [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/), capturing and visualizing the internal execution details of any AI application, enhancing the overall development experience.
+While more developers are using various frameworks such as Langchain, Semantic Kernel, OpenAI, and various types of agents to create LLM-based applications. Tracing with the prompt flow SDK offers enhanced visibility and simplified troubleshooting for LLM-based applications, effectively supporting development, iteration, and production monitoring. Tracing in AI Studio follows the [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/), capturing and visualizing the internal execution details of any AI application, enhancing the overall development experience.
 
 ## Benefits of AI Studio tracing on the enterprise-grade cloud platform
 
@@ -34,15 +34,15 @@ With tracing, you can:
 
 ## Log and view traces of your applications
 
-AI Studio provide the tracing capability for logging and managing your LLM applications tests and evaluations, while debugging and observing by drilling down the trace view.
+AI Studio provides the tracing capability for logging and managing your LLM applications tests and evaluations, while debugging and observing by drilling down the trace view.
 
-The tracing any application feature today is is implemented in the [prompt flow open-source package](https://microsoft.github.io/promptflow/), to enable user to trace LLM call or function, and LLM frameworks like LangChain and AutoGen, regardless of which framework you use, following [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/). 
+The tracing any application feature today is implemented in the [prompt flow open-source package](https://microsoft.github.io/promptflow/), to enable user to trace LLM call or function, and LLM frameworks like LangChain and AutoGen, regardless of which framework you use, following [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/). 
 
 ## Enable trace in your application
 
 Code first - Make sure you have annotated your code for tracing in prompt flow!
 
-- [Installing promptflow](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html#set-up-your-dev-environment) : require promptflow-tracing
+- [Installing prompt flow](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html#set-up-your-dev-environment) : require promptflow-tracing
 - [Instrumenting your application code](https://microsoft.github.io/promptflow/how-to-guides/tracing/index.html#instrumenting-user-s-code) : using `@trace` and `start_trace()`.
 - [Test and view trace in local](https://microsoft.github.io/promptflow/how-to-guides/tracing/trace-ui.html)
 
@@ -85,7 +85,7 @@ The collection tab displays a comprehensive list of all the collections you've c
 
 By selecting a collection's name, you can access a list of all the traces within that collection. Only a subset of traces can be shared with others. Refer to [share trace](#share-trace) for more information.
 
-When logging a trace, you have the option to [specify a collection name](#customize-the-collections) to group it with other related traces. You can create multiple collections for better organization of your traces. If a collection name isn't specified when logging a trace, it will default to the **project folder name** or to the **default collection**.
+When logging a trace, you have the option to [specify a collection name](#customize-the-collections) to group it with other related traces. You can create multiple collections for better organization of your traces. If a collection name isn't specified when logging a trace, it defaults to the **project folder name** or to the **default collection**.
 
 #### Customize the collections
 
@@ -93,7 +93,7 @@ For better organization of your traces, you can specify a custom collection name
 
 # [Python SDK](#tab/python)
 
-If you are tracing your own application, you can set the collection name in the `start_trace()` function in your code:
+If you're tracing your own application, you can set the collection name in the `start_trace()` function in your code:
 
 ```python
 from promptflow.tracing import start_trace, trace
@@ -115,7 +115,7 @@ pf flow test --flow <flow-name> --collection my_custom_collection
 
 ---
 
-More details about customizing collections, please refer to [tracing tutorial](https://microsoft.github.io/promptflow/reference/python-library-reference/promptflow-tracing/promptflow.tracing.html) and [prompt flow command](https://microsoft.github.io/promptflow/reference/pf-command-reference.html#pf)
+More details about customizing collections, please refer to [tracing tutorial](https://microsoft.github.io/promptflow/reference/python-library-reference/promptflow-tracing/promptflow.tracing.html) and [prompt flow command](https://microsoft.github.io/promptflow/reference/pf-command-reference.html#pf).
 
 
 ### View the traces
@@ -124,7 +124,7 @@ First, you must complete the previous steps to view the traces in the cloud:
 - [Enable trace in your application](#enable-trace-in-your-application).
 - [Set cloud trace destination](#set-the-trace-destination).
 
-Now, run your python script directly. Upon successful execution, a cloud trace link will appear in the output. It may look something like this:
+Now, run your python script directly. Upon successful execution, a cloud trace link appears in the output. It might look something like this:
 
 ```bash
 Starting prompt flow service...
@@ -132,22 +132,22 @@ Starting prompt flow service...
 You can view the traces in cloud from AI Studio: https://ai.azure.com/projecttrace/detail/....
 ```
 
-Selecting the URL to navigate to a trace detail page on the cloud portal. This page will be similar to the local trace view.
+Selecting the URL to navigate to a trace detail page on the cloud portal. This page is similar to the local trace view.
 
 The **trace detail view** provides a comprehensive and structured overview of the operations within your application.
 
 **Understand the trace detail view**
 
-In the top right corner of the trace view, you'll find:
+In the top right corner of the trace view, you find:
 * Trace name: This is same as the root span name, representing the entry function name of your application.
 * Status: This could either be "completed" or "failed".
 * Total duration: This is total duration time of the test execution. Hover over to view the start and end times.
 * Total tokens: This is the total token cost of the test. Hover over to view the prompt tokens and completed tokens.
 * Created time: The time at which the trace was created.
 
-On the left side, you will see a **hierarchical tree structure**. This structure shows the sequence of function calls. Each function call's metadata is organized into [spans](https://opentelemetry.io/docs/concepts/signals/traces/#spans). These spans are linked together in a tree-like structure, illustrating the sequence of execution.
+On the left side, you can see a **hierarchical tree structure**. This structure shows the sequence of function calls. Each function call's metadata is organized into [spans](https://opentelemetry.io/docs/concepts/signals/traces/#spans). These spans are linked together in a tree-like structure, illustrating the sequence of execution.
 
-In prompt flow SDK, we defined serval span types, including LLM, Function, Embedding, Retrieval, and Flow. And the system automatically creates spans with execution information in designated attributes and events. 
+In prompt flow SDK, we defined several span types, including LLM, Function, Embedding, Retrieval, and Flow. And the system automatically creates spans with execution information in designated attributes and events. 
 
 Each span allows you to view:
 * Function name: By default, this is the name of the function as defined in your code. However, it can also be a customized span name defined via [Open Telemetry](https://opentelemetry.io/docs/what-is-opentelemetry/).

@@ -15,14 +15,14 @@ author: eric-urban
 
 [!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 
-Microsoft offers a variety of packages that you can use for building generative AI applications in the cloud. In most applications, you will need to use a combination of packages to manage and use various Azure services that provide AI functionality. We also offer integrations with open-source libraries like LangChain and mlflow for use with Azure. In this article we'll give an overview of the main services and SDKs you can use with Azure AI Studio.
+Microsoft offers a variety of packages that you can use for building generative AI applications in the cloud. In most applications, you need to use a combination of packages to manage and use various Azure services that provide AI functionality. We also offer integrations with open-source libraries like LangChain and mlflow for use with Azure. In this article we'll give an overview of the main services and SDKs you can use with Azure AI Studio.
 
 For building generative AI applications, we recommend using the following services and SDKs:
  * [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) for the hub and project infrastructure used in AI Studio to organize your work into projects, manage project artifacts (data, evaluation runs, traces), fine-tune & deploy models, and connect to external services and resources
  * [Azure AI Services](../../../ai-services/what-are-ai-services.md) provides pre-built and customizable intelligent APIs and models, with support for Azure OpenAI, Search, Speech, Vision, and Language
- * [Prompt flow](https://microsoft.github.io/promptflow/index.html) for developer tools to streamline the end-to-end development cycle of LLM-based AI application, with support  (inferencing, indexing, evaluation, deployment and monitoring)
+ * [Prompt flow](https://microsoft.github.io/promptflow/index.html) for developer tools to streamline the end-to-end development cycle of LLM-based AI application, with support for inferencing, indexing, evaluation, deployment, and monitoring.
 
-For each of these, there are separate set of management libraries and client libraries.
+For each of these, there are separate sets of management libraries and client libraries.
 
 ## Management libraries for creating and managing cloud resources
 

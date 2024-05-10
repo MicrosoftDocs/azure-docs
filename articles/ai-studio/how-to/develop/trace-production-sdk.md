@@ -17,29 +17,29 @@ author: lgayhardt
 
 After deploying a Generative AI APP in production, you might want to enhance your understanding and optimize performance. Trace data for each request, aggregated metrics, and user feedback play critical roles.
 
-In this article, you'll learn to enable tracing, collect aggregated metrics, and collect user feedback during inference time of your flow deployment.
+In this article, you learn to enable tracing, collect aggregated metrics, and collect user feedback during inference time of your flow deployment.
 
 ## Prerequisites
 
 - The Azure CLI and the Azure Machine Learning extension to the Azure CLI. 
 - An AI Studio project. If you don't already have a project, you can [create one here](../../how-to/create-projects.md).
 - An Application Insights. If you don't already have an Application Insights resource, you can [create one here](../../../azure-monitor/app/create-workspace-resource.md).
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, you must have **Owner** or **Contributor** permissions on the selected resource group. For more information, see [Role-based access control in Azure AI Studio](../../concepts/rbac-ai-studio.md).
+- Azure role-based access controls are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, you must have **Owner** or **Contributor** permissions on the selected resource group. For more information, see [Role-based access control in Azure AI Studio](../../concepts/rbac-ai-studio.md).
 
 ## Deploy a flow for real-time inference
 
-After you test your flow properly, either a flex flow or a DAG flow, you can deploy the flow in production. In this article, we'll use [Deploy a flow for real-time inference](../../how-to/flow-deploy.md) as example. For flex flows, you need to [prepare the `flow.flex.yaml` file instead of `flow.dag.yaml`](https://microsoft.github.io/promptflow/how-to-guides/develop-a-flex-flow/index.html).
+After you test your flow properly, either a flex flow or a DAG flow, you can deploy the flow in production. In this article, we use [Deploy a flow for real-time inference](../../how-to/flow-deploy.md) as example. For flex flows, you need to [prepare the `flow.flex.yaml` file instead of `flow.dag.yaml`](https://microsoft.github.io/promptflow/how-to-guides/develop-a-flex-flow/index.html).
 
-You can also [deploy to other platforms, such as Docker container, Kubernetes cluster, etc](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
+You can also [deploy to other platforms, such as Docker container, Kubernetes cluster, and more](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
 > [!NOTE]
 > You need to use the latest prompt flow base image to deploy the flow, so that it support the tracing and feedback collection API.
 
 ## Enable trace and collect system metrics for your deployment
 
-If you are using studio UI to deploy, then you can turn-on **Application Insights diagnostics** in **Advanced settings** > **Deployment** step in the deployment wizard, in which way the tracing data and system metrics will be collected to workspace linked Application Insights.
+If you're using studio UI to deploy, then you can turn-on **Application Insights diagnostics** in **Advanced settings** > **Deployment** step in the deployment wizard, in which way the tracing data and system metrics are collected to the project linked to Application Insights.
 
-If you are using SDK or CLI, you can by adding a property `app_insights_enabled: true` in the deployment yaml file which will colelct data to workspace linked Application Insights. 
+If you're using SDK or CLI, you can by adding a property `app_insights_enabled: true` in the deployment yaml file that collects data to the project linked to application insights. 
 
 ```yaml
 app_insights_enabled: true
@@ -53,16 +53,16 @@ environment_variables:
 ```
 
 > [!NOTE]
-> If you only set `app_insights_enabled: true` but your workspace does not have a linked Application Insights, your deployment will not fail but there will be no data collected.
+> If you only set `app_insights_enabled: true` but your project doesn't have a linked Application Insights resource, your deployment will not fail but there will be no data collected.
 >
-> If you specify both `app_insights_enabled: true` and the above environment variable at the same time, the tracing data and metrics will be sent to workspace linked Application Insights. Hence, if you want to specify a different Application Insights, you only need to keep the environment variable.
+> If you specify both `app_insights_enabled: true` and the above environment variable at the same time, the tracing data and metrics will be sent to the project linked to application insights. Hence, if you want to specify a different Application Insights, you only need to keep the environment variable.
 > 
 > If you deploy to other platforms, you can also use the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING: <connection_string>` to collect trace data and metrics to speicifed Application Insights.
 ## View tracing data in Application Insights
 
-Traces records specific events or the state of an application during execution. It can include data about function calls, variable values, system events and more. Traces help break down an application's components into discrete inputs and outputs, which is crucial for debugging and understanding an application. You can learn more from [here](https://opentelemetry.io/docs/concepts/signals/traces/) on traces. The trace data follows [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/).
+Traces record specific events or the state of an application during execution. It can include data about function calls, variable values, system events and more. Traces help breakdown an application's components into discrete inputs and outputs, which is crucial for debugging and understanding an application. You can learn more from [here](https://opentelemetry.io/docs/concepts/signals/traces/) on traces. The trace data follows [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/).
 
-You can view the detailed trace in the specified Application Insights. The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Trasaction search, and you can select each node to view its detailed trace. 
+You can view the detailed trace in the specified Application Insights. The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Transaction search, and you can select each node to view its detailed trace. 
 
 The **Dependency** type events record calls from your deployments. The name of that event is the name of flow folder. Learn more about [Transaction search and diagnostics in Application Insights](../../../azure-monitor/app/transaction-search-and-diagnostics.md).
 
@@ -70,7 +70,7 @@ The **Dependency** type events record calls from your deployments. The name of t
 
 | Metrics Name                         | Type      | Dimensions                                | Description                                                                     |
 |--------------------------------------|-----------|-------------------------------------------|---------------------------------------------------------------------------------|
-| token_consumption                    | counter   | - flow <br> - node<br> - llm_engine<br> - token_type:  `prompt_tokens`: LLM API input tokens;  `completion_tokens`: LLM API response tokens ; `total_tokens` = `prompt_tokens + completion tokens`          | openai token consumption metrics                                                |
+| token_consumption                    | counter   | - flow <br> - node<br> - llm_engine<br> - token_type:  `prompt_tokens`: LLM API input tokens;  `completion_tokens`: LLM API response tokens ; `total_tokens` = `prompt_tokens + completion tokens`          | OpenAI token consumption metrics                                                |
 | flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
 | flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
 | node_latency                         | histogram | flow,node,run_status                      | node execution cost                                                             |
@@ -161,7 +161,7 @@ You can view the trace of the request along with feedback in Application Insight
 
 ## Advanced usage: export trace to custom OpenTelemetry collector service
 
-In some cases, you may want to export the trace data to your deployed OTel collector service, enabled by setting "OTEL_EXPORTER_OTLP_ENDPOINT". Use this exporter when you want to customized our own span processing logic and your own trace persistent target.
+In some cases, you may want to export the trace data to your deployed OTel collector service, enabled by setting "OTEL_EXPORTER_OTLP_ENDPOINT". Use this exporter when you want to customize your own span processing logic and your own trace persistent target.
 
 ## Related content
 
