@@ -109,7 +109,7 @@ Deploying a model through MaaS allows users to get access to ready to use infere
 
 ### Fine-tune models through MaaS with Pay-as-you-go 
 
-For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see  [Fine-tune a Llama 2 model in Azure AI Studio](fine-tune-model-llama.md). 
+For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see the [fine-tuning overview](../concepts/fine-tuning-overview.md).
 
 ### RAG with models deployed through MaaS 
 
