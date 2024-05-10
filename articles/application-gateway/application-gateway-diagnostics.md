@@ -94,25 +94,16 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 5. Type a name for the settings, confirm the settings, and select **Save**.
 
-## View and analyze the activity log
-
-You can view and analyze activity log data by using any of the following methods:
-
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-monitor/essentials/activity-log.md) article.
-* **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
+To view and analyze activity log data, see [Analyze monitoring data](monitor-application-gateway.md#azure-monitor-tools).
 
 ## View and analyze the access, performance, and firewall logs
 
-[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
+[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. For more information, see[Analyze monitoring data](monitor-application-gateway.md#azure-monitor-tools).
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
 > [!TIP]
 > If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
-
-### Analyzing Access logs through GoAccess
-
-We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 ## Next steps
 

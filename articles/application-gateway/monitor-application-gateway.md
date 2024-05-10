@@ -22,6 +22,25 @@ For more information about the resource types for Application Gateway, see [Appl
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
+For Application Gateway, resource-specific mode creates three tables:
+
+- [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
+- [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs)
+- [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
+
+> [!NOTE]
+> The resource specific option is currently available in all **public regions**.
+>
+> Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination.Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time.
+
+- **Selecting the destination table in Log analytics**: All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
+
+  [![Screenshot of the resource ID for application gateway in the portal.](./media/application-gateway-diagnostics/resource-specific.png)](./media/application-gateway-diagnostics/resource-specific.png#lightbox)
+
+- **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it's ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
+
+For detailed instructions on setting up workspace transformations, see [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 The **Overview** page in the Azure portal for each Application Gateway includes the following metrics:
@@ -51,6 +70,10 @@ See [Application Gateway monitoring data reference](monitor-application-gateway-
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+
+### Analyzing Access logs through GoAccess
+
+We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
