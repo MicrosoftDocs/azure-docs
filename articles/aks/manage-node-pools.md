@@ -190,8 +190,6 @@ For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-### [Azure CLI](#tab/azure-cli)
-
 1. Register or update the `aks-preview` extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
     ```azurecli-interactive
