@@ -5,6 +5,7 @@
   - name: About Network Watcher
     href: network-watcher-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
@@ -18,7 +19,6 @@
   - name: Configure NSG flow logs - ARM template
     displayName: Resource Manager
     href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
-  expanded: true
 - name: Tutorials
   items:
   - name: Diagnose a VM routing problem
@@ -217,7 +217,6 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
-    - name: View network security groups
     - name: Perform compliance and audit your network
       href: network-watcher-nsg-auditing-powershell.md
   - name: Determine relative latency between a location and Azure region
