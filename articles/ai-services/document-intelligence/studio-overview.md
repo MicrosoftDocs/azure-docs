@@ -26,7 +26,7 @@ monikerRange: '>=doc-intel-3.0.0'
 * Experiment with different add-on and preview features to adapt the output to your needs.
 * Train custom classification models to classify documents.
 * Train custom extraction models to extract fields from documents.
-* Get sample code for the language specific SDKs to integrate into your applications.
+* Get sample code for the language specific `SDKs` to integrate into your applications.
 
 The studio supports Document Intelligence v3.0 and later API versions for model analysis and custom model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
@@ -46,7 +46,7 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
       * Select an existing resource group within your subscription or create a new one.
       * Select your existing Document Intelligence or Azure AI services resource.
 
-      :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of the configure service resource form from the Document Intelligence Studio.":::
+      :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
 
     **b. Access by API endpoint and key**.
 
@@ -63,7 +63,7 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
 
 1. Custom models need to be trained on your documents. See [custom models overview](concept-custom.md) for an overview of custom models.
 
-1. After validating the scenario in the Document Intelligence Studio, use the [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**Python**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) client libraries or the [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to get started incorporating Document Intelligence models into your own applications.
+1. After validating the scenario in the Document Intelligence Studio, use the [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [**Python**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) client libraries or the [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to get started incorporating Document Intelligence models into your own applications.
 
 To learn more about each model, *see* our concept pages.
 
@@ -77,6 +77,6 @@ With Document Intelligence, you can quickly automate your data processing in app
 
 ## Next steps
 
-* Visit [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to begin using the models presented by the service.
+* To begin using the models presented by the service, visit [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * For more information on Document Intelligence capabilities, see [Azure AI Document Intelligence overview](overview.md).
