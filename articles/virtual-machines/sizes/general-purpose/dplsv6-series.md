@@ -38,13 +38,13 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D64pls_v6 | 64 | 128 |
 | Standard_D96pls_v6 | 96 | 192 |
 
-- [Premium Storage](premium-storage-performance.md): Supported 
-- [Premium Storage caching](premium-storage-performance.md): Supported 
-- [Live Migration](maintenance-and-updates.md): Supported 
-- [Memory Preserving Updates](maintenance-and-updates.md): Supported 
-- [VM Generation Support](generation-2.md): Generation 2 
-- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
+- [Premium Storage](../../premium-storage-performance.md): Supported 
+- [Premium Storage caching](../../premium-storage-performance.md): Supported 
+- [Live Migration](../../maintenance-and-updates.md): Supported 
+- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
+- [VM Generation Support](../../generation-2.md): Generation 2 
+- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
+- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 #### VM Basics resources
