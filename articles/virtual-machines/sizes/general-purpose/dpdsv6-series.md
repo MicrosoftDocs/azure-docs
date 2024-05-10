@@ -12,7 +12,7 @@ ms.reviewer: mattmcinnes
 
 # Dpdsv6 sizes series
 
-[!INCLUDE [dpdsv6-summary](./includes/dpdsv6-summary.md)]
+[!INCLUDE [dpdsv6-summary](./includes/dpdsv6-series-summary.md)]
 
 ## Sizes in series
 
@@ -32,7 +32,7 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D96pds_v6 | 96 | 384 |
 
 #### VM Basics resources
-- [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview)
+- [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 - [Introduction to Azure compute units (ACUs)](../../../virtual-machines/acu.md)
 
@@ -60,7 +60,7 @@ Local (temp) storage info for each size
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly (R-O) or ReadWrite (R-W). For uncached data disk operation, the host cache mode is set to None.
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance).
+- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
 ### [Remote Storage](#tab/sizestorageremote)
 
@@ -90,7 +90,7 @@ Special storage = Ultra Disk or Premium SSD v2.
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance).
+- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
 ### [Network](#tab/sizenetwork)
 
