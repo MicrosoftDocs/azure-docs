@@ -26,7 +26,7 @@ MongoDB Shell (Mongosh), is a JavaScript and Node.js REPL environment for intera
 - Ensure you have set the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall.md)
     - You can choose to allow requests from your current IP, requests from cloud services or requests from virtual machines - specific IP Ranges
     
-![GIF of Firewall Settings update for MongoDB Vcore](media/connect-using-mongoshell/firewallsettings.gif)
+![GIF of Firewall Settings update for MongoDB Vcore](media/connect-using-mongoshell/firewall-settings.gif)
 
 If you accidentally open all the ports you will be warned before saving the changes.
 
@@ -35,7 +35,7 @@ If you accidentally open all the ports you will be warned before saving the chan
 To add your Azure Cosmos DB cluster to Mongo shell, perform the following steps:
 1. Retrieve the connection information for your Azure Cosmos DB for MongoDB vCore using the instructions [here](quickstart-portal.md#get-cluster-credentials).
 
-![GIF for getting connection string](./media/connect-using-mongoshell/getting-connectionstring-from-portal.gif)
+![GIF for getting connection string](./media/connect-using-mongoshell//getting-connectionstring-from-portal.gif)
 Once you have the connection string you can either 
 - Have the shell prompt you to enter the password or
 - Provide the password as a part of the connection string 
