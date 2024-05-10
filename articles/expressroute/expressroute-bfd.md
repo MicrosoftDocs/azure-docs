@@ -56,7 +56,7 @@ router bgp 65020
 ```
 
 >[!NOTE]
->To enable BFD under an already existing private or Microsoft peering, you'll need to reset the peering. This will need to be done on circuits configured with private peering before August 2018 and Microsoft peering before January 2020. See [Reset ExpressRoute peerings][ResetPeering]
+>To enable BFD under an already existing private or Microsoft peering, you'll need to reset the peering. This will need to be done on circuits configured with private peering before August 2018 and Microsoft peering before January 2020. See [Reset ExpressRoute peerings][ResetPeering]. While configuring BFD on your primary and secondary devices is optional, the BFD configuration on the Azure devices for new peerings is not optional and cannot be removed.
 >
 
 ## BFD Timer Negotiation
