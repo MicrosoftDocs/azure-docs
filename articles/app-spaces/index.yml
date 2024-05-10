@@ -22,9 +22,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy a sample app
-            url: quickstart-deploy-sample-app.md
+            url: quickstart-deploy-sample-web-app-template.md
           - text: Deploy a custom app
-            url: quickstart-deploy-custom-app.md            
+            url: quickstart-deploy-custom-web-app.md            
       - linkListType: how-to-guide
         links:
           - text: Manage an App Space app

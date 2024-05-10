@@ -62,6 +62,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 #### Connect to GitHub
 
 1. Enter the following values in the *Connect to GitHub* section.
+
     | Setting | Action |
     |---|---|
     | GitHub account | Select your GitHub account. |
