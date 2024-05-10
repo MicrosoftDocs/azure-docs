@@ -15,8 +15,6 @@ ms.subservice: calling
 
 # Get started with Azure Communication Services UI library calling to Teams Voice Apps
 
-![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png=220x)
-
 This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup.
@@ -29,6 +27,8 @@ Following this tutorial will:
 
 - Allow you to control your customers audio and video experience depending on your customer scenario
 - Teach you how to build a widget for starting calls on your webapp using the UI library.
+
+![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
 ## Prerequisites
 These are **needed** in order to follow this tutorial. Please contact your Teams admin for the last two items to make sure you are set up appropriately.
@@ -632,6 +632,33 @@ export const callingWidgetInCallContainerStyles = (
       background: theme.semanticColors.bodyBackground,
     },
   };
+};
+```
+
+### Swap placeholders for identifiers
+
+Before we run the app go to `App.tsx` and replace the placeholder values there with your Azure Communication Services Identities and the identifier for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
+
+`./src/App.tsx`
+```typescript
+/**
+ * Token for local user.
+ */
+const token = "<Enter your ACS Token here>";
+
+/**
+ * User identifier for local user.
+ */
+const userId: CommunicationIdentifier = {
+  communicationUserId: "Enter your ACS Id here",
+};
+
+/**
+ * Enter your Teams voice app identifier from the Teams admin center here
+ */
+const teamsAppIdentifier: MicrosoftTeamsAppIdentifier = {
+  teamsAppId: "<Enter your Teams Voice app id here>",
+  cloud: "public",
 };
 ```
 
