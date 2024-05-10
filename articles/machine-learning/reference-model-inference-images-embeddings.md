@@ -32,12 +32,11 @@ POST /images/embeddings?api-version=2024-05-01-preview
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| input | True | [ImageTextInput](#imagetextinput)\[\] | Input image to embed. To embed multiple inputs in a single request, pass an array. The input must not exceed the max input tokens for the model. |
+| input | True | [EmbeddingInput](#embeddinginput)\[\] | Input image to embed. To embed multiple inputs in a single request, pass an array. The input must not exceed the max input tokens for the model. |
 | dimensions |     | integer | The number of dimensions the resulting output embeddings should have. Passing null causes the model to use its default value. Returns a 422 error if value or parameter is not supported by the model. |
 | encoding\_format |     | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
 | model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 
-[](#response)
 
 ## Responses
 
@@ -143,7 +142,7 @@ Status code: 200
 | [Embedding](#embedding) | Represents an image generated. |
 | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
 | [EmbeddingObject](#embeddingobject) | The object type, which is always "embedding". |
-| [ImageTextInput](#imagetextinput) | Represents an image with optional text. |
+| [EmbeddingInput](#embeddinginput) | Represents an image with optional text. |
 | [ListObject](#listobject) | The object type, which is always "list". |
 | [NotFoundError](#notfounderror) |     |
 | [TooManyRequestsError](#toomanyrequestserror) |     |
@@ -183,7 +182,7 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | --- | --- | --- | --- |
 | dimensions | integer |     | The number of dimensions the resulting output embeddings should have. Passing null causes the model to use its default value. Returns a 422 error if value or parameter is not supported by the model. |
 | encoding\_format | [EmbeddingEncodingFormat](#embeddingencodingformat) | float | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
-| input | [EmbeddingInput](#embeddingonput)\[\] |     | Input image to embed. To embed multiple inputs in a single request, pass an array. The input must not exceed the max input tokens for the model. |
+| input | [EmbeddingInput](#embeddinginput)\[\] |     | Input image to embed. To embed multiple inputs in a single request, pass an array. The input must not exceed the max input tokens for the model. |
 | model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 
 

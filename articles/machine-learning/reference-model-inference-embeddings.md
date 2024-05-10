@@ -215,15 +215,43 @@ The type of the input. Either `text`, `query`, or `document`. Returns a 422 erro
 | --------- | ------ | ----------- |
 | embedding | string |             |
 
+### NotFoundError
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | string | The error description. |
+| message | string | The error message. |
+| status | integer | The HTTP status code. |
+
+### TooManyRequestsError
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | string | The error description. |
+| message | string | The error message. |
+| status | integer | The HTTP status code. |
+
+### UnauthorizedError
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | string | The error description. |
+| message | string | The error message. |
+| status | integer | The HTTP status code. |
+
 ### UnprocessableContentError
 
-| Name    | Type              | Description            |
-| ------- | ----------------- | ---------------------- |
-| code    | string            | The error code.        |
-| detail  | [Detail](#detail) |                        |
-| error   | string            | The error description. |
-| message | string            | The error message.     |
-| status  | integer           | The HTTP status code.  |
+
+| Name | Type | Description |
+| --- | --- | --- |
+| code | string | The error code. |
+| detail | [Detail](#detail) |     |
+| error | string | The error description. |
+| message | string | The error message. |
+| status | integer | The HTTP status code. |
 
 
 ### Usage

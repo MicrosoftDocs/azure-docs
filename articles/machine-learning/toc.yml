@@ -616,12 +616,13 @@
           href: reference-model-inference-api.md
         - name: Reference
           items:
+            - name: Get Info
+              href: reference-model-inference-info.md
             - name: Embeddings
               href: reference-model-inference-embeddings.md
             - name: Completions
-              href: reference-model-inference-completions.md
             - name: Chat Completions
-              href: reference-model-inference-chat.md
+              href: reference-model-inference-chat-completions.md
             - name: Images Embeddings
               href: reference-model-inference-images-embeddings.md
 - name: Use Generative AI

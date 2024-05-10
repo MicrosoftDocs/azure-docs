@@ -33,7 +33,7 @@ POST /chat/completions?api-version=2024-05-01-preview
 | --- | --- | --- | --- |
 | messages | True | [ChatCompletionRequestMessage]\[\] | A list of messages comprising the conversation so far. Returns a 422 error if at least some of the messages can't be understood by the model. |
 | frequency\_penalty |     | number | Helps prevent word repetitions by reducing the chance of a word being selected if it has already been used. The higher the frequency penalty, the less likely the model is to repeat the same words in its output. Return a 422 error if value or parameter is not supported by model. |
-| max\_tokens |     | integer | The maximum number of [tokens](/en-us/tokenizer) that can be generated in the chat completion.<br><br>The total length of input tokens and generated tokens is limited by the model's context length. Passing null causes the model to use its max context length. |
+| max\_tokens |     | integer | The maximum number of tokens that can be generated in the chat completion.<br><br>The total length of input tokens and generated tokens is limited by the model's context length. Passing null causes the model to use its max context length. |
 | model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty |     | number | Helps prevent the same topics from being repeated by penalizing a word if it exists in the completion already, even just once. Return a 422 error if value or parameter is not supported by model. |
 | response\_format |     | [ChatCompletionResponseFormat](#chatcompletionresponseformat) |     |
@@ -283,7 +283,7 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | frequency\_penalty | number | 0   | Helps prevent word repetitions by reducing the chance of a word being selected if it has already been used. The higher the frequency penalty, the less likely the model is to repeat the same words in its output. Return a 422 error if value or parameter is not supported by model. |
-| max\_tokens | integer |     | The maximum number of [tokens](/en-us/tokenizer) that can be generated in the chat completion.<br><br>The total length of input tokens and generated tokens is limited by the model's context length. Passing null causes the model to use its max context length. |
+| max\_tokens | integer |     | The maximum number of tokens that can be generated in the chat completion.<br><br>The total length of input tokens and generated tokens is limited by the model's context length. Passing null causes the model to use its max context length. |
 | messages | ChatCompletionRequestMessage\[\] |     | A list of messages comprising the conversation so far. Returns a 422 error if at least some of the messages can't be understood by the model. |
 | model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty | number | 0   | Helps prevent the same topics from being repeated by penalizing a word if it exists in the completion already, even just once. Return a 422 error if value or parameter is not supported by model. |

@@ -33,7 +33,7 @@ POST /completions?api-version=2024-05-01-preview
 | --- | --- | --- | --- |
 | prompt | True |     | The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that <\|endoftext\|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document. |
 | frequency\_penalty |     | number | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
-| max\_tokens |     | integer | The maximum number of [tokens](/en-us/tokenizer) that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
+| max\_tokens |     | integer | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
 | model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty |     | number | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | seed |     | integer | If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
@@ -129,7 +129,8 @@ Status code: 200
 
 | Name | Description |
 | --- | --- |
-| [Choices](#choices) | A list of chat completion choices. Can be more than one if `n` is greater than 1. |
+| [Choices](#choices) | A list of chat completion choices. |
+| [CompletionFinishReason](#completionfinishreason) | The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters. |
 | [CompletionUsage](#completionusage) | Usage statistics for the completion request. |
 | [ContentFilterError](#contentfiltererror) | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again. |
 | [CreateCompletionRequest](#createcompletionrequest) |     |
@@ -146,10 +147,21 @@ A list of chat completion choices.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| finish\_reason | [ChatCompletionFinishReason](#chatcompletionfinishreason) | The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters, `tool_calls` if the model called a tool. |
+| finish\_reason | [CompletionFinishReason](#CompletionFinishReason) | The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters, `tool_calls` if the model called a tool. |
 | index | integer | The index of the choice in the list of choices. |
 | text | string | The generated text. |
 
+
+### CompletionFinishReason
+
+The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters.
+
+
+| Name | Type | Description |
+| --- | --- | --- |
+| content\_filter | string |     |
+| length | string |     |
+| stop | string |     |
 
 ### CompletionUsage
 
@@ -183,7 +195,7 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | frequency\_penalty | number | 0   | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
-| max\_tokens | integer | 256 | The maximum number of [tokens](/en-us/tokenizer) that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
+| max\_tokens | integer | 256 | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
 | model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty | number | 0   | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | prompt |     | <\|endoftext\|> | The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that <\|endoftext\|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document. |

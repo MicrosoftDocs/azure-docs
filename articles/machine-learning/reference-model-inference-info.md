@@ -43,7 +43,6 @@ GET /info?api-version=2024-05-01-preview
 | Name | Type | Description |
 | --- | --- | --- |
 | 200 OK | [ModelInfo](#modelinfo) | OK  |
-| Other Status Codes | [ContentFilterError](#contentfiltererror) | Bad request<br><br>Headers<br><br>x-ms-error-code: string |
 
 
 ## Security
