@@ -33,7 +33,7 @@ This section explains how to set up SignTool to use with Trusted Signing.
 To complete the steps in this article, you need:
 
 - A Trusted Signing account, identity validation, and certificate profile.
-- The Trusted Signing Certificate Profile Signer role is assigned to you.
+- Individual or group assignment of the Trusted Signing Certificate Profile Signer role.
 
 ### Summary of steps
 
@@ -100,7 +100,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    }
    ```
 
-   The "Endpoint" URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
+   The `"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
 
    | Region       | Region class fields  | Endpoint URI value  |
    |--------------|-----------|------------|
@@ -111,7 +111,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
    | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
 
-   <sup>1</sup> The optional "CorrelationId" field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
+   <sup>1</sup> The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
 
 ### Use SignTool to sign a file
 
