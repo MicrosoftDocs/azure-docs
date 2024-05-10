@@ -74,7 +74,9 @@ This documentation contains the following article types:
 
 # [Document summarization](#tab/document-summarization)
 
+
 ---
+
 
 # [Text summarization](#tab/text-summarization)
 
@@ -139,7 +141,9 @@ Conversation summarization feature would simplify the text as follows:
 
 # [Document summarization](#tab/document-summarization)
 
+
 ---
+
 
 ## Get started with summarization
 
@@ -162,7 +166,9 @@ Conversation summarization feature would simplify the text as follows:
 * Summarization takes text for analysis. For more information, see [Data and service limits](../concepts/data-limits.md) in the how-to guide.
 * Summarization works with various written languages. For more information, see [language support](language-support.md?tabs=document-summarization).
 
+
 ---
+
 
 ## Reference documentation and code samples
 
