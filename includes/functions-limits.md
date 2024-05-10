@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 04/23/2024	
 ms.author: glenga
 ---
-| Resource |[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)<sup>12</sup>|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| 
-| --- | --- | --- | --- | --- | --- |
-| Default [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 | 30 |30<sup>1</sup> | 30 |
-| Max [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded<sup>7</sup> | unbounded<sup>7</sup> | unbounded<sup>2</sup> | unbounded |
-| Max outbound connections (per instance) | 600 active (1200 total) | TBD | unbounded | unbounded | unbounded |
-| Max request size (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | 100 | 
-| Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | 4096 | 
-| Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
-|[ACU](../articles/virtual-machines/acu.md) per instance | 100 | TBD | 210-840 | 100-840 | 210-250<sup>8</sup> |
-| Max memory (GB per instance) | 1.5 | 4<sup>13</sup> | 3.5-14 | 1.75-14 | 3.5-14 | 
-| Max instance count (Windows/Linux) | 200/100 | 1000 <sup>14</sup> | 100/20 | varies by SKU<sup>9</sup> | 100<sup>9</sup> |  
-| Function apps per plan<sup>11</sup> | 100 | 100 | 100 | unbounded<sup>4</sup> | unbounded | 
-| [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) | TBD | 100 per resource group |100 per resource group | - |
-| [Deployment slots](../articles/azure-functions/functions-deployment-slots.md) per app<sup>10</sup> | 2 | TBD | 3 | 1-20<sup>9</sup> | 20 |
-| Storage<sup>5</sup> | 5 GB | TBD | 250 GB |50-1000 GB | 1 TB |
-| Custom domains per app</a> |500<sup>6</sup> | 500 | 500 | 500 | 500 |
-| Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | TBD | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included |
+| Resource |[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)<sup>12</sup>|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/intro.md)| 
+| --- | --- | --- | --- | --- | 
+| Default [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 | 30 |30<sup>1</sup> |
+| Max [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded<sup>15</sup> | unbounded<sup>7</sup> | unbounded<sup>2</sup> | 
+| Max outbound connections (per instance) | 600 active (1200 total) | TBD | unbounded | unbounded | 
+| Max request size (MB)<sup>3</sup> | 100 | 100 | 100 | 100 |  
+| Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 |  
+| Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 
+|[ACU](../articles/virtual-machines/acu.md) per instance | 100 | TBD | 210-840 | 100-840/210-250<sup>8</sup> |
+| Max memory (GB per instance) | 1.5 | 4<sup>13</sup> | 3.5-14 | 1.75-14/3.5-14 | 
+| Max instance count (Windows/Linux) | 200/100 | 1000 <sup>14</sup> | 100/20 | varies by SKU/100<sup>9</sup> |   
+| Function apps per plan<sup>11</sup> | 100 | 100 | 100 | unbounded<sup>4</sup> |
+| [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) | TBD | 100 per resource group |100 per resource group |
+| [Deployment slots](../articles/azure-functions/functions-deployment-slots.md) per app<sup>10</sup> | 2 | n/a | 3 | 1-20<sup>9</sup> | 
+| Storage<sup>5</sup> | 5 GB | TBD | 250 GB |50-1000 GB | 
+| Custom domains per app</a> |500<sup>6</sup> | 500 | 500 | 500 | 
+| Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | TBD | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
 
 Notes on service limits:
 
@@ -39,3 +39,4 @@ Notes on service limits:
 12. The Flex Consumption plan is currently in preview.  
 13. Flex Consumption plan instance sizes are defined as: 512 MB, 2,048 MB, and 4,096 MB. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).  
 14. Flex Consumption plan during preview has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#regional-subscription-memory-quotas).
+15. In a Flex Consumption plan, the host doesn't enforce an execution time limit. However, there are currently no guarantees because the platform might need to terminate your instances during scale-in, deployments, or to apply updates.

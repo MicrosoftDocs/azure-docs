@@ -6,7 +6,7 @@ ms.author: glenga
 ---
 1. In the [Azure portal](https://portal.azure.com), from the menu or the **Home** page, select **Create a resource**.
 
-1. In the search window, type `function` and select **Create** under **Function App**.
+1. Select **Get started** and then **Create** under **Function App**.
 
 1. Under **Select a hosting option**, choose **Flex Consumption** > **Select**.   
 
