@@ -17,13 +17,13 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # What is an Azure Machine Learning hub workspace? (Preview)
 
-A hub is a kind of workspace that centrally manages security, connectivity, compute resources, and quota for a team. Once set up, a hub enables developers to create their own workspaces to organize their work while staying compliant with IT setup requirements. Sharing and reuse of configurations through a hub workspace yields better cost efficiency when deploying Azure Machine Learning at scale.
+A hub is a kind of workspace that centrally manages security, connectivity, compute resources, and quota for a team. Once set up, a hub enables developers to create their own workspaces to organize their work while staying compliant with IT set up requirements. Sharing and reuse of configurations through a hub workspace yields better cost efficiency when deploying Azure Machine Learning at scale.
 
 Workspaces that are created using a hub, referred to as 'project workspaces,' obtain the same security settings and shared resource access. They don't require their own security settings or Azure [associated resources](concept-workspace.md#associated-resources). Create as many project workspaces as you need to organize your work, isolate data, or restrict access. 
 
 Create a hub workspace if you or your team are planning for multiple machine learning projects. Use a hub to organize your work in the same data or business domain.
 
-![Diagram showing hub and project workspace relation](media/concept-hub-workspace/hub-workspace-relation.png)
+:::image type="content" source="media/concept-hub-workspace/hub-workspace-relation.png alt-text="Screenshot of the hub and project workspace relationship.":::
 
 ## Fast, but secure, AI exploration without bottleneck on IT
 
@@ -76,7 +76,7 @@ Once a hub is created, there are multiple ways to create a project workspace usi
 > [!NOTE]
 > When creating a workspace using a hub, there's no need to specify security settings or [associated resources](concept-workspace.md#associated-resources) because those are inherited from the hub. For example, if public network access is disabled on the hub, it is also disabled on new workspace that is created.
 
-![Create workspace using hub in ML studio](media/concept-hub-workspace/project-workspace-create.png)
+:::image type="content" source="media/concept-hub-workspace/project-workspace-create.png" alt-text="Screenshot of creating a workspace hub in Azure Machine Learning studio.":::
 
 ## Default project resource group
 

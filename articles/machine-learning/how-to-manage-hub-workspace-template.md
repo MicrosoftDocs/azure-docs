@@ -15,7 +15,7 @@ ms.date: 02/29/2024
 
 # Create an Azure Machine Learning hub workspace using a Bicep template
 
-Use a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) template to create an a [hub workspace](concept-hub-workspace.md) for use in ML Studio and [AI Studio](../ai-studio/what-is-ai-studio.md). A template makes it easy to create resources as a single, coordinated operation. A Bicep template is a text document that defines the resources that are needed for a deployment. It might also specify deployment parameters. Parameters are used to provide input values when using the template.
+Use a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) template to create a [hub workspace](concept-hub-workspace.md) for use in ML Studio and [AI Studio](../ai-studio/what-is-ai-studio.md). A template makes it easy to create resources as a single, coordinated operation. A Bicep template is a text document that defines the resources that are needed for a deployment. It might also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 The template used in this article can be found at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics). Both the source `main.bicep` file and the compiled Azure Resource Manager template (`main.json`) file are available. This template creates the following resources:
 

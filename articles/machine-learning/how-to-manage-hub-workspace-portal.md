@@ -142,12 +142,12 @@ This class requires an existing virtual network.
 
 1. The default network configuration uses a **Public endpoint**, which is accessible on the public internet. However, you can select **Private with Internet Outbound** or **Private with Approved Outbound** to limit access to your workspace to an Azure Virtual Network you created. Then scroll down to configure the settings.
 
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Screenshot of the private endpoint selection.":::
 
 1. Under **Workspace Inbound access** select **Add** to open the **Create private endpoint** form.
 1. On the **Create private endpoint** form, set the location, name, and virtual network to use. To use the endpoint with a Private DNS Zone, select **Integrate with private DNS zone** and select the zone using the **Private DNS Zone** field. Select **OK** to create the endpoint.
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Screenshot of the private endpoint creation.":::
 
 1. If you selected **Private with Internet Outbound**, use the **Workspace Outbound access** section to configure the network and outbound rules.
 
@@ -204,11 +204,11 @@ ml_client.workspaces.begin_create(ws)
 
 1. Select **Customer-managed keys**, and then select **Click to select key**.
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Screenshot of the customer-managed keys.":::
 
 1. On the **Select key from Azure Key Vault** form, select an existing Azure Key Vault, a key that it contains, and the key version. This key encrypts the data stored in Azure Cosmos DB. Finally, use the **Select** button to use this key.
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Select the key":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Screenshot of the selecting a key from a key vault.":::
 
 ---
 
@@ -332,7 +332,7 @@ To obtain specific workspace details:
 
 1. Select **Machine Learning**.
 
-   ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
+   :::image type="content" source="./media/how-to-manage-workspace/find-workspaces.png" alt-text="Screenshot of searching for an Azure Machine Learning workspace.":::
 
 1. Look through the list of workspaces. You can filter based on subscription, resource groups, and locations.
 
@@ -368,7 +368,7 @@ The default action doesn't automatically delete resources associated with the wo
 
 In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top of the workspace you want to delete.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Delete workspace":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Screenshot of deleting a workspace.":::
 
 ---
 

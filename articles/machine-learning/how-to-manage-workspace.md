@@ -105,7 +105,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 1. In the upper-left corner of Azure portal, select **+ Create a resource**.
 
-    :::image type="content" source="media/how-to-manage-workspace/create-workspace.gif" alt-text="Screenshot show how to create a  workspace in Azure portal.":::
+    :::image type="content" source="media/how-to-manage-workspace/create-workspace.gif" alt-text="Screenshot show how to create a workspace in Azure portal.":::
 
 1. Use the search bar to find **Machine Learning**.
 
@@ -126,7 +126,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
    | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
    | Container Registry | The Azure Container Registry for the workspace. By default, a new one isn't initially created for the workspace. Instead, creation of a Docker image during training or deployment additionally creates that Azure Container Registry for the workspace once you need it. |
 
-   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Screenshot of configuring your workspace.":::
 
 1. When you finish the workspace configuration, select **Review + Create**. Optionally, use the [Networking](#networking), [Encryption](#encryption), [Identity](#identity), and  [Tags](#tags) sections to configure more workspace settings.
 
@@ -149,7 +149,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 1. (Preview) Optionally, select a [hub workspace](concept-hub-workspace.md), to host your workspace in a shared environment for your team, with preconfigured security, access to company resources, and shared compute. 
 
-   :::image type="content" source="media/concept-hub-workspace/project-workspace-create.png" alt-text="Create workspace using hub in ML studio.":::
+   :::image type="content" source="media/concept-hub-workspace/project-workspace-create.png" alt-text="Screenshot of creating a workspace using hub in Azure Machine Learning studio.":::
 
 ---
 
@@ -170,12 +170,12 @@ This class requires an existing virtual network.
 
 1. The default network configuration uses a **Public endpoint**, which is accessible on the public internet. However, you can select **Private with Internet Outbound** or **Private with Approved Outbound** to limit access to your workspace to an Azure Virtual Network you created. Then scroll down to configure the settings.
 
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Screenshot of the private endpoint selection.":::
 
 1. Under **Workspace Inbound access** select **Add** to open the **Create private endpoint** form.
 1. On the **Create private endpoint** form, set the location, name, and virtual network to use. To use the endpoint with a Private DNS Zone, select **Integrate with private DNS zone** and select the zone using the **Private DNS Zone** field. Select **OK** to create the endpoint.
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Screenshot of the private endpoint creation.":::
 
 1. If you selected **Private with Internet Outbound**, use the **Workspace Outbound access** section to configure the network and outbound rules.
 
@@ -187,7 +187,7 @@ This class requires an existing virtual network.
 
 1. To create a workspace with disabled internet connectivity via Studio, you should specify a hub workspace that has public network access disabled. Workspaces created without a hub in AI studio, have public internet access enabled. A private hub has a 'lock' icon.
 
-   :::image type="content" source="media/how-to-manage-workspace/studio-private-hub-selection.png" alt-text="A private hub has the 'lock' icon.":::
+   :::image type="content" source="media/how-to-manage-workspace/studio-private-hub-selection.png" alt-text="Screenshot of the private hub with the 'lock' icon.":::
  
 1. If you don't select a hub workspace at time of creation, the default network configuration uses a **Public endpoint**, which is accessible on the public internet. 
 
@@ -240,11 +240,11 @@ ml_client.workspaces.begin_create(ws)
 
 1. Select **Customer-managed keys**, and then select **Click to select key**.
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Screenshot of the customer-managed keys.":::
 
 1. On the **Select key from Azure Key Vault** form, select an existing Azure Key Vault, a key that it contains, and the key version. This key encrypts the data stored in Azure Cosmos DB. Finally, use the **Select** button to use this key.
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Select the key":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Screenshot of selecting a key from the key vault.":::
 
 # [Studio](#tab/studio)
 
@@ -292,7 +292,7 @@ To use code on your local environment that references this workspace, download t
 1. Select your workspace in [Azure studio](https://ml.azure.com)
 1. At the top right, select the workspace name, then select  **Download config.json**
 
-   ![Download config.json](./media/how-to-manage-workspace/configure.png)
+   :::image type="content" source="./media/how-to-manage-workspace/configure.png" alt-text="Screenshot of the 'download config.json' option.":::
 
 Place the file in the directory structure that holds your Python scripts or Jupyter Notebooks. The same directory, a subdirectory named *.azureml*, or a parent directory can hold this file. When you create a compute instance, this file is added to the correct directory on the VM for you.
 
@@ -374,7 +374,7 @@ To obtain specific workspace details:
 
 1. Select **Machine Learning**.
 
-   ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
+   :::image type="content" source="./media/how-to-manage-workspace/find-workspaces.png" alt-text="Screenshot of searching for an Azure Machine Learning workspace.":::
 
 1. Look through the list of the workspaces. You can filter based on subscription, resource groups, and locations.
 
@@ -416,7 +416,7 @@ The default action doesn't automatically delete resources associated with the wo
 
 In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top of the workspace you want to delete.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Delete workspace":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Screenshot of deleting a workspace.":::
 
 # [Studio](#tab/studio)
 
