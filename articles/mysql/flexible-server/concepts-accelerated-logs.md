@@ -116,7 +116,7 @@ During the public phase, disabling the accelerated logs feature is a straightfor
 
 1. Select **Save** and wait for the deployment process to be completed. After you receive a successful deployment message, the feature is disabled.
 
-## Limitations and considerations
+## Limitations
 
 The accelerated logs feature in Azure Database for MySQL - Flexible Server has the following limitations:
 
