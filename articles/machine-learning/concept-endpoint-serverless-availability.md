@@ -11,6 +11,9 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
+ms.custom: 
+ - build-2024
+ - serverless
 ---
 
 # Region availability for models in Serverless API endpoints

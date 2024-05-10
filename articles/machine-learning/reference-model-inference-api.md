@@ -11,6 +11,8 @@ ms.reviewer: msakande
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
+ms.custom: 
+ - build-2024
 ---
 
 # Azure AI Model Inference API
@@ -64,7 +66,7 @@ The API indicates how developers can consume predictions for the following modal
 
 ### Models with disparate set of capabilities
 
-The Azure AI Model Inference API indicates a general set of capabilities but each of the models can decide to implement them or not. a specific error is returned on those cases where the model can't support a specific parameter
+The Azure AI Model Inference API indicates a general set of capabilities but each of the models can decide to implement them or not. A specific error is returned on those cases where the model can't support a specific parameter
 
 The following example shows the response for a chat completion request indicating the parameter `reponse_format` and asking for a reply in `JSON` format. In the example, since the model doesn't support such capability an error 422 is returned to the user. 
 
