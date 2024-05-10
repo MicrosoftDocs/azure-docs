@@ -61,7 +61,7 @@ You see similar output if the connection was successful.
 Successfully connected to server372060240.
 ```
 
-If the connection failed, check the following:
+If the connection failed, check the following points:
 - if your server administrator user name and password are correct
 - if you configured firewall rule for your client machine
 - if your server is configured with private access with virtual networking, make sure your client machine is in the same virtual network.
