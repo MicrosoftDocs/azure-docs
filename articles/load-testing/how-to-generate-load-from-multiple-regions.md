@@ -5,8 +5,9 @@ description: Learn how to create a geo-distributed load test in Azure Load Testi
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
+ms.custom: references_regions
 author: ntrogh
-ms.date: 02/19/2024
+ms.date: 05/10/2024
 ms.topic: how-to
 # CustomerIntent: As a tester, I want to understand how I can generate load from multiple regions, so that I can validate that my application runs correctly for geo-distributed users.
 ---

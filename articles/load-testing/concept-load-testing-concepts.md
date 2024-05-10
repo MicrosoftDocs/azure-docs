@@ -81,7 +81,7 @@ A test describes the load test configuration for your application. You add a tes
 A test contains a test plan, which describes the steps to invoke the application endpoint. You can define the test plan in either of two ways:
 
 - [Upload a JMeter test script](./how-to-create-and-run-load-test-with-jmeter-script.md).
-- [Upload a Locust test script](./quickstart-create-and-run-load-test-with-locust.md).
+- [Upload a Locust test script](./quickstart-create-run-load-test-with-locust.md).
 - [Specify the list of URL endpoints to test](./quickstart-create-and-run-load-test.md).
 
 Azure Load Testing supports all communication protocols that JMeter supports, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.

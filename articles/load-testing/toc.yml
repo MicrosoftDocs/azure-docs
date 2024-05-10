@@ -15,7 +15,7 @@ items:
     - name: Create a load test with a JMeter script
       href: how-to-create-and-run-load-test-with-JMeter-script.md
     - name: Create a load test with a Locust script
-      href: quickstart-create-and-run-load-test-with-locust.md      
+      href: quickstart-create-run-load-test-with-locust.md      
     - name: Automate load tests with Azure Pipelines
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md

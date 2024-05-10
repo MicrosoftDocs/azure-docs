@@ -16,7 +16,7 @@ Azure Load Testing is a fully managed load-testing service that enables you to g
 
 Quickly [create a load test for your web application by using a URL](./quickstart-create-and-run-load-test.md), and without prior knowledge of testing tools. Azure Load Testing abstracts the complexity and infrastructure to run your load test at scale.
 
-For more advanced load testing scenarios, you can also create a load test by uploading a test script. Azure Load Testing supports running [Apache JMeter-based tests](./how-to-create-and-run-load-test-with-jmeter-script.md) or [Locust-based tests](./quickstart-create-and-run-load-test-with-locust.md). For example, your test plan might consist of multiple application requests, you want to call non-HTTP endpoints, or you're using input data and parameters to make the test more dynamic.
+For more advanced load testing scenarios, you can also create a load test by uploading a test script. Azure Load Testing supports running [Apache JMeter-based tests](./how-to-create-and-run-load-test-with-jmeter-script.md) or [Locust-based tests](./quickstart-create-run-load-test-with-locust.md). For example, your test plan might consist of multiple application requests, you want to call non-HTTP endpoints, or you're using input data and parameters to make the test more dynamic.
 
 If your application is hosted on Azure, Azure Load Testing collects detailed resource metrics to help you [identify performance bottlenecks](#identify-performance-bottlenecks-by-using-high-scale-load-tests) across your Azure application components.
 
@@ -98,5 +98,5 @@ Start using Azure Load Testing:
 
 - [Quickstart: Create a URL-based load test](./quickstart-create-and-run-load-test.md).
 - [Quickstart: Create a load test by using a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
-- [Quickstart: Create a load test by using a Locust script](./quickstart-create-and-run-load-test-with-locust.md).
+- [Quickstart: Create a load test by using a Locust script](./quickstart-create-run-load-test-with-locust.md).
 - Learn about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
