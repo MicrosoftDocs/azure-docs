@@ -14,63 +14,51 @@ ms.author: pafarley
 
 # Custom categories 
 
-The Azure AI Content Safety Custom Category feature empowers users to create and manage their own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and utilize it to classify new content according to the predefined categories.
-
-The Azure AI Content Safety Custom Category feature is designed to provide a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
+The Azure AI Content Safety Custom Category feature lets you create and manage your own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and use it to classify new content according to the predefined categories.
 
 ## Types of analysis
 
-| API      | Functionality   |
+| API        | Functionality   |
 | :--------- | :------------ |
 | Customized categories | Create, get, and delete a customized category or list all customized categories for further annotation task |
 
 ## How it works
 
-The Azure AI Content Safety Custom Category feature is designed to provide a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
+The Azure AI Content Safety Custom Category feature provides a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
 
-#### Step 1: Definition and Setup
+### Step 1: Definition and setup
  
-When you define a custom category, you are essentially instructing the AI on what type of content you want to identify. This involves providing a clear **category name** and a detailed **definition** that encapsulates the content's characteristics. The setup phase is crucial, as it lays the groundwork for the AI to understand your specific moderation needs.
+When you define a custom category, you need to teach the AI what type of content you want to identify. This involves providing a clear **category name** and a detailed **definition** that encapsulates the content's characteristics.
 
-Then, collect a balanced dataset with both **positive** and (optional)**negative examples** allows the AI to learn the nuances of the category. This data should be representative of the variety of content that the model will encounter in a real-world scenario.
+Then, you collect a balanced dataset with **positive** and (optionally)**negative examples** to help the AI to learn the nuances of your category. This data should be representative of the variety of content that the model will encounter in a real-world scenario.
 
-#### Step 2: Model Training
+### Step 2: Model training
  
-Once you have your dataset ready, the Azure AI Content Safety service uses it to train a new model. During training, the AI analyzes the data, learning to distinguish between content that matches the custom category and content that does not.
+Once your dataset is ready, the Azure AI Content Safety service uses it to train a new model. During training, the AI analyzes the data and learns to distinguish between content that matches the category and content that doesn't.
 
-#### Step 3: Model Inferencing
+### Step 3: Model inferencing
  
-After training, you need to evaluate the model to ensure it meets your accuracy requirements. This is done by testing the model with new content that it hasn't seen before. The evaluation phase helps you identify any potential adjustments needed before deploying the model into a production environment.
+After training, you need to evaluate the model to ensure it meets your accuracy requirements. Test the model with new content that it hasn't received before. The evaluation phase helps you identify any potential adjustments you need to make deploying the model into a production environment.
 
-## Limitations - CC
-
-### Language availability
-
-AR:
-Currently this API is only available in English. While users can try guidelines in other languages, we don't guarantee the output. We output the reasoning in the language of provided guidelines by default.
+## Limitations
 
 ### Input limitations
 
-
-## Limitations
 | Object           | Limitation   |
 | ---------------- | ------------ |
-| Support language | English only |
+| Supported languages | English only |
 |     Number of categories per user     |         5     |
-|         Number of category version per category   |        5      |
-|       Number of concurrent build (process) per category      |       1       |
-|       Inference RPS           |    10          |
-|        Customized category number in one text analyze request          |       5       |
-|        Number of samples for a category version          |        At least 50, at most 10K (no dupilicated samples allowed)      |
-|       Sample file           |     At most 128000 bytes         |
-|       Length of a sample           |           125K characters   |
-|        Length of deinition          |         1000 characters     |
-|       Length of category name           |          128 characters    |
-|           Length of blob url       |          at most 500 characters    |
+|         Number of versions per category   |        5      |
+|       Number of concurrent builds (processes) per category      |       1       |
+|       Inference operations per second           |    10          |
+|        Number of custom categories in one text analyze request          |       5       |
+|        Number of samples in a category version          |        minimum 50, maximum 10K (no dupilicate samples allowed)      |
+|       Sample file size       |     maximum 128000 bytes         |
+|       Length of a text sample           |          maximum 125K characters   |
+|        Length of a category definition          |       maximum 1000 characters     |
+|       Length of a category name           |         maximum 128 characters    |
+|       Length of a blob url       |          maximum 500 characters    |
 
-
-
-### Regions
 
 
 ## Next steps
