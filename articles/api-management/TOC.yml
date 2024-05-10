@@ -391,6 +391,8 @@
       href: api-management-howto-oauth2.md
     - name: Integrate Application Insights
       href: developer-portal-integrate-application-insights.md
+    - name: Enable Azure Monitor logs
+      href: developer-portal-enable-usage-logs.md  
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
   - name: Self-host the developer portal
