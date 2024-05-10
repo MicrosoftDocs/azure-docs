@@ -78,7 +78,11 @@ The following diagram shows a managed VNet configured to __allow only approved o
 ### Connectivity to other services
 
 * Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
-* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
+* The "Add your data" feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
+    * Azure AI Search
+    * Azure OpenAI
+    * Storage resource
+
 
 ## Configure a managed virtual network to allow internet outbound
 
