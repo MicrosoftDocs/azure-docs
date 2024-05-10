@@ -1,6 +1,6 @@
 ---
-title: Migrate Ambari to the recent version of HDInsight
-description: Learn how to migrate Ambari to the recent version of HDInsight.
+title: Migrate Ambari to the recent version of Azure HDInsight
+description: Learn how to migrate Ambari to the recent version of Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/09/2024
@@ -15,12 +15,14 @@ After setting up HDInsight 5.x, it's necessary to update the user-defined config
 * This step contains two python scripts.
   * Script to download the local cluster service configs from Ambari.
   * Script to compare the service config files and generate the differences.
-* All service configurations downloaded, but certain services and properties excluded from the comparison process. These excluded services and properties are as follows:  
+* All service configurations downloaded, but certain services and properties excluded from the comparison process. These excluded services and properties are as follows:
+    * Excluded properties  
     ```
     dfs.namenode.shared.edits.dir','hadoop.registry.zk.quorum','ha.zookeeper.quorum','hive.llap.zk.sm.connectionString','hive.cluster.delegation.token.store.zookeeper.connectString','hive.zookeeper.quorum','hive.metastore.uris','yarn.resourcemanager.hostname','hadoop.registry.zk.quorum','yarn.resourcemanager.hostname','yarn.node-labels.fs-store.root','javax.jdo.option.ConnectionURL','javax.jdo.option.ConnectionUserName','hive_database_name','hive_existing_mssql_server_database','yarn.log.server.url','yarn.timeline-service.sqldb-store.connection-username','yarn.timeline-service.sqldb-store.connection-url','fs.defaultFS', 'address'
     ```
-* Excluded Services:  `AMBARI_METRICS` and `WEBHCAT`.
-
+    * Excluded Services:  
+    `AMBARI_METRICS` and `WEBHCAT`.
+    
 ## Workflow
 
 To execute the migration process,
@@ -89,7 +91,9 @@ On HDInsight 4 Cluster (Old Cluster)
 1. Run the `compare_ambari_cluster_configs.py` script.
 1. Run `sshuser@hn0-sugar:~/hdinsights_ambari_utils$ python,
  compare_ambari_cluster_configs.py plutos out sugar.out`
+
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-compare-command.png" alt-text="Screenshot showing python compare command." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-compare-command.png":::
+
 1. Difference printed in the console.
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-code-sample.png" alt-text="Screenshot showing python code sample." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-code-sample.png":::
 1. Adding to this difference between the cluster configs saved in local.
