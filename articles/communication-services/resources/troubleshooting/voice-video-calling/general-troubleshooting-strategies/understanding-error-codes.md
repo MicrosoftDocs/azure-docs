@@ -26,3 +26,10 @@ Such errors are commonly encountered in precondition failures, such as incorrect
 or when the current system state doesn't allow the API call.
 The application should check the error reason and the logic for invoking API.
 
+::: zone pivot="platform-javascript"
+[!INCLUDE [Client generated codes](./includes/webjs-client-code-subcode.md)]
+::: zone-end
+
+::: zone pivot="platform-server"
+[!INCLUDE [Server generated codes](./includes/server-code-subcode.md)]
+::: zone-end
