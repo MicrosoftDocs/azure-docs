@@ -552,6 +552,7 @@
   - name: Monitor using Backup center
     href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Reporting
+  items:
   - name: Configure Site Recovery reports
     href: report-site-recovery.md
   - name: Log analytics
