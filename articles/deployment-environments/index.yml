@@ -59,6 +59,18 @@ landingContent:
             url: how-to-configure-managed-identity.md
 
   # Card
+  - title: Customize deployments with the extensibility model
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure container image to execute deployments
+            url: how-to-configure-extensibility-generic-container-image.md
+          - text: Configure an ARM/Bicep custom container image
+            url: how-to-configure-extensibility-bicep-container-image.md
+          - text: Configure a Terraform custom container image
+            url: how-to-configure-extensibility-terraform-container-image.md
+
+  # Card
   - title: Configure environment types
     linkLists:
       - linkListType: how-to-guide
