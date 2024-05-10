@@ -177,6 +177,7 @@ Resource Manager provides several functions for working with objects.
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
 * [null](template-functions-object.md#null)
+* [shallowMerge](template-functions-object.md#shallowmerge)
 * [union](template-functions-object.md#union)
 
 For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.
