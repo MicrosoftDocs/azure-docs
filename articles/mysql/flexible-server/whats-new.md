@@ -181,7 +181,7 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
   Business Critical SKU now supports 80 K IOPS, enabling enhanced performance with increased IO operations per second. [Learn more](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
 
-## might 2023
+## May 2023
 
 - **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server (General Availability)**
 
@@ -369,7 +369,7 @@ Learn more about [Boost Azure MySQL Business Critical flexible server performanc
 
   You might no longer see logs uploaded to data sinks configured under diagnostics settings on a few servers where audit or slow logs are enabled. Verify whether your logs have the latest updated timestamp for the events based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you've configured. If your server is affected by this issue, open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue.
 
-## might 2022
+## May 2022
 
 - **Announcing Azure Database for MySQL flexible server for business-critical workloads**
     Azure Database for MySQL flexible server Business Critical service tier is generally available. The Business Critical service tier is ideal for Tier 1 production workloads that require low latency, high concurrency, fast failover, and high scalability, such as gaming, e-commerce, and Internet-scale applications, to learn more about [Business Critical service Tier](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/announcing-azure-database-for-mysql-flexible-server-for-business/ba-p/3361718).
@@ -394,7 +394,7 @@ Learn more about [Boost Azure MySQL Business Critical flexible server performanc
 
 - **Deprecation of TLSv1 or TLSv1.1 protocols with Azure Database for MySQL flexible server (8.0.28)**
 
-    Starting version 8.0.28, the MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL flexible server will also stop supporting TLSv1 and TLSv1.1 protocols to align with modern security standards. You can no longer configure TLSv1 or TLSv1.1 from the server parameter pane for newly created and previously created resources. The default is TLSv1.2. Resources created before the upgrade still support communication through TLS protocol TLSv1 or TLSv1.1 through might 1, 2022.
+    Starting version 8.0.28, the MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL flexible server will also stop supporting TLSv1 and TLSv1.1 protocols to align with modern security standards. You can no longer configure TLSv1 or TLSv1.1 from the server parameter pane for newly created and previously created resources. The default is TLSv1.2. Resources created before the upgrade still support communication through TLS protocol TLSv1 or TLS v1.1 through May 1, 2022.
 
 ## March 2022
 
@@ -627,7 +627,7 @@ This release of Azure Database for MySQL flexible server includes the following 
 
   - Trying to perform up a compute scale or scale down operation on an existing server with less than 20 GB of storage provisioned doesn't complete successfully. Resolve the issue by scaling the provisioned storage to 20 GB and retrying the compute scaling operation.
 
-## might 2021
+## May 2021
 
 This release of Azure Database for MySQL flexible server includes the following updates.
 

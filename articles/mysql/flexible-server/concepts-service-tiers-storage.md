@@ -29,6 +29,8 @@ You can create an Azure Database for MySQL flexible server instance in one of th
 
 \* Ev5 compute performs best among other VM series regarding QPS and latency. Learn more about the performance and region availability of Ev5 compute from [here](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698).
 
+## Flexible Server service tiers
+
 To choose a compute tier, use the following table as a starting point.
 
 | Compute tier | Target workloads |
@@ -39,11 +41,13 @@ To choose a compute tier, use the following table as a starting point.
 
 After you create a server, you can change the compute tier, compute size, and storage size. Compute scaling requires a restart and takes 60-120 seconds, while storage scaling doesn't. You can also independently adjust the backup retention period up or down. See the [Scale resources](#scale-resources) section for more information.
 
-## Service tiers, size, and server types
+### Service tiers, size, and server types
 
 Compute resources can be selected based on the tier and size. This determines the vCores and memory size. vCores represent the logical CPU of the underlying hardware.
 
-The detailed specifications of the available server types are as follows for **Burstable**:
+#### Burstable
+
+The detailed specifications of the available server types are as follows for the Burstable service tier.
 
 | Compute size | vCores | Physical Memory Size (GiB) | Total Memory Size (GiB) | Max Supported IOPS | Max Connections | Temp Storage (SSD) GiB |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -56,7 +60,10 @@ The detailed specifications of the available server types are as follows for **B
 | Standard_B12ms | 12 | 48 | 52.8 | 3800 | 8193 | 0 |
 | Standard_B16ms | 16 | 64 | 70.4 | 4300 | 10923 | 0 |
 | Standard_B20ms | 20 | 80 | 88 | 5000 | 13653 | 0 |
-The detailed specifications of the available server types are as follows for **General Purpose**:
+
+#### General Purpose
+
+The detailed specifications of the available server types are as follows for the General Purpose service tier
 
 | Compute size | vCores | Physical Memory Size (GiB) | Total Memory Size (GiB) | Max Supported IOPS | Max Connections | Temp Storage (SSD) GiB |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +81,10 @@ The detailed specifications of the available server types are as follows for **G
 | Standard_D48ds_v4 | 48 | 192 | 264 | 20000 | 32768 | 1290 |
 | Standard_D64ads_v5 | 64 | 256 | 352 | 20000 | 43691 | 1720 |
 | Standard_D64ds_v4 | 64 | 256 | 352 | 20000 | 43691 | 1720 |
-The detailed specifications of the available server types are as follows for **Business Critical**:
+
+#### Business Critical
+
+The detailed specifications of the available server types are as follows for the Business Critical service tier.
 
 | Compute size | vCores | Physical Memory Size (GiB) | Total Memory Size (GiB) | Max Supported IOPS | Max Connections | Temp Storage (SSD) GiB |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -247,5 +257,5 @@ If you would like to optimize server cost, you can consider the following tips:
 
 ## Related content
 
-- [create an Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md)
-- [service limitations](concepts-limitations.md)
+- [Create an Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md)
+- [Service limitations](concepts-limitations.md)
