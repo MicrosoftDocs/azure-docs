@@ -50,6 +50,6 @@ Call the [List Marketplaces API](/rest/api/consumption/marketplaces/list/#market
 
 Call the new [Price Sheet API](/rest/api/consumption/price-sheet) to get the price sheet for either [the current billing period](/rest/api/consumption/price-sheet/get/) or for [a specific billing period](/rest/api/consumption/price-sheet/get-by-billing-period/).
 
-## Next steps
+## Related content
 
 - Read the [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.
