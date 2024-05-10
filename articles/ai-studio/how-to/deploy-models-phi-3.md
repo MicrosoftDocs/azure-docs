@@ -108,9 +108,9 @@ Models deployed as a service can be consumed using the chat API, depending on th
 
 ## Cost and quotas
 
-### Cost and quota considerations for Llama 2 models deployed as a service
+### Cost and quota considerations for Phi-3 models deployed as a service
 
-You can find the Azure Marketplace pricing when deploying on **Pricing and terms** tab on deployment wizard. 
+You can find the Azure Marketplace pricing on the **Pricing and terms** tab of the deployment wizard when deploying the model. 
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
