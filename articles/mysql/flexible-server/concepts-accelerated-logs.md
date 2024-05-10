@@ -4,10 +4,10 @@ description: This article describes the accelerated logs feature in Azure Databa
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 05/10/2024
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
     - references_regions
     - ignite-2023
