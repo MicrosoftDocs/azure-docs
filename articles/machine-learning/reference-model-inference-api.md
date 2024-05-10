@@ -39,12 +39,12 @@ Models deployed to [serverless API endpoints](how-to-deploy-models-serverless.md
 
 > [!div class="checklist"]
 > * [Cohere Embed V3](how-to-deploy-models-cohere-embed.md) family of models
-> * [Cohere Command R+](how-to-deploy-models-cohere-command.md)
+> * [Cohere Command R](how-to-deploy-models-cohere-command.md) family of models
 > * [Llama2](how-to-deploy-models-llama.md) family of models
 > * [Llama3](how-to-deploy-models-llama.md) family of models
 > * [Mistral-Small](how-to-deploy-models-mistral.md)
 > * [Mistral-Large](how-to-deploy-models-mistral.md)
-> * [Phi-3](how-to-deploy-models-phi3.md) family of models
+> * Phi-3 family of models
 
 The API is compatible with Azure OpenAI model deployments.
 
