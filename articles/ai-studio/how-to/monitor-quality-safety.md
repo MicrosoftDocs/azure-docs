@@ -39,18 +39,22 @@ Integrations for monitoring a prompt flow deployment allow you to:
 Before following the steps in this article, make sure you have the following prerequisites:
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
+
 - An [Azure AI Studio hub](create-azure-ai-resource.md).
+
 - An [Azure AI Studio project](create-projects.md).
+
 - A prompt flow ready for deployment. If you don't have one, see [Develop a prompt flow](flow-develop.md).
+
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
   
 # [Python SDK](#tab/python)
 
 Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
-    ```python
-    pip install -U azure-ai-ml
-    ```
+```python
+pip install -U azure-ai-ml
+```
 
 ---
 
@@ -313,19 +317,20 @@ After you've created your monitor, it will run daily to compute the token usage 
 
     The **Generation quality violations** card shows the **violation rate** over the selected time window. The **violation rate** is the number of violations divided by the total number of possible violations. You can adjust the thresholds for metrics in the settings. By default, metrics are computed daily; this frequency can also be adjusted in the settings.
 
-:::image type="content" source="../media/deploy-monitor/monitor/generation-quality-trendline.png" alt-text="Screenshot showing the generation quality trendline on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/generation-quality-trendline.png":::
+    :::image type="content" source="../media/deploy-monitor/monitor/generation-quality-trendline.png" alt-text="Screenshot showing the generation quality trendline on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/generation-quality-trendline.png":::
 
 1. From the **Monitoring (Preview)** tab, you can also view a comprehensive table of all sampled requests sent to the deployment during the selected time window. 
 
     > [!NOTE]
     > Monitoring sets the default sampling rate at 10%. This means that if 100 requests are sent to your deployment, 10 get sampled and used to compute the generation quality metrics. You can adjust the sampling rate in the settings. 
 
-    :::image type="content" source="../media/deploy-monitor/monitor/genration-quality-tracing-information.png" alt-text="Screenshot showing the trace button for the generation quality." lightbox = "../media/deploy-monitor/monitor/generation-quality-tracing-information.png":::
+    :::image type="content" source="../media/deploy-monitor/monitor/generation-quality-tracing-information.png" alt-text="Screenshot showing the trace button for the generation quality." lightbox = "../media/deploy-monitor/monitor/generation-quality-tracing-information.png":::
 
 1. Select the **Trace** button on the right side of a row in the table to see tracing details for a given request. This view provides comprehensive trace details for the request to your application. 
 
     :::image type="content" source="../media/deploy-monitor/monitor/trace-information.png" alt-text="Screenshot showing the trace information." lightbox = "../media/deploy-monitor/monitor/trace-information.png":::
 
+1. Close the Trace view.
 1. Go to the **Operational** tab to view the operational metrics for the deployment in near real-time. We support the following operational metrics:
 
     - Request count
