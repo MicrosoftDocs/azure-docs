@@ -216,7 +216,8 @@ using a rack-by-rack strategy. Bare metal servers in rack 1 are reimaged all at
 once. The upgrade process pauses until all the bare metal servers successfully
 restart and tell Nexus that they're ready to receive workloads.
 
-> Note: It is possible to instruct Operator Nexus to only reimage a portion of
+> [!NOTE]
+> It is possible to instruct Operator Nexus to only reimage a portion of
 > the bare metal servers in a rack at once, however the default is to reimage
 > all bare metal servers in a rack in parallel.
 
@@ -241,7 +242,8 @@ on the newly reimaged bare metal server. Workload containers may then be
 scheduled to those NKS VMs, potentially restoring the Deployments or
 StatefulSets that had Pods on NKS VMs that were on the bare metal server.
 
-> **Note**: This behavior may seem to the user as if the NKS VMs did not
+> [!NOTE]
+> This behavior may seem to the user as if the NKS VMs did not
 > "move" from the bare metal server, when in fact a new instance of an identical
 > NKS VM was launched on the newly reimaged bare metal server that retained the
 > same bare metal server name as before reimaging.
