@@ -4,7 +4,7 @@ description: Java metrics and configuration Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.date: 04/30/2024
+ms.date: 05/10/2024
 ms.author: cshoe
 ms.topic: how-to
 zone_pivot_groups: container-apps-portal-or-cli
@@ -35,7 +35,15 @@ Java Virtual Machine (JVM) metrics are critical for monitoring the health and pe
 
 ::: zone pivot="azure-portal"
 
-TODO: screenshots here
+To make the collection of Java metrics available to your app, you have to create your container app with some specific settings.
+
+In the *Create* window, if you select for *Deployment source* the **Container image** option, then you have access to stack-specific features.
+
+Under the *Development stack-specific features* and for the *Development stack*, select **Java**.
+
+:::image type="content" source="media/java-metrics/azure-container-apps-java-metrics-development-stack.png" alt-text="Screenshot of the Azure portal where you can select Java-specific features for your container app." lightbox="media/java-metrics/azure-container-apps-java-metrics-development-stack.png":::
+
+Once you select the Java development stack, the *Customize Java features for your app* window appears. Next to the *Java features* label, select **JVM core metrics**.
 
 ::: zone-end
 
@@ -92,7 +100,17 @@ az containerapp up \
 
 ## View Java Metrics
 
-TODO: some sample screenshots for java metrics
+Use the following steps to view metrics visualizations for your container app.
+
+1. Go to the Azure portal.
+
+1. Go to your container app.
+
+1. Under the *Monitoring* section, select **Metrics**.
+
+    From there, you're presented with a chart that plots the metrics you're tracking in your application.
+
+    :::image type="content" source="media/java-metrics/azure-container-apps-java-metrics-visualization.png" alt-text="Screenshot of Java metrics visualization." lightbox="media/java-metrics/azure-container-apps-java-metrics-visualization.png":::
 
 You can see Java metric names on Azure Monitor, but the data sets report as empty unless you use the `--enable-java-metrics` parameter to enable Java metrics.
 
