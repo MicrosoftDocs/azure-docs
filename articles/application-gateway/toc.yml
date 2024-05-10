@@ -283,6 +283,12 @@
     href: configure-web-app.md
   - name: Schedule autoscaling
     href: application-gateway-externally-managed-scheduled-autoscaling.md
+  - name: Relocate
+    items:
+    - name: Relocate to another region
+      href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+    - name: Migrate to availability zone support
+      href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
   - name: Troubleshoot
     items:
       - name: ILB with an App Service Environment

@@ -44,10 +44,14 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU                                                            |
 | Inbound MQTT publishing requests per session | 100 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
+| Inbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
 | Outbound MQTT publishing requests per session| 100 messages per second                                                           |
 | Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |
+| Outbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Outbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Max message size                             | 512 KB                                                                            |
 | Segments per topic/ topic filter             | 8                                                                                 |
 | Topic size                                   | 256 B                                                                             |
@@ -71,6 +75,8 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic spaces                                 | 10                                                                                |
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
+
+\* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
 
 ## Events limits in Event Grid namespace
 

@@ -40,47 +40,48 @@ The following tables provide links to each Azure service relocation document. Th
 
 ### ![An icon that signifies this service is foundational.](./media/relocation/icon-foundational.svg) Foundational services 
 
-| Product  | Relocation with data | Relocation without data | Resource Mover | 
+| Product  | Relocation | Relocation with data migration | Resource Mover | 
 | --- | --- | --- | ---|
-[Azure Key Vault](relocation-key-vault.md)| ✅ | ✅| ❌ |
-[Azure Event Hubs](relocation-event-hub.md)| ❌ | ✅| ❌ |
-[Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ❌ | ✅| ❌ |
+[Azure Event Hubs](relocation-event-hub.md)| ✅   | ❌| ❌ |
+[Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ✅ | ❌  | ❌ |
 [Azure Key Vault](./relocation-key-vault.md)| ✅ | ✅| ❌ |
 [Azure Site Recovery (Recovery Services vaults)](../site-recovery/move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-[Azure Virtual Network](./relocation-virtual-network.md)| ❌ | ✅| ✅ |
-[Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)| ❌ | ✅| ✅ |
+[Azure Virtual Network](./relocation-virtual-network.md)|  ✅| ❌  | ✅ |
+[Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)|✅  |❌   | ✅ |
+
 
 ### ![An icon that signifies this service is mainstream.](./media/relocation/icon-mainstream.svg) Mainstream services
 
-| Product  | Relocation with data | Relocation without data | Resource Mover | 
+| Product  | Relocation |Relocation with data migration |  Resource Mover | 
 | --- | --- | --- | ---|
 [Azure API Management](../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-[Azure App Service](../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|❌  | ✅| ❌ |
+[Azure Application Gateway and Web Application Firewall](relocation-app-gateway.md)| ✅ | ❌| ❌ |
+[Azure App Service](../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |  ❌| ❌ |
 [Azure Backup (Recovery Services vault)](../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅| ❌ |
 [Azure Batch](../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
-[Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)|❌  | ✅| ❌ |
+[Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
 [Azure Container Registry](../container-registry/manual-regional-move.md)|✅ | ✅|  ❌  |
 [Azure Cosmos DB](../cosmos-db/how-to-move-regions.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
-[Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|❌  | ✅| ❌ |
-[Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|❌ | ✅| ❌ |
-[Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ❌ | ✅| ❌ |
-[Azure Private Link Service](./relocation-private-link.md) | ❌ | ✅| ❌ |
+[Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
+[Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
+[Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |
+[Azure Private Link Service](./relocation-private-link.md) | ✅| ❌ | ❌ |
 [Azure Storage Account](relocation-storage-account.md)| ✅ | ✅| ❌ |
-[Managed identities for Azure resources](relocation-storage-account.md)| ❌ | ✅| ❌ |
+[Managed identities for Azure resources](relocation-storage-account.md)| ✅| ❌ | ❌ |
 [Azure Stream Analytics -  Stream Analytics jobs](../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 [Azure Stream Analytics -  Stream Analytics cluster](../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 
 
 ### ![An icon that signifies this service is strategic.](./media/relocation/icon-strategic.svg) Strategic services
 
-| Product  | Relocation with data | Relocation without data | Resource Mover | 
+| Product  | Relocation | Relocation with data migration | Resource Mover | 
 | --- | --- | --- | ---|
 [Azure Automation](./relocation-automation.md)| ✅ | ✅| ❌ |
 [Azure IoT Hub](/azure/iot-hub/iot-hub-how-to-clone?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-[Power BI](/power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json)| ❌ | ✅| ❌ |
+[Power BI](/power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json)| ✅ |❌ | ❌ |
 
 
 ## Additional information
