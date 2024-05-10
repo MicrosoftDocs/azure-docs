@@ -44,7 +44,7 @@ Organizations can opt to disable local authentication and enforce Microsoft Entr
 
 * [Disable local authentication for Azure AI Services](../disable-local-auth.md).
 * [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
-* **Designating role assignments**. The access role requirements remain the same for authorization policies. For more information, *see* [Azure role assignments](/quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio).
+* **Designating role assignments**. The access role requirements remain the same for authorization policies. For more information, *see* [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio-).
 
 ## Authentication
 
@@ -56,7 +56,7 @@ Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.
   * Select an existing resource group within your subscription or create a new one.
   * Select your existing Document Intelligence or Azure AI services resource.
 
-        :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
 
 * **Local authentication: access by API endpoint and key**.
 
@@ -64,7 +64,7 @@ Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.
   * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
   * Enter the values in the appropriate fields.
 
-          :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
+      :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
 
 ## Try a Document Intelligence model
 
