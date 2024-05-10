@@ -47,9 +47,11 @@ There are different types of analysis available from this service. The following
 | :-------------------------- | :---------------------- |
 | Analyze text API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
 | Analyze image API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Custom categories API (preview)    | Lets you create and train your own [custom content categories](./concepts/custom-categories.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories.md) |
 | Prompt Shields (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
 | Groundedness detection (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
 | Protected material text detection (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| Incident response API (preview) | Lets you define [emerging harmful content patterns](./concepts/incident-response.md) and scan text and images for matches. [How-to guide](./how-to/incident-response.md) |
 
 ## Content Safety Studio
 
@@ -97,7 +99,7 @@ Learn how Azure AI Content Safety handles the [encryption and decryption of your
 
 ## Pricing
 
-Currently, Azure AI Content Safety has an **F0 and S0** pricing tier.
+Currently, Azure AI Content Safety has an **F0 and S0** pricing tier. See the Azure [pricing page](https://aka.ms/content-safety-pricing) for more information.
 
 ## Service limits
 
