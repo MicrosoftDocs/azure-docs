@@ -67,6 +67,9 @@ Follow these steps to add a custom app component.
 1. Select the **Add** button at the bottom of the page.
 
 [!include [deployment note](./includes/provisioning-note-swa.md)]
+
+* * *
+
 * * *
 
 
