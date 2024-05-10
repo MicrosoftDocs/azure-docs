@@ -4,7 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom Pulumi images with your environment definitions for deployment environments.
 ms.service: deployment-environments
 author: MikhailShilkov
-ms.date: 05/07/2024
+ms.date: 05/10/2024
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
@@ -13,6 +13,8 @@ ms.topic: how-to
 # Configure ADE to execute deployments with Pulumi
 
 In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a standard image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
+
+ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
 
 An environment definition comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It may also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
 
@@ -41,9 +43,7 @@ You can find a few sample environment definitions in the [Environments folder](h
 
 ## Build and utilize a custom Docker image
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
-
-The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
+You can build custom images based on the ADE sample images by using the ADE CLI tool. Use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image on one of the ADE authored images.
 
