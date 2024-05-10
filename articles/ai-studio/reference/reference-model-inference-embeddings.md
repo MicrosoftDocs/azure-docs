@@ -4,7 +4,6 @@ titleSuffix: Reference
 description: Reference for Azure AI Model Inference Embeddings API
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
 ms.reviewer: msakande 

@@ -4,7 +4,6 @@ titleSuffix: Azure AI Studio
 description: Learn about the regions where each model is available for deployment in serverless API endpoints.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
 ms.reviewer: mopeakande

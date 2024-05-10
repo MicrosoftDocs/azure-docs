@@ -4,7 +4,6 @@ titleSuffix: Azure AI Studio
 description: Learn about how to use the Azure AI Model Inference API
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
 ms.reviewer: msakande 
