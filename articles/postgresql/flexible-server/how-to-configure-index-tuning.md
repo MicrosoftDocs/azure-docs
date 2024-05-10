@@ -52,10 +52,10 @@ Index tuning is an opt-in feature that isn't enabled by default on a server. It 
 
    :::image type="content" source="media/how-to-configure-index-tuning/enable-index-tuning-via-page.png" alt-text="Screenshot that shows how to enable index tuning through the Index tuning (preview) page." lightbox="media/how-to-configure-index-tuning/enable-index-tuning-via-page.png":::
 
+1. After enabling index tuning, allow 12 hours for the index tuning engine to analyze the workload collected by Query Store during that time and eventually produce create or drop index recommendations.
+
 > [!IMPORTANT]  
 > When index tuning is enabled through the **Enable index tuning** button, if `pg_qs.query_capture_mode` is set to `NONE`, it will be set to `ALL`. If it was already set to either `TOP` or `ALL`, it will be left in its current state.
-
-1. After enabling index tuning, allow 12 hours for the index tuning engine to analyze the workload collected by Query Store during that time and eventually produce create or drop index recommendations.
 
 ## Disable index tuning
 
@@ -86,10 +86,10 @@ Disabling index tuning can also be achieved either changing the corresponding se
 
    :::image type="content" source="media/how-to-configure-index-tuning/disable-index-tuning-via-page.png" alt-text="Screenshot that shows how to disable index tuning through the Index tuning (preview) page." lightbox="media/how-to-configure-index-tuning/disable-index-tuning-via-page.png":::
 
+1. Assess whether you want to continue using [Monitor performance with Query Store](concepts-query-store.md) to monitor the performance of your workload and leave it enabled or, if you want to disable it, set `pg_qs.query_capture_mode` to `NONE`.
+
 > [!IMPORTANT]  
 > When index tuning is disabled through the **Disable index tuning** button, server parameter `pg_qs.query_capture_mode` is left intact.
-
-1. Assess whether you want to continue using [Monitor performance with Query Store](concepts-query-store.md) to monitor the performance of your workload and leave it enabled or, if you want to disable it, set `pg_qs.query_capture_mode` to `NONE`.
 
 ## Configuration options
 
