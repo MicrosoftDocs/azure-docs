@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 04/26/2024
+ms.date: 04/30/2024
 ms.author: cherylmc
 ---
 # What is Azure Bastion?
