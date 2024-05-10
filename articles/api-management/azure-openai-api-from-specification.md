@@ -32,17 +32,18 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 
 You can import an Azure OpenAI API directly to API Management from the Azure OpenAI Service. When you import the API, API Management automatically configures:
 
-* Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference)
-* A system-assigned identity with the necessary permissions to access the Azure OpenAI resource
-* A [backend](backends.md) resource and [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint
-* An [authentication-managed-identity](authentication-managed-identity-policy.md) policy that can authenticate to the Azure OpenAI resource using the instance's system-assigned identity
-* (optionally) Policies to help you monitor and manage token consumption by the Azure OpenAI API
+* Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference).
+* A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
+* A [backend](backends.md) resource and [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint.
+* An [authentication-managed-identity](authentication-managed-identity-policy.md) policy that can authenticate to the Azure OpenAI resource using the instance's system-assigned identity.
+* (optionally) Policies to help you monitor and manage token consumption by the Azure OpenAI API.
 
 To import an Azure OpenAI API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Under **Create from Azure resource**, select **Azure OpenAI Service**.
+
     :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of creating an API from Azure OpenAI Service in the portal." :::
 
 1. On the **Basics** tab:
