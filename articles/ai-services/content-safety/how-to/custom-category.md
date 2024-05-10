@@ -1,7 +1,7 @@
 ---
-title: "Use the Custom category API"
+title: "Use the custom category API"
 titleSuffix: Azure AI services
-description: Learn how to use the Custom category API to create your own harmful content categories and train the Content Safety model for your use case.
+description: Learn how to use the custom category API to create your own harmful content categories and train the Content Safety model for your use case.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 04/11/2024
 ms.author: pafarley
 ---
 
-# Use the Custom category API
+# Use the custom category API
 
 
-The Custom category API lets you create your own content categories for your use case and train Azure AI Content Safety to detect them in new content.
+The custom category API lets you create your own content categories for your use case and train Azure AI Content Safety to detect them in new content.
 
 > [!IMPORTANT]
 > This new feature is only available in the **East US** Azure region. 
@@ -24,6 +24,7 @@ The Custom category API lets you create your own content categories for your use
 > The sample data in this guide might contain offensive content. User discretion is advised.
 
 ## Prerequisites
+
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US), and supported pricing tier. Then select **Create**.
    * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. Copy the endpoint and either of the key values to a temporary location for later use.
@@ -36,7 +37,7 @@ tbd env vars?
 
 ## Prepare your training data
 
-To train a Custom category, you need example text data that represents the category you want to detect. Follow these steps to prepare your sample data:
+To train a custom category, you need example text data that represents the category you want to detect. Follow these steps to prepare your sample data:
 
 1. Collect or write sample data.
     - The quality of your sample data is important for training an effective model. Aim to collect at least 50 positive samples that accurately represent the content you want to identify. These samples should be clear, varied, and directly related to the category definition.
@@ -57,12 +58,12 @@ To train a Custom category, you need example text data that represents the categ
 
 [!INCLUDE [storage-account-access](../includes/storage-account-access.md)]
 
-## Create and train a Custom category
+## Create and train a custom category
 
 > [!IMPORTANT]
 > **Allow enough time for model training**
 >
-> The end-to-end execution of Custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly and allocate time for:
+> The end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly and allocate time for:
 > * Collecting and preparing your sample data
 > * The training process
 > * Model evaluation and adjustments
@@ -197,7 +198,7 @@ print(result)
 
 ---
 
-## Other Custom category operations
+## Other custom category operations
 
 Remember to replace the placeholders with your actual values for the API key, endpoint, and specific content (category name, definition, and so on). These examples will help you get started using Azure AI Content Safety to analyze your text and work with customized categories.
 
