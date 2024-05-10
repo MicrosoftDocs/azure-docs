@@ -7,24 +7,22 @@ items:
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
-- name: FAQs
+
+- name: Get Started
   items:
-  - name: General
-    href: resources-faq.md
-  - name: Azure Migrate appliance
-    href: common-questions-appliance.md
-  - name: Discovery and dependency analysis
-    href: common-questions-discovery-dependency-analysis.md
-  - name: Assessment
-    href: common-questions-discovery-assessment.md
-  - name: Business case
-    href: common-questions-business-case.md
-  - name: Migration and modernization tool
-    href: common-questions-server-migration.md
-- name: Quickstarts
-  items:
+  - name: Check for pre-requisites
+  - name: Create an Azure Migrate project
+    href: create-manage-projects.md
   - name: Create a project - ARM template
     href: quickstart-create-migrate-project.md
+  - name: Create a business case using imported inventory
+    href: how-to-build-a-business-case.md
+- name: Key Concepts # Includes Glossary and key concepts for users to understand the terminologies and journey
+- name: Supported Geographies
+  href: migrate-support-matrix.md
+- name: Decide 
+- name: Plan
+
 - name: Tutorials
   items:
   - name: Discover
@@ -346,6 +344,20 @@ items:
       href: troubleshoot-webapps-migration.md
     - name: Troubleshoot Windows OS upgrade issues
       href: troubleshoot-upgrade.md  
+- name: FAQs
+  items:
+  - name: General
+    href: resources-faq.md
+  - name: Azure Migrate appliance
+    href: common-questions-appliance.md
+  - name: Discovery and dependency analysis
+    href: common-questions-discovery-dependency-analysis.md
+  - name: Assessment
+    href: common-questions-discovery-assessment.md
+  - name: Business case
+    href: common-questions-business-case.md
+  - name: Migration and modernization tool
+    href: common-questions-server-migration.md
 - name: Reference
   items:
   - name: Azure CLI
