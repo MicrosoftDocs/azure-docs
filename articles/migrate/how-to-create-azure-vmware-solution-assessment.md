@@ -29,7 +29,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 There are four types of assessments you can create using Azure Migrate: Discovery and assessment.
 
-***Assessment Type** | **Details**
+**Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises VMs in [VMware vSphere](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
@@ -133,7 +133,7 @@ You can click on  **Sizing assumptions** to understand the assumptions that went
 
 ### View an assessment
 
-1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to ** Azure VMware Solution**.
+1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to **Azure VMware Solution**.
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
