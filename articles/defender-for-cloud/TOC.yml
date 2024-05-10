@@ -211,6 +211,9 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
+      - name: Permissions management (CIEM)
+        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+        href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
       - name: Secrets protection
@@ -319,6 +322,9 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+        - name: Enable permissions management (CIEM)
+          displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+          href: enable-permissions-management.md
     - name: AI security posture
       items:
         - name: Discover generative AI workloads
@@ -525,6 +531,10 @@
         href: defender-partner-applications.md
       - name: Onboard 42Crunch (preview)
         href: onboarding-guide-42crunch.md
+      - name: Onboard StackHawk (preview)
+        href: onboarding-guide-stackhawk.md
+      - name: Onboard Bright Security (preview)
+        href: onboarding-guide-bright.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -704,6 +714,9 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
+      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
+        displayName: ACR, registry, images, qualys
+        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md
