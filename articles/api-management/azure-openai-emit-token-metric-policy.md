@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/03/2024
+ms.date: 05/10/2024
 ms.author: danlep
 ms.custom: 
 ---
 
 # Emit metrics for consumption of Azure OpenAI tokens
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `azure-openai-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model tokens through Azure OpenAI Service APIs. Token count metrics include: total tokens, prompt tokens, and completion tokens. 
 
@@ -78,10 +78,11 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 
 * This policy can be used multiple times per policy definition.
 * You can configure at most 10 custom definitions for this policy.
+* This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
 
 ## Example
 
-The following example sends Azure OpenAI token count metrics to Application Insights along with user ID, client IP, and API ID as dimensions.
+The following example sends Azure OpenAI token count metrics to Application Insights along with User ID, Client IP, and API ID as dimensions.
 
 ```xml
 <policies>

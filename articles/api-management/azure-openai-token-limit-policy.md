@@ -6,11 +6,11 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/07/2024
+ms.date: 05/10/2024
 ms.author: danlep
 ---
 
-# Limit Azure OpenAI Service token usage
+# Limit Azure OpenAI API token usage
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
@@ -26,9 +26,10 @@ The policy is used with APIs [added to API Management from the Azure OpenAI Serv
 
 | API type | Supported models |
 |-------|-------------|
-| Chat completion     |  Chat GPT 3.5<br/><br/>Chat GPT 4 |
+| Chat completion     |  gpt-3.5<br/><br/>gpt-4 |
+| Completion | gpt-3.5-turbo-instruct |
 | Embeddings | text-embedding-3-large<br/><br/> text-embedding-3-small<br/><br/>text-embedding-ada-002 |
-| Completion | Chat GPT 3.5 Turbo |
+
 
 For more information, see [Azure OpenAI Service models](../ai-services/openai/concepts/models.md).
 
@@ -69,7 +70,7 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* This policy can be configured when an API is added to API Management from the Azure OpenAI Service using the portal.
+* This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
 
 ## Example
 
