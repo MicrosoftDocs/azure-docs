@@ -42,12 +42,12 @@ the NKS VM, Nexus then picks one of the bare metal servers after applying the
 following sorting rules:
 
 1. Prefer bare metal servers in availability zones (racks) that don't have NKS
-   VMs from this NKS Cluster. In other words, *spread the NKS VMs for a NKS
+   VMs from this NKS Cluster. In other words, *spread the NKS VMs for an NKS
    Cluster across availability zones*.
 
 1. Prefer bare metal servers within a single availability zone (rack) that
    don't have other NKS VMs from the same NKS Cluster. In other words,
-   *spread the NKS VMs for a NKS Cluster across bare metal servers within an
+   *spread the NKS VMs for an NKS Cluster across bare metal servers within an
    availability zone*.
 
 1. If the NKS VM SKU is either `NC_G48_224_v1` or `NC_P46_224_v1`, prefer
@@ -291,9 +291,9 @@ Clusters can collocate.
 
 ### Reduce the Agent Pool's count before reducing the VM SKU size
 
-If you run into capacity constraints when launching a NKS Cluster or Agent
+If you run into capacity constraints when launching an NKS Cluster or Agent
 Pool, reduce the Count of the Agent Pool before adjusting the VM SKU size. For
-example, if you attempt to create a NKS Cluster with an Agent Pool with VM SKU
+example, if you attempt to create an NKS Cluster with an Agent Pool with VM SKU
 size of `NC_P46_224_v1` and a Count of 24 and get back a failure to provision
 the NKS Cluster due to insufficient resources, you may be tempted to use a VM
 SKU Size of `NC_P36_168_v1` and continue with a Count of 24. However, due to
