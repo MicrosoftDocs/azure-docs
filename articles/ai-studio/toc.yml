@@ -64,6 +64,22 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
+    - name: Azure AI Model Inference API
+      items:
+        - name: What's the Azure AI Model Inference API?
+          href: reference/reference-model-inference-api.md
+        - name: Reference
+          items:
+            - name: Get Info
+              href: reference/reference-model-inference-info.md
+            - name: Embeddings
+              href: reference/reference-model-inference-embeddings.md
+            - name: Completions
+              href: reference/reference-model-inference-completions.md
+            - name: Chat Completions
+              href: reference/reference-model-inference-chat-completions.md
+            - name: Images Embeddings
+              href: reference/reference-model-inference-images-embeddings.md
   - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
