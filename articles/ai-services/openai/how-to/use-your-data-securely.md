@@ -377,5 +377,4 @@ curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-da
 
 ### Inference API
 
-See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.   
-    
+See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.

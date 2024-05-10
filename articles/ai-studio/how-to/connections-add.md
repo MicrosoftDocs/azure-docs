@@ -146,4 +146,3 @@ To create an outbound private endpoint rule to the data source, use the followin
 - [Connections in Azure AI Studio](../concepts/connections.md)
 - [How to create vector indexes](../how-to/index-add.md)
 - [How to configure a managed network](configure-managed-network.md)
-

@@ -70,7 +70,7 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-
 |2.2.5|Ensure a dhcp server isn't installed|Pass||
 |2.2.6|Ensure a dns server isn't installed|Pass||
 |2.2.7|Ensure FTP client isn't installed|Pass||
-|2.2.8|Ensure an ftp server isn't installed|Pass||
+|2.2.8|Ensure a ftp server isn't installed|Pass||
 |2.2.9|Ensure a tftp server isn't installed|Pass||
 |2.2.10|Ensure a web server isn't installed|Pass||
 |2.2.11|Ensure IMAP and POP3 server isn't installed|Pass||
@@ -195,4 +195,3 @@ For more information about Azure Linux Container Host security, see the followin
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md
-

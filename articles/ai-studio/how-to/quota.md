@@ -104,9 +104,3 @@ To request more quota, select the **Request quota** button for subscription and 
 
 - [Plan to manage costs](./costs-plan-manage.md)
 - [How to create compute](./create-manage-compute.md)
-
-
- 
-
- 
-

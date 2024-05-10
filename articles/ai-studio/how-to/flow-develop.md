@@ -163,7 +163,7 @@ A chat flow can have multiple inputs, chat history and chat input are **required
     ]
     ```
 > [!NOTE]
-> The capability to automatically save or manage chat history is an feature on the authoring page when conducting tests in the chat box. For batch runs, it's necessary for users to include the chat history within the batch run dataset. If there's no chat history available for testing, simply set the chat_history to an empty list `[]` within the batch run dataset.
+> The capability to automatically save or manage chat history is a feature on the authoring page when conducting tests in the chat box. For batch runs, it's necessary for users to include the chat history within the batch run dataset. If there's no chat history available for testing, simply set the chat_history to an empty list `[]` within the batch run dataset.
 
 ### Author prompt with chat history
 

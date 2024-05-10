@@ -7,7 +7,7 @@ ms.author: allensu
 ms.date: 06/13/2023
 author: asudbring
 
-#Customer intent: As an cluster operator, I want to learn the network and FQDNs rules to control egress traffic and improve security for my AKS clusters.
+#Customer intent: As a cluster operator, I want to learn the network and FQDNs rules to control egress traffic and improve security for my AKS clusters.
 ---
 
 # Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters
@@ -267,5 +267,3 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [private-clusters]: ./private-clusters.md
 
 [use-network-policies]: ./use-network-policies.md
-
-

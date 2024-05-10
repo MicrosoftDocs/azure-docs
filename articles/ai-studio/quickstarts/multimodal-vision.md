@@ -62,7 +62,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident.png" alt-text="Screenshot of the chat playground with the selected image highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident.png":::
 
-1. Enter enter the following question: "Describe this image", and then select the right arrow icon to send.
+1. Enter the following question: "Describe this image", and then select the right arrow icon to send.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-prompt.png" alt-text="Screenshot of the chat playground with the image and prompt selected." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-prompt.png":::
 
@@ -99,7 +99,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 1. In the chat session pane, select an image file and then select the right arrow icon to upload the image. 
 
-1. Enter enter the following question: "Describe this image", and then select the right arrow icon to send.
+1. Enter the following question: "Describe this image", and then select the right arrow icon to send.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-prompt-enhanced.png" alt-text="Screenshot of the prompt for enhanced image analysis in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-prompt-enhanced.png":::
 
@@ -135,7 +135,7 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You're a car insurance and accident expert. Extract detailed information about the car's make, model, damage extent, license plate, airbag deployment status, mileage, and any other observations" You can tailor the prompt for the video or scenario. 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the chat session pane, select a video file and then select the right arrow icon to upload the video. 
-1. Enter enter the following question: "Provide details from this car accident video", and then select the right arrow icon to send.
+1. Enter the following question: "Provide details from this car accident video", and then select the right arrow icon to send.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-car-prompt.png" alt-text="Screenshot of the chat playground with the system message and prompt highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-video-car-prompt.png":::
 
@@ -193,5 +193,3 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 - [Create an Azure AI project](../how-to/create-projects.md)
 - Learn more about [Azure AI Vision](../../ai-services/computer-vision/overview.md).
 - Learn more about [Azure OpenAI models](../../ai-services/openai/concepts/models.md).
-
-

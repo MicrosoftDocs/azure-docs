@@ -25,7 +25,7 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Get supported glossary formats**](get-supported-glossary-formats.md)|This method returns a list of supported glossary formats.|
 |[**Get supported storage sources**](get-supported-storage-sources.md)| This method returns a list of supported storage sources/options.|
 |[**Start translation (POST)**](start-translation.md)|This method starts a document translation job. |
-|[**Get documents status**](get-documents-status.md)|This method returns the status of a all documents in a translation job.|
+|[**Get documents status**](get-documents-status.md)|This method returns the status of all documents in a translation job.|
 |[**Get document status**](get-document-status.md)| This method returns the status for a specific document in a job. |
 |[**Get translations status**](get-translations-status.md)| This method returns a list of translation requests submitted by a user and the status for each request.|
 |[**Get translation status**](get-translation-status.md) | This method returns a summary of the status for a specific document translation request. It includes the overall request status and the status for documents that are being translated as part of that request.|

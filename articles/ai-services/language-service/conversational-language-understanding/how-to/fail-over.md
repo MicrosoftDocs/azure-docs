@@ -134,5 +134,4 @@ In this article, you have learned how to use the export and import APIs to repli
 
 * [Authoring REST API reference ](https://aka.ms/clu-authoring-apis)
 
-* [Runtime prediction REST API reference ](https://aka.ms/clu-apis) 
- 
+* [Runtime prediction REST API reference ](https://aka.ms/clu-apis)

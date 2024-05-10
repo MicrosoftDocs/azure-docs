@@ -41,7 +41,7 @@ Support for parallel function was first added in API version [`2023-12-01-previe
 
 Parallel function calls allow you to perform multiple function calls together, allowing for parallel execution and retrieval of results. This reduces the number of calls to the API that need to be made and can improve overall performance.
 
-For example for a simple weather app you may want to retrieve the weather in multiple locations at the same time. This will result in a a chat completion message with three function calls in the `tool_calls` array, each with a unique `id`. If you wanted to respond to these function calls, you would add 3 new messages to the conversation, each containing the result of one function call, with a `tool_call_id` referencing the `id` from `tools_calls`.
+For example for a simple weather app you may want to retrieve the weather in multiple locations at the same time. This will result in a chat completion message with three function calls in the `tool_calls` array, each with a unique `id`. If you wanted to respond to these function calls, you would add 3 new messages to the conversation, each containing the result of one function call, with a `tool_call_id` referencing the `id` from `tools_calls`.
 
 Below we provide a modified version of OpenAI's `get_current_weather` example. This example as with the original from OpenAI is to provide the basic structure, but is not a fully functioning standalone example. Attempting to execute this code without further modification would result in an error.
 

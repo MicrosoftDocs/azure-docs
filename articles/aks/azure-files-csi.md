@@ -325,7 +325,7 @@ This section provides information about how to approach performance tuning NFS w
 
 Optimal performance is based on efficient client-server communication. Increasing or decreasing the **mount** read and write option size values can improve NFS performance. The default size of the read/write packets transferred between client and server are 8 KB for NFS version 2, and 32 KB for NFS version 3 and 4. These defaults may be too large or too small. Reducing the rsize and wsize might improve NFS performance in a congested network by sending smaller packets for each NFS-read reply and write request. However, this can increase the number of packets needed to send data across the network, increasing total network traffic and CPU utilization on the client and server.
 
-It's important that you perform testing to find an rsize and wsize that sustains efficent packet transfer, where it doesn't decrease throughput and increase latency.
+It's important that you perform testing to find a rsize and wsize that sustains efficent packet transfer, where it doesn't decrease throughput and increase latency.
 
 For more information on optimizing rsize and wsize, see [Linux NFS mount options best practices for Azure NetApp Files][azure-netapp-files-mount-options-best-practices].
 
@@ -518,4 +518,3 @@ The output of the commands resembles the following example:
 [azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
 [azure-netapp-files-mount-options-best-practices]: ../azure-netapp-files/performance-linux-mount-options.md#rsize-and-wsize
 [nfs-file-share-mount-options]: ../storage/files/storage-files-how-to-mount-nfs-shares.md#mount-options
-

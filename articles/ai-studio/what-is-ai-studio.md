@@ -96,6 +96,3 @@ You can explore Azure AI Studio without signing in, but for full functionality a
 - [Create an AI Studio project](./how-to/create-projects.md)
 - [Tutorial: Deploy a chat web app](tutorials/deploy-chat-web-app.md)
 - [Tutorial: Using Azure AI Studio with a screen reader](tutorials/screen-reader.md)
-
-
- 
