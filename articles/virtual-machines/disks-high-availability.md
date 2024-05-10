@@ -31,7 +31,7 @@ Managed disks are designed for 99.999% availability and provide at least 99.9999
 
 Managed disks have two redundancy models, locally redundant storage (LRS) disks, and zone-redundant storage (ZRS) disks. The following diagram depicts how data is replicated with either model.
 
-:::image type="content" source="media/disks-high-availability/disks-lrs-zrs-diagram.png" alt-text="Diagram showing that LRS makes three copies in one availability zone while ZRS makes copies in three different availability zones." lightbox="media/disks-high-availability/disks-lrs-zrs-diagram.png":::
+:::image type="content" source="media/disks-high-availability/disks-lrs-zrs-diagram.png" alt-text="Diagram showing that LRS replicates data in one availability zone while ZRS replicates data in three different availability zones." lightbox="media/disks-high-availability/disks-lrs-zrs-diagram.png":::
 
 LRS disks provide at least 99.999999999% (11 9's) of durability over a given year and ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helps Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero percent [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
@@ -63,9 +63,9 @@ VMs distributed across multiple availability zones may have higher network laten
 
 To deploy resources across availability zones, you can either use [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or [deploy resources across availability zones](#deploy-vms-and-disks-across-three-availability-zones).
 
-The following diagram depicts how VM and disk fault domains are aligned when using either zone-redundant Virtual Machine Scale Sets or availability zones.
+The following diagram depicts how VMs and disks are collocated in the same zones when deployed across availability zones directly or using zone-redundant Virtual Machine Scale Sets.
 
-:::image type="content" source="media/disks-high-availability/disks-availability-zones.png" alt-text="Diagram depicting VM and disk resources aligning to the same fault domain in each availability zone." lightbox="media/disks-high-availability/disks-availability-zones.png":::
+:::image type="content" source="media/disks-high-availability/disks-availability-zones.png" alt-text="Diagram depicting VM and disk collocation in availability zones." lightbox="media/disks-high-availability/disks-availability-zones.png":::
 
 #### Use zone-redundant Virtual Machine Scale Sets with flexible orchestration
 
@@ -76,7 +76,7 @@ With zone-redundant Virtual Machine Scale Sets using the flexible orchestration 
 
 #### Deploy VMs and disks across three availability zones
 
-Another method to spread VMs and disks across availability zones is to deploy the VMs and disks across three availability zones. This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage.
+Another method to distribute VMs and disks across availability zones is to deploy the VMs and disks across three availability zones. This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage.
 
 
 ### Deploy VMs and disks across multiple fault domains
@@ -90,9 +90,9 @@ Multiple VMs have the second highest uptime SLA when deployed across fault domai
 
 To deploy resources across multiple fault domains, you can either use [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).
 
-The following diagram depicts how fault domains are aligned when using either regional Virtual Machine Scale Sets or availability sets.
+The following diagram depicts the alignment of compute and storage fault domains when using either regional Virtual Machine Scale Sets or availability sets.
 
-:::image type="content" source="media/disks-high-availability/disks-availability-set.png" alt-text="Diagram of availability set." lightbox="media/disks-high-availability/disks-availability-set.png":::
+:::image type="content" source="media/disks-high-availability/disks-availability-set.png" alt-text="Diagram of fault domain alignment with regional virtual machine scale sets and availability sets." lightbox="media/disks-high-availability/disks-availability-set.png":::
 
 #### Use regional Virtual Machine Scale Sets with flexible orchestration
 
