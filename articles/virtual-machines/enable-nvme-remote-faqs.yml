@@ -55,7 +55,7 @@ sections:
            - Set the destination *discontrollertype* of the VM as NVMe. 
            - Use the following PowerShell script to do so: [SAP-on-Azure-Scripts-and-Utilities/NVMe-Preflight-Check at main · Azure/SAP-on-Azure-Scripts-and-Utilities · GitHub](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/NVMe-Preflight-Check)
            ```PowerShell
-           azure-nvme-VM-update.ps1 [-subscription_id] \<String\> [-resource_group_name] \<String\> [-vm_name] \<String\> [[-disk_controller_change_to] \<String>] [-vm_size_change_to] \<String\> [[-start_vm_after_update] \<Boolean>] [[-write_logfile] \<Boolean>]
+           `azure-nvme-VM-update.ps1 [-subscription_id] <String> [-resource_group_name] <String> [-vm_name] <String> [[-disk_controller_change_to] <String>] [-vm_size_change_to] <String> [[-start_vm_after_update] <Boolean>] [[-write_logfile] <Boolean>]`
            ```
       - question: |
           How can I check if a given image is tagged as NVMe? 
@@ -72,7 +72,7 @@ sections:
             - AzCopy Reference: 
                 [https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10]
             ```
-            azcopy copy \<local path to your vhd\> \<container in your storage account>
+            `azcopy copy <local path to your vhd> <container in your storage account>`
             ```
           2. Create your image gallery either using powershell/portal/cli:
             [https://docs.microsoft.com/en-us/azure/virtual-machines/create-gallery]
@@ -90,7 +90,7 @@ sections:
             
             CLI Example:
             ```
-            az sig image-version create --resource-group \<resourceGroupName\> --gallery-name \<galleryName\> --gallery-image-definition \<imageName\> --gallery-image-version \<version\> --target-regions \<region1\> \<region2\> --replica-count \<replicaCount\> --os-vhd-uri \<NVMe-supported vhd uri\> --os-vhd-storage-account \<storageAccount>
+            `az sig image-version create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --gallery-image-version <version> --target-regions <region1> <region2> --replica-count <replicaCount> --os-vhd-uri <NVMe-supported vhd uri> --os-vhd-storage-account <storageAccount>`
             ```  
       - question: |
           How do I configure an ARM template for my initial VM launch?
