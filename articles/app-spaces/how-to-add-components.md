@@ -71,9 +71,9 @@ Follow these steps to add a custom app component.
 
 [!include [deployment note](./includes/provisioning-note-swa.md)]
 
+* * *
+
 ::: zone-end
-
-
 
 ::: zone pivot="sample"  
 
