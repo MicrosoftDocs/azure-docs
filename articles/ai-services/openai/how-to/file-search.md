@@ -1,7 +1,7 @@
 ---
-title: 'How to use Azure OpenAI Assistants file retrieval'
+title: 'How to use Azure OpenAI Assistants file search'
 titleSuffix: Azure OpenAI
-description: Learn how to use Assistants file retrieval
+description: Learn how to use Assistants file search
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -12,15 +12,15 @@ ms.author: aahi
 recommendations: false
 ---
 
-# Azure OpenAI Assistants file retrieval tool (Preview)
+# Azure OpenAI Assistants file search tool (Preview)
 
 File Search augments the Assistant with knowledge from outside its model, such as proprietary product information or documents provided by your users. OpenAI automatically parses and chunks your documents, creates and stores the embeddings, and use both vector and keyword search to retrieve relevant content to answer user queries.
 
-## File retrieval support
+## file search support
 
 ### Supported models
 
-The [models](../concepts/models.md) page contains the most up-to-date information on regions/models where Assistants and file retrieval are supported.
+The [models](../concepts/models.md) page contains the most up-to-date information on regions/models where Assistants and file search are supported.
 
 We recommend using assistants with the latest models to take advantage of the new features, as well as the larger context windows, and more up-to-date training data.
 
@@ -57,7 +57,7 @@ We recommend using assistants with the latest models to take advantage of the ne
 | .sh | application/x-sh |
 | .ts | application/typescript |
 
-## Enable file retrieval
+## Enable file search
 
 # [Python 1.x](#tab/python)
 
@@ -97,7 +97,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
 
 ---
 
-## Upload files for file retrieval 
+## Upload files for file search 
 
 To access your files, the file search tool uses the vector store object. Upload your files and create a vector store to contain them. Once the vector store is created, you should poll its status until all files are out of the `in_progress` state to ensure that all content has finished processing. The SDK provides helpers for uploading and polling.
 
@@ -110,7 +110,7 @@ client = AzureOpenAI(
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
-# Create a vector store caled "Financial Statements"
+# Create a vector store called "Financial Statements"
 vector_store = client.beta.vector_stores.create(name="Financial Statements")
  
 # Ready the files for upload to OpenAI

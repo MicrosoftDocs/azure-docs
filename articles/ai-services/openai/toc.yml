@@ -88,8 +88,8 @@ items:
         href: ./how-to/code-interpreter.md
       - name: Function calling
         href: ./how-to/assistant-functions.md
-      - name: File retrieval
-        href: ./how-to/file-retrieval.md
+      - name: File search
+        href: ./how-to/file-search.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 
