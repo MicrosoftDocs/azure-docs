@@ -171,7 +171,7 @@ The following people can use the Responsible AI dashboard, and its corresponding
 - The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
 - The Responsible AI dashboard currently doesn't support AutoML MLFlow model.
-- The Responsible AI dashboard currently doesn't support registered AutoML models from the UI.
+- The Responsible AI dashboard currently doesn't support registered AutoML models.
 
 
 ## Next steps
