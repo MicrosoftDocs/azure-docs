@@ -66,7 +66,7 @@ Select **Activity log** to view actions done to your cache. You can also use fil
 
 ### Access control (IAM)
 
-The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Tags
 

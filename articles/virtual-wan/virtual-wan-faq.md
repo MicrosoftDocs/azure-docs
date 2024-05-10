@@ -40,6 +40,10 @@ Currently, Azure Firewall can be deployed to support Availability Zones using Az
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function as is, but the user won't be able to create new hubs until the virtual WAN region is available.
 
+### Is it possible to share the Firewall in a protected hub with other hubs?
+
+No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and will not complete successfully. Please consider to convert those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
+
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
 Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
@@ -341,15 +345,11 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 ### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a standalone VNet, what is the path for the standalone VNet to reach the Virtual WAN hub? 
 
-The current behavior is to prefer the ExpressRoute circuit path for standalone (non-Virtual WAN) VNet to Virtual WAN connectivity. It's recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the standalone VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN hub router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+For new deployments, this connectivity is blocked by default. To allow this connectivity, you can enable these [ExpressRoute gateway toggles](virtual-wan-expressroute-portal.md#enable-or-disable-vnet-to-virtual-wan-traffic-over-expressroute) in the "Edit virtual hub" blade and "Virtual network gateway" blade in Portal. However, it is recommended to keep these toggles disabled and instead [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect standalone VNets to a Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN hub router, which offers better performance than the ExpressRoute path. The ExpressRoute path includes the ExpressRoute gateway, which has lower bandwidth limits than the hub router, as well as the Microsoft Enterprise Edge routers/MSEE, which is an extra hop in the datapath.
 
-> [!NOTE]
-> As of February 1, 2024, the below toggle's backend functionality has not rolled out to all regions. As a result, you may see the toggle option, but enabling/disabling the toggle will not have any effect. The backend functionality is aimed to finish rolling out within the next several weeks. 
->
+In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
 
-In Azure portal, the **Allow traffic from remote Virtual WAN networks** and **Allow traffic from non Virtual WAN networks** toggles allow connectivity between the standalone virtual network (VNet 4) and the spoke virtual networks directly connected to the Virtual WAN hub (VNet 2 and VNet 3). To allow this connectivity, both toggles need to be enabled: the **Allow traffic from remote Virtual WAN networks** toggle for the ExpressRoute gateway in the standalone virtual network and the **Allow traffic from non Virtual WAN networks** for the ExpressRoute gateway in the Virtual WAN hub. In the diagram below, if both of these toggles are enabled, then connectivity would be allowed between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3). If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
-
-Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc). 
+Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc.). 
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
@@ -399,12 +399,22 @@ For more information regarding the available options third-party security provid
 
 ### Will BGP communities generated by on-premises be preserved in Virtual WAN?
 
-Yes, BGP communities generated by on-premises will be preserved in Virtual WAN. You can use your own public ASNs or private ASNs for your on-premises networks. You can't use the ranges reserved by Azure or IANA:
+Yes, BGP communities generated by on-premises will be preserved in Virtual WAN. 
+
+### Will BGP communities generated by BGP Peers (in an attached Virtual Network) be preserved in Virtual WAN?
+
+Yes, BGP communities generated by BGP Peers will be preserved in Virtual WAN. Communities are preserved across the same hub, and across interhub connections. This also applies to Virtual WAN scenarios using Routing Intent Policies.
+
+### What ASN numbers are supported for remotely attached On-Premises networks running BGP?
+
+You can use your own public ASNs or private ASNs for your on-premises networks. You can't use the ranges reserved by Azure or IANA:
 
 * ASNs reserved by Azure:
   * Public ASNs: 8074, 8075, 12076
   * Private ASNs: 65515, 65517, 65518, 65519, 65520
   * ASNs reserved by IANA: 23456, 64496-64511, 65535-65551
+ 
+    
 
 ### Is there a way to change the ASN for a VPN gateway?
 
@@ -446,6 +456,9 @@ Additional things to note:
 
 * If your hub is connected to a large number of spoke virtual networks (60 or more), then you might notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
 
+### Why does the virtual hub router require a public IP address with opened ports?
+These public endpoints are required for Azure's underlying SDN and management platform to communicate with the virtual hub router. Because the virtual hub router is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage the hub router via its private endpoints due to compliance requirements. Connectivity to the hub router's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual hub. 
+
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 
 The route limit for OpenVPN clients is 1000.
@@ -457,7 +470,7 @@ Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However
 The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute downtime, the availability of ExpressRoute would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100.
 ### Can you change the VNet address space in a spoke VNet connected to the hub? 
 
-Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.md).
+Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 

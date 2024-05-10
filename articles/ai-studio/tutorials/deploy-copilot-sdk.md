@@ -128,7 +128,7 @@ The [aistudio-copilot-sample repo](https://github.com/azure/aistudio-copilot-sam
     pip install -r requirements.txt
     ```
 
-1. Install the [Azure AI CLI](../how-to/cli-install.md). The Azure AI CLI is a command-line interface for managing Azure AI resources. It's used to configure resources needed for your copilot.
+1. Install the Azure AI CLI. The Azure AI CLI is a command-line interface for managing Azure AI resources. It's used to configure resources needed for your copilot.
 
     ```bash
     curl -sL https://aka.ms/InstallAzureAICLIDeb | bash
@@ -136,7 +136,7 @@ The [aistudio-copilot-sample repo](https://github.com/azure/aistudio-copilot-sam
 
 ## Set up your project with the Azure AI CLI
 
-In this section, you use the [Azure AI CLI](../how-to/cli-install.md) to configure resources needed for your copilot:
+In this section, you use the Azure AI CLI to configure resources needed for your copilot:
 - Azure AI hub resource. 
 - Azure AI project. 
 - Azure OpenAI Service model deployments for chat, embeddings, and evaluation.
@@ -548,7 +548,7 @@ You can see that the `chat_completion` function does the following:
 
 Now, you improve the prompt used in the chat function and later evaluate how well the quality of the copilot responses improved.
 
-You use the following evaluation dataset, which contains a bunch of example questions and answers. The evaluation dataset is located at `src/copilot_aisdk/system-message.jinja2` in the copilot sample repository.
+You use the following evaluation dataset, which contains a bunch of example questions and answers. The evaluation dataset is located at `src/tests/evaluation_dataset.jsonl` in the copilot sample repository.
 
 ```jsonl
 {"question": "Which tent is the most waterproof?", "truth": "The Alpine Explorer Tent has the highest rainfly waterproof rating at 3000m"}

@@ -6,7 +6,7 @@ ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.date: 10/10/2023
+ms.date: 04/15/2024
 ---
 
 # What's new in Azure Spring Apps?
@@ -17,6 +17,20 @@ ms.date: 10/10/2023
 Azure Spring Apps is improved on an ongoing basis. To help you stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
+
+## Q1 2024
+
+The following updates are now available in the Enterprise plan:
+
+- **Save up to 47%: Azure Spring Apps Enterprise is now eligible for Azure savings plan**: All Azure Spring Apps regions under the Enterprise plan are eligible for substantial cost savings – 20% for one year and 47% for three years – when you commit to the Azure savings plan. For more information, see [Azure Spring Apps Enterprise is now eligible for Azure savings plan for compute](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-spring-apps-enterprise-is-now-eligible-for-azure-savings/ba-p/4021532).
+
+- **Azure CLI supports log streaming for Spring Cloud Gateway**: This feature enables you to fetch the Spring Cloud Gateway log in real time for diagnosis purposes. For more information, see the [Use real-time log streaming](how-to-troubleshoot-enterprise-spring-cloud-gateway.md#use-real-time-log-streaming) section of [Troubleshoot VMware Spring Cloud Gateway](how-to-troubleshoot-enterprise-spring-cloud-gateway.md).
+
+- **Azure CLI supports log streaming for Application Configuration Service**: The feature enables you to retrieve the Application Configuration Service log using the Azure CLI, making it possible to detect any configuration updates. For more information, see the [Use real-time log streaming](how-to-enterprise-application-configuration-service.md#use-real-time-log-streaming) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+- **Shows buildpack versions**: The latest feature added to buildpacks assists you in comprehending the version used and diagnosing issues associated with the build process.
+
+- **Enhanced troubleshooting of Application Configuration Service**: Now you can directly view the linked `configMap` for your apps to further assist in troubleshooting issues with unrefreshed configurations. You can also export configuration files pulled by the Application Configuration Service from upstream Git repositories to your local environment through the Azure CLI. This process helps you examine the content and use configuration files for local development. For more information, see the [Examine configuration file in ConfigMap](how-to-enterprise-application-configuration-service.md#examine-configuration-file-in-configmap) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
 ## Q4 2023
 

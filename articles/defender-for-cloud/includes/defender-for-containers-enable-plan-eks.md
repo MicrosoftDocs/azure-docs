@@ -83,3 +83,28 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 To view the alerts and recommendations for your EKS clusters, use the filters on the alerts, recommendations, and inventory pages to filter by resource type **AWS EKS cluster**.
 
 :::image type="content" source="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png" alt-text="Screenshot of how to use filters on Microsoft Defender for Cloud's security alerts page to view alerts related to AWS EKS clusters." lightbox="../media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png":::
+
+## Deploying the Defender sensor
+
+To deploy the Defender sensor on your AWS clusters, follow these steps:
+
+1. Go to **Microsoft Defender for Cloud** -> **Environment settings** -> **Add environment** -> **Amazon Web Services**.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/add-aws-environment.png" alt-text="Screenshot of how to add an AWS environment in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/add-aws-environment.png":::
+
+1. Fill in the account details.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/add-aws-account-details.png" alt-text="Screenshot of the form to fill in the account details for an AWS environment in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/add-aws-account-details.png":::
+
+1. Go  to **Select plans**, open the Containers plan and make sure **Auto provision Defender's sensor for Azure Arc** is set to on.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/enable-sensor-for-azure-arc.png" alt-text="Screenshot of how to enable the Defender sensor for Azure Arc in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/enable-sensor-for-azure-arc.png":::
+
+1. Go to **Configure access** and follow the steps there.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/configure-access.png" alt-text="Screenshot of how to configure access for an AWS environment in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/configure-access.png":::
+
+1. Once the Cloud Formation template was deployed successfully, select **Create**.
+
+> [!NOTE]
+> You can exclude a specific AWS cluster from autoprovisioning. For sensor deployment, apply the `ms_defender_container_exclude_agents` tag on the resource with the value `true`. For agentless deployment, apply the `ms_defender_container_exclude_agentless` tag on the resource with the value `true`.

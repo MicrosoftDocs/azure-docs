@@ -83,7 +83,7 @@ The parameters in the request body are defined in this table:
 | :---------- | ----------- | :------------ | ------- |
 | **content**    | Required | 	The content or blob URL of the image. I can be either base64-encoded bytes or a blob URL. If both are given, the request is refused. The maximum allowed size of the image is 2048 pixels x 2048 pixels, and the maximum file size is 4 MB. The minimum size of the image is 50 pixels x 50 pixels. | String  |
 | **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
-| **outputType** | Optional | `"FourSeverityLevels"` or `"EightSeverityLevels"`. Output severities in four or eight levels. The value can be `0,2,4,6` or `0,1,2,3,4,5,6,7`. | String|
+| **outputType** | Optional | Image moderation API only supports `"FourSeverityLevels"`. Output severities in four levels. The value can be `0,2,4,6` | String|
 
 ### Output
 

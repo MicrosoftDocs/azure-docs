@@ -56,7 +56,7 @@ BrokerListener and BrokerAuthentication are separate resources, but they're link
 
 The order of authentication methods in the array determines how Azure IoT MQ authenticates clients. Azure IoT MQ tries to authenticate the client's credentials using the first specified method and iterates through the array until it finds a match or reaches the end.
 
-For each method, Azure IoT MQ first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `sat://`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, Azure IoT MQ then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, Azure IoT MQ first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `$sat`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, Azure IoT MQ then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, Azure IoT MQ treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets Azure IoT MQ fall back to other methods if the custom server is unreachable.
 
@@ -94,7 +94,7 @@ The earlier example specifies custom, SAT, and [username-password authentication
 
 1. If the custom authentication server responds with `Pass` or `Fail` result, the authentication flow ends. However, if the custom authentication server isn't available, then Azure IoT MQ falls back to the remaining specified methods, with SAT being next.
 
-1. Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `sat://`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid.
+1. Azure IoT MQ tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `$sat`, Azure IoT MQ evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid.
 
 If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials aren't relevant, then the broker denies the client connection.
 

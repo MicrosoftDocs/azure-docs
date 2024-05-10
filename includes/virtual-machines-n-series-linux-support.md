@@ -35,6 +35,8 @@ Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs
 
 The GRID drivers redistributed by Azure don't work on most non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs but works on NCasT4v3 series.
 
+For more information on the specific vGPU and driver branch versions, visit the [NVIDIA](https://docs.nvidia.com/grid/) website.
+
 |Distribution|Driver|
 | --- | -- |
 |Ubuntu 20.04 LTS, 22.04 LTS<br/><br/>Red Hat Enterprise Linux 7.9, 8.6, 8.8<br/><br/>SUSE Linux Enterprise Server 15 SP2, 12 SP2,12 SP5<br/><br/>Rocky Linux 8.4| NVIDIA vGPU 16.3, driver branch [R535](https://download.microsoft.com/download/1/4/4/14450d0e-a3f2-4b0a-9bb4-a8e729e986c4/NVIDIA-Linux-x86_64-535.154.05-grid-azure.run)(.exe) <br/><br/> NVIDIA vGPU 16.2, driver branch [R535](https://download.microsoft.com/download/2/e/8/2e85b622-d376-4166-be95-38fd60f18eda/NVIDIA-Linux-x86_64-535.54.03-grid-azure.run)(.exe)|

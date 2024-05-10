@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: Heidilohr
 ms.author: helohr
-ms.date: 04/10/2024
+ms.date: 04/15/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -48,7 +48,7 @@ For more information, see [Configure the clipboard transfer direction in Azure V
 
 The ARPL now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements & definitions, letting you run automated configuration checks, such as *Zonal,Regional*, against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
 
-For more information about these recommendations, see the [Azure Proactive Resiliency Library (APRL)](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/).
+For more information about these recommendations, see the [Azure Proactive Resiliency Library (APRL)](https://azure.github.io/Azure-Proactive-Resiliency-Library/).
 
 ## February 2024
 

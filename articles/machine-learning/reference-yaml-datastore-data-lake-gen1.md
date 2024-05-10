@@ -10,7 +10,7 @@ ms.custom: cliv2
 
 author: ynpandey
 ms.author: yogipandey
-ms.date: 02/14/2023
+ms.date: 04/15/2024
 ms.reviewer: franksolomon
 ---
 
@@ -26,7 +26,7 @@ See the source JSON schema at https://azuremlschemas.azureedge.net/latest/azureD
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------- |
-| `$schema` | string | The YAML schema. If you use the Azure Machine Learning Visual Studio Code extension to author the YAML file, you can invoke schema and resource completions if you include `$schema` at the top of your file. | | |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning Visual Studio Code extension to author the YAML file, include `$schema` at the top of your file to invoke schema and resource completions. | | |
 | `type` | string | **Required.** The datastore type. | `azure_data_lake_gen1` | |
 | `name` | string | **Required.** The datastore name. | | |
 | `description` | string | The datastore description. | | |

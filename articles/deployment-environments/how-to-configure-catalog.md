@@ -6,26 +6,28 @@ ms.service: deployment-environments
 ms.custom: build-2023
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/06/2023
+ms.date: 04/19/2024
 ms.topic: how-to
+
+#customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center so that I can provide environment definitions for my developers.
 ---
 
-# Add and configure a catalog from GitHub or Azure DevOps
+# Add and configure a catalog from GitHub or Azure Repos
 
 This guide explains how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. A catalog is a repository hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com).
 
 You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). 
 
-Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to a managed identity. Azure DevOps and GitHub both support the use of a personal access token (PAT) for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
+Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure Repos supports authentication by assigning permissions to a managed identity. Azure Repos and GitHub both support the use of a personal access token (PAT) for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
-- To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/products/devops/repos/).
+- To learn how to host a Git repository in an Azure Repos project, see [Azure Repos](https://azure.microsoft.com/products/devops/repos/).
 
 Microsoft offers a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that you can add to the dev center, and a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 ## Configure a managed identity for the dev center
 
-After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called an MSI, for the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure DevOps project that contains the catalog repo.
+After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called a Managed Service Identity (MSI), for the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
 
 If your dev center doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the dev center managed identity.
 
@@ -33,20 +35,20 @@ To learn more about managed identities, see [What are managed identities for Azu
 
 ## Add a catalog
 
-You can add a catalog from an Azure DevOps repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI or by using a PAT, which you store in a key vault.
+You can add a catalog from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI or by using a PAT, which you store in a key vault.
 
 Select the tab for the type of repository and authentication you want to use.
 
-## [Azure DevOps repo with MSI](#tab/DevOpsRepoMSI/)
+## [Azure Repos repo with MSI](#tab/DevOpsRepoMSI/)
 
 To add a catalog, complete the following tasks:
 
-- Assign permissions in Azure DevOps for the dev center managed identity.
+- Assign permissions in Azure Repos for the dev center managed identity.
 - Add your repository as a catalog.
 
-### Assign permissions in Azure DevOps for the dev center managed identity
+### Assign permissions in Azure Repos for the dev center managed identity
 
-You must give the dev center managed identity permissions to the repository in Azure DevOps.  
+You must give the dev center managed identity permissions to the repository in Azure Repos.  
 
 1. Sign in to your [Azure DevOps organization](https://dev.azure.com).
 
@@ -79,9 +81,9 @@ You must give the dev center managed identity permissions to the repository in A
 
 ### Add your repository as a catalog
 
-Azure Deployment Environments supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
+Azure Deployment Environments supports attaching Azure Repos repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
 
-The following steps let you attach an Azure DevOps repository.
+The following steps let you attach an Azure Repos repository.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
 
@@ -102,21 +104,21 @@ The following steps let you attach an Azure DevOps repository.
     | **Branch**  | Select the branch. |
     | **Folder path**  | Dev Box retrieves a list of folders in your branch. Select the folder that stores your IaC templates. |
 
-    :::image type="content" source="media/how-to-configure-catalog/add-catalog-to-dev-center.png" alt-text="Screenshot showing the add catalog pane with examples entries and Add highlighted." lightbox="media/how-to-configure-catalog/add-catalog-to-dev-center.png":::
+    :::image type="content" source="media/how-to-configure-catalog/add-catalog-to-dev-center.png" alt-text="Screenshot showing the Add catalog pane with examples entries and Add highlighted." lightbox="media/how-to-configure-catalog/add-catalog-to-dev-center.png":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**. Connecting to a catalog can take a few minutes the first time.
+1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**. Connecting to a catalog can take a few minutes the first time.
 
 
-## [Azure DevOps repo with PAT](#tab/DevOpsRepoPAT/)
+## [Azure Repos repo with PAT](#tab/DevOpsRepoPAT/)
 
 To add a catalog, complete the following tasks:
 
-- Get the clone URL for your Azure DevOps repository.
+- Get the clone URL for your Azure Repos repository.
 - Create a personal access token (PAT).
 - Store the PAT as a key vault secret in Azure Key Vault.
 - Add your repository as a catalog.
 
-### Get the clone URL for your Azure DevOps repository
+### Get the clone URL for your Azure Repos repository
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 
@@ -124,7 +126,7 @@ To add a catalog, complete the following tasks:
 
 1. Copy and save the URL.
  
-### Create a personal access token in Azure DevOps
+### Create a personal access token in Azure Repos
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`) and select your project.
 
@@ -134,7 +136,7 @@ To add a catalog, complete the following tasks:
 
 ### Create a Key Vault
 
-You need an Azure Key Vault to store the PAT that's used to grant Azure access to your repository. Key vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
+You need an Azure Key Vault to store the PAT used to grant Azure access to your repository. Key vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
 
 Use the following steps to create an RBAC key vault:
 
@@ -211,6 +213,72 @@ Get the path to the secret you created in the key vault.
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, the **Status** is **Connected**.
 
+## [GitHub repo DevCenter App](#tab/GitHubRepoApp/)
+
+To add a catalog, complete the following tasks:
+
+1. Install and configure the Microsoft Dev Center app
+1. Assign permissions in GitHub for the repos.
+1. Add your repository as a catalog.
+ 
+### Install Microsoft Dev Center app
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to your dev center.
+ 
+1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
+ 
+1. In the **Add catalog** pane, enter, or select the following:
+ 
+   | Field | Value |
+   |-----|-----| 
+   | **Name** | Enter a name for the catalog. |
+   | **Catalog source** | Select **GitHub**. |
+   | **Authentication type** | Select **GitHub app**.|
+
+1. To install the Microsoft Dev Center app, select **configure your repositories**.
+ 
+   :::image type="content" source="media/how-to-configure-catalog/add-catalog-configure-repositories.png" alt-text="Screenshot of Azure portal Add catalog with configure your repositories link highlighted." lightbox="media/how-to-configure-catalog/add-catalog-configure-repositories.png":::
+ 
+1. If you're prompted to authenticate to GitHub, authenticate.
+ 
+1. On the **Microsoft DevCenter** page, select **Configure**.
+ 
+   :::image type="content" source="media/how-to-configure-catalog/configure-microsoft-dev-center.png" alt-text="Screenshot of the Microsoft Dev Center app page, with Configure highlighted." lightbox="media/how-to-configure-catalog/configure-microsoft-dev-center.png":::
+
+1. Select the GitHub organization that contains the repository you want to add as a catalog. You must be an owner of the organization to install this app.
+ 
+   :::image type="content" source="media/how-to-configure-catalog/install-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with a GitHub organization highlighted." lightbox="media/how-to-configure-catalog/install-organization.png":::
+ 
+1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add as a catalog, and then select **Install**. 
+
+   :::image type="content" source="media/how-to-configure-catalog/select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with one repository selected and highlighted." lightbox="media/how-to-configure-catalog/select-one-repository.png":::
+
+   You can select multiple repositories to add as catalogs. You must add each repository as a separate catalog, as described in [Add your repository as a catalog](#add-your-repository-as-a-catalog).
+ 
+1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft Dev Center**.
+
+   :::image type="content" source="media/how-to-configure-catalog/authorize-microsoft-dev-center.png" alt-text="Screenshot of the Microsoft DevCenter by Microsoft would like permission to page, with authorize highlighted." lightbox="media/how-to-configure-catalog/authorize-microsoft-dev-center.png":::
+
+
+### Add your repository as a catalog
+
+1. Switch back to the Azure portal. 
+ 
+1. In **Add catalog**, enter the following information, and then select **Add**:
+
+    | Field | Value |
+    | ----- | ----- |
+    | **Repo**  | Select the repository that you want to add as a catalog. |
+    | **Branch**  | Select the branch. |
+    | **Folder path**  | Select the folder that contains subfolders that hold your environment definitions. |   
+
+   :::image type="content" source="media/how-to-configure-catalog/add-catalog-repo-branch-folder.png" alt-text="Screenshot of Azure portal add catalog, with repo, branch, folder, and add selected." lightbox="media/how-to-configure-catalog/add-catalog-repo-branch-folder.png":::
+
+1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-connection-successful.png" alt-text="Screenshot of Azure portal Catalogs page with a connected status." lightbox="media/how-to-configure-catalog/catalog-connection-successful.png":::
 
 ## [GitHub repo with PAT](#tab/GitHubRepoPAT/)
 
@@ -334,14 +402,14 @@ Get the path to the secret you created in the key vault.
     | ----- | ----- |
     | **Name** | Enter a name for the catalog. |
     | **Catalog location**  | Select **GitHub**. |
-    | **Repo**  | Enter or paste the clone URL for either your GitHub repository or your Azure DevOps repository.<br>*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
+    | **Repo**  | Enter or paste the clone URL for either your GitHub repository or your Azure Repos repository.<br>*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br>*Sample catalog example:* `main`|
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br> The folder path is for the folder with subfolders containing environment definition environment files, not for the folder with the environment definition environment file itself. The following image shows the sample catalog folder structure.<br>*Sample catalog example:* `/Environments`<br> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub." lightbox="media/how-to-configure-catalog/github-folders.png"::: The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the secret identifier that contains your PAT for the repository.<br> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br>Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. <br>*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
     :::image type="content" source="media/how-to-configure-catalog/add-github-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-github-catalog-pane.png":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
+1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
 
 ---
 

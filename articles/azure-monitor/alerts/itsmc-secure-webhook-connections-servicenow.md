@@ -28,3 +28,4 @@ Ensure that you've met the following prerequisites:
    * [Rome](https://docs.servicenow.com/bundle/rome-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Vancouver](https://docs.servicenow.com/bundle/vancouver-it-operations-management/page/product/event-management/concept/azure-integration.html)

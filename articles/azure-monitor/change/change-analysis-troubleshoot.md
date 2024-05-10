@@ -10,6 +10,8 @@ ms.subservice: change-analysis
 
 # Troubleshoot Azure Monitor's Change Analysis
 
+[!INCLUDE [transition](../includes/change/change-analysis-is-moving.md)]
+
 ## Trouble registering Microsoft.ChangeAnalysis resource provider from Change history tab.
 
 If you're viewing Change history after its first integration with Azure Monitor's Change Analysis, you'll see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
