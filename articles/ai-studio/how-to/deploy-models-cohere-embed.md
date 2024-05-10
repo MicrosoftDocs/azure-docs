@@ -118,90 +118,16 @@ These models can be consumed using the embed API.
 
 ## Embed API reference for Cohere Embed models deployed as a service
 
-### v1/embeddings 
-#### Request
+Cohere Embed v3 - English and Embed v3 - Multilingual accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/embeddings` and the native [Cohere Embed v3 API](#cohere-embed-v3) on `/embed`. 
 
-```
-    POST /v1/embeddings HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
-```
+### Azure AI Model Inference API
 
-#### v1/embeddings request schema
+The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Embeddings](../reference/reference-model-inference-embeddings.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md#getting-started?tabs=rest).
 
-Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
+### Cohere Embed v3
 
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-|`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
+The following contains details about Cohere Embed v3 API.
 
-#### v1/embeddings response schema
-
-The response payload is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | A unique identifier for the completion. |
-| `object` | `enum`|The object type, which is always `list` |
-| `data` | `array` | The Unix timestamp (in seconds) of when the completion was created. |
-| `model` | `string` | The model_id used for creating the embeddings. |
-| `usage` | `object` | Usage statistics for the completion request. |
-
-The `data` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `index` | `integer` |The index of the embedding in the list of embeddings. |
-| `object` | `enum` | The object type, which is always "embedding". |
-| `embedding` | `array` | The embedding vector, which is a list of floats. |
-
-The `usage` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens` | `integer` | Total tokens. |
-
-
-### v1/embeddings examples
-
-Request:
-
-```json
-    {    
-    "input": ["hi"]
-    }
-```
-
-Response:
-
-```json
-    {
-        "id": "87cb11c5-2316-4c88-af3c-4b2b77ed58f3",
-        "object": "list",
-        "data": [
-            {
-                "index": 0,
-                "object": "embedding",
-                "embedding": [
-                    1.1513672,
-                    1.7060547,
-                    ...
-                ]
-            }
-        ],
-        "model": "tmp",
-        "usage": {
-            "prompt_tokens": 1,
-            "completion_tokens": 0,
-            "total_tokens": 1
-        }
-    }
-```
-
-### v1/embed 
 #### Request
 
 ```
