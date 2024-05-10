@@ -34,9 +34,7 @@ There are no downtime requirements for any of the migration options.
 
 * Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
-* When migrating an API Management deployed in an external or internal virtual network to availability zones, a new public IP address resource must be specified. In an internal VNet, the public IP address is used only for management operations, not for API requests. Learn more about [IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
-
-* Migrating to availability zones or changing the availability zone configuration will trigger a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
+* [!INCLUDE [api-management-publicip-change](../../includes/api-management-publicip-change.md)]
 
 * When enabling availability zones in a region, you configure a number of API Management scale [units](../api-management/upgrade-and-scale.md) that can be distributed evenly across the zones. For example, if you configure 2 zones, you could configure 2 units, 4 units, or another multiple of 2 units. Adding units incurs additional costs. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 

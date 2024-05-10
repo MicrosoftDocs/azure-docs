@@ -55,8 +55,6 @@ If your API Management service is inside a virtual network, it will have two typ
 
 * Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. 
 
-    [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
-
 * Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
 You will see addresses of both types in the Azure portal and in the response of the API call:
@@ -139,7 +137,10 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * (Premium tier) [Availability zones](../reliability/migrate-api-mgt.md) are enabled, added, or removed.
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
 
-    [!INCLUDE [api-management-publicip-change](../../includes/api-management-publicip-change.md)]
+    > [!IMPORTANT]
+    > [!INCLUDE [api-management-publicip-change](../../includes/api-management-publicip-change.md)]
+
+    [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
 ## Related content
 

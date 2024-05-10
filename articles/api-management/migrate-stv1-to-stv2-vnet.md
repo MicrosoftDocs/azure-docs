@@ -206,13 +206,13 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Do we need a public IP even if the API Management instance is VNet injected in internal mode only?**
 
-   API Management uses an Azure managed public IP even in an internal mode for management traffic. This public IP is only used for Azure internal management operations and doesn't expose your instance to the internet. Public (internet-facing) backends may see the instance's public IP as the origin of the request. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+   API Management uses an Azure-managed public IP even in internal mode for management traffic. You may optionally supply your own public IP when migrating from the `stv1` to `stv2` platform. This public IP is only used for Azure internal management operations and doesn't expose your instance to the internet. Public (internet-facing) backends may see the instance's public IP as the origin of the request. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
    - You can't migrate the `stv1` instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-subnet).
    - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can request to increase this time to up to 48 hours by a support ticket.
-   - A new public IP is required for each switch.
+   - In external VNet mode, a new public IP is required for each switch. In internal VNet mode, you can optionally provide a new public IP.
    - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
    - Subnet IP address allocation is nondeterministic, therefore the original ILB (ingress) IP for "internal mode" deployments may change when you move back to the original subnet. This would require a DNS change if you're using A records.
 
