@@ -45,6 +45,10 @@ items:
       href: how-to/concept-data-privacy.md
     - name: Model benchmarks
       href: how-to/model-benchmarks.md
+    - name: Azure OpenAI models
+      items:
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models
