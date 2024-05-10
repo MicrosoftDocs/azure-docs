@@ -1,16 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/network-watcher/network-watcher-security-group-view-powershell.md",
-      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/network-watcher/network-watcher-security-group-view-cli.md",
-      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-cli",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/storage/blobs/blob-v11-samples-dotnet.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-dotnet",
       "redirect_document_id": false
