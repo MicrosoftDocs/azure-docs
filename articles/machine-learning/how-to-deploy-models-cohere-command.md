@@ -111,7 +111,7 @@ To create a deployment:
 1. Select the endpoint to open its Details page.
 1. Select the **Test** tab to start interacting with the model.  
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
-1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-command-models-deployed-as-a-service) section.
+2. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference](#reference-for-cohere-models-deployed-as-a-service) section.
 
 To learn about billing for models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
@@ -126,7 +126,7 @@ The previously mentioned Cohere models can be consumed using the chat API.
 
 For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-models-deployed-as-a-service) section.
 
-## Chat API reference for Cohere models deployed as a service
+## Reference for Cohere models deployed as a service
 
 Cohere Command R and Command R+ models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere Chat API](#cohere-chat-api) on `/v1/chat`. 
 
