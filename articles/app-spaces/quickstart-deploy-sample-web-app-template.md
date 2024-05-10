@@ -27,7 +27,7 @@ Follow these steps to deploy a sample app to App Spaces.
 1. Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView).
 
 ::: zone pivot="react"  
-1. Under *Use a starter app*, select **React App**.
+2. Under *Use a starter app*, select **React App**.
 
 #### Connect to GitHub
 
@@ -57,7 +57,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 [!include [deployment note](./includes/provisioning-note-swa.md)]
 ::: zone-end  
 ::: zone pivot="vue"  
-1. Under *Use a starter app*, select **Vue App**.
+2. Under *Use a starter app*, select **Vue App**.
 
 #### Connect to GitHub
 
@@ -87,7 +87,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 [!include [deployment note](./includes/provisioning-note-swa.md)]
 ::: zone-end  
 ::: zone pivot="express"  
-1. Under *Use a starter app*, select **Express.JS App**.
+2. Under *Use a starter app*, select **Express.JS App**.
 #### Connect to GitHub
 
 1. Enter the following values in the *Connect to GitHub* section.
@@ -130,7 +130,7 @@ In your *App Space Page*, select **Open app in browser** to view your new app.
 :::image type="content" source="media/verify-deployment-express.png" alt-text="Screenshot Express.JS app running.":::
 ::: zone-end
 
-For more information about managing App Spaces, see [Manage components](quickstart-deploy-web-app.md#manage-components).
+For more information about managing App Spaces, see [Manage components](how-to-manage-app-space-components.md).
 
 ## Related articles
 

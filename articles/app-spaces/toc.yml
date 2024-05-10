@@ -18,5 +18,5 @@
     - name: Add components
       href: how-to-add-components.md  
     - name: Manage components
-      href: how-to-manage-app-space-app.md
+      href: how-to-manage-app-space-components.md
 

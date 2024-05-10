@@ -3252,9 +3252,9 @@ groups:
   title: Add App Space component
   prompt: Choose a component type
   pivots:
-  - id: aca
-    title: Backend app
-  - id: swa
-    title: Frontend app
-  - id: db
+  - id: custom
+    title: Custom app
+  - id: sample
+    title: Sample app 
+  - id: database
     title: Database
