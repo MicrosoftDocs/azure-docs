@@ -75,7 +75,7 @@ The second operation demonstrates the use of the `az storage blob upload-batch` 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
-lastModified=`date -d "7 days ago" '+%Y-%m-%dT%H:%MZ'`
+lastModified=$(date +%Y:%m:%d -d "7 days ago")
 
 path="C:\\temp\\"
 filename="demo-file.txt"
