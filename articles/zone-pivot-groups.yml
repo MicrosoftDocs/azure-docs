@@ -2771,6 +2771,17 @@ groups:
     title: Dockerfile
   - id: without-dockerfile
     title: No Dockerfile
+# Owner: craigshoemaker
+- id: container-apps-azure-portal-console-bicep
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: console
+    title: Console
+  - id: bicep
+    title: Bicep
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal

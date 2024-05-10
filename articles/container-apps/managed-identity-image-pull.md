@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: v-wellsjason
-zone_pivot_groups: azure-portal-console-bicep
+zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
 
 # Azure Container Apps image pull with managed identity
