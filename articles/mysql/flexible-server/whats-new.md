@@ -199,7 +199,7 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
 - **Known issues**
 
-  [Storage Autogrow](./concepts-service-tiers-storage.md#storage-auto-grow): When [storage autogrow feature](./concepts-service-tiers-storage.md#storage-auto-grow) is enabled and pre-provisioned [IOPS](./concepts-service-tiers-storage.md#iops) is increased, it might result in unexpected increase in the storage size of the instance. We're actively working to resolve this issue and will provide updates as soon as they're available.
+  When the [storage autogrow feature](./concepts-service-tiers-storage.md#storage-autogrow) is enabled and pre-provisioned [IOPS](./concepts-service-tiers-storage.md#iops) is increased, it might result in unexpected increase in the storage size of the instance. We're actively working to resolve this issue and will provide updates as soon as they're available.
 
 ## March 2023
 
@@ -284,7 +284,7 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
 - **MySQL extension for Azure Data Studio (Preview)**
 
-  When working with multiple databases across data platforms and cloud deployment models, performing the most common tasks on all your databases using a single tool enhances productivity several fold. With the MySQL extension for Azure Data Studio, you can now connect to and modify MySQL databases along with your other databases, taking advantage of the modern editor experience and capabilities in Azure Data Studio, such as IntelliSense, code snippets, source control integration, native Jupyter Notebooks, an integrated terminal, and more. Use this new tooling with any MySQL server hosted on-premises, on virtual machines, on managed MySQL in other clouds, and on Azure Database for MySQL flexible server. [Quickstart: Use Azure Data Studio to connect and query MySQL](../../../../data-tools-pr/azure-data-studio/quickstart-mysql.md).
+  When working with multiple databases across data platforms and cloud deployment models, performing the most common tasks on all your databases using a single tool enhances productivity several fold. With the MySQL extension for Azure Data Studio, you can now connect to and modify MySQL databases along with your other databases, taking advantage of the modern editor experience and capabilities in Azure Data Studio, such as IntelliSense, code snippets, source control integration, native Jupyter Notebooks, an integrated terminal, and more. Use this new tooling with any MySQL server hosted on-premises, on virtual machines, on managed MySQL in other clouds, and on Azure Database for MySQL flexible server. [Quickstart: Use Azure Data Studio to connect and query MySQL](/azure-data-studio/quickstart-mysql).
 
 - **Enhanced metrics for better monitoring**
 
@@ -610,8 +610,7 @@ This release of Azure Database for MySQL flexible server includes the following 
 
 - **Storage auto-grow**
 
-  Storage auto grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without affecting the workload. Beginning June 21, 2021, all newly created servers will have storage auto grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
-
+  Storage auto grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without affecting the workload. Beginning June 21, 2021, all newly created servers have storage auto grow enabled by default.
 - **Data-in Replication**
 
     Azure Database for MySQL flexible server now supports [Replicate data into Azure Database for MySQL - Flexible Server](concepts-data-in-replication.md). Use this feature to synchronize and migrate data from a MySQL server running on-premises, in virtual machines, on Azure Database for MySQL single server, or database services outside Azure to Azure Database for MySQL flexible server. Learn more about [How to configure Azure Database for MySQL - Flexible Server data-in replication](how-to-data-in-replication.md).
