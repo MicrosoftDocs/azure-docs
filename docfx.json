@@ -681,6 +681,7 @@
         "articles/ai-services/personalizer/**/*.*": "None",
         "articles/ai-services/qnamaker/**/*.*": "None",
         "articles/ai-services/LUIS/**/*.*": "None",
+	"articles/cost-management-billing/**/*": "Standard",
         "articles/deployment-environments/**/*": "Standard",
         "articles/dev-box/**/*": "Standard",
         "articles/devtest-labs/**/*": "Standard",

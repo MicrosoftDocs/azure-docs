@@ -39,7 +39,7 @@ param dnsServiceIp string = '10.96.0.10'
 param agentPoolL2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 3 networks associated with the initial agent pool')
@@ -54,14 +54,14 @@ param agentPoolL3Networks array = []
 param agentPoolTrunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 2 networks associated with the cluster')
 param l2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 3 networks associated with the cluster')
@@ -76,7 +76,7 @@ param l3Networks array = []
 param trunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The LoadBalancer IP address pools associated with the cluster')
