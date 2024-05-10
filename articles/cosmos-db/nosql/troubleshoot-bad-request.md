@@ -47,6 +47,16 @@ A response with this error means you are executing an operation and passing a pa
 ### Solution
 Send the partition key value parameter that matches the document property value.
 
+## Numeric partition key value precision loss
+On this scenario, it's common to see errors like:
+
+*The requested partition key is out of key range, possibly because of loss of precision of partition key value*
+
+A response with this error is likely to be caused by an operation on a document with a numeric partition key whose value is outside what is supported by Azure Cosmos DB. See [Per-item limits](/azure/cosmos-db/concepts-limits#per-item-limits) for the maximum length of numeric property value.
+
+### Solution
+Consider using type `string` for partition key if requiring precise numeric values.
+
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dotnet-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
 * Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3.md) and [.NET v2](performance-tips.md).
