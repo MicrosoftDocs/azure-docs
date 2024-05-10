@@ -61,7 +61,7 @@ sections:
           How can I launch a VM with the NVMe interface?
         answer: |
           NVMe can be enabled during VM creation using various methods such as: Azure portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe.
-          ### Azure portal View
+          ### Azure portal view
 
           1. Add Disk Controller Filter. To find the NVMe eligible sizes, select **See All Sizes**, select the **Disk Controller** filter, and then select **NVMe**:
 
@@ -75,7 +75,7 @@ sections:
 
               :::image type="content" source="./media/enable-nvme/azure-portal-3.png" alt-text="Screenshot of instructions to review and verify features enablement.":::
 
-  - name: Azure Storage Performance with NVMe Disks
+  - name: Azure storage performance with NVMe disks
     questions:
       - question: |
           What types of workloads benefit from NVMe disks?

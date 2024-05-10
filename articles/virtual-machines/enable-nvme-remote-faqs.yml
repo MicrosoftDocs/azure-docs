@@ -70,14 +70,14 @@ sections:
           To tag an image that supports NVMe, follow the four steps below: 
           1. Upload NVMe-supported vhd to your storage account. AzCopy is a fast way, but you can also use the portal to upload.
             - AzCopy Reference: 
-                [https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10]
+                [https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10]
             ```
             `azcopy copy <local path to your vhd> <container in your storage account>`
             ```
           2. Create your image gallery either using powershell/portal/cli:
-            [https://docs.microsoft.com/en-us/azure/virtual-machines/create-gallery]
+            [https://docs.microsoft.com/azure/virtual-machines/create-gallery]
           3. Create the image definition:
-            [https://docs.microsoft.com/en-us/azure/virtual-machines/image-version]
+            [https://docs.microsoft.com/azure/virtual-machines/image-version]
             **Please make sure to include --feature DiskControllerTypes=SCSI,NVMe**
             
             CLI Example:
@@ -86,7 +86,7 @@ sections:
             ```
 
           4. Create the image version under the NVMe-tagged gallery with the NVMe-supported vhd: 
-            [https://docs.microsoft.com/en-us/azure/virtual-machines/image-version]
+            [https://docs.microsoft.com/azure/virtual-machines/image-version]
             
             CLI Example:
             ```
@@ -114,14 +114,21 @@ sections:
       - question: |
           How can I identify remote NVMe disks on a Linux VM?
         answer: |
-          - Get nvme-cli package using the command =” sudo apt install nvme-cli” 
-          - Run NVMe list command =” sudo nvme list “to fetch NVMe disk details:  
+          1. Get nvme-cli package 
+            ```
+            `sudo apt install nvme-cli`
+            ```
+          2. Run NVMe list command to fetch NVMe disk details:
+
+            ```
+            `sudo nvme list`
+            ``` 
                          
              :::image type="content" source="./media/enable-nvme/nvme-faq-4.png" alt-text="Screenshot of instructions to identify NVMe disks on Linux VM.":::
 
             :::image type="content" source="./media/enable-nvme/nvme-faq-5.png" alt-text="Screenshot of instructions to choose namespace ID in Linux portal.":::
             
-            Here's how the data shows in response to Azure PowerShell commands
+            Here's how the data shows in response to Azure PowerShell commands:
                      
             :::image type="content" source="./media/enable-nvme/nvme-faq-6.png" alt-text="Screenshot of an example of response to Azure PowerShell command.":::
       - question: |
