@@ -46,7 +46,7 @@ An Azure Cosmos DB container (or shared throughput database) using manual throug
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Allocate throughput on containers and databases](set-throughput.md).
 
-The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
+The actual minimum RU/s might vary depending on your account configuration. You can use [Azure Monitor metrics](monitor.md#analyze-azure-cosmos-db-metrics) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 #### Minimum throughput on container
 
