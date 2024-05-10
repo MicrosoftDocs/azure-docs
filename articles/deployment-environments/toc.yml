@@ -67,6 +67,9 @@ items:
     - name: Configure Terraform container image to execute deployments
       href: how-to-configure-extensibility-terraform-container-image.md
       displayName: custom image, custom runner, extensibility  
+    - name: Configure Pulumi container image to execute deployments
+      href: how-to-configure-extensibility-pulumi-container-image.md
+      displayName: custom image, custom runner, extensibility  
 - name: Create and manage environments
   expanded: false
   items: 
