@@ -116,7 +116,9 @@ To fine-tune a Phi-3 model:
 1. Task parameters are an optional step and an advanced option. Tuning the hyperparameter is essential for optimization of large language models (LLMs) in real-world applications. It allows for performance improvements and efficient resource usage. You can use the default settings, but advanced users can customize the epoch or learning rate parameters.
 1. Review your selections, and proceed to train your model.
 
-Once you fine-tune your model, you can deploy the model and then use it in your own application, in the playground, or in prompt flow. <!--- For more information, visit [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md). --->
+Once you fine-tune your model, you can deploy the model and then use it in your own application, in the playground, or in prompt flow.
+
+<!--- For more information, visit [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md). --->
 
 ---
 
@@ -131,7 +133,9 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ### Cost and quota considerations for Phi-3 models fine-tuned as a service
 
-Microsoft offers Phi models, fine-tuned as a service and integrated with Azure AI Studio for use. Learn more about the pricing when <!--- [deploying](./deploy-models-phi3.md) or ---> fine-tuning the models under the Pricing and terms tab on deployment wizard.
+Microsoft offers Phi models, fine-tuned as a service and integrated with Azure AI Studio for use. Learn more about the pricing when
+
+<!--- [deploying](./deploy-models-phi3.md) or ---> fine-tuning the models under the Pricing and terms tab on deployment wizard.
 
 ## Content filtering
 
