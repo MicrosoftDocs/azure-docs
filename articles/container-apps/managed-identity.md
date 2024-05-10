@@ -178,7 +178,7 @@ Specify each user-assigned identity by adding an item to the `userAssignedIdenti
 For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
 > [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 
 # [YAML](#tab/yaml)
 
@@ -197,7 +197,7 @@ identity:
 For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
 
 > [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 
 # [Bicep](#tab/bicep)
 
@@ -210,7 +210,7 @@ identity: {
   type: 'UserAssigned'
   userAssignedIdentities: {
     <IDENTITY1_RESOURCE_ID>: {}
-	<IDENTITY2_RESOURCE_ID>: {}
+    <IDENTITY2_RESOURCE_ID>: {}
   }
 }
 ```
@@ -218,7 +218,7 @@ identity: {
 For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 > [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 
 ---
 

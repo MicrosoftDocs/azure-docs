@@ -13,11 +13,12 @@ zone_pivot_groups: azure-portal-console-bicep
 
 # Azure Container Apps image pull with managed identity
 
-You can pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication to avoid the use of administrative credentials. You can use a user-assigned or system-assigned managed identity to authenticate with Azure Container Registry.
+You can pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication to avoid the use of administrative credentials.
 
-With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps. It can be assigned to multiple Azure resources, including Azure Container Apps. With a system-assigned managed identity, the identity is created and managed by Azure Container Apps. The identity is tied to your container app and is deleted when your app is deleted.
-
-When possible, you should use a user-assigned managed identity to pull images.
+You can use a user-assigned or system-assigned managed identity to authenticate with Azure Container Registry.
+- With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps. It can be assigned to multiple Azure resources, including Azure Container Apps.
+- With a system-assigned managed identity, the identity is created and managed by Azure Container Apps. It is tied to your container app and is deleted when your app is deleted.
+- When possible, you should use a user-assigned managed identity to pull images.
 
 Container Apps checks for a new version of the image whenever a container is started. In Docker or Kubernetes terminology, Container Apps sets each container's image pull policy to `always`.
 
