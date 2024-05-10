@@ -133,7 +133,7 @@ In this section, you learn to deploy your prompt flow with inferencing data coll
 1. Proceed through the steps in the deployment window to complete the **Advanced settings**.
 1. On the "Review" page, review the deployment configuration and select **Create** to deploy your flow.
 
-    :::image type="content" source="../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png" alt-text="Screenshot of review page in the deployment wizard with all settins completed" lightbox = "../media/deploy-monitor/monitor/basic-settings-with-connections-specified.png":::
+    :::image type="content" source="../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png" alt-text="Screenshot of review page in the deployment wizard with all settins completed" lightbox = "../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png":::
 
     > [!NOTE]
     > By default, all inputs and outputs of your deployed prompt flow application are collected to your Blob Storage. As the deployment is invoked by users, the data is collected to be used by your monitor.
