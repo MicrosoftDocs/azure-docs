@@ -16,7 +16,7 @@ ms.custom: [references_regions]
 
 [!INCLUDE [Azure AI Studio preview](../includes/feature-preview.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the JAIS model as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the JAIS model as serverless APIs with pay-as-you-go token-based billing.
 
 The JAIS model is available in [Azure AI Studio](https://ai.azure.com) with pay-as-you-go token based billing with Models as a Service. 
 
@@ -25,10 +25,10 @@ You can find the JAIS model in the [Model Catalog](model-catalog.md) by filterin
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions will not work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For JAIS models, the pay-as-you-go model deployment offering is only available with AI hubs created in East US 2 or Sweden Central region.
+    > For JAIS models, the serverless API model deployment offering is only available with AI hubs created in East US 2 or Sweden Central region.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -44,9 +44,8 @@ JAIS 30B Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**.
 
 *Output:* Model generates text only.
 
-## Deploy with pay-as-you-go
+## Deploy as a serverless API
 
-In this article, you learn how to use Azure AI Studio to deploy the JAIS model as a service with pay-as-you-go billing.
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
@@ -63,14 +62,15 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png":::
 
+1. Select **Deploy** to open a serverless API deployment window for the model.
 1. Select the project in which you want to deploy your model. To deploy the model your project must be in the EastUS2 or Sweden Central region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
+1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
+1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
 
     :::image type="content" source="../media/deploy-monitor/jais/jais-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/jais/jais-marketplace-terms.png":::
 
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
     :::image type="content" source="../media/deploy-monitor/jais/jais-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/jais/jais-existing-subscription.png":::
 
@@ -81,15 +81,15 @@ To create a deployment:
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Select **Open in playground** to start interacting with the model.
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#chat-api-reference-for-jais-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
+1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the Jais deployed with pay-as-you-go, see [Cost and quota considerations for Jais deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
+To learn about billing for the JAIS models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for JAIS models deployed as a service](#cost-and-quota-considerations-for-jais-deployed-as-a-service)
 
 ### Consume the JAIS model as a service
 
 These models can be consumed using the chat API.
 
-1. On the **Build** page, select **Deployments**.
+1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
@@ -266,7 +266,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
 ## Next steps
 
