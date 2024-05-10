@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 05/10/2024
 ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
@@ -252,7 +252,7 @@ The following image shows a container with both a time-based retention policy an
 
 :::image type="content" source="media/immutable-policy-configure-container-scope/retention-policy-legal-hold-container-scope.png" alt-text="Screenshot showing a container with both a time-based retention policy and legal hold configured":::
 
-To clear a legal hold, navigate to the **Access policy** dialog, select the **More** button, and choose **Delete**.
+To clear a legal hold, navigate to the **Access policy** dialog, and in the context menu of the policy, select **Edit**. Then, delete all tags for the policy to clear the hold.
 
 ### [PowerShell](#tab/azure-powershell)
 
