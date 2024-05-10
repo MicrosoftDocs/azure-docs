@@ -52,7 +52,7 @@ Azure resource providers emit usage and charges to the billing system and popula
 The cost details file exposes multiple price points. They're outlined as follows.
 
 **PAYGPrice:** It's the market price, also referred to as retail or list price, for a given product or service.
-  - In all consumption usage records, `UnitPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
+  - In all consumption usage records, `PayGPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
   - Purchases and refunds have the market price for that transaction.
 
 When you deal with benefit-related records, where the `PricingModel` is `Reservations` or `SavingsPlan`, *PayGPrice* reflects the market price of the meter.
@@ -116,7 +116,7 @@ For more information, see [Analyze unexpected charges](../understand/analyze-une
 
 Azure doesn't log most user actions. Instead, Azure logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Azure can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
 
-## Next steps
+## Related content
 
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.

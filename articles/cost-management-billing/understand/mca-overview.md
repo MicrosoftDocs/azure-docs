@@ -85,7 +85,7 @@ Roles on the invoice section have permissions to control who creates Azure subsc
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 See the following articles to learn about your billing account:
 

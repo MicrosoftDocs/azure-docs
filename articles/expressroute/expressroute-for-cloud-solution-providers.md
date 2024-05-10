@@ -57,7 +57,7 @@ This connectivity scenario requires that the customer connects directly through 
 
 The choices between these two options are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
-* **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Microsoft Entra ID.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.md).
+* **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Microsoft Entra ID.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.yml).
 * **Networking** – Covers the various articles of networking in Microsoft Azure.
 * **Microsoft Entra ID** – Microsoft Entra ID provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Microsoft Entra ID, see [here](../active-directory/index.yml).  
 

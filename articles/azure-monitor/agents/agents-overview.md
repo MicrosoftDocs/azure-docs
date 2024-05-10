@@ -116,7 +116,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	IIS logs	|	✓ 	| ✓ |
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
-|	**Services and features supported**	|		|		|		|		|
+|	**Services and features supported**	|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
 |		|	VM Insights	|	✓ | ✓ |
 |		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |
@@ -140,7 +140,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	File based logs	| ✓ |		|
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
-|	**Services and features supported**	|		|		|		|		|		|
+|	**Services and features supported**	|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
 |		|	VM Insights	| ✓ |	✓ |
 |		|	Microsoft Defender for Cloud - Only use MDE agent	| | |
@@ -156,7 +156,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 ### Windows
 
 | Operating system | Azure Monitor agent | Legacy agent|
-|:---|:---:|:---:|:---:|
+|:---|:---:|:---:
 | Windows Server 2022                                      | ✓ | ✓ |
 | Windows Server 2022 Core                                 | ✓ |   |
 | Windows Server 2019                                      | ✓ | ✓ |
@@ -181,7 +181,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent <sup>1</sup> |
-|:---|:---:|:---:|:---:|
+|:---|:---:|:---:|
 | AlmaLinux 9                                                 | ✓<sup>2</sup> | ✓ |
 | AlmaLinux 8                                                 | ✓<sup>2</sup> | ✓ |
 | Amazon Linux 2017.09                                        |  | ✓ |
@@ -215,8 +215,8 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Ubuntu 22.04 LTS                                            | ✓ | ✓ |
 | Ubuntu 20.04 LTS                                            | ✓<sup>2</sup> | ✓ |
 | Ubuntu 18.04 LTS                                            | ✓<sup>2</sup> | ✓ |
-| Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
-| Ubuntu 14.04 LTS                                            |   | ✓ | ✓ |
+| Ubuntu 16.04 LTS                                            | ✓ | ✓ |
+| Ubuntu 14.04 LTS                                            |   | ✓ |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Also supported on Arm64-based machines.<br>

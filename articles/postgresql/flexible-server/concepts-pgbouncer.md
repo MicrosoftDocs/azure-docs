@@ -3,10 +3,11 @@ title: PgBouncer in Azure Database for PostgreSQL - Flexible Server
 description: This article provides an overview of the built-in PgBouncer feature.
 author: varun-dhawan
 ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 2/8/2024
 ---
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server
@@ -32,15 +33,7 @@ You can configure PgBouncer settings by using these parameters.
 > [!NOTE]
 > The following list of PgBouncer server parameters is visible on the **Server parameters** pane only if the `pgbouncer.enabled` server parameter is set to `true`. Otherwise, they're deliberately hidden.
 
-| Parameter name             | Description | Default |
-|----------------------|--------|-------------|
-| `pgbouncer.default_pool_size` | Set this parameter value to the number of connections per user/database pair.      | `50`       |
-| `pgbouncer.max_client_conn` | Set this parameter value to the highest number of client connections to PgBouncer that you want to support.     | `5000`     |
-| `pgbouncer.pool_mode` | Set this parameter value to `TRANSACTION` for transaction pooling (which is the recommended setting for most workloads).      | `TRANSACTION`     |
-| `pgbouncer.min_pool_size` | Add more server connections to the pool if the number is below this minimum.    |   `0` (disabled)   |
-| `pgbouncer.ignore_startup_parameters` | Enter a comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore the `extra_float_digits` parameter. Some parameters are allowed; all others raise an error. This ability is needed to tolerate overenthusiastic Java Database Connectivity (JDBC) wanting to unconditionally set `extra_float_digits=2` in startup packets. Use this option if the library that you use reports errors such as `pq: unsupported startup parameter: extra_float_digits`. |   |
-| `pgbouncer.query_wait_timeout` | Set the maximum time (in seconds) that queries are allowed to spend waiting for execution. If the query isn't assigned to a server during that time, the client is disconnected. | `120s` |
-| `pgbouncer.stats_users` | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named `PgBouncer`).    |      |
+[!INCLUDE [pgbouncer-parameters-table](./includes/pgbouncer-parameters-table.md)]
 
 For more information about PgBouncer configurations, see the [pgbouncer.ini documentation](https://www.pgbouncer.org/config.html).
 

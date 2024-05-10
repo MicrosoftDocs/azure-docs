@@ -52,7 +52,7 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 ## <a name="level2"></a> Level 2 - defined
 
 > [!TIP]
-> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): maturing (9-14).
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): maturing (10-14).
 
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
@@ -89,7 +89,7 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 ## <a name="level4"></a> Level 4 - optimized
 
 > [!TIP]
-> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): optimized (19-28).
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): optimized (20-28).
 
 **Description:** Your organization demonstrates operational excellence in LLMOps. You have a sophisticated approach to LLM application development, deployment, and monitoring.
 

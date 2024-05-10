@@ -18,7 +18,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * You can restore backups to a different capacity pool within the same NetApp account.
 
-* You can restore a backup only to a new volume.  You cannot overwrite the existing volume with the backup. 
+* You can restore a backup only to a new volume. You cannot overwrite the existing volume with the backup. 
 
 * The new volume created by the restore operation cannot be mounted until the restore completes. 
 
@@ -41,7 +41,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 ## Steps
 
 >[!IMPORTANT]
->All backups must be migrated to backup vaults. You will not be able to perform any operation on or with a backup until you have migrated the backup to a vault. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
+>All backups must be migrated to backup vaults. You are unable to perform any operation on or with a backup until you have migrated the backup to a backup vault. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
 
 1. Select **Backup Vault**. Navigate to **Backups**.
 <!-- 
@@ -75,7 +75,6 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 * [Configure manual backups](backup-configure-manual.md)
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)

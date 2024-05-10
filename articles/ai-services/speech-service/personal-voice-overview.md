@@ -19,7 +19,7 @@ With personal voice, you can get AI generated replication of your voice (or user
 
 > [!NOTE]
 > Personal voice is available in these regions: West Europe, East US, and South East Asia. 
-> For supported locales, see [personal voice language support](./language-support.md#personal-voice).
+> For supported locales, see [personal voice language support](./language-support.md?tabs=tts#personal-voice).
 
 The following table summarizes the difference between personal voice and professional custom neural voice.  
  
@@ -38,18 +38,15 @@ The following table summarizes the difference between personal voice and profess
 
 ## Try the demo
 
-The demo in Speech Studio is made available to approved customers. You can apply for access [here](https://aka.ms/customneural).
+If you have an S0 resource, you can access the personal voice demo in Speech Studio. To use the personal voice API, you can apply for access [here](https://aka.ms/customneural).
 
 1. Go to [Speech Studio](https://aka.ms/speechstudio/)
+   
 1. Select the **Personal Voice** card.
 
     :::image type="content" source="./media/personal-voice/personal-voice-home.png" alt-text="Screenshot of the Speech Studio home page with the personal voice card visible." lightbox="./media/personal-voice/personal-voice-home.png":::
 
-1. Select **Request demo access**.
-
-    :::image type="content" source="./media/personal-voice/personal-voice-request-access.png" alt-text="Screenshot of the button to request access to personal voice in Speech Studio." lightbox="./media/personal-voice/personal-voice-request-access.png":::
-
-1. After your access is approved, you can record your own voice and try the voice output samples in different languages. The demo includes a subset of the languages supported by personal voice.
+1. You can record your own voice and try the voice output samples in different languages. The demo includes a subset of the languages supported by personal voice.
 
     :::image type="content" source="./media/personal-voice/personal-voice-samples.png" alt-text="Screenshot of the personal voice demo experience in Speech Studio." lightbox="./media/personal-voice/personal-voice-samples.png":::
 

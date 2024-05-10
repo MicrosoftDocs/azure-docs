@@ -49,7 +49,7 @@ Make sure that the virtual network address space in the remote tenant doesn't ov
    You can use either PowerShell or the Azure portal to assign this role. See the following articles for steps:
 
    * [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 
 1. Run the following command to add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. If you're signed in to the parent, you need to run the command for only the remote tenant.
 

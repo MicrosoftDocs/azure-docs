@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 02/23/2024
+ms.date: 04/11/2024
 ---
 
 # Deployment stacks (Preview)
@@ -33,6 +33,7 @@ Deployment stacks provide the following benefits:
 
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - Deny assignments don't support tags.
+- Deny assignments is not supported within the management group scope.
 - Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
 
 ### Known issues

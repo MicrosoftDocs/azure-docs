@@ -1,22 +1,23 @@
 ---
-title: 'Tutorial - Connect an on-premises network and a virtual network: S2S VPN: Azure portal'
-description: In this tutorial, learn how to create a site-to-site VPN gateway IPsec connection between your on-premises network and a virtual network.
+title: 'Tutorial - Create S2S VPN connection between on-premises network and Azure virtual network: Azure portal'
+description: In this tutorial, you learn how to create a VPN Gateway site-to-site IPsec connection between your on-premises network and a virtual network.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 01/17/2024
+ms.date: 04/16/2024
 
+#customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
 
-This tutorial shows you how to use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
+In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
-In this tutorial, you learn how to:
+In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create a virtual network.
@@ -96,6 +97,10 @@ To see more information about the public IP address object, select the name/IP a
 
 The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, and then specify the IP address of the on-premises VPN device to which you create a connection. You also specify the IP address prefixes that are routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
+
+> [!Note]
+> The local network gateway object is deployed in Azure, not to your on-premises location.
+
 Create a local network gateway by using the following values:
 
 * **Name**: Site1
@@ -108,7 +113,7 @@ Create a local network gateway by using the following values:
 
 Site-to-site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When you configure your VPN device, you need the following values:
 
-* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
+* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a very simple shared key. We recommend that you generate a more complex key to use.
 * **Public IP address of your virtual network gateway**: You can view the public IP address by using the Azure portal, PowerShell, or the Azure CLI. To find the public IP address of your VPN gateway by using the Azure portal, go to **Virtual network gateways** and then select the name of your gateway.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
@@ -163,6 +168,10 @@ You can create a connection to multiple on-premises sites from the same VPN gate
 1. Select **+ Add** to add your connection. Adjust the connection type to reflect either network-to-network (if connecting to another virtual network gateway) or site-to-site.
 1. If you're connecting by using site-to-site and you haven't already created a local network gateway for the site you want to connect to, you can create a new one.
 1. Specify the shared key that you want to use and then select **OK** to create the connection.
+
+### Update a connection shared key
+
+You can specify a different shared key for your connection. In the portal, go to the connection. Change the shared key on the **Authentication** page.
 
 ### <a name="additional"></a>More configuration considerations
 

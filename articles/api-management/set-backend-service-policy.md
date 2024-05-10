@@ -19,7 +19,7 @@ Use the `set-backend-service` policy to redirect an incoming request to a differ
 Referencing a backend entity allows you to manage the backend service base URL and other settings in a single place and reuse them across multiple APIs and operations. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.yml), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

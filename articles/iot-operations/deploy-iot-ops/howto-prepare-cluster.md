@@ -180,6 +180,10 @@ To verify that your cluster is ready for Azure IoT Operations deployment, you ca
 az iot ops verify-host
 ```
 
+## Create sites
+
+To manage which clusters your OT users have access to, you can group your clusters into sites. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
+
 ## Next steps
 
 Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).

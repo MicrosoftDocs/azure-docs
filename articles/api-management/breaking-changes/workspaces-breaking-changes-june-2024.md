@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/07/2024
+ms.date: 04/24/2024
 ms.author: danlep
 ---
 
@@ -15,7 +15,7 @@ ms.author: danlep
 
 On 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
 
-These changes will have no effect on the availability of your API Management service. However, you may have to take action to continue using full workspaces functionality beyond 14 June 2024.
+Your workspaces and APIs managed in them may stop working beyond 14 June 2024 if they still rely on the capabilities set to change. APIs and resources managed outside workspaces aren't affected by this change.
 
 ## Is my service affected by these changes?
 

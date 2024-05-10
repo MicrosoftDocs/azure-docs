@@ -107,6 +107,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Multifactor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
+* [Intune](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service)
 
 ### Public peering
 
@@ -488,7 +489,7 @@ VNet-to-VNet connectivity over ExpressRoute isn't recommended. Instead, configur
 
 ### Does ExpressRoute Traffic Collector store customer data?
 
-All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector doesn't store any customer data.
+ExpressRoute Traffic Collector doesn't store any customer data.
 
 ### What is the sampling rate used by ExpressRoute Traffic Collector?
 

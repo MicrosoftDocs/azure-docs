@@ -43,7 +43,7 @@ To configure your Speech resource for Microsoft Entra authentication, create a c
 ### Assign roles
 For Microsoft Entra authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.
 
-You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.yml) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 <a name='get-an-azure-ad-access-token'></a>
 

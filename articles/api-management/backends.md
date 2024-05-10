@@ -22,7 +22,7 @@ When importing certain APIs, API Management configures the API backend automatic
 * Azure resources, such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
 
 API Management also supports using other Azure resources as an API backend, such as:
-* A [Service Fabric cluster](how-to-configure-service-fabric-backend.md).
+* A [Service Fabric cluster](how-to-configure-service-fabric-backend.yml).
 * A custom service. 
 
 ## Benefits of backends
@@ -245,5 +245,5 @@ For **Developer** and **Premium** tiers, an API Management instance deployed in 
 
 ## Related content
 
-* Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.md) using the Azure portal.
+* Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
 

@@ -22,8 +22,6 @@ If you have the upgrade policy set to manual, any changes made to the scale set 
 
 Select the Virtual Machine Scale Set you want to perform instance upgrades on. In the menu under **Settings**, select **Instances** and select the instances you want to upgrade. Once selected, click the **Upgrade** option. 
 
-If using Virtual Machine Scale Sets with Flexible Orchestration, manual upgrade support using the Portal isn't yet supported. To perform manual upgrades on scale sets with Flexible Orchestration, see the CLI, PowerShell, and REST tabs. 
-
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/manual-upgrade-1.png" alt-text="Screenshot showing how to perform manual upgrades using the Azure portal.":::
 
 
