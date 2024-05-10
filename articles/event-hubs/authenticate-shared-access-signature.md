@@ -282,7 +282,7 @@ And then select **Disabled** option and select **Ok** as shown in the following 
 ![Disabling local auth](./media/authenticate-shared-access-signature/disabling-local-auth.png)
 
 ### Disabling Local/SAS Key authentication using a template 
-You can disable local authentication for a given Event Hubs namespace by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template(ARM Template).
+You can disable local authentication for a given Event Hubs namespace by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template (ARM Template).
 
 ```json
 "resources":[
@@ -307,7 +307,7 @@ You can disable local authentication for a given Event Hubs namespace by setting
       "properties": {
         "isAutoInflateEnabled": "true",
         "maximumThroughputUnits": "7", 
-        "disableLocalAuth": false
+        "disableLocalAuth": true
       },
       "resources": [
         {
