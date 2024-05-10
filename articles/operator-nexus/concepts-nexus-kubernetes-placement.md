@@ -11,8 +11,6 @@ ms.custom: template-concept
 
 # Resource Placement in Azure Operator Nexus Kubernetes
 
-## Background
-
 Operator Nexus instances are deployed at the customer premises. Each instance
 comprises one or more racks of bare metal servers.
 
