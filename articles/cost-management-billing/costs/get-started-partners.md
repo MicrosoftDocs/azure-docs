@@ -296,7 +296,7 @@ To verify data in the export list, select the storage account name. On the stora
 
 Partners and their customers can use Cost Management APIs for common tasks. For more information, see [Automation for partners](../automate/partner-automation.md).
 
-## Next steps
+## Related content
 
 - [Start analyzing costs](quick-acm-cost-analysis.md) in Cost Management
 - [Create and manage budgets](tutorial-acm-create-budgets.md) in Cost Management
