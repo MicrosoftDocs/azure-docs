@@ -38,6 +38,18 @@ vCPUs (Qty.) and Memory for each size
 | Standard_E64pds_v6 | 64 | 512 |
 | Standard_E96pds_v6 | 96 | 672 |
 
+> [!NOTE]
+> The Epdsv6 VM series will only work on OS images that are tagged with NVMe support. If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available on the most popular OS images, and we continuously improve the OS image coverage.
+
+- [Premium Storage](premium-storage-performance.md): Supported 
+- [Premium Storage caching](premium-storage-performance.md): Supported 
+- [Live Migration](maintenance-and-updates.md): Supported 
+- [Memory Preserving Updates](maintenance-and-updates.md): Supported 
+- [VM Generation Support](generation-2.md): Generation 2 
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
+
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
@@ -73,7 +85,7 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst IOPS | Uncached Storage Burst Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) |
+| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst<sup>1</sup> IOPS | Uncached Storage Burst<sup>1</sup> Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) | Uncached Burst<sup>1</sup> Special Storage IOPS | Uncached Burst<sup>1</sup> Special Storage Speed (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2pds_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11110 | 1463 |
 | Standard_E4pds_v6 | 12 | 3400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
@@ -84,6 +96,7 @@ Remote (uncached) storage info for each size
 | Standard_E64pds_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133325 | 3969 | 133325 | 4680 |
 | Standard_E96pds_v6 | 64 | 153600 | 5000 | 153600 | 5000 | 199987 | 5850 | 199987 | 5953 |
 
+<sup>1</sup>Epdsv6-series VMs can [burst](../../disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -115,6 +128,9 @@ Network interface info for each size
 - [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)
 - [Virtual machine network bandwidth](../../../virtual-network/virtual-machine-network-throughput.md)
 
+> [!NOTE]
+> Accelerated networking is required and turned on by default on all Epdsv6 machines.
+
 #### Table definitions
 - Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../../../virtual-network/virtual-machine-network-throughput.md)
 - Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](../../../virtual-network/virtual-network-optimize-network-bandwidth.md). 
@@ -128,18 +144,16 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 ---
 
-## Feature support
+## Other sizes and information
 
-### Supported special features
-- Live Migration: Supported
+- [General purpose](../../sizes-general.md)
+- [Memory optimized](../../sizes-memory.md)
+- [Storage optimized](../../sizes-storage.md)
+- [GPU optimized](../../sizes-gpu.md)
+- [High performance compute](../../sizes-hpc.md)
+- [Previous generations](../../sizes-previous-gen.md)
 
-### Feature limitations
-- Premium Storage: Not Supported
-- Premium Storage caching: Not Supported
-- VM Generation Support: Generation 1
-- Accelerated Networking: Supported
-- Ephemeral OS Disks: Not Supported
-- Nested Virtualization: Not Supported
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## Next Steps
 - Learn more about how [Azure compute units (ACU)](../../../virtual-machines/acu.md) can help you compare compute performance across Azure SKUs.
