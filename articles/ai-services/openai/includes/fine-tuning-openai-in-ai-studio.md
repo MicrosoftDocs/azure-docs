@@ -9,7 +9,7 @@
  ms.custom: include
 ---
 
-[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 
