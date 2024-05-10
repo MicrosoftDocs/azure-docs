@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL - Single Server to Flexible Server portal migration
+title: Azure Database for PostgreSQL - Single Server to Flexible Server CLI migration - Single Server to Flexible Server portal migration
 author: markingmyname
 ms.author: maghan
 ms.date: 03/15/2024
@@ -76,7 +76,7 @@ The first tab is **Setup**. In case you missed it, allowlist necessary extension
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration.
 
-If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
+If the **Online** migration is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
 Select the **Next : Connect to Source** button.
 
@@ -180,7 +180,7 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/validate-and-migrate-1.png" alt-text="Screenshot showing validations tab in details page." lightbox="../../media/tutorial-migration-service-single-to-flexible/validate-and-migrate-1.png":::
 
-#### [Online (preview)](#tab/online)
+#### [Online](#tab/online)
 
 [!INCLUDE [prerequisites-migration-service-postgresql-online-single-server](../prerequisites/prerequisites-migration-service-postgresql-online-single-server.md)]
 
@@ -247,7 +247,7 @@ The first tab is **Setup**. In case you missed it, allowlist necessary extension
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform premigration validations before running the migration.
 
-If the **Online** migration preview is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
+If the **Online** migration is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
 Select the **Next : Connect to Source** button.
 
