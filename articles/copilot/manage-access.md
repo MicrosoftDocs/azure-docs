@@ -29,7 +29,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, [Gl
 
 1. To grant access to specific Microsoft Entra users or groups, select **Manage RBAC roles**.
 
-1. Assign the **Copilot in Azure User** role to the user or group. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the **Copilot for Azure User** role to the user or group. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 Global administrators can change the **Access management** selection at any time.
 
