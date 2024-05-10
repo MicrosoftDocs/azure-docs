@@ -31,10 +31,10 @@ Following this tutorial will:
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
 ## Prerequisites
-These are **needed** in order to follow this tutorial. Please contact your Teams admin for the last two items to make sure you are set up appropriately.
+These steps are **needed** in order to follow this tutorial. Contact your Teams admin for the last two items to make sure you are set up appropriately.
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active LTS (Long Term Support) and versions [Node 18](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the Teams tenant setup in [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
@@ -637,7 +637,7 @@ export const callingWidgetInCallContainerStyles = (
 
 ### Swap placeholders for identifiers
 
-Before we run the app go to `App.tsx` and replace the placeholder values there with your Azure Communication Services Identities and the identifier for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
+Before we run the app, go to `App.tsx` and replace the placeholder values there with your Azure Communication Services Identities and the identifier for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
 
 `./src/App.tsx`
 ```typescript
@@ -682,7 +682,7 @@ Then when you action the widget button, you should see a little menu:
 
 ![Screenshot of calling widget sample app home page widget open.](../media/calling-widget/sample-app-splash-widget-open.png)
 
-After you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
+After you fill out your name, click start call and the call should begin. The widget should look like so after starting a call:
 
 ![Screenshot of click to call sample app home page with calling experience embedded in widget.](../media/calling-widget/calling-widget-embedded-start.png)
 
