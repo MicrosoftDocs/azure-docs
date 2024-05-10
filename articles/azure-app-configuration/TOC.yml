@@ -126,10 +126,24 @@
               href: use-feature-flags-dotnet-core.md
             - name: Spring Boot
               href: use-feature-flags-spring-boot.md
-        - name: Use conditional feature flags
-          href: howto-feature-filters-aspnet-core.md
-        - name: Enable a feature for specified users/groups
-          href: howto-targetingfilter-aspnet-core.md
+        - name: Enable conditional features with feature filters
+          items:
+            - name: Overview
+              href: howto-feature-filters.md
+            - name: ASP.NET Core
+              href: howto-feature-filters-aspnet-core.md
+        - name: Enable features on a schedule
+          items:
+            - name: Overview
+              href: howto-timewindow-filter.md
+            - name: ASP.NET Core
+              href: howto-timewindow-filter-aspnet-core.md
+        - name: Roll out features to targeted audience
+          items:
+            - name: Overview
+              href: howto-targetingfilter.md
+            - name: ASP.NET Core
+              href: howto-targetingfilter-aspnet-core.md
         - name: Run experiments with variant feature flags
           items:
             - name: ASP.NET Core
@@ -295,6 +309,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
+        - name: Azure SDK for Go
+          href: https://go.microsoft.com/fwlink/?linkid=2270866
     - name: Feature management
       items:
         - name: .NET
