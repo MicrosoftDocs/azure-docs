@@ -121,9 +121,9 @@ An object.
 The following examples show how to use the `groupBy` function.
 
 ```bicep
-var groupObject = groupBy(['foo', 'bar', 'baz'], x => substring(x, 0, 1)) 
+var inputArray = ['foo', 'bar', 'baz']
 
-output outObject object = groupObject
+output outObject object = groupBy(inputArray, x => substring(x, 0, 1)) 
 ```
 
 The output from the preceding example shows the dogs that are five or older:
