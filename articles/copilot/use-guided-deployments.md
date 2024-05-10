@@ -1,6 +1,6 @@
 ---
 title: Create resources using guided deployments from Microsoft Copilot for Azure
-description: Learn how Microsoft Copilot in Azure (preview) can provide one-click or step-by-step deployment assistance.
+description: Learn how Microsoft Copilot for Azure (preview) can provide one-click or step-by-step deployment assistance.
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
@@ -34,7 +34,7 @@ Copilot for Azure can help you deploy an NGINX web server, Azure MySQL Flexible 
 
 You can say "**I want to deploy a LEMP stack on a Ubuntu VM**". Copilot for Azure checks for deployment experiences, and presents you with two options: **Step-by-step deployment** or **One-click deployment**.
 
-:::image type="content" source="media/use-guided-deployments/lemp-stack-deployment.png" lightbox="media/use-guided-deployments/lemp-stack-deployment.png" alt-text="Screenshot showing Copilot for Azure presenting deployment options for a LEMP stack on Ubuntu.":::
+:::image type="content" source="media/use-guided-deployments/lemp-stack-deployment.png" alt-text="Screenshot showing Copilot for Azure presenting deployment options for a LEMP stack on Ubuntu.":::
 
 If you choose **Step-by-step deployment**, after you select a subscription, Copilot for Azure launches a guided experience that walks you through each step of the deployment.
 
@@ -56,7 +56,7 @@ Copilot for Azure can help you [create a Linux VM and connect to it via SSH](/az
 - "Deploy a Linux VM on Azure infrastructure."
 - "Learn mode deployment for Linux VM"
 
-### Linux VM examples
+### Linux VM example
 
 You can say "**How do I create a linux vm and ssh into it?**". You'll see two options: **Step-by-step deployment** or **One-click deployment**. If you select the one-click option, after selecting a subscription, you can run the script to deploy the infrastructure. While the deployment is running, don't close or refresh the page. You'll see progress as each step of the deployment is completed.
 
@@ -74,7 +74,7 @@ Copilot for Azure can help you [create an Azure Kubernetes Service (AKS) cluster
 - "Detailed guide on deploying an AKS cluster on Azure"
 - "One-click deployment for AKS cluster on Azure"
 
-### AKS cluster examples
+### AKS cluster example
 
 When you say "**Seamless deployment for aks cluster on azure**", Microsoft Copilot for Azure presents you with two options: **Step-by-step deployment** or **One-click deployment**. In this example, the one-click deployment option was selected to deploy to the Lamna Healthcare subscription.
 
@@ -82,4 +82,5 @@ When you say "**Seamless deployment for aks cluster on azure**", Microsoft Copil
 
 ## Next steps
 
-- Explore [capabilities](capabilities.md) of Microsoft Copilot in Azure (preview).
+- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure.
+- Learn how to [deploy virtual machines effectively using Microsoft Copilot for Azure](deploy-vms-effectively.md).
