@@ -13,9 +13,11 @@ ms.topic: how-to
 
 # Configure container image to execute deployments with ARM and Bicep
 
-In this article, you learn how to build and utilize custom images within your environment definitions for deployments in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom Azure Resource Manager (ARM) and Bicep container images to deploy your environment definitions in Azure Deployment Environments (ADE).
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a container registry like the [Microsoft Artifact Registry](https://mcr.microsoft.com/)(also known as the Microsoft Container Registry). You can then reference these images in your environment definitions to deploy your environments.
+An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the ARM and Bicep IaC frameworks. 
+
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like DockerHub. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
@@ -24,12 +26,21 @@ The ADE CLI is a tool that allows you to build custom images by using ADE base i
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure Deployment Environments set up in your Azure subscription. 
+  - To set up ADE, follow the [Quickstart: Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
 ## Create and build a Docker image
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
 
-### FROM statement
+To build an image configured for ADE, follow these steps:
+1. Base your image on an ADE-authored sample image or the image of your choice by using the FROM statement.
+1. Install any necessary packages for your image by using the RUN statement.
+1. Create a *scripts* folder at the same level as your Dockerfile, store your *deploy.sh* and *delete.sh* files within it, and ensure those scripts are discoverable and executable inside your created container. This step is necessary for your deployment to work using the ADE core image.
+1. Build and push your image to your container registry, and ensure it's accessible to ADE.
+1. Reference your image in the `runner` property of your environment definition.
+
+### Select a sample container image by using the FROM statement
 
 Include a FROM statement within a created DockerFile for your new image pointing to a sample image hosted on Microsoft Artifact Registry.
 
@@ -99,7 +110,7 @@ if [[ $ADE_TEMPLATE_FILE == *.json ]]; then
     fi
 fi
 ```
-To provide the permissions a deployment requires to execute the deployment and deletion of resources within the subscription, use the privileged managed identity associated with the ADE project environment type. If your deployment needs special permissions to complete, such as particular roles, assign those roles to the project environment type's identity. Sometimes, the managed identity isn't immediately available when entering the container; you can retry until the login is successful. 
+To provide the permissions a deployment requires to execute the deployment and deletion of resources within the subscription, use the privileged managed identity associated with the ADE project environment type. If your deployment needs special permissions to complete, such as particular roles, assign those roles to the project environment type's identity. Sometimes, the managed identity isn't immediately available when entering the container; you can retry until the sign-in is successful. 
 ```bash
 echo "Signing into Azure using MSI"
 while true; do
@@ -135,7 +146,7 @@ az deployment group create --resource-group "$ADE_RESOURCE_GROUP_NAME" \
     --template-file "$DIR/empty.json"
 ```
 
-You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide additional context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder. A simple implementation could be as follows:
+You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide more context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder. A simple implementation could be as follows:
 ```bash
 if [ $? -eq 0 ]; then # deployment successfully created
     while true; do
@@ -216,34 +227,13 @@ When authoring environment definitions to use your custom image in their deploym
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
+## Build a container image with a script
+
+[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
+
 ## Access operation logs and error details
 
-ADE stores error details for a failed deployment the *$ADE_ERROR_LOG* file. 
-
-To troubleshoot a failed deployment:
-
-1. Sign in to the [Developer Portal](https://devportal.microsoft.com/).
-1. Identify the environment that failed to deploy, and select **See details**.
-
-    :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/failed-deployment-card.png" alt-text="Screenshot showing failed deployment error details, specifically an invalid name for a storage account." lightbox="media/how-to-configure-extensibility-bicep-container-image/failed-deployment-card.png":::
-
-1. Review the error details in the **Error Details** section.
-
-    :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/deployment-error-details.png" alt-text="Screenshot showing a failed deployment of an environment with the See Details button displayed." lightbox="media/how-to-configure-extensibility-bicep-container-image/deployment-error-details.png":::
-
-Additionally, you can use the Azure CLI to view an environment's error details using the following command:
-```bash
-az devcenter dev environment show --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME}
-```
-
-To view the operation logs for an environment deployment or deletion, use the Azure CLI to retrieve the latest operation for your environment, and then view the logs for that operation ID.
-
-```bash
-# Get list of operations on the environment, choose the latest operation
-az devcenter dev environment list-operation --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME}
-# Using the latest operation ID, view the operation logs
-az devcenter dev environment show-logs-by-operation --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME} --operation-id {LATEST_OPERATION_ID}
-```
+[!INCLUDE [custom-image-logs-errors](includes/custom-image-logs-errors.md)]
 
 ## Related content
 
