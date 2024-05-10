@@ -23,7 +23,7 @@ Workspaces that are created using a hub, referred to as 'project workspaces,' ob
 
 Create a hub workspace if you or your team are planning for multiple machine learning projects. Use a hub to organize your work in the same data or business domain.
 
-:::image type="content" source="media/concept-hub-workspace/hub-workspace-relation.png alt-text="Screenshot of the hub and project workspace relationship.":::
+:::image type="content" source="media/concept-hub-workspace/hub-workspace-relation.png" alt-text="Screenshot of the hub and project workspace relationship.":::
 
 ## Fast, but secure, AI exploration without bottleneck on IT
 
