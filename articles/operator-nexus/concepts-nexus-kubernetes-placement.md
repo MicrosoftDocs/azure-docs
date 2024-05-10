@@ -9,24 +9,26 @@ ms.date: 04/19/2024
 ms.custom: template-concept
 ---
 
-# Background
+# Resource Placement in Azure Operator Nexus Kubernetes
+
+## Background
 
 Operator Nexus instances are deployed at the customer premises. Each instance
 comprises one or more racks of bare metal servers.
 
-When a user creates a Nexus Kubernetes Cluster (NAKS), they specify a count and
+When a user creates a Nexus Kubernetes Cluster (NKS), they specify a count and
 a [stock keeping unit](./reference-nexus-kubernetes-cluster-sku.md) (SKU) for
 virtual machines (VM) that make up the Kubernetes Control Plane and one or more
 Agent Pools. Agent Pools are the set of Worker Nodes on which a customer's
 containerized network functions run.
 
 The Nexus platform is responsible for deciding the bare metal server on which
-each NAKS VM launches.
+each NKS VM launches.
 
-## How the Nexus Platform Schedules a NAKS VM
+## How the Nexus Platform Schedules a NKS VM
 
 Nexus first identifies the set of potential bare metal servers that meet all of
-the resource requirements of the NAKS VM SKU. For example, if the user
+the resource requirements of the NKS VM SKU. For example, if the user
 specified an `NC_G48_224_v1` VM SKU for their agent pool, Nexus collects the
 bare metal servers that have available capacity for 48 vCPU, 224Gi of RAM, etc.
 
@@ -35,39 +37,39 @@ Plane being scheduled. If this field isn't empty, Nexus filters the list of
 potential bare metal servers to only those servers in the specified
 availability zones (racks). This behavior is a *hard scheduling constraint*. If
 there's no bare metal servers in the filtered list, Nexus *doesn't schedule*
-the NAKS VM and the cluster fails to provision.
+the NKS VM and the cluster fails to provision.
 
 Once Nexus identifies a list of potential bare metal servers on which to place
-the NAKS VM, Nexus then picks one of the bare metal servers after applying the
+the NKS VM, Nexus then picks one of the bare metal servers after applying the
 following sorting rules:
 
-1. Prefer bare metal servers in availability zones (racks) that don't have NAKS
-   VMs from this NAKS Cluster. In other words, *spread the NAKS VMs for a NAKS
+1. Prefer bare metal servers in availability zones (racks) that don't have NKS
+   VMs from this NKS Cluster. In other words, *spread the NKS VMs for a NKS
    Cluster across availability zones*.
 
 1. Prefer bare metal servers within a single availability zone (rack) that
-   don't have other NAKS VMs from the same NAKS Cluster. In other words,
-   *spread the NAKS VMs for a NAKS Cluster across bare metal servers within an
+   don't have other NKS VMs from the same NKS Cluster. In other words,
+   *spread the NKS VMs for a NKS Cluster across bare metal servers within an
    availability zone*.
 
-1. If the NAKS VM SKU is either `NC_G48_224_v1` or `NC_P46_224_v1`, prefer
+1. If the NKS VM SKU is either `NC_G48_224_v1` or `NC_P46_224_v1`, prefer
    bare metal servers that already house `NC_G48_224_v1` or `NC_P46_224_v1`
-   NAKS VMs from other NAKS Clusters. In other words, *group the extra-large
-   VMs from different NAKS Clusters on the same bare metal servers*. This rule
+   NKS VMs from other NKS Clusters. In other words, *group the extra-large
+   VMs from different NKS Clusters on the same bare metal servers*. This rule
    "bin packs" the extra-large VMs in order to reduce fragmentation of the
    available compute resources.
 
 ## Example Placement Scenarios
 
 The following sections highlight behavior that Nexus users should expect
-when creating NAKS Clusters against an Operator Nexus environment.
+when creating NKS Clusters against an Operator Nexus environment.
 
-> **Hint**: You can see which bare metal server your NAKS VMs were scheduled to
-> by examining the `nodes.bareMetalMachineId` property of the NAKS
+> **Hint**: You can see which bare metal server your NKS VMs were scheduled to
+> by examining the `nodes.bareMetalMachineId` property of the NKS
 > KubernetesCluster resource or viewing the "Host" column in Azure Portal's
 > display of Kubernetes Cluster Nodes.
 
-:::image type="content" source="media/nexus-kubernetes/show-baremetal-host.png" alt-text="A screenshot showing bare metal server for NAKS VMs.":::
+:::image type="content" source="media/nexus-kubernetes/show-baremetal-host.png" alt-text="A screenshot showing bare metal server for NKS VMs.":::
 
 The example Operator Nexus environment has these specifications:
 
@@ -82,7 +84,7 @@ The example Operator Nexus environment has these specifications:
 Given an empty Operator Nexus environment with the given capacity, we create
 three differently sized Nexus Kubernetes Clusters.
 
-The NAKS Clusters have these specifications, and we assume for the purposes of
+The NKS Clusters have these specifications, and we assume for the purposes of
 this exercise that the user creates the three Clusters in the following order:
 
 Cluster A
@@ -134,7 +136,7 @@ A, B, and C into an empty environment.
 
 ### Half-full Environment
 
-We now run through an example of launching another NAKS Cluster when the target
+We now run through an example of launching another NKS Cluster when the target
 environment is half-full. The target environment is half-full after Clusters A,
 B, and C are deployed into the target environment.
 
@@ -164,7 +166,7 @@ If a Cluster D control plane VM lands on rack 7 or 8, it's likely that one
 Cluster D Agent Pool #1 VM lands on the same bare metal server as that Cluster
 D control plane VM. This behavior is due to Agent Pool #1 being "pinned" to
 racks 7 and 8. Capacity constraints in those racks cause the scheduler to
-collocate a control plane VM and an Agent Pool #1 VM from the same NAKS
+collocate a control plane VM and an Agent Pool #1 VM from the same NKS
 Cluster.
 
 Cluster D's Agent Pool #2 has three VMs on different bare metal servers on each
@@ -181,7 +183,7 @@ D into the target environment.
 ### Nearly full Environment
 
 In our example target environment, four of the eight racks are
-close to capacity. Let's try to launch another NAKS Cluster. 
+close to capacity. Let's try to launch another NKS Cluster. 
 
 Cluster E has the following specifications:
 
@@ -197,10 +199,10 @@ into the target environment.
 | E       | Agent Pool #1    | `NC_P46_224_v1` | 32          | 8                | 8              | **4**                   | **3, 4 or 5**         |
 
 Cluster E's Agent Pool #1 will spread unevenly over all eight racks. Racks 7
-and 8 will have three NAKS VMs from Agent Pool #1 instead of the expected four
-NAKS VMs because there's no more capacity for the extra-large SKU VMs in those
+and 8 will have three NKS VMs from Agent Pool #1 instead of the expected four
+NKS VMs because there's no more capacity for the extra-large SKU VMs in those
 racks after scheduling Clusters A through D. Because racks 7 and 8 don't have
-capacity for the fourth extra-large SKU in Agent Pool #1, five NAKS VMs will
+capacity for the fourth extra-large SKU in Agent Pool #1, five NKS VMs will
 land on the two least-utilized racks. In our example, those least-utilized
 racks were racks 3 and 6.
 
@@ -221,29 +223,29 @@ restart and tell Nexus that they're ready to receive workloads.
 > all bare metal servers in a rack in parallel.
 
 When an individual bare metal server is reimaged, all workloads running on that
-bare metal server, including all NAKS VMs, lose power, and connectivity. Workload
-containers running on NAKS VMs will, in turn, lose power, and connectivity.
-After one minute of not being able to reach those workload containers, the NAKS
+bare metal server, including all NKS VMs, lose power, and connectivity. Workload
+containers running on NKS VMs will, in turn, lose power, and connectivity.
+After one minute of not being able to reach those workload containers, the NKS
 Cluster's Kubernetes Control Plane will mark the corresponding Pods as
-unhealthy. If the Pods are members of a Deployment or StatefulSet, the NAKS
+unhealthy. If the Pods are members of a Deployment or StatefulSet, the NKS
 Cluster's Kubernetes Control Plane attempts to launch replacement Pods to
 bring the observed replica count of the Deployment or StatefulSet back to the
 desired replica count.
 
 New Pods only launch if there's available capacity for the Pod in the remaining
-healthy NAKS VMs. As of April 2024 (Network Cloud 2304.1 release), new NAKS VMs
-aren't created to replace NAKS VMs that were on the bare metal server being
+healthy NKS VMs. As of April 2024 (Network Cloud 2304.1 release), new NKS VMs
+aren't created to replace NKS VMs that were on the bare metal server being
 reimaged.
 
-Once the bare metal server is successfully reimaged and able to accept new NAKS
-VMs, the NAKS VMs that were originally on the same bare metal server relaunch
+Once the bare metal server is successfully reimaged and able to accept new NKS
+VMs, the NKS VMs that were originally on the same bare metal server relaunch
 on the newly reimaged bare metal server. Workload containers may then be
-scheduled to those NAKS VMs, potentially restoring the Deployments or
-StatefulSets that had Pods on NAKS VMs that were on the bare metal server.
+scheduled to those NKS VMs, potentially restoring the Deployments or
+StatefulSets that had Pods on NKS VMs that were on the bare metal server.
 
-> **Note**: This behavior may seem to the user as if the NAKS VMs did not
+> **Note**: This behavior may seem to the user as if the NKS VMs did not
 > "move" from the bare metal server, when in fact a new instance of an identical
-> NAKS VM was launched on the newly reimaged bare metal server that retained the
+> NKS VM was launched on the newly reimaged bare metal server that retained the
 > same bare metal server name as before reimaging.
 
 ## Best Practices 
@@ -251,17 +253,17 @@ StatefulSets that had Pods on NAKS VMs that were on the bare metal server.
 When working with Operator Nexus, keep the following best practices in mind.
 
 * Avoid specifying `AvailabilityZones` for an Agent Pool.
-* Launch larger NAKS Clusters before smaller ones.
+* Launch larger NKS Clusters before smaller ones.
 * Reduce the Agent Pool's Count before reducing the VM SKU size.
 
 ### Avoid specifying AvailabilityZones for an Agent Pool
 
 As you can tell from the above placement scenarios, specifying
-`AvailabilityZones` for an Agent Pool is the primary reason that NAKS VMs from
-the same NAKS Cluster would end up on the same bare metal server. By specifying
+`AvailabilityZones` for an Agent Pool is the primary reason that NKS VMs from
+the same NKS Cluster would end up on the same bare metal server. By specifying
 `AvailabilityZones`, you "pin" the Agent Pool to a subset of racks and
 therefore limit the number of potential bare metal servers in that set of racks
-for other NAKS Clusters and other Agent Pool VMs in the same NAKS Cluster to
+for other NKS Clusters and other Agent Pool VMs in the same NKS Cluster to
 land on.
 
 Therefore, our first best practice is to avoid specifying `AvailabilityZones`
@@ -274,27 +276,27 @@ two or three VMs in an agent pool. You might consider setting
 `AvailabilityZones` for that agent pool to `[1,3,5,7]` or `[0,2,4,6]` to
 increase availability during runtime upgrades.
 
-### Launch larger NAKS Clusters before smaller ones
+### Launch larger NKS Clusters before smaller ones
 
-As of April 2024, and the Network Cloud 2403.1 release, NAKS Clusters are
+As of April 2024, and the Network Cloud 2403.1 release, NKS Clusters are
 scheduled in the order in which they're created. To most efficiently pack your
-target environment, we recommended you create larger NAKS Clusters before
+target environment, we recommended you create larger NKS Clusters before
 smaller ones. Likewise, we recommended you schedule larger Agent Pools before
 smaller ones.
 
 This recommendation is important for Agent Pools using the extra-large
 `NC_G48_224_v1` or `NC_P46_224_v1` SKU. Scheduling the Agent Pools with the
 greatest count of these extra-large SKU VMs creates a larger set of bare metal
-servers upon which other extra-large SKU VMs from Agent Pools in other NAKS
+servers upon which other extra-large SKU VMs from Agent Pools in other NKS
 Clusters can collocate.
 
 ### Reduce the Agent Pool's Count before reducing the VM SKU size
 
-If you run into capacity constraints when launching a NAKS Cluster or Agent
+If you run into capacity constraints when launching a NKS Cluster or Agent
 Pool, reduce the Count of the Agent Pool before adjusting the VM SKU size. For
-example, if you attempt to create a NAKS Cluster with an Agent Pool with VM SKU
+example, if you attempt to create a NKS Cluster with an Agent Pool with VM SKU
 size of `NC_P46_224_v1` and a Count of 24 and get back a failure to provision
-the NAKS Cluster due to insufficient resources, you may be tempted to use a VM
+the NKS Cluster due to insufficient resources, you may be tempted to use a VM
 SKU Size of `NC_P36_168_v1` and continue with a Count of 24. However, due to
 requirements for workload VMs to be aligned to a single NUMA cell on a bare
 metal server, it's likely that that same request results in similar
