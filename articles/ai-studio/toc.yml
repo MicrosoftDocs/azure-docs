@@ -48,24 +48,30 @@ items:
       displayName: maas, paygo, models-as-a-service
     - name: Region availability for models in Serverless API endpoints
       href: how-to/deploy-models-serverless-availability.md
-    - name: Deploy Azure OpenAI models
-      href: how-to/deploy-models-openai.md
-    - name: Deploy Cohere models
+    - name: Fine-tune models
+      href: concepts/fine-tuning-overview.md
+    - name: Azure OpenAI models
+      items:
+      - name: Deploy Azure OpenAI models
+        href: how-to/deploy-models-openai.md
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
+    - name: Cohere models
       items:
       - name: Deploy Cohere Command models
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
-    - name: Deploy Llama models
+    - name: Llama models
       items:
       - name: Deploy Llama family models
         href: how-to/deploy-models-llama.md
       - name: Fine-tune Llama 2 family models
         href: how-to/fine-tune-model-llama.md
-    - name: Deploy Mistral family models
+    - name: Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
-    - name: Deploy Phi models
+    - name: Phi models
       items:
       - name: Fine-tune Phi 3 models
         href: how-to/fine-tune-phi-3-models.md

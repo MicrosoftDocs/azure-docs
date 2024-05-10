@@ -12,7 +12,13 @@ ms.custom: include
 
 To complete this section, you need a local copy of product data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
 
-Follow these steps to add your data in the chat playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
+> [!IMPORTANT]
+> The **Add your data** feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
+> * Azure AI Search
+> * Azure OpenAI
+> * Storage resource 
+
+Follow these steps to add your data in the chat playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription.
 
 1. Go to your project in [Azure AI Studio](https://ai.azure.com). 
 1. Select **Playgrounds** > **Chat** from the left pane.
