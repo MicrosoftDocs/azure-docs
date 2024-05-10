@@ -33,16 +33,16 @@ POST /completions?api-version=2024-05-01-preview
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| prompt | True |     | The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that <\|endoftext\|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document. |
+| prompt | True |     | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | frequency\_penalty |     | number | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | max\_tokens |     | integer | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
 | model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty |     | number | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
-| seed |     | integer | If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
+| seed |     | integer | If specified, the model makes a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | stop |     |     | Sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence. |
 | stream |     | boolean | Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. |
-| temperature |     | number | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.<br><br>We generally recommend altering this or `top_p` but not both. |
-| top\_p |     | number | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top\_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br><br>We generally recommend altering this or `temperature` but not both. |
+| temperature |     | number | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.<br><br>We generally recommend altering `temperature` or `top_p` but not both. |
+| top\_p |     | number | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top\_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br><br>We generally recommend altering `top_p` or `temperature` but not both. |
 
 ## Responses
 
@@ -132,11 +132,11 @@ Status code: 200
 | Name | Description |
 | --- | --- |
 | [Choices](#choices) | A list of chat completion choices. |
-| [CompletionFinishReason](#completionfinishreason) | The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters. |
+| [CompletionFinishReason](#completionfinishreason) | The reason the model stopped generating tokens. This is `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters. |
 | [CompletionUsage](#completionusage) | Usage statistics for the completion request. |
 | [ContentFilterError](#contentfiltererror) | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again. |
 | [CreateCompletionRequest](#createcompletionrequest) |     |
-| [CreateCompletionResponse](#createcompletionresponse) | Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint). |
+| [CreateCompletionResponse](#createcompletionresponse) | Represents a completion response from the API. |
 | [Detail](#detail) |     |
 | [TextCompletionObject](#textcompletionobject) | The object type, which is always "text\_completion" |
 | [UnprocessableContentError](#unprocessablecontenterror) |     |
@@ -149,14 +149,14 @@ A list of chat completion choices.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| finish\_reason | [CompletionFinishReason](#completionfinishreason) | The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters, `tool_calls` if the model called a tool. |
+| finish\_reason | [CompletionFinishReason](#completionfinishreason) | The reason the model stopped generating tokens. This is `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters, `tool_calls` if the model called a tool. |
 | index | integer | The index of the choice in the list of choices. |
 | text | string | The generated text. |
 
 
 ### CompletionFinishReason
 
-The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters.
+The reason the model stopped generating tokens. This is `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, `content_filter` if content was omitted due to a flag from our content filters.
 
 
 | Name | Type | Description |
@@ -200,7 +200,7 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | max\_tokens | integer | 256 | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
 | model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty | number | 0   | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
-| prompt |     | <\|endoftext\|> | The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that <\|endoftext\|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document. |
+| prompt |     | `<\|endoftext\|>` | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | seed | integer |     | If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | stop |     |     | Sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence. |
 | stream | boolean | False | Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. |
@@ -210,7 +210,7 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 
 ### CreateCompletionResponse
 
-Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint).
+Represents a completion response from the API. Note: both the streamed and nonstreamed response objects share the same shape (unlike the chat endpoint).
 
 
 | Name | Type | Description |
@@ -220,7 +220,7 @@ Represents a completion response from the API. Note: both the streamed and non-s
 | id  | string | A unique identifier for the completion. |
 | model | string | The model used for completion. |
 | object | [TextCompletionObject](#textcompletionobject) | The object type, which is always "text\_completion" |
-| system\_fingerprint | string | This fingerprint represents the backend configuration that the model runs with.<br><br>Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism. |
+| system\_fingerprint | string | This fingerprint represents the backend configuration that the model runs with.<br><br>Can be used with the `seed` request parameter to understand when backend changes have been made that might impact determinism. |
 | usage | [CompletionUsage](#completionusage) | Usage statistics for the completion request. |
 
 ### Detail
