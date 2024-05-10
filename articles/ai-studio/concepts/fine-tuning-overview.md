@@ -19,7 +19,7 @@ When we talk about fine-tuning, we really mean *supervised fine-tuning* not cont
 
 In this article, you learn whether or not fine-tuning is the right solution for your given use case and how Azure AI studio can support your fine-tuning needs.
 
-## Getting started with Fine-tuning
+## Getting started with fine-tuning
 
 When deciding whether or not fine-tuning is the right solution to explore for a given use case, there are some key terms that it's helpful to be familiar with:
 
