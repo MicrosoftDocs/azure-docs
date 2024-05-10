@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: site-recovery
 ms.date: 05/10/2024
 ms.author: ankitadutta
-author: ankitaduttaMSFTk
+author: ankitaduttaMSFT
 ---
 
 # Log Analytics data model for Azure Site Recovery
