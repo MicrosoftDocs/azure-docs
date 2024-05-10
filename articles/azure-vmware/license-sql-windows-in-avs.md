@@ -10,11 +10,11 @@ ms.date: 04/29/2024
 
 # License SQL Server, Windows Server, and Linux in Azure VMware Solution 
 
-This article provides licensing considerations and tooling integration for running SQL Server, Windows Server and Linux within Azure VMware Solution. 
+This article provides licensing considerations and tooling integration for running SQL Server, Windows Server, and Linux within Azure VMware Solution. 
 
 Included in the pricing of Azure VMware Solution is infrastructure, hosts, and storage along with many VMware licensing components including NSX-T, vSphere, vSAN, and HCX Advanced. There's no added charge in the pricing for any software running in your guest virtual machines(VMs). 
 
-To remain compliant you do need to license the software running in the VMs. For SQL Server, Windows Server, and Linux subscriptions you can use your existing licenses investment to apply them in Azure VMware Solution.
+To remain compliant, you do need to license the software running in the VMs. For SQL Server, Windows Server, and Linux subscriptions you can use your existing licenses investment to apply them in Azure VMware Solution.
 
 In addition, with [Software Assurance](https://www.microsoft.com/Licensing/licensing-programs/software-assurance-by-benefits) or an active Linux subscription you can take advantage of [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) not only allowing for you to use any existing licenses, but including another benefits around migration and unlimited virtualization.
 
@@ -40,7 +40,7 @@ You can use the following licenses for SQL Server and Windows Server to apply to
 - ****SQL Server**** - Standard or Enterprise core licenses.
 
 ## Dual Use Rights for Azure Migration
-Migration to Azure VMware Solution is usually executed over an extended timeframe instead of at a single point-in-time. To give you flexibility around your migration timelines you can continue to use your licenses outside of Azure, for 180 days, from when the licenses are allocated within Azure VMware Solution. This dual use rights benefit applies to SQL Server and Windows Server.
+Migration to Azure VMware Solution is usually executed over an extended timeframe instead of at a single point-in-time. To give you flexibility around your migration timelines, you can continue to use your licenses outside of Azure for 180 days from when the licenses are allocated within Azure VMware Solution. This dual use rights benefit applies to SQL Server and Windows Server.
 
 For more information and other considerations for dual use rights outside of migration, see [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS). 
 
@@ -76,7 +76,7 @@ You can enable Azure Hybrid Benefit for SQL Server and achieve unlimited virtual
 ##### License a virtual machine
 SQL Server licenses can be registered and applied to VMs running SQL Server in Azure VMware Solution by registering through Azure Arc, through these steps: 
 1.	Azure VMware Solution must be Arc-enabled: [Deploy Arc-enabled VMware vSphere for Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows). You can Arc-enable the virtual machines and get the Azure Extension for SQL Server applied to that VM by following the steps provided in the section titled *Enable guest management and extension installation*. 
-2.	When Guest Management is configured, the Azure Extension for SQL Server should be installed on that VM. This allows for setting the License Type for the SQL Server instance running in the VM. 
+2.	When Guest Management is configured, the Azure Extension for SQL Server should be installed on that VM. The extension install enables you to configure the License Type for the SQL Server instance running in the VM. 
 3. Once enabled you can configure the License Type and other SQL Server configuration settings from the Azure portal, PowerShell or CLI for a specific Arc-enabled server. To configure from the Azure portal, VMware vSphere in Azure VMware Solution experience, follow the steps:  
  
 1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the Machine-Azure Arc (AVS) page.
