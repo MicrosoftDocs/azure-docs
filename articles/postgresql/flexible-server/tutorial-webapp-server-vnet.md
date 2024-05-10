@@ -4,7 +4,7 @@ description: Quickstart guide to create an Azure Database for PostgreSQL - Flexi
 author: gbowerman
 ms.author: guybo
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/09/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
@@ -30,7 +30,7 @@ In this tutorial you will learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-- [Install Azure CLI](/cli/azure/install-azure-cli).version 2.0 or later locally. To see the version installed, run the `az --version` command. 
+- [Install Azure CLI](/cli/azure/install-azure-cli) version 2.0 or later locally (or use [Azure Cloud Shell](https://azure.microsoft.com/get-started/azure-portal/cloud-shell/) which has CLI pre-installed). To see the version installed, run the `az --version` command. 
 - Login to your account using the [az login](/cli/azure/authenticate-azure-cli) command. Note the **id** property from the command output for the corresponding subscription name.
 
   ```azurecli
@@ -60,15 +60,15 @@ This command performs the following actions, which may take a few minutes:
 Here is the sample output.
 
 ```json
-Local context is turned on. Its information is saved in working directory /home/jane. You can run `az local-context off` to turn it off.
-Command argument values from local context: --resource-group demoresourcegroup, --location: eastus
-Checking the existence of the resource group ''...
-Creating Resource group 'demoresourcegroup ' ...
-Creating new vnet "demoappvnet" in resource group "demoresourcegroup" ...
-Creating new subnet "Subnet095447391" in resource group "demoresourcegroup " and delegating it to "Microsoft.DBforPostgreSQL/flexibleServers"...
-Creating Azure Database for PostgreSQL flexible server instance 'demoserverpostgres' in group 'demoresourcegroup'...
+Creating Resource Group 'demoresourcegroup'...
+Creating new Vnet "demoappvnet" in resource group "demoresourcegroup"
+Creating new Subnet "Subnetdemoserverpostgres" in resource group "demoresourcegroup"
+Creating a private dns zone demoserverpostgres.private.postgres.database.azure.com in resource group "demoresourcegroup"
+Creating PostgreSQL Server 'demoserverpostgres' in group 'demoresourcegroup'...
 Your server 'demoserverpostgres' is using sku 'Standard_D2s_v3' (Paid Tier). Please refer to https://aka.ms/postgres-pricing for pricing details
-Make a note of your password. If you forget, you have to reset your password with 'az postgres flexible-server update -n demoserverpostgres --resource-group demoresourcegroup -p <new-password>'.
+Creating PostgreSQL database 'flexibleserverdb'...
+Make a note of your password. If you forget, you would have to reset your password with "az postgres flexible-server update -n demoserverpostgres -g demoresourcegroup -p <new-password>".
+Try using 'az postgres flexible-server connect' command to test out connection.
 {
   "connectionString": "postgresql://generated-username:generated-password@demoserverpostgres.postgres.database.azure.com/postgres?sslmode=require",
   "host": "demoserverpostgres.postgres.database.azure.com",
