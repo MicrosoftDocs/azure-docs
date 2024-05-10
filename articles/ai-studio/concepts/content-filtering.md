@@ -26,10 +26,7 @@ Azure AI Studio includes a content filtering system that works alongside core mo
 
 This confent filtering system is powered by [Azure AI Content Safety](../../ai-services/content-safety/overview.md), and it works by running both the  prompt input and completion output through an ensemble of classification models aimed at detecting and preventing the output of harmful content. Variations in API configurations and application design might affect completions and thus filtering behavior.
 
-With Azure OpenAI model deployments, you can use the default content filter or create your own content filter (described below). The default content filter is also available for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md), but custom content filters aren't yet available for those models. Models available through Models as a Service have content filtering enabled by default and can't be configured.
-
-TBD:
-You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog-overview.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
+With Azure OpenAI model deployments, you can use the default content filter or create your own content filter (described below). The default content filter is also available for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md), but custom content filters aren't yet available for those models. Models available through **Models as a Service** have content filtering enabled by default and can't be configured.
 
 ## Language support
 
@@ -37,7 +34,7 @@ The content filtering models have been trained and tested on the following langu
 
 ## Create a content filter
 
-For any model deployment in [Azure AI Studio](https://ai.azure.com), you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities like jailbreak risk detection and protected material detection. 
+For any model deployment in [Azure AI Studio](https://ai.azure.com), you can directly use the default content filter, but you might want to have more control. For example, you could make a filter stricter or more lenient, or enable more advanced capabilities like prompt shields and protected material detection.
 
 To create a content filter, navigate to your deployemnt, select the **Content filters** tab on the left nav, and select the **Create content filter** button.
 
