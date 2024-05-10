@@ -139,11 +139,11 @@ For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) fu
 
 Resource Manager provides the following functions for working with lambda expressions.
 
-* [filter](bicep-functions-lambda.md#filter)
-* [map](bicep-functions-lambda.md#map)
-* [reduce](bicep-functions-lambda.md#reduce)
-* [sort](bicep-functions-lambda.md#sort)
-* [toObject](bicep-functions-lambda.md#toobject)
+* [filter](template-functions-lambda.md#filter)
+* [map](template-functions-lambda.md#map)
+* [reduce](template-functions-lambda.md#reduce)
+* [sort](template-functions-lambda.md#sort)
+* [toObject](template-functions-lambda.md#toobject)
 
 <a id="and" aria-hidden="true"></a>
 <a id="bool" aria-hidden="true"></a>
