@@ -33,7 +33,7 @@ If you are still using the [legacy event](#legacy-event) AzureBackupReport, we r
 
 For more information, see [Data model for Azure Backup diagnostics events](./backup-azure-reports-data-model.md).
 
-Data for these events can be sent to either a storage account, a Log Analytics workspace, or an event hub. If you're sending this data to a Log Analytics workspace, select the **Resource specific** toggle on the **Diagnostics settings** screen. For more information, see the following sections.
+Data for these events can be sent to either a storage account, a Log Analytics workspace, or an event hub. Storage account needs to be in the same region as Recovery Services vaults however Log Analytics workspace can be in a different region.  If you're sending this data to a Log Analytics workspace, select the **Resource specific** toggle on the **Diagnostics settings** screen. For more information, see the following sections.
 
 ## Use diagnostics settings with Log Analytics
 
