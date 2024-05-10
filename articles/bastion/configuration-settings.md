@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/05/2024
+ms.date: 04/30/2024
 ms.custom: references_regions
 ---
 
@@ -28,7 +28,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 > [!NOTE]
 > VNet peering isn't currently supported for the Developer SKU.
 
-### <a name="premium"></a>Premium SKU (Preview)
+### <a name="premium"></a>Premium SKU
 
 The Premium SKU is a new SKU that supports Bastion features such as Session Recording and Private-Only Bastion. When you deploy bastion, only select the Premium SKU if you need the features that it supports.
 
