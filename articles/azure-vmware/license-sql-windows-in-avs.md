@@ -12,7 +12,9 @@ ms.date: 04/29/2024
 
 This article provides licensing considerations and tooling integration for running SQL Server, Windows Server and Linux within Azure VMware Solution. 
 
-Included in the pricing of Azure VMware Solution is infrastructure, hosts, and storage along with many VMware licensing components including NSX-T, vSphere, vSAN, and HCX Advanced. There's no extra cost in Azure VMware Solution added based on the software running in any of your virtual machines(VMs). You do, however need to license products running in the VMs. For SQL Server, Windows Server, and Linux subscriptions you can use your existing licensing investment to apply them in Azure VMware Solution.
+Included in the pricing of Azure VMware Solution is infrastructure, hosts, and storage along with many VMware licensing components including NSX-T, vSphere, vSAN, and HCX Advanced. There's no added charge in the pricing for any software running in your guest virtual machines(VMs). 
+
+To remain compliant you do need to license the software running in the VMs. For SQL Server, Windows Server, and Linux subscriptions you can use your existing licenses investment to apply them in Azure VMware Solution.
 
 In addition, with [Software Assurance](https://www.microsoft.com/Licensing/licensing-programs/software-assurance-by-benefits) or an active Linux subscription you can take advantage of [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) not only allowing for you to use any existing licenses, but including another benefits around migration and unlimited virtualization.
 
@@ -46,11 +48,10 @@ For more information and other considerations for dual use rights outside of mig
 Unlimited virtualization allows you to license the physical cores on the host and run as many VMs with Windows Server and/or SQL Server as you can, limited only by host capacity. It can provide licensing cost optimization for environments with scenarios such as:  
 - The host contains a high density of VMs 
 - The host contains dynamic provisioning or deprovisioning of VMs  
-- The workloads in the VMs aren't performance sensitive or can function even if impacted by another VM workload using the host resources. 
 
 By applying existing SQL Server Enterprise and/or Windows Server Datacenter licenses to cover the physical cores of any host you can achieve unlimited virtualization of that host. Each host is required to have licenses applied to all the physical cores.  
 
-While Standard SQL Server and Windows licenses can't be used for unlimited virtualization, they can be applied to license an individual VM discussed in the next section.
+While Standard licenses for SQL Server and Windows Server can't be used for unlimited virtualization, they can be applied to license an individual VM discussed in the next section.
 
 ## License a Virtual Machine virtual cores
 You need to license each machine individually applying licenses based on the number of virtual cores (v-Core) associated with the VM. 
@@ -101,4 +102,4 @@ In addition to taking advantage of Azure Hybrid Benefit for SQL Server, Windows 
 ## More Information
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
-[Azure VMware Solution pricing](https://azure.microsoft.com/en-us/pricing/details/azure-vmware/) 
+[Azure VMware Solution pricing](https://azure.microsoft.com/pricing/details/azure-vmware/) 
