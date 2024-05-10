@@ -231,25 +231,57 @@ sections:
   - name: Assistants
     questions:
       - question: |
-          Where is data stored?
-        answer:
-          In the Microsoft tenant.
+          Do you store any data used in the Assistants API? 
+        answer: |
+          Yes. Unlike Chat Completions API, Azure OpenAI Assistants is a stateful API, meaning it retains data. There are two types of data stored in the Assistants API: 
+          * Stateful entities: Threads, messages and runs created during Assistants use. 
+          * Files: Uploaded during Assistants setup or as part of a message.  
       - question: |
-          When I use Assistants, Is my data used Microsoft for training models?
-        answer:
-          No. Data is not used for Microsoft not used for training models. 
+          Where is this data stored?
+        answer: |
+          Data is stored in a secure, Microsoft-managed storage account that is logically separated.  
+      - question: |
+          How long is this data stored?
+        answer: |
+          All used data persists in this system unless you explicitly delete this data. Use the [delete function](./assistants-reference-threads) with the thread ID of the thread you want to delete. Clearing the Run in the Assistants Playground does not delete threads, however deleting them using delete function will not list them in the thread page. 
+      - question: |
+          Can I bring my own data store to use with Assistants? 
+        answer: |
+          No. Currently Assistants supports only local files uploaded to the Assistants-managed storage. You cannot use your private storage account with Assistants. 
+      - question: |
+          Is my data used by Microsoft for training models? 
+        answer: |
+          No. Data is not used for Microsoft not used for training models. See the [Responsible AI documentation](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) for more information. 
       - question: |
           Where is data stored geographically?
-        answer:
-          Azure OpenAI Assistants endpoints are regional, and data is stored in the same region as the endpoint. Under no condition can data leave the region its in.
+        answer: |
+          Azure OpenAI Assistants endpoints are regional, and data is stored in the same region as the endpoint. See the [Azure data residency documentation](/explore/global-infrastructure/data-residency/#overview) for more information. 
+      - question: |
+          How am I charged for Assistants?
+        answer: |
+          Currently, when you use Assistants API, you're billed for the following: 
+          1. Inference cost (input and output) of the base model you are using for each Assistant (for example gpt-4-0125). If you've created multiple Assistants, you will be charged for the base model attached to each Assistant. 
+          2. If you've enabled the Code Interpreter tool. 
+            a. If your assistant calls Code Interpreter simultaneously in two different threads, this would create two Code Interpreter sessions, each of which would be charged.  
+            b. Each session is active by default for one hour, which means that you would only pay this fee once if your user keeps giving instructions to Code Interpreter in the same thread for up to one hour. 
+
+          See the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information.
       - question: |
           Is there any additional pricing or quota for using Assistants? 
-        answer:
-          No. All quotas apply to using models with Assistants.
+        answer: |
+          No. All [quotas](./quotas-limits.md) apply to using models with Assistants.
       - question: |
-          Is it possible to use a customer managed private storage account? 
-        answer:
-          Currently you can't use a customer managed storage account? 
+          Does the Assistants API supports non-Azure OpenAI models?   
+        answer: |
+          Assistants API only supports Azure OpenAI models.
+      - question: |
+          Is the Assistants API generally available?
+        answer: |
+          The Assistants API is currently in public preview. Stay informed of our latest product updates by regularly visiting our [What's New](./whats-new.md) page.
+      - question: |
+          What are some examples or other resources I can use to learn about Assistants?  
+        answer: |
+          See the [Conceptual](./concepts/assistants.md), [quickstart](./assistants-quickstart.md), [how-to](./how-to/assistant.md) articles for information on getting started and using Assistnats. You can also check out Azure OpenAI Assistants code samples on [GitHub](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants).
   - name: Web app
     questions:
       - question: |
