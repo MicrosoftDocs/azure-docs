@@ -63,7 +63,7 @@ Assign the appropriate RBAC permissions to use Azure Compute Fleet.
 
 If you're using images stored in Compute Gallery when deploying your Compute Fleet, also repeat the previous steps for the *Compute Gallery Sharing Admin* role. 
 
-For more information on assigning roles, see [assign Azure roles using the Azure portal](/role-based-access-control/quickstart-assign-role-user-portal.md).
+For more information on assigning roles, see [assign Azure roles using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 
 ## ARM template 
