@@ -31,7 +31,7 @@ Create an assistant with a model and instructions.
 
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
-| model| | Required | Model deployment name of the model to use.|
+| model| string | Required | Model deployment name of the model to use.|
 | name | string or null | Optional | The name of the assistant. The maximum length is 256 characters.|
 | description| string or null | Optional | The description of the assistant. The maximum length is 512 characters.|
 | instructions | string or null | Optional | The system instructions that the assistant uses. The maximum length is 32768 characters.|
@@ -39,7 +39,7 @@ Create an assistant with a model and instructions.
 | file_ids | array | Optional | Defaults to []. A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
 | metadata | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 | temperature | number or null | Optional | Defaults to 1. Determines what sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. |
-| top_p | number or null | Optional | Defaults to 1. An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. | We generally recommend altering this or temperature but not both. |
+| top_p | number or null | Optional | Defaults to 1. An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both. |
 | response_format | string or object | Optional | Specifies the format that the model must output. Compatible with GPT-4 Turbo and all GPT-3.5 Turbo models since gpt-3.5-turbo-1106. Setting this parameter to `{ "type": "json_object" }` enables JSON mode, which guarantees the message the model generates is valid JSON. Importantly, when using JSON mode, you must also instruct the model to produce JSON yourself using a system or user message. Without this instruction, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly "stuck" request. Additionally, the message content may be partially cut off if you use `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length. |
 
 ### Returns
