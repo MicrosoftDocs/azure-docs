@@ -220,6 +220,8 @@ items:
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
     - name: Vulnerability management
       href: concepts/vulnerability-management.md
+    - name: Disaster recovery
+      href: how-to/disaster-recovery.md
   - name: Azure AI SDKs
     items:
     - name: Overview of SDKs
