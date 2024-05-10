@@ -44,7 +44,7 @@ az postgres flexible-server connect --help
 ```
 
 ## Test database server connection
-You can test and validate the connection to the database from your development environment using the command.
+You can test and validate the connection to the database from your development environment using the [az postgres flexible-server connect](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-connect) command.
 
 ```azurecli-interactive
 az postgres flexible-server connect \
@@ -53,11 +53,12 @@ az postgres flexible-server connect \
 **Example:** 
 ```azurecli-interactive
 az postgres flexible-server connect \
-    -n postgresdemoserver -u dbuser -p "dbpassword" -d postgres
+    -n server372060240 -u dbuser -p "dbpassword" -d postgres
 ```
-You see the output if the connection was successful.
+You see similar output if the connection was successful.
+
 ```output
-Successfully connected to <servername>.
+Successfully connected to server372060240.
 ```
 
 If the connection failed, try these solutions:
@@ -78,7 +79,7 @@ az postgres flexible-server connect \
 
 ```azurecli-interactive
 az postgres flexible-server connect \
-    -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
+    -n server372060240 -u starchylapwing9 -p "dbpassword" -d postgres --interactive
 ```
 
 You see the **psql** shell experience as shown here:
@@ -100,7 +101,7 @@ postgres>
 ```
 
 ## Execute single queries
-You can run single queries against Postgres database using [az postgres flexible-server execute](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az-postgres-flexible-server-execute).
+You can run single queries against Postgres database using [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute).
 
 ```azurecli-interactive
 az postgres flexible-server execute \
@@ -111,7 +112,7 @@ az postgres flexible-server execute \
 **Example:** 
 ```azurecli-interactive
 az postgres flexible-server execute \
-    -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb \
+    -n server372060240 -u starchylapwing9 -p "dbpassword" -d postgres \
     -q "SELECT 1" --output table
 ```
 
@@ -137,9 +138,9 @@ az postgres flexible-server execute \
 ```
 
 **Example:** 
-```azureazurecli-interactivecli
+```azurecli-interactive
 az postgres flexible-server execute \
-    -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb \
+    -n server372060240 -u dbuser -p "dbpassword" -d postgres \
     -f "./test.sql"
 ```
 
@@ -149,7 +150,7 @@ You see an output as shown here:
 Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Running sql file '.\test.sql'...
 Successfully executed the file.
-Closed the connection to postgresdemoserver.
+Closed the connection to server372060240.
 ```
 
 ## Next Steps
