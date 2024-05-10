@@ -33,7 +33,7 @@ TimeGEN-1 can be deployed as a service with pay-as-you-go and is offered by Nixt
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > The pay-as-you-go model deployment offering for TimeGEN1 is only available with hubs created in **East US 2** region.
+    > The pay-as-you-go model deployment offering for TimeGEN1 is only available with hubs created in the **East US 2** or **Sweden Central** regions.
 
 - An [AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -49,7 +49,7 @@ To create a deployment:
     Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
 
 1. In the model catalog, on the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
-1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model your project must be in the **East US 2** region.
+1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model your project must be in the **East US 2** or **Sweden Central**  region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
