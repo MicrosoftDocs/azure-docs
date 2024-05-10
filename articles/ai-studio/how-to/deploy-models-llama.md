@@ -522,7 +522,7 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 ### Consume Llama 2 models deployed to real-time endpoints
 
-For reference about how to invoke Llama models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
+For reference about how to invoke Llama models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
 ## Cost and quotas
 
