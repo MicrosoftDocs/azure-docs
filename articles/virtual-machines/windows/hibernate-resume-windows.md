@@ -44,9 +44,9 @@ For general limitations, Azure feature limitations supported VM sizes, and featu
 
 ## Creating a Windows VM with hibernation enabled
 
-To hibernate a VM, you must first enable the feature while creating the VM. You can only enable hibernation for a VM on initial creation. You can't enable this feature after the VM is created.
+To hibernate a VM, you must first enable the feature on the VM.
 
-To enable hibernation during VM creation, you can use the Azure portal, CLI, PowerShell, ARM templates and API. 
+To enable hibernation during VM creation, you can use the Azure portal, CLI, PowerShell, ARM templates and API.
 
 ### [Portal](#tab/enableWithPortal)
 
@@ -89,14 +89,11 @@ New-AzVm `
 
 ### [REST](#tab/enableWithREST)
 
-First, [create a VM with hibernation enabled](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
+To create a VM with hibernation enabled, set *hibernationEnabled* to *true*
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2021-11-01
-```
-Your output should look something like this:
 
-```
 {
   "location": "eastus",
   "properties": {
@@ -151,13 +148,89 @@ To learn more about REST, check out an [API example](/rest/api/compute/virtual-m
 
 ---
 
-Once you've created a VM with hibernation enabled, you need to configure the guest OS to successfully hibernate your VM. 
+Once you've created a VM with hibernation enabled, you need to configure the guest OS to successfully hibernate your VM.
+
+## Enabling hibernation on an existing Windows VM 
+
+To enable hibernation on an existing VM, you can use Azure CLI, PowerShell and API. Before proceeding, ensure that the guest OS version supports hibernation on Azure. Refer to the list of [supported OS versions ](../hibernate-resume-windows.md#supported-windows-versions).
+
+>[!NOTE]
+> Ensure that the page file is located on the C: drive. If its not located on the C: drive, then first move it to the C: drive before proceeding with the steps below.
+
+
+### [CLI](#tab/enableWithCLI)
+
+To enable hibernation on an existing VM using Azure CLI, first deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM.
+
+1. Update the OS disk to set *supportsHibernation* to *True*. In case *supportsHibernation* is already set to *True*, then you can skip this step and proceed to the next step.
+
+    ```azurecli
+       az disk update --resource-group myResourceGroup \
+       --name MyOSDisk \   
+       --set supportsHibernation=true 
+    ```
+
+1. Update the VM to enable hibernation.
+
+   ```azurecli
+      az vm update --resource-group myResourceGroup \
+      --name myVM \
+      --enable-hibernation true 
+   ```
+1. Start the VM and then proceed to configuring hibernation in the guest OS.
+
+   ```azurecli
+      az vm start --resource-group myResourceGroup \
+      --name myVM \      
+   ```
+
+### [PowerShell](#tab/enableWithPS)
+
+1. To enable hibernation on an existing VM using Azure PowerShell, first stop your VM with [Stop-Az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM. 
+
+   ```powershell
+   Stop-AzVM `
+    -ResourceGroupName 'myResourceGroup' ` 
+    -Name 'myVM'
+   ```
+
+ 1. Once the VM is stopped, update the OS disk to set *SupportsHibernation* to *True*. In case *SupportsHibernation* is already set to *True*, then you can skip this step and proceed to the next step.
+
+    ```powershell
+    $disk = Get-AzDisk `
+       -ResourceGroupName "myResourceGroup" `
+       -DiskName "myOSDisk"
+    $disk.SupportsHibernation = $True
+    Update-AzDisk `
+      -ResourceGroupName ‘myResourceGroup' `
+      -DiskName 'myOSDisk' `
+      -Disk $disk
+    ```
+1. Enable hibernation on the VM.
+
+   ```powershell
+   $vm= Get-AzVM `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myVM"
+   Update-AzVM `
+     -ResourceGroupName "myResourceGroup" `
+     -VM $vm `
+     -HibernationEnabled
+   ```
+1. Start the VM and then proceed to configuring hibernation in the guest OS.
+
+   ```powershell
+   Start-AzVM `
+    -ResourceGroupName 'myResourceGroup' ` 
+    -Name 'myVM'
+   ```
+
 
 ## Configuring hibernation in the guest OS
 Enabling hibernation while creating a Windows VM automatically installs the 'Microsoft.CPlat.Core.WindowsHibernateExtension' VM extension. This extension configures the guest OS for hibernation. This extension doesn't need to be manually installed or updated, as this extension is managed by the Azure platform.
 
 >[!NOTE]
->When you create a VM with hibernation enabled, Azure automatically places the page file on the C: drive. If you're using a specialized image, then you'll need to follow additional steps to ensure that the pagefile is located on the C: drive. 
+>When you create a VM with hibernation enabled, Azure automatically places the page file on the C: drive. If you're enabling hibernation on an existing VM or using a specialized image, then you'll need to follow additional steps to ensure that the pagefile is located on the C: drive. 
 
 >[!NOTE]
 >Using the WindowsHibernateExtension requires the Azure VM Agent to be installed on the VM. If you choose to opt-out of the Azure VM Agent, then you can configure the OS for hibernation by running powercfg /h /type full inside the guest. You can then verify if hibernation is enabled inside guest using the powercfg /a command.
