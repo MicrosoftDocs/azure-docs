@@ -3,7 +3,7 @@ title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/02/2024
+ms.date: 05/10/2024
 ---
 
 # Create private registry for Bicep modules
@@ -73,7 +73,7 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 
 ---
 
-With Azure PowerShell version 11.6 and Azure CLI version xxxx, you can publish a module with the Bicep source code in addition to the compiled JSON template. If a module is published with the Bicep source code to a registry, you can press `F12` ([Go to Definition](./visual-studio-code.md#go-to-definition)) from Visual Studio Code to see the Bicep Code. The Bicep extension version 0.27 or new is required to see the Bicep file.
+With Bicep CLI version 0.27.1 or newer, you can publish a module with the Bicep source code in addition to the compiled JSON template. If a module is published with the Bicep source code to a registry, you can press `F12` ([Go to Definition](./visual-studio-code.md#go-to-definition)) from Visual Studio Code to see the Bicep Code. The Bicep extension version 0.27 or new is required to see the Bicep file.
 
 # [PowerShell](#tab/azure-powershell)
 
