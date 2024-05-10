@@ -5,7 +5,7 @@ description: This article lists Azure AI Studio feature availability across clou
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 02/26/2024
+ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: eur
 author: eric-urban
@@ -13,6 +13,8 @@ ms.custom: references_regions
 ---
 
 # Azure AI Studio feature availability across clouds regions
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio brings together various Azure AI capabilities that previously were only available as standalone Azure services. While we strive to make all features available in all regions where Azure AI Studio is supported at the same time, feature availability may vary by region. In this article, you'll learn what Azure AI Studio features are available across cloud regions.  
 
@@ -49,11 +51,12 @@ Azure AI Studio preview is currently not available in Azure Government regions o
 
 [!INCLUDE [OpenAI Quotas](../../ai-services/openai/includes/model-matrix/quota.md)]
 
+> [!NOTE]
+> Some models might not be available within the AI Studio model catalog.
+
 For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits).
 
 ## Speech capabilities
-
-[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
 
 Azure AI Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
 

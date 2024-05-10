@@ -15,10 +15,9 @@ author: msakande
 
 ---
 
-# Monitor quality and token usage of deployed prompt flow applications (preview)
+# Monitor quality and token usage of deployed prompt flow applications
 
-> [!IMPORTANT]
-> **Azure AI Monitoring** is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Monitoring applications that are deployed to production is an essential part of the generative AI application lifecycle. Changes in data and consumer behavior can influence your application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputation risks. 
 

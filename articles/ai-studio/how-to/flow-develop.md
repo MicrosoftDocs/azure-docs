@@ -15,6 +15,8 @@ author: lgayhardt
 
 # Develop a prompt flow
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
 With prompt flow, you're able to:
@@ -28,7 +30,7 @@ In this article, you learn how to create and develop your first prompt flow in A
 ## Prerequisites
 
 - If you don't have an Azure AI Studio project already, first [create a project](create-projects.md).
-- Prompt flow requires a runtime. If you don't have a runtime, you can [create one in Azure AI Studio](./create-manage-runtime.md).
+- Prompt flow requires a compute session. If you don't have a runtime, you can [create one in Azure AI Studio](./create-manage-compute-session.md).
 - You need a deployed model.
 
 ## Create and develop your Prompt flow

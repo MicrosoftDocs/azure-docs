@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/25/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
@@ -14,6 +14,8 @@ author: Blackmist
 ---
 
 # How to configure a private link for Azure AI Studio hubs
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 We have two network isolation aspects. One is the network isolation to access an Azure AI Studio hub. Another is the network isolation of computing resources in your hub and projects such as compute instances, serverless, and managed online endpoints. This article explains the former highlighted in the diagram. You can use private link to establish the private connection to your hub and its default resources. This article is for Azure AI Studio (hub and projects). For information on Azure AI services, see the [Azure AI services documentation](/azure/ai-services/cognitive-services-virtual-networks).
 
@@ -221,7 +223,20 @@ To enable public access, use the following steps:
 
 # [Azure CLI](#tab/cli)
 
-You can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your hub name as workspace name in Azure Machine Learning CLI.
+Use the following Azure CLI command to enable public access:
+
+```azurecli
+az ml workspace-hub update \
+    --set public_network_access=Enabled \
+    -n <workspace-name> \
+    -g <resource-group-name>
+```
+
+If you receive an error that the `ml` command isn't found, use the following commands to install the Azure Machine Learning CLI extension:
+
+```azurecli
+az extension add --name ml
+```
 
 ---
 

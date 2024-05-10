@@ -119,12 +119,15 @@ Under **Protected resources**, you can view your protected virtual networks and 
 
 ### Disable for a virtual network:
 
-To disable DDoS protection for a virtual network proceed with the following steps.
+You can disable the DDoS protection from a virtual network, while it is still enabled on other virtual networks. To disable DDoS protection for a virtual network proceed with the following steps.
 
 1. Enter the name of the virtual network you want to disable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
 1. Under **DDoS Network Protection**, select **Disable**.
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-disable-in-virtual-network.gif" alt-text="Gif of disabling DDoS Protection within virtual network.":::
+
+> [!NOTE]
+> Disabling a DDoS protection from a virtual network will not delete it. The DDoS protection costs will still be charged if you only disable the DDoS protection from a virtual network, without deleting the DDoS protection plan itself. To avoid unnecesary costs, you need to fully delete the DDoS protection plan resource. Please see [Clean up resources](#clean-up-resources). 
 
 ## Clean up resources
 

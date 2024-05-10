@@ -15,6 +15,8 @@ author: lgayhardt
 
 # Prompt flow in Azure AI Studio
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
 Prompt flow is available independently as an open-source project on [GitHub](https://github.com/microsoft/promptflow), with its own SDK and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow). Prompt flow is also available and recommended to use as a feature within both [Azure AI Studio](https://ai.azure.com) and [Azure Machine Learning studio](https://ml.azure.com). This set of documentation focuses on prompt flow in Azure AI Studio.

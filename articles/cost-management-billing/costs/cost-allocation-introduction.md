@@ -100,7 +100,7 @@ With cost allocation rules, you can split the costs of shared services by moving
 
 For more information about how to manage and allocate shared costs, see [Allocate costs](allocate-costs.md).
 
-## Next steps
+## Related content
 
 To learn more about defining your tagging strategy, read the following articles:
 

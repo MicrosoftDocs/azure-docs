@@ -15,6 +15,8 @@ ms.custom: ignite-2023
 
 # What is Azure AI Studio?
 
+[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+
 [Azure AI Studio](https://ai.azure.com) is a trusted platform that empowers developers to drive innovation and shape the future with AI in a safe, secure, and responsible way. The comprehensive platform accelerates the development of production-ready copilots to support enterprise chat, content generation, data analysis, and more. Developers can explore cutting-edge APIs and models for their use cases; build and test solutions with collaborative and responsible AI tools, safeguards, and best practices; deploy AI innovations for use in websites, applications, and other production environments; and manage solutions with continuous monitoring and governance in production.
 
 :::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of the Azure AI Studio home page." lightbox="./media/explore/ai-studio-home.png":::
@@ -119,7 +121,7 @@ Choose a sample prompt to see how it works or as a starting point for your proje
 
 ### AI Services
 
-From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more. For more information about Azure AI services, see [What are Azure AI services?](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and [Try out AI services](how-to/models-foundation-azure-ai.md).
+From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more. For more information about Azure AI services, see [What are Azure AI services?](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and [Try out AI services](ai-services/connect-ai-services.md).
 
 :::image type="content" source="media/explore/home-ai-services.png" alt-text="Screenshot of the AI Services home page." lightbox= "media/explore/home-ai-services.png":::
 

@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-cloud/secret-scanning.md",
+            "redirect_url": "/azure/defender-for-cloud/secrets-scanning-servers",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/prevent-misconfigurations.md",
             "redirect_url": "/azure/defender-for-cloud/manage-mcsb",
             "redirect_document_id": false

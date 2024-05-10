@@ -34,6 +34,8 @@ The Azure AI Advantage offer is for existing Azure AI and GitHub Copilot custome
 
 - Funding to implement a new AI application using Azure Cosmos DB and/or Azure Kubernetes Service. For more information, speak to your Microsoft representative.
 
+If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
+
 ## Get started
 
 Get started with this offer by ensuring that you have the prerequisite services before applying.
