@@ -36,11 +36,7 @@ RAG uses your data to generate answers to the user question. For RAG to work wel
 
 :::image type="content" source="../media/index-retrieve/rag-pattern-with-index.png" alt-text="Screenshot of the RAG pattern with index." lightbox="../media/index-retrieve/rag-pattern-with-index.png":::
 
-
 Azure AI provides an Index asset to use with RAG pattern. The Index asset contains important information like where is your index stored, how to access your index, what are the modes in which your index can be searched, does your index have vectors, what is the embedding model used for vectors etc. The Azure AI Index uses [Azure AI Search](/azure/search/search-what-is-azure-search) as the primary / recommended Index store. Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes.
-
-Azure AI Index also supports [FAISS](https://github.com/facebookresearch/faiss) (Facebook AI Similarity Search) which is an open source library that provides a local file-based store. FAISS supports vector only search capabilities and is supported via SDK only.
-
 
 ## Next steps
 
