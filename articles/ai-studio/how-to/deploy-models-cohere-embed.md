@@ -122,7 +122,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept both the [Azure AI 
 
 ### Azure AI Model Inference API
 
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Embeddings](../reference/reference-model-inference-embeddings.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md#getting-started?tabs=rest).
+The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Embeddings](../reference/reference-model-inference-embeddings.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
 ### Cohere Embed v3
 

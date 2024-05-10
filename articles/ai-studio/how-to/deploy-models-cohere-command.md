@@ -114,7 +114,7 @@ These models can be consumed using the chat API.
 
 1. Copy the **Target** URL and the **Key** value.
 
-2. Cohere exposes two routes for inference with the Command R and Command R+ models. The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere API](#v1chat).
+2. Cohere exposes two routes for inference with the Command R and Command R+ models. The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere API](#cohere-chat-api).
 
 For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-models-deployed-as-a-service) section.
 
@@ -124,7 +124,7 @@ Cohere Command R and Command R+ models accept both the [Azure AI Model Inference
 
 ### Azure AI Model Inference API
 
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md#getting-started?tabs=rest).
+The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
 ### Cohere Chat API
 
