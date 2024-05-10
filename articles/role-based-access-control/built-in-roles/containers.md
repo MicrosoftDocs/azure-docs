@@ -729,7 +729,7 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
 
 ## Azure Container Storage Contributor
 
-Lets you install Azure Container Storage and manage its storage resources
+Install Azure Container Storage and manage its storage resources. Includes an ABAC condition to constrain role assignments.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -808,7 +808,7 @@ Lets you install Azure Container Storage and manage its storage resources
 
 ## Azure Container Storage Operator
 
-Role required by a Managed Identity for Azure Container Storage operations
+Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -881,7 +881,7 @@ Role required by a Managed Identity for Azure Container Storage operations
 
 ## Azure Container Storage Owner
 
-Lets you install Azure Container Storage and grants access to its storage resources
+Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
