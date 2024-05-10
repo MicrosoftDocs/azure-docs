@@ -90,6 +90,8 @@ The training and validation data you use **must** be formatted as a JSON Lines (
 ```
 The supported file type is JSON Lines. Files are uploaded to the default datastore, and made available in your project.
 
+---
+
 ## Fine-tune a Phi-3 model
 
 ### [Phi-3](#tab/phi-3-mini)
