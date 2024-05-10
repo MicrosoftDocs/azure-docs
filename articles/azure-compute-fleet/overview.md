@@ -5,7 +5,7 @@ author: rajeeshr
 ms.author: rajeeshr
 ms.topic: overview
 ms.service: virtual-machines
-ms.date: 05/09/2024
+ms.date: 05/10/2024
 ms.reviewer: jushiman
 ---
 
@@ -14,13 +14,13 @@ ms.reviewer: jushiman
 > [!IMPORTANT]
 > Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
-Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a continuous integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
+Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a Big Data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
 Using Compute Fleet, you can:
-- Deploy up to 10,000 VMs with a single API, using Spot and pay-as-you-go pricing models together.
+- Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
 - Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plan, Spot instances, and pay-as-you-go (PYG) options.
 - Expedite access to Azure capacity by rapidly provisioning instances from a customized SKU list tailored to your preferences.
-- Implement personalized Compute Fleet allocation strategies, catering to both Standard and Spot VMs, optimizing for cost, capacity, or a combination of both factors.
+- Implement personalized Compute Fleet allocation strategies, catering to both Standard and Spot VMs, optimizing for cost, capacity, or a combination of both.
 - Embrace the "Fire & Forget-it" model, automating the deployment, management, and monitoring of instances without requiring intricate code frameworks.
     - Streamline the initial setup process, saving valuable time and resources.
     - Alleviate concerns about scripting complexity associated with determining optimal virtual machine (VM) pricing, available capacity, managing Spot evictions, and SKU availability.
@@ -71,7 +71,7 @@ Compute Fleet allows you to set individual target capacity for Spot and pay-as-y
 
 You can specify target capacity using VM instances. 
 
-Compute Fleet allows you to modify the target capacity for Spot and pay-as-you-go VMs based on your Compute Fleet configuration. For more information, see [Modify your compute fleet](#modify-your-compute-fleet) for details related to modifying target capacity. 
+Compute Fleet allows you to modify the target capacity for Spot and pay-as-you-go VMs based on your Compute Fleet configuration. For more information, see [Modify your Compute Fleet](#modify-your-compute-fleet) for details related to modifying target capacity. 
 
 
 ## Minimum starting capacity 
@@ -83,7 +83,7 @@ If your requested target capacity is 100 VM instances and minimum starting capac
 You may not be able to set the minimum starting capacity if you choose to configure the Compute Fleet with capacity preference type as *Maintain capacity*. 
 
 
-## Modify your compute fleet 
+## Modify your Compute Fleet 
 
 While your Compute Fleet is in a running state, it allows you to modify the target capacity and VM size selection based on how you configured your Compute Fleet. 
 
@@ -120,23 +120,15 @@ Azure Compute Fleet has applicable Standard and Spot VMs quotas.
 | Scenario | Quota |
 | ------ | ------ |
 | The number of **Compute Fleets** per Region in `active`, `deleted_running` | 500 |
-| The **target capacity** per Azure Fleet | 10,000 VMs |
-| The **target capacity** across all Azure Compute Fleets in a Region | 100,000 VMs |
+| The **target capacity** per Compute Fleet | 10,000 VMs |
+| The **target capacity** across all Compute Fleets in a Region | 100,000 VMs |
 
 #### Compute Fleet considerations 
 
+- Compute Fleet launches a combination of VM types that have their own considerations. For more information, see [Spot VMs](../virtual-machines/spot-vms.md) and [Virtual Machines](../virtual-machines/overview.md) for details. 
 - Compute Fleet is only available through [ARM template](quickstart-create-rest-api.md) and in [Azure portal](quickstart-create-portal.md).
 - Compute Fleet can't span across Azure regions. You have to create a separate Compute Fleet for each region.
 - Compute Fleet is available in the following regions: West US, WestUS2, East US, East US2, Central US, South Central US, West Central US, North Central US, West Europe, North Europe, UK South, and France Central.
-- The following VM sizes aren't supported for Azure Spot VMs: 
-    - B-series 
-    - Promo versions of any size (like Dv2, NV, NC, H promo sizes) 
-- Azure Spot VMs can be deployed to any region, except Microsoft Azure operated by 21Vianet. 
-- The following offer types are currently supported: 
-    - Enterprise Agreement 
-    - Pay-as-you-go offer code (003P) 
-    - Sponsored (0036P and 0136P) 
-    - For Cloud Service Provider (CSP), see the Partner Center or contact your partner directly. 
 
 
 ## Next steps

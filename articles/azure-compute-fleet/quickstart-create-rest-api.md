@@ -20,14 +20,50 @@ This article steps through using an ARM template to create an Azure Compute Flee
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
-
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json":::
-
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Before using Compute Fleet, complete the feature registration and configure role-based access controls (RBAC). 
+
+
+## Feature registration
+
+Register the Azure Compute Fleet resource provider with your subscription using PowerShell or Azure portal. Registration can take up to 30 minutes to successfully show as registered.
+
+### [PowerShell](#tab/powershell-1)
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.AzureFleet
+```
+
+### [Azure portal](#tab/portal-1)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your subscriptions. 
+1. Select the subscription you want to enable Azure Compute Fleet on. 
+1. Under **Settings**, select **Resource providers**. 
+1. Search for *Microsoft.AzureFleet* and register the provider.
+
+---
+
+
+## Role-based access control permissions 
+
+Assign the appropriate RBAC permissions to use Azure Compute Fleet. 
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your subscriptions. 
+1. Select the subscription you want to adjust RBAC permissions. 
+1. Select **Access Control (IAM)**. 
+1. Select *Add*, then **Add Role Assignment**. 
+1. Search for **Virtual Machine Contributor** and highlight it. Select **Next**. 
+1. Click on **+ Select Members**. 
+1. Search for *Azure Fleet Resource Provider* role. 
+1. Select the *Azure Fleet Resource Provider* and select **Review + Assign**. 
+1. Repeat the previous steps for the *Network Contributor* role and the *Managed Identity Operator* role. 
+
+If you're using images stored in Compute Gallery when deploying your Compute Fleet, also repeat the previous steps for the *Compute Gallery Sharing Admin* role. 
+
+For more information on assigning roles, see [assign Azure roles using the Azure portal](/role-based-access-control/quickstart-assign-role-user-portal.md).
 
 
 ## ARM template 
