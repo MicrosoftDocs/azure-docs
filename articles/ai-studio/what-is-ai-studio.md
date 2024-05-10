@@ -24,7 +24,7 @@ ms.custom: ignite-2023
 [AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
-- Directly from the studio you can interact with a project code-first via [Visual Studio Code (Web)](how-to/develop-in-vscode.md).
+- Directly from the studio you can interact with a project code-first via [Visual Studio Code (Web)](how-to/develop/vscode.md).
 - AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
 - Build together as one team. Your [AI Studio hub](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
@@ -164,7 +164,7 @@ From the project's left navigation pane, you can access the same model catalog, 
 
 You can also access the following pages:
 - Project playground: This is where you can experiment with your data and prompts for generative AI models. Available playgrounds include chat, completion, assistants, and images.
-- Tools: This is where you can access tools for prompt flow, tracing, evaluations, and fine-tuning. You can also access the [Visual Studio Code (Web)](how-to/develop-in-vscode.md) experience from this page. 
+- Tools: This is where you can access tools for prompt flow, tracing, evaluations, and fine-tuning. You can also access the [Visual Studio Code (Web)](how-to/develop/vscode.md) experience from this page. 
 - Components: This is where you can view and manage components in the project. Components include data, indexes, deployments, and content filters.
 
 ## Build your own copilot demo
