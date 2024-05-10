@@ -338,6 +338,9 @@
           - name: Connect to Config Server for Spring
             href: java-config-server.md
             displayName: java
+          - name: Query managed component logs
+            href: java-component-logs.md
+            displayName: java
 - name: Billing & quotas
   items:
     - name: Billing
