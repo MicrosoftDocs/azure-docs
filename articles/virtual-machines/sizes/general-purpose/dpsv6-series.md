@@ -65,17 +65,6 @@ Local (temp) storage info for each size
 >
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](../../azure-vms-no-temp-disk.yml).
 
-#### Storage resources
-- [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
-- [Azure managed disk types](../../../virtual-machines/disks-types.md)
-- [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
-
-#### Table definitions
-- Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
-- Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
-- Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly (R-O) or ReadWrite (R-W). For uncached data disk operation, the host cache mode is set to None.
-- To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
-
 ### [Remote Storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size

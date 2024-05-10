@@ -46,7 +46,7 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D4plds_v6 | 4 | 8 |
 | Standard_D8plds_v6 | 8 | 16 |
 | Standard_D16plds_v6 | 16 | 32 |
-| Standard_D32plds_v6 | 32 | 34 |
+| Standard_D32plds_v6 | 32 | 64 |
 | Standard_D48plds_v6 | 48 | 96 |
 | Standard_D64plds_v6 | 64 | 128 |
 | Standard_D96plds_v6 | 96 | 192 |
