@@ -552,8 +552,12 @@
   - name: Monitor using Backup center
     href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Reporting
-  - name: Configure reports
-    href: report-site-recovery.md    
+  - name: Configure Site Recovery reports
+    href: report-site-recovery.md
+  - name: Log analytics
+    href: reporting-log-analytics.md  
+  - name: Monitoring data reference
+    href: monitor-site-recovery-reference.md     
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
@@ -600,8 +604,6 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
     href: /rest/api/site-recovery
-  - name: Monitoring data reference
-    href: monitor-site-recovery-reference.md
   - name: Azure Well-Architected Framework
     href: /azure/well-architected
 - name: Related
