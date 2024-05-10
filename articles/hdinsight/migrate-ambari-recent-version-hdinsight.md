@@ -82,7 +82,9 @@ On HDInsight 4 Cluster (Old Cluster)
 
 1. Download  `compare_ambari_cluster_configs.py script`.
 
-    ::::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-results.png" alt-text="Screenshot showing python results." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-results.png":::
+    :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-results.png" alt-text="Screenshot showing python results." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-results.png":::
+
+1. Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdinsights_upgrade_ambari_utils/compare_ambari_cluster_configs.py`'
 
 1. Run the `compare_ambari_cluster_configs.py` script.
 1. Run `sshuser@hn0-sugar:~/hdinsights_ambari_utils$ python,
