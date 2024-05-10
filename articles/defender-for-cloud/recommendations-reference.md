@@ -2132,7 +2132,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 **Severity**: Medium
 
-### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6)
+### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
 
 **Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
 
