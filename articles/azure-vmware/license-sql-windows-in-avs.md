@@ -1,16 +1,16 @@
 ---
-title: Licensing SQL Server, Windows Server, and Linux in Azure VMware Solution 
-description: This article provides licensing considerations for running SQL Server, Windows Server, and Linux in VMs in Azure VMware Solution. It provides details around utilizing Azure Hybrid Benefits and steps on how to attribute your SQL Server licenses in the tooling.
+title: License SQL Server, Windows Server, and Linux in Azure VMware Solution 
+description: This article provides licensing considerations for running SQL Server, Windows Server, and Linux in VMs in Azure VMware Solution. It provides details around utilizing Azure Hybrid Benefits and steps on how to register your SQL Server licenses in the tooling.
 author: MikeWeiner-Microsoft
 ms.author: michwe
 ms.service: azure-vmware
 ms.topic: how-to  
-ms.date: 04/23/2024
+ms.date: 04/29/2024
 ---
 
-# Licensing SQL Server, Windows Server, and Linux in Azure VMware Solution 
+# License SQL Server, Windows Server, and Linux in Azure VMware Solution 
 
-This article provides licensing considerations and tooling integration for running SQL Server, and Windows Server within Azure VMware Solution. 
+This article provides licensing considerations and tooling integration for running SQL Server, Windows Server and Linux within Azure VMware Solution. 
 
 Included in the pricing of Azure VMware Solution is infrastructure, hosts, and storage along with many VMware licensing components including NSX-T, vSphere, vSAN, and HCX Advanced. There's no extra cost in Azure VMware Solution added based on the software running in any of your virtual machines(VMs). You do, however need to license products running in the VMs. For SQL Server, Windows Server, and Linux subscriptions you can use your existing licensing investment to apply them in Azure VMware Solution.
 
@@ -19,20 +19,26 @@ In addition, with [Software Assurance](https://www.microsoft.com/Licensing/licen
 > [!NOTE]
 > If you do not have Software Assurance you need to apply the terms around licensing provided in: [Updated Microsoft licensing terms for dedicated hosted cloud services](https://www.microsoft.com/en-us/licensing/news/updated-licensing-rights-for-dedicated-cloud). This will limit the licenses which can be applied based on terms applied after October 1st, 2019 along with additional migration and virtualization benefits.
 
-The rest of this article discusses SQL Server, Windows Server, and Linux considerations in Azure VMware Solution with Software Assurance and Azure Hybrid Benefit applied. 
+The rest of this article discusses SQL Server and Windows Server licensing considerations in Azure VMware Solution with Software Assurance and Azure Hybrid Benefit applied. 
 
 > [!IMPORTANT] 
-> The Microsoft Product Terms for specific programs and software take precedent over this article and may contain more detailed content specific to that product. For more information, see: [SQL Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/SQLServer/EAEAS), [Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS)  and [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS) and select your specific program.
+> The Microsoft Product Terms for specific programs and software take precedent over this article and may contain more detailed content specific to that product. For more information, select your specific program under: 
+>
+>-[SQL Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/SQLServer/EAEAS)
+>
+> -[Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS)  
+>
+>-[Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS) 
 
 ## Type of licenses 
 You can use the following licenses for SQL Server and Windows Server to apply to software running in Azure VMware Solution.
 
--****Windows Server**** - Standard or Datacenter core licenses OR Standard/Datacenter processor licenses, where each processor license is equivalent to 16 core licenses.
+- ****Windows Server**** - Standard or Datacenter core licenses OR Standard/Datacenter processor licenses, where each processor license is equivalent to 16 core licenses.
 
--****SQL Server**** - Standard or Enterprise core licenses.
+- ****SQL Server**** - Standard or Enterprise core licenses.
 
 ## Dual Use Rights for Azure Migration
-Migration to Azure VMware Solution is usually executed over an extended timeframe instead of at a single point-in-time. To give you flexibility around your migration timelines you can continue to use your licenses outside of Azure, for 180 days, from when the licenses are allocated within Azure VMware Solution. This dual use rights benefit applies to SQL Server and Windows Server under Azure Hybrid Benefit.
+Migration to Azure VMware Solution is usually executed over an extended timeframe instead of at a single point-in-time. To give you flexibility around your migration timelines you can continue to use your licenses outside of Azure, for 180 days, from when the licenses are allocated within Azure VMware Solution. This dual use rights benefit applies to SQL Server and Windows Server.
 
 For more information and other considerations for dual use rights outside of migration, see [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS). 
 
@@ -57,9 +63,9 @@ Applying licenses at the VM scope could fit your needs for scenarios such as
 
 Each VM does require a minimum number of licenses to be applied:
 
--****Windows Server**** - You need a minimum of 8 core licenses (Datacenter or Standard) per VM. For example, 8 core licenses are still required if you run a 4-core VM. You may also run VMs larger than 8 cores by allocating licenses equal to the core size of the VM. For example, 12 core licenses are required for a 12-core VM. For customers with processor licenses, each 2-core processor license is equivalent to 16 core licenses.
+- ****Windows Server**** - You need a minimum of 8 core licenses (Datacenter or Standard) per VM. For example, 8 core licenses are still required if you run a 4-core VM. You may also run VMs larger than 8 cores by allocating licenses equal to the core size of the VM. For example, 12 core licenses are required for a 12-core VM. For customers with processor licenses, each 2-core processor license is equivalent to 16 core licenses.
 
--****SQL Server**** - A minimum of 4 core licenses (Enterprise or Standard) per VM.
+- ****SQL Server**** - A minimum of 4 core licenses (Enterprise or Standard) per VM.
 
 ### How to register licenses in Azure VMware Solution
 #### SQL Server
