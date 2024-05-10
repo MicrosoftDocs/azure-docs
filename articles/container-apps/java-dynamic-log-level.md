@@ -22,37 +22,39 @@ To take advantage of these diagnostic tools, you can create a new container app 
 To create a new container app with JVM diagnostics enabled, use the following command:
 
 ```azurecli
-// TODO: replace this
-az containerapp java diagnostics enable --enable-java-agent \
+az containerapp create --enable-java-agent \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
-  --name <JAVA_COMPONENT_NAME>
+  --name <CONTAINER_APP_NAME>
 ```
 
 To update an existing container app, use the following command:
 
 ```azurecli
-// TODO: replace this
-az containerapp create --enable-java-agent \
+az containerapp update --enable-java-agent \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
-  --name <JAVA_COMPONENT_NAME>
+  --name <CONTAINER_APP_NAME>
 ```
 
 ## Change runtime logger levels
 
-After enabling JVM diagnostics, you can change runtime logger levels without interrupting your running apps.
-
-Use the following command to adjust the logger levels in your Java application.
-
+After enabling JVM diagnostics, you can change runtime log levels for specific loggers in your running Java app without the need to restart it.
+ 
+Use the following command to adjust log levels for a specific logger:
+ 
 ```azurecli
-// TODO: replace this
-az containerapp env java-component list \
+az containerapp java logger update \
+  --logger-name "org.springframework.boot" \
+  --level "info"
   --environment <ENVIRONMENT_NAME> \
-  --resource-group <RESOURCE_GROUP>
+  --resource-group <RESOURCE_GROUP> \
+  --name <CONTAINER_APP_NAME>
 ```
+ 
+In this sample logger name is `"org.springframework.boot"` and desired log level is `"info"`. Change these to your own logger name and log level to help troubleshoot your Java app.
 
-It could take up to two minutes for the logger level change to take effect. Once complete, you can check the application logs from [log streams](log-streaming.md) or other [log options](log-options.md).
+It may take up to two minutes for the logger level change to take effect. Once complete, you can check the application logs from [log streams](log-streaming.md) or other [log options](log-options.md).
 
 ## Supported Java logging frameworks
 
