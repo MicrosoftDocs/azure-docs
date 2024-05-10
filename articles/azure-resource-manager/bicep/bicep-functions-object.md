@@ -387,7 +387,7 @@ The output from the preceding example with the default values is:
 
 ## objectKeys
 
-`objectKey(arg1)`
+`objectKey(object)`
 
 Returns the keys from an object, where an object is a collection of key-value pairs.
 
@@ -397,7 +397,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |object |The object, which is a collection of key-value pairs. |
+| object |Yes |object |The object, which is a collection of key-value pairs. |
 
 ### Return value
 
@@ -409,9 +409,8 @@ The following example shows how to use `objectKeys` with an object:
 
 ```bicep
 var obj = { a: 1, b: 2 }
-var keys = objectKeys(obj) // returns 
 
-output keyArray array = keys
+output keyArray array = objectKeys(obj)
 ```
 
 The output from the preceding example is:
@@ -419,6 +418,8 @@ The output from the preceding example is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | keyArray | Array | [ "a", "b" ] |
+
+**keyArray** returns a list of keys of the input object.
 
 ## union
 

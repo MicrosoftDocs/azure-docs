@@ -411,7 +411,7 @@ The output from the preceding example is:
 
 ## objectKeys
 
-`objectKey(arg1)`
+`objectKey(object)`
 
 Returns the keys from an object, where an object is a collection of key-value pairs.
 
@@ -421,7 +421,7 @@ In Bicep, use the [objectKeys](../templates/template-functions-object.md#objectk
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |object |The object, which is a collection of key-value pairs. |
+| object |Yes |object |The object, which is a collection of key-value pairs. |
 
 ### Return value
 
@@ -439,14 +439,13 @@ The following example shows how to use `objectKeys` with an object:
     "obj": {
       "a": 1,
       "b": 2
-    },
-    "keys": "[objectKeys(variables('obj'))]"
+    }
   },
   "resources": [],
   "outputs": {
     "keyArray": {
       "type": "array",
-      "value": "[variables('keys')]"
+      "value": "[objectKeys(variables('obj'))]"
     }
   }
 }
