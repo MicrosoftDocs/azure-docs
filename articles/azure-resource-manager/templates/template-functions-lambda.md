@@ -227,6 +227,54 @@ The output from the preceding example is:
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
 
+## mapValue
+
+`mapValue(inputObject, lambda expression)`
+
+Creates an object from an input object, using a lambda expression to map values.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputObject |Yes |object |The object to map.|
+| lambda expression |Yes |expression |The lambda expression used to map the values.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `mapValue` function.
+
+```bicep
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "newObject": "[mapValues(createObject('foo', 'foo', 'bar', 'bar'), lambda('val', toUpper(lambdaVariables('val'))))]"
+  },
+  "resources": [],
+  "outputs": {
+    "mapObject": {
+      "type": "object",
+      "value": "[variables('newObject')]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mapObject | Object | {foo: 'FOO', bar: 'BAR'} |
+
+**mapObject** creates another object with the values in upper case.
+
 ## reduce
 
 `reduce(inputArray, initialValue, lambda function)`

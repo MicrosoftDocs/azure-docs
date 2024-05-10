@@ -163,6 +163,43 @@ The output from the preceding example is:
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
 
+## mapValue
+
+`mapValue(inputObject, lambda expression)`
+
+Creates an object from an input object, using a lambda expression to map values.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputObject |Yes |object |The object to map.|
+| lambda expression |Yes |expression |The lambda expression used to map the values.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `mapValue` function.
+
+```bicep
+var newObject = mapValues({ foo: 'foo', bar: 'bar' }, val => toUpper(val)) 
+
+output mapObject object = newObject
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mapObject | Object | {foo: 'FOO', bar: 'BAR'} |
+
+**mapObject** creates another object with the values in upper case.
+
 ## reduce
 
 `reduce(inputArray, initialValue, lambda expression)`

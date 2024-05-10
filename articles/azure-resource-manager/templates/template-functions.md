@@ -121,6 +121,19 @@ For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) fu
 <a id="not" aria-hidden="true"></a>
 <a id="or" aria-hidden="true"></a>
 
+## Lambda functions
+
+The following functions are available for working with lambda expressions: 
+
+* [filter](template-functions-lambda.md#filter)
+* [map](template-functions-lambda.md#map)
+* [mapValue](template-functions-lambda.md#mapvalue)
+* [reduce](template-functions-lambda.md#reduce)
+* [sort](template-functions-lambda.md#sort)
+* [toObject](template-functions-lambda.md#toobject)
+
+For Bicep files, use the [lambda](../bicep/bicep-functions-lamda.md) functions.
+
 ## Logical functions
 
 Resource Manager provides the following functions for working with logical conditions:
