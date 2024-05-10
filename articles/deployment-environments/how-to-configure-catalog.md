@@ -16,7 +16,7 @@ ms.topic: how-to
 
 This article explains how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) for your Azure Deployment Environments dev center or project. 
 
-Catalogs help you provide a set of curated infrastructure-as-code(IaC) templates, known as environment definitions for your development teams to create environments. You can attach your own source control repository, either a GitHub repository or an Azure DevOps repository as a catalog. Deployment Environments scans the specified folder of the repository to find environment definitions and make them available for dev teams to create environments. 
+Catalogs help you provide a set of curated infrastructure-as-code(IaC) templates, known as environment definitions for your development teams to create environments. You can attach your own source control repository from GitHub or Azure DevOps as a catalog and specify the folder with your environment definitions. Deployment Environments scans the folder for environment definitions and makes them available for dev teams to create environments. 
 
 To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
@@ -31,6 +31,7 @@ In this article, you learn how to:
 1. [Add a catalog from Azure Repos or GitHub](#add-a-catalog)
 1. [Update a catalog](#update-a-catalog)
 1. [Delete a catalog](#delete-a-catalog)
+1. [Understand catalog sync errors](#understand-catalog-sync-errors)
 
 ## Configure project-level catalogs
 
@@ -450,7 +451,7 @@ To delete a catalog:
 
 1. In the **Delete catalog** dialog, select **Continue** to delete the catalog.
 
-## Catalog sync errors
+## Understand catalog sync errors
 
 When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all of the environment definitions have errors. Use the Azure CLI or the REST API to *GET* the catalog. The GET response shows you the type of error:
 
