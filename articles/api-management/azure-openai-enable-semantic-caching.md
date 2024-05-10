@@ -24,7 +24,7 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
 
 ## Test Chat API deployment
 
-First, test the Azure OpenAI deployment to ensure that the Chat Completion API or Chat API is working as expected. For steps, see [Import an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md#test-the-new-api-in-the-portal).
+First, test the Azure OpenAI deployment to ensure that the Chat Completion API or Chat API is working as expected. For steps, see [Import an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md#test-the-azure-openai-api).
 
 For example, test the Azure OpenAI Chat API by sending a POST request to the API endpoint with a prompt in the request body. The response should include the completion of the prompt. Example request:
 
