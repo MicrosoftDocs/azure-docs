@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 05/10/2024
 ms.custom: template-how-to
 ---
 
@@ -34,8 +34,9 @@ You can import an Azure OpenAI API directly to API Management from the Azure Ope
 
 * Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference)
 * A system-assigned identity with the necessary permissions to access the Azure OpenAI resource
+* A [backend](backends.md) resource and [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint
 * An [authentication-managed-identity](authentication-managed-identity-policy.md) policy that can authenticate to the Azure OpenAI resource using the instance's system-assigned identity
-* (optionally) A token limit policy to limit consumption of the Azure OpenAI API
+* (optionally) Policies to help you monitor and manage token consumption by the Azure OpenAI API
 
 To import an Azure OpenAI API to API Management:
 
@@ -48,11 +49,12 @@ To import an Azure OpenAI API to API Management:
     1. Select the Azure OpenAI resource that you want to import.
     1. Optionally select an **Azure OpenAI API version**. If you don't select one, the latest production-ready REST API version is used by default.
     1. Enter a **Display name** and optional **Description** for the API.
-    1. In **Base URL**, append a path ending with `/openai` that will be used to access the Azure OpenAI API endpoints in your API Management instance. 
+    1. In **Base URL**, append a path that your API Management instance uses to access the Azure OpenAI API endpoints. If you enable **Ensure OpenAI SDK compatibility** (recommended), `/openai` is automatically appended to the base URL.
+    
         For example, if your API Management gateway endpoint is `https://contoso.azure-api.net`, set a **Base URL** similar to `https://contoso.azure-api.net/my-openai-api/openai`.
     1. Optionally select one or more products to associate with the API. Select **Next**.
-1. On the **Policies** tab, optionally select **Manage token consumption**. 
-    If selected, enter settings that define the `azure-openai-token-limit` policy for your API. You can also set or update the policy configuration later. Select **Review + Create**.
+1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption. 
+    If selected, enter settings or accept defaults that define the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies for your API. You can also set or update the policy configuration later. Select **Review + Create**.
 1. After settings are validated, select **Create**. 
 
 ## Option 2. Add an OpenAPI specification to API Management
@@ -121,12 +123,12 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your Azure OpenAI API consumption.
     :::image type="content" source="media/azure-openai-api-from-specification/api-response-usage.png" alt-text="Screenshot of token usage data in API response in the portal." :::
 
-## Policies to help manage Azure OpenAI APIs
+## Caching policies for Azure OpenAI APIs
 
-In addition to the `authentication-managed-identity` and `azure-openai-token-limit` policies, configure the following policies to help manage and monitor your Azure OpenAI APIs in API Management:
+In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies that you can configure when importing an Azure OpenAI Service API, API Management provides the following caching policies to help you optimize performance and reduce latency for Azure OpenAI APIs: 
 
-* `azure-openai-emit-token-metrics` - Emit token usage metrics to Azure Monitor.
-* `azure-openai-semantic-cache-store` and `azure-openai-semantic-cache-lookup` - Store and retrieve semantic cache data for Azure OpenAI APIs.
+* `azure-openai-semantic-cache-store`
+* `azure-openai-semantic-cache-lookup` 
 
 ## Related content
 
