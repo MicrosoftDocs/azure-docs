@@ -623,6 +623,7 @@
             - name: Embeddings
               href: reference-model-inference-embeddings.md
             - name: Completions
+              href: reference-model-inference-completions.md
             - name: Chat Completions
               href: reference-model-inference-chat-completions.md
             - name: Images Embeddings
