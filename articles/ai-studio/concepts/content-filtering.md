@@ -15,18 +15,22 @@ author: PatrickFarley
 
 # Content filtering in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+Azure AI Studio includes a content filtering system that works alongside core models as well as DALL-E image generation models.
 
-Azure AI Studio includes a content filtering system that works alongside core models, including DALL-E image generation models.
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 > [!IMPORTANT]
 > The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](../../ai-services/openai/concepts/models.md).
 
-This system is powered by [Azure AI Content Safety](../../ai-services/content-safety/overview.md), and works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design might affect completions and thus filtering behavior.
+## How it works 
+
+This confent filtering system is powered by [Azure AI Content Safety](../../ai-services/content-safety/overview.md), and it works by running both the  prompt input and completion output through an ensemble of classification models aimed at detecting and preventing the output of harmful content. Variations in API configurations and application design might affect completions and thus filtering behavior.
+
+With Azure OpenAI model deployments, you can use the default content filter or create your own content filter (described below). The default content filter is also available for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md), but custom content filters aren't yet available for those models. Models available through Models as a Service have content filtering enabled by default and can't be configured.
+
+## Language support
 
 The content filtering models have been trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality can vary. In all cases, you should do your own testing to ensure that it works for your application.
-
-You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
 
 ## Create a content filter
 
@@ -107,7 +111,6 @@ You can enable the following additional output filters:
 - Protected material for text
 - Protected material for code
 - Groundedness
-
 
 ## Next steps
 
