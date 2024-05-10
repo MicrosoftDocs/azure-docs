@@ -5,7 +5,7 @@ description: Learn how to work with Chat Markup Language (preview)
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
-ms.topic: include
+ms.topic: how-to
 ms.date: 04/05/2024
 manager: nitinme
 keywords: ChatGPT

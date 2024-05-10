@@ -25,6 +25,8 @@ The standard storage with cool access feature provides options for the “coolne
 * You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to "Default" or "Never." For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
+    * Sequential reads from Azure NetApp Files backup, cross-zone replication, and cross-zone replication do not impact the temperature of the data.
+    * If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
 * You can't use large volumes with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
@@ -44,7 +46,7 @@ The standard storage with cool access feature provides options for the “coolne
     * If you disable cool access and turn off tiering on a cool access volume (that is, the volume no longer uses cool access),  you can’t move it to a non-cool-access capacity pool.  In a cool access capacity pool, all volumes, *whether enabled for cool access or not*, can only be moved to another cool access capacity pool.  
 
 ## Register the feature
- 
+
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
@@ -57,7 +59,6 @@ This feature is currently in preview. You need to register the feature before us
 
     > [!NOTE]
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
     ```
@@ -105,19 +106,19 @@ Standard storage with cool access can be enabled during the creation of a volume
 
     * **Cool Access Retrieval Policy**   
 
-        This option specifies under which conditions data will be moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   
+        This option specifies under which conditions data is moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   
 
         The following list describes the data retrieval behavior with the cool access retrieval policy settings:
 
         * *Cool access is **enabled***:  
             * If no value is set for cool access retrieval policy:  
-                The retrieval policy will be set to `Default`, and cold data will be retrieved to the hot tier only when performing random reads. Sequential reads will be served directly from the cool tier.
+                The retrieval policy is set to `Default`, and cold data is retrieved to the hot tier only when performing random reads. Sequential reads are served directly from the cool tier.
             * If cool access retrieval policy is set to `Default`:   
-                Cold data will be retrieved only by performing random reads.
+                Cold data is retrieved only by performing random reads.
             * If cool access retrieval policy is set to `On-Read`:   
-                Cold data will be retrieved by performing both sequential and random reads.
+                Cold data is retrieved by performing both sequential and random reads.
             * If cool access retrieval policy is set to `Never`:   
-                Cold data will be served directly from the cool tier and not be retrieved to the hot tier.
+                Cold data is served directly from the cool tier and not retrieved to the hot tier.
         * *Cool access is **disabled**:*     
             * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
             * Once you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    
@@ -136,24 +137,24 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
 1. Right-click the volume for which you want to enable the cool access. 
 1. In the **Edit** window that appears, set the following options for the volume: 
     * **Enable Cool Access**  
-        This option specifies whether the volume will support cool access. 
+        This option specifies whether the volume supports cool access. 
     * **Coolness Period**  
         This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days. 
     * **Cool Access Retrieval Policy**   
 
-        This option specifies under which conditions data will be moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   
+        This option specifies under which conditions data is moved back to the hot tier. You can set this option to `Default`, `On-Read`, or `Never`.   
 
         The following list describes the data retrieval behavior with the cool access retrieval policy settings:
 
         * *Cool access is **enabled***:  
             * If no value is set for cool access retrieval policy:  
-                The retrieval policy will be set to `Default`, and cold data will be retrieved to the hot tier only when performing random reads. Sequential reads will be served directly from the cool tier.
+                The retrieval policy is set to `Default`, and cold data is retrieved to the hot tier only when performing random reads. Sequential reads are served directly from the cool tier.
             * If cool access retrieval policy is set to `Default`:   
-                Cold data will be retrieved only by performing random reads.
+                Cold data is retrieved only by performing random reads.
             * If cool access retrieval policy is set to `On-Read`:   
-                Cold data will be retrieved by performing both sequential and random reads.
+                Cold data is retrieved by performing both sequential and random reads.
             * If cool access retrieval policy is set to `Never`:   
-                Cold data will be served directly from the cool tier and not be retrieved to the hot tier.
+                Cold data is served directly from the cool tier and not be retrieved to the hot tier.
         * *Cool access is **disabled**:*     
             * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
             * Once you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    

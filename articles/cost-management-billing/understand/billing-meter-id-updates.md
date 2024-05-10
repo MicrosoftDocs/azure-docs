@@ -31,13 +31,13 @@ The following download links are CSV files of the latest meter IDs with their co
 
 - [March 1, 2024 updated meters](https://download.microsoft.com/download/5/f/8/5f8d3499-eaab-4e8b-8d1d-7835923c238f/20240301_new_meterIds.csv)
 - [April 1, 2024 updated meters](https://download.microsoft.com/download/5/f/8/5f8d3499-eaab-4e8b-8d1d-7835923c238f/20240401_new_meterIds.csv)
-- [April 29, 2024 updated meters](https://download.microsoft.com/download/5/f/8/5f8d3499-eaab-4e8b-8d1d-7835923c238f/20240501_new_meterIds.csv)
+- [May 1, 2024 updated meters](https://download.microsoft.com/download/5/f/8/5f8d3499-eaab-4e8b-8d1d-7835923c238f/20240501_new_meterIds.csv)
 
 ## Recommendations
 
 We recommend you review the list of updated meters and familiarize yourself with the new meter IDs and names that apply to your Azure consumption. You should check reports that you have  for analysis, budgets, and any saved views to see if they use the updated meters. If so, you might need to update them accordingly for the new meter IDs and names. If you don’t use any meters in the updated meters list, the changes don’t affect you.
 
-## See also
+## Related content
 
 To learn how to create and manage budgets and save and share customized views, see the following articles:
 

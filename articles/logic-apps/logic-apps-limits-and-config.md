@@ -42,9 +42,9 @@ The following tables list the values for a single workflow definition:
 | Single action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Expression character limit | 8,192 characters ||
 | `description` - Maximum length | 256 characters ||
-| `parameters` - Maximum number of items | 50 parameters ||
-| `outputs` - Maximum number items | 10 outputs ||
-| `trackedProperties` - Maximum size | 8,000 characters ||
+| `parameters` - Maximum number of parameters per workflow | - Consumption: 50 parameters <br><br>- Standard: 500 parameters ||
+| `outputs` - Maximum number of outputs | 10 outputs ||
+| `trackedProperties` - Maximum number of characters | 8,000 characters ||
 
 <a name="run-duration-retention-limits"></a>
 

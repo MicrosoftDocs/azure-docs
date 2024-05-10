@@ -19,7 +19,7 @@ The pipeline configuration file defines the data flows and cache properties for 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
 > [!NOTE]
-> Private link is support by edge pipeline for the connection to the cloud pipeline.
+> Private link is supported by edge pipeline for the connection to the cloud pipeline.
 
 The following components and configurations are required to enable the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
 
