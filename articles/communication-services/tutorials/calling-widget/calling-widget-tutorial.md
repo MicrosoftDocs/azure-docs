@@ -31,6 +31,7 @@ Following this tutorial will:
 - Teach you how to build a widget for starting calls on your webapp using the UI library.
 
 ## Prerequisites
+These are **needed** in order to follow this tutorial. Please contact your Teams admin for the last two items to make sure you are set up appropriately.
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
@@ -44,7 +45,19 @@ Following this tutorial will:
 Only use this step if you're creating a new application.
 
 To set up the react App, we use the `create-react-app` command line tool. This tool
-creates an easy to run TypeScript application powered by React. This command creates a react application using TypeScript.
+creates an easy to run TypeScript application powered by React.
+
+To make sure that you have Node installed on your machine run this command in powershell or terminal to see your Node version
+```bash
+node -v
+```
+
+If you do not have `create-react-app` installed on your machine run the following to install it as a global command
+
+```bash
+npm install -g create-react-app
+```
+Once that is installed run this next command to create a new react application to build the sample in.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
