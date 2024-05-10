@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create and manage function apps in the Flex Consumption plan
 
-This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you have to manage certain features of a Flex Consumption plan hosted app.
+This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you how to manage certain features of a Flex Consumption plan hosted app.
 
 Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
@@ -22,7 +22,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 + **[Azure CLI](/cli/azure/install-azure-cli)**: used to create and manage resources in Azure. When using the Azure CLI on your local computer, make sure to use version 2.60.0, or a later version. You can also use [Azure Cloud Shell](../cloud-shell/overview.md), which has the correct Azure CLI version.  
 
-+ **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), version 1.14.2, or a later version. You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). To create and manage apps in the Flex Consumption plan, you also need to [Enable Flex Consumption in Visual Studio Code](#enable-flex-consumption-in-visual-studio-code).
++ **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the latest [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). 
 
 + While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you creat a code project with an HTTP triggered function:
 
@@ -70,7 +70,7 @@ When you create an app in the Azure portal, currently unsupported regions are fi
 
 ## Create a Flex Consumption app
 
-This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
+This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure Portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
 ::: zone-end  
@@ -138,14 +138,15 @@ To support your function code, you need to create three resources:
     ::: zone-end 
     ::: zone pivot="programming-language-powershell"  
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.2 
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.4 
     ```
     ::: zone-end 
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
     This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
 
-    Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), executions are free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app will only incur costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
+    ```
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -153,7 +154,6 @@ To support your function code, you need to create three resources:
 
 ### [Visual Studio Code](#tab/vs-code)
 
-1. Before you can use Visual Studio Code to create and manage apps in the Flex Consumption plan, you must first [Enable Flex Consumption in Visual Studio Code](#enable-flex-consumption-in-visual-studio-code).  
 
 1.  Press F1, and in the command pallet enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
@@ -164,7 +164,7 @@ To support your function code, you need to create three resources:
     | Prompt |  Selection |
     | ------ |  ----------- |
     | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | Select a hosting plan. | Choose **Flex Consumption**. |
+    | Select a hosting plan. | Choose **Flex Consumption (Preview)**. |
     | Select a runtime stack. | Choose one of the supported language stack versions. |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](#view-currently-supported-regions).|
@@ -184,7 +184,6 @@ You can choose to deploy your project code to an existing function app using var
 
 ### [Visual Studio Code](#tab/vs-code-publish)
 
-If you haven't already done so, make sure to [enable Flex Consumption in Visual Studio Code](#enable-flex-consumption-in-visual-studio-code) before publishing. 
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
@@ -240,7 +239,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 ## Configure the deployment storage account
 
-In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a Blog storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
+In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a blob storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
 
 You can configure the deployment storage account when using the Azure CLI by setting these optional parameters when you use the [`az functionapp create`] command:  
 
@@ -323,7 +322,7 @@ az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP
 
 ## Set maximum instance counts
 
-The default maximum instance count limit for Flex Consumption apps is 100 instances. Currently the lowest recommended maximum instance count value is `40`, and the highest supported maximum instance count value is `1000`.
+The default maximum instance count limit for Flex Consumption apps is 100 instances. Currently the lowest maximum instance count value is `40`, and the highest supported maximum instance count value is `1000`.
 
 When creating an app in the Flex Consumption plan, you can use the `--maximum-instance-count` parameter to set the maximum instance count for of your app. If you want to just use the default (100), leave this optional parameter out of your [`az functionapp create`] command. You can also change always ready instances on an existing app. 
 
@@ -351,13 +350,6 @@ az functionapp scale config set -resource-group <RESOURCE_GROUP> -name <APP_NAME
 
 This example sets the HTTP trigger concurrency level to `10`. After you specifically set an HTTP concurrency value, that value is maintained despite any changes in your app's instance size setting. 
 
-## Enable Flex Consumption in Visual Studio Code
-
-Use these steps to make sure you can create and manage apps in a Flex Consumption plan:
-
-1. Select F1 to open the command palette, and then search for and run the command **Preferences: Open Settings (UI)**.
-
-1. Search for **Flex Consumption** and check the **Azure Functions: Enable Flex Consumption** setting to enable it.
 
 ## Related content
 

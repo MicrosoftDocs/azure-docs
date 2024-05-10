@@ -8,7 +8,7 @@ ms.service: azure-functions
 ---
 # Event-driven scaling in Azure Functions
 
-In the Consumption, Flex Consumption, and Premium plans, Azure Functions scales CPU and memory resources by adding more instances of the Functions host. The number of instances is determined on the number of events that trigger a function. 
+In the Consumption, Flex Consumption, and Premium plans, Azure Functions scales resources by adding more instances based on the number of events that trigger a function. 
 
 [!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
@@ -16,9 +16,9 @@ The way in which your function app scales depends on the hosting plan:
 
 + **Consumption plan:** Each instance of the Functions host in the Consumption plan is limited, typically to 1.5 GB of memory and one CPU. An instance of the host supports the entire function app. As such, all functions within a function app share resource in an instance are scaled at the same time. When function apps share the same Consumption plan, they're still scaled independently. 
 
-+ **Flex Consumption plan:** The Flex Consumption plan uses a per-function scaling strategy, where each function is scaled independently, except for HTTP triggers and Durable Functions triggers. All HTTP triggered functions in an app and all Durable Functions triggers in an app are respectively scaled together as groups. For more information, see [Per-function scaling](#per-function-scaling). 
++ **Flex Consumption plan:** In the Flex Consumption plan there are [multiple choices for instance memory](flex-consumption-plan.md/#instance-memory). The Flex Consumption plan uses a per-function scaling strategy, where each function is scaled independently, except for HTTP, Blob, and Durable Functions triggered functions which scale in their own groups. For more information, see [Per-function scaling](#per-function-scaling). These instances are then scaled based on the concurrency of your requests.
 
-+ **Premium plan:** The specific size of the Premium plan determines the available memory and CPU for all apps in that plan on that instance.  
++ **Premium plan:** The specific size of the Premium plan determines the available memory and CPU for all apps in that plan on that instance. The plan scales out its instances based on the scaling needs of the apps in the plan, and the apps will scale within the plan as needed.
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and can't be recovered.
 
@@ -36,7 +36,7 @@ After your function app has been idle for a number of minutes, the platform migh
 
 + [Premium plan](functions-premium-plan.md#eliminate-cold-starts): supports both always ready and prewarmed instances. 
 
-+ [Flex Consumption plan]: supports always ready instances. 
++ [Flex Consumption plan](flex-consumption-plan.md#always-ready-instances): supports an optional number of always ready instances based on per instance scaling groups. 
 
 + [Dedicated plan](./dedicated-plan.md#always-on): the plan itself doesn't scale dynamically, but you can run your app continuously with the **Always on** setting is enabled.
 
@@ -44,9 +44,9 @@ After your function app has been idle for a number of minutes, the platform migh
 
 Scaling can vary based on several factors, and apps scale differently based on the triggers and language selected. There are a few intricacies of scaling behaviors to be aware of:
 
-* **Maximum instances:** A single function app only scales out to a [maximum allowed by the plan](functions-scale.md#scale). However, a single instance can process more than one message or request at a time, so therme isn't a set limit on number of concurrent executions.  You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
+* **Maximum instances:** A single function app only scales out to a [maximum allowed by the plan](functions-scale.md#scale). However, a single instance [can process more than one message or request at a time](functions-concurrency.md#concurrency-in-azure-functions). You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
 * **New instance rate:** For HTTP triggers, new instances are allocated, at most, once per second. For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](functions-premium-plan.md).
-* **Target-based scaling:** Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus queues and topics, Storage queues, Event Hubs, and Azure Cosmos DB extensions. Make sure to review [target-based scaling](./functions-target-based-scaling.md) to understand their scaling behavior.
+* **Target-based scaling:** Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus queues and topics, Storage queues, Event Hubs, Apache Kafka, and Azure Cosmos DB extensions. Make sure to review [target-based scaling](./functions-target-based-scaling.md) to understand their scaling behavior.
 * **Per-function scaling:** The Flex Consumption plan scales all HTTP triggered and Durable functions together, and it scales all other types of function independently. For more information, see [per-function scaling](#per-function-scaling). 
 
 ## Limit scale-out
@@ -82,7 +82,7 @@ The following considerations apply for scale-in behaviors:
 
 _Applies only to the Flex Consumption plan (preview)_
 
-The [Flex Consumption plan] is unique in that it implements a _per-function scaling_ behavior. In per-function scaling, except for HTTP triggers and Durable Functions, all other function trigger types in your app scale on independent instances. HTTP triggers in your app all scale together as a group on the same instances, as do all Durable Functions triggers, which have their own shared instances.
+The [Flex Consumption plan] is unique in that it implements a _per-function scaling_ behavior. In per-function scaling, except for HTTP triggers, Blob (Event Grid) triggers, and Durable Functions, all other function trigger types in your app scale on independent instances. HTTP triggers in your app all scale together as a group on the same instances, as do all Blob (Event Grid), and all Durable Functions triggers, which have their own shared instances.
 
 Consider a function app hosted a Flex Consumption plan that has these function:
 
@@ -94,7 +94,8 @@ In this example:
 
 + The two HTTP triggered functions (`function1` and `function2`) both run together on their own instances and scale together according to [HTTP concurrency settings]().
 + The two Durable functions (`function3` and `function4`) both run together on their own instances and scale together based on [configured concurrency throttles](./durable/durable-functions-perf-and-scale.md#concurrency-throttles).
-+ Each of the two Service bus triggers (`function5` and `function6`) runs on separate instances, where each is scaled independently according to the [target-based scaling rules for Service Bus queues and topics](functions-target-based-scaling.md#service-bus-queues-and-topics).
++ The Service bus triggered function `function5` runs in its own and is scaled independently according to the [target-based scaling rules for Service Bus queues and topics](functions-target-based-scaling.md#service-bus-queues-and-topics).
++ The Service bus triggered function `function6` runs in its own and is scaled independently according to the [target-based scaling rules for Service Bus queues and topics](functions-target-based-scaling.md#service-bus-queues-and-topics).
 + The Event Hubs trigger (`function7`) runs in its own instances and is scaled independently according to the [target-based scaling rules for Event Hubs](functions-target-based-scaling.md#event-hubs).
 
 ## Best practices and patterns for scalable apps

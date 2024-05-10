@@ -6,7 +6,7 @@ ms.author: glenga
 ---
 1. In the [Azure portal](https://portal.azure.com), from the menu or the **Home** page, select **Create a resource**.
 
-1. In the **New** page, select **Compute** > **Function App**.
+1. In the search window, type `function` and select **Create** under **Function App**.
 
 1. Under **Select a hosting option**, choose **Flex Consumption** > **Select**.   
 
@@ -15,7 +15,7 @@ ms.author: glenga
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which you create your new function app. |
-    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](../articles/azure-functions/functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
+    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](../articles/azure-functions/flex-consumption-how-to.md#view-currently-supported-regions).|
     | **Runtime stack** | Preferred language | Choose one of the suppored language runtime stacks. In-portal editing using Visual Studio Code for the Web is currently only available for Node.js, PowerShell, and Python apps. C# class library and Java functions must be [developed locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |

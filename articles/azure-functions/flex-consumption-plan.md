@@ -11,9 +11,8 @@ ms.custom: references_regions
 
 # Azure Functions Flex Consumption plan hosting
 
-When you're using the Flex Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Flex Consumption plan, along with the standard [Consumption plan](consumption-plan.md), is a fully <em>serverless</em> hosting option for Azure Functions. 
+Flex Consumption is a linux-based Azure Functions hosting plan that builds on the Consumption pay for what you use serverless billing model. It gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast and large scale out features on a <em>serverless</em> model.
 
-For a little extra cost, Flex Consumption provides you benefits above and beyond what you get with a regular Consumption plan. 
 
 > [!IMPORTANT]
 > The Flex Consumption plan is currently in preview. For a list of current limitations when using this hosting plan, see [Considerations](#considerations). For current information about billing during the preview, see [Billing](#billing).
@@ -24,8 +23,9 @@ The Flex Consumption plan builds on the strengths of the Consumption plan, which
 
 + [Always-ready instances](#always-ready-instances) 
 + [Virtual network integration](#virtual-network-integration)
-+ More control over scale using instance memory and concurrency settings
-+ Unlimited<sup>1</sup> timeouts 
++ Fast scaling based on concurrency for both HTTP and non-HTTP apps
++ Multiple choices for instance memory size
++ No enforced function execution timeouts <sup>1</sup>
 
 This table helps you directly compare the features of Flex Consumption with the Consumption hosting plan:
 
@@ -37,7 +37,7 @@ This table helps you directly compare the features of Flex Consumption with the 
 | Start-up | From zero instances | Always ready instances |
 | Virtual networks | Not supported | Supported | 
 
-<sup>1</sup>60 minutes guaranteed.
+<sup>1</sup>In Flex Consumption the functions host does not enforce an execution time limit. While no timeout is enforced, there is no current guarantees as the platform might need to terminate your instances during scale in, deployment, or updates.
 
 For a complete comparison of the Flex Consumption plan against the Consumption plan and all other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
@@ -47,19 +47,18 @@ Flex Consumption expands on the traditional benefits of Consumption plan by addi
 
 ## Instance memory
 
-When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. This _instance memory_ setting directly affects the costs of your function executions and the cost of maintaining always ready instances. 
+When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how this affects the costs of your function app. 
 
 Currently, Flex Consumption offers these instance memory size options: 512 MB, 2,048 MB, and 4,096 MB.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
-+ The 2,048 MB instance memory size is used when creating new apps, unless you specifically request a different option. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
++ The 2,048 MB instance memory size is the default and should be used for most scenarios. The 512 MB and 4,096 MB instance memory sizes are available for scenarios that best suit your application's concurrency or processing power requirements. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
 + You can change the instance memory size at any time. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory).
-+ Instance memory is shared between your function code and the Functions host.
-+ The larger the size you set, the heavier the load (executions and concurrency) your instance can handle before it might need to scale. Specific scale decisions are workload-specific.
++ Instance resources are shared between your function code and the Functions host.
++ The larger the instance memory size, the more each instance can handle as far as concurrent executions or more intensive CPU or memory workloads. Specific scale decisions are workload-specific.
 + The default concurrency of HTTP triggers depends on the instance memory size. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
 + Available CPUs and network bandwidth are provided proportional to a specific instance size.
-+ When your instance count scales from one to two instances, the total execution cost of running your functions doubles. For more information, see [Billing](#billing).   
 
 ## Always ready instances
 
@@ -69,11 +68,11 @@ For example, if you set always ready to 2 for your HTTP group of functions, the 
 
 ## Per-function scaling
 
-Concurrency is a key factor that determines how function apps scale. Because your function app can include different kinds of triggers, it can difficult for the host to determine how to most efficiently scale your app based on which functions are receiving demands. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
+Concurrency is a key factor that determines how Flex Consumption function apps scale. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
 
 This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
 
-In per function scaling, HTTP and Durable triggers are special cases. All HTTP triggered functions in the app will be grouped and scaled together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) will be grouped and scaled together in the same instances. Any other function in the app will be treated and scaled individually.
+In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app will be grouped and scaled together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) will be grouped and scaled together in the same instances. Any other function in the app will be treated and scaled individually.
 
 ## Concurrency
 
@@ -100,26 +99,25 @@ This table shows the language stack versions that are currently supported for Fl
 | Language stack  | Required version |
 | --- | :-----: |
 | C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup> |
-| Java | Java 17 |
-| Node.js | Node 18   |
-| PowerShell | PowerShell 7.2   |
-| Python | Python 3.10   | 
+| Java | Java 11, Java 17 |
+| Node.js | Node 20   |
+| PowerShell | PowerShell 7.4   |
+| Python | Python 3.10, Python 3.11  | 
 
 <sup>1</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't currently supported.  
 <sup>2</sup>Requires version `1.20.0` or later of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and version `1.16.2` or later of [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
 
 ## Deprecated properties and settings
 
-In Flex Consumption, many of the standard application settings and site configuration properties used in Bicep and ARM template deployments are deprecated and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations). 
+In Flex Consumption, many of the standard application settings and site configuration properties used in Bicep, ARM templates, and overall control plane are deprecated or have moved and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations). 
 
 ## Considerations
 
-Keep these another considerations in mind when using Flex Consumption plan during the current preview:
+Keep these other considerations in mind when using Flex Consumption plan during the current preview:
 
 + **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
-+ **Regions**: All regions aren't currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions). 
-+ **Scale**: The lowest maximum scale recommended in preview is `40`. The highest currently supported value `1000`.
-+ **Capacity**: During the preview, the available capacity of `4096` instance sizes might be more limited than `512` and `2048` sizes. The available capacity for Node.js and PowerShell apps might also be more limited. Before you perform scale testing of either Node.js or PowerShell apps or larger-scale testing on the `4096` instance size, contact the team at [flexconsumptionprev@microsoft.com](mailto:flexconsumptionprev@microsoft.com).
++ **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions). 
++ **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
  
 ## Related articles 
 

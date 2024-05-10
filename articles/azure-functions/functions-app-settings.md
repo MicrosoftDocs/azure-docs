@@ -846,7 +846,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
-| `FUNCTIONS_EXTENSION_VERSION` |App Setting will be set by the backend to the right value|
+| `FUNCTIONS_EXTENSION_VERSION` |App Setting will be set by the backend to the right value|. You may notice this setting being set to ~1 by the backend, this can be ignored.
 | `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
 | `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `FUNCTIONS_MAX_HTTP_CONCURRENCY` |App Setting replaced by scale and concurrency's trigger section|

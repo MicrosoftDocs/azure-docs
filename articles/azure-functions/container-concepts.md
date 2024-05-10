@@ -12,7 +12,7 @@ ms.date: 04/05/2024
 
 When you plan and develop your individual functions to run in Azure Functions, you are typically focused on the code itself. Azure Functions makes it easy to deploy just your code project to a function app in Azure. When you deploy your code project to a function app that runs on Linux, the project runs in a container that is created for you automatically. This container is managed by Functions.
 
-Functions also supports containerized function app deplopyments. In a containerized deployment, you create your own function app instance in a local Docker container from a supported based image. You can then deploy this _containerized_ function app to a hosting enviroment in Azure. Creating your own function app container lets you customize or otherwise control the immediate runtime enviroment of your function code. 
+Functions also supports containerized function app deployments. In a containerized deployment, you create your own function app instance in a local Docker container from a supported based image. You can then deploy this _containerized_ function app to a hosting environment in Azure. Creating your own function app container lets you customize or otherwise control the immediate runtime environment of your function code. 
 
 ## Container hosting options
 

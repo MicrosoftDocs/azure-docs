@@ -14,8 +14,8 @@ ms.author: glenga
 | Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | 4096 | 
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
 |[ACU](../articles/virtual-machines/acu.md) per instance | 100 | TBD | 210-840 | 100-840 | 210-250<sup>8</sup> |
-| Max memory (GB per instance) | 1.5 | 4.1<sup>13</sup> | 3.5-14 | 1.75-14 | 3.5-14 | 
-| Max instance count (Windows/Linux) | 200/100 | Varies<sup>14</sup> | 100/20 | varies by SKU<sup>9</sup> | 100<sup>9</sup> |  
+| Max memory (GB per instance) | 1.5 | 4<sup>13</sup> | 3.5-14 | 1.75-14 | 3.5-14 | 
+| Max instance count (Windows/Linux) | 200/100 | 1000 <sup>14</sup> | 100/20 | varies by SKU<sup>9</sup> | 100<sup>9</sup> |  
 | Function apps per plan<sup>11</sup> | 100 | 100 | 100 | unbounded<sup>4</sup> | unbounded | 
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) | TBD | 100 per resource group |100 per resource group | - |
 | [Deployment slots](../articles/azure-functions/functions-deployment-slots.md) per app<sup>10</sup> | 2 | TBD | 3 | 1-20<sup>9</sup> | 20 |
@@ -38,4 +38,4 @@ Notes on service limits:
 11. There's currently a limit of 5000 function apps in a given subscription. 
 12. The Flex Consumption plan is currently in preview.  
 13. Flex Consumption plan instance sizes are defined as: 512 MB, 2,048 MB, and 4,096 MB. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).  
-14. Flex Consumption plan instance counts are actually limited by total memory usage of all instances across a given region. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).
+14. Flex Consumption plan during preview has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#regional-subscription-memory-quotas).

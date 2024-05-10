@@ -1,6 +1,6 @@
 ---
 title: Create your first function using Visual Studio Code for the Web
-description: Learn how to create your first Flex Consumption hosted function using Visual Studio for the Web in the Azure portal.
+description: Learn how to create your first Flex Consumption hosted function using Visual Studio Code for the Web in the Azure portal.
 ms.topic: quickstart
 ms.date: 05/06/2024
 zone_pivot_groups: programming-languages-set-functions
@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create your first function using Visual Studio Code for the Web
 
-This quickstart you create an HTTP triggered function using Visual Studio Code in the Azure portal for the Web. The function app that hosts your code runs in the Flex Consumption hosting plan in Azure Functions. 
+This quickstart creates an HTTP triggered function using Visual Studio Code for the Web in the Azure portal. The function app that hosts your code runs in the Flex Consumption hosting plan in Azure Functions.
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-typescript,programming-language-python"   
 [!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 ::: zone-end  
@@ -52,7 +52,7 @@ Next, create a function in the new function app in the portal using Visual Studi
 
 ## Create an HTTP trigger function
 
-1. In your function app, under **Create functions in your preferred environment** select **Create with VS Code for the Web**. This takes you to the Visual Studio Code for the Web editor.
+1. In the Overview page of your function app under **Create functions in your preferred environment** select **Create with VS Code for the Web**. This takes you to the Visual Studio Code for the Web editor.
 
 1. Under **Select a template**, scroll down and choose the **HTTP trigger** template.
 
