@@ -142,10 +142,10 @@ The sizes E2-E112i support NVMe on Ebsv5 and Ebdsv5 families.
 All sizes (E2-E96) on the Ebsv5 and Ebsdv5 families support SCSI except E112i. 
 
 ### I have a SCSI Ebsv5 VM. How do I switch to NVMe of the same VM size?   
-The steps to switch from SCSI to NVMe are the same as explained [here](/azure/virtual-machines/enable-nvme-remote-faqs.yml)
+The steps to switch from SCSI to NVMe are the same as explained [here](./enable-nvme-remote-faqs.yml).
 
 ### How can I switch back to SCSI interface from NVMe VM?   
-To switch back to SCSI from NVMe, follow the same steps as explained [here](/azure/virtual-machines/enable-nvme-remote-faqs.yml) 
+To switch back to SCSI from NVMe, follow the same steps as explained [here](./enable-nvme-remote-faqs.yml).
 
 ### What is the price for NVMe Ebsv5 prices?  
 The NVMe enabled Ebsv5 and Ebdsv5 VMs are the same price as SCSI VMs. Refer to the pricing pages for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). With NVMe, you get higher performance at no extra cost. 
