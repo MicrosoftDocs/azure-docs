@@ -419,6 +419,12 @@ In this article, you create an endpoint with name **meta-llama3-8b-qwerty**.
     > [!TIP]
     > If you're using prompt flow in the same workspace where the deployment was deployed, you still need to create the connection.
 
+## Using the serverless API endpoint
+
+Models deployed in Azure Machine Learning and Azure AI studio in Serverless API endpoints support the [Azure AI Model Inference API](reference-model-inference-api.md) that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. 
+
+Read more about the [capabilities of this API](reference-model-inference-api.md#capabilities) and how [you can leverage it when building applications](reference-model-inference-api.md#getting-started). 
+
 ## Delete endpoints and subscriptions
 
 You can delete model subscriptions and endpoints. Deleting a model subscription makes any associated endpoint to become *Unhealthy* and unusable.
