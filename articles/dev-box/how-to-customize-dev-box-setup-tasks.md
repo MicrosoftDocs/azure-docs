@@ -36,54 +36,9 @@ You can adopt customizations in stages, building from a simple but functional co
 > Customizations in Microsoft Dev Box are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### What are tasks? 
-
-A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a *task.yaml* file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated setup tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog, and scans a specified folder of the catalog recursively to find task definitions. 
-
-Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common setup tasks: 
-
-- Install software with the WinGet or Chocolatey package managers
-- Clone a repository by using git-clone 
-- Configure applications like installing Visual Studio extensions 
-- Run PowerShell scripts 
-
-The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
-
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png":::
-
-### What is a configuration file?
-
-Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more *tasks*, which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a `git clone` task to clone a repository. 
-
-```yaml
-# From https://github.com/microsoft/devcenter-examples
-$schema: 1.0
-tasks:
-  - name: winget
-    parameters:
-      package: Microsoft.VisualStudioCode
-      runAsUser: true
-  - name: git-clone
-    description: Clone this repository into C:\Workspaces
-    parameters:
-      repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
-      directory: C:\Workspaces
-```
-
-### Permissions required to configure Microsoft Dev Box for customizations
-
-To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
-
-|Action  |Permission / Role  |
-|---------|---------|
-|Attach a catalog to a dev center |Platform engineer with Contributor permission to the dev center. |
-|Use the developer portal to upload and apply a yaml file during dev box creation | Dev Box User |
-|Create a configuration file    | Anyone can create a configuration file.  |
-|Add tasks to a catalog     | Permission to add to the repository hosting the catalog.        |
-
 ## Prerequisites
 
-To complete the steps in this article, you must have a [dev center configured with a dev box definition, dev box pool, and dev box project](./quickstart-configure-dev-box-service.md). 
+- To complete the steps in this article, you must have a [dev center configured with a dev box definition, dev box pool, and dev box project](./quickstart-configure-dev-box-service.md). 
 
 ## Create a customized dev box by using an example configuration file
 
