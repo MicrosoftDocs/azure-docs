@@ -37,6 +37,6 @@ While applying savings plan benefits to your usage, Azure processes savings plan
 
 You can always update the scope after you buy a savings plan. To do so, go to the savings plan, select **Configuration**, and rescope the savings plan. Rescoping a savings plan isn't a commercial transaction, so your savings plan term isn't changed. For more information about updating the scope, see [Update the scope](manage-savings-plan.md#change-the-savings-plan-scope) after you purchase a savings plan.
 
-## Next steps
+## Related content
 
 - [Change the savings plan scope](manage-savings-plan.md#change-the-savings-plan-scope).
