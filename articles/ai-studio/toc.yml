@@ -60,6 +60,10 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
+    - name: Phi models
+      items:
+      - name: Fine-tune Phi 3 models
+        href: how-to/fine-tune-phi-3-models.md
   - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
