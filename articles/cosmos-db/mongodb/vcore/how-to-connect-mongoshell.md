@@ -19,16 +19,16 @@ ms.date: 02/05/2024
 MongoDB Shell (Mongosh), is a JavaScript and Node.js environment for interacting with MongoDB deployments. It's a popular community tool to test queries and interact with the data in your Azure Cosmos DB for MongoDB database.
 
 ## Prerequisites
-Here are some pre-requisites 
+Here are some prerequisites. 
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
 - An installed version of the MongoShell from the community site.
-- Please ensure you're setting up the necessary environment variables post installation for your operating system
-- Please ensure you have set the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall.md)
+- Ensure you're setting up the necessary environment variables post installation for your operating system
+- Ensure the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall.md)
     - You can choose to allow requests from your current IP, requests from cloud services or requests from virtual machines - specific IP Ranges
     
 ![GIF of Firewall Settings update for MongoDB Vcore](media/connect-using-mongoshell/firewall-settings.gif)
 
-If you accidentally open all the ports, you'll be warned before saving the changes.
+If you accidentally open all the ports, you're warned before saving the changes.
 
 ## Connect using Mongo Shell (Mongosh)
 
@@ -56,8 +56,8 @@ Here's an example of how the command looks like:
     ```
 ![GIF for connecting by entering password](./media/connect-using-mongoshell/mongo-shell-connect.gif)
 
-Once you provide the password and are successfully authenticated, you'll notice some warning stating *"This server or service appears to be an emulation of MongoDB"*
-The warning can be ignored. It's the shell's way of notifying that you aren't connection to an emulation of MongoDB. When it's an Azure as a platform as a service offering this is expected. 
+Once you provide the password and are successfully authenticated, you notice some warning. It states *"This server or service appears to be an emulation of MongoDB"*. 
+The warning can be ignored. It's the shell's way of notifying that you aren't connection to an emulation of MongoDB. When, it's an Azure as a platform as a service offering it's expected. 
 
 **B. By providing the password as a part of the connection string**
 
