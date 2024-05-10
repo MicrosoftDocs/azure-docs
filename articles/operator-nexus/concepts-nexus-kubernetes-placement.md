@@ -67,7 +67,7 @@ when creating NKS Clusters against an Operator Nexus environment.
 > KubernetesCluster resource or viewing the "Host" column in Azure Portal's
 > display of Kubernetes Cluster Nodes.
 
-:::image type="content" source="media/nexus-kubernetes/show-baremetal-host.png" alt-text="A screenshot showing bare metal server for NKS VMs.":::
+:::image type="content" source="media/nexus-kubernetes/show-baremetal-host.png" lightbox="media/nexus-kubernetes/show-baremetal-host.png" alt-text="A screenshot showing bare metal server for NKS VMs.":::
 
 The example Operator Nexus environment has these specifications:
 
@@ -77,7 +77,7 @@ The example Operator Nexus environment has these specifications:
 
 [numa]: https://en.wikipedia.org/wiki/Non-uniform_memory_access
 
-### Empty Environment 
+### Empty Environment
 
 Given an empty Operator Nexus environment with the given capacity, we create
 three differently sized Nexus Kubernetes Clusters.
@@ -130,7 +130,7 @@ on the same bare metal servers (see rule #3 in
 Here's a visualization of a layout the user might see after deploying Clusters
 A, B, and C into an empty environment.
 
-:::image type="content" source="media/nexus-kubernetes/after-first-deployment.png" alt-text="Diagram showing possible layout of VMs after first deployment.":::
+:::image type="content" source="media/nexus-kubernetes/after-first-deployment.png" lightbox="media/nexus-kubernetes/after-first-deployment.png" alt-text="Diagram showing possible layout of VMs after first deployment.":::
 
 ### Half-full Environment
 
@@ -176,7 +176,7 @@ and Agent Pool #2 are collocated on the same bare metal servers in racks 7 and
 Here's a visualization of a layout the user might see after deploying Cluster
 D into the target environment.
 
-:::image type="content" source="media/nexus-kubernetes/after-second-deployment.png" alt-text="Diagram showing possible layout of VMs after second deployment.":::
+:::image type="content" source="media/nexus-kubernetes/after-second-deployment.png" lightbox="media/nexus-kubernetes/after-second-deployment.png" alt-text="Diagram showing possible layout of VMs after second deployment.":::
 
 ### Nearly full Environment
 
@@ -207,7 +207,7 @@ racks were racks 3 and 6.
 Here's a visualization of a layout the user might see after deploying Cluster
 E into the target environment.
 
-:::image type="content" source="media/nexus-kubernetes/after-third-deployment.png" alt-text="Diagram showing possible layout of VMs after third deployment.":::
+:::image type="content" source="media/nexus-kubernetes/after-third-deployment.png" lightbox="media/nexus-kubernetes/after-third-deployment.png" alt-text="Diagram showing possible layout of VMs after third deployment.":::
 
 ## Placement during a Runtime Upgrade 
 
