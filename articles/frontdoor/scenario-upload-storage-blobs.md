@@ -56,7 +56,7 @@ The configuration of Azure Front Door includes the following steps for each stor
 
 1. In the *origin configuration*, you need to define the origin type as a blob storage account and select the appropriate storage account available within your subscription.
 
-    :::image type="content" source="./media/scenario-storage-blobs-upload/origin.png" alt-text="Screenshot of the origin configuration.":::
+    :::image type="content" source="./media/scenario-storage-blobs-upload/origin.png" lightbox="./media/scenario-storage-blobs-upload/origin.png" alt-text="Screenshot of the origin configuration.":::
 
 1. In the *Origin group route*, you have to define a path for processing with in the origin group. Ensure to select the newly created origin group and specify the path to the container within the storage account.
 
@@ -64,7 +64,7 @@ The configuration of Azure Front Door includes the following steps for each stor
 
 1. Finally, you need to create a new Rule set configuration. It's important to configure *Preserve unmatched path* setting, which allows appending the remaining path after the source pattern to the new path.
 
-    :::image type="content" source="./media/scenario-storage-blobs-upload/rule-set.png" alt-text="Screenshot of the rule set configuration.":::
+    :::image type="content" source="./media/scenario-storage-blobs-upload/rule-set.png" lightbox="./media/scenario-storage-blobs-upload/rule-set.png" alt-text="Screenshot of the rule set configuration.":::
 
 ## Considerations
 
