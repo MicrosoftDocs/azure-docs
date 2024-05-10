@@ -10,10 +10,11 @@ ms.author: tomcassidy
 ms.reviewer: tomcassidy
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor    | 2 - 96 <sup> vCores      | Microsoft Cobalt 100 (ARM-64)                      |
-| Memory       | 16 - 672 <sup> GiB          |                         |
-| Data Disks   | 8 - 64 <sup>Disks     |  <sup>IOPS/Disk</sup>     |
-| Network      | 2 - 8 <sup> NICs          | 12500 - 60000 <sup> Mbps           |
-| Accelerators | ACCELMIN - ACCELMAX         |                          |
+| Processor    | 2 - 96  vCores      | Microsoft Cobalt 100 (ARM-64)                      |
+| Memory       | 16 - 672  GiB          |                         |
+| Local Storage  | 1 - 6 Disks        | 110 - 880 GiB/Disk <br>15000 - 1800000 IOPS <br> 90 - 8640 MBps  |
+| Remote Storage   | 8 - 64 Disks     | 3750 - 199987 IOPS <br>106 - 5850 MBps     |
+| Network      | 2 - 8  NICs          | 12500 - 60000  Mbps           |
+| Accelerators | None         |                          |

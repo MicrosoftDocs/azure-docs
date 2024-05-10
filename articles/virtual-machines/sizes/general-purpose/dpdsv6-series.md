@@ -21,6 +21,19 @@ ms.reviewer: mattmcinnes
 
 [!INCLUDE [dpdsv6-summary](./includes/dpdsv6-series-summary.md)]
 
+## Host specifications
+[!INCLUDE [dpdsv6-series-specs](./includes/dpdsv6-series-specs.md)]
+
+## Feature Support
+- [Premium Storage](../../premium-storage-performance.md): Supported 
+- [Premium Storage caching](../../premium-storage-performance.md): Supported 
+- [Live Migration](../../maintenance-and-updates.md): Supported 
+- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
+- [VM Generation Support](../../generation-2.md): Generation 2 
+- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
+- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
+
 ## Sizes in series
 
 ### [Basics](#tab/sizebasic)
@@ -40,15 +53,6 @@ vCPUs (Qty.) and Memory for each size
 
 > [!NOTE]
 > The Dpdsv6 VM series will only work on OS images that are tagged with NVMe support. If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available on the most popular OS images, and we continuously improve the OS image coverage.
-
-- [Premium Storage](../../premium-storage-performance.md): Supported 
-- [Premium Storage caching](../../premium-storage-performance.md): Supported 
-- [Live Migration](../../maintenance-and-updates.md): Supported 
-- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
-- [VM Generation Support](../../generation-2.md): Generation 2 
-- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Supported
-- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)

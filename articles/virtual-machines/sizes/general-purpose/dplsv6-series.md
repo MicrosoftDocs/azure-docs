@@ -21,6 +21,19 @@ ms.reviewer: mattmcinnes
 
 [!INCLUDE [dplsv6-summary](./includes/dplsv6-series-summary.md)]
 
+## Host specifications
+[!INCLUDE [dplsv6-series-specs](./includes/dplsv6-series-specs.md)]
+
+## Feature Support
+- [Premium Storage](../../premium-storage-performance.md): Supported 
+- [Premium Storage caching](../../premium-storage-performance.md): Supported 
+- [Live Migration](../../maintenance-and-updates.md): Supported 
+- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
+- [VM Generation Support](../../generation-2.md): Generation 2 
+- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
+- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
+
 ## Sizes in series
 
 ### [Basics](#tab/sizebasic)
@@ -37,15 +50,6 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D48pls_v6 | 48 | 96 |
 | Standard_D64pls_v6 | 64 | 128 |
 | Standard_D96pls_v6 | 96 | 192 |
-
-- [Premium Storage](../../premium-storage-performance.md): Supported 
-- [Premium Storage caching](../../premium-storage-performance.md): Supported 
-- [Live Migration](../../maintenance-and-updates.md): Supported 
-- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
-- [VM Generation Support](../../generation-2.md): Generation 2 
-- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
-- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
@@ -107,14 +111,14 @@ Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_D2pds_v6 | 2 | 12500 |
-| Standard_D4pds_v6 | 2 | 12500 |
-| Standard_D8pds_v6 | 4 | 15000 |
-| Standard_D16pds_v6 | 8 | 15000 |
-| Standard_D32pds_v6 | 8 | 20000 |
-| Standard_D48pds_v6 | 8 | 30000 |
-| Standard_D64pds_v6 | 8 | 40000 |
-| Standard_D96pds_v6 | 8 | 60000 |
+| Standard_D2pls_v6 | 2 | 12500 |
+| Standard_D4pls_v6 | 2 | 12500 |
+| Standard_D8pls_v6 | 4 | 15000 |
+| Standard_D16pls_v6 | 8 | 15000 |
+| Standard_D32pls_v6 | 8 | 20000 |
+| Standard_D48pls_v6 | 8 | 30000 |
+| Standard_D64pls_v6 | 8 | 40000 |
+| Standard_D96pls_v6 | 8 | 60000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)

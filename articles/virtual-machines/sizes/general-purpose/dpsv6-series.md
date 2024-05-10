@@ -21,6 +21,19 @@ ms.reviewer: mattmcinnes
 
 [!INCLUDE [dpsv6-summary](./includes/dpsv6-series-summary.md)]
 
+## Host specifications
+[!INCLUDE [dpsv6-series-specs](./includes/dpsv6-series-specs.md)]
+
+## Feature Support
+- [Premium Storage](../../premium-storage-performance.md): Supported
+- [Premium Storage caching](../../premium-storage-performance.md): Supported
+- [Live Migration](../../maintenance-and-updates.md): Supported
+- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported
+- [VM Generation Support](../../generation-2.md): Generation 2 
+- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
+- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
+
 ## Sizes in series
 
 ### [Basics](#tab/sizebasic)
@@ -37,15 +50,6 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D48ps_v6 | 48 | 192 |
 | Standard_D64ps_v6 | 64 | 256 |
 | Standard_D96ps_v6 | 96 | 384 |
-
-- [Premium Storage](../../premium-storage-performance.md): Supported
-- [Premium Storage caching](../../premium-storage-performance.md): Supported
-- [Live Migration](../../maintenance-and-updates.md): Supported
-- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported
-- [VM Generation Support](../../generation-2.md): Generation 2 
-- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
-- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
@@ -78,8 +82,8 @@ Remote (uncached) storage info for each size
 
 | Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst<sup>1</sup> IOPS | Uncached Storage Burst<sup>1</sup> Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) | Uncached Burst<sup>1</sup> Special Storage IOPS | Uncached Burst<sup>1</sup> Special Storage Speed (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D2ps_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11110 | 1463 |
-| Standard_D4ps_v6 | 12 | 3400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
+| Standard_D2ps_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11100 | 1463 |
+| Standard_D4ps_v6 | 12 | 6400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
 | Standard_D8ps_v6 | 24 | 12800 | 424 | 20000 | 1250 | 16666 | 496 | 26040 | 1463 |
 | Standard_D16ps_v6 | 48 | 25600 | 848 | 40000 | 1250 | 33331 | 992 | 52080 | 1463 |
 | Standard_D32ps_v6 | 64 | 51200 | 1696 | 80000 | 2000 | 66662 | 1984 | 104160 | 2340 |

@@ -10,11 +10,11 @@ ms.author: tomcassidy
 ms.reviewer: tomcassidy
 ms.custom: include file
 ---
-| Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units</sup>, etc.  |
+| Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor      | 2 - 96  vCores       | Microsoft Cobalt 100 (ARM-64)                      |
+| Processor      | 2 - 96  vCPUs       | Microsoft Cobalt 100 (ARM-64)                      |
 | Memory         | 16 - 672  GiB        |                         |
 | Local Storage  | None                 |                            |
-| Remote Storage | 8 - 64 Disks         | 3750 - 153600 IOPS/Disk</sup>     |
+| Remote Storage | 8 - 64 Disks         | 3750 - 199987 IOPS <br>106 - 5850 MBps     |
 | Network        | 2 - 8  NICs          | 12500 - 60000  Mbps           |
 | Accelerators   | None                 |                          |
