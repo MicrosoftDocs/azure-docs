@@ -36,10 +36,6 @@ You can adopt customizations in stages, building from a simple but functional co
 > Customizations in Microsoft Dev Box are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### Team-specific customization scenarios 
-
-Customizations are useful wherever you need to configure settings or install software. You can also use customizations to add extensions, or to set common OS settings like enabling Windows Features on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
-
 ### What are tasks? 
 
 A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a *task.yaml* file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated setup tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog, and scans a specified folder of the catalog recursively to find task definitions. 
@@ -194,6 +190,8 @@ tasks:
       parameters:
           configure: "projectConfiguration.dsc.yaml"
 ```
+
+To learn more about WinGet Configuration, see [WinGet Configuration](https://aka.ms/winget-configuration).
 
 ### Permissions required to configure Microsoft Dev Box for customizations
 
