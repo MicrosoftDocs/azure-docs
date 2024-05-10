@@ -38,26 +38,37 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
 
     * **Azure AI services or Document Intelligence resource**. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal to get your key and endpoint. Use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-1. Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. You have two options:
+## Authorization policies
 
-   **a. Access by Resource (recommended)**.
+Organizations can opt to disable local authentication and enforce Microsoft Entra (formerly Azure Active Directory) authentication for Azure AI Document Intelligence resources and Azure blob storage. For more information, *see* the following:
+
+* [Disable local authentication for Azure AI Services](../disable-local-auth.md).
+* [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
+* For both options, the access role requirements remain the same. For more information, *see* [Azure role assignments](/quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio).
+
+## Authentication
+
+Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. In accordance wsith your organization's policy you will have one or two options:
+
+   **a. Microsoft Entra authentication: access by Resource (recommended)**.
 
       * Choose your existing subscription.
       * Select an existing resource group within your subscription or create a new one.
       * Select your existing Document Intelligence or Azure AI services resource.
 
-      :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
+          :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
 
-    **b. Access by API endpoint and key**.
+    **b. Local authentication: access by API endpoint and key**.
 
       * Retrieve your endpoint and key from the Azure portal.
       * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
       * Enter the values in the appropriate fields.
 
-      :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
+          :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
 
+## Try a Document Intelligence model
 
-1. Once the resource is configured, you're able to try the different models offered by Document Intelligence Studio. From the front page, select any Document Intelligence model to try using with a no-code approach.
+1. Once your resource is configured, you can try the different models offered by Document Intelligence Studio. From the front page, select any Document Intelligence model to try using with a no-code approach.
 
 1. To test any of the document analysis or prebuilt models, select the model and use one of the sample documents or upload your own document to analyze. The analysis result is displayed at the right in the content-result-code window.
 
