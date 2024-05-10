@@ -44,7 +44,8 @@ The basic format is:
       "vmSize": "<vmSize>",
       "osDiskSizeGB": <sizeInGB>,
       "vnetConfig": {
-        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>",
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>",
+        "containerInstanceSubnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>",
         "proxyVmSize": "<vmSize>"
       },
       "userAssignedIdentities": [
@@ -80,7 +81,8 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
       vmSize: '<vmSize>'
       osDiskSizeGB: <sizeInGB>
       vnetConfig: {
-        subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+        subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>'
+        containerInstanceSubnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>'
         proxyVmSize: '<vmSize>'
       }
       userAssignedIdentities: [
@@ -1704,7 +1706,9 @@ If you don't specify any VNet properties, Image Builder creates its own VNet, Pu
 
 ```json
 "vnetConfig": {
-  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>",
+  "containerInstanceSubnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>",
+  "proxyVmSize": "<vmSize>"
 }
 ```
 
@@ -1712,9 +1716,35 @@ If you don't specify any VNet properties, Image Builder creates its own VNet, Pu
 
 ```bicep
 vnetConfig: {
-  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>'
+  containerInstanceSubnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>'
+  proxyVmSize: '<vmSize>'
 }
 ```
+
+#### subnetId
+Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed.
+
+#### containerInstanceSubnetId (optional)
+Resource ID of a pre-existing subnet on which Azure Container Instance (ACI) is deployed for [Isolated Builds](../security-isolated-image-builds-image-builder.md). If this field isn't specified, then a temporary Virtual Network,  along with subnets and Network Security Groups, is deployed in the staging resource group in addition to other networking resources (Private Endpoint, Private Link Service, Azure Load Balancer, and the Proxy VM) to enable communication between the ACI and the build VM.
+
+*[This property is only available in API versions `2024-02-01` or newer though existing templates created using earlier API versions can be updated to specify this property.]*
+
+This field can be specified only if `subnetId` is also specified and must meet the following requirements:
+- This subnet must be on the same Virtual Network as the subnet specified in `subnetId`.
+- This subnet must not be the same subnet as the one specified in `subnetId`.
+- This subnet must be delegated to the ACI service so that it can be used to deploy ACI resources. You can read more about subnet delegation for Azure services [here](../../virtual-network/manage-subnet-delegation.md). ACI specific subnet delegation information is available [here](../../container-instances/container-instances-virtual-network-concepts.md).
+- This subnet must allow outbound access to the Internet and to the subnet specified in `subnetId`. These accesses are required so that the ACI can be provisioned and it can communicate with the build VM to perform customizations/validations. On the other end, the subnet specified in `subnetId` must allow inbound access from this subnet. In general, [default security rules of Azure Network Security Groups (NSGs)](../../virtual-network/network-security-groups-overview.md#default-security-rules) allow these accesses. However, if you add more security rules to your NSGs then the following accesses must still be allowed:
+   1. Outbound access from the subnet specified in `containerInstanceSubnetId` to:
+      1. To the Internet on port 443 (*for provisioning the container image*).
+      1. To the Internet on port 445 (*for mounting file share from Azure Storage*).
+      1. To the subnet specified in `subnetId` on port 22 (for ssh/Linux) and port 5986 (for WinRM/Windows) (*for connecting to the build VM*).
+   1. Inbound access to the subnet specified in `subnetId`:
+      1. To Port 22 (for ssh/Linux) and Port 5986 (for WinRM/Windows) from the subnet specified in `containerInstanceSubnetId` (*for ACI to connect to the build VM*).
+- The [template identity](./image-builder-json.md#user-assigned-identity-for-azure-image-builder-image-template-resource) must have permission to perform 'Microsoft.Network/virtualNetworks/subnets/join/action' action on this subnet's scope. You can read more about Azure permissions for Networking [here](/azure/role-based-access-control/permissions/networking).
+
+#### proxyVmSize (optional)
+Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
 
 ---
 

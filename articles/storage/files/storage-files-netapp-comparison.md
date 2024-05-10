@@ -1,16 +1,16 @@
 ---
 title: Azure Files and Azure NetApp Files comparison
-description: Comparison of Azure Files and Azure NetApp Files.
+description: Compare the scalability, performance, and features of Azure Files and Azure NetApp Files.
 author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 05/10/2024
 ms.author: kendownie
 recommendations: false
 ---
 
-# Azure Files and Azure NetApp Files comparison
+# Compare Azure Files and Azure NetApp Files
 
 This article provides a comparison of Azure Files and Azure NetApp Files. 
 
@@ -50,6 +50,7 @@ Most workloads that require cloud file storage work well on either Azure Files o
 For more information on scalability and performance targets, see [Azure Files](./storage-files-scale-targets.md#azure-files-scale-targets) and [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-resource-limits.md).
 
 ## Next Steps
+
 * [Azure Files documentation](./index.yml)
 * [Azure NetApp Files documentation](../../azure-netapp-files/index.yml)
 * [Shared storage for all enterprise file-workloads session](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s)
