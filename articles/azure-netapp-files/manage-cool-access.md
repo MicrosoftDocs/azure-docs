@@ -175,7 +175,7 @@ Storage with cool access can be enabled during the creation of a volume and on e
 
 #### Enable cool access on an existing volume 
 
-In a Standard service-level, cool-access enabled capacity pool, you can enable an existing volume to support cool access.  
+In a cool-access enabled capacity pool, you can enable an existing volume to support cool access.  
 
 1. Right-click the volume for which you want to enable the cool access. 
 1. In the **Edit** window that appears, set the following options for the volume: 
