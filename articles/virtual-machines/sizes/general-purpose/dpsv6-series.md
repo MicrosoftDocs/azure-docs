@@ -59,9 +59,6 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-Table definitions:
-Special storage = Ultra Disk or Premium SSD v2.
-
 | Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst IOPS | Uncached Storage Burst Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2ps_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11110 | 1463 |
