@@ -13,7 +13,7 @@ ms.author: greglin
 
 Application Gateway publishes data points to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
-## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metrics supported by Application Gateway V2 SKU
+## <a name="metrics-supported-by-application-gateway-v1-sku"></a><a name="#metrics-supported-by-application-gateway-v2-sku"></a>Metrics supported by Application Gateway V2 SKU
 
 > [!NOTE]
 > For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-metrics).
@@ -46,11 +46,7 @@ For Application Gateway, There are several backend metrics available. For a list
 
 ### Web Application Firewall (WAF) metrics
 
-For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics).
-
-### Web Application Firewall (WAF) metrics
-
-For information on WAF Monitoring, see [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v1-metrics).
+For information on WAF Monitoring, see [WAF v2 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics) and [WAF v1 Metrics](../../articles/web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v1-metrics).
 
 ## Metrics visualization
 

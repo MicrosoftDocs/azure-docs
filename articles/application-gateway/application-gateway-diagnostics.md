@@ -98,7 +98,7 @@ To view and analyze activity log data, see [Analyze monitoring data](monitor-app
 
 ## View and analyze the access, performance, and firewall logs
 
-[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. For more information, see[Analyze monitoring data](monitor-application-gateway.md#azure-monitor-tools).
+[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. For more information, see [Analyze monitoring data](monitor-application-gateway.md#azure-monitor-tools).
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
