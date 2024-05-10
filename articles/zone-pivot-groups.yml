@@ -464,10 +464,10 @@ groups:
   title: Container hosting
   prompt: Choose a container host
   pivots:
+  - id: container-apps
+    title: Azure Container Apps
   - id: azure-functions
     title: Azure Functions
-  - id: container-apps
-    title: Azure Container Apps (preview)
   - id: azure-arc
     title: Azure Arc (preview)
 - id: df-languages
