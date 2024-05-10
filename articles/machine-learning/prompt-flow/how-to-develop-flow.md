@@ -110,8 +110,6 @@ For the whole flow run, after you execute the flow, you can see the run status i
 
 :::image type="content" source="./media/how-to-develop-flow/view-flow-output.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/view-flow-output.png":::
 
-:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of trace detail." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
-
 **Understand the trace view**
 
 The trace kind of a prompt flow is designated as **Flow**. Within the trace view, the clear sequence of the tools used for flow orchestration can be observed. 
@@ -121,10 +119,15 @@ Each level 2 span under the flow root represents a node in the flow, executed in
 In the span tree, LLM calls are easily identifiable as the **LLM** span. These provide information about the duration of the LLM call and the associated token cost.
 
 By clicking on a span, you can see the detailed information on the right side. This includes input & output, Raw Json, and Exception, all of which are useful for observation and debugging.
+:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of trace detail." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
 
 
-> [!TIP]
-> More introduction of trace detail view you can refer to [here](../tracing/how-to-log-and-view-traces-of-your-app.md#view-the-traces).
+> [!NOTE]
+> In prompt flow SDK, we defined serval span types, including **LLM**, **Function**, **Embedding**, **Retrieval**, and **Flow**. And the system automatically creates spans with execution information in designated attributes and events. 
+> 
+> 1. More details about span types, please refer to this [prompt flow documentation](https://microsoft.github.io/promptflow/how-to-guides/tracing/trace-span.html).
+> 1. More introduction of trace detail view you can refer to [here](../tracing/how-to-log-and-view-traces-of-your-app.md#view-the-traces).
+
 
 After the flow run is completed, for checking the results, you can click on the **View test results** button to check all historical run records in a list. By default, the run records created in the last 7 days are displayed. You can select the **Filter** to change the condition.
 
