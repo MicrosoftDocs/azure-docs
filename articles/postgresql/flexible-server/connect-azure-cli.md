@@ -24,7 +24,7 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 ## Prerequisites
 - An Azure account with an active subscription. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version.
-- Log in using Azure CLI with `az login` command.
+- Sign in using Azure CLI with `az login` command.
 - (optional) Turn on an experimental parameter persistence with `az config param-persist on`. Parameter persistence helps you use local context without having to repeat numerous arguments like resource group or location.
 
 ## Create Azure Database for PostgreSQL flexible server instance
@@ -61,10 +61,9 @@ Successfully connected to <servername>.
 ```
 
 If the connection failed, try these solutions:
-- Check if port 5432 is open on your client machine.
 - if your server administrator user name and password are correct
-- if you have configured firewall rule for your client machine
-- if you've configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
+- if you configured firewall rule for your client machine
+- if your server is configured with private access with virtual networking, make sure your client machine is in the same virtual network.
 
 ## Run multiple queries using interactive mode
 You can run multiple queries using the **interactive** mode. To enable interactive mode, run the following command.
@@ -82,7 +81,7 @@ az postgres flexible-server connect \
     -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
 ```
 
-You see the **psql** shell experience as shown below:
+You see the **psql** shell experience as shown here:
 
 ```bash
 Password for starchylapwing9:
@@ -116,7 +115,7 @@ az postgres flexible-server execute \
     -q "SELECT 1" --output table
 ```
 
-You see an output as shown below:
+You see an output as shown here:
 
 ```output
 Successfully connected to server372060240.
@@ -144,7 +143,7 @@ az postgres flexible-server execute \
     -f "./test.sql"
 ```
 
-You see an output as shown below:
+You see an output as shown here:
 
 ```output
 Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
