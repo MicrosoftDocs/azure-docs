@@ -10,7 +10,7 @@ ms.date: 05/07/2024
 
 The spread operator is used to expand an iterable array or object into individual elements. The spread operator allows you to easily manipulate arrays or objects by spreading their elements or properties into new arrays or objects.
 
-## spread
+## Spread
 
 `...variableName`
 
@@ -25,7 +25,7 @@ The array *arrB* in the following example is equivalent to [ 1, 2, 3, 4 ]:
 
 ```bicep
 var arrA = [ 2, 3 ]
-var arrB = [ 1, ...arrA, 4 ] // equivalent to 
+var arrB = [ 1, ...arrA, 4 ] 
 ```
 
 ## Next steps
