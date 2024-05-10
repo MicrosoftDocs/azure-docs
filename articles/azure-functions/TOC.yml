@@ -807,26 +807,26 @@
                 - name: Trigger
                   href: functions-bindings-openai-assistant-trigger.md  
                   displayName: Assistants     
-                - name: Query input binding
+                - name: Query input
                   href: functions-bindings-openai-assistantquery-input.md 
                   displayName: Assistants
-                - name: Create output binding
+                - name: Create output
                   href: functions-bindings-openai-assistantcreate-output.md
                   displayName: Assistants   
-                - name: Post output binding
-                  href: functions-bindings-openai-assistantpost-output.md 
+                - name: Post input
+                  href: functions-bindings-openai-assistantpost-input.md 
                   displayName: Assistants
-            - name: Embeddings input binding
-              href: functions-bindings-openai-embeddings-input.md 
-            - name: Semantic search 
+            - name: Embeddings  
               items: 
-                - name: Input binding
-                  href: functions-bindings-openai-semanticsearch-input.md   
-                  displayName: Semantic search   
-                - name: Output binding
-                  href: functions-bindings-openai-semanticsearch-output.md  
-                  displayName: Semantic search
-            - name: Text Completion input binding
+                - name: Input
+                  href: functions-bindings-openai-embeddings-input.md 
+                  displayName: embeddings
+                - name: Store output
+                  href: functions-bindings-openai-embeddingsstore-output.md  
+                  displayName: embeddings
+            - name: Semantic search input
+              href: functions-bindings-openai-semanticsearch-input.md   
+            - name: Text Completion input
               href: functions-bindings-openai-textcompletion-input.md                      
         - name: Azure SQL
           items:

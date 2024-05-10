@@ -164,5 +164,5 @@ See the [Example section](#example) for complete examples.
 + [Azure OpenAI extension](functions-bindings-openai.md)
 + [Azure OpenAI assistant trigger](functions-bindings-openai-assistant-trigger.md)
 + [Azure OpenAI assistant create output binding ](functions-bindings-openai-assistantcreate-output.md)
-+ [Azure OpenAI assistant post output binding ](functions-bindings-openai-assistantpost-output.md)
++ [Azure OpenAI assistant post input binding ](functions-bindings-openai-assistantpost-input.md)
 

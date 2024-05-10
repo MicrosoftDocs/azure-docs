@@ -21,11 +21,12 @@ With the integration between Azure OpenAI and Functions, you can build functions
 | Use a standard chat prompt with dynamic data | [Azure OpenAI text completion input binding](functions-bindings-openai-textcompletion-input.md) |
 | Respond to an assistant request | [Azure OpenAI assistant trigger](functions-bindings-openai-assistant-trigger.md) |
 | Create an assistant | [Azure OpenAI assistant create output binding](functions-bindings-openai-assistantcreate-output.md) |
-| Message an assistant | [Azure OpenAI assistant post output binding](functions-bindings-openai-assistantpost-output.md) |
+| Message an assistant | [Azure OpenAI assistant post input binding](functions-bindings-openai-assistantpost-input.md) |
 | Get assistant history | [Azure OpenAI assistant query input binding](functions-bindings-openai-assistantquery-input.md) |
 | Read text embeddings | [Azure OpenAI embeddings input binding](functions-bindings-openai-embeddings-input.md) |
+| Write to a vector database | [Azure OpenAI embeddings store output binding](functions-bindings-openai-embeddingsstore-output.md) |
 | Read from a vector database | [Azure OpenAI semantic search input binding](functions-bindings-openai-semanticsearch-input.md) |
-| Write to a vector database | [Azure OpenAI semantic search output binding](functions-bindings-openai-semanticsearch-output.md) |
+
 
 ::: zone pivot="programming-language-csharp"
 

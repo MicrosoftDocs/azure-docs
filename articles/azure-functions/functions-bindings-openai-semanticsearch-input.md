@@ -199,5 +199,5 @@ See the [Example section](#example) for complete examples.
 
 + [Semantic search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch)
 + [Azure OpenAI extensions for Azure Functions](functions-bindings-openai.md)
-+ [Azure OpenAI semantic search output binding for Azure Functions](functions-bindings-openai-semanticsearch-output.md)
++ [Azure OpenAI embeddings store output binding for Azure Functions](functions-bindings-openai-embeddingsstore-output.md)
 

@@ -1,17 +1,17 @@
 ---
-title: Azure OpenAI semantic search output binding for Azure Functions
-description: Learn how to use the Azure OpenAI semantic search output binding to write searchable content to a semantic document store during function execution in Azure Functions.
+title: Azure OpenAI embeddings store output binding for Azure Functions
+description: Learn how to use the Azure OpenAI embeddings store output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 <!--- Question: It seems like this binding uses Azure AI Search and not Azure OpenAI. Do we need to rename the article to:
 "Azure AI Search semantic output binding" or something like that?-->
-# Azure OpenAI semantic search output binding for Azure Functions
+# Azure OpenAI embeddings store output binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI semantic search output binding allows you to ingest files using semantic document storage that can be referenced later in a semantic search.
+The Azure OpenAI embeddings store output binding allows you to write files to a semantic document store that can be referenced later in a semantic search.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -103,7 +103,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-csharp"  
 ## Attributes
 
-Apply the `SemanticSearchOutput` attribute to define a semantic search output binding, which supports these parameters:
+Apply the `EmbeddingsStoreOutput` attribute to define a embeddings store output binding, which supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
@@ -120,7 +120,7 @@ Apply the `SemanticSearchOutput` attribute to define a semantic search output bi
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `SemanticSearchOutput` annotation enables you to define a semantic search output binding, which supports these parameters: 
+The `EmbeddingsStoreOutput` annotation enables you to define a embeddings store output binding, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |
@@ -159,7 +159,7 @@ The binding supports these configuration properties that you set in the function
 
 |Property | Description |
 |-----------------------|-------------|
-| **type** | Must be `SemanticSearchOutput`. |
+| **type** | Must be `embeddingsStore`. |
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
 | **connectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
