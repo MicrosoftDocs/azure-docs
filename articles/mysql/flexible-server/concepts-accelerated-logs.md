@@ -18,7 +18,7 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article outlines the accelerated logs feature during its phase and guides you through enabling or disabling this feature for the Azure Database for MySQL flexible server based on the Business Critical service tier.
+This article outlines the accelerated logs feature and guides you through enabling or disabling this feature for the Azure Database for MySQL service based on the Business Critical service tier.
 
 > [!IMPORTANT]  
 > The accelerated logs feature is currently in and subject to [limitations](#limitations) and ongoing development. This feature is only available for servers based on the Business -Critical service tier. We recommend using it in non-production environments, such as development, testing, or quality assurance, to evaluate its performance and suitability for your specific use cases.
