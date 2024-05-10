@@ -17,7 +17,7 @@ This article also describes how to use Azure Resource Health to monitor your Azu
 
 If you notice any concerning resource health indicators or metrics, you can [raise a support ticket](request-changes.md).
 
-The following sections build on this article by describing the specific data gathered for Azure Communications Gateway. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
+The following sections describe the specific data gathered for Azure Communications Gateway. These sections also discuss how to configure data collection and analyze this data with Azure tools.
 
 > [!TIP]
 > To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md).
@@ -42,7 +42,7 @@ If your service uses any non-Azure Monitor based metrics, add the following incl
 
 You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
-Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS or INVITE** dimension.
+Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS** or **INVITE** dimension.
 
 You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other.
 
@@ -84,7 +84,7 @@ Resource Health reports one of the following statuses for each resource.
 - *Available*: there are no known problems with your resource.
 - *Degraded*: a problem with your resource is reducing its performance.
 - *Unavailable*: there's a significant problem with your resource or with the Azure platform. For Azure Communications Gateway, this status usually means that calls can't be handled.
-- *Unknown*: Resource Health hasn't received information about the resource for more than 10 minutes.
+- *Unknown*: Resource Health doesn't receive information about the resource for more than 10 minutes.
 
 For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
 

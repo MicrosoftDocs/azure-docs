@@ -55,8 +55,6 @@ The automatically collected metrics for Azure Communications Gateway include the
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
- <!-- not what the table says - no OPTIONS or INVITE -->
-
 - BotType
 - Region
 
