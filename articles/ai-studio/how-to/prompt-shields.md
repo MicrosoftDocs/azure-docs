@@ -1,7 +1,7 @@
 ---
 title: "Prompt Shields in Azure AI Studio (preview)"
 titleSuffix: Azure AI services
-description: Learn how to detect large language model input attack risks and mitigate risk with Azure AI Content Safety.
+description: Use Azure AI Studio to detect large language model input attack risks and mitigate risk with Azure AI Content Safety.
 services: ai-services
 author: PatrickFarley
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 03/15/2024
 ms.author: pafarley
 ---
 
-# Quickstart: Prompt Shields (preview)
+# Prompt Shields (preview)
 
 Learn how to use Azure AI Content Safety Prompt Shields to check large language model (LLM) inputs for both User Prompt attacks and Document attacks.
 

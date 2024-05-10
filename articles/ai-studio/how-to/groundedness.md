@@ -1,7 +1,7 @@
 ---
 title: "Groundedness detection in Azure AI Studio(preview)"
 titleSuffix: Azure AI services
-description: Learn how to detect whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users.
+description: Use Azure AI Studio to detect whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users.
 services: ai-services
 author: PatrickFarley
 manager: nitinme
