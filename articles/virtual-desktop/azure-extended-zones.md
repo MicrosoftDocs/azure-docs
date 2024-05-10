@@ -18,7 +18,7 @@ Azure Extended Zones are small-footprint extensions of Azure placed in metros, i
 
 ## How Azure Extended Zones works
 
-When deploying Azure Virtual Desktop in an Azure Extended Zone, all of the Azure Virtual Desktop control plane components (web service, broker service, gateway service, diagnostics, and extensibility components) remain in the main Azure regions, as well the Azure Virtual Desktop metadata objects you create such as host post pools, workspaces and application groups. Only the session host virtual machines are deployed in the Azure Extended Zone. 
+When deploying Azure Virtual Desktop in an Azure Extended Zone, all of the Azure Virtual Desktop metadata objects you create, such as host post pools, workspaces and application groups remain in the main Azure regions. The control plane components, such as the web service, broker service, gateway service, diagnostics, and extensibility components, are also only available in the main Azure regions. Only the session host virtual machines are deployed in the Azure Extended Zone. 
 
 You can benefit from reduced latency using Azure Extended Zones, due to its proximity and Azure Extended Zones uses [RDP Shortpath](rdp-shortpath.md). RDP Shortpath establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods. 
 
