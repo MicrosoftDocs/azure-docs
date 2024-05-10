@@ -219,7 +219,7 @@
       href: grpc-api.md
     - name: Azure OpenAI
       items:
-      - name: Import Azure OpenAI API as REST API
+      - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
       - name: Authenticate and authorize to Azure OpenAI
         href: api-management-authenticate-authorize-azure-openai.md
