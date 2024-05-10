@@ -14,6 +14,7 @@ author: santiagxf
 ms.custom: 
  - build-2024
  - serverless
+ - references_regions
 ---
 
 # Region availability for models in Serverless API endpoints

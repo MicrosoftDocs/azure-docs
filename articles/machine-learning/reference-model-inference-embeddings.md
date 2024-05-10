@@ -34,9 +34,9 @@ POST /embeddings?api-version=2024-05-01-preview
 | Name            | Required | Type                                                | Description                                                                                                                                                             |
 | --------------- | -------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | input           | True     | string[]                                            | Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays.           |
-| dimensions      |          | integer                                             | The number of dimensions the resulting output embeddings should have. Returns a 422 error if value or parameter is not supported by the model.                          |
-| encoding_format |          | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
-| input_type      |          | [EmbeddingInputType](#embeddinginputtype)           | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.                                  |
+| dimensions      |          | integer                                             | The number of dimensions the resulting output embeddings should have. Returns a 422 error if the model doesn't support the value or parameter.                          |
+| encoding_format |          | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
+| input_type      |          | [EmbeddingInputType](#embeddinginputtype)           | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 | model           |          | string                                              | Kept for compatibility reasons. This parameter is ignored.                                                                                                              |
 
 ## Responses
@@ -130,8 +130,8 @@ Status code: 200
 | [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request |
 | [Detail](#detail)                                       | Details of the errors |
 | [Embedding](#embedding)                                 | Represents the embedding object generated.                                                                                                                                          |
-| [EmbeddingEncodingFormat](#embeddingencodingformat)     | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
-| [EmbeddingInputType](#embeddinginputtype)               | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.                                  |
+| [EmbeddingEncodingFormat](#embeddingencodingformat)     | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
+| [EmbeddingInputType](#embeddinginputtype)               | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 | [EmbeddingObject](#embeddingobject)                     | The object type, which is always "embedding".                                                                                                                           |
 | [ListObject](#listobject)                               | The object type, which is always "list".                                                                                                                                |
 | [NotFoundError](#notfounderror)                         |                                                                                                                                                                         |
@@ -154,10 +154,10 @@ Status code: 200
 
 | Name             | Type                                                | Default Value | Description                                                                                                                                                             |
 | ---------------- | --------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| dimensions       | integer                                             |               | The number of dimensions the resulting output embeddings should have. Returns a 422 error if value or parameter is not supported by the model.                          |
-| encoding\_format | [EmbeddingEncodingFormat](#embeddingencodingformat) | float         | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model. |
+| dimensions       | integer                                             |               | The number of dimensions the resulting output embeddings should have. Returns a 422 error if the model doesn't support the value or parameter.                          |
+| encoding\_format | [EmbeddingEncodingFormat](#embeddingencodingformat) | float         | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
 | input            |                                                     |               | Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays.           |
-| input\_type      | [EmbeddingInputType](#embeddinginputtype)           | text          | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.                                  |
+| input\_type      | [EmbeddingInputType](#embeddinginputtype)           | text          | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 | model            | string                                              |               | Kept for compatibility reasons. This parameter is ignored.                                                                                                              |
 
 ### CreateEmbeddingResponse
@@ -189,7 +189,7 @@ Represents an image generated.
 
 ### EmbeddingEncodingFormat
 
-The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if value or parameter is not supported by the model.
+The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter.
 
 | Name    | Type   | Description |
 | ------- | ------ | ----------- |
@@ -202,7 +202,7 @@ The format to return the embeddings in. Either base64, float, int8, uint8, binar
 
 ### EmbeddingInputType
 
-The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if value or parameter is not supported by the model.
+The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.
 
 | Name     | Type   | Description |
 | -------- | ------ | ----------- |

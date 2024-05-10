@@ -118,7 +118,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
         :::image type="content" source="media/how-to-deploy-models-serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="media/how-to-deploy-models-serverless/deploy-pay-as-you-go.png":::
 
-    1. If you see the note *You already have a Azure Marketplace subscription for this workspace*, you don't need to create the subscription since you already have one. You can proceed to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint).
+    1. If you see the note *You already have an Azure Marketplace subscription for this workspace*, you don't need to create the subscription since you already have one. You can proceed to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint).
     
     1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 
@@ -247,7 +247,7 @@ In this article, you create an endpoint with name **meta-llama3-8b-qwerty**.
 
     # [Studio](#tab/azure-studio)
 
-    1. From the previous wizard, select **Deploy** (if you've just subscribed the workspace to the model offer in the previous section), or select **Continue to deploy** (if your deployment wizard had the note *You already have a Azure Marketplace subscription for this workspace*). 
+    1. From the previous wizard, select **Deploy** (if you've just subscribed the workspace to the model offer in the previous section), or select **Continue to deploy** (if your deployment wizard had the note *You already have an Azure Marketplace subscription for this workspace*). 
 
         :::image type="content" source="media/how-to-deploy-models-serverless/deploy-pay-as-you-go-subscribed-workspace.png" alt-text="A screenshot showing a workspace that is already subscribed to the offering." lightbox="media/how-to-deploy-models-serverless/deploy-pay-as-you-go-subscribed-workspace.png":::
 
