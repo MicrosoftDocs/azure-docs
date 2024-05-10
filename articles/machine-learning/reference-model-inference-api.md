@@ -21,10 +21,10 @@ The Azure AI Model Inference is an API that exposes a common set of capabilities
 
 Foundational models, such as language models, have indeed made remarkable strides in recent years. These advancements have revolutionized various fields, including natural language processing and computer vision, and they have enabled applications like chatbots, virtual assistants, and language translation services.
 
-While foundational models excel in specific domains, they lack a uniform set of capabilities. Some models are better at specific task and even across the same task, some models may approach the problem in one way while others in another. Developers can benefit from these diversity by **using the right model for the right job** allowing them to:
+While foundational models excel in specific domains, they lack a uniform set of capabilities. Some models are better at specific task and even across the same task, some models may approach the problem in one way while others in another. Developers can benefit from this diversity by **using the right model for the right job** allowing them to:
 
 > [!div class="checklist"]
-> * Improve the performance in an specific downstream task.
+> * Improve the performance in a specific downstream task.
 > * Use more efficient models for simpler tasks.
 > * Use smaller models that can run faster on specific tasks.
 > * Compose multiple models to develop intelligent experiences.
@@ -62,11 +62,11 @@ The API indicates how developers can consume predictions for the following modal
 * [Chat completions](reference-model-inference-chat-completions.md): Creates a model response for the given chat conversation.
 * [Image embeddings](reference-model-inference-images-embeddings.md): Creates an embedding vector representing the input text and image.
 
-### Models with dispare set of capabilities
+### Models with disparate set of capabilities
 
-The Azure AI Model Inference API indicates a general set of capabilities but each of the models can decide to implement them or not. On those cases were the model can't support an specific parameter, a response error is returned.
+The Azure AI Model Inference API indicates a general set of capabilities but each of the models can decide to implement them or not. a specific error is returned on those cases where the model can't support a specific parameter
 
-The following example shows the response for a chat completions request indicating the parameter `reponse_format` and asking for a reply in `JSON` format. In the example, since the model doesn't support such capability an error 422 is returned to the user. 
+The following example shows the response for a chat completion request indicating the parameter `reponse_format` and asking for a reply in `JSON` format. In the example, since the model doesn't support such capability an error 422 is returned to the user. 
 
 __Request__
 
@@ -113,7 +113,7 @@ __Response__
 
 ### Extensibility
 
-The Azure AI Model Inference API specify a set of modalities and parameters that models can subscribe to. However, some models may have further capabilities that the ones the API indicates. On those cases, the API allow the developer to pass them as extra parameters in the payload.
+The Azure AI Model Inference API specifies a set of modalities and parameters that models can subscribe to. However, some models may have further capabilities that the ones the API indicates. On those cases, the API allows the developer to pass them as extra parameters in the payload.
 
 By setting a header `extra-parameters: allow`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
 
@@ -156,7 +156,7 @@ The Azure AI Model Inference API is currently supported in models deployed as [S
 
 # [Studio](#tab/azure-studio)
 
-You can use the Azure AI Model Inference API to run evaluations or while building with *Prompt flow*. Create a [Serverless Model connection](how-to-connect-models-serverless.md) to a Serverless API endpoints and consume its predictions. The Azure AI Model Inference API is used under the hood.
+You can use the Azure AI Model Inference API to run evaluations or while building with *Prompt flow*. Create a [Serverless Model connection](how-to-connect-models-serverless.md) to a *Serverless API endpoint* and consume its predictions. The Azure AI Model Inference API is used under the hood.
 
 # [Python](#tab/python)
 
