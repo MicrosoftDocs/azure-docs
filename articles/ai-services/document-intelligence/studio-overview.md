@@ -40,29 +40,29 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
 
 ## Authorization policies
 
-Organizations can opt to disable local authentication and enforce Microsoft Entra (formerly Azure Active Directory) authentication for Azure AI Document Intelligence resources and Azure blob storage. For more information, *see* the following:
+Organizations can opt to disable local authentication and enforce Microsoft Entra (formerly Azure Active Directory) authentication for Azure AI Document Intelligence resources and Azure blob storage. For more information, *see* the following guidance:
 
 * [Disable local authentication for Azure AI Services](../disable-local-auth.md).
 * [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
-* For both options, the access role requirements remain the same. For more information, *see* [Azure role assignments](/quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio).
+* **Designating role assignments**. The access role requirements remain the same for authorization policies. For more information, *see* [Azure role assignments](/quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio).
 
 ## Authentication
 
-Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. In accordance wsith your organization's policy you will have one or two options:
+Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. In accordance with your organization's policy you have one or two options:
 
-   **a. Microsoft Entra authentication: access by Resource (recommended)**.
+* **Microsoft Entra authentication: access by Resource (recommended)**.
 
-      * Choose your existing subscription.
-      * Select an existing resource group within your subscription or create a new one.
-      * Select your existing Document Intelligence or Azure AI services resource.
+  * Choose your existing subscription.
+  * Select an existing resource group within your subscription or create a new one.
+  * Select your existing Document Intelligence or Azure AI services resource.
 
-          :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
+        :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
 
-    **b. Local authentication: access by API endpoint and key**.
+* **Local authentication: access by API endpoint and key**.
 
-      * Retrieve your endpoint and key from the Azure portal.
-      * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
-      * Enter the values in the appropriate fields.
+  * Retrieve your endpoint and key from the Azure portal.
+  * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
+  * Enter the values in the appropriate fields.
 
           :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
 
