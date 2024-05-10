@@ -1,7 +1,7 @@
 ---
-title: "TBD in Azure AI Content Safety"
+title: "Custom categories in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about content TBDs and how you can use Azure AI Content Safety to handle them on your platform.
+description: Learn about custom content categories and how you can use Azure AI Content Safety to handle them on your platform.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
