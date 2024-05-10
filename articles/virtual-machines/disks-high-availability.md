@@ -3,7 +3,7 @@ title: Best practices for high availability with Azure VMs and managed disks
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 05/07/2024
+ms.date: 05/09/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -28,6 +28,8 @@ Azure offers several configuration options for ensuring high availability of Azu
 Before going over recommendations for achieving higher availability, you should understand the default availability and durability of managed disks.
 
 Managed disks are designed for 99.999% availability and provide at least 99.999999999% (11 9’s) of durability. With managed disks, your data is replicated three times. If one of the three copies becomes unavailable, Azure automatically spawns a new copy of the data in the background. This ensures the persistence of your data and high fault tolerance. 
+
+:::image type="content" source="media/disks-high-availability/disks-lrs-zrs-diagram.png" alt-text="Diagram of LRS and ZRS." lightbox="media/disks-high-availability/disks-lrs-zrs-diagram.png":::
 
 Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a given year and zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a given year. This architecture helps Azure consistently deliver enterprise-grade durability for infrastructure as a service (IaaS) disks, with an industry-leading zero percent [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
@@ -72,7 +74,7 @@ With zone-redundant Virtual Machine Scale Sets using the flexible orchestration 
 
 #### Deploy VMs and disks across three availability zones
 
-Another method to spread VMs and disks across availability zones is to manually deploy the VMs and disks across three availability zones. This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage.
+Another method to spread VMs and disks across availability zones is to deploy the VMs and disks across three availability zones. This deployment provides redundancy in VMs and disks across multiple data centers in a region, allowing you to fail over to another zone if there's a data center or zonal outage.
 
 
 ### Deploy VMs and disks across multiple fault domains
@@ -88,6 +90,8 @@ To deploy resources across multiple fault domains, you can either use [regional 
 
 #### Use regional Virtual Machine Scale Sets with flexible orchestration
 
+:::image type="content" source="media/disks-high-availability/disks-availability-set.png" alt-text="Diagram of availability set." lightbox="media/disks-high-availability/disks-availability-set.png":::
+
 A regional Virtual Machine Scale Set is a Virtual Machine Scale Set that has no explicitly defined availability zones. With regional virtual machine scale sets, VM resources are replicated across fault domains within the region they're deployed in to improve the resiliency and availability of applications and data. This configuration spreads VMs across fault domains by default but also provides the ability to assign fault domains on VM creation. See [this section](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#regional) for details.
 
 Regional Virtual Machine Scale Sets don't protect against large-scale outages like a data center or region outage, and don't currently support Ultra Disks or Premium SSD v2 disks.
@@ -95,8 +99,6 @@ Regional Virtual Machine Scale Sets don't protect against large-scale outages li
 #### Use availability sets
 
 [Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time. Availability sets also have better VM to VM latencies compared to availability zones.
-
-:::image type="content" source="media/disks-high-availability/disks-availability-set.png" alt-text="Diagram of availability set." lightbox="media/disks-high-availability/disks-availability-set.png":::
 
 Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't protect against data center or region-wide outages, and don't currently support Ultra Disks or Premium SSD v2 disks.
 
