@@ -18,7 +18,7 @@ ms.topic: how-to
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), with the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).
 
-As your needs change or your automation requirements increase, you can manage workspaces [with the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
+As your needs change or your automation requirements increase, you can manage workspaces [with the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md),  or [via the Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ As your needs change or your automation requirements increase, you can manage wo
             DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
             ```
                 
-        * (Optional) If you're working on a [sovereign cloud](reference-machine-learning-cloud-parity.md), you need to specify the cloud into which you want to authenticate. Do this in `DefaultAzureCredential`.
+        * (Optional) If you're working in the [Azure Government - US](https://azure.microsoft.com/explore/global-infrastructure/government/) or [Azure China 21Vianet](/azure/china/overview-operations), you need to specify the cloud into which you want to authenticate. You can specify these regions in `DefaultAzureCredential`.
                 
             ```python
             from azure.identity import AzureAuthorityHosts
@@ -53,7 +53,7 @@ As your needs change or your automation requirements increase, you can manage wo
 
 [!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-* For network isolation with online endpoints, you can use workspace-associated resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a resource group different from that of your workspace. However, these resources must belong to the same subscription and tenant as your workspace. For information about the limitations that apply to securing managed online endpoints, using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
+* For network isolation with online endpoints, you can use workspace-associated resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a resource group different from your workspace. However, these resources must belong to the same subscription and tenant as your workspace. For information about the limitations that apply to securing managed online endpoints, using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
 
 * Workspace creation also creates an Azure Container Registry (ACR) by default. Since ACR doesn't currently support unicode characters in resource group names, use a resource group that avoids these characters.
 
@@ -134,7 +134,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
+[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
 
 This class requires an existing virtual network.
 
@@ -163,7 +163,7 @@ By default, an Azure Cosmos DB instance stores the workspace metadata. Microsoft
 
 #### Use your own data encryption key
 
-You can provide your own key for data encryption. This creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
+You can provide your own key for data encryption. Using your own key creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 
 Use these steps to provide your own key:
 
@@ -278,9 +278,9 @@ These features are on by default.  To turn them off:
 
 :::image type="content" source="media/how-to-manage-workspace/tags.png" alt-text="Screenshot shows setting tags to prevent feedback in the workspace.":::
 
-You can turn off previews at a subscription level, ensuring that it's off for all workspace in the subscription.  In this case, users in the subscription also cannot access the preview tool prior to selecting a workspace. This setting is useful for administrators who want to ensure that preview features are not used in their organization. 
+You can turn off previews at a subscription level, ensuring that it's off for all workspace in the subscription.  In this case, users in the subscription also can't access the preview tool before selecting a workspace. This setting is useful for administrators who want to ensure that preview features aren't used in their organization. 
 
-The preview setting is ignored on individual workspaces if it is turned off at the subscription level of that workspace.
+If the preview setting is disabled at the subscription level, setting it on individual workspaces is ignored.
 
 To disable preview features at the subscription level:
 
@@ -317,12 +317,12 @@ See a list of all the workspaces you have available. You can also search for a w
 
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=my_ml_client)]
-[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_name)]
+[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=my_ml_client)]
+[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_name)]
 
 To obtain specific workspace details:
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_location)]
+[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_location)]
 
 # [Portal](#tab/azure-portal)
 
@@ -334,9 +334,9 @@ To obtain specific workspace details:
 
    ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
 
-1. Look through the list of the found workspaces. You can filter based on subscription, resource groups, and locations.
+1. Look through the list of workspaces. You can filter based on subscription, resource groups, and locations.
 
-1. Select a workspace to display its properties.
+1. To display properties, select the workspace.
 
 ---
 
@@ -357,14 +357,12 @@ When you no longer need a workspace, delete it.
 ml_client.workspaces.begin_delete(name=ws_basic.name, delete_dependent_resources=True)
 ```
 
-The default action doesn't automatically delete resources 
+The default action doesn't automatically delete resources associated with the workspace. Set `delete_dependent_resources` to True to delete these resources as well.
 
 - container registry
 - storage account
 - key vault
 - application insights
-
-associated with the workspace. Set `delete_dependent_resources` to True to delete these resources as well.
 
 # [Portal](#tab/azure-portal)
 
@@ -388,7 +386,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 * **Azure portal**:
   * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. Additionally, in this scenario, you can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
-  * All assets (Data, Experiments, Computes, and so on) are only available in [Azure Machine Learning studio](https://ml.azure.com). The Azure portal does *not* offer them.
+  * All assets (Data, Experiments, Computes, and so on) are only available in [Azure Machine Learning studio](https://ml.azure.com). The Azure portal doesn't* offer them.
   * Attempting to export a template for a workspace from the Azure portal might return an error similar to this text: `Could not get resource of the type <type>. Resources of this type will not be exported.` As a workaround, use one of the templates provided at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) as the basis for your template.
 
 ### Workspace diagnostics
