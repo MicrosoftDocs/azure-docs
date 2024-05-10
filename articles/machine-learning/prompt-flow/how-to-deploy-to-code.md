@@ -271,7 +271,7 @@ environment_variables:
 
 > [!IMPORTANT]
 >
-> If your flow folder has a `requirements.txt` file which contains the dependencies needed to execute the flow, you need to follow [these steps](#deploy-with-a-custom-environment) to build the custom environment including the dependencies.
+> If your flow folder has a `requirements.txt` file which contains the dependencies needed to execute the flow, you need to follow the [deploy with a custom environment steps](#deploy-with-a-custom-environment) to build the custom environment including the dependencies.
 
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:

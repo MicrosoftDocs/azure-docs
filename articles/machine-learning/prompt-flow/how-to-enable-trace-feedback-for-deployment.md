@@ -65,7 +65,7 @@ environment_variables:
 
 ## View tracing data in Application Insights
 
-Traces records specific events or the state of an application during execution. It can include data about function calls, variable values, system events and more. Traces help break down an application's components into discrete inputs and outputs, which is crucial for debugging and understanding an application. You can learn more from [here](https://opentelemetry.io/docs/concepts/signals/traces/) on traces. The trace data follows [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/).
+Traces records specific events or the state of an application during execution. It can include data about function calls, variable values, system events and more. Traces help break down an application's components into discrete inputs and outputs, which is crucial for debugging and understanding an application. To learn more, see [OpenTelemetry traces](https://opentelemetry.io/docs/concepts/signals/traces/) on traces. The trace data follows [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/).
 
 You can view the detailed trace in the specified Application Insights. The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Trasaction search, and you can select each node to view its detailed trace. 
 
