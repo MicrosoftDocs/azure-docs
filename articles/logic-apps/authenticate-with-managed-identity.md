@@ -35,11 +35,11 @@ This guide shows how to complete the following tasks:
 
 - Create and set up a user-assigned identity. This guide shows how to create this identity using the Azure portal or an Azure Resource Manager template (ARM template) and how to use the identity for authentication. For Azure PowerShell, Azure CLI, and Azure REST API, see the following documentation:
 
-| Tool | Documentation |
-|------|---------------|
-| Azure PowerShell | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell) |
-| Azure CLI | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli) |
-| Azure REST API | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest) |
+  | Tool | Documentation |
+  |------|---------------|
+  | Azure PowerShell | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell) |
+  | Azure CLI | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli) |
+  | Azure REST API | [Create user-assigned identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest) |
 
 ## Prerequisites
 
@@ -520,27 +520,29 @@ Before you can use your logic app's managed identity for authentication, you hav
 > suppose you have a managed identity for a logic app that needs access to update the application 
 > settings for that same logic app from a workflow. You must give that identity access to the associated logic app.
 
-For example, to access an Azure key vault with your managed identity, you have multiple options:
+For example, to access an Azure Blob storage account or an Azure key vault with your managed identity, you need to set up Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the storage account or key vault, respectively.
 
-- Set up access by using Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the key vault.
+The steps in this section describe how to assign role-based access using the [Azure portal](#azure-portal-assign-role) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, see the following documentation:
 
-  The steps in this section describe how to assign role-based access using the [Azure portal](#azure-portal-assign-role) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, see the following documentation:
+| Tool | Documentation |
+|------|---------------|
+| Azure PowerShell | [Add role assignment](/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell) |
+| Azure CLI | [Add role assignment](/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli) |
+| Azure REST API | [Add role assignment](../role-based-access-control/role-assignments-rest.md) |
 
-  | Tool | Documentation |
-  |------|---------------|
-  | Azure PowerShell | [Add role assignment](/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell) |
-  | Azure CLI | [Add role assignment](/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli) |
-  | Azure REST API | [Add role assignment](../role-based-access-control/role-assignments-rest.md) |
+> [!NOTE]
+>
+> For an Azure key vault, you also have the option to create an access policy for your managed 
+> identity on your key vault and assign the appropriate permissions for that identity on that 
+> key vault. The later steps in this section describe how to complete this task by using the 
+> [Azure portal](#azure-portal-access-policy). For Resource Manager templates, PowerShell, 
+> and Azure CLI, see the following documentation:
 
-- Create an access policy for that identity on your key vault and assign the appropriate permissions for that identity on that key vault. The later steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-access-policy). For Resource Manager templates, PowerShell, and Azure CLI, see the following documentation:
-
-  | Tool | Documentation |
-  |------|---------------|
-  | Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
-  | Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
-  | Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
-
-To access an Azure Blob storage account with your managed identity, you have to set up access by using Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the storage account.
+> | Tool | Documentation |
+> |------|---------------|
+> | Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
+> | Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
+> | Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
 
 <a name="azure-portal-assign-role"></a>
 
