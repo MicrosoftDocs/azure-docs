@@ -16,8 +16,6 @@ Learn about use cases for Azure Virtual Network Manager including managing conne
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
- This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
-
 ## Creating topology and connectivity
 Connectivity configuration allows you to create different network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. The connectivity configuration offers three topology options: mesh, hub and spoke, or hub and spoke with direct connectivity between spoke virtual networks.
 
@@ -32,6 +30,9 @@ This topology combines the two above topologies. It's recommended when you have 
 
 ### Maintaining virtual network topology
 AVNM automatically maintains the desired topology you defined in the connectivity configuration when changes are made to your infrastructure. For example, when you add new spoke to the topology, AVNM can handle the changes necessary to create the connectivity to the spoke and its virtual networks.
+
+> [!NOTE]
+> Azure Virtual Network Manager can be deployed and managed through the [Azure portal](./create-virtual-network-manager-portal.md), [Azure CLI](./create-virtual-network-manager-cli.md), [Azure PowerShell](./create-virtual-network-manager-powershell.md), or[Terraform](./create-virtual-network-manager-terraform.md).
 
 ## Security
 
