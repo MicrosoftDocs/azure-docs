@@ -17,7 +17,7 @@ ms.reviewer: mattmcinnes
 > [!IMPORTANT]
 > Azure Virtual Machine series Dpldsv6 is currently in **preview**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> For more information and to sign up for the preview, please [visit our announcement and follow the link to signup](aka.ms/Cobalt100-VM-Preview-Signup).
+> For more information and to sign up for the preview, please [visit our announcement and follow the link to signup](https://aka.ms/Cobalt100-VM-Preview-Signup).
 
 [!INCLUDE [dpldsv6-summary](./includes/dpldsv6-series-summary.md)]
 
