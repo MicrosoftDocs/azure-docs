@@ -20,7 +20,7 @@ In this article, you learn how to use Azure AI Studio to deploy the JAIS model a
 
 The JAIS model is available in [Azure AI Studio](https://ai.azure.com) with pay-as-you-go token based billing with Models as a Service. 
 
-You can find the JAIS model in the [Model Catalog](model-catalog.md) by filtering on the Core42 collection.
+You can find the JAIS model in the [Model Catalog](model-catalog.md) by filtering on the JAIS collection.
 
 ### Prerequisites
 
@@ -34,9 +34,9 @@ You can find the JAIS model in the [Model Catalog](model-catalog.md) by filterin
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
-### JAIS 30B Chat
+### JAIS 30b Chat
 
-JAIS 30B Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is finetuned with both Arabic and English prompt-response pairs. The finetuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
+JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is finetuned with both Arabic and English prompt-response pairs. The finetuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
 
 *Context length:* JAIS supports a context length of 8K.
 
@@ -49,7 +49,7 @@ JAIS 30B Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**.
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-The previously mentioned JAIS model can be deployed as a service with pay-as-you-go billing and is offered by Core42 through the Microsoft Azure Marketplace. Core42 can change or update the terms of use and pricing of this model.
+The previously mentioned JAIS 30b Chat model can be deployed as a service with pay-as-you-go billing and is offered by Core42 through the Microsoft Azure Marketplace. Core42 can change or update the terms of use and pricing of this model.
 
 
 ### Create a new deployment
@@ -58,12 +58,15 @@ To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Model catalog** from the left sidebar.
-1. Search for *JAIS*.
+1. Search for *JAIS* and select the model _Jais-30b-chat_.
+
+    :::image type="content" source="../media/deploy-monitor/jais/jais-search.png" alt-text="A screenshot showing a model in the model catalog." lightbox="../media/deploy-monitor/jais/jais-search.png":::
+
+2.  Select **Deploy** to open a serverless API deployment window for the model.
 
     :::image type="content" source="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png":::
 
-1. Select **Deploy** to open a serverless API deployment window for the model.
-1. Select the project in which you want to deploy your model. To deploy the model your project must be in the EastUS2 or Sweden Central region.
+1. Select the project in which you want to deploy your model. To deploy the model your project must be in the East US 2 or Sweden Central region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
@@ -85,7 +88,7 @@ To create a deployment:
 
 To learn about billing for the JAIS models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for JAIS models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service)
 
-### Consume the JAIS model as a service
+### Consume the JAIS 30b Chat model as a service
 
 These models can be consumed using the chat API.
 
@@ -97,7 +100,7 @@ These models can be consumed using the chat API.
 
 For more information on using the APIs, see the [reference](#chat-api-reference-for-jais-deployed-as-a-service) section.
 
-## Chat API reference for Jais deployed as a service
+## Chat API reference for JAIS deployed as a service
 
 ### v1/chat/completions
 
@@ -111,7 +114,7 @@ For more information on using the APIs, see the [reference](#chat-api-reference-
 
 #### v1/chat/completions request schema
 
-JAIS accepts the following parameters for a `v1/chat/completions` response inference call:
+JAIS 30b Chat accepts the following parameters for a `v1/chat/completions` response inference call:
 
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -256,7 +259,7 @@ Response:
 
 ### Cost and quota considerations for models deployed as a service
 
-JAIS is deployed as a service are offered by Core42 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+JAIS 30b Chat is deployed as a service are offered by Core42 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
