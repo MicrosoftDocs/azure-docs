@@ -93,7 +93,7 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 
 With the with source switch, you see an additional layer in the manifest:
 
-:::image type="content" source="./media/private-module-registry/bicep-module-with-source-manifest.png" alt-text="Bicep module registry with source.":::
+:::image type="content" source="./media/private-module-registry/bicep-module-with-source-manifest.png" lightbox="./media/private-module-registry/bicep-module-with-source-manifest.png" alt-text="Screenshot of bicep module registry with source.":::
 
 Note that if the Bicep module references a module in a Private Registry, the ACR endpoint will be visible. To hide the full endpoint, you can configure an alias for the private registry.
 
