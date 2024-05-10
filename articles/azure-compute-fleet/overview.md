@@ -26,7 +26,7 @@ Using Compute Fleet, you can:
     - Alleviate concerns about scripting complexity associated with determining optimal virtual machine (VM) pricing, available capacity, managing Spot evictions, and SKU availability.
 - Attempt to maintain your Spot target capacity if your Spot VMs are evicted for price or capacity.
 
-There's no extra charge for using Compute Fleet. You're only charged for the VMs your Compute Fleet launches per hour.
+There's no extra charge for using Compute Fleet. You're only charged for the VMs your Compute Fleet launches per hour. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
 
 
 ## Capacity preference 
