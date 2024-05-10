@@ -45,14 +45,14 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 The quickstart uses the `copy` element to create multiple instances of key-value resource. To learn more about the `copy` element, see [Resource iteration in ARM templates](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
-> This template requires App Configuration resource provider version `2020-07-01-preview` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function that was used to read key-values in the previous version is not available starting in version `2020-07-01-preview`.
+> This template requires App Configuration control plane API version `2022-05-01` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function that was used to read key-values in the previous version is not available starting in version `2020-07-01-preview`.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): create an App Configuration store.
-- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): create a key-value inside the App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/configurationstores): create an App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/configurationstores/keyvalues): create a key-value inside the App Configuration store.
 
 > [!TIP]
 > The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource with name `myKey` creates a key-value without a label.

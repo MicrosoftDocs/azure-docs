@@ -33,6 +33,9 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 
 Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it's recommended to set your configuration store's Azure Resource Manager authentication mode to **Pass-through**. This authentication mode ensures that data access requires a combination of data plane and Azure Resource Manager management roles and ensuring that data access can be properly attributed to the deployment caller for auditing purpose.
 
+> [!IMPORTANT]
+> App Configuration control plane API version `2023-08-01-preview` or later is required to configure **Azure Resource Manager Authentication Mode** using [ARM template](./quickstart-resource-manager.md), [Bicep](./quickstart-bicep.md), or REST API. See the [REST API examples](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/preview/2023-08-01-preview/examples/ConfigurationStoresCreateWithDataPlaneProxy.json).
+
 ### Azure Resource Manager authentication mode
 
 # [Azure portal](#tab/portal)
@@ -49,9 +52,6 @@ To configure the Azure Resource Manager authentication mode of an Azure App Conf
     :::image type="content" border="true" source="./media/quickstarts/deployment/select-passthrough-authentication-mode.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode.":::
 
 ---
-
-> [!IMPORTANT]
-> App Configuration control plane API version [`2023-08-01-preview`](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/preview/2023-08-01-preview) or later is required to configure **Azure Resource Manager Authentication Mode** using [ARM template](./quickstart-resource-manager.md), [Bicep](./quickstart-bicep.md), or REST API. See the [REST API examples](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/preview/2023-08-01-preview/examples/ConfigurationStoresCreateWithDataPlaneProxy.json).
 
 > [!NOTE]
 > Local authentication mode is for backward compatibility and has several limitations. It does not support proper auditing for accessing data in deployment. Under local authentication mode, key-value data access inside an ARM template/Bicep/Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md). Azure App Configuration data plane permissions are not required for accessing data under local authentication mode.
