@@ -41,7 +41,7 @@ The following requirements and considerations apply to large volumes. For perfor
     | Premium | 50 to 500 | 6,400 | 
     | Ultra | 50 to 500 | 10,240 | 
     
-* Large volumes aren't currently supported with standard storage with cool access.
+* Large volumes aren't currently supported with with cool access.
 
 ## Supported regions
 

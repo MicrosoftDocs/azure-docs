@@ -25,9 +25,9 @@ Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate 
 
     This comprehensive tool estimates the infrastructure costs of an SAP HANA on Azure NetApp Files landscape. The estimate includes primary storage, backup, and replication costs.
 
-* [**Azure NetApp Files Standard storage with cool access cost savings estimator**](https://aka.ms/anfcoolaccesscalc)
+* [**Azure NetApp Files storage with cool access cost savings estimator**](https://aka.ms/anfcoolaccesscalc)
 
-    Standard storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling Standard storage with cool access.
+    Azure NetApp Files storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling storage with cool access.
 
 * [**Azure NetApp Files Region and Feature Map**](https://aka.ms/anfmap)
     

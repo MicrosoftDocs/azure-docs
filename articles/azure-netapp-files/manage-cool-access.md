@@ -1,6 +1,6 @@
 ---
-title: Manage Azure NetApp Files standard storage with cool access
-description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
+title: Manage Azure NetApp Files storage with cool access
+description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -9,26 +9,25 @@ ms.date: 01/16/2023
 ms.author: anfdocs
 ---
 
-# Manage Azure NetApp Files standard storage with cool access
+# Manage Azure NetApp Files storage with cool access
 
-Using Azure NetApp Files [standard storage with cool access](cool-access-introduction.md), you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, you reduce the total cost of ownership of your data stored in Azure NetApp Files.
+Using Azure NetApp Files [storage with cool access](cool-access-introduction.md), you can configure inactive data to move from Azure NetApp Files storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, you reduce the total cost of ownership of your data stored in Azure NetApp Files.
 
-The standard storage with cool access feature allows you to configure a Standard capacity pool with cool access. The Standard storage service level with cool access feature moves cold (infrequently accessed) data from the volume and the volume's snapshots to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data needs to be read from the Azure storage account.
+The storage with cool access feature allows you to configure a capacity pool with cool access. Enabling cool access moves cold (infrequently accessed) data from the volume and the volume's snapshots to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the chosen service level (Standard, Premium, or Ultra) enabled with cool access. There can be a difference in data access latency because the data needs to be read from the Azure storage account.
 
-The standard storage with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify_cool) for details. The standard storage with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-introduction.md#metrics) for details. 
+Cool access provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify_cool) for details. The cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-introduction.md#metrics) for details. 
 
 ## Considerations
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers. 
-* This feature is available only at the **Standard** service level. It's not supported for the Ultra or Premium service level.  
-* Although cool access is available for the Standard service level, how you're billed for using the feature differs from the Standard service level charges. See the [Billing section](cool-access-introduction.md#billing) for details and examples. 
-* You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
+* How you're billed for cool access differs from the other service level charges. See the [Billing section](cool-access-introduction.md#billing) for details and examples. 
+* You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. Once the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to "Default" or "Never." For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
     * Sequential reads from Azure NetApp Files backup, cross-zone replication, and cross-zone replication do not impact the temperature of the data.
     * If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
-* You can't use large volumes with standard storage with cool access.
+* You can't use large volumes with with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR) and [cross-zone replication](cross-zone-replication-introduction.md): 
     * If the volume is in a CRR relationship as a source volume, you can enable cool access on it only if the [mirror state](cross-region-replication-display-health-status.md#display-replication-status) is `Mirrored`. Enabling cool access on the source volume automatically enables cool access on the destination volume.
@@ -52,7 +51,7 @@ Cool access is currently in preview. You must register for the feature before us
 
 ### [Standard](#tab/Standard)
 
-Standard storage with cool access is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+Cool access with the Standard service level is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
 
@@ -110,24 +109,24 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Enable cool access 
 
-To use the Standard storage with cool access feature, you need to configure the feature at the capacity pool level and the volume level.  
+To use storage with cool access, you need to configure the feature at the capacity pool level and the volume level.  
 
 ### Configure the capacity pool for cool access
 
-Before creating or enabling a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. You can do so in one of the following ways: 
+Before creating or enabling a cool-access volume, you need to configure a capacity pool with cool access. You can do so in one of the following ways: 
 
-* [Create a new Standard service-level capacity pool with cool access.](#enable-cool-access-new-pool) 
-* [Modify an existing Standard service-level capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
+* [Create a new service-level capacity pool with cool access.](#enable-cool-access-new-pool) 
+* [Modify an existing service-level capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
 
 #### <a name="enable-cool-access-new-pool"></a> Enable cool access on a new capacity pool  
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md) with the **Standard** service level.  
+1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
-You can enable cool access support on an existing Standard service-level capacity pool. This action allows you to add or modify volumes in the pool to use cool access.  
+You can enable cool access support on an existing service-level capacity pool. This action allows you to add or modify volumes in the pool to use cool access.  
 
-1. Right-click a **Standard** service-level capacity pool for which you want to enable cool access.   
+1. Right-click a service-level capacity pool for which you want to enable cool access.   
 
 2. Select **Enable Cool Access**: 
 
@@ -135,7 +134,7 @@ You can enable cool access support on an existing Standard service-level capacit
 
 ### Configure a volume for cool access 
 
-Standard storage with cool access can be enabled during the creation of a volume and on existing volumes that are part of a capacity pool that has cool access enabled. 
+Storage with cool access can be enabled during the creation of a volume and on existing volumes that are part of a capacity pool that has cool access enabled. 
 
 #### Enable cool access on a new volume 
 
@@ -214,4 +213,4 @@ Based on the client read/write patterns, you can modify the cool access configur
 1. In the **Edit** window that appears, update the **Coolness Period** and **Cool Access Retrieval Policy** fields as needed.   
 
 ## Next steps
-* [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md)
+* [Azure NetApp Files storage with cool access](cool-access-introduction.md)
