@@ -21,6 +21,8 @@ Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated att
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 
+Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes
+
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service-no-note.md)]
 
 ## Enable out of the box security content
