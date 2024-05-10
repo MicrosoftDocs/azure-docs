@@ -61,7 +61,7 @@ You see similar output if the connection was successful.
 Successfully connected to server372060240.
 ```
 
-If the connection failed, try these solutions:
+If the connection failed, check the following:
 - if your server administrator user name and password are correct
 - if you configured firewall rule for your client machine
 - if your server is configured with private access with virtual networking, make sure your client machine is in the same virtual network.
@@ -84,7 +84,7 @@ az postgres flexible-server connect \
 
 You see the **psql** shell experience as shown here:
 
-```bash
+```output
 Password for starchylapwing9:
 Server: PostgreSQL 13.14
 Version: 4.0.1
