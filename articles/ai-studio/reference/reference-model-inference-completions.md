@@ -32,7 +32,7 @@ POST /completions?api-version=2024-05-01-preview
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| prompt | True |     | The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
+| prompt | True |     | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | frequency\_penalty |     | number | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | max\_tokens |     | integer | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
 | model |     | string | Kept for compatibility reasons. This parameter is ignored. |
