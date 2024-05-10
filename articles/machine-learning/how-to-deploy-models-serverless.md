@@ -88,7 +88,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. Ensure your account has the **Azure AI Developer** role permissions on the resource group or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
+1. Ensure your account has the **Azure AI Developer** role permissions on the resource group, or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
 
 1. Go to your workspace.
 
