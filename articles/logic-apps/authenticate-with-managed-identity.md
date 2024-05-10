@@ -542,7 +542,7 @@ For an Azure key vault, you also have the option to create an access policy for 
 
 ### Assign role-based access to a managed identity using the Azure portal
 
-To use a managed identity for authentication, some Azure resources, such as Azure storage accounts, require that you assign that identity to a role that has the appropriate permissions on the target resource. Other Azure resources, such as Azure key vaults, require that you [create an access policy that has the appropriate permissions on the target resource for that identity](#azure-portal-access-policy).
+To use a managed identity for authentication, some Azure resources, such as Azure storage accounts, require that you assign that identity to a role that has the appropriate permissions on the target resource. Other Azure resources, such as Azure key vaults, support multiple options, so you can choose either role-based access or an [access policy that has the appropriate permissions on the target resource for that identity](#azure-portal-access-policy).
 
 1. In the [Azure portal](https://portal.azure.com), open the resource where you want to use the identity.
 
@@ -576,7 +576,7 @@ For more general information about this task, see [Assign a managed identity acc
 
 ### Create an access policy using the Azure portal
 
-To use a managed identity for authentication, some Azure resources, such as Azure key vaults, require that you create an access policy that has the appropriate permissions on the target resource for that identity. Other Azure resources, such as Azure storage accounts, require that you [assign that identity to a role that has the appropriate permissions on the target resource](#azure-portal-assign-role).
+To use a managed identity for authentication, other Azure resources also support or require that you create an access policy that has the appropriate permissions on the target resource for that identity. Other Azure resources, such as Azure storage accounts, instead require that you [assign that identity to a role that has the appropriate permissions on the target resource](#azure-portal-assign-role).
 
 1. In the [Azure portal](https://portal.azure.com), open the target resource where you want to use the identity. This example uses an Azure key vault as the target resource.
 
@@ -598,7 +598,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
 
-The next section shows how to use a managed identity with a trigger or action to authenticate access. The example continues with the steps from an earlier section where you set up access for a managed identity using RBAC and doesn't use Azure Key Vault as the example. However, the general steps to use a managed identity for authentication are the same.
+The next section shows how to use a managed identity with a trigger or action to authenticate access. The example continues with the steps from an earlier section where you set up access for a managed identity using RBAC and an Azure storage account as the example. However, the general steps to use a managed identity for authentication are the same.
 
 <a name="authenticate-access-with-identity"></a>
 
