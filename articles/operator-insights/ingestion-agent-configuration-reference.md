@@ -146,7 +146,7 @@ source:
         # Only for use with password authentication. The name of the file containing the password in the secrets_directory folder
         secret_name: sftp-user-password
         # Only for use with private key authentication. The name of the file containing the SSH key in the secrets_directory folder
-        key_secret: sftp-user-ssh-key
+        key_secret_name: sftp-user-ssh-key
         # Optional. Only for use with private key authentication. The passphrase for the SSH key. This can be omitted if the key is not protected by a passphrase.
         passphrase_secret_name: sftp-user-ssh-key-passphrase
     filtering:
