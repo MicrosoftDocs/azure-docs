@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Communications Gateway
 description: This article contains important reference material you need when you monitor Azure Communications Gateway.
-ms.date: 05/08/2024
+ms.date: 05/13/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: rcdun
@@ -18,6 +18,7 @@ Learn about the data and resources collected by Azure Monitor from your Azure Co
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 <a name="connectivity-metrics"></a>
+
 ### Supported metrics for Microsoft.VoiceServices/communicationsGateways
 
 The following table lists the metrics available for the Microsoft.VoiceServices/communicationsGateways resource type.
@@ -56,9 +57,10 @@ The automatically collected metrics for Azure Communications Gateway include the
 
  <!-- not what the table says - no OPTIONS or INVITE -->
 
+- BotType
 - Region
 
-  The Service Locations defined in your Azure Communications Gateway resource. |
+  The Service Locations defined in your Azure Communications Gateway resource.
 
 - OPTIONS or INVITE
 
