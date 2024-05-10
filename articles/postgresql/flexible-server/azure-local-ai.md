@@ -1,6 +1,6 @@
 ---
 title: Create in-database embeddings with azure_local_ai extension
-description: An overview article describing the features and use cases of the azure_local_ai extension for Azure Database for PostgreSQL - Flexible Server. Enable RAG patterns with in-database embeddings and vectors on Azure Database for PostgreSQL
+description: Enable RAG patterns with in-database embeddings and vectors on Azure Database for PostgreSQL - Flexible Server.
 author: jojohnso-msft
 ms.author: jojohnso
 ms.reviewer: maghan
@@ -13,7 +13,7 @@ ms.custom:
 # customer intent: As a user, I want to understand the overview and use cases of the azure_local_ai extension for Azure Database for PostgreSQL - Flexible Server.
 ---
 
-# What is Azure Database for PostgreSQL - Flexible Server: azure_local_ai extension (Preview)
+# What is the azure_local_ai extension for Azure Database for PostgreSQL - Flexible Server (Preview)
 
 The azure_local_ai extension for Azure Database for PostgreSQL flexible server allows you to use registered, pretrained, open-source models deployed locally to your Azure Database for PostgreSQL server. These models can be used to create text embeddings that can provide context to your Retrieval Augmented Generation (RAG) pattern as you build rich generative AI applications.  The azure_local_ai extension enables the database to call locally deployed models to create vector embeddings from text data, simplifying the development process and reducing latency by removing the need to make more remote API calls to AI embedding models hosted outside of the PostgreSQL boundary. In this release, the extension deploys a single model, [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small), to your Azure Database for PostgreSQL Flexible Server instance. Other third-party open-source models might become available for installation on an ongoing basis.
 
@@ -28,9 +28,9 @@ Local embeddings help customers:
 > [!IMPORTANT]
 > The azure_local_ai extension is currently in preview. Microsoft's Open-source AI models for installation through the Azure Local AI extension are deemed Non-Microsoft Products under the Microsoft Product Terms. The customer's use of open-source AI models is governed by the separate license terms provided in product documentation associated with such models made available through the azure_local_ai extension.
 
-## Enable the azure_local_ai extension (preview)
+## Enable the `azure_local_ai` extension (preview)
 
-Before you can enable azure_local_ai on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](concepts-extensions.md) and check that it was correctly added by running the following SQL statement,  SHOW azure.extensions;
+Before you can enable azure_local_ai on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](concepts-extensions.md) and check that it was correctly added by running the following SQL statement, `SHOW azure.extensions;`.
 
 > [!IMPORTANT]  
 > Hosting language models in the database requires a large memory footprint. To support this requirement, azure_local_ai is only supported on memory-optimized Azure SKUs.
@@ -42,7 +42,7 @@ Select "Server parameters" from the Settings section of the Resource Menu in the
 
 Search for "extensions" or "azure.extensions"
 
-:::image type="content" source="media/azure-local-ai/extensions-allow-list-1.png" alt-text="Screenshot of Extensions allowlist screenshot for Azure Local AI extension." lightbox="media/azure-local-ai/extensions-allow-list-1.png":::
+:::image type="content" source="media/azure-local-ai/extensions-allow-list-1.png" alt-text="Screenshot of Extensions available to allowlist for Azure Database for Postgresql - Flexible server." lightbox="media/azure-local-ai/extensions-allow-list-1.png":::
 
 Select AZURE_LOCAL_AI from the extensions list.
 
@@ -50,21 +50,21 @@ Select AZURE_LOCAL_AI from the extensions list.
 
 Select "Save" to apply the changes and begin the allowlist deployment process.
 
-:::image type="content" source="media/azure-local-ai/extensions-allow-list-3.png" alt-text="Screenshot of Extensions allowlist screenshot for Azure Local AI extension." lightbox="media/azure-local-ai/extensions-allow-list-3.png":::
+:::image type="content" source="media/azure-local-ai/extensions-allow-list-3.png" alt-text="Screenshot of Extensions saved to allowlist for Azure Local AI extension." lightbox="media/azure-local-ai/extensions-allow-list-3.png":::
 
 You can monitor this deployment via the bell icon at the top of the Azure portal.
 
-:::image type="content" source="media/azure-local-ai/extensions-allow-list-4.png" alt-text="SCreenshot of Extensions allowlist screenshot for Azure Local AI extension.":::
+:::image type="content" source="media/azure-local-ai/extensions-allow-list-4.png" alt-text="Screenshot of Extensions allowlist deployment status for Azure Local AI extension.":::
 
-Once the deployment is completed, you can continue with the installation process.
+Once the allowlist deployment is completed, you can continue with the installation process.
 
 > [!NOTE]  
 > Enabling Azure Local AI preview will deploy the [multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small) model to your Azure Database for PostgreSQL Flexible Server instance. The linked documentation provides licensing terms from the e5 team.
 > Additional third-party open-source models might become available for installation on an ongoing basis.
 
-Once allow-listed, you can install the extension by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. You need to repeat the command separately for every database in which you want the extension to be available.
+Now you can install the extension by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. You need to repeat the command separately for every database in which you want the extension to be available.
 
-List extensions are allowed from the Azure portal - Server Parameters page.
+List extensions are allowed on the database from the Azure portal - Server Parameters page.
 
 ```sql
 SHOW azure.extensions;
@@ -94,13 +94,7 @@ The azure_local_ai extension provides a set of functions. These functions allow 
 | `__azure_local_ai__`  |  create_embeddings  |  real[]  |  model_uri text, input text,   timeout_ms integer DEFAULT 3600000  |  
 | `__azure_local_ai__`  |  get_setting  |  jsonb  |  keys text[] DEFAULT   ARRAY[]::text[], timeout_ms integer DEFAULT 3600000  |  
 | `__azure_local_ai__`  |  get_setting  |  text  |  key text, timeout_ms integer   DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  model_loaded  |  boolean  |  model_uri text, timeout_ms integer   DEFAULT 3600000  |  
 | `__azure_local_ai__`  |  model_metadata  |  jsonb  |  model_uri text  |  
-| `__azure_local_ai__`  |  model_register  |  bigint  |  model_uri text, model_path text,   tokenizer_path text DEFAULT NULL::text, timeout_ms integer DEFAULT   3600000  |  
-| `__azure_local_ai__`  |  model_unload  |  void  |  model_uri text, timeout_ms integer   DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  model_unregister  |  void  |  model_uri text, timeout_ms integer   DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  set_setting  |  void  |  keys text[], "values"   text[], timeout_ms integer DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  set_setting  |  void  |  key text, value text, timeout_ms   integer DEFAULT 3600000  |  
 
 These can be displayed via the PSQL command,
 
@@ -108,39 +102,87 @@ These can be displayed via the PSQL command,
 \df azure_local_ai.*
 ```
 
-# Create Embeddings
+## `azure_local_ai.create_embeddings`
 
-The azure_local_ai extension allows you to create and update embeddings both in scalar and batch format. 
-
-## Scalar embedding
-
+The azure_local_ai extension allows you to create and update embeddings both in scalar and batch format, invoking the locally deployed LLM.
 
 ```sql
-SELECT azure_local_ai.create_embeddings('multilingual-e5-small:v2', 'query: Vector databases are awesome');
+azure_local_ai.create_embeddings(model_uri text, input text, batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000);
+```
+```sql
+azure_local_ai.create_embeddings(model_uri text, array[input text, input text], batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000);
 ```
 
-# ONNX Runtime Configuration
+### Arguments
 
-azure_local_ai supports changing configuration parameters of ONNX Runtime thread-pool within the ONNX Runtime Service. Changes are not allowed when a model is loaded into memory. You must unload all models and then apply configuration changes. (No restart required). Currently supported list of parameters:
+#### `model_uri`
 
-- intra_op_parallelism: chooses total number of threads used for parallelizing single operator by ONNX Runtime thread-pool. By default, we maximize the number of intra ops threads as much as possible as it improves the overall throughput much (all available cpus by default).
-- inter_op_parallelism: chooses total number of threads used for computing multiple operators in parallel by ONNX Runtime thread-pool. By default, we set it to minimum possible thread, which is 1. Increasing it often hurts performance due to frequent context switches between threads.
-- spin_control: switches ONNX Runtime thread-pool's spinning for requests. When disabled, it uses less cpu and hence causes more latency. By default, it is set to true (enabled).
+`text` name of the text embedding model invoked to create the embedding.
 
->[!NOTE]
-> Only a member of the azure_pg_admin role can make these changes. 
+#### `input`
 
-You can review these settings with the get_setting function. 
+`text` or `text[]` single text or array of texts, depending on the overload of the function used, for which embeddings are created.
+
+#### `batch_size`
+
+`bigint DEFAULT 128` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
+
+#### `timeout_ms`
+
+`integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
+
+
+Simple create embeddings examples: 
 
 ```sql
-SELECT azure_local_ai.get_setting()
+SELECT azure_local_ai.create_embeddings('model_uri TEXT', 'query: input TEXT');
 ```
 
-[See ONNX Runtime performance tuning.](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
+```sql
+SELECT azure_local_ai.create_embeddings('multilingual-e5-small:v1', 'query: Vector databases are awesome');
+```
 
-## Permissions
+```sql
+SELECT azure_local_ai.create_embeddings('model_uri TEXT', array['input TEXT', 'input TEXT']);
+```
 
-Only users with the azure_pg_admin role in PostgreSQL can change the settings within azure_local_ai.
+```sql
+SELECT azure_local_ai.create_embeddings('multilingual-e5-small:v1', array['Hello', 'World']);
+```
+
+#### Check the azure_local_ai extension version
+
+```sql
+SELECT * FROM pg_available_extensions
+WHERE NAME ='azure_local_ai';
+```
+
+## ONNX Runtime Configuration
+
+###  `azure_local_ai.get_setting`
+Used to obtain current values of configuration options.
+
+```sql
+SELECT azure_local_ai.get_setting(key TEXT)
+```
+
+azure_local_ai supports reviewing the configuration parameters of ONNX Runtime thread-pool within the ONNX Runtime Service. Changes are not allowed at this time. [See ONNX Runtime performance tuning.](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
+
+
+#### Arguments
+
+##### Key
+
+Valid values for the `key` are:
+
+- `intra_op_parallelism`: Sets total number of threads used for parallelizing single operator by ONNX Runtime thread-pool. By default, we maximize the number of intra ops threads as much as possible as it improves the overall throughput much (all available cpus by default).
+- `inter_op_parallelism`: Sets total number of threads used for computing multiple operators in parallel by ONNX Runtime thread-pool. By default, we set it to minimum possible thread, which is 1. Increasing it often hurts performance due to frequent context switches between threads.
+- `spin_control`: Switches ONNX Runtime thread-pool's spinning for requests. When disabled, it uses less cpu and hence causes more latency. By default, it is set to true (enabled).
+
+#### Return type
+`TEXT` representing the current value of the selected setting.
+
+
 
 ## Related content
 - Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview) 
