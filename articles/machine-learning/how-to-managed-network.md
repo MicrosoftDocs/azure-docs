@@ -1074,7 +1074,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Redis Cache
 * Azure Databricks
 * Azure Database for MariaDB
-* Azure Database for PostgreSQL
+* Azure Database for PostgreSQL Single Server
 * Azure Database for MySQL
 * Azure SQL Managed Instance
 
