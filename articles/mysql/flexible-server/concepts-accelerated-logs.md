@@ -55,8 +55,8 @@ The accelerated logs feature in Azure Database for MySQL - Flexible Server has t
     - Created primary servers with [Read replicas in Azure Database for MySQL - Flexible Server](concepts-read-replicas.md) servers.
     - Servers enabled with [Data encryption with customer managed keys for Azure Database for MySQL - Flexible Server](concepts-customer-managed-key.md) (CMK).
 
-- Accelerated logs feature is currently available only in specific regions. [Learn more about supported regions](#regions).
-
+- Accelerated logs feature is currently available only in specific [regions](#regions). 
+- 
 - After the accelerated logs feature is activated, any previously configured value for the ["binlog_expire_seconds"](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) server parameter will be disregarded and not considered.
 
 ## Regions
