@@ -71,7 +71,7 @@ In the [Azure VM Image Builder networking options](./linux/image-builder-network
 >
 > Pinning to an older Azure Image Builder API version can provide compatibility with your existing templates, but it's not recommended due to the following factors:
 >
-> - Deprecation Risk: Older API versions may eventually be deprecated. When this happens, your pinned templates could become unsupported, leading to potential issues.
+> - Deprecation Risk: Older API versions may eventually be deprecated.
 >
 > - Missing Features: By pinning to an older API version, you miss out on the latest features and improvements introduced in newer versions. These enhancements often improve performance, security, and functionality.
 
