@@ -12,7 +12,7 @@ ms.reviewer: mattmcinnes
 
 # Dpldsv6 sizes series
 
-[!INCLUDE [dpldsv6-summary](./includes/dpldsv6-summary.md)]
+[!INCLUDE [dpldsv6-summary](./includes/dpldsv6-series-summary.md)]
 
 ## Sizes in series
 

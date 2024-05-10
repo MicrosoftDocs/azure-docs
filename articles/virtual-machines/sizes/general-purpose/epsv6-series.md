@@ -12,7 +12,7 @@ ms.reviewer: mattmcinnes
 
 # Epsv6 sizes series
 
-[!INCLUDE [epsv6-summary](./includes/epsv6-summary.md)]
+[!INCLUDE [epsv6-summary](./includes/epsv6-series-summary.md)]
 
 ## Sizes in series
 
