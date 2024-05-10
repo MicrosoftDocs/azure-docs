@@ -73,17 +73,20 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 ## Set up process to collect log messages
 
-From the **Content hub** in Microsoft Sentinel, install the appropriate solution for **Syslog** or **Common Event Format**. This step installs the respective data connectors Syslog via AMA or Common Event Format (CEF) via AMA data connector.
+From the **Content hub** in Microsoft Sentinel, install the appropriate solution for **Syslog** or **Common Event Format**. This step installs the respective data connectors Syslog via AMA or Common Event Format (CEF) via AMA data connector. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-As part of the set up process, you create a data collection rule and install the Azure Monitor Agent (AMA) on the log forwarder. You can do these tasks either by using the Azure or Microsoft Defender portal or by using the Azure Monitor logs ingestion API.
+As part of the set up process, create a data collection rule and install the Azure Monitor Agent (AMA) on the log forwarder. Do these tasks either by using the Azure or Microsoft Defender portal or by using the Azure Monitor logs ingestion API.
 
-- When you configure the data connector in the Microsoft Sentinel portal, you can create, manage, and delete DCRs per workspace. The AMA is installed automatically on the VMs that you select in the connector configuration.
+- When you configure the data connector for the Microsoft Sentinel in the Azure or Microsoft Defender portal, you can create, manage, and delete DCRs per workspace. The AMA is installed automatically on the VMs that you select in the connector configuration.
 
 - Alternatively, send HTTP requests to the Logs Ingestion API. With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels. In the Azure or Defender portal, you can only select a minimum log level. The downside to using this menthod is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
 After you create the DCR and AMA is installed, run the "installation" script on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices or applicances.
 
-For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+For more information, see the following topics:
+
+- [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md)
 
 ## Data ingestion duplication
 
@@ -103,125 +106,6 @@ To avoid this scenario, use one of these methods:
     ```
 
 
-## Examples of facilities and log levels sections
-
-Review these examples of the facilities and log levels settings. The `name` field includes the filter name.
-
-For CEF message ingestion, the value for `"streams"` should be `"Microsoft-CommonSecurityLog"` instead of `"Microsoft-Syslog"`.
-
-This example collects events from the `cron`, `daemon`, `local0`, `local3` and `uucp` facilities, with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels:
-
-```json
-    "dataSources": {
-      "syslog": [
-        {
-        "name": "SyslogStream0",
-        "streams": [
-          "Microsoft-Syslog"
-        ],
-        "facilityNames": [ 
-          "cron",
-          "daemon",
-          "local0",
-          "local3", 
-          "uucp"
-        ],
-        "logLevels": [ 
-          "Warning", 
-          "Error", 
-          "Critical", 
-          "Alert", 
-          "Emergency"
-        ]
-      }
-    ]
-  }
-```
-
-## Syslog and CEF streams in the same DCR
-
-This example shows how you can collect **Syslog and CEF** messages in the same DCR.
-
-The DCR collects CEF event messages for:
-- The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
-- The `daemon` facility with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
-
-It collects Syslog event messages for:
-- The `kern`, `local0`, `local5`, and `news` facilities with the `Critical`, `Alert`, and `Emergency` log levels 
-- The `mail` and `uucp` facilities with the `Emergency` log level
-
-```json
-    "dataSources": {
-      "syslog": [
-        {
-          "name": "CEFStream1",
-          "streams": [ 
-            "Microsoft-CommonSecurityLog"
-          ],
-          "facilityNames": [ 
-            "authpriv", 
-            "mark"
-          ],
-          "logLevels": [
-            "Info",
-            "Notice", 
-            "Warning", 
-            "Error", 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-          ]
-        },
-        {
-          "name": "CEFStream2",
-          "streams": [ 
-            "Microsoft-CommonSecurityLog"
-          ],
-          "facilityNames": [ 
-            "daemon"
-          ],
-          "logLevels": [ 
-            "Warning", 
-            "Error", 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-          ]
-        },
-        {
-          "name": "SyslogStream3",
-          "streams": [ 
-            "Microsoft-Syslog"
-          ],
-          "facilityNames": [ 
-            "kern",
-            "local0",
-            "local5", 
-            "news"
-          ],
-          "logLevels": [ 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-          ]
-        },
-        {
-          "name": "SyslogStream4",
-          "streams": [ 
-            "Microsoft-Syslog"
-          ],
-          "facilityNames": [ 
-            "mail",
-            "uucp"
-          ],
-          "logLevels": [ 
-            "Emergency"
-          ]
-        }
-      ]
-    }
-
-```
 
 ## Next steps
 
