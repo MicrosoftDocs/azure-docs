@@ -122,156 +122,22 @@ The previously mentioned Cohere models can be consumed using the chat API.
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
 1. Copy the **Target** URL and the **Key** token values.
-1. Cohere exposes two routes for inference with the Command R and Command R+ models. `v1/chat/completions` adheres to the Azure AI Generative Messages API schema, and `v1/chat` supports Cohere's native API schema.
+2. Cohere exposes two routes for inference with the Command R and Command R+ models. The [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere API](#cohere-chat-api).
 
-For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-command-models-deployed-as-a-service) section.
+For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-models-deployed-as-a-service) section.
 
-## Chat API reference for cohere command models deployed as a service
+## Chat API reference for Cohere models deployed as a service
 
-### v1/chat/completions 
-#### Request
+Cohere Command R and Command R+ models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere Chat API](#cohere-chat-api) on `/v1/chat`. 
 
-```
-    POST /v1/chat/completions HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
-```
+### Azure AI Model Inference API
 
-#### v1/chat/completions request schema
+The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
 
-Cohere Command R and Command R+ accept the following parameters for a `v1/chat/completions` response inference call:
+### Cohere Chat API
 
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `messages` | `array` | `None` | Text input for the model to respond to. |
-| `max_tokens` | `integer` | `None` | The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, tokens are generated until end of sequence. |
-| `stop` | `array of strings` | `None` | The generated text is cut at the end of the earliest occurrence of a stop sequence. The sequence is included in the text.|
-| `stream` | `boolean` | `False` | When `true`, the response is a JSON stream of events. The final event contains the complete response, and has an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated. |
-| `temperature` | `float` | `0.3` |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2. |
-| `top_p` | `float` |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
-| `frequency_penalty` | `float` | `0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
-| `presence_penalty` | `float` |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
-| `seed` | `integer` |`None`   |If specified, the backend makes a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism can't be guaranteed.|
-| `tools` | `list[Tool]` | `None` | A list of available tools (functions) that the model might suggest invoking before producing a text response. |
+The following contains details about Cohere Chat API.
 
-`response_format` and `tool_choice` aren't yet supported parameters for the Command R and Command R+ models.
-
-<br/>
-
-A System or User Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=system` or `role=user`. |
-|`content` |`string` |Required |Text input for the model to respond to. |
-
-An Assistant Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=assistant`|
-|`content` |`string` |Required |The contents of the assistant message. |
-|`tool_calls` |`array` |None |The tool calls generated by the model, such as function calls. |
-
-A Tool Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=tool`|
-|`content` |`string` |Required |The contents of the tool message. |
-|`tool_call_id` |`string` |None |Tool call that this message is responding to. |
-
-<br/>
-
-#### v1/chat/completions response schema
-
-The response payload is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | A unique identifier for the completion. |
-| `choices` | `array` | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
-| `model` | `string` | The model_id used for completion. |
-| `object` | `string` | chat.completion. |
-| `usage` | `object` | Usage statistics for the completion request. |
-
-The `choices` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `index` | `integer` | Choice index. |
-| `messages` or `delta` | `string` | Chat completion result in messages object. When streaming mode is used, delta key is used. |
-| `finish_reason` | `string` | The reason the model stopped generating tokens. |
-
-The `usage` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens` | `integer` | Total tokens. |
-
-
-#### Examples
-
-Request:
-
-```json
-    "messages": [
-        {
-        "role": "user",
-        "content": "What is the weather like in Boston?"
-        },
-            {
-                "role": "assistant",
-                "tool_calls": [
-                        {
-                            "id": "call_ceRrx0tP7bYPTClugKrOgvh4",
-                            "type": "function",
-                            "function": {
-                                "name": "get_current_weather",
-                                "arguments": "{\"location\":\"Boston\"}"
-                            }
-                        }
-                    ]
-            },
-            {
-                "role": "tool",
-                "content": "{\"temperature\":30}",
-                "tool_call_id": "call_ceRrx0tP7bYPTClugKrOgvh4"
-            }
-    ]
-```
-
-Response:
-
-```json
-    {
-        "id": "df23b9f7-e6bd-493f-9437-443c65d428a1",
-        "choices": [
-            {
-                "index": 0,
-                "finish_reason": "stop",
-                "message": {
-                    "role": "assistant",
-                    "content": "Right now, the weather in Boston is cool, with temperatures of around 30°F. Stay warm!"
-                }
-            }
-        ],
-        "created": 1711734274,
-        "model": "command-r",
-        "object": "chat.completion",
-        "usage": {
-            "prompt_tokens": 744,
-            "completion_tokens": 23,
-            "total_tokens": 767
-        }
-    }
-```
-
-### v1/chat 
 #### Request
 
 ```
