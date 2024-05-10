@@ -127,7 +127,7 @@ Pipelines metadata that previously was stored in a storage account in a managed 
 Set the `enableServiceSideCMKEncryption` when you create a workspace to opt-in for this preview. Preview availability varies by [workspace kind](concept-workspace.md):
 
 | Kind | Supported |
-| ----- | ----- | ----- |
+| ----- | ----- |
 | Default | Yes |
 | Hub | No |
 | Project | No |
