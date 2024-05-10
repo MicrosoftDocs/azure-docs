@@ -83,10 +83,9 @@ Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-e
 
 - Start from the [Configure cluster and deploy Azure IoT Operations](../get-started/quickstart-deploy.md#deploy-azure-iot-operations-preview) and complete all the further steps.
 
-
 ## Next steps
 
 Once IoT Operations is deployed, you can try the following quickstarts. The Azure IoT Operations in your level 3 cluster works as described in the quickstarts.
 
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](../get-started/quickstart-add-assets.md)
-- [Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md)
+- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](../get-started/quickstart-upload-telemetry-to-cloud.md)
