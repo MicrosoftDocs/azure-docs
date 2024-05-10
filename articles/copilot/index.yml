@@ -17,7 +17,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Microsoft Copilot in Azure (preview)?
+    - title: What is Microsoft Copilot in Azure?
       itemType: overview
       url: ./overview.md
     # Card
@@ -26,19 +26,19 @@ highlightedContent:
       url: ./capabilities.md
     # Card
     - title: Manage access
-      itemType: get-started
+      itemType: deploy
       url: ./manage-access.md
     # Card
-    - title: Responsible AI FAQ
-      itemType: concept
-      url: ./responsible-ai-faq.md
+    - title: Write effective prompts
+      itemType: how-to-guide
+      url: ./write-effective-prompts.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
     - title: Enhanced scenarios
-      summary: Learn about some of the ways that Microsoft Copilot in Azure (preview) can help you be more effective.
+      summary: Learn about some of the ways that Microsoft Copilot in Azure can help you be more effective.
       items:
         # Card
         - title: Understand your Azure environment
