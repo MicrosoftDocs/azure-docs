@@ -135,7 +135,7 @@ Status code: 200
 | [CompletionUsage](#completionusage) | Usage statistics for the completion request. |
 | [ContentFilterError](#contentfiltererror) | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again. |
 | [CreateCompletionRequest](#createcompletionrequest) |     |
-| [CreateCompletionResponse](#createcompletionresponse) | Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint). |
+| [CreateCompletionResponse](#createcompletionresponse) | Represents a completion response from the API. |
 | [Detail](#detail) |     |
 | [TextCompletionObject](#textcompletionobject) | The object type, which is always "text\_completion" |
 | [UnprocessableContentError](#unprocessablecontenterror) |     |
