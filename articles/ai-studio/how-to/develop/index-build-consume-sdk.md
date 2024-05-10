@@ -1,7 +1,7 @@
 ---
-title: How to build and consume an index in code
+title: How to build and consume an index using code
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to build and consume an index in code.
+description: This article provides instructions on how to build and consume an index using code.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -11,7 +11,9 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to build and consume an index in code
+# How to build and consume an index using code
+
+[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 
 In this article, you'll learn how to create an index and consume it from code. To create an index locally, we will use the `promptflow-rag` package. To create a remote index on the cloud, we will use the `azure-ai-ml` package. We will consume the indexes using `langchain`.
 

@@ -1,7 +1,7 @@
 ---
-title: How to evaluate a flow with the prompt flow SDK
+title: Evaluate with the prompt flow SDK
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to evaluate a flow with the prompt flow SDK.
+description: This article provides instructions on how to evaluate with the prompt flow SDK.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to evaluate a flow with the prompt flow SDK
+# Evaluate with the prompt flow SDK
 
 [!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 

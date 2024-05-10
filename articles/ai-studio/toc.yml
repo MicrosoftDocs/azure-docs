@@ -100,9 +100,9 @@ items:
     - name: Add data to your project
       href: how-to/data-add.md
       displayName: index
-    - name: Create a vector index
+    - name: Build and consume vector indexes
       href: how-to/index-add.md
-    - name: Building and consuming indexes
+    - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
   - name: Develop generative AI apps
     items:
@@ -164,7 +164,7 @@ items:
       href: how-to/evaluate-prompts-playground.md
     - name: Generate adversarial simulations for safety evaluation
       href: how-to/develop/simulator-interaction-data.md
-    - name: Evaluate using the prompt flow SDK
+    - name: Evaluate with the prompt flow SDK
       href: how-to/develop/flow-evaluate-sdk.md
     - name: Evaluate with Azure AI Studio
       href: how-to/evaluate-generative-ai-app.md
