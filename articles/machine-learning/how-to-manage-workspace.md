@@ -70,13 +70,30 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
 
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-* **Default specification.** By default, dependent resources and the resource group are created automatically. This code creates a workspace named `myworkspace`, and a resource group named `myresourcegroup` in `eastus2`.
+* **Basic configuration for getting started** Without specification, [associated resources](concept-workspace.md#associated-resources) and the Azure resource group are created automatically. This code creates a workspace named `myworkspace`, dependent Azure resources (Storage account, Key Vault, Container Registry, Application Insights), and a resource group named `myresourcegroup` in `eastus2`.
 
    [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
 
-* **Use existing Azure resources**. You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal, or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
+* **Use existing Azure resources**. To bring existing Azure resources, reference them using the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal, or with the SDK. This example assumes that the resource group, Storage account, Key Vault, Application Insights, and Container Registry already exist.
 
    [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_ex_workspace_name)]
+
+* **(Preview) Use existing hub workspace**. Instead of creating a default workspace with its own security settings and [associated resources](concept-workspace.md#associated-resources), you can reuse a [hub workspace](concept-hub-workspace.md)'s shared environment. Your new 'project' workspace will obtain security settings and shared configurations from the hub including compute and connections. This example assumes that the hub workspace already exists.
+
+   ```python
+   from azure.ai.ml.entities import Project
+
+   my_project_name = "myexampleproject"
+   my_location = "East US"
+   my_display_name = "My Example Project"
+   
+   my_hub = Project(name=my_hub_name, 
+                   location=my_location,
+                   display_name=my_display_name,
+                   hub_id=created_hub.id)
+   
+   created_project_workspace = ml_client.workspaces.begin_create(workspace=my_hub).result()
+   ```
 
 For more information, see [Workspace SDK reference](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace).
 
