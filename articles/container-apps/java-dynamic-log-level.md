@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Set dynamic logger level to troubleshoot Java applications in Azure Container Apps (preview)
 
-Azure Container Apps platform offers a built-in diagnostics tool exclusively for Java developers to help them debug and troubleshoot their Java applications running on Azure Container Apps more easily and efficiently. One of the key features is a dynamic logger level change, which allows you to get more hidden information from app logs without modifying code and restarting apps.
+Azure Container Apps platform offers a built-in diagnostics tool exclusively for Java developers to help them debug and troubleshoot their Java applications running on Azure Container Apps more easily and efficiently. One of the key features is a dynamic logger level change, which allows you to access log details that are hidden by default. When enabled, this log information is collected without requiring you to modify your code.
 
 ## Enable JVM diagnostics for your Java applications
 
