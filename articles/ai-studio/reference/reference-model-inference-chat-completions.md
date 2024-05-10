@@ -3,7 +3,7 @@ title: Azure AI Model Inference Chat Completions
 titleSuffix: Azure AI Studio
 description: Reference for Azure AI Model Inference Chat Completions API
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-ai-studio
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024

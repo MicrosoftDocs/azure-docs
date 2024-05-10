@@ -3,7 +3,7 @@ title: Region availability for models in Serverless API endpoints
 titleSuffix: Azure AI Studio
 description: Learn about the regions where each model is available for deployment in serverless API endpoints.
 manager: scottpolly
-ms.service: ai-studio
+ms.service: azure-ai-studio
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
@@ -30,7 +30,7 @@ Serverless API endpoints are available in the following regions for the indicate
 | Cohere Command R  | **&check;** |                | **&check;**    |                |
 | Cohere Command R+ | **&check;** |                | **&check;**    |                |
 | Cohere Embed v3   | **&check;** |                | **&check;**    |                |
-| Meta Llama 2      | **&check;** | **&check;**    | **&check;**    |                |
+| Meta Llama 2      | **&check;** | **&check;**    |                |                |
 | Meta Llama 3      | **&check;** |                |                |                |
 | Phi-3             | **&check;** |                | **&check;**    |                |
 
