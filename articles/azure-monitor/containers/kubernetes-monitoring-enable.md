@@ -631,8 +631,7 @@ This option enables Prometheus metrics on a cluster without enabling Container i
 
 As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon container (prometheus_collector), Windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics add-on enables the Windows DaemonSet pods to start running on your node pools. Both Windows Server 2019 and Windows Server 2022 are supported. Follow these steps to enable the pods to collect metrics from your Windows node pools.
 
-1. Manually install windows-exporter on AKS nodes to access Windows metrics.
-   Enable the following collectors:
+1. Manually install windows-exporter on AKS nodes to access Windows metrics by deploying the [windows-exporter-daemonset YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file. Enable the following collectors:
 
    * `[defaults]`
    * `container`
@@ -642,7 +641,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
    
    For more collectors, please see [Prometheus exporter for Windows metrics](https://github.com/prometheus-community/windows_exporter#windows_exporter).
 
-   Deploy the [windows-exporter-daemonset YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file:
+   Deploy the [windows-exporter-daemonset YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file. Note that if there are any taints applied in the node, you will need to apply the appropriate tolerations.
 
    ```
        kubectl apply -f windows-exporter-daemonset.yaml
