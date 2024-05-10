@@ -25,7 +25,7 @@ This article shows how to set up and view Azure Site Recovery reports.
 
 Azure Site Recovery reports are supported for the following scenarios:
 - Site Recovery jobs and Site Recovery replicated items.
-- Azure VM replication to Azure, Hyper-V replication to Azure, VMWare replication to Azure – Classic & Modernized. 
+- Azure virtual machine replication to Azure, Hyper-V replication to Azure, VMware replication to Azure – Classic & Modernized. 
 
 ## Configure reports
 
@@ -42,7 +42,7 @@ To set up a Log Analytics workspace, [follow these steps](../azure-monitor/logs/
 
 Azure Resource Manager resources like Recovery Services vaults, record information about site recovery jobs and replicated items as diagnostics data. To configure diagnostics settings for your vaults, follow these steps: 
 
-1. On the Azure Portal, navigate to chosen the Recovery Services vault of concern
+1. On the Azure portal, navigate to the chosen the Recovery Services vault of concern
 1. Select **Monitoring** > **Diagnostic settings**.
 1. Specify the target for the Recovery Services Vault's diagnostic data. Learn more about [using diagnostic events](../backup/backup-azure-diagnostic-events.md) for Recovery Services vaults. 
 1. Select **Azure Site Recovery Jobs** and **Azure Site Recovery Replicated Item Details** options to populate the reports. 
@@ -60,13 +60,13 @@ Currently, Azure Site Recovery *doesn't* provide a built-in Azure policy definit
 
 To view your reports after setting up your vault to transfer data to Log Analytics workspace, go to the **Business Continuity Center** > **Monitoring+Reporting** > **Reports**. 
 
-You must select the workspace subscription(s), log analytics workspace(s), and the replication scenario of your choice, before you can see the report with information. 
+You must select one or more workspace subscriptions, one or more log analytics workspaces, and the replication scenario of your choice, before you can see the report with information. 
 
 **Following are some of the reports available in the Business Continuity Center:**
 
 #### Azure Site Recovery job history
 
-This report provides information about the Site Recovery jobs by operation type and completion status. This report includes  information on job status, start time, duration, vault, subscription, etc
+This report provides information about the Site Recovery jobs by operation type and completion status. This report includes  information on job status, start time, duration, vault, subscription, etc.
 
 It also offers multiple filters for time range, operation, resource group, status, and search item, enabling you to generate focused reports and visualizations.
 
@@ -86,7 +86,7 @@ Export widget contents as an excel sheet with existing filters applied. You can 
 
 ## Pin to dashboard
 
-Select the pin button at the top of each widget to pin the widget to your Azure portal dashboard. This feature helps you create customized dashboards tailored to display the most important information that you need. 
+To pin the widget to your Azure portal dashboard, select the pin button at the top of each widget. This feature helps you create customized dashboards tailored to display the most important information that you need. 
 
 ## Cross-tenant reports
 
@@ -105,8 +105,8 @@ If you don't see data in the reports or any discrepancy, check the following:
 - Review the following limits in reports:
     - Since it takes up to 24 hours for the initial data push to complete while configuring diagnostics settings, you might not see the data in the reports immediately.
     - The reports only take full days (UTC) into consideration and don't include partial days. Consider these examples:
-        - If you select a time range from 4:30 PM on March 23rd to 10:00 AM on March 24th, the query runs internally for the period between 12:00 AM UTC on March 23rd and 11:59 PM UTC on March 24th. This means that the time component of the datetime is overridden by the query.
-        - If today's date is March 29th, the data shown in the reports will only go up to the end of March 28th (11:59 PM UTC). Jobs created on March 29th won't be visible in the reports until the next day, March 30th.
+        - If you select a time range from 4:30 PM on March 23 to 10:00 AM on March 24th, the query runs internally for the period between 12:00 AM UTC on March 23 and 11:59 PM UTC on March 24th. This means that the query overrides the time component of the datetime.
+        - If today's date is March 29, the data shown in the reports will only go up to the end of March 28 (11:59 PM UTC). Jobs created on March 29 won't be visible in the reports until the next day, March 30.
 
 If none of the above explains the data seen in the report, contact Microsoft Support. 
 
@@ -118,4 +118,4 @@ Additionally, the V1 schema for sending diagnostics data to a storage account or
 
 ## Next steps
 
-- [Diagnostics in BAckup and Site Recovery](../backup/backup-azure-diagnostic-events.md)
+- [Diagnostics in Backup and Site Recovery](../backup/backup-azure-diagnostic-events.md)
