@@ -155,6 +155,6 @@ If the recipient needs to restrict, access to their Azure resources, they should
 
 For more information about how a subscription transfer affects reserved instances, see [Manage Azure reservations](../reservations/manage-reserved-vm-instance.md#change-billing-subscription-for-an-azure-reservation).
 
-## Next steps
+## Related content
 
 - For more information about Azure product transfers, see [Azure product transfer hub](subscription-transfer.md).
