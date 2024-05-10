@@ -19,19 +19,13 @@ Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Stand
     The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
 
     * Standard storage with cool access:      
-        The throughput experience for this service level is the same as the Standard service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
+        The throughput experience for this service level is the same as the Standard service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
 
 * <a name="Premium"></a>Premium storage:   
     The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-    * Premium storage with cool access:      
-        The throughput experience for this service level is the same as the Premium service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
-
 * <a name="Ultra"></a>Ultra storage:   
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
-
-    * Ultra storage with cool access:      
-        The throughput experience for this service level is the same as the Ultra service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
 
 ## Throughput limits
 
@@ -73,4 +67,3 @@ The following diagram illustrates the scenarios for the SAP HANA volumes:
 - [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 
 - [Service-level objectives for cross-region replication](cross-region-replication-introduction.md#service-level-objectives)
-- [Azure NetApp Files storage with cool access](cool-access-introduction.md) 
