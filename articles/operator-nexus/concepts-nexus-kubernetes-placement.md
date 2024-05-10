@@ -9,7 +9,7 @@ ms.date: 04/19/2024
 ms.custom: template-concept
 ---
 
-# Resource Placement in Azure Operator Nexus Kubernetes
+# Resource placement in Azure Operator Nexus Kubernetes
 
 Operator Nexus instances are deployed at the customer premises. Each instance
 comprises one or more racks of bare metal servers.
@@ -23,7 +23,7 @@ containerized network functions run.
 The Nexus platform is responsible for deciding the bare metal server on which
 each NKS VM launches.
 
-## How the Nexus Platform Schedules a NKS VM
+## How the Nexus platform schedules a Nexus Kubernetes Cluster VM
 
 Nexus first identifies the set of potential bare metal servers that meet all of
 the resource requirements of the NKS VM SKU. For example, if the user
@@ -57,7 +57,7 @@ following sorting rules:
    "bin packs" the extra-large VMs in order to reduce fragmentation of the
    available compute resources.
 
-## Example Placement Scenarios
+## Example placement scenarios
 
 The following sections highlight behavior that Nexus users should expect
 when creating NKS Clusters against an Operator Nexus environment.
@@ -77,7 +77,7 @@ The example Operator Nexus environment has these specifications:
 
 [numa]: https://en.wikipedia.org/wiki/Non-uniform_memory_access
 
-### Empty Environment
+### Empty environment
 
 Given an empty Operator Nexus environment with the given capacity, we create
 three differently sized Nexus Kubernetes Clusters.
@@ -124,15 +124,14 @@ Cluster C Agent Pool #1 has 12 VMs restricted to AvailabilityZones [1, 4] so it
 has 12 VMs on 12 bare metal servers, six in each of racks 1 and 4.
 
 Extra-large VMs (the `NC_P46_224_v1` SKU) from different clusters are placed
-on the same bare metal servers (see rule #3 in
-[How the Nexus Platform Schedules a VM][#how-the-nexus-platform-schedule-a-vm]).
+on the same bare metal servers (see rule #3 in [How the Nexus platform schedules a Nexus Kubernetes Cluster VM](#how-the-nexus-platform-schedules-a-nexus-kubernetes-cluster-vm)).
 
 Here's a visualization of a layout the user might see after deploying Clusters
 A, B, and C into an empty environment.
 
 :::image type="content" source="media/nexus-kubernetes/after-first-deployment.png" lightbox="media/nexus-kubernetes/after-first-deployment.png" alt-text="Diagram showing possible layout of VMs after first deployment.":::
 
-### Half-full Environment
+### Half-full environment
 
 We now run through an example of launching another NKS Cluster when the target
 environment is half-full. The target environment is half-full after Clusters A,
@@ -178,7 +177,7 @@ D into the target environment.
 
 :::image type="content" source="media/nexus-kubernetes/after-second-deployment.png" lightbox="media/nexus-kubernetes/after-second-deployment.png" alt-text="Diagram showing possible layout of VMs after second deployment.":::
 
-### Nearly full Environment
+### Nearly full environment
 
 In our example target environment, four of the eight racks are
 close to capacity. Let's try to launch another NKS Cluster. 
@@ -209,7 +208,7 @@ E into the target environment.
 
 :::image type="content" source="media/nexus-kubernetes/after-third-deployment.png" lightbox="media/nexus-kubernetes/after-third-deployment.png" alt-text="Diagram showing possible layout of VMs after third deployment.":::
 
-## Placement during a Runtime Upgrade 
+## Placement during a runtime upgrade 
 
 As of April 2024 (Network Cloud 2304.1 release), runtime upgrades are performed
 using a rack-by-rack strategy. Bare metal servers in rack 1 are reimaged all at
@@ -248,7 +247,7 @@ StatefulSets that had Pods on NKS VMs that were on the bare metal server.
 > NKS VM was launched on the newly reimaged bare metal server that retained the
 > same bare metal server name as before reimaging.
 
-## Best Practices 
+## Best practices
 
 When working with Operator Nexus, keep the following best practices in mind.
 
@@ -290,7 +289,7 @@ greatest count of these extra-large SKU VMs creates a larger set of bare metal
 servers upon which other extra-large SKU VMs from Agent Pools in other NKS
 Clusters can collocate.
 
-### Reduce the Agent Pool's Count before reducing the VM SKU size
+### Reduce the Agent Pool's count before reducing the VM SKU size
 
 If you run into capacity constraints when launching a NKS Cluster or Agent
 Pool, reduce the Count of the Agent Pool before adjusting the VM SKU size. For
