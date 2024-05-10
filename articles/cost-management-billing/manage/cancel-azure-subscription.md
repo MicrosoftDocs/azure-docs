@@ -188,6 +188,6 @@ Azure now offers free egress for customers leaving Azure when taking out their d
 - Azure might make changes regarding the egress credit policy in the future.
 - If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.
 
-## Next steps
+## Related content
 
 - If needed, you can reactivate a pay-as-you-go subscription in the [Azure portal](subscription-disabled.md).
