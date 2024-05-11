@@ -26,7 +26,7 @@ Before you begin, you need the following resources installed and configured:
 
 ### Install the `aks-preview` CLI extension
 
-Install or update `aks-preview` extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
+Install or update the `aks-preview` extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
