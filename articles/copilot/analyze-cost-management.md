@@ -1,6 +1,6 @@
 ---
-title: Analyze, estimate and optimize cloud costs using Microsoft Copilot in Azure (preview)
-description: Learn about scenarios where Microsoft Copilot in Azure (preview) can use Microsoft Cost Management to help you manage your costs.
+title: Analyze, estimate and optimize cloud costs using Microsoft Copilot for Azure 
+description: Learn about scenarios where Microsoft Copilot for Azure can use Microsoft Cost Management to help you manage your costs.
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
@@ -11,11 +11,11 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Analyze, estimate and optimize cloud costs using Microsoft Copilot in Azure (preview)
+# Analyze, estimate and optimize cloud costs using Microsoft Copilot for Azure
 
-Microsoft Copilot in Azure (preview) can help you analyze, estimate and optimize cloud costs. Ask questions using natural language to get information and recommendations based on [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
+Microsoft Copilot for Azure (preview) can help you analyze, estimate and optimize cloud costs. Ask questions using natural language to get information and recommendations based on [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
 
-When you ask Microsoft Copilot in Azure (preview) questions about your costs, it automatically pulls context based on the last scope that you accessed using Cost Management. If the context isn't clear, you'll be prompted to select a scope or provide more context.
+When you ask Microsoft Copilot for Azure  questions about your costs, it automatically pulls context based on the last scope that you accessed using Cost Management. If the context isn't clear, you'll be prompted to select a scope or provide more context.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -34,19 +34,19 @@ Here are a few examples of the kinds of prompts you can use for Cost Management.
 
 ## Examples
 
-When you prompt Microsoft Copilot in Azure (preview), "**Summarize my costs for the last 6 months**," a summary of costs for the selected scope is provided. You can follow up with questions to get more granular details, such as "What was our virtual machine spending last month?"
+When you prompt Microsoft Copilot for Azure, "**Summarize my costs for the last 6 months**," a summary of costs for the selected scope is provided. You can follow up with questions to get more granular details, such as "What was our virtual machine spending last month?"
 
-:::image type="content" source="media/analyze-cost-management/cost-management-summarize-costs.png" alt-text="Screenshot of Microsoft Copilot in Azure (preview) providing a summary of costs.":::
+:::image type="content" source="media/analyze-cost-management/cost-management-summarize-costs.png" alt-text="Screenshot of Microsoft Copilot for Azure providing a summary of costs.":::
 
-:::image type="content" source="media/analyze-cost-management/cost-management-vm-costs.png" alt-text="Screenshot showing Microsoft Copilot in Azure (preview) providing details about VM costs.":::
+:::image type="content" source="media/analyze-cost-management/cost-management-vm-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure providing details about VM costs.":::
 
-Next, you can ask "**How can we reduce our costs?**" Microsoft Copilot in Azure (preview) provides a list of recommendations you can take, including an estimate of the potential savings you might see.
+Next, you can ask "**How can we reduce our costs?**" Microsoft Copilot for Azure provides a list of recommendations you can take, including an estimate of the potential savings you might see.
 
-:::image type="content" source="media/analyze-cost-management/cost-management-reduce.png" alt-text="Screenshot showing Microsoft Copilot in Azure (preview) providing a list of recommendations to reduce costs.":::
+:::image type="content" source="media/analyze-cost-management/cost-management-reduce.png" alt-text="Screenshot showing Microsoft Copilot for Azure providing a list of recommendations to reduce costs.":::
 
-:::image type="content" source="media/analyze-cost-management/cost-management-reduce-2.png" alt-text="Screenshot showing Microsoft Copilot in Azure (preview) continuing a list of recommendations to reduce costs.":::
+:::image type="content" source="media/analyze-cost-management/cost-management-reduce-2.png" alt-text="Screenshot showing Microsoft Copilot for Azure continuing a list of recommendations to reduce costs.":::
 
 ## Next steps
 
-- Explore [capabilities](capabilities.md) of Microsoft Copilot in Azure (preview).
+- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure.
 - Learn more about [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
