@@ -150,6 +150,50 @@ If you don't need the sign-up functionality enabled by default in the developer 
  
 1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
+### How do I enable/ disable developer portal?
+
+> [!NOTE]
+> - Once the legacy portal has been disabled by Microsoft, it cannot be re-enabled.
+> - If you wish to disable the developer portal using the method below, please note that you will not be able to access the portal in design mode.
+> - If your requirement is to remove the published portal while retaining access to the portal in design mode, please contact [Microsoft support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+Developer portal can be enabled/ disabled using this [PATCH REST API](https://learn.microsoft.com/en-us/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview&tabs=HTTP) with the appropriate fields : 
+- Use the [LegacyPortalStatus property](https://learn.microsoft.com/en-us/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview&tabs=HTTP#legacyportalstatus) to enable or disable the legacy portal.
+- Use the [developerPortalStatus property](https://learn.microsoft.com/en-us/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview&tabs=HTTP#developerportalstatus) to enable or disable the new developer portal.
+
+Below are sample REST calls demonstrating how to disable the legacy portal and the new developer portal for an existing API Management service:
+
+To disable the legacy portal:
+
+````
+PATCH https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ApiManagement/service/<apim_service_name>?api-version=2023-03-01-preview
+Authorization: Bearer <<redacted>>
+Content-type: application/json
+
+{
+  "properties": {
+        "LegacyPortalStatus": "Disabled"
+   }
+}
+````
+
+To disable the new developer portal:
+
+```
+PATCH https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ApiManagement/service/<apim_service_name>?api-version=2023-05-01-preview
+Authorization: {{oauthToken}}
+Content-type: application/json
+
+{
+  "properties": {
+       "developerPortalStatus": "Disabled"
+   }
+}
+```
+
+Note that this operation may take up to 1 hour to complete. Additionally, ensure that you are using an api-version that supports the developerPortalStatus property, and double-check with the documentation for compatibility.
+
+
 ## How can I remove the developer portal content provisioned to my API Management service?
 
 Provide the required parameters in the `scripts.v3/cleanup.bat` script in the developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal), and run the script
