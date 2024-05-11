@@ -138,8 +138,8 @@ By default, we use the latest prompt flow image as the base image. If you want t
 
 If you previously created a compute instance runtime, switch it to a compute session by using the following steps:
 
-- Prepare your `requirements.txt` file in the flow folder. See [Manage a compute session](#manage) for more information.
-- If you created a custom environment, get the image from the environment detail page, and specify it in the `flow.dag.yaml` file in the flow folder. To learn more, see [Change the base image](#base). Make sure you have `acr pull` permission for the image.
+- Prepare your `requirements.txt` file in the flow folder. See [Manage a compute session](#manage-a-compute-session) for more information.
+- If you created a custom environment, get the image from the environment detail page, and specify it in the `flow.dag.yaml` file in the flow folder. To learn more, see [Change the base image](#change-the-base-image). Make sure you have `acr pull` permission for the image.
 
 - You can continue to use the existing compute instance if you would like to manually manage the lifecycle.
 
