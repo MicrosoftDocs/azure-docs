@@ -35,13 +35,6 @@ The prerequisites you need to have in place before proceeding are:
 
 * You should have events available on a topic. See [publish events](publish-events-to-namespace-topics-java.md) to namespace topics.
 
-## Sample code
-
-The sample code used in this article is found in this location:
-
-```bash
-    https://github.com/robece/event-grid-pull-delivery-quickstart
-```
 
 ## Receive events using pull delivery
 
