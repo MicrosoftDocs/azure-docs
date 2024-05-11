@@ -46,9 +46,7 @@ In the [AI Studio playground quickstart](../quickstarts/get-started-playground.m
 
 ## Create a prompt flow from the playground
 
-Now that your [deployed chat model](#deploy-a-chat-model) is working in the playground [with your data](#add-your-data-and-try-the-chat-model-again), you could [deploy your copilot as a web app](deploy-chat-web-app.md#deploy-your-web-app) from the playground. 
-
-But you might ask "How can I further customize this copilot?" You might want to add multiple data sources, compare different prompts or the performance of multiple models. A [prompt flow](../how-to/prompt-flow.md) serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
+Now you might ask "How can I further customize this copilot?" You might want to add multiple data sources, compare different prompts or the performance of multiple models. A [prompt flow](../how-to/prompt-flow.md) serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
 
 In this section, you learn how to transition to prompt flow from the playground. You export the playground chat environment including connections to the data that you added. Later in this tutorial, you [evaluate the flow](#evaluate-the-flow-using-a-question-and-answer-evaluation-dataset) and then [deploy the flow](#deploy-the-flow) for [consumption](#use-the-deployed-flow).
 
@@ -314,7 +312,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
 
     > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [the AI Studio chat playground quickstart](../quickstarts/get-started-playground.md#deploy-a-chat-model). Then return to this step and select the model you deployed.
 
 1. Select **Add new dataset**. Then select **Next**.
 

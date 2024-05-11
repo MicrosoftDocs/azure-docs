@@ -72,7 +72,7 @@ To deploy the web app:
 1. Complete the steps in the previous section to [add your data](#add-your-data-and-try-the-chat-model-again) to the playground. 
 
     > [!NOTE]
-    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#chat-in-the-playground-without-your-data).
+    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in the [AI Studio playground quickstart](../quickstarts/get-started-playground.md).
 
 1. Select **Deploy to a web app**.
 
