@@ -52,7 +52,7 @@ We support video dubbing between various languages, enabling you to tailor your 
 
 ## Get started 
 
-To get started with video dubbing, refer to [video dubbing in the studio](video-dub-studio.md). 
+To get started with video dubbing, refer to [video dubbing in the studio](video-dub-studio.md). The video dubbing API will be available soon.
 
 ## Price 
 
