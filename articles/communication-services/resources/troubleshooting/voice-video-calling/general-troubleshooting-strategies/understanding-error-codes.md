@@ -19,12 +19,12 @@ The Calling SDK and respective server infrastructure use a unified framework to 
  
 **Code** Are modeled as 3 digit integers that indicate the response status of a client or server response. They're grouped into:<br>
 - Successful responses (**200-299**)<br>
-- Client errors (**400-499**) <br>
-- server error (**500-599**) <br>
+- Client error (**400-499**) <br>
+- Server error (**500-599**) <br>
 
-**Subcode**  Are defined as an integer, where each number indicates a unique reason, specific to a group of scenarios or specific scenario outcome.<br>
-**Message** - Message that describes the outcome, and provides hints how to mitigate the issue problem if an outcome is a failure.<br>
-**ResultCategory** - The resultCategories property indicates the type of the error. Depending on the context, the value can be `Success`, `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`
+**Subcode** Are defined as an integer, where each number indicates a unique reason, specific to a group of scenarios or specific scenario outcome.<br>
+**Message** Describes the outcome, and provides hints how to mitigate the issue problem if an outcome is a failure.<br>
+**ResultCategory** - Indicates the type of the error. Depending on the context, the value can be `Success`, `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`
 
 ::: zone pivot="platform-javascript"
 [!INCLUDE [Client generated codes](./includes/webjs-client-code-subcode.md)]
