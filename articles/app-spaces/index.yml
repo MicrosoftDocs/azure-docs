@@ -27,5 +27,7 @@ landingContent:
             url: quickstart-deploy-custom-web-app.md            
       - linkListType: how-to-guide
         links:
-          - text: Manage an App Space app
-            url: how-to-manage-app-space-components.md
+          - text: Add App Spaces components
+            url: how-to-add-components.md
+          - text: Manage App Spaces components
+            url: how-to-manage-components.md

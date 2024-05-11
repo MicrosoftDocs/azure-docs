@@ -9,10 +9,12 @@ ms.date: 05/20/2024
 zone_pivot_groups: app-spaces-components
 ---
 
+# Manage app component
+
 You can manage the components of your App Space by selecting the App component on the __App Space__ page. 
 
 
-# Manage app component
+
 
 ### Deployment
 

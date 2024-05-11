@@ -31,7 +31,7 @@ To deploy a sample app for Azure App Spaces, you must have the following items:
 
 ## Deploy a sample app
 
-While Express.JS (backend) and React (frontend) apps are used in this quickstart, other samples are also available in App Spaces. See [supported samples](app-space-sample-app-listing.md) for a full list of available samples on App Spaces.
+While Express.JS (backend) and React (frontend) apps are used in this quickstart, other samples are also available in App Spaces. See [supported samples]() for a full list of available samples on App Spaces.
 
 Follow these steps to deploy a sample app to App Spaces. 
 
@@ -144,7 +144,7 @@ In your *App Space Page*, select **Open app in browser** to view your new app.
 ## Clean up resources
 [!include [deployment note](./includes/clean-up-resources.md)]
 
-For more information about managing App Spaces, see [Manage components](how-to-manage-app-space-components.md).
+For more information about managing App Spaces, see [Manage components](how-to-manage-components.md).
 
 ## Related articles
 

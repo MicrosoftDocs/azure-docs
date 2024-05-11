@@ -2093,22 +2093,22 @@ groups:
 # Owner: msangapu
 - id: app-spaces-components
   title: App Spaces apps
-  prompt: Choose a component type
+  prompt: Add component from
   pivots:
-  - id: aca
-    title: App component
-  - id: swa
-    title: Static app component
-  - id: db
-    title: Database    
+  - id: custom
+    title: GitHub repository
+  - id: sample
+    title: Sample (Template)
+  - id: database
+    title: Database
 # Owner: msangapu
 - id: app-spaces-frontend-backend
   title: App Spaces apps
   prompt: Choose an app type
   pivots:
-  - id: aca
+  - id: frontend
     title: Frontend
-  - id: swa
+  - id: backend
     title: Backend
 # Owner: mbullwin
 - id: qnamaker-quickstart
