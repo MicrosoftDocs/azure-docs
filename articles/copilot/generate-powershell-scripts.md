@@ -20,7 +20,7 @@ When you tell Microsoft Copilot for Azure about a task you want to perform by us
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to generate Azure PowerShell scripts. Some prompts will return a single cmdlet, while others provide multiple steps walking through the full scenario. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use to generate Azure PowerShell scripts. Some prompts return a single cmdlet, while others provide multiple steps walking through the full scenario. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
 
 - "How do I list the VMs I have running in Azure using PowerShell?"
 - "Create a storage account using PowerShell."
@@ -29,7 +29,7 @@ Here are a few examples of the kinds of prompts you can use to generate Azure Po
 
 ## Examples
 
-In this example, the prompt "**How do I list all my resource groups using PowerShell?**" provides the cmdlet along with information on additional ways to use it.
+In this example, the prompt "**How do I list all my resource groups using PowerShell?**" provides the cmdlet along with information on other ways to use it.
 
 :::image type="content" source="media/generate-powershell-scripts/powershell-list-resource-groups.png" alt-text="Screenshot of Microsoft Copilot for Azure providing the PowerShell cmdlet to list resource groups.":::
 
