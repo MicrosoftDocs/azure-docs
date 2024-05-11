@@ -477,6 +477,6 @@ For more information about monitoring, see:
 
 + [Monitor Azure Functions](functions-monitoring.md)
 + [Analyze Azure Functions telemetry data in Application Insights](analyze-telemetry-data.md)
-+ [Application Insights](/azure/application-insights/)
++ [Application Insights](../azure-monitor/app/app-insights-overview.md)
 
 [host.json]: functions-host-json.md
