@@ -21,8 +21,7 @@ The copilot should answer questions about your products and services. It should 
 
 The steps in this tutorial are:
 
-1. Create an Azure AI Studio project.
-1. Deploy an Azure OpenAI model and chat with your data.
+1. Add your data to the chat playground.
 1. Create a prompt flow from the playground.
 1. Customize prompt flow with multiple data sources.
 1. Evaluate the flow using a question and answer evaluation dataset.
@@ -35,47 +34,15 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- You need an Azure AI Studio hub and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
-    - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
-    - If your role is **Azure AI Developer**, the hub must already be created. 
-
-- Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md). Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create a hub and project if you haven't already.
 
 - You need a local copy of product and customer data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [1-customer-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/1-customer-info) and [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
 
-## Create a project in Azure AI Studio
-
-Your project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow compute sessions, evaluations, and other resources. For more information about the projects and resources model, see [hubs](../concepts/ai-resources.md).
-
-[!INCLUDE [Create project](../includes/create-projects.md)]
-
-## Deploy a chat model
-
-[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
-
-## Chat in the playground without your data
-
-In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
-
-[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
-
 ## Add your data and try the chat model again
 
+In the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) (that's a prerequisite for this tutorial), you can observe how your model responds without your data. Now you add your data to the model to help it answer questions about your products.
+
 [!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
-
-## Create compute and compute sessions that are needed for prompt flow
-
-You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a compute session. If you already have a compute instance and a compute session, you can skip this section and remain in the playground.
-
-To create a compute instance and a compute session, follow these steps:
-1. If you don't have a compute instance, you can [create one in Azure AI Studio](../how-to/create-manage-compute.md). 
-1. Then create a compute session. by following the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
-
-To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
-
-> [!IMPORTANT]
-> You're charged for compute instances while they are running. To avoid incurring unnecessary Azure costs, pause the compute instance when you're not actively working in prompt flow. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
-
 
 ## Create a prompt flow from the playground
 
@@ -171,6 +138,15 @@ Follow these instructions on how to create a new index:
     :::image type="content" source="../media/tutorials/chat/add-index-created-details.png" alt-text="Screenshot of the customer info index details." lightbox="../media/tutorials/chat/add-index-created-details.png":::
 
 For more information on how to create an index, see [Create an index](../how-to/index-add.md).
+
+## Create a compute sessions that's needed for prompt flow
+
+You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a compute session. To create a compute instance and a compute session, follow the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
+
+To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
+
+> [!IMPORTANT]
+> You're charged for compute instances while they are running. To avoid incurring unnecessary Azure costs, pause the compute instance when you're not actively working in prompt flow. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
 
 ### Add customer information to the flow
 
@@ -442,7 +418,7 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
-You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
+You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com) as needed.
 
 
 ## Azure AI Studio enterprise chat solution demo

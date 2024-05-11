@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure AI Enterprise Chat web app in the Azure AI Studio playground
+title: Deploy an Enterprise Chat web app in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Use this article to deploy an enterprise chat web app in the Azure AI Studio playground.
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 author: aahill
 ---
 
-# Tutorial: Deploy an Azure AI Enterprise Chat web app
+# Tutorial: Deploy an Enterprise Chat web app
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
@@ -36,21 +36,13 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md). Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create a hub and project if you haven't already.
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
-## Deploy a chat model
-
-[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
-
-## Chat in the playground without your data
-
-In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
-
-[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
-
 ## Add your data and try the chat model again
+
+In the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) (that's a prerequisite for this tutorial), you can observe how your model responds without your data. Now you add your data to the model to help it answer questions about your products.
 
 [!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
 
@@ -70,7 +62,6 @@ Follow these steps to navigate from Azure AI Studio to your resource group in th
     :::image type="content" source="../media/tutorials/chat/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat/resource-group-manage-page.png":::
 
 1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub. Keep this page open in a browser tab - you return to it later.
-
 
 ### Deploy the web app
 

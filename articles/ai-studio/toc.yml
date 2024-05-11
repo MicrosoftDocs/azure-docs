@@ -16,6 +16,8 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
+  - name: Create a project and use the chat playground
+    href: quickstarts/get-started-playground.md
   - name: Moderate text and images with content safety
     href: quickstarts/content-safety.md
   - name: Use Azure AI Studio with a screen reader
