@@ -22,7 +22,7 @@ Learn how to use Azure AI Content Safety Groundedness detection to check whether
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
 * (Optional) If you want to use the _reasoning_ feature, create an Azure OpenAI Service resource with a GPT model deployed.
-* Create a **Hub** in Azure AI Studio with the above resources included.
+* An [AI Studio hub](../how-to/create-azure-ai-resource.md) in Azure AI Studio. 
 
 
 ## Setting up
