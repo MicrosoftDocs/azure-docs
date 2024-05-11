@@ -64,8 +64,8 @@ The above roles are from the ARM operations perspective. For more information, s
 
 You can allow users, service principals, managed identity to access the cluster through portal or using ARM. 
 
-This access enables you to:
-* View clusters and manage jobs.
+This access enables
+* View clusters, and manage jobs.
 * Perform all the monitoring and management operations.
 * Perform auto scale operations and update the node count.
   
