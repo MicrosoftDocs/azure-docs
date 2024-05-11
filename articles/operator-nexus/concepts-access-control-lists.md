@@ -52,3 +52,7 @@ The action property of an ACL statement can have one of the following types:
 - **Permit**: Allows packets that match specified conditions.
 - **Drop**: Discards packets that match specified conditions.
 - **Count**: Counts the number of packets that match specified conditions.
+
+## Next steps:
+
+[Creating Access Control List (ACL) management for NNI and layer 3 isolation domain external networks](howto-create-access-control-list-for-network-to-network-interconnects.md)

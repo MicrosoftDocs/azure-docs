@@ -525,6 +525,9 @@ sections:
       - question: Does Application Gateway’s Layer 4 proxy support UDP protocol?
         answer: No. UDP support isn't available at this time.
 
+      - question: Which ports are supported for TLS/TCP listeners?
+        answer: The same list of [allowed port range and exceptions](application-gateway-components.md#ports) apply for the Layer 4 proxy too.
+
   - name: Configuration - ingress controller for AKS
     questions:
       - question: What is an ingress controller?

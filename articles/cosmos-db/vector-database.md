@@ -138,8 +138,9 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 
 The natively integrated vector databaseg in the NoSQL API is under development. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
-#### Code samples
+#### Links & Code samples
 
+- [What is the database behind ChatGPT? - Microsoft Mechanics](https://www.youtube.com/watch?v=6IIUtEFKJec)
 - [.NET tutorial - Build and Modernize AI Applications](https://github.com/Azure/Build-Modern-AI-Apps-Hackathon)
 - [.NET tutorial - Bring Your Data to ChatGPT](https://github.com/Azure/Vector-Search-AI-Assistant/tree/cognitive-search-vector)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
@@ -161,4 +162,4 @@ The natively integrated vector databaseg in the NoSQL API is under development. 
 - [Azure AI Search](../search/vector-store.md)
 - [Open Source Vector Databases](mongodb/vcore/vector-search-ai.md)
 
-:::image type="content" source="media/vector-search/vector-indexes-in-databases-and-ai-search.png" lightbox="media/vector-search/vector-indexes-in-databases-and-ai-search.png" alt-text="Vector indexing services":::
+:::image type="content" source="media/vector-search/azure-databases-and-ai-search.png" lightbox="media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::

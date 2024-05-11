@@ -67,7 +67,7 @@ You purchase a three-year compute reservation of 10 quantities before July 2024.
 
 You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
-## Next steps
+## Related content
 
 - Learn more about [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 - Learn more about [Self-service trade-in for Azure savings plans](../savings-plan/reservation-trade-in.md).

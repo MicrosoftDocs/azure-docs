@@ -1,10 +1,10 @@
 ---
 title: "What is Azure Arc site manager (preview)"
 description: "Describes how you can use Azure Arc sites and site manager to monitor and manage physical and logical resources, focused on edge scenarios."
-author: kgremban
-ms.author: kgremban
+author: torreymicrosoft
+ms.author: torreyt
 ms.service: azure-arc
-# ms.subservice: site-manager
+ms.subservice: azure-arc-site-manager
 ms.topic: overview #Don't change
 ms.date: 04/18/2024
 ms.custom: references_regions
