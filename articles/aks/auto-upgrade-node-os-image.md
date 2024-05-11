@@ -149,7 +149,7 @@ On the `Unmanaged` channel, AKS has no control over how and when the security up
 
 * Does `SecurityPatch` always lead to a reimage of my nodes?
 
-AKS limits reimages to only when absolutely necessary eg: certain kernel packages may require a reimage to get fully applied. Thus `SecurityPatch` is designed to minimize disruptions to your node as much as possible. 
+AKS limits reimages to only when absolutely necessary eg: certain kernel packages may require a reimage to get fully applied. Thus `SecurityPatch` is designed to minimize disruptions as much as possible. 
 
  * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
  
