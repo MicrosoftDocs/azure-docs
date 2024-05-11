@@ -12,6 +12,7 @@ ms.author: pafarley
 ---
 
 # Prompt Shields (preview)
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Learn how to use Azure AI Content Safety Prompt Shields to check large language model (LLM) inputs for both User Prompt attacks and Document attacks.
 
