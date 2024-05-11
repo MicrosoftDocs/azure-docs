@@ -347,8 +347,10 @@
           href: ../consistency-levels.md
         - name: High availability
           items:
-            - name: High availability overview
-              href: ../high-availability.md
+            - name: High availability and reliability
+              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Proactive resiliency
+              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
             - name: Multi-region writes
               items:
                 - name: Understanding multi-region writes
@@ -593,8 +595,12 @@
               href: migrate-dotnet-v2.md
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
+        - name: Azure Cosmos DB Explorer
+          items:
+            - name: Use explorer
+              href: ../data-explorer.md
+            - name: Keyboard shorcuts
+              href: ../data-explorer-shortcuts.md
         - name: SDK observability
           href: sdk-observability.md
     - name: Performance
