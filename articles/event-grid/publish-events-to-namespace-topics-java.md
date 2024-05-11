@@ -31,13 +31,6 @@ The prerequisites you need to have in place before proceeding are:
 
 * Java JRE running Java 8 language level.
 
-## Sample code
-
-The sample code used in this article is found in this location:
-
-```bash
-    https://github.com/robece/event-grid-pull-delivery-quickstart
-```
 
 ## Publish events to a namespace topic
 
