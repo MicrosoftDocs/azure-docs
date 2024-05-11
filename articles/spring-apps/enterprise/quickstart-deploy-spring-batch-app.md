@@ -71,7 +71,13 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 [!INCLUDE [provision-enterprise-azure-spring-apps](includes/quickstart-deploy-restful-api-app/provision-enterprise-azure-spring-apps.md)]
 
-### 3.3. Set up a log analytics workspace
+### 3.3. Enable service registry
+
+Go to the Azure Spring Apps instance you created, expand **Managed components** in the left panel and click **Service Registry**. Then on the Overview page, click **Manage** to open the Manage page, select **Enable Service Registry** and click **Apply** button to enable.
+
+:::image type="content" source="media/quickstart-deploy-spring-batch-app/enable-service-registry.png" alt-text="Diagram that enable the service registry." border="false" lightbox="media/quickstart-deploy-spring-batch-app/enable-service-registry.png":::
+
+### 3.4. Set up a log analytics workspace
 
 See [set up a log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites) to query data in logs.
 
@@ -131,10 +137,10 @@ Use the following steps to create a new resource group.
 
 Azure Spring Apps is used to host the Spring web app. Create an Azure Spring Apps instance and an application inside it.
 
-1. Use the following command to create an Azure Spring Apps service instance.
+1. Use the following command to create an Azure Spring Apps service instance and enable service registry.
 
    ```azurecli
-   az spring create --name ${SPRING_APPS_SERVICE} --sku enterprise
+   az spring create --name ${SPRING_APPS_SERVICE} --sku enterprise --enable-sr
    ```
 
 1. Use the following command to verify an Azure Spring Apps Enterprise plan service instance is created successfully.
@@ -145,17 +151,67 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 ---
 
-## 4. Deploy the job sample to Azure Spring Apps
+## 4. Deploy football-billboard app to Azure Spring Apps
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-### 4.1. Create and execute job
+1. Go to the Azure Spring Apps instance you created, expand **Settings** in the left panel and click **Apps**.
+
+1. On the Apps blade, click **Create App** button to open the Create App page, set **App name** as 'football-billboard' and select 'Service Registry' on **Bind** column, then click **Create** button to create app.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/create-app.png" alt-text="Diagram that create the app." border="false" lightbox="media/quickstart-deploy-spring-batch-app/create-app.png":::
+
+1. After creating the app, click **Deploy App** and copy the Azure Cli command of deploying the app. Then open the command line and replace with the correct artifact path and run the command. Wait several minutes until the build and deploy succeed.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/deploy-app.png" alt-text="Diagram that shows deploy an app." border="false" lightbox="media/quickstart-deploy-spring-batch-app/deploy-app.png":::
+
+1. After deployment, back to the Apps blade and click football-billboard app, then on the overview page, click **Assign endpoint** to expose public endpoint for the app.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+1. Navigate to the root folder of this Java sample project from the root of git repo.
+
+    ```azurecli
+    cd azure-spring-apps-samples/job-samples/football-billboard
+    ```
+
+1. Use the following command to create an application in the Azure Spring Apps instance and bind service registry.
+
+   ```azurecli
+   az spring app create \
+       --service ${SPRING_APPS_SERVICE} \
+       --name football-billboard \
+       --assign-endpoint true \
+       --bind-sr
+   ```
+
+1. Use the following command to deploy the app:
+
+   ```azurecli
+   az spring app deploy \
+       --service ${SPRING_APPS_SERVICE} \
+       --name football-billboard \
+       --source-path . \
+       --build-env BP_JVM_VERSION=17
+   ```
+
+---
+
+## 5. Deploy the job sample to Azure Spring Apps
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+### 5.1. Create and execute job
 
 1. Navigate to jobs blade then click **Create Job** button to create a new job. In this panel, fill in the job name as `football`.Configure job parameters such as parallelism, retry limit and timeout. Add environment variables and secret environment variables as wanted. After confirmation, click **Create** button to finish creation.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/create-job.png" alt-text="Diagram that shows create a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/create-job.png":::
 
-1. After creating the job, click **Deploy Job** and copy the Azure Cli command of deploying the job. Then open the command line and replace with the correct artifact path and run the command. Wait several minutes until the build and deploy succeed.
+1. After creating the job, expand **Managed components** in the left panel and click **Service Registry**. Then click **Job binding** button, click **Bind job** to select football job and click **Apply** button to bind.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/bind-job.png" alt-text="Diagram that shows bind a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/bind-job.png":::
+
+1. Back to the jobs blade after binding the job, click **Deploy Job** and copy the Azure Cli command of deploying the job. Then open the command line and replace with the correct artifact path and run the command. Wait several minutes until the build and deploy succeed.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/deploy-job.png" alt-text="Diagram that shows deploy a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/deploy-job.png":::
 
@@ -163,22 +219,25 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/start-job.png" alt-text="Diagram that shows start a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/start-job.png":::
 
+
 ### [Azure CLI](#tab/Azure-CLI)
 
-### 4.1. Create and execute Job
+### 5.1. Create and execute Job
 
 1. Navigate to the root folder of this Java sample project from the root of git repo.
 
     ```azurecli
-    cd azure-spring-apps-samples/job-samples/football
+    cd ..
+    cd football
     ```
 
-1. Use the following command to create a job in the Azure Spring Apps instance.
+1. Use the following command to create a job in the Azure Spring Apps instance and bind service registry.
 
     ```azurecli
     az spring job create \
         --service ${SPRING_APPS_SERVICE} \
-        --name football
+        --name football \
+        --bind-sr
     ```
 
 1. Use the following command to deploy this football sample project to job. It uploads and compiles the source code on Azure
@@ -202,7 +261,7 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 ---
 
-## 5. Check job execution result
+## 6. Check job execution result and UI of billboard
 
 Now you can access execution of job and check its result.
 
@@ -249,9 +308,14 @@ Use the following steps to validate:
 
     ```
 
+1. And open the public endpoint of the app to see the billboard UI like below.
+
+[//]: # (   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui.png" alt-text="Diagram that shows the billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui.png":::)
+
+
 ---
 
-## 6. Clean up resources
+## 7. Clean up resources
 
 Be sure to delete the resources you created in this article when you no longer need them. You can delete the Azure resource group, which includes all the resources in the resource group.
 
