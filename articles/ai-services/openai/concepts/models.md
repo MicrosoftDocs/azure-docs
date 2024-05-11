@@ -54,10 +54,10 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-4` (0125-Preview)*<br>**GPT-4 Turbo Preview** | **Preview Model** <br> -Replaces 1106-Preview <br>- Better code generation performance <br> - Reduces cases where the model doesn't complete a task <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)<br>**GPT-4 Turbo with Vision Preview**  | **Preview model** <br> - Accepts text and image input. <br> - Supports enhancements <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 | `gpt-4` (1106-Preview)<br>**GPT-4 Turbo Preview** | **Preview Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096 | Apr 2023         |
-| `gpt-4-32k` (0613) | **Older GA model** <br> - Basic function calling with tools | 32,768               | Sep 2021         |
+| `gpt-4-32k` (0613) | **Older GA model** <br> - Basic function calling with tools  | 32,768               | Sep 2021         |
 | `gpt-4` (0613)     | **Older GA model** <br> - Basic function calling with tools | 8,192                | Sep 2021         |
-| `gpt-4-32k`(0314)  | **Older GA model** <br> - Deprecated function calling | 32,768               | Sep 2021         |
-| `gpt-4` (0314) | **Older GA model** <br> - Deprecated function calling | 8,192 | Sep 2021         |
+| `gpt-4-32k`(0314)  | **Older GA model** <br> - [Retirement information](./model-retirements.md#current-models) | 32,768               | Sep 2021         |
+| `gpt-4` (0314) | **Older GA model** <br> - [Retirement information](./model-retirements.md#current-models)  | 8,192 | Sep 2021         |
 
 > [!CAUTION]
 > We don't recommend using preview models in production. We will upgrade all deployments of preview models to either future preview versions or to the latest stable/GA version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
@@ -76,13 +76,19 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 GPT-3.5 models can understand and generate natural language or code. The most capable and cost effective model in the GPT-3.5 family is GPT-3.5 Turbo, which has been optimized for chat and works well for traditional completions tasks as well. GPT-3.5 Turbo is available for use with the Chat Completions API. GPT-3.5 Turbo Instruct has similar capabilities to `text-davinci-003` using the Completions API instead of the Chat Completions API.  We recommend using GPT-3.5 Turbo and GPT-3.5 Turbo Instruct over [legacy GPT-3.5 and GPT-3 models](./legacy-models.md).
 
-- `gpt-35-turbo`
-- `gpt-35-turbo-16k`
-- `gpt-35-turbo-instruct`
 
-You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
+|  Model ID   | Description | Max Request (tokens) | Training Data (up to) |
+|  --------- |:---|:------:|:----:|
+| `gpt-35-turbo` (0125) **NEW** | **Latest GA Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) <br> - Higher accuracy at responding in requested formats. <br> - Fix for a bug which caused a text encoding issue for non-English language function calls.  | Input: 16,385<br> Output: 4,096  | Sep 2021 |
+| `gpt-35-turbo` (1106) | **Older GA Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo-instruct` (0914) | **Completions endpoint only** | 4,097 |Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | **Older GA Model** <br> - Basic function calling with tools | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | **Older GA Model** <br> - Basic function calling with tools   | 4,096 | Sep 2021 |
+| `gpt-35-turbo`**<sup>1</sup>** (0301) |  **Older GA Model**  <br> - [Retirement information](./model-retirements.md#current-models) | 4,096 | Sep 2021 |
 
 To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+
+**<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
 ## Embeddings
 
@@ -184,22 +190,11 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than August 1, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than August 1, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
-|  Model ID   | Max Request (tokens) | Training Data (up to) |
-|  --------- |:------:|:----:|
-| `gpt-35-turbo`**<sup>1</sup>** (0301) | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | 4,096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | 16,384 | Sep 2021 |
-| `gpt-35-turbo-instruct` (0914) | 4,097 |Sep 2021 |
-| `gpt-35-turbo` (1106) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-| `gpt-35-turbo` (0125) **NEW** | Input: 16,385<br> Output: 4,096  | Sep 2021 |
-
 ### GPT-3.5-Turbo model availability
 
 #### Public cloud regions
 
 [!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
-
-**<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
 #### Azure Government regions
 

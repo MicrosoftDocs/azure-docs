@@ -323,10 +323,16 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Metrics
+        href: java-metrics.md
+        displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
+        displayName: java
+      - name: Set dynamic logger level
+        href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
@@ -334,6 +340,9 @@
             href: java-eureka-server.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
+            displayName: java
+          - name: Query managed component logs
+            href: java-component-logs.md
             displayName: java
 - name: Billing & quotas
   items:
