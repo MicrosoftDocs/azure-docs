@@ -89,10 +89,10 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst<sup>1</sup> IOPS | Uncached Storage Burst<sup>1</sup> Speed (MBps) | Uncached Special Storage IOPS | Uncached Special Storage Speed (MBps) | Uncached Burst<sup>1</sup> Special Storage IOPS | Uncached Burst<sup>1</sup> Special Storage Speed (MBps) |
+| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst<sup>1</sup> IOPS | Uncached Storage Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Storage IOPS | Uncached Special<sup>2</sup> Storage Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Storage IOPS | Uncached Burst<sup>1</sup> Special Storage Speed (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D2pds_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11110 | 1463 |
-| Standard_D4pds_v6 | 12 | 3400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
+| Standard_D2pds_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11100 | 1463 |
+| Standard_D4pds_v6 | 12 | 6400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
 | Standard_D8pds_v6 | 24 | 12800 | 424 | 20000 | 1250 | 16666 | 496 | 26040 | 1463 |
 | Standard_D16pds_v6 | 48 | 25600 | 848 | 40000 | 1250 | 33331 | 992 | 52080 | 1463 |
 | Standard_D32pds_v6 | 64 | 51200 | 1696 | 80000 | 2000 | 66662 | 1984 | 104160 | 2340 |
@@ -100,14 +100,14 @@ Remote (uncached) storage info for each size
 | Standard_D64pds_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133325 | 3969 | 133325 | 4680 |
 | Standard_D96pds_v6 | 64 | 153600 | 5000 | 153600 | 5000 | 199987 | 5850 | 199987 | 5953 |
 
-<sup>1</sup>Dpdsv6-series VMs can [burst](../../disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
-
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
 - [Azure managed disk types](../../../virtual-machines/disks-types.md)
 - [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
+- <sup>1</sup>These sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
+- <sup>2</sup>Special Storage refers to either [Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md) or [Premium SSD v2](../../../virtual-machines/disks-deploy-premium-v2.md) storage.
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
