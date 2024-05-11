@@ -142,35 +142,31 @@ Follow these instructions on how to create a new index:
 
     You're taken to the **Create an index** wizard. 
 
-1. On the Source data page, select **Upload folder** from the **Upload** dropdown. Select the customer info files that you downloaded or created earlier. See the [prerequisites](#prerequisites). 
+1. On the **Source data** page, select **Upload files** from the **Data source** dropdown. Then select **Upload** > **Upload folder** to browse your local files. 
+1. Select the customer info files that you downloaded or created earlier. See the [prerequisites](#prerequisites). Then select **Next**.
 
     :::image type="content" source="../media/tutorials/chat/add-index-dataset-upload-folder.png" alt-text="Screenshot of the customer data source selection options." lightbox="../media/tutorials/chat/add-index-dataset-upload-folder.png":::
 
-1. Select **Next** at the bottom of the page.
-1. Select the same Azure AI Search resource (*contoso-outdoor-search*) that you used for your product info index (*product-info*). Then select **Next**.
+1. Select the same Azure AI Search service connection (*contosooutdooraisearch*) that you used for your product info index. Then select **Next**.
+1. Enter **customer-info** for the index name. 
 
-    :::image type="content" source="../media/tutorials/chat/add-index-storage.png" alt-text="Screenshot of the selected Azure AI Search resource." lightbox="../media/tutorials/chat/add-index-storage.png":::
+    :::image type="content" source="../media/tutorials/chat/add-index-settings.png" alt-text="Screenshot of the Azure AI Search service and index name." lightbox="../media/tutorials/chat/add-index-settings.png":::
 
-1. Select **Hybrid + Semantic (Recommended)** for the **Search type**. This type should be selected by default. 
-1. Select *Default_AzureOpenAI* from the **Azure OpenAI resource** dropdown. Select the checkbox to acknowledge that an Azure OpenAI embedding model will be deployed if it's not already. Then select **Next**.
-
-    :::image type="content" source="../media/tutorials/chat/add-index-search-settings.png" alt-text="Screenshot of index search type options." lightbox="../media/tutorials/chat/add-index-search-settings.png":::
-
+1. Select a virtual machine to run indexing jobs. The default option is **Auto select**. Then select **Next**.
+1. On the **Search settings** page under **Vector settings**, deselect the **Add vector search to this search resource** checkbox. This setting helps determine how the model responds to requests. Then select **Next**.
+    
     > [!NOTE]
-    > The embedding model is listed with other model deployments in the **Deployments** page. 
+    > If you add vector search, more options would be available here for an additional cost. 
 
-1. Enter **customer-info** for the index name. Then select **Next**.
-
-    :::image type="content" source="../media/tutorials/chat/add-index-settings.png" alt-text="Screenshot of the index name and virtual machine options." lightbox="../media/tutorials/chat/add-index-settings.png":::
 
 1. Review the details you entered, and select **Create**. 
 
     :::image type="content" source="../media/tutorials/chat/add-index-review.png" alt-text="Screenshot of the review and finish index creation page." lightbox="../media/tutorials/chat/add-index-review.png":::
 
     > [!NOTE]
-    > You use the *customer-info* index and the *contoso-outdoor-search* Azure AI Search resource in prompt flow later in this tutorial. If the names you enter differ from what's specified here, make sure to use the names you entered in the rest of the tutorial.
+    > You use the *customer-info* index and the *contosooutdooraisearch* connection to your Azure AI Search service in prompt flow later in this tutorial. If the names you enter differ from what's specified here, make sure to use the names you entered in the rest of the tutorial.
 
-1. You're taken to the index details page where you can see the status of your index creation
+1. You're taken to the index details page where you can see the status of your index creation.
 
     :::image type="content" source="../media/tutorials/chat/add-index-created-details.png" alt-text="Screenshot of the customer info index details." lightbox="../media/tutorials/chat/add-index-created-details.png":::
 
@@ -213,7 +209,7 @@ After you're done creating your index, return to your prompt flow and follow the
     | **indexName** | string | *customer-info* |
     | **queries** | string | *${ExtractIntent.output.search_intents}* |
     | **queryType** | string | *simple* |
-    | **searchConnection** | Cognitive search | *contoso-outdoor-search* |
+    | **searchConnection** | Azure AI Search | *contosooutdooraisearch* |
     | **semanticConfiguration** | string | *None* |
     | **topK** | int | *5* |
 

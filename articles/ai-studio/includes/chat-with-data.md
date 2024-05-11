@@ -50,9 +50,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
     :::image type="content" source="../media/tutorials/chat/add-your-data-connect-search-add.png" alt-text="Screenshot of the page to add a search service connection." lightbox="../media/tutorials/chat/add-your-data-connect-search-add.png":::
 
-1. For the **Index name**, enter *product-info-trailwalker* and select **Next**.
-
-    :::image type="content" source="../media/tutorials/chat/add-your-data-review-finish.png" alt-text="Screenshot of the page to enter the search index name." lightbox="../media/tutorials/chat/add-your-data-review-finish.png":::
+1. For the **Index name**, enter *product-info* and select **Next**.
 
 1. On the **Search settings** page under **Vector settings**, deselect the **Add vector search to this search resource** checkbox. This setting helps determine how the model responds to requests. Then select **Next**.
     
@@ -61,7 +59,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
 1. Review your settings and select **Create**.
 
-1. In the playground, you can see that your data ingestion is in progress. Before proceeding, wait until you see the data source and index name in place of the status.
+1. In the playground, you can see that your data ingestion is in progress. This process might take several minutes. Before proceeding, wait until you see the data source and index name in place of the status. 
 
    :::image type="content" source="../media/tutorials/chat/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/chat/add-your-data-ingestion-in-progress.png":::
 
