@@ -62,7 +62,7 @@ From the **[More virtual machines and related solutions](https://portal.azure.co
 
 After you provide answers, Microsoft Copilot for Azure provides several options that might be a good fit. You can choose one of these or ask more questions.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-design-options.png" alt-text="Screenshot showing Microsoft Copilot for Azure Design options":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-design-options.png" alt-text="Screenshot showing Microsoft Copilot for Azure Design options.":::
 
 After you specify which option you'd like to use, Microsoft Copilot for Azure provides a step-by-step plan to walk you through the deployment. It gives you the option to change parts of the plan and also asks you to choose a development tool. In this example, Azure App Service is selected.
 

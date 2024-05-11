@@ -71,7 +71,7 @@ Azure offers different size options for VMs based on your workload needs. Micros
 
 Ask "**Help me choose the right VM size for my workload?**" Microsoft Copilot for Azure asks for some more information to help it determine the best options. After that, it presents some options and lets you choose which recommended size to use for your VM.
 
-:::image type="content" source="media/deploy-vms-effectively/vm-choose-size.png" lightbox="media/deploy-vms-effectively/vm-choose-size.png" alt-text="Screenshot of Screenshot showing Microsoft Copilot for Azure providing size recommendations for a VM.":::
+:::image type="content" source="media/deploy-vms-effectively/vm-choose-size.png" lightbox="media/deploy-vms-effectively/vm-choose-size.png" alt-text="Screenshot showing Microsoft Copilot for Azure providing size recommendations for a VM.":::
 
 ## Next steps
 

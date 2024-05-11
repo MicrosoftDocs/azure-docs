@@ -13,7 +13,7 @@ author: JnHs
 
 # Author API Management policies using Microsoft Copilot for Azure 
 
-Microsoft Copilot for Azure(preview) can author [Azure API Management policies](/azure/api-management/api-management-howto-policies) based on your requirements. By using Microsoft Copilot for Azure, you can create policies quickly, even if you're not sure what code you need. This can be especially helpful when creating complex policies with many requirements.
+Microsoft Copilot for Azure (preview) can author [Azure API Management policies](/azure/api-management/api-management-howto-policies) based on your requirements. By using Microsoft Copilot for Azure, you can create policies quickly, even if you're not sure what code you need. This can be especially helpful when creating complex policies with many requirements.
 
 To get help authoring API Management policies, start from the **Design** tab of an API you previously imported to your API Management instance. Be sure to use the [code editor view](/azure/api-management/set-edit-policies?tabs=editor#configure-policy-in-the-portal). Ask Microsoft Copilot for Azure to generate policy definitions for you, then copy the results right into the editor, making any desired changes. You can also ask questions to understand the different options or change the provided policy.
 
