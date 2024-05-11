@@ -19,7 +19,6 @@ App Spaces uses a concept of components. The following table describes the app t
 |--------|----------|-----------|-----|
 |Backend|App component|Express.JS |Azure Container Apps|
 |Frontend|Static app component |React|Static Web Apps|
-|Database|Database | MariaDB | Various database services |
 
 
 ## Prerequisites
@@ -49,36 +48,6 @@ Follow these steps to deploy a sample app to App Spaces.
     | GitHub account | Select your GitHub account. |
     | Organization | Select your organization. |
     | New repository | Eneter `myReactSample` for your new repository. |
-
-#### Configure app details
-
-1. Enter the following values in the *Configure app details* section.
-
-    | Setting | Action |
-    |---|---|
-    | App Space name | Enter `myAppSpace`. |
-    | Organization | Select your organization. |
-    | Subscription | Select your subscription. |
-    | Region | Select your region. |
-
-1. Select **Deploy** button at the bottom of the *Deploy App Space* page.
-
-The sample web application code deploys to App Spaces. The deployment can take a few minutes to complete.
-
-[!include [deployment note](./includes/provisioning-note-swa.md)]
-::: zone-end  
-::: zone pivot="vue"  
-2. Under *Use a starter app*, select **Vue App**.
-
-#### Connect to GitHub
-
-1. Enter the following values in the *Connect to GitHub* section.
-
-    | Setting | Action |
-    |---|---|
-    | GitHub account | Select your GitHub account. |
-    | Organization | Select your organization. |
-    | New repository | Eneter `myVueSample` for your new repository. |
 
 #### Configure app details
 
@@ -131,13 +100,10 @@ The sample web application code deploys to App Spaces. The deployment can take a
 
 In your *App Space Page*, select **Open app in browser** to view your new app.
 
-::: zone pivot="react"  
+::: zone pivot="frontend"  
 :::image type="content" source="media/verify-deployment-react.png" alt-text="Screenshot of React app running.":::
 ::: zone-end
-::: zone pivot="vue"  
-:::image type="content" source="media/verify-deployment-vue.png" alt-text="Screenshot of Vue app running.":::
-::: zone-end
-::: zone pivot="express"  
+::: zone pivot="backend"  
 :::image type="content" source="media/verify-deployment-express.png" alt-text="Screenshot Express.JS app running.":::
 ::: zone-end
 
