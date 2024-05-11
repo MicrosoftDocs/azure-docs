@@ -253,7 +253,7 @@ Response:
 
 | **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests - Jais   | [jais.ipynb](https://aka.ms/samples/jais/webrequests)|
+| CLI using CURL and Python web requests - JAIS   | [jais.ipynb](https://aka.ms/samples/jais/webrequests)|
 
 ## Cost and quotas
 
