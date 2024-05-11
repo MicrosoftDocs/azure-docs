@@ -6,12 +6,21 @@ ms.topic: how-to
 ms.author: msangapu
 author: msangapu-msft
 ms.date: 05/20/2024
-zone_pivot_groups: app-spaces-sample
+zone_pivot_groups: app-spaces-frontend-backend
 ---
 
 # Deploy a sample app with Azure App Spaces
 
-This article describes how to deploy a sample app to Azure App Spaces. You select one of the sample templates provided to provision new resources on Azure. For more information, see [About Azure App Spaces](overview.md). 
+[Azure App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a sample app to Azure App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About Azure App Spaces](overview.md). 
+
+App Spaces uses a concept of components. The following table describes the app types, component types, sample apps, and the Azure services used in this quickstart.
+
+|App type | Component Type| Sample| Azure service |
+|--------|----------|-----------|-----|
+|Backend|App component|Express.JS |Azure Container Apps|
+|Frontend|Static app component |React|Static Web Apps|
+|Database|Database | MariaDB | Various database services |
+
 
 ## Prerequisites
 
@@ -22,11 +31,13 @@ To deploy a sample app for Azure App Spaces, you must have the following items:
 
 ## Deploy a sample app
 
+While Express.JS (backend) and React (frontend) apps are used in this quickstart, other samples are also available in App Spaces. See [supported samples](app-space-sample-app-listing.md) for a full list of available samples on App Spaces.
+
 Follow these steps to deploy a sample app to App Spaces. 
 
 1. Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView).
 
-::: zone pivot="react"  
+::: zone pivot="frontend"  
 2. Under *Use a starter app*, select **React App**.
 
 #### Connect to GitHub
@@ -86,7 +97,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 
 [!include [deployment note](./includes/provisioning-note-swa.md)]
 ::: zone-end  
-::: zone pivot="express"  
+::: zone pivot="backend"  
 2. Under *Use a starter app*, select **Express.JS App**.
 #### Connect to GitHub
 
@@ -129,6 +140,9 @@ In your *App Space Page*, select **Open app in browser** to view your new app.
 ::: zone pivot="express"  
 :::image type="content" source="media/verify-deployment-express.png" alt-text="Screenshot Express.JS app running.":::
 ::: zone-end
+
+## Clean up resources
+[!include [deployment note](./includes/clean-up-resources.md)]
 
 For more information about managing App Spaces, see [Manage components](how-to-manage-app-space-components.md).
 

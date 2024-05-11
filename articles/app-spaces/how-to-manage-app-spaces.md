@@ -1,19 +1,18 @@
 ---
 title: Manage components in App Spaces
-description: Learn how to manage components to Azure App Spaces in the Azure portal.
+description: Learn how to manage Azure App Spaces in the Azure portal.
 ms.author: msangapu
 author: msangapu-msft
 ms.service: app-spaces
 ms.topic: how-to
 ms.date: 05/20/2024
+zone_pivot_groups: app-spaces-components
 ---
-
-# Manage Azure App Space components
 
 You can manage the components of your App Space by selecting the App component on the __App Space__ page. 
 
 
-## Manage app component
+# Manage app component
 
 ### Deployment
 
@@ -86,3 +85,9 @@ For more advanced configuration options, select **Go to advanced view**.
 :::image type="content" source="media/select-go-to-advanced-view.png" alt-text="Screenshot showing red box around button, Go to advanced view for App Space.":::
 
 You can also view the essentials for your Container Apps Environment and Managed Identities on the **Additional** tab. This view is hidden by default.
+
+
+## Related articles
+
+- [App Spaces overview](overview.md)
+- [Deploy an App Spaces template](deploy-app-spaces-template.md)

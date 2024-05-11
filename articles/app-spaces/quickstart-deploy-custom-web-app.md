@@ -51,13 +51,16 @@ Follow these steps to deploy your app from a GitHub repository:
 
 1. Select **Deploy** button at the bottom of the *Deploy App Space* page.
 
-The deployment can take a few minutes to complete. During deployment, App Spaces uses GitHub actions to deploy to an Azure service based on the code in the repository. The Azure service is either a Container App (backend) or a Static Web App (frontend). Go to your app's **Deployment** tab to see your code deployment logs.
+The deployment can take a few minutes to complete. During deployment, App Spaces uses GitHub actions to deploy to an Azure service based on the code in the repository. The Azure service is either a Container App (App component) or a Static Web App (Static app component). Go to your app's **Deployment** tab to see your code deployment logs.
 
-#### [Backend app](#tab/aca/)
-[!include [deployment note](./includes/provisioning-note-aca.md)]
-#### [Frontend app](#tab/swa/)
-[!include [deployment note](./includes/provisioning-note-swa.md)]
+#### [App component](#tab/aca/)
+[!include [deployment note](./includes/provisioning-text-aca.md)]
+#### [Static app component](#tab/swa/)
+[!include [deployment note](./includes/provisioning-text-swa.md)]
 * * *
+
+## Clean up resources
+[!include [deployment note](./includes/clean-up-resources.md)]
 
 ## Related articles
 

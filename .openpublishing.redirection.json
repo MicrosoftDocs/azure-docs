@@ -1851,6 +1851,14 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-web-app-template"
+        },
+        {
+            "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-custom-web-app"        
+        },
+        {
             "source_path_from_root": "/articles/application-insights/app-insights-analytics-reference.md",
             "redirect_url": "/azure/kusto/query/",
             "redirect_document_id": false
@@ -4035,14 +4043,6 @@
             "source_path_from_root":"/articles/cosmos-db/high-availability.md",
             "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
             "redirect_document_id":false
-        },
-        {
-            "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
-            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-web-app-template"
-        },
-        {
-            "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
-            "redirect_url": "/azure/app-spaces/quickstart-deploy-custom-web-app"        
         }
     ]
 }

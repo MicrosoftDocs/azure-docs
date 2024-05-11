@@ -28,4 +28,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage an App Space app
-            url: how-to-manage-app-space-app.md
+            url: how-to-manage-app-space-components.md

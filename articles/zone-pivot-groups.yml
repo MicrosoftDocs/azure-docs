@@ -2090,6 +2090,26 @@ groups:
     title: Python
   - id: openai-java
     title: Java
+# Owner: msangapu
+- id: app-spaces-components
+  title: App Spaces apps
+  prompt: Choose a component type
+  pivots:
+  - id: aca
+    title: App component
+  - id: swa
+    title: Static app component
+  - id: db
+    title: Database    
+# Owner: msangapu
+- id: app-spaces-frontend-backend
+  title: App Spaces apps
+  prompt: Choose an app type
+  pivots:
+  - id: aca
+    title: Frontend
+  - id: swa
+    title: Backend
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages
@@ -3236,25 +3256,3 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
-# Owner: msangapu
-- id: app-spaces-sample
-  title: App Spaces sample apps
-  prompt: Choose a sample app
-  pivots:
-  - id: react
-    title: React
-  - id: vue
-    title: Vue
-  - id: express
-    title: Express.JS
-# Owner: msangapu
-- id: app-spaces-add-component
-  title: Add App Space component
-  prompt: Choose a component type
-  pivots:
-  - id: custom
-    title: Custom app
-  - id: sample
-    title: Sample app 
-  - id: database
-    title: Database
