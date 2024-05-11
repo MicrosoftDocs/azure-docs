@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: Workload Network types"
+title: "Azure Operator Nexus: Nexus Workload Network"
 description: Introduction to Workload networks core concepts.
 author: leijgao
 ms.author: leijiagao
@@ -9,28 +9,36 @@ ms.date: 04/25/2024
 ms.custom: template-concept
 ---
 
-# Nexus Network Overview
+# Nexus workload Network Overview
 
-This article describes core concepts of Nexus Networks, and introduction to options to configure nexus networks with critical properties.
-Nexus Network enables application connect with on-premises network and other services over Azure public Cloud. It supports operator use cases with
+This article describes core concepts of Nexus workload Networks, and introduction to options to configure nexus workload networks with critical properties.
+Nexus workload Network enables application connect with on-premises network and other services over Azure public Cloud. It supports operator use cases with
 standard industry technologies that are reliable, predictable, and familiar to operators and network equipment providers.
 
 Nexus offers several top-level API resources that categorically represent different types of networks with different input expectations.  
 These network types represent logical attachments but also Layer3 information as well.  Essentially, they encapsulate how the customer 
 wishes those networks are to be exposed within their cluster.
 
-## Nexus Network plugins
+## Nexus workload Network Types
 
-Network plugin is the feature to configuration how Nexus Kubernetes cluster use the underlying Networks when attaching networks to Nexus Kubernetes cluster.
+ * L3Network: The Nexus workload L3Network resource can be shared and reused across standalone virtual machines and Nexus Kubernetes clusters. Its primary purpose is to define a network that supports Layer 3 properties, which are coordinated between the virtualized workloads and the integrated Nexus Managed Fabric L3IsolationDomain. Additionally, it provides DualStack allocation capabilities (both IPv4 and IPv6) and directly references Azure Managed Network Fabric resources representing the VRF and VLAN associated with this network
+
+ * L2Network: The Nexus workload L2Network resource can be shared and reused across standalone virtual machines and Nexus AKS clusters. Its primary purpose is to grant direct access to a specific Nexus Managed Fabric L2IsolationDomain, enabling isolated network attachment within the Nexus Cluster. Customers utilize L2Network resources when they want the fabric to carry a VLAN across workloads without participating in Layer 3 on that network.
+
+ * TrunkedNetwork: The Nexus workload TrunkedNetwork resource allows association with multiple IsolationDomains, enabling customers to create a custom VLAN trunk range that workloads can access. The TrunkedNetwork defines the allowable VLAN set that workloads can directly tag traffic on. Tagged traffic for VLANs not specified in the TrunkedNetwork resource will be dropped. This custom VLAN trunk range can span across the same IsolationDomain or multiple L3IsolationDomains and/or L2IsolationDomains.
+
+## Nexus workload Network plugins
+
+Network plugin is the feature to configuration how application use the underlying Networks when attaching networks to application VMs or Pods.
 The type of plugins supported for different network types. 
 
-| Plugin Name | Available Network |
+| Plugin Name | Available Network Types |
 |---------------------|---------------|
-|SRIOV|L2, L3, Trunk|
-|DPDK|L2, L3, Trunk|
-|MACVLAN|L2, L3, Trunk|
-|IPVLAN|L3, Trunk|
-|OSDev|L2, L3, Trunk|
+|SRIOV|L2Network, L3Network, TrunkedNetwork|
+|DPDK|L2Network, L3Network, TrunkedNetwork|
+|MACVLAN|L2Network, L3Network, TrunkedNetwork|
+|IPVLAN|L3Network, TrunkedNetwork|
+|OSDev|L2Network, L3Network, TrunkedNetwork|
 
  * SRIOV: The SRIOV plugin generates a network attachment definition named after the corresponding network resource. This interface is integrated into a sriov-dp-config resource, 
 which is linked to by the network attachment definition. If a network is connected to the cluster multiple times, all interfaces will be available for scheduling via the network 
@@ -55,20 +63,15 @@ node operating system.
 
 ## Nexus Network IPAM
 
-Nexus Kubernetes offers IP Address Management (IPAM) solutions in various forms. For standalone virtual machines or Nexus kubernetes nodes connected to a Nexus network supporting Layer 3, 
+Nexus Kubernetes offers IP Address Management (IPAM) solutions in various forms. For standalone virtual machines(VNF workload) or Nexus kubernetes nodes(CNF workload) connected to a Nexus network supporting Layer 3, 
 an IPAM system is employed that covers multiple clusters. This system ensures unique IP addresses across both VMs and Nexus Kubernetes nodes within network VM interfaces inside VM operating 
 systems. Additionally, when these networks are utilized for containerized workloads, Network Attachment Definitions (NADs) automatically generated by Nexus kubernetes cluster incorporate this IPAM feature. 
 This same cross-cluster IPAM capability is used to guarantee that containers connected to the same networks receive unique IP addresses as well.
 
 ## Nexus Relay
 
-Nexus Kubernetes utilizes the Arc "bring-your-own-relay" functionality by integrating the Nexus kubernetes Hybrid Relay infrastructure in each region where the Nexus Cluster service operates. 
+Nexus Kubernetes utilizes the Arc "bring-your-own-relay" functionality by integrating the Nexus kubernetes Hybrid Relay infrastructure in each region where the Nexus Cluster service operates.
 This setup uses dedicated Nexus relay infrastructure within Nexus owned subscriptions, ensuring that Nexus kubernetes cluster Arc Connectivity doesn't rely on shared public relay networks.
 
-The dedicated relay infrastructure allows Nexus to establish multiple hybrid connections with listeners at a reduced cost of goods sold (COGS). Each Nexus Cluster instance is equipped with its 
-own relay, and customers can manage Network ACL rules through the Nexus Cluster Azure Resource Manager APIs. These rules determine which networks can access both the az connectedk8s proxy and az ssh for their 
-Nexus Arc resources within that specific on-premises Nexus Cluster. This feature enhances operator security by adhering to security protocols established after previous Arc/Relay security incidents, 
-requiring remote Arc connectivity to have customer-defined network filters or ACLs.
-
-
+Each Nexus kubernetes cluster and node instance is equipped with its own relay, and customers can manage Network ACL rules through the Nexus Cluster Azure Resource Manager APIs. These rules determine which networks can access both the az connectedk8s proxy and az ssh for their Nexus Arc resources within that specific on-premises Nexus Cluster. This feature enhances operator security by adhering to security protocols established after previous Arc/Relay security incidents, requiring remote Arc connectivity to have customer-defined network filters or ACLs.
 
