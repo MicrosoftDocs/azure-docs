@@ -16,7 +16,7 @@ This article covers overall security architecture, and security solutions by div
 
 ## Security architecture
 
-Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](../key-vault/general/basic-concepts.md), defined by the customer. This makes the setup robust and secure by default.
+Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](../key-vault/general/basic-concepts.md), defined by the customer. This feature makes the setup robust and secure by default.
 
 The below diagram illustrates a high-level technical architecture of security in HDInsight on AKS. 
 
@@ -64,13 +64,12 @@ The above roles are from the ARM operations perspective. For more information, s
 
 You can allow users, service principals, managed identity to access the cluster through portal or using ARM. 
 
-This access enables you to
-
+This access enables you to:
 * View clusters and manage jobs.
 * Perform all the monitoring and management operations.
 * Perform auto scale operations and update the node count.
   
-The access won't be provided for
+The access not provided for
 * Cluster deletion
 
 :::image type="content" source="./media/concept-security/cluster-access.png" alt-text="Screenshot showing the cluster data access." border="true" lightbox="./media/concept-security/cluster-access.png":::
