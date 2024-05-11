@@ -308,12 +308,21 @@ Use the following steps to validate:
 
     ```
 
-1. And open the public endpoint of the app to see the billboard UI like below.
+1. Use the following commands to retrieve the endpoint of the football-billboard app.
 
-[//]: # (   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui.png" alt-text="Diagram that shows the billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui.png":::)
-
+    ```azurecli
+    az spring app show --service ${SPRING_APPS_SERVICE} -n football-billboard --query properties.url
+    ```
 
 ---
+
+1. Open the public endpoint of the app to see the billboard UI.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui.png" alt-text="Diagram that shows the billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui.png":::
+
+1. Then click the **Refresh** button to see the UI changed like below.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui-changed.png" alt-text="Diagram that shows the changed billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui-changed.png":::
 
 ## 7. Clean up resources
 
