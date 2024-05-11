@@ -208,19 +208,6 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 To upgrade your Google Ads driver version, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
 
-## Differences between Google Ads using the recommended and the legacy driver version
-
-The table below shows the feature differences between Google Ads using the recommended and the legacy driver version.
-
-| Recommended driver version | Legacy driver version |
-|:---|:---|
-|Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
-|ServiceAuthentication supports two properties: <br>&nbsp; • email<br>&nbsp; • privateKey |ServiceAuthentication supports four properties:<br>&nbsp; • email<br>&nbsp; • keyFilePath<br>&nbsp; • trustedCertPath<br>&nbsp; • useSystemTrustStore |
-|Selecting a table in a dataset is not supported.|Support selecting a table in a dataset and querying the table in copy activities.|
-|Support GAQL syntax as the query language.|Support SQL syntax as the query language.|
-|The output column names are the same as the field names defined in Google Ads.|The output column names don't match the field names defined in Google Ads.|
-|The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
-
 ### Update the linked service configuration
 
 In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
@@ -277,6 +264,18 @@ Here are the concrete examples of the field name conversion:
 | Segments | `DayOfWeek` | `segments.day_of_week` | 
 | Metrics | `VideoViews` | `metrics.video_views` | 
 
+## Differences between Google Ads using the recommended and the legacy driver version
+
+The table below shows the feature differences between Google Ads using the recommended and the legacy driver version.
+
+| Recommended driver version | Legacy driver version |
+|:---|:---|
+|Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
+|ServiceAuthentication supports two properties: <br>&nbsp; • email<br>&nbsp; • privateKey |ServiceAuthentication supports four properties:<br>&nbsp; • email<br>&nbsp; • keyFilePath<br>&nbsp; • trustedCertPath<br>&nbsp; • useSystemTrustStore |
+|Selecting a table in a dataset is not supported.|Support selecting a table in a dataset and querying the table in copy activities.|
+|Support GAQL syntax as the query language.|Support SQL syntax as the query language.|
+|The output column names are the same as the field names defined in Google Ads.|The output column names don't match the field names defined in Google Ads.|
+|The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
 
 ## Upgrade Google AdWords connector to Google Ads connector 
 
