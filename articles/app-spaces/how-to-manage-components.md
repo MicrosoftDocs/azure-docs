@@ -14,8 +14,6 @@ zone_pivot_groups: app-spaces-components
 You can manage the components of your App Space by selecting the App component on the __App Space__ page. 
 
 
-
-
 ### Deployment
 
 Shows deployment details

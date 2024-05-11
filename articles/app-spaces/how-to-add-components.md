@@ -14,6 +14,8 @@ zone_pivot_groups: app-spaces-components
 
 [Azure App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This guide shows you how to add components to an existing App Space app. Components can be a backend app (Azure Container App), a frontend app (Static Web App), or a database (MariaDB, PostgreSQL, Qdrant).
 
+[!include [component types](./includes/component-types-table.md)]
+
 ## Add components
 
 To add a component to your App Space, select **+ Add component** on the _App Space_ page.
@@ -28,7 +30,7 @@ Follow these steps to add a custom app component.
 
 ### Configure tab
 
-#### [Container App](#tab/aca/)
+#### [Backend (Container App)](#tab/aca/)
 
 1. Enter the following values in the _Connect to GitHub to import your repository_ section.
 
@@ -52,7 +54,7 @@ Follow these steps to add a custom app component.
 1. Select the **Add** button at the bottom of the page.
 
 [!include [deployment note](./includes/provisioning-note-aca.md)]
-#### [Static Web App](#tab/swa/)
+#### [Frontend (Static Web App)](#tab/swa/)
 1. Enter the following values in the _Connect to GitHub to import your repository_ section.
 
     | Setting | Action |

@@ -13,13 +13,6 @@ zone_pivot_groups: app-spaces-frontend-backend
 
 [Azure App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a sample app to Azure App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About Azure App Spaces](overview.md). 
 
-App Spaces uses a concept of components. The following table describes the app types, component types, sample apps, and the Azure services used in this quickstart.
-
-|App type | Component Type| Sample| Azure service |
-|--------|----------|-----------|-----|
-|Backend|App component|Express.JS |Azure Container Apps|
-|Frontend|Static app component |React|Static Web Apps|
-
 
 ## Prerequisites
 
