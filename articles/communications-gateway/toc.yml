@@ -68,14 +68,12 @@ items:
     items:
     - name: Connect
       href: connect-teams-direct-routing.md
-    - name: Configure a test customer
-      href: configure-test-customer-teams-direct-routing.md
-    - name: Configure test numbers
-      href: configure-test-numbers-teams-direct-routing.md
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-teams-direct-routing.md
   - name: Emergency calling
     href: emergency-calls-teams-direct-routing.md
+  - name: Manage Direct Routing customers
+    href: manage-enterprise-teams-direct-routing.md
 - name: Integration with Zoom Phone Cloud Peering
   items:
   - name: Overview of interoperability
@@ -84,12 +82,12 @@ items:
     items:
     - name: Connect
       href: connect-zoom.md
-    - name: Configure test numbers
-      href: configure-test-numbers-zoom.md
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-zoom.md
   - name: Emergency calling
     href: emergency-calls-zoom.md
+  - name: Manage Zoom Phone Cloud Peering customers
+    href: manage-enterprise-zoom.md
 - name: Integration with Azure Operator Call Protection
   items:
     - name: Overview of Operator Call Protection
