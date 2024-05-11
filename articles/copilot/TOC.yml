@@ -34,6 +34,8 @@
     href: troubleshoot-app-service.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
+  - name: Generate Azure PowerShell scripts
+    href: generate-powershell-scripts.md
   - name: Author API Management policies
     href: author-api-management-policies.md
   - name: Work with AKS clusters
