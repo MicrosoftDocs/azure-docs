@@ -4,7 +4,7 @@ description: In this quickstart, use an Azure Resource Manager template to set u
 author: dlepow
 ms.service: api-center
 ms.topic: quickstart
-ms.date: 05/02/2024
+ms.date: 05/11/2024
 ms.author: danlep 
 ---
 
@@ -16,7 +16,7 @@ ms.author: danlep
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apicenter%2Fazure-api-center-create%2Fazuredeploy.json>":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apicenter%2Fazure-api-center-create%2Fazuredeploy.json":::
 
 
 [!INCLUDE [quickstart-prerequisites](includes/quickstart-prerequisites.md)]
@@ -29,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/<templateName>).
+The template used in this quickstart is from [Azure Quickstart Templates](<https://azure.microsoft.com/resources/templates/azure-api-center-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.apicenter/azure-api-center-create/azuredeploy.json":::
 

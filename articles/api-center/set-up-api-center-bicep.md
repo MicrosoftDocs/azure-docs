@@ -4,7 +4,7 @@ description: In this quickstart, use Bicep to set up an API center for API disco
 author: dlepow
 ms.service: api-center
 ms.topic: quickstart
-ms.date: 05/02/2024
+ms.date: 05/11/2024
 ms.author: danlep 
 ---
 
@@ -25,7 +25,7 @@ ms.author: danlep
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from
-[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/.
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-center-create).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.apicenter/azure-api-center-create/main.bicep":::
 
