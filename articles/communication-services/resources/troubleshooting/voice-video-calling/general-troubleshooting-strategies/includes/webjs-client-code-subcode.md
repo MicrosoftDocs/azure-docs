@@ -15,6 +15,8 @@ ms.subservice: calling
 
 ## Azure Communication Services Calling SDK client error codes and subcodes
 
+For client errors, if the resultCategories property is `ExpectedError`, the error is expected from the SDK's perspective. Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app, or when the current system state doesn't allow the API call. The application should check the error reason and the logic for invoking API.
+
 [!INCLUDE [Public Preview](../../../../../includes/public-preview-include-document.md)]
 
 
