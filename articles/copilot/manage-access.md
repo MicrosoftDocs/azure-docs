@@ -10,7 +10,7 @@ author: JnHs
 
 # Manage access to Microsoft Copilot for Azure
 
-> [!IMPORTANT]
+> [!NOTE]
 > We're currently in the process of rolling out Microsoft Copilot for Azure (preview) to all Azure tenants. We'll remove this note once the functionality is available to all users.
 
 Microsoft Copilot for Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Microsoft Copilot for Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
@@ -21,9 +21,12 @@ By default, Copilot for Azure is available to all users in a tenant. However, [G
 
 ## Limit user access to Microsoft Copilot for Azure
 
-To limit access to Microsoft Copilot for Azure for users in your tenant, any Global Administrator in that tenant can follow these steps:
+To limit access to Microsoft Copilot for Azure for users in your tenant, any Global Administrator in that tenant can follow these steps.
 
 1. In the Azure portal, search for **Copilot for Azure admin center** and select it.
+
+   > [!NOTE]
+   > If you don't see **Copilot for Azure admin center**, that means that we haven't yet enabled Copilot for Azure in your tenant.
 
 1. In **Copilot for Azure admin center**, under **Settings**, select **Access management**.
 
