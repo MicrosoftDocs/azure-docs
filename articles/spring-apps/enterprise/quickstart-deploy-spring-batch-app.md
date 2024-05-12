@@ -215,11 +215,6 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/deploy-job.png" alt-text="Diagram that shows deploy a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/deploy-job.png":::
 
-1. After deployment, open the overview page of the Job “football” by clicking the Job name. Click **Run** button on top to initiate the task execution. You can customize each execution of the Job with different parameters like environment variables, or just click **Run** button to trigger the execution. The message notifies that the Job is now started successfully.
-
-   :::image type="content" source="media/quickstart-deploy-spring-batch-app/start-job.png" alt-text="Diagram that shows start a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/start-job.png":::
-
-
 ### [Azure CLI](#tab/Azure-CLI)
 
 ### 5.1. Create and execute Job
@@ -251,14 +246,6 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
        --build-env BP_JVM_VERSION=17
    ```
 
-1. Use the following command to start job and set execution name to the variable **EXECUTION_NAME**.
-
-    ```azurecli
-    export EXECUTION_NAME=$(az spring job start \
-        --service ${SPRING_APPS_SERVICE} \
-        --name football --query name -o tsv)
-    ```
-
 ---
 
 ## 6. Check job execution result and UI of billboard
@@ -269,15 +256,45 @@ Now you can access execution of job and check its result.
 
 Use the following steps to validate:
 
+1. Open the public endpoint of the app to see the billboard UI and do not close it.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui.png" alt-text="Diagram that shows the billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui.png":::
+
+1. Open the overview page of the Job “football” by clicking the Job name. Click **Run** button on top to initiate the task execution. You can customize each execution of the Job with different parameters like environment variables, or just click **Run** button to trigger the execution. The message notifies that the Job is now started successfully.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/start-job.png" alt-text="Diagram that shows start a job." border="false" lightbox="media/quickstart-deploy-spring-batch-app/start-job.png":::
+
 1. In the “Executions” blade, check the job execution result.  Wait a few seconds and refresh to see the status turns to **Completed**. It means the job execution finishes successfully.
 
 1. Then click “View logs” to query the logs of the Job execution.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/view-logs.png" alt-text="Diagram that view the logs." border="false" lightbox="media/quickstart-deploy-spring-batch-app/view-logs.png":::
 
+1. Then back to the endpoint page and click the **Refresh** button to see the UI changed like below.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui-changed.png" alt-text="Diagram that shows the changed billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui-changed.png":::
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following steps to validate:
+
+1. Use the following commands to retrieve the endpoint of the football-billboard app.
+
+    ```azurecli
+    az spring app show --service ${SPRING_APPS_SERVICE} -n football-billboard --query properties.url
+    ```
+
+1. Open the public endpoint of the app to see the billboard UI and do not close it.
+
+   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui.png" alt-text="Diagram that shows the billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui.png":::
+
+1. Use the following command to start job and set execution name to the variable **EXECUTION_NAME**.
+
+    ```azurecli
+    export EXECUTION_NAME=$(az spring job start \
+        --service ${SPRING_APPS_SERVICE} \
+        --name football --query name -o tsv)
+    ```
 
 1. Query execution result according to job name and its execution name.
 
@@ -308,21 +325,11 @@ Use the following steps to validate:
 
     ```
 
-1. Use the following commands to retrieve the endpoint of the football-billboard app.
-
-    ```azurecli
-    az spring app show --service ${SPRING_APPS_SERVICE} -n football-billboard --query properties.url
-    ```
-
----
-
-1. Open the public endpoint of the app to see the billboard UI.
-
-   :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui.png" alt-text="Diagram that shows the billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui.png":::
-
-1. Then click the **Refresh** button to see the UI changed like below.
+1. Then back to the endpoint page and click the **Refresh** button to see the UI changed like below.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/billboard-ui-changed.png" alt-text="Diagram that shows the changed billboard UI." border="false" lightbox="media/quickstart-deploy-spring-batch-app/billboard-ui-changed.png":::
+
+---
 
 ## 7. Clean up resources
 
