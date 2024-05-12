@@ -58,9 +58,9 @@ az containerapp sessionpool create \
     --resource-group <RESOURCE_GROUP> \
     --location westus2 \
     --container-type PythonLTS \
-    --max-concurrent-sessions 100 \
+    --max-sessions 100 \
     --cooldown-period 300 \
-    --egress-enabled false
+    --network-status EgressDisabled
 ```
 
 You can define the following settings when you create a session pool:
@@ -70,7 +70,7 @@ You can define the following settings when you create a session pool:
 | `--container-type` | The type of code interpreter to use. The only supported value is `PythonLTS`. |
 | `--max-concurrent-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
 | `--cooldown-period` | The number of allowed idle seconds before termination. The idle period is reset each time the session's API is called. The allowed range is between `300` and `3600`. |
-| `--egress-enabled` | Designates whether outbound network traffic is allowed from the session. The default value is `false`. |
+| `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
 
 > [!IMPORTANT]
 > If you enable egress, code running in the session can access the internet. Use caution when the code is untrusted as it can be used to perform malicious activities such as denial-of-service attacks.

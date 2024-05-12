@@ -126,16 +126,16 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
-        - name: Use dynamic sessions
+    - name: Use dynamic sessions
+      items:
+        - name: Code interpreter sessions
           items:
-          - name: Code interpreter sessions
-            items:
-            - name: LangChain
-              href: sessions-tutorial-langchain.md
-            - name: LlamaIndex
-              href: sessions-tutorial-llamaindex.md
-            - name: Semantic Kernel
-              href: sessions-tutorial-semantic-kernel.md
+          - name: LangChain
+            href: sessions-tutorial-langchain.md
+          - name: LlamaIndex
+            href: sessions-tutorial-llamaindex.md
+          - name: Semantic Kernel
+            href: sessions-tutorial-semantic-kernel.md
     - name: Event-driven processing
       items:
         - name: With an app

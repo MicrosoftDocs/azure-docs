@@ -90,7 +90,7 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
         --name $SESSION_POOL_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
         --location $SESSION_POOL_LOCATION \
-        --max-concurrent-sessions 100 \
+        --max-sessions 100 \
         --container-type PythonLTS \
         --cooldown-period 300
     ```
