@@ -35,7 +35,7 @@ Follow these steps to define an incident with a few examples of text content and
   * [cURL](https://curl.haxx.se/) for REST API calls.
   * [Python 3.x](https://www.python.org/) installed
 
-tbd env vars?
+<!--tbd env vars-->
 
 ## Test the text incident response API
 
