@@ -70,7 +70,11 @@
     - name: What is a network security perimeter?
       href: network-security-perimeter-concepts.md
     - name: Diagnostic logs
-      href: network-security-perimeter-diagnostic-logs.md   
+      href: network-security-perimeter-diagnostic-logs.md
+    - name: role-based access control permissions
+      href: network-security-perimeter-role-based-access-control-requirements.md
+    - name: Transition to a network security perimeter
+      href: network-security-perimeter-transition.md
   - name: DNS
     items:  
     - name: Private DNS zone values
