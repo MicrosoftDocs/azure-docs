@@ -114,11 +114,11 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
     The summary dataset enables Shay to quickly search for a specific IP address and narrow down the time range where the IP address is found. Shay can do this even when the searched events happened more than 90 days ago, which is beyond their workspace retention period.
 
-1. **Create a query** that runs for less than two minutes against the summary dataset, quickly drilling into the specific time range when the malicious IP address interacted with the company network.
+    In this example, Shay configured the summary to run daily, so that the query adds new summary records every day until it expires.
+
+1. **Create an analytics rule** that runs for less than two minutes against the summary dataset, quickly drilling into the specific time range when the malicious IP address interacted with the company network.
 
     Make sure to configure run intervals of up to five minutes at a minimum, to accommodate different summary payload sizes. This ensures that there's no loss even when there's an event ingestion delay. <!--what does this mean? •	Support both frontfill (scheduled queries on a fixed-interval schedule).-->
-
-    In this example, Shay configured the summary to run daily, so that the query adds new summary records every day until it expires.
 
 1. **Run a subsequent search or correlation with other data** to complete the attack story.
 
