@@ -37,11 +37,10 @@ Health checks are also available from the OT sensor console. For more informatio
 |**admin**     |   `system sanity`      |  No attributes      |
 |**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)   |   `cyberx-xsense-sanity`      |   No attributes     |
 
-
 The following example shows the command syntax and response for the *admin* user:
 
 ```bash
-root@xsense: system sanity
+shell> system sanity
 [+] C-Cabra Engine | Running for 17:26:30.191945
 [+] Cache Layer | Running for 17:26:32.352745
 [+] Core API | Running for 17:26:28
@@ -58,42 +57,39 @@ root@xsense: system sanity
 
 System is UP! (medium)
 ```
+### Reboot and shutdown
 
+#### Reboot an appliance
 
-### Restart and shutdown
+Use the following commands to reboot the OT sensor appliance.
 
-#### Restart an appliance
-
-Use the following commands to restart the OT sensor appliance.
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**admin**     |   `system reboot`      |   No attributes     |
-|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
-|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
-
+|User  |Command  |Full command syntax   |Response to command |
+|---------|---------|---------|----|
+|**admin**     |   `system reboot`      |   No attributes     | > Are you Sure? [y/N] <br><br>  Message asking for password – you are given 3 attemps to enter the correct password, then will return to command line. |
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      ||
+|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      ||
 
 For example, for the *admin* user:
 
 ```bash
-root@xsense: system reboot
+shell> system reboot
 ```
 
 #### Shut down an appliance
 
 Use the following commands to shut down the OT sensor appliance.
 
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**admin**     |   `system shutdown`      |   No attributes      |
-|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo shutdown -r now`      |   No attributes      |
-|**cyberx_host**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `sudo shutdown -r now`      |   No attributes      |
+|User  |Command  |Full command syntax   |Response to command |
+|---------|---------|---------|---|
+|**admin**     |   `system shutdown`      |   No attributes      | > Are you Sure? [y/N] <br><br>  Message asking for password – you are given 3 attemps to enter the correct password, then will return to command line.  |
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo shutdown -r now`      |   No attributes      | |
+|**cyberx_host**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `sudo shutdown -r now`      |   No attributes      | |
 
 
 For example, for the *admin* user:
 
 ```bash
-root@xsense: system shutdown
+shell> system shutdown
 ```
 
 ### Software versions
@@ -102,16 +98,15 @@ root@xsense: system shutdown
 
 Use the following commands to list the Defender for IoT software version installed on your OT sensor.
 
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**admin**     |   `system version`      |   No attributes      |
-|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-version`      |   No attributes      |
-
+|User  |Command  |Full command syntax   | Response to command |
+|---------|---------|---------|---|
+|**admin**     |   `system version`      |   No attributes      | display of version data|
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-version`      |   No attributes      | |
 
 For example, for the *admin* user:
 
 ```bash
-root@xsense: system version
+shell> system version
 Version: 22.2.5.9-r-2121448
 ```
 
@@ -125,22 +120,20 @@ For more information, see [Update your sensors](update-ot-software.md#update-ot-
 
 Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
 
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**admin**     |   `date`      |   No attributes      |
-|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |   No attributes      |
-|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |  No attributes    |
-
+|User  |Command  |Full command syntax  | Response to command |
+|---------|---------|---------|---|
+|**admin**     |   `date`      |   No attributes      | display of date |
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |   No attributes      |  |
+|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |  No attributes    |  |
 
 For example, for the *admin* user:
 
 ```bash
-root@xsense: date
+shell> date
 Thu Sep 29 18:38:23 UTC 2022
-root@xsense:
 ```
 
-#### Turn on NTP time sync
+#### Turn on NTP time sync   ??????
 
 Use the following commands to turn on synchronization for the appliance time with an NTP server.
 
@@ -159,11 +152,20 @@ In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server u
 For example, for the *admin* user:
 
 ```bash
-root@xsense: ntp enable 129.6.15.28
-root@xsense:
+shell> ntp enable 192.168.1.10
+Starting ntp-enable
+chrony.conf will updated server to be: 192.168.1.10
+Configuring IPtables
+Sending OPEN_PORTS request to OS manager
+Open UDS connection with /var/cyberx/system/os_manager.sock
+Received data: b'ack'
+Output from iptables-recover process: 0
+Starting chronyd
+Monit restart chronyd process: 0
+Finished ntp-enable
 ```
 
-#### Turn off NTP time sync
+#### Turn off NTP time sync    ????
 
 Use the following commands to turn off the synchronization for the appliance time with an NTP server.
 
@@ -177,8 +179,15 @@ In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server u
 For example, for the *admin* user:
 
 ```bash
-root@xsense: ntp disable 129.6.15.28
-root@xsense:
+shell> ntp disable system ntp disable 192.168.1.10
+Configuring IPtables
+Sending OPEN_PORTS request to OS manager
+Open UDS connection with /var/cyberx/system/os_manager.sock
+Received data: b'ack'
+Output from iptables-recover process: 0
+Stoping chrony
+Finished ntp-disable
+
 ```
 
 ## Backup and restore
