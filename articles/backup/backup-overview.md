@@ -26,7 +26,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup (preview)](backup-azure-database-postgresql-flex-overview.md)
 - **Azure Kubernetes service** - [Overview of AKS backup](azure-kubernetes-service-backup-overview.md)
 
-
+Azure Backup supports two types of vaults: Recovery Services vault and Backup vault. Each supports different types of resources.
 ![Azure Backup Overview](./media/backup-overview/azure-backup-overview.png)
 
 ## Why use Azure Backup?
