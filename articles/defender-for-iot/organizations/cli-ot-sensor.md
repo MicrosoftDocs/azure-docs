@@ -21,6 +21,8 @@ If you're using an older version of the sensor software, you may have access to 
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
+>[!NOTE]
+> The cyberx and cyberx_host users are only supported in versions earlier than [23.1.x].
 
 ## Appliance maintenance
 
