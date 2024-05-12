@@ -25,9 +25,6 @@ To limit access to Microsoft Copilot for Azure for users in your tenant, any Glo
 
 1. In the Azure portal, search for **Copilot for Azure admin center** and select it.
 
-   > [!NOTE]
-   > If you don't see **Copilot for Azure admin center**, that means that we haven't yet enabled Copilot for Azure in your tenant.
-
 1. In **Copilot for Azure admin center**, under **Settings**, select **Access management**.
 
 1. Select the toggle next to **On for entire tenant** to change it to **Off for entire tenant**.
