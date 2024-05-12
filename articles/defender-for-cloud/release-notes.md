@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 05/05/2024
+ms.date: 05/12/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,12 +24,21 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| May 12 | Configure email notifications for attack paths |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
 | May 7 | [General availability of permissions management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
 | May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
 | May 6 | [Limited public preview of threat protection for AI workloads in Azure](#limited-public-preview-of-threat-protection-for-ai-workloads-in-azure) |
 | May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
 | May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+
+### Configure email notifications for attack paths
+
+May 12, 2024
+
+You can now configure email notifications for attack paths in Defender for Cloud. This feature allows you to receive email notifications when an attack path is detected with a specified risk level or higher. 
+
+Learn how to [configure email notifications](configure-email-notifications.md).
 
 ### Checkov integration for IaC scanning in Defender for Cloud (Preview)
 
