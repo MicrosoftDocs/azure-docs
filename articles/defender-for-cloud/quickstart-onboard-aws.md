@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.date: 04/08/2024
+ms.date: 05/12/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -171,6 +171,15 @@ To connect your AWS to Defender for Cloud by using a native connector:
 1. Enter the details of the AWS account, including the location where you store the connector resource.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
+
+1. Select a scan interval between 1 to 24 hours.
+
+    Some data collectors run with fixed scan intervals and are not affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
+
+    | Data collector name | Scan interval |
+    |--|--|
+    | DataCollectionForEC2Instance <br> DataCollectionForECRImage  <br> DataCollectionForECRRepository  <br> DataCollectionForRDSDBInstance <br> DataCollectionForS3Bucket  <br> DataCollectionForS3BucketTags <br> DataCollectionForS3Region  | 1 hour  |
+    | DataCollectionForEcsClusterArn <br> DataCollectionForEcsService <br> DataCollectionForEcsServiceArn <br> DataCollectionForEcsTaskDefinition <br> DataCollectionForEcsTaskDefinitionArn <br> DataCollectionForEcsTaskDefinitionTags <br> DataCollectionForAwsPolicyVersion <br> DataCollectionForLocalPolicyVersion <br> DataCollectionForAwsEntitiesForPolicy <br> DataCollectionForLocalEntitiesForPolicy <br> DataCollectionForBucketEncryption <br> DataCollectionForBucketPolicy <br> DataCollectionForS3PublicAccessBlockConfiguration <br> DataCollectionForBucketVersioning <br> DataCollectionForS3LifecycleConfiguration <br> DataCollectionForBucketPolicyStatus <br> DataCollectionForS3ReplicationConfiguration <br> DataCollectionForS3AccessControlList <br> DataCollectionForS3BucketLoggingConfig <br> DataCollectionForPublicAccessBlockConfiguration | 12 hours |
 
 > [!NOTE]
 > (Optional) Select **Management account** to create a connector to a management account. Connectors are then created for each member account discovered under the provided management account. Auto-provisioning is also enabled for all of the newly onboarded accounts.
