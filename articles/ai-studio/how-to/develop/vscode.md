@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 5/21/2024
 ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
@@ -16,7 +16,7 @@ author: sdgilley
 
 # Get started with Azure AI Studio projects in VS Code (Preview)
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 
 Azure AI Studio supports developing in VS Code - Desktop and Web. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance.
 
@@ -31,14 +31,14 @@ Azure AI Studio supports developing in VS Code - Desktop and Web. In each scenar
 1. For **VS Code container**, select **Set up container** once the button enables. This configures the container on the compute for you. The container setup might take a few minutes to complete. Once you set up the container for the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted. When setup is complete, you'll see **Ready**.
 
     > [!WARNING]
-     > Even if you [enable idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), idle shutdown will not occur for any compute that is set up with this custom VS Code container. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
+     > Even if you [enable idle shutdown on your compute instance](../create-manage-compute.md#configure-idle-shutdown), idle shutdown will not occur for any compute that is set up with this custom VS Code container. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
 
 1. Open the project in VS Code:
 
     * If you want to work in your local VS Code instance, choose **Open project in VS Code (Desktop)**. A new local instance of VS Code opens on your local machine.
     * If you want to work in the browser instead, select the dropdown arrow and choose **Open project in VS Code (Web)**. A new browser tab connected to *vscode.dev* opens.
 
-:::image type="content" source="../media/how-to/vs-code/launch-vs-code.png" alt-text="Screenshot shows Work in VS Code page ready to launch." lightbox="../media/how-to/vs-code/launch-vs-code.png":::
+    :::image type="content" source="../../media/how-to/vs-code/launch-vs-code.png" alt-text="Screenshot shows Work in VS Code page ready to launch." lightbox="../../media/how-to/vs-code/launch-vs-code.png":::
 
 ## The custom container folder structure
 
@@ -80,7 +80,7 @@ AI app templates are linked from the right side of the **Code** tab of your proj
 * Run evaluations
 * Deploy your code
 
-To provision an entirely new set of resources, including a new hub and project, and deploy these sample applications, you can use [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment.
+To provision an entirely new set of resources, including a new hub and project, and deploy these sample applications, you can use the [Azure Developer CLI](/azure/developer/azure-developer-cli/) (AZD) in your local development environment. 
 
 ## Remarks
 
@@ -92,7 +92,7 @@ If you plan to work across multiple code and data directories, or multiple repos
 
 For app templates and SDK samples in your preferred programming language, see [Develop apps that use Azure AI services](/azure/developer/intro/azure-ai-for-developers).
 
-## Related resources
+## Related content
 
-- [Get started with Azure AI SDKs](../how-to/develop/sdk-overview.md)
-- [Quickstart: Analyze images and video with GPT-4 for Vision in the playground](../quickstarts/multimodal-vision.md)
+- [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)
+- [Get started with Azure AI SDKs](sdk-overview.md)
