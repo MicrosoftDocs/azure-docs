@@ -991,6 +991,8 @@ items:
                 href: ../operational-excellence/relocation-log-analytics.md?toc=/azure/azure-monitor/toc.json
               - name: Delete and recover a workspace
                 href: logs/delete-workspace.md
+          - name: Replicate workspace across regions
+            href: logs/workspace-replication.md          
           - name: Manage access
             displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
