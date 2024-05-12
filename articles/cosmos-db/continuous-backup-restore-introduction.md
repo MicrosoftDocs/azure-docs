@@ -134,9 +134,9 @@ Currently the point in time restore functionality has the following limitations:
 
 * Azure Cosmos DB APIs for SQL, MongoDB, Gremlin, and Table supported for continuous backup. API for Cassandra isn't supported now.
 
-* “Multi region write accounts aren't supported”. 
+* `Multi region write` accounts aren't supported. 
 
-* The capability to use Synapse Link and continuous backup in the same database account is available now. It's possible to turn on Synapse Link for accounts using continuous backup, and vice-versa. But currently database accounts that had Synapse Link disabled on containers level can't migrate to continuous backup. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
+* Synapse Link for database accounts using continuous backup mode is GA. The opposiste situation, continuous backup mode for Synapse Link enabled accounts, is in public preview. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 

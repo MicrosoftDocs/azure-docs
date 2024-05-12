@@ -52,6 +52,21 @@ When you work with Rule Set actions, specify server variables by using the follo
     * Zero lengths: `{var:0:0}` = null,  `{var:4:0}` = null 
     * Offsets within range and lengths out of range: `{var:0:100}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:5:100}` = `=01f592979c584d0f9d679db3e66a3e5e`,  `{var:0:-48}` = null,  `{var:4:-48}` = null
 * `{url_path:seg#}`: Allow users to capture and use the desired URL path segment in URL Redirect, URL Rewrite, or any meaningful action. User can also capture multiple segments by using the same style as substring capture `{url_path:seg1:3}`. For example, for a source pattern `/id/12345/default` and a URL rewrite Destination `/{url_path:1}/home`, the expected URL path after rewrite is `/12345/home`. for a multiple-segment capture, when the source pattern is `/id/12345/default/location/test`, a URL rewrite destination `/{url_path:seg1:3}/home` results in `/12345/default/location/home`. Segment capture includes the location path, so if route is `/match/*`, segment 0 will be match.
+
+    Offset corresponds to the index of the start segment, and length refers to how many segments to capture, including the one at index = offset.
+    
+    Assuming offset and length are positive, the following logic applies:
+    * If length isn't included, capture the segment at index = offset. 
+    * When length is included, capture segments from index = offset up till index = offset + length.
+
+    The following special cases are also handled:
+    * If offset is negative, count backwards from end of the path to get the starting segment.
+    * If offset is a negative value greater than or equal to the number of segments, set to 0.
+    * If offset is greater than the number of segments, the result is empty.
+    * If length is 0, the return the single segment specified by offset
+    * If length is negative, treat it as a second offset and calculate backwards from the end of the path. If the value is less than offset, it results in an empty string.
+    * If length is greater than the number of segments, return what remains in the path.
+
 *  `{url_path.tolower}`/`{url_path.toupper}`: Convert the URL path to lowercase or uppercase. For example, a destination `{url_path.tolower}` in URL rewrite/redirect for `/lowercase/ABcDXyZ/EXAMPLE` results in `/lowercase/abcdxyz/example`. A destination `{url_path.toupper}` in URL rewrite/redirect for `/ABcDXyZ/example` results in `/ABCDXYZ/EXAMPLE`.
      
 ## Supported rule set actions

@@ -126,7 +126,7 @@ The following examples show how the Fabric capacity reservation discount applies
 
 If you want to increase the size of your Fabric capacity reservation, use the exchange process or buy more Fabric capacity reservations.
 
-## Next steps
+## Related content
 
 - To learn more about Azure reservations, see the following articles:
   - [What are Azure Reservations?](save-compute-costs-reservations.md)

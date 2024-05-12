@@ -42,7 +42,12 @@
     - name: Access Control Lists
       href: concepts-access-control-lists.md
     - name: Nexus Kubernetes
-      href: concepts-nexus-kubernetes-cluster.md
+      expanded: false
+      items:
+      - name: Overview
+        href: concepts-nexus-kubernetes-cluster.md
+      - name: Resource Placement
+        href: concepts-nexus-kubernetes-placement.md
     - name: Observability
       expanded: false
       items:
