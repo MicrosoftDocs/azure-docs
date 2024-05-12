@@ -242,3 +242,11 @@ Check out references on Azure GitHub Actions and workflows:
 - [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 - [Starter Workflows](https://github.com/actions/starter-workflows)
 - [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
+
+
+## Frequently Asked Questions
+
+- [Deploy WAR file through Maven plugin and OIDC](https://github.com/microsoft/azure-maven-plugins/wiki)
+- [Deploy WAR file through Az CLI and OIDC]()
+- [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action?branch=pr-en-us-271996&tabs=publish-profile)
+- [Update Tomcat configuration during deployment](https://github.com/Azure/appservice-settings)
