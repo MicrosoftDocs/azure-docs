@@ -34,7 +34,7 @@ Follow these steps to assess your pronunciation of the reference text:
 
 1. Go to **Pronunciation assessment** in the [AI Studio](https://ai.azure.com/explore/aiservices/speech).
 
-   :::image type="content" source="media/pronunciation-assessment/pa-select.png" alt-text="Screenshot of how to go to Pronunciation assessment in AI Studio.":::
+   :::image type="content" source="media/pronunciation-assessment/pronunciation-assessment-select.png" alt-text="Screenshot of how to go to Pronunciation assessment in AI Studio.":::
 
 1. On the Reading tab, choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
 
