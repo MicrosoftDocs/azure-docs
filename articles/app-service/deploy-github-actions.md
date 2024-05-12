@@ -111,13 +111,6 @@ The below runs you through the steps for creating an active directory applicatio
     }     
     ```
 
-# [User-assigned Managed Identity](#tab/userMI)
-
-For configuring a user-defined managed identity, the easiest way for that is by [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md) instead and selecting **User-assigned managed identity**.
-
-> [!NOTE]
-> Authentication using a user-assigned managed identity is currently in preview. 
-
 # [Publish profile](#tab/applevel)
 
 > [!NOTE]
@@ -180,10 +173,6 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
 
 1. Save each secret by selecting **Add secret**.
 
-# [User-assigned Managed Identity](#tab/userMI)
-
-If you followed the steps at [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md) and selected **User-assigned managed identity**, the GitHub secret will be filled out for you.
-
 # [Publish profile](#tab/applevel)
 
 In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
@@ -231,10 +220,6 @@ The following examples show the part of the workflow that builds the web app, in
 # [OpenID Connect](#tab/openid)
 
 [!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
-
-# [User-assigned Managed Identity](#tab/userMI)
-
-If you followed the steps at [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md) and selected **User-assigned managed identity**, the GitHub workflow file will be created for you. You can find it in the `.github/workflows` folder of your repository.
 
 # [Publish profile](#tab/applevel)
 
