@@ -25,7 +25,7 @@ Before you can follow this quickstart, you first need to create the resources yo
 - An Azure AI services resource connected to your project, for providing intelligent APIs and models
 - An Azure OpenAI chat model deployment (gpt-35-turbo or gpt-4)
 
-You can create these resources by following the [Create resources using SDK how-to article](../how-to/develop/create-resources-sdk.md). Otherwise, in AI Studio, you can create these resources by following the [Create project](../how-to/create-projects.md) and [deploy an Azure OpenAI model](../how-to/deploy-models-openai.md) articles.
+You can create these resources by following the [Create resources using SDK how-to article](../how-to/develop/create-hub-project-sdk.md). Otherwise, in AI Studio, you can create these resources by following the [Create project](../how-to/create-projects.md) and [deploy an Azure OpenAI model](../how-to/deploy-models-openai.md) articles.
 
 Also, you must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 

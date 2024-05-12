@@ -17,26 +17,253 @@ author: msakande
 
 Deployment of a large language model (LLM) makes it available for use in a website, an application, or other production environment. Deployment typically involves hosting the model on a server or in the cloud and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference of generative AI applications such as chat and copilot.
 
-## Deploy open models
+## Deploy an Azure OpenAI model from the model catalog
 
-Follow the steps below to deploy an open model such as `distilbert-base-cased` to a real-time endpoint in Azure AI Studio.
+Follow the steps below to deploy an open model such as `distilbert-base-cased` to a real-time endpoint from the Azure AI Studio model catalog:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Model catalog** from the left sidebar.
-1. Select a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog.md). 
+1. Select a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). 
 1. Select **Deploy** to open the deployment window. 
 1. Choose the project you want to deploy the model to. 
 1. Select **Deploy**.
-
-1. Alternatively, you can initiate deployment by starting from your project in AI Studio
-
-    1. Select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select the model you want to deploy.
-    1. Select **Confirm** to open the deployment window.
-    1. Select **Deploy**.
-
 1. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
+
+## Deploy an Azure OpenAI model from your project
+
+Alternatively, you can initiate deployment by starting from your project in AI Studio.
+
+1. Go to your project in Azure AI Studio.
+1. Select **Components** > **Deployments**.
+1. Select **+ Create deployment**.
+1. Search for and select the model you want to deploy.
+1. Select **Confirm** to open the deployment window.
+1. Select **Deploy**.
+1. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
+
+## Deploy and inference a Serverless API model with code
+
+### Deploying a model
+
+Serverless API models are the models you can deploy with pay-as-you-go billing. Examples include Phi-3, Llama-2, Command R, Mistral Large, etc. For serverless API models, you are only charged for inferencing, unless you choose to fine-tune the model. [Learn more](../../machine-learning/how-to-deploy-models-serverless.md?tabs=python).
+
+#### Get the model ID
+
+You can deploy Serverless API models using the Azure Machine Learning SDK, but first, let’s browse the model catalog and get the model ID you need for deployment.
+
+1. Go to [**Azure AI Studio**](ai.azure.com).
+1. **Sign in** with your Azure subscription.
+1. Click **Model Catalog**.
+1. Select the **Serverless API filer option** to see available Serverless API models
+1. Select **a model of your choice**
+1. On the model details page, **copy the model ID**. It will look something like this: `azureml://registries/azureml-cohere/models/Cohere-command-r-plus/versions/3`
+
+
+#### Install the Azure Machine Learning SDK
+
+Next, you need to install the Azure Machine Learning SDK. Run the following commands in your terminal:
+
+```python
+pip install azure-ai-ml
+pip install azure-identity
+```
+
+#### Deploy the serverless API model
+
+First, you will need to authenticate into Azure AI.
+
+```python
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+from azure.ai.ml.entities import MarketplaceSubscription, ServerlessEndpoint
+
+# You can find your credential information on Azure AI Studio Project Settings 
+client = MLClient(
+    credential=DefaultAzureCredential(),
+    subscription_id="your subscription name goes here",
+    resource_group_name="your resource group name goes here",
+    workspace_name="your project name goes here",
+)
+```
+Second, let's reference the model ID you found earlier.
+
+```python
+# You can find the model ID on the model catalog.
+model_id="azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct" 
+```
+Serverless API models from third party model providers require an Azure marketplace subscription in order to use the model. Let's create a marketplace subscription. 
+
+> [!NOTE] You can skip the part if you are deploying a Serverless API model from Microsoft, such as Phi-3.
+
+```python
+# You can customize the subscription name.
+subscription_name="Meta-Llama-3-8B-Instruct" 
+
+marketplace_subscription = MarketplaceSubscription(
+    model_id=model_id,
+    name=subscription_name,
+)
+
+marketplace_subscription = client.marketplace_subscriptions.begin_create_or_update(
+    marketplace_subscription
+).result()
+```
+Finally, let's create a serverless endpoint.
+
+```python
+
+endpoint_name="meta-llama3-8b-qwerty" #your endpoint name must be unique
+
+serverless_endpoint = ServerlessEndpoint(
+    name=endpoint_name,
+    model_id=model_id
+)
+
+created_endpoint = client.serverless_endpoints.begin_create_or_update(
+    serverless_endpoint
+).result()
+```
+
+#### Get the Serverless API endpoint and keys
+
+```python
+endpoint_keys = client.serverless_endpoints.get_keys(endpoint_name)
+print(endpoint_keys.primary_key)
+print(endpoint_keys.secondary_key)
+```
+
+#### Inference the deployment
+
+To inference, you will want to use the code specifically catering to different model types and SDKs you are using. You can find code samples on [our sample repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models).
+
+## Deploy and inference a managed compute deployment with code
+
+### Deploying a model
+
+Azure AI model catalog offers over 1600 models, and the most common way to deploy these models is to use the Managed compute deployment option, which is also sometimes called Managed Online Endpoint.
+
+#### Get the model ID
+
+1. Go to [**Azure AI Studio**](ai.azure.com).
+1. **Sign in** with your Azure subscription.
+1. Click **Model Catalog**.
+1. Select the **Serverless API filer option** to see available Serverless API models
+1. Select **a model of your choice**
+6. On the model details page, copy the model ID. It will look something like this: `azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16`
+
+#### Install the Azure Machine Learning SDK
+
+For this step, you need to install the Azure Machine Learning SDK.
+
+```python
+pip install azure-ai-ml
+pip install azure-identity
+```
+
+#### Deploy the model
+
+First, you need to authenticate into Azure AI.
+
+```python
+from azure.ai.ml import MLClient
+from azure.identity import InteractiveBrowserCredential
+
+client = MLClient(
+    credential=InteractiveBrowserCredential,
+    subscription_id="your subscription name goes here",
+    resource_group_name="your resource group name goes here",
+    workspace_name="your project name goes here",
+)
+```
+
+Let's deploy the model.
+
+For Managed compute deployment option, you need to create an endpoint before a model deployment. Think of endpoint as a container that can house multiple model deployments.
+
+```python
+import time, sys
+from azure.ai.ml.entities import (
+    ManagedOnlineEndpoint,
+    ManagedOnlineDeployment,
+    ProbeSettings,
+)
+
+# Create online endpoint - endpoint names need to be unique in a region, hence using timestamp to create unique endpoint name
+timestamp = int(time.time())
+online_endpoint_name = "customize your endpoint name here" + str(timestamp)
+
+# create an online endpoint
+endpoint = ManagedOnlineEndpoint(
+    name=online_endpoint_name,
+    auth_mode="key",
+)
+workspace_ml_client.begin_create_or_update(endpoint).wait()
+```
+
+```python
+# create a deployment
+# You can find the model ID on the model catalog.
+model_name = "azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16" 
+
+demo_deployment = ManagedOnlineDeployment(
+    name="demo",
+    endpoint_name=online_endpoint_name,
+    model=model_name,
+    instance_type="Standard_DS3_v2",
+    instance_count=2,
+    liveness_probe=ProbeSettings(
+        failure_threshold=30,
+        success_threshold=1,
+        timeout=2,
+        period=10,
+        initial_delay=1000,
+    ),
+    readiness_probe=ProbeSettings(
+        failure_threshold=10,
+        success_threshold=1,
+        timeout=10,
+        period=10,
+        initial_delay=1000,
+    ),
+)
+workspace_ml_client.online_deployments.begin_create_or_update(demo_deployment).wait()
+endpoint.traffic = {"demo": 100}
+workspace_ml_client.begin_create_or_update(endpoint).result()
+```
+
+#### Inference the deployment
+You'll need a sample json data to test inferencing. Create `sample_score.json` with the following example. 
+
+```python
+{
+  "inputs": {
+    "question": [
+      "Where do I live?",
+      "Where do I live?",
+      "What's my name?",
+      "Which name is also used to describe the Amazon rainforest in English?"
+    ],
+    "context": [
+      "My name is Wolfgang and I live in Berlin",
+      "My name is Sarah and I live in London",
+      "My name is Clara and I live in Berkeley.",
+      "The Amazon rainforest (Portuguese: Floresta Amaz\u00f4nica or Amaz\u00f4nia; Spanish: Selva Amaz\u00f3nica, Amazon\u00eda or usually Amazonia; French: For\u00eat amazonienne; Dutch: Amazoneregenwoud), also known in English as Amazonia or the Amazon Jungle, is a moist broadleaf forest that covers most of the Amazon basin of South America. This basin encompasses 7,000,000 square kilometres (2,700,000 sq mi), of which 5,500,000 square kilometres (2,100,000 sq mi) are covered by the rainforest. This region includes territory belonging to nine nations. The majority of the forest is contained within Brazil, with 60% of the rainforest, followed by Peru with 13%, Colombia with 10%, and with minor amounts in Venezuela, Ecuador, Bolivia, Guyana, Suriname and French Guiana. States or departments in four nations contain \"Amazonas\" in their names. The Amazon represents over half of the planet's remaining rainforests, and comprises the largest and most biodiverse tract of tropical rainforest in the world, with an estimated 390 billion individual trees divided into 16,000 species."
+    ]
+  }
+}
+```
+Let's inference with `sample_score.json`.
+
+```python
+scoring_file = "./sample_score.json" # Change the location based on where you saved your sample json file.
+response = workspace_ml_client.online_endpoints.invoke(
+    endpoint_name=online_endpoint_name,
+    deployment_name="demo",
+    request_file=scoring_file,
+)
+response_json = json.loads(response)
+print(json.dumps(response_json, indent=2))
+```
 
 ## Delete the deployment endpoint
 
@@ -46,7 +273,7 @@ To delete deployments in Azure AI Studio, select the **Delete** button on the to
 
 To deploy and perform inferencing with real-time endpoints, you consume Virtual Machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for a quota increase.  
 
-## Related content
+## Next steps
 
 - Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
