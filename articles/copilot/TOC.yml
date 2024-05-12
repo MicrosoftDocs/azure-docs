@@ -22,6 +22,8 @@
     href: deploy-vms-effectively.md
   - name: Build infrastructure and deploy workloads
     href: build-infrastructure-deploy-workloads.md
+  - name: Use guided deployments
+    href: use-guided-deployments.md
   - name: Get monitoring information
     href: get-monitoring-information.md
   - name: Optimize your code
