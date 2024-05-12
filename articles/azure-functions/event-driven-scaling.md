@@ -1,7 +1,7 @@
 ---
 title: Event-driven scaling in Azure Functions
 description: Explains the scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 05/04/2024
+ms.date: 05/12/2024
 ms.topic: conceptual
 ms.service: azure-functions
 

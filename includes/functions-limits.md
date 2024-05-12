@@ -38,5 +38,5 @@ Notes on service limits:
 11. There's currently a limit of 5000 function apps in a given subscription. 
 12. The Flex Consumption plan is currently in preview.  
 13. Flex Consumption plan instance sizes are defined as: 512 MB, 2,048 MB, and 4,096 MB. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).  
-14. Flex Consumption plan during preview has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#regional-subscription-memory-quotas).
+14. Flex Consumption plan during preview has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).
 15. In a Flex Consumption plan, the host doesn't enforce an execution time limit. However, there are currently no guarantees because the platform might need to terminate your instances during scale-in, deployments, or to apply updates.
