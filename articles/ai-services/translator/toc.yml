@@ -300,6 +300,12 @@ items:
     - name: Automate text translation (preview)
       displayName: connect, power, automate, flow
       href: connector/text-translator-flow.md
+- name: Responsible AI
+  items:
+  - name: Transparency note
+    href: /legal/cognitive-services/translator/transparency-note?context=/azure/ai-services/translator/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/translator/data-privacy-security?context=/azure/ai-services/translator/context/context
 - name: Resources
   items:
   - name: Modifications to Translator Service
