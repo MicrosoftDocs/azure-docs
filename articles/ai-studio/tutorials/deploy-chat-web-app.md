@@ -36,7 +36,7 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md). Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create a hub and project if you haven't already.
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already.
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 

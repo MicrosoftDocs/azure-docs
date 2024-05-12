@@ -56,5 +56,6 @@ Next, you can add your data to the model to help it answer questions about your 
 
 ## Related content
 
+- [Build a custom chat app in Python using the prompt flow SDK](./get-started-code.md).
 - [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md).
 - [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio](../tutorials/deploy-copilot-ai-studio.md).
