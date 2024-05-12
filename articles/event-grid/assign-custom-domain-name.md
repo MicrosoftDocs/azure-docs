@@ -126,42 +126,42 @@ Use the following command to update your namespace with the custom domain config
 az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name> --is-full-object --properties @./resources/NS.json 
 ```
 
-### NS.json
+**NS.json**
 
 ```json
 {
     "properties": {
         "topicsConfiguration": {
-            "hostname": " MyNS.westus2-1.eventgrid.azure.net",
+            "hostname": "NAMESPACENAMEMESPACE.westus2-1.eventgrid.azure.net",
             "customDomains": [
                 {
-                    "fullyQualifiedDomainName": "www.contoso-http.com",
+                    "fullyQualifiedDomainName": "www.HTTPDOMAINNAME.com",
                     "identity": {
                         "type": "SystemAssigned"
                     },
                     "certificateInfo": {
-                        "keyVaultArmId": " /subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
-                        "certificateName": "<certificate name>"
+                        "keyVaultArmId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP NAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                        "certificateName": "CERTIFICATENAME"
                     }
                 }
             ]
         },
         "topicSpacesConfiguration": {
             "state": " Enabled",
-            "routeTopicResourceId": " /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/namespaces/MSNS/topics/<topic name>",
-            "hostname": "MyNS.westus2-1.ts.eventgrid.azure.net",
+            "routeTopicResourceId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventGrid/namespaces/NAMESPACENAME/topics/TOPICNAME",
+            "hostname": "NAMESPACENAME.westus2-1.ts.eventgrid.azure.net",
             "routingIdentityInfo": {
                 "type": "None"
             },
             "customDomains": [
                 {
-                    "fullyQualifiedDomainName": " www.contoso-mqtt.com ",
+                    "fullyQualifiedDomainName": " www.MQTTDOMAINNAME.com ",
                     "identity": {
                         "type": "SystemAssigned"
                     },
                     "certificateInfo": {
-                        "keyVaultArmId": "/subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
-                        "certificateName": "<certificate name >"
+                        "keyVaultArmId": "/subscriptions/SUBSCRIPTIONNAME/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                        "certificateName": "CERTIFICATENAME"
                     }
                 }
             ]
