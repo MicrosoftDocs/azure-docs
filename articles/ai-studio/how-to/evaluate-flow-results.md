@@ -125,7 +125,7 @@ By using these comparison tools effectively, you can identify which version of y
 
 ## Measuring jailbreak vulnerability
 
-Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can use the [adversarial data simulator](../develop/simulator-interaction-data.md) to generate the dataset with or without jailbreak injections.
+Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can use the adversarial data simulator to generate the dataset with or without jailbreak injections.
 
 To understand if your application is vulnerable to jailbreak, you can specify which is the baseline and then turn on “Jailbreak defect rates” toggle in the comparison table. Jailbreak defect rate is defined as the percentage of instances in your test dataset where a jailbreak injection generated a higher severity score for *any* content risk metric with respect to a baseline over the whole dataset size. You can select multiple evaluations in your compare dashboard to view the difference in defect rates.
 
