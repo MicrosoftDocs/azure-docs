@@ -120,7 +120,7 @@ jobs:
         az logout
 ```
 
-# [Java](#tab/java)
+# [Java SE](#tab/java)
 
 Build and deploy a Java Spring app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
