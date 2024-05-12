@@ -82,7 +82,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
     app.UseAzureAppConfiguration();
     ```
    
-In a typical scenario, you will update your feature flag values periodically as you deploy and enable and different features of your application. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes by setting the [CacheExpirationInterval](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.featuremanagement.featureflagoptions.cacheexpirationinterval) in the call to **UseFeatureFlags**.
+In a typical scenario, you will update your feature flag values periodically as you deploy and enable different features of your application. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes by setting the [CacheExpirationInterval](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.featuremanagement.featureflagoptions.cacheexpirationinterval) in the call to **UseFeatureFlags**.
 
 ```csharp
 config.AddAzureAppConfiguration(options =>
