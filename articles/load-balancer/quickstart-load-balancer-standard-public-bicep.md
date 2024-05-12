@@ -14,7 +14,7 @@ ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 
 # Quickstart: Create a public load balancer to load balance VMs using a Bicep file
 
-In this quickstart, you learn to use a BICEP file to create an internal Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the internal load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
+In this quickstart, you learn to use a BICEP file to create an public Azure load balancer. The public load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the public load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
@@ -70,6 +70,9 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
     ---
+
+    > [!NOTE]
+    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
     You're prompted to enter the following values:
 
