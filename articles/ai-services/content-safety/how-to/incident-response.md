@@ -152,9 +152,43 @@ print(response.text)
 ```
 ---
 
+### Deploy the incident
+
+
+Use the following command to deploy the incident, making it available for the analysis of new content.
+
+#### [cURL](#tab/curl)
+
+```shell
+curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>:deploy?api-version=2024-02-15-preview' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
+--header 'Content-Type: application/json' 
+```
+
+#### [Python](#tab/python)
+
+```python
+import requests
+import json
+
+url = "https://<endpoint>/contentsafety/text/incidents/<text-incident-name>:deploy?api-version=2024-02-15-preview"
+
+payload = {}
+headers = {
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+---
+
 ### Detect text incidents
 
-Run the following command to analyze sample text content for the incident you just defined.
+Run the following command to analyze sample text content for the incident you just deployed.
 
 #### [cURL](#tab/curl)
 
@@ -313,9 +347,42 @@ print(response.text)
 ```
 ---
 
-### Analyze image with incident response
+### Deploy the incident
 
-Use the following command to upload a sample image and test it against the incient you created. You can either use a URL pointing to the image in an Azure blob storage container, or you can add the image data as a Base64 string.
+Use the following command to deploy the incident, making it available for the analysis of new content.
+
+#### [cURL](#tab/curl)
+
+```shell
+curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>:deploy?api-version=2024-02-15-preview' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
+--header 'Content-Type: application/json' 
+```
+
+#### [Python](#tab/python)
+
+```python
+import requests
+import json
+
+url = "https://<endpoint>/contentsafety/image/incidents/<image-incident-name>:deploy?api-version=2024-02-15-preview"
+
+payload = {}
+headers = {
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+
+```
+---
+
+### Detect image incidents
+
+Use the following command to upload a sample image and test it against the incient you deployed. You can either use a URL pointing to the image in an Azure blob storage container, or you can add the image data as a Base64 string.
 
 #### [cURL](#tab/curl)
 
