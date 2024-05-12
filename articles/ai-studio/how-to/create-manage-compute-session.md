@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 5/21/2024
 ms.reviewer: lochen
 ms.author: sgilley
 author: sdgilley
@@ -28,22 +28,35 @@ Sign in to [Azure AI Studio](https://ai.azure.com) and select your prompt flow.
 
 ## Create a compute session
 
-On the top toolbar of your prompt flow, select **Start compute session**.
+When you start a compute session, you can use the default settings or customize the advanced settings. 
 
-- Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
+### Start a compute session with default settings
 
-  :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-create-automatic-init.png":::
+By default, the compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
 
-- Use the arrow to the right to access **Start with advanced settings**. In the advanced settings, you can:
-- Select **Start with advanced settings**. In the advanced settings, you can select the compute type. You can choose between serverless compute and compute instance.
+1. Go to your project in Azure AI Studio.
+1. From the left pane, select **Flows** and then select the flow you want to run.
+1. From the top toolbar of your prompt flow, select **Start compute session**.
+
+### Start a compute session with advanced settings
+
+In the advanced settings, you can select the compute type. You can choose between serverless compute and compute instance.
+
+1. Go to your project in Azure AI Studio.
+1. From the left pane, select **Flows** and then select the flow you want to run.
+1. From the top toolbar of your prompt flow, select the dropdown arrow on the right side of the **Start compute session** button. Select **Start with advanced settings** to customize the compute session.
+
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-create-automatic-init.png":::
+
+    You can choose between serverless compute and compute instance.
     - If you choose serverless compute, you can set following settings:
         - Customize the VM size that the compute session uses.
         - Customize the idle time, which saves code by deleting the compute session automatically if it isn't in use.
         - Set the user-assigned managed identity. The compute session uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
             
-            If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+        If you don't set the user-assigned identity, prompt flow uses the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
-            :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-settings.png":::
+        :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-settings.png":::
 
     - If you choose compute instance, you can only set idle shutdown time. 
         - Since this is an existing compute instance, the VM size is fixed and can't change in a compute session side.
@@ -52,12 +65,12 @@ On the top toolbar of your prompt flow, select **Start compute session**.
 
             :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-creation-automatic-compute-instance-settings.png":::
 
-    - Select **Next** to specify the base image settings. Use the default base image or provide a custom base image.
-        - If you choose a customized base image, provide the image URL and the image tag. Only images in a public docker registry or the Azure Container Registry (ACR) are supported. If you specify an image in the ACR,  make sure you (or the user assigned manage identity) have ACR pull permission.
-    - Select **Next** to review your settings.
-    - Select **Apply and start compute session** to start the compute session.
+1. Select **Next** to specify the base image settings. Use the default base image or provide a custom base image.
+    If you choose a customized base image, provide the image URL and the image tag. Only images in a public docker registry or the Azure Container Registry (ACR) are supported. If you specify an image in the ACR,  make sure you (or the user assigned manage identity) have ACR pull permission.
+1. Select **Next** to review your settings.
+1. Select **Apply and start compute session** to start the compute session.
 
-## <a name="manage"></a> Manage a compute session
+## Manage a compute session
 
 To manage a compute session, select the **Compute session running** on the top toolbar of the flow page.:
 
@@ -103,7 +116,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute-session/compute-session-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-compute-session/compute-session-advanced-setting-msi.png":::
 
-### <a name="base"></a> Change the base image
+### Change the base image
 
 By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
@@ -121,12 +134,12 @@ By default, we use the latest prompt flow image as the base image. If you want t
         python_requirements_txt: requirements.txt
     ```
 
-## <a name="upgrade"></a> Upgrade compute instance runtime
+## Upgrade compute instance runtime
 
 If you previously created a compute instance runtime, switch it to a compute session by using the following steps:
 
-- Prepare your `requirements.txt` file in the flow folder. See [Manage a compute session](#manage) for more information.
-- If you created a custom environment, get the image from the environment detail page, and specify it in the `flow.dag.yaml` file in the flow folder. To learn more, see [Change the base image](#base). Make sure you have `acr pull` permission for the image.
+- Prepare your `requirements.txt` file in the flow folder. See [Manage a compute session](#manage-a-compute-session) for more information.
+- If you created a custom environment, get the image from the environment detail page, and specify it in the `flow.dag.yaml` file in the flow folder. To learn more, see [Change the base image](#change-the-base-image). Make sure you have `acr pull` permission for the image.
 
 - You can continue to use the existing compute instance if you would like to manually manage the lifecycle.
 
