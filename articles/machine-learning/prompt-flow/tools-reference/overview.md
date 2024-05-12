@@ -24,7 +24,7 @@ The following table shows an index of tools in prompt flow.
 | Tool (set) name | Description | Environment | Package name |
 |------|-----------|-------------|--------------|
 | [Python](./python-tool.md) | Runs Python code. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
-| [LLM](./llm-tool.md) | Uses large language model (LLM) for text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [LLM](./llm-tool.md) | Uses OpenAI's large language model (LLM) for text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Crafts a prompt by using Jinja as the templating language. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Embedding](./embedding-tool.md) | Uses OpenAI's embedding model to create an embedding vector that represents the input text. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Open Model LLM](./open-model-llm-tool.md) | Enable the utilization of a variety of Open Model and Foundational Models, such as Falcon and Llama 2 from the Azure Model catalog. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
