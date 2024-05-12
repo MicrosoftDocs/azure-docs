@@ -248,5 +248,5 @@ Check out references on Azure GitHub Actions and workflows:
 
 - [Deploy WAR file through Maven plugin and OIDC](https://github.com/microsoft/azure-maven-plugins/wiki)
 - [Deploy WAR file through Az CLI and OIDC]()
-- [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action?branch=pr-en-us-271996&tabs=publish-profile)
+- [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action)
 - [Update Tomcat configuration during deployment](https://github.com/Azure/appservice-settings)
