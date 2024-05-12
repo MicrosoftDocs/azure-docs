@@ -15,11 +15,13 @@ author: JnHs
 
 Microsoft Copilot for Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Microsoft Copilot for Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
 
-By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization.
+By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization. If you turn access off for your tenant, you can still grant access to specific Microsoft Entra users or groups.
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Limit user access to Microsoft Copilot for Azure
+
+To limit access to Microsoft Copilot for Azure for users in your tenant, any Global Administrator in that tenant can follow these steps:
 
 1. In the Azure portal, search for **Copilot for Azure admin center** and select it.
 
@@ -29,14 +31,12 @@ By default, Copilot for Azure is available to all users in a tenant. However, [G
 
 1. To grant access to specific Microsoft Entra users or groups, select **Manage RBAC roles**.
 
-1. Assign the **Copilot for Azure User** role to the user or group. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+1. Assign the **Copilot for Azure User** role to specific users or groups. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-Global administrators can change the **Access management** selection at any time.
+Global Administrators for a tenant can change the **Access management** selection at any time.
 
 > [!IMPORTANT]
 > In order to use Microsoft Copilot for Azure, your organization must allow websocket connections to `https://directline.botframework.com`. Please ask your network administrator to enable this connection.
-
-
 
 ## Next steps
 

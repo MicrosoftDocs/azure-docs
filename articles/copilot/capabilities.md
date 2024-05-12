@@ -13,13 +13,13 @@ author: JnHs
 
 # Microsoft Copilot for Azure capabilities
 
-Microsoft Copilot for Azure (preview) amplifies your impact with AI-enhanced operations.
+Microsoft Copilot for Azure (preview) amplifies your impact with AI-enhanced operations. 
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Perform tasks
 
-Use Microsoft Copilot for Azure to perform many basic tasks. There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot for Azure can be especially helpful.
+Use Microsoft Copilot for Azure to perform many basic tasks in the Azure portal or Azure mobile app. There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot for Azure can be especially helpful.
 
 - Understand your Azure environment:
   - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
@@ -29,6 +29,7 @@ Use Microsoft Copilot for Azure to perform many basic tasks. There are many thin
 - Work smarter with Azure services:
   - [Deploy virtual machines effectively](deploy-vms-effectively.md)
   - [Build infrastructure and deploy workloads](build-infrastructure-deploy-workloads.md)
+  - [Create resources using guided deployments](use-guided-deployments.md)
   - [Work with AKS clusters efficiently](work-aks-clusters.md)
   - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
   - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
@@ -36,6 +37,7 @@ Use Microsoft Copilot for Azure to perform many basic tasks. There are many thin
   - [Improve Azure SQL Database-driven applications](/azure/azure-sql/copilot/copilot-azure-sql-overview#microsoft-copilot-for-azure-enhanced-scenarios)
 - Write and optimize code:
   - [Generate Azure CLI scripts](generate-cli-scripts.md)
+  - [Generate Azure PowerShell scripts](generate-powershell-scripts.md)
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
   - [Author API Management policies](author-api-management-policies.md)
   - [Create Kubernetes YAML files](generate-kubernetes-yaml.md)
@@ -81,4 +83,4 @@ Keep in mind these current limitations:
 ## Next steps
 
 - [Get tips for writing effective prompts](write-effective-prompts.md) to use with Microsoft Copilot for Azure.
-
+- Learn about [managing access to Copilot for Azure](manage-access.md) in your organization.

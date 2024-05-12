@@ -64,6 +64,9 @@ conceptualContent:
             - url: ./build-infrastructure-deploy-workloads.md
               itemType: get-started
               text: Build infrastructure and deploy workloads
+            - url: ./use-guided-deployments.md
+              itemType: get-started
+              text: Create resources with guided deployments
             - url: ./work-aks-clusters.md
               itemType: get-started
               text: Work with AKS clusters efficiently
@@ -82,6 +85,9 @@ conceptualContent:
             - url: ./generate-cli-scripts.md
               itemType: get-started
               text: Generate Azure CLI scripts
+            - url: ./generate-powershell-scripts.md
+              itemType: get-started
+              text: Generate Azure PowerShell scripts
             - url: ./optimize-code-application-insights.md
               itemType: get-started
               text: Discover performance recommendations with Code Optimizations
