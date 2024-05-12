@@ -61,7 +61,7 @@ Views in the `azure_sys` database provide a convenient way to access and retriev
 
 ##### intelligentperformace.createindexrecommendations
 
-The `createindexrecommendations' view exposes all the details for all CREATE INDEX recommendations generated on any tuning session whose data is still available in the underlying tables.
+The `createindexrecommendations` view exposes all the details for all CREATE INDEX recommendations generated on any tuning session whose data is still available in the underlying tables.
 
 | column name | data type | Description |
 | --- | --- | --- |
