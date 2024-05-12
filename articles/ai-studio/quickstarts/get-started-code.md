@@ -164,7 +164,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
     AZURE_OPENAI_API_VERSION=2024-02-15-preview
     ```
 
-1. Navigate to the [chat playground inside of your AI Studio project](../tutorials/deploy-chat-web-app.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
+1. Navigate to the [chat playground inside of your AI Studio project](./get-started-playground.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
 1. Find the Azure OpenAI deployment name in the chat playground. Select the deployment in the dropdown and hover over the deployment name to view it. In this example, the deployment name is **gpt-35-turbo-16k**.
 
     :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png" alt-text="Screenshot of the AI Studio chat playground opened, highlighting the deployment name and the view code button." lightbox="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png":::
@@ -349,5 +349,6 @@ For more information on how to use prompt flow evaluators, including how to make
 
 ## Related content
 
+- [Quickstart: Create a project and use the chat playground in Azure AI Studio](./get-started-playground.md)
 - [Work with projects in VS Code](../how-to/develop/vscode.md)
 - [Overview of the Azure AI SDKs](../how-to/develop/sdk-overview.md)
