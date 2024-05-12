@@ -25,7 +25,7 @@ Before you can follow this quickstart, you first need to create the resources yo
 - An Azure AI services resource connected to your project, for providing intelligent APIs and models
 - An Azure OpenAI chat model deployment (gpt-35-turbo or gpt-4)
 
-You can create these resources by following the [Create resources using SDK how-to article](../how-to/develop/create-resources-sdk.md). Otherwise, in AI Studio, you can create these resources by following the [Create project](../how-to/create-projects.md) and [deploy an Azure OpenAI model](../how-to/deploy-models-openai.md) articles.
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [Create resources using SDK how-to article](../how-to/develop/create-resources-sdk.md) article.
 
 Also, you must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
@@ -164,7 +164,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
     AZURE_OPENAI_API_VERSION=2024-02-15-preview
     ```
 
-1. Navigate to the [chat playground inside of your AI Studio project](../tutorials/deploy-chat-web-app.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
+1. Navigate to the [chat playground inside of your AI Studio project](./get-started-playground.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
 1. Find the Azure OpenAI deployment name in the chat playground. Select the deployment in the dropdown and hover over the deployment name to view it. In this example, the deployment name is **gpt-35-turbo-16k**.
 
     :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png" alt-text="Screenshot of the AI Studio chat playground opened, highlighting the deployment name and the view code button." lightbox="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png":::
@@ -349,5 +349,6 @@ For more information on how to use prompt flow evaluators, including how to make
 
 ## Related content
 
+- [Quickstart: Create a project and use the chat playground in Azure AI Studio](./get-started-playground.md)
 - [Work with projects in VS Code](../how-to/develop/vscode.md)
 - [Overview of the Azure AI SDKs](../how-to/develop/sdk-overview.md)

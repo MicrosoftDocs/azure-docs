@@ -28,4 +28,3 @@ To chat with your deployed GPT model in the chat playground, follow these steps:
 
     :::image type="content" source="../media/tutorials/chat/assistant-reply-not-grounded.png" alt-text="Screenshot of the assistant's reply without grounding data." lightbox="../media/tutorials/chat/assistant-reply-not-grounded.png":::
 
-In the next section, you'll add your data to the model to help it answer questions about your products.
