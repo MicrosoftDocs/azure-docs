@@ -1,6 +1,36 @@
 {
     "redirections": [
     {
+      "source_path": "articles/network-watcher/network-watcher-security-group-view-powershell.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-security-group-view-cli.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/blob-v11-samples-dotnet.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/blob-v11-samples-javascript.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/blob-v2-samples-python.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/blob-v2-samples-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/geo-redundant-design-legacy.md",
+      "redirect_url": "/previous-versions/azure/storage/common/geo-redundant-design-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/germany/index.yml",
       "redirect_url": "/previous-versions/azure/germany/index",
       "redirect_document_id": false
@@ -4003,6 +4033,11 @@
         {
             "source_path_from_root":"/articles/aks/generation-2-vm-windows.md",
             "redirect_url":"/azure/aks/generation-2-vm",
+            "redirect_document_id":false
+        },
+        {
+            "source_path_from_root":"/articles/cosmos-db/high-availability.md",
+            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
             "redirect_document_id":false
         }
     ]

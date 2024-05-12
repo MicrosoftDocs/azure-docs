@@ -69,7 +69,7 @@ As part of the trade in, the outstanding commitment is automatically included in
 
 The minimum value doesn't necessarily represent the hourly commitment necessary to cover the resources that were covered by the exchanged reservation. If you want to cover those resources, you most likely need to increase the hourly commitment. To determine the appropriate hourly commitment, see [Determine savings plan commitment needed to replace your reservation](reservation-trade-in.md#determine-savings-plan-commitment-needed-to-replace-your-reservation).
 
-## Next steps
+## Related content
 
 - Learn about [how the Azure savings plan discount is applied](discount-application.md).
 - Learn about how to [trade in reservations](reservation-trade-in.md) for a savings plan.

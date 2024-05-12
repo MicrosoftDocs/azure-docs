@@ -235,6 +235,8 @@ For better security, it's a good practice to periodically rotate your admin pass
 
 The [Salted Challenge Response Authentication Mechanism (SCRAM)](https://datatracker.ietf.org/doc/html/rfc5802) greatly improves the security of password-based user authentication by adding several key security features that prevent rainbow-table attacks, man-in-the-middle attacks, and stored password attacks, while also adding support for multiple hashing algorithms and passwords that contain non-ASCII characters.  
 
+In SCRAM authentication, the client participates in doing the encryption work in order to produce the proof of identity. SCRAM authentication therefore offloads some of the computation cost to its clients, which in most cases are application servers. Adopting SCRAM, in addition to stronger hash algorithm, therefore offers also protection against distributed denial-of-service (DDoS) attacks against PostgreSQL, by preventing a CPU overload of the server to compute password hashes.
+
 If your [client driver supports SCRAM](https://wiki.postgresql.org/wiki/List_of_drivers) , you can **[setup access to Azure Database for PostgreSQL - Flexible Server using SCRAM](how-to-connect-scram.md)** as `scram-sha-256` vs. default `md5`.
 
 ### Reset administrator password
