@@ -71,11 +71,11 @@ You also select a location and add the organization ID for your project.
 
 You can also set a scan interval between 1 to 24 hours.
 
-    Some data collectors run with fixed scan intervals and are not affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
+Some data collectors run with fixed scan intervals and are not affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
 
-    | Data collector name | Scan interval |
-    |--|--|
-    | DataCollectionForComputeInstance <br> DataCollectionForArtifactRegistryRepositoryPolicy <br> DataCollectionForArtifactRegistryImage | 1 hour |
+| Data collector name | Scan interval |
+|--|--|
+| DataCollectionForComputeInstance <br> DataCollectionForArtifactRegistryRepositoryPolicy <br> DataCollectionForArtifactRegistryImage | 1 hour |
 
 When you onboard an organization, you can also choose to exclude project numbers and folder IDs.
 
