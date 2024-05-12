@@ -77,7 +77,7 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 | **Learning mode**  | In *learning* mode, network security perimeter logs all traffic classified as denied by access rules, without actually blocking the traffic. Learning mode allows network administrators to understand the existing access patterns of their PaaS services before implementing enforcement of access rules. |
 | **Enforced mode**  | In *enforced* mode, network security perimeter logs and denies all traffic classified as *denied* along with traffic not classified as *allowed* by an access rule. By default, all traffic is denied unless an *Allow* access rule exists. Enforced mode ensures that the resource continues are secured by the perimeter even if its configuration is modified. |
 
-Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transitioning.md) article.
+Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
 
 ## Onboarded private-link resources
 A private-link resource is the network security perimeter aware PaaS resource that can be associated. Currently, the current list of onboarded private-link resources are as follows:
