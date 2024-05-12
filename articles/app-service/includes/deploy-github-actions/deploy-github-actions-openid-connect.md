@@ -164,7 +164,7 @@ jobs:
         az logout
 ```
 
-# [TomCat](#tab/tomcat)
+# [Tomcat](#tab/tomcat)
 
 ```yaml
 name: Build and deploy WAR app to Azure Web App using OpenID Connect
