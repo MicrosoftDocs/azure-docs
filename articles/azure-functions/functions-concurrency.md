@@ -47,7 +47,7 @@ The Flex Consumption plan scales all HTTP trigger functions together as a group.
 
 These defaults should work well for most cases, and you start with them. Consider that at a given number of HTTP requests, increasing the HTTP concurrency value reduces the number of instances required to handle HTTP requests. Likewise decreasing the HTTP concurrency value requires more instances to handle the same load. 
 
-If you need to fine tune the HTTP concurrency, you can do this by using the Azure CLI. For more information, see [Set HTTP concurrency limits]().
+If you need to fine tune the HTTP concurrency, you can do this by using the Azure CLI. For more information, see [Set HTTP concurrency limits](flex-consumption-how-to.md#set-http-concurrency-limits).
 
 The default concurrency values in the previous table only apply when you haven't set your own HTTP concurrency setting. When you haven't explicitly set an HTTP concurrency setting, the default concurrency increases as shown in the table when you change the instance size. After you specifically set an HTTP concurrency value, that value is maintained despite changes in the instance size.
 

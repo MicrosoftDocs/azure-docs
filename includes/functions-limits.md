@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/23/2024	
+ms.date: 05/10/2024	
 ms.author: glenga
 ---
 | Resource |[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)<sup>12</sup>|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/intro.md)| 

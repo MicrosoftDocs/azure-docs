@@ -70,7 +70,7 @@ When you create an app in the Azure portal, currently unsupported regions are fi
 
 ## Create a Flex Consumption app
 
-This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure Portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
+This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
 ::: zone-end  
@@ -145,7 +145,7 @@ To support your function code, you need to create three resources:
 
     This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
 
-    Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app will only incur costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
+    Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
     ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -234,7 +234,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
     mvn azure-functions:deploy
     ```
     
-    Maven uses settings in the pom.xml template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. When these resources already exist, the code is simply redeployed to your app, overwriting any existing code.
+    Maven uses settings in the pom.xml template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. Should these resources already exist, the code is deployed to your function app, overwriting any existing code.
 ::: zone-end  
 
 ## Configure the deployment storage account
@@ -318,24 +318,6 @@ To remove always ready instances, use the [`az functionapp scale config always-r
 
 ```azurecli
 az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP> --name <APP_NAME> --setting-names http hello_world
-```
-
-## Set maximum instance counts
-
-The default maximum instance count limit for Flex Consumption apps is 100 instances. Currently the lowest maximum instance count value is `40`, and the highest supported maximum instance count value is `1000`.
-
-When creating an app in the Flex Consumption plan, you can use the `--maximum-instance-count` parameter to set the maximum instance count for of your app. If you want to just use the default (100), leave this optional parameter out of your [`az functionapp create`] command. You can also change always ready instances on an existing app. 
-
-This example creates an app with a maximum instance count of `200`:
-
-```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> -s <storageAccountName> --runtime <runtime> --runtime-version <runtime-version> --flexconsumption-location "<azureRegion>" --maximum-instance-count 200
-```
-
-This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the maximum instance count for an existing app to `150`:
-
-```azurecli
-az functionapp scale config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --maximum-instance-count 150
 ```
 
 ## Set HTTP concurrency limits
