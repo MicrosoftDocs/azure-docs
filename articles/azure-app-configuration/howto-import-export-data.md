@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 05/13/2024
 ms.author: malev
 ---
 
