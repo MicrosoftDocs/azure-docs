@@ -426,8 +426,22 @@ Get the path to the secret you created in the key vault.
     :::image type="content" source="media/how-to-configure-catalog/add-github-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-github-catalog-pane.png":::
 
 1. In **Catalogs**, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
-
 ---
+
+### View synced catalog items
+
+Regardless of the type of repository you use, you can view the catalog items that are synced from the catalog.
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+
+1. In the **Catalogs** pane, select the catalog name.
+
+    :::image type="content" source="media/how-to-configure-catalog/check-catalog-items-sync.png" alt-text="Screenshot showing the Catalog pane, with the attached catalog name highlighted." lightbox="media/how-to-configure-catalog/check-catalog-items-sync.png":::
+
+1. You see a list of successfully synced catalog items.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-first-sync.png" alt-text="Screenshot showing successfully synced catalog items from attached catalog." lightbox="media/how-to-configure-catalog/catalog-items-first-sync.png":::
+
 
 ## Update a catalog
 
@@ -486,7 +500,6 @@ In the Azure portal, you can get more information about the catalog sync status 
 1. You can view items that have synced successfully from a catalog that also reports sync errors. From the **Catalogs** pane, select the catalog name.
 
     :::image type="content" source="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png" alt-text="Screenshot showing the Catalog pane, with a catalog name highlighted." lightbox="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png":::
-
 
 1. You see a list of successfully synced catalog items.
 
