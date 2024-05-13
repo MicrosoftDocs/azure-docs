@@ -24,6 +24,8 @@
       href: quickstart-openshift-arm-bicep-template.md
 - name: How-to guides
   items:
+    - name: Frequently asked questions
+      href: openshift-faq.yml
     - name: Cluster operations
       items:
         - name: Upgrade an Azure Red Hat OpenShift cluster
@@ -137,8 +139,6 @@
       href: ./index.yml
 - name: Resources
   items:
-    - name: Frequently asked questions
-      href: openshift-faq.yml
     - name: Azure Red Hat OpenShift service definition
       href: openshift-service-definitions.md
     - name: Troubleshooting
