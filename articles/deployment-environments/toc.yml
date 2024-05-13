@@ -11,7 +11,7 @@ items:
   displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure a dev center
+    - name: Configure Azure Deployment Environments
       href: quickstart-create-and-configure-devcenter.md
     - name: Create dev center and project (Azure Resource Manager)
       href: quickstart-create-dev-center-project-azure-resource-manager.md
