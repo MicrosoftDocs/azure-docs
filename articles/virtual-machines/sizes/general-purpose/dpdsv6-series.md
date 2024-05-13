@@ -149,18 +149,4 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 ---
 
-## Other sizes and information
-
-- [General purpose](../../sizes-general.md)
-- [Memory optimized](../../sizes-memory.md)
-- [Storage optimized](../../sizes-storage.md)
-- [GPU optimized](../../sizes-gpu.md)
-- [High performance compute](../../sizes-hpc.md)
-- [Previous generations](../../sizes-previous-gen.md)
-
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
-## Next Steps
-- Learn more about how [Azure compute units (ACU)](../../../virtual-machines/acu.md) can help you compare compute performance across Azure SKUs.
-- Check out [Azure Dedicated Hosts](../../../virtual-machines/dedicated-hosts.md) for physical servers able to host one or more virtual machines assigned to one Azure subscription.
-- Learn how to [Monitor Azure virtual machines](../../../virtual-machines/monitor-vm.md)
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

@@ -119,14 +119,14 @@ Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_D2pds_v6 | 2 | 12500 |
-| Standard_D4pds_v6 | 2 | 12500 |
-| Standard_D8pds_v6 | 4 | 15000 |
-| Standard_D16pds_v6 | 8 | 15000 |
-| Standard_D32pds_v6 | 8 | 20000 |
-| Standard_D48pds_v6 | 8 | 30000 |
-| Standard_D64pds_v6 | 8 | 40000 |
-| Standard_D96pds_v6 | 8 | 60000 |
+| Standard_D2plds_v6 | 2 | 12500 |
+| Standard_D4plds_v6 | 2 | 12500 |
+| Standard_D8plds_v6 | 4 | 15000 |
+| Standard_D16plds_v6 | 8 | 15000 |
+| Standard_D32plds_v6 | 8 | 20000 |
+| Standard_D48plds_v6 | 8 | 30000 |
+| Standard_D64plds_v6 | 8 | 40000 |
+| Standard_D96plds_v6 | 8 | 60000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)
@@ -149,18 +149,4 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 ---
 
-## Other sizes and information
-
-- [General purpose](../../sizes-general.md)
-- [Memory optimized](../../sizes-memory.md)
-- [Storage optimized](../../sizes-storage.md)
-- [GPU optimized](../../sizes-gpu.md)
-- [High performance compute](../../sizes-hpc.md)
-- [Previous generations](../../sizes-previous-gen.md)
-
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
-## Next Steps
-- Learn more about how [Azure compute units (ACU)](../../../virtual-machines/acu.md) can help you compare compute performance across Azure SKUs.
-- Check out [Azure Dedicated Hosts](../../../virtual-machines/dedicated-hosts.md) for physical servers able to host one or more virtual machines assigned to one Azure subscription.
-- Learn how to [Monitor Azure virtual machines](../../../virtual-machines/monitor-vm.md)
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
