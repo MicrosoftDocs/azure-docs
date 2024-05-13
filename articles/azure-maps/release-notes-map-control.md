@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.2.1] (May 2, 2024)
+### [3.2.1] (May 13, 2024)
 
 #### New features (3.2.1)
 - Constrain horizontal panning when `renderWorldCopies` is set to `false`.
