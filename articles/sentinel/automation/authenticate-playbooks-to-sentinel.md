@@ -94,7 +94,7 @@ Authenticating as a managed identity allows you to give permissions directly to 
 
     1. Enter a name for this connection, select **System-assigned managed identity**, and then select **Create**.
 
-        ![Screenshot of the Connect with managed identity link](../media/authenticate-playbooks-to-sentinel/auth-methods-msi.png)
+        ![Screenshot of the Connect with managed identity link.](../media/authenticate-playbooks-to-sentinel/auth-methods-msi.png)
 
     1. Select **Create** to finish creating your connection.
 
