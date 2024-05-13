@@ -24,8 +24,8 @@ This article provides a summary of the latest releases and major documentation u
 
 A refresh of the Assistants API is now publicly available. It contains the following updates:
 
-* [retrieval tool and vector storage](./how-to/file-retrieval.md)
-* [max completion and max prompt token support](./concepts/assistants.md#context-window-management) for managing token usage.
+* [File search tool and vector storage](./how-to/file-search.md)
+* [Max completion and max prompt token support](./concepts/assistants.md#context-window-management) for managing token usage.
 * `tool_choice` [parameter](./assistants-reference-runs.md#run-object) for forcing the Assistant to use use a specified tool. 
 * New [assistant role](.//assistants-reference-messages.md#create-message) for creating custom conversation histories. 
 * Support for `temperature`, `top_p`, `response_format` [parameters](./assistants-reference.md#create-an-assistant).
