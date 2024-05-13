@@ -31,7 +31,7 @@ Find the changes in Azure Automation limits and quotas [here](../azure-resource-
 
 ### New version of Start/Stop VMs
 
-The new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation. [Learn more](../azure-functions/start-stop-vms/overview.md).
+Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now and we recommend that you start using version 2, which is now generally available. The new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation. [Learn more](../azure-functions/start-stop-vms/overview.md).
 
 ## January 2024
 
