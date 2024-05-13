@@ -21,7 +21,7 @@ ms.custom:
 Creates a completion for the provided prompt and parameters.
 
 ```http
-POST /completions?api-version=2024-05-01-preview
+POST /completions?api-version=2024-04-01-preview
 ```
 
 | Name | In  | Required | Type | Description |
@@ -86,7 +86,7 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-POST /completions?api-version=2024-05-01-preview
+POST /completions?api-version=2024-04-01-preview
 
 {
   "prompt": "This is a very good text",

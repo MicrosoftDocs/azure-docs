@@ -21,7 +21,7 @@ ms.custom:
 Creates a model response for the given chat conversation.
 
 ```http
-POST /chat/completions?api-version=2024-05-01-preview
+POST /chat/completions?api-version=2024-04-01-preview
 ```
 
 ## URI Parameters
@@ -85,7 +85,7 @@ Token URL: https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 
 ```http
-POST /chat/completions?api-version=2024-05-01-preview
+POST /chat/completions?api-version=2024-04-01-preview
 
 {
   "messages": [

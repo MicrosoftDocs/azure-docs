@@ -21,7 +21,7 @@ ms.custom:
 Returns the information about the model deployed under the endpoint.
 
 ```http
-GET /info?api-version=2024-05-01-preview
+GET /info?api-version=2024-04-01-preview
 ```
 
 ## URI Parameters
@@ -75,7 +75,7 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-GET /info?api-version=2024-05-01-preview
+GET /info?api-version=2024-04-01-preview
 ```
 
 #### Sample Response
