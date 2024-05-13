@@ -53,9 +53,9 @@ Azure AI Studio provides a capability for you to quickly try out text moderation
 
 # [Moderate image content](#tab/moderate-image-content)
 
-Azure AI Studio provides a capability for you to quickly try out image moderation. The *moderate image content* feature takes into account various factors such as the type of content, the platform's policies, and the potential effect on users. Run moderation tests on sample content. Configure the filters to further fine tune-the test results. 
+Azure AI Studio provides a capability for you to quickly try out image moderation. The *moderate image content* feature takes into account various factors such as the type of content, the platform's policies, and the potential effect on users. Run moderation tests on sample content. Configure the filters to further fine-tune the test results. 
 
-1. Select the **Moderate iamge content** panel on the **Content Safety** page in Azure AI Studio.
+1. Select the **Moderate image content** panel on the **Content Safety** page in Azure AI Studio.
 1. Select your AI Services resource or Content Safety resource name from the dropdown menu.
 1. You can either use a sample image or upload your own. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats. You have the option to blur the images you use.
     :::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-image.png":::

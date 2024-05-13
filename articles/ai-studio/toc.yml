@@ -181,7 +181,7 @@ items:
         displayName: vision, gpt, turbo
     - name: Azure AI Content Safety
       items:
-      - name: Prevent input attacts with Prompt Shields
+      - name: Prevent input attacks with Prompt Shields
         href: how-to/prompt-shields.md
       - name: Detect groundedness in chat responses
         href: how-to/groundedness.md

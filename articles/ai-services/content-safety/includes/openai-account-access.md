@@ -16,7 +16,7 @@ ms.author: pafarley
 
     :::image type="content" source="/azure/ai-services/content-safety/media/content-safety-identity.png" alt-text="Screenshot of a Content Safety identity resource in the Azure portal." lightbox="/azure/ai-services/content-safety/media/content-safety-identity.png":::
 
-1. Assign Role to Managed Identity.
+1. Assign role to Managed Identity.
 
     Navigate to your Azure OpenAI instance, select **Add role assignment** to start the process of assigning an Azure OpenAI role to the Azure AI Content Safety identity. 
 

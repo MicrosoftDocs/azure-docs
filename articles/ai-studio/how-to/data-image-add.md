@@ -54,7 +54,7 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 
 If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source. If you don't already have a search index but you'd like to create one on your own, follow the [AI Search vector search repository on GitHub](https://github.com/Azure/cognitive-search-vector-pr), which provides scripts to create an index with your image files.
 
-1. In the playground's **Select or add data source** window, choose **Azure AI Search** and enter your index's details. Select the boxes to acknowledge that deployments and connections incur usage on your account
+1. In the playground's **Select or add data source** window, choose **Azure AI Search** and enter your index's details. Select the boxes to acknowledge that deployments and connections incur usage on your account.
 1. Optionally enable the **Use custom field mapping** option. This lets you control the mapping between the custom fields in your search index and the standard fields that Azure OpenAI chat models use during retrieval augmented generation. 
 1. Select **Next** and review your settings on the next page. Then select **Save and close**.
 1. In the chat playground, you can see that your data has been added.
