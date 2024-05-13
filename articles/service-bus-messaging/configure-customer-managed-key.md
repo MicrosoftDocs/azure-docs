@@ -37,12 +37,12 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 # [Key Vault](#tab/Key-Vault)
 
-1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
@@ -50,12 +50,12 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
     ```azurecli-interactive
     az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
 
     ```azurecli-interactive
     az keyvault update --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
@@ -63,7 +63,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 ---
 
-1. Create keys by following these steps:
+4. Create keys by following these steps:
     1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
         
         ![Select Generate/Import button](./media/configure-customer-managed-key/select-generate-import.png)
@@ -287,49 +287,49 @@ In this step, you update the Service Bus namespace with key vault information.
 
 # [Key Vault](#tab/Key-Vault) 
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.vault.azure.net"
-          }
-       }
-    }
-    ```
+```json
+{
+   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{
+      "namespaceName":{
+         "value":"<ServiceBusNamespaceName>"
+      },
+      "location":{
+         "value":"<Location>"
+      },
+      "keyName":{
+         "value":"<KeyName>"
+      },
+      "keyVaultUri":{
+         "value":"https://<KeyVaultName>.vault.azure.net"
+      }
+   }
+}
+```
 
 # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.managedhsm.azure.net"
-          }
-       }
-    }
-    ```
+```json
+{
+   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{
+      "namespaceName":{
+         "value":"<ServiceBusNamespaceName>"
+      },
+      "location":{
+         "value":"<Location>"
+      },
+      "keyName":{
+         "value":"<KeyName>"
+      },
+      "keyVaultUri":{
+         "value":"https://<KeyVaultName>.managedhsm.azure.net"
+      }
+   }
+}
+```
 
 ---
 
@@ -478,73 +478,73 @@ This section gives you an example that shows you how to do the following tasks u
 
 # [Key Vault](#tab/Key-Vault) 
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.vault.azure.net"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "identity": {
-            "value": {
-                "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
-            }
-         }
-       }
-    }
-    ```
+```json
+{
+   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{
+      "namespaceName":{
+         "value":"<ServiceBusNamespaceName>"
+      },
+      "location":{
+         "value":"<Location>"
+      },
+      "keyVaultUri":{
+         "value":"https://<KeyVaultName>.vault.azure.net"
+      },
+      "keyName":{
+         "value":"<KeyName>"
+      },
+      "identity": {
+      "value": {
+            "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
+      }
+   }
+   }
+}
+```
 
 # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.managedhsm.azure.net"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "identity": {
-            "value": {
-                "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
-            }
-         }
-       }
-    }
-    ```
+```json
+{
+   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{
+      "namespaceName":{
+         "value":"<ServiceBusNamespaceName>"
+      },
+      "location":{
+         "value":"<Location>"
+      },
+      "keyVaultUri":{
+         "value":"https://<KeyVaultName>.managedhsm.azure.net"
+      },
+      "keyName":{
+         "value":"<KeyName>"
+      },
+      "identity": {
+      "value": {
+            "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
+      }
+   }
+   }
+}
+```
 
 ---
 
-    In the parameter file, replace placeholders with appropriate values.
-    
-    | Placeholder | value | 
-    | ----------- | ----- | 
-    | `<ServiceBusNamespaceName>` | Name of the Service Bus namespace. | 
-    | `<Location>` | Location where you want the namespace to be created. | 
-    | `<KeyVaultName>` | Name of the key vault. | 
-    | `<KeyName>` | Name of the key in the key vault. | 
-    | `<AZURE SUBSCRIPTION ID>` | Your Azure subscription ID. |
-    | `<RESOURCE GROUP NAME>` | Resource group of the user-managed identity. | 
-    | `<USER MANAGED IDENTITY NAME>` | Name of the user-managed identity. | 
+   In the parameter file, replace placeholders with appropriate values.
+   
+   | Placeholder | value | 
+   | ----------- | ----- | 
+   | `<ServiceBusNamespaceName>` | Name of the Service Bus namespace. | 
+   | `<Location>` | Location where you want the namespace to be created. | 
+   | `<KeyVaultName>` | Name of the key vault. | 
+   | `<KeyName>` | Name of the key in the key vault. | 
+   | `<AZURE SUBSCRIPTION ID>` | Your Azure subscription ID. |
+   | `<RESOURCE GROUP NAME>` | Resource group of the user-managed identity. | 
+   | `<USER MANAGED IDENTITY NAME>` | Name of the user-managed identity. | 
 
 3. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command.
 
