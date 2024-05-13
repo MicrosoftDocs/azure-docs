@@ -8,10 +8,9 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
-  - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 05/21/2024
 ---
 
 # Create an Azure AI Search service in the portal
@@ -34,11 +33,11 @@ The following service properties are fixed for the lifetime of the service. Cons
 
 ## Subscribe (free or paid)
 
-To try search for free, [open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and then create your search service by choosing the **Free** tier. You can have one free search service per Azure subscription. Free search services are intended for short-term evaluation of the product for non-production applications. If you want to move forward with a production application, create a new search service on a billable tier.
+To try search for free, [open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and then create your search service by choosing the **Free** tier. You can have one free search service per Azure subscription. Free search services are intended for short-term evaluation of the product for nonproduction applications. If you want to move forward with a production application, create a new search service on a billable tier.
 
-Alternatively, you can use free credits to try out paid Azure services. With this approach, you can create your search service at **Basic** or above to get more capacity. Your credit card is never charged unless you explicitly change your settings and ask to be charged. Another approach is to [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
+Alternatively, you can use free credits to try out paid Azure services. With this approach, you can create your search service at **Basic** or higher to get more capacity. Your credit card is never charged unless you explicitly change your settings and ask to be charged. Another approach is to [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
 
-Paid (or billable) search occurs when you choose a billable tier (Basic or above) when creating the resource on a billable Azure subscription.
+Paid (or billable) search occurs when you choose a billable tier (Basic or higher) when creating the resource on a billable Azure subscription.
 
 ## Find the Azure AI Search offering
 
@@ -46,7 +45,7 @@ Paid (or billable) search occurs when you choose a billable tier (Basic or above
 
 1. Select (**Create Resource"**) in the top-left corner.
 
-1. Use the search bar to find "Azure AI Search".
+1. Use the search bar to find "Azure AI Search*.
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" lightbox="media/search-create-service-portal/find-search3.png" alt-text="Screenshot of the Create Resource page in the portal." border="true":::
 
@@ -74,9 +73,9 @@ In Instance Details, provide a service name in the **URL** field. The name is pa
 Service name requirements:
 
 + Unique within the search.windows.net namespace
-+ Between 2 and 60 characters in length
++ Between 2-60 characters in length
 + Consist of lowercase letters, digits, or dashes (`-`)
-+ Don't use dashes in the first 2 characters or as the last single character
++ Don't use dashes in the first two characters or as the last single character
 + Don't use consecutive dashes anywhere
 
 > [!TIP]
@@ -89,7 +88,18 @@ Service name requirements:
 
 Azure AI Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 
-We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after April 3, 2024:
+We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after specific dates.
+
+### Roll out on May 2024
+
+| Country | Regions providing extra capacity per partition |
+|---------|------------------------------------------------|
+| **United States** | East US 2 EUAP/PPE |
+| **South Africa** | South Africa North​ |
+| **Germany** | Germany North​, Germany West Central​ ​|
+| **Azure Government** | Texas, Arizona, Virginia |
+
+### Roll out on April 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
@@ -98,6 +108,7 @@ We strongly recommend the following regions because they provide [more storage p
 | **United Arab Emirates** | UAE North​​ |
 | **Switzerland** | Switzerland West​ |
 | **Sweden** | Sweden Central​​ |
+| **South Africa** | South Africa North​ |
 | **Poland** | Poland Central​​ |
 | **Norway** | Norway East​​ |
 | **Korea** | Korea Central, Korea South​ ​ |
@@ -108,7 +119,7 @@ We strongly recommend the following regions because they provide [more storage p
 | **Europe** | North Europe​​ |
 | **Canada** | Canada Central​, Canada East​​ |
 | **Bazil** | Brazil South​​ |
-| **Asia Pacific** | East Asia, Southeast Asia​ ​ |
+| **Asia Pacific** |  East Asia, Southeast Asia​ ​ |
 | **Australia** | Australia East​, Australia Southeast​​ |
 
 If you use multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among same-region services.
@@ -203,7 +214,7 @@ Although most customers use just one service, service redundancy might be necess
 > [!NOTE]
 > In Azure AI Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
-A second service isn't required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+A second service isn't required for high availability. High availability for queries is achieved when you use two or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Add more services to a subscription
 
@@ -229,7 +240,7 @@ Azure AI Search restricts the [number of resources](search-limits-quotas-capacit
 
 1. In **Problem details**, select **Enter details**.
 
-1. In **Quota details**, specify the location, tier, and new quota. None of the values can be empty. Quota must be between 0 to 100, and it should be higher than the current quota.  For example, the maximum number of Basic services is 16, so your quota request should be higher than 16.
+1. In **Quota details**, specify the location, tier, and new quota. None of the values can be empty. Quota must be between 0 to 100, and it should be higher than the current quota. For example, the maximum number of Basic services is 16, so your quota request should be higher than 16.
 
    :::image type="content" source="media/search-create-service-portal/support-ticket-quota-details.png" alt-text="Screenshot of the quota details page.":::
 
