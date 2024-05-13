@@ -456,7 +456,7 @@ sections:
 
           - Advanced
 
-            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource. The Contributor role doesn't allow you to list keys for Cognitive Services. To use Document Intelligence Studio, you still need the Cognitive Services User role.
+            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource.
 
           For custom model projects, here are the role requirements for user scenarios:
 
@@ -470,9 +470,9 @@ sections:
 
             - **Storage Account Contributor**: You need this role for the storage account to set up cross-origin resource sharing (CORS) settings. It's a one-time effort if you reuse the same storage account.
 
-              The Contributor role doesn't allow you to access data in your blob. To use Document Intelligence Studio, you still need the Storage Blob Data Contributor role.
+            - **Contributor**: You need this role to create a resource group and resources.
 
-            - **Contributor**: You need this role to create a resource group and resources. The Contributor role doesn't give you access to use the created resources or storage. To use Document Intelligence Studio, you still need basic roles.
+          Please note that having Contributor or Storage Account Contributor roles does not give you access to use your Document Intelligence resource or storage account if local (key-based) authentication is disabled.  You still need the basic roles (Cognitive Services User and Storage Data Blob Contributor) to use the functions on Document Intelligence Studio.
 
           For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
 
